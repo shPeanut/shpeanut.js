@@ -4,7 +4,8 @@
 # ============================================================
 
 yearly_playable_pulse = {
-        on_actions.nazgul_fell_beast_death_check = yes
+        # Прямой вызов скриптового on_action (синтаксис CK3: просто имя блока)
+        nazgul_fell_beast_death_check = yes
 }
 
 # Скриптовый on_action
