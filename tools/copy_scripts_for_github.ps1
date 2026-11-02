@@ -8,7 +8,7 @@ $ErrorActionPreference = 'Stop'
 # Папки Workshop-модов (ID можно поправить, если у вас другие)
 $mods = [ordered]@{
     agot     = "C:\Program Files (x86)\Steam\steamapps\workshop\content\1158310\2962333032"   # A Game of Thrones
-    lotr_rie = "C:\Program Files (x86)\Steam\steamapps\workshop\content\1158310\2556264797"   # LotR: Realms in Exile (проверьте ID!)
+    lotr_rie = "C:\Program Files (x86)\Steam\steamapps\workshop\content\1158310\2291024373"   # LotR: Realms in Exile (проверьте ID!)
 }
 
 # Только текстовые расширения (без gfx/models/звука — они не нужны для реверса)
