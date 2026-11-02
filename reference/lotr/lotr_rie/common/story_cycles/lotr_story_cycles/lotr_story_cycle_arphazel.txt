@@ -1,0 +1,25 @@
+﻿story_cycle_arphazel = {
+    on_setup = {
+    }
+    on_end = {
+
+    }
+    on_owner_death = {
+        end_story = yes
+    }
+    visible = yes
+    icon = {
+        reference = "gfx/interface/illustrations/situation_backgrounds/story_cycle_arphazel.dds"
+    }
+    background = {
+        reference = "gfx/interface/illustrations/event_scenes/lotr_docks_adunai.dds"
+    }
+    visualization = {
+        # character_list = {
+            # variable_name = warriors_three
+            # #label = warriors_three_desc
+        # }
+
+        decisions = { decision_continue_adventure_arphazel }
+    }
+}

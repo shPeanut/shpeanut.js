@@ -1,0 +1,29 @@
+﻿youthful_vigor_1_modifier = {
+	icon = health_positive
+	health = 1
+}
+youthful_vigor_1_5_modifier = {
+	icon = health_positive
+	health = 1.5
+}
+youthful_vigor_2_modifier = {
+	icon = health_positive
+	health = 2
+}
+mothered_many_children_lotr_modifier = {
+	icon = social_positive
+	general_opinion = 5
+	fertility = -0.5
+}
+uncanny_health_lotr_modifier = {
+	icon = health_positive
+	health = 3
+	negate_health_penalty_add = 3
+}
+
+elendil_lifespan_modifier = {
+	icon = health_positive
+	negate_health_penalty_add = 0.90
+	health = 2
+	life_expectancy = 40 # 320 - 80 - 200 = 40 (Elendil lived to 322)
+}

@@ -1,0 +1,2709 @@
+﻿#############################
+##### 	LotR Tenets 	#####
+#############################
+
+tenet_primacy_of_sulladad = {
+	icon = tenet_primacy_of_eru_ralph
+	is_shown = {
+		# religion = { is_in_family = rf_eruhini } #Peacock Note: Only to be available to dwarves.
+		religion = religion:dwarven_religion
+	}
+
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_primacy_of_aule_trigger
+			NOT = { doctrine:tenet_primacy_of_aule = { is_in_list = selected_doctrines } }
+		}
+		custom_description = {
+			text = incompatible_tenet_dwarffathers_trigger
+			NOT = { doctrine:tenet_dwarffathers = { is_in_list = selected_doctrines } }
+		}
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_primacy_of_sulladad }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+		increased_dynasty_prestige_long_reign_mult = 0.5
+	}
+
+	character_modifier = { # Peacock Note: Overpowered, extras have been commented out so that the tenet is in line with those of the Ainur (Eru is not giving these to you himself, after all)
+		diplomacy = 1
+		stewardship = 1
+		learning = 1
+		build_gold_cost = -0.05
+		build_speed = -0.1
+		religious_vassal_opinion = 5
+	}
+
+	traits = {
+		virtues = { forgiving generous }
+		sins = { vengeful greedy }
+	}
+}
+
+### AINUR PATRONS ###
+
+tenet_primacy_of_manwe = {
+	icon = tenet_primacy_of_manwe_ralph
+	is_shown = {
+		religion = { is_in_family = rf_eruhini }
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_primacy_of_manwe }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+	}
+
+	character_modifier = {
+		stewardship = 3
+	}
+
+	traits = {
+		virtues = { just august }
+		sins = { arbitrary }
+	}
+}
+
+tenet_primacy_of_varda = {
+	icon = tenet_primacy_of_varda_ralph
+	is_shown = {
+		religion = { is_in_family = rf_eruhini }
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_primacy_of_varda }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+		divine_the_stars_active = yes
+	}
+
+	character_modifier = {
+		diplomacy = 1
+		stewardship = 1
+		learning = 1
+	}
+
+	traits = {
+		virtues = { zealous }
+	}
+}
+
+tenet_primacy_of_ulmo = {
+	icon = tenet_primacy_of_ulmo_ralph
+	is_shown = {
+		religion = { is_in_family = rf_eruhini }
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_primacy_of_ulmo }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+		sailing_traits_more_common_faith = yes
+	}
+
+	character_modifier = {
+		diplomacy = 1
+		learning = 1
+		prowess = 1
+	}
+
+	traits = {
+		virtues = { fickle lifestyle_mariner }
+	}
+}
+
+tenet_primacy_of_yavanna = {
+	icon = tenet_primacy_of_yavanna_ralph
+	is_shown = {
+		religion = { is_in_family = rf_eruhini }
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_primacy_of_yavanna }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+	}
+
+	character_modifier = {
+		diplomacy = 1
+		stewardship = 2
+	}
+
+	traits = {
+		virtues = { temperate lifestyle_gardener }
+		sins = { gluttonous }
+	}
+}
+
+tenet_primacy_of_aule = {
+	icon = tenet_primacy_of_aule_ralph
+	is_shown = {
+		religion = { is_in_family = rf_eruhini }
+			NOT = { religion = religion:dwarven_religion }
+	}
+
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_dwarffathers_trigger
+			NOT = { doctrine:tenet_dwarffathers = { is_in_list = selected_doctrines } }
+		}
+		custom_description = {
+			text = incompatible_tenet_primacy_of_sulladad_trigger
+			NOT = { doctrine:tenet_primacy_of_sulladad = { is_in_list = selected_doctrines } }
+		}
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_primacy_of_aule }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+		sacred_mining = yes
+		mining_traits_more_pious = yes
+		smith_traits_more_pious = yes
+	}
+
+	character_modifier = {
+		stewardship = 1
+		learning = 2
+	}
+
+	traits = {
+		virtues = { diligent lifestyle_miner lifestyle_artifact_crafting }
+		sins = { lazy }
+	}
+}
+
+tenet_dwarffathers = { # Dwarves only
+	icon = tenet_primacy_of_aule_ralph
+	is_shown = {
+		religion = { is_in_family = rf_eruhini }
+		religion = religion:dwarven_religion
+	}
+
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_primacy_of_aule_trigger
+			NOT = { doctrine:tenet_primacy_of_aule = { is_in_list = selected_doctrines } }
+		}
+		custom_description = {
+			text = incompatible_tenet_primacy_of_sulladad_trigger
+			NOT = { doctrine:tenet_primacy_of_sulladad = { is_in_list = selected_doctrines } }
+		}
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_dwarffathers }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+		sacred_mining = yes
+		mining_traits_more_pious = yes
+		smith_traits_more_pious = yes
+		increased_dynasty_prestige_birth_mult = 1
+		increased_dynasty_prestige_marriage_mult = 1
+		increased_dynasty_prestige_long_reign_mult = 0.5
+	}
+
+	character_modifier = {
+		stewardship = 1
+		learning = 2
+		close_relative_opinion = 5
+	}
+
+	traits = {
+		virtues = { diligent lifestyle_miner lifestyle_artifact_crafting }
+		sins = { lazy }
+	}
+}
+
+tenet_primacy_of_the_feanturi = {
+	icon = tenet_primacy_of_mandos_ralph # TEMP
+	is_shown = {
+		religion = { is_in_family = rf_eruhini }
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_primacy_of_the_feanturi }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+	}
+
+	character_modifier = {
+		diplomacy = 1
+		stewardship = 1
+		learning = 1
+	}
+
+	traits = {
+		virtues = { compassionate calm content }
+		sins = { sadistic }
+	}
+}
+
+tenet_primacy_of_nienna = {
+	icon = tenet_primacy_of_nienna_ralph
+	is_shown = {
+		religion = { is_in_family = rf_eruhini }
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_primacy_of_nienna }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+	}
+
+	character_modifier = {
+		diplomacy = 1
+		intrigue = 1
+		learning = 1
+	}
+
+	traits = {
+		virtues = { forgiving compassionate }
+		sins = { callous sadistic }
+	}
+}
+
+tenet_primacy_of_irmo = {
+	icon = tenet_primacy_of_irmo
+	is_shown = {
+		religion = { is_in_family = rf_eruhini }
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_primacy_of_irmo }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+	}
+
+	character_modifier = {
+		stewardship = 1
+		intrigue = 1
+		learning = 1
+	}
+
+	traits = {
+		virtues = { calm }
+	}
+}
+
+tenet_primacy_of_mandos = {
+	icon = tenet_primacy_of_mandos_ralph
+	is_shown = {
+		religion = { is_in_family = rf_eruhini }
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_primacy_of_mandos }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+	}
+
+	character_modifier = {
+		stewardship = 1
+		intrigue = 1
+		learning = 1
+	}
+
+	traits = {
+		virtues = { content just }
+	}
+}
+
+tenet_primacy_of_este = {
+	icon = tenet_primacy_of_este
+	is_shown = {
+		religion = { is_in_family = rf_eruhini }
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_primacy_of_este }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+	}
+
+	character_modifier = {
+		learning = 3
+	}
+
+	traits = {
+		virtues = { compassionate lifestyle_physician lifestyle_herbalist }
+		sins = { sadistic }
+	}
+}
+
+tenet_primacy_of_vaire = {
+	icon = tenet_primacy_of_vaire_ralph
+	is_shown = {
+		religion = { is_in_family = rf_eruhini }
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_primacy_of_vaire }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+	}
+
+	character_modifier = {
+		intrigue = 1
+		learning = 2
+	}
+
+	traits = {
+		virtues = { patient }
+	}
+}
+
+tenet_primacy_of_orome = {
+	icon = tenet_primacy_of_orome_ralph
+	is_shown = {
+		OR = {
+			religion = { is_in_family = rf_eruhini }
+			religion = religion:anduinic_religion
+		}
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_primacy_of_orome }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+	}
+
+	character_modifier = {
+		martial = 2
+		prowess = 1
+	}
+
+	traits = {
+		virtues = { brave lifestyle_hunter }
+		sins = { lazy }
+	}
+}
+
+tenet_primacy_of_tulkas = {
+	icon = tenet_primacy_of_tulkas_ralph
+	is_shown = {
+		religion = { is_in_family = rf_eruhini }
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_primacy_of_tulkas }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+	}
+
+	character_modifier = {
+		martial = 1
+		prowess = 2
+	}
+
+	traits = {
+		virtues = { honest impatient lifestyle_blademaster }
+		sins = { craven patient }
+	}
+}
+
+tenet_primacy_of_vana = {
+	icon = tenet_primacy_of_vana
+	is_shown = {
+		religion = { is_in_family = rf_eruhini }
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_primacy_of_vana }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+	}
+
+	character_modifier = {
+		diplomacy = 3
+	}
+
+	traits = {
+		virtues = { generous }
+	}
+}
+
+tenet_primacy_of_nessa = {
+	icon = tenet_primacy_of_nessa
+	is_shown = {
+		religion = { is_in_family = rf_eruhini }
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+		if = {
+			limit = { has_doctrine = tenet_primacy_of_nessa }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+	}
+
+	character_modifier = {
+		diplomacy = 2
+		stewardship = 1
+	}
+
+	traits = {
+		virtues = { gregarious lifestyle_reveler }
+		sins = { shy }
+	}
+}
+
+tenet_veneration_of_the_makarnea = {
+	icon = core_tenet_sun_worship # TEMP
+	is_shown = {
+		religion = religion:elven_religion
+	}
+
+	can_pick = {
+		#custom_description = { # THROWING ERRORS AND BREAKING THE TENET - Vector
+		#	text = incompatible_tenet_elven_meditation_trigger
+		#	NOT = { doctrine:tenet_elven_meditation = { is_in_list = selected_doctrines } }
+		#}
+	}
+
+	piety_cost = {
+		value = 1
+		if = { #Warlike Elven doctrines pair
+			limit = { doctrine:tenet_birthright_eldar = { is_in_list = selected_doctrines } }
+			value = faith_tenet_cost_low
+		}
+		else = {
+			value = faith_tenet_cost_massive
+		}
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_veneration_of_the_makarnea }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+		conquest_cb_enabled = yes
+		invasion_cb_enabled = yes
+	}
+
+	character_modifier = {
+		martial = 2
+		prowess = 1
+	}
+
+	traits = {
+		virtues = { brave }
+		sins = { craven content }
+	}
+}
+
+### SPECIAL TENETS ###
+
+tenet_workshops_of_the_maker = {
+	icon = tenet_dwarf_statue
+	name = {
+		desc = tenet_workshops_of_the_maker_name
+	}
+
+	is_shown = {
+		religion = { is_in_family = rf_eruhini }
+		religion = religion:dwarven_religion
+	}
+
+	piety_cost = {
+		if = {
+			limit = {
+				OR = {
+					religion = { is_in_family = rf_eruhini }
+				}
+			}
+			value = faith_tenet_cost_mid
+		}
+		else = {
+			value = faith_tenet_cost_high
+		}
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_workshops_of_the_maker }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	can_pick = {
+		custom_description = {
+			text = doctrine_pluralism_pluralistic_trigger
+			NOT = { doctrine:doctrine_pluralism_pluralistic = { is_in_list = selected_doctrines } }
+		}
+	}
+
+	parameters = {
+		fervor_per_holy_site = 1
+	}
+
+	character_modifier = {
+		monthly_crafting_lifestyle_xp_gain_mult = 0.05
+		name = "tenet_communal_identity_opinion"
+		same_faith_opinion = 5
+		learning = 1
+	}
+
+	traits = {
+		virtues = { zealous }
+	}
+}
+
+tenet_druedain_isolation = {
+	icon = core_tenet_sanctity_of_nature
+	is_shown = {
+		religion = religion:dru_diaspora_religion
+	}
+	can_pick = { always = yes }
+
+	piety_cost = {
+		value = faith_tenet_cost_massive
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_druedain_isolation }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	traits = {
+		virtues = { content }
+		sins = { ambitious }
+	}
+	
+	character_modifier = {
+		levy_size = 0.25
+		controlled_province_advantage = 5
+		forest_advantage = 35
+		forest_attrition_mult = -0.25
+		taiga_advantage = 35
+		taiga_attrition_mult = -0.25
+		jungle_advantage = 35
+		jungle_attrition_mult = -0.25
+		deep_forest_advantage = 35
+		deep_forest_attrition_mult = -0.25
+		build_gold_cost = 0.1
+		county_opinion_add = 5
+		ai_war_chance = -0.75
+	}
+}
+
+tenet_gift_of_men = { #Create abdication decision
+	icon = core_tenet_consolamentum
+	is_shown = {
+		religion = { 
+			is_in_family = rf_eruhini
+			this != religion:elven_religion 
+		}
+	}
+	can_pick = {
+		always = yes
+	}
+	
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_gift_of_men }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	character_modifier = {
+		short_reign_duration_mult = -1
+		learning = 2
+	}
+
+	parameters = {
+		piety_from_long_peace = 1
+	}
+
+	traits = {
+		virtues = { content }
+		sins = { cynical }
+	}
+	parameters = {
+		consolamentum_active = yes
+	}
+}
+
+tenet_memory_of_akallabeth = {
+	icon = tenet_memory_of_akallabeth
+	
+	piety_cost = {
+		value = faith_tenet_cost_low
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_memory_of_akallabeth }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	is_shown = {
+		OR = {
+			religion = religion:dunedain_religion
+			religion = religion:adunai_religion
+			religion = religion:bellakari_religion
+		}
+	}
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_adunaic_birthright_trigger
+			NOT = { doctrine:tenet_adunaic_birthright = { is_in_list = selected_doctrines } }
+		}
+		custom_description = {
+			text = incompatible_tenet_adunaic_mandate_trigger
+			NOT = { doctrine:tenet_adunaic_mandate = { is_in_list = selected_doctrines } }
+		}
+		custom_description = {
+			text = incompatible_with_influence_trigger
+			NOR = { 
+				doctrine:doctrine_dominion_of_the_dark = { is_in_list = selected_doctrines }
+				doctrine:doctrine_a_people_apart = { is_in_list = selected_doctrines }
+			}
+		}
+	}
+	
+	character_modifier = {
+		monthly_learning_lifestyle_xp_gain_mult = 0.2
+	}
+
+	traits = {
+		virtues = { humble }
+		sins = { arrogant }
+	}
+	
+	parameters = {
+		lotr_numenor_blood_bonuses = yes #Boni for blood of numenor traits. Replaces use of it as a virtue
+		
+		increased_dynasty_prestige_birth_mult = 1
+		increased_dynasty_prestige_marriage_mult = 1
+		increased_dynasty_prestige_long_reign_mult = 0.5
+		#Eventually add a 'visit the ancient sites of the Dúnedain' activity?
+	}
+}
+
+tenet_bellakari_syncretism = {
+	icon = core_tenet_bhakti
+	
+	piety_cost = {
+		value = faith_tenet_cost_mid
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_bellakari_syncretism }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	is_shown = {
+		NOT = { religion = { is_in_family = rf_forcesofevil } }
+		OR = {
+			religion = religion:bellakari_religion
+			religion = religion:far_harad_religion
+			religion = religion:harad_religion
+			religion = religion:adunai_religion
+			religion = religion:umbarean_religion
+			religion = religion:dru_diaspora_religion
+		}
+	}
+	can_pick = {
+		custom_description = {
+			text = incompatible_with_influence_trigger
+			NOT = {
+				doctrine:doctrine_dominion_of_the_dark = { is_in_list = selected_doctrines }
+			}
+		}
+	}
+	
+	traits = {
+		virtues = {
+			gregarious
+		}
+	}
+	
+	parameters = {
+		hostility_override_tenet_bellakari_syncretism = 1
+		lotr_unlock_firstfruits_activity = yes
+		unlock_decision_kathasaptha_manuscript = yes
+	}
+}
+
+tenet_cult_of_saints = { #merges pentarchy and patron gods tenets
+	icon = core_tenet_pentarchy
+
+	piety_cost = {
+		
+		value = faith_tenet_cost_mid
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_cult_of_saints }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	
+	is_shown = {
+		religion = religion:bellakari_religion
+	}
+	
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_armed_pilgrimages_vs_forbidden_pilgrimages
+			NOT = { doctrine:doctrine_pilgrimage_forbidden = { is_in_list = selected_doctrines } }
+		}
+	}
+	
+	parameters = {
+		fervor_per_holy_site = 0.1
+		pilgrimage_decision_active = yes
+		select_personal_god_active = yes
+	}
+
+}
+
+tenet_elven_meditation = {	#combination of pacifism and inner journey
+	icon = tenet_elven_meditation
+
+	is_shown = {
+		religion = religion:elven_religion
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_mid
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_elven_meditation }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_human_sacrifice_trigger
+			NOT = { doctrine:tenet_human_sacrifice = { is_in_list = selected_doctrines } }
+		}
+		custom_description = {
+			text = incompatible_tenet_armed_pilgrimages_trigger
+			NOT = { doctrine:tenet_armed_pilgrimages = { is_in_list = selected_doctrines } }
+		}
+		custom_description = {
+			text = incompatible_tenet_gruesome_festivals_trigger
+			NOT = {
+				doctrine:tenet_gruesome_festivals = { is_in_list = selected_doctrines }
+			}
+		}
+	}
+	
+	traits = {
+		virtues = { patient }
+		sins = { impatient }
+	}
+	
+	parameters = {
+		meditation_mechanics_active = yes
+		
+		pacifist_opinion_active = yes
+		opinion_of_pacifist_opinion_active = 10
+		piety_from_long_peace = 1
+	}
+}
+
+tenet_birthright_eldar = {	# NEED TO ADD CUSTOM DESCRIPTION ABOUT HOW IT ENABLES CONQUEST AND INVASION DESPITE GAMERULES
+	icon = tenet_elven_meditation
+
+	is_shown = { # Is only shown for Elves!
+		religion = religion:elven_religion
+	}
+
+	piety_cost = {
+		value = 1
+		if = { #Warlike Elven doctrines pair
+			limit = { doctrine:tenet_veneration_of_the_makarnea = { is_in_list = selected_doctrines } }
+			value = faith_tenet_cost_low
+		}
+		else = {
+			value = faith_tenet_cost_massive
+		}
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_birthright_eldar }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	can_pick = {
+		#custom_description = { # THROWING ERRORS AND BREAKING THE TENET - Vector
+		#	text = incompatible_tenet_elven_meditation_trigger
+		#	NOT = { doctrine:tenet_elven_meditation = { is_in_list = selected_doctrines } }
+		#}
+	}
+
+	traits = {
+		virtues = { twotreeslight zealous }
+		#sins = { }
+	}
+
+	parameters = {
+		conquest_cb_enabled = yes
+		invasion_cb_enabled = yes
+	}
+}
+
+tenet_great_song = {
+	icon = core_tenet_adorcism #TEMP, to be replaced by a great song based one
+
+	is_shown = { # Is only shown for Elves!
+		religion = religion:elven_religion
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_massive
+	}
+
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_human_sacrifice_trigger
+			NOT = { doctrine:tenet_human_sacrifice = { is_in_list = selected_doctrines } }
+		}
+		custom_description = {
+			text = incompatible_tenet_armed_pilgrimages_trigger
+			NOT = { doctrine:tenet_armed_pilgrimages = { is_in_list = selected_doctrines } }
+		}
+		custom_description = {
+			text = incompatible_tenet_gruesome_festivals_trigger
+			NOT = {
+				doctrine:tenet_gruesome_festivals = { is_in_list = selected_doctrines }
+			}
+		}
+	}
+
+	character_modifier = {
+		diplomacy = 1
+		learning = 1
+		stress_loss_mult = 0.10
+	}
+	parameters = {
+		pious_court_musicians = yes
+		characters_are_better_court_musicians = yes
+	}
+	traits = {
+		virtues = { lifestyle_poet }
+		sins = { irritable }
+	}
+}
+
+tenet_yuletide = { # Special Version of Ritual Hospitality that unlocks Yule Activity
+	icon = core_tenet_ritual_celebrations # tenet_yuletide # Poor quality image, temporary replacement until a better quality image can replace it
+	name = tenet_seasonal_festivities_name
+	#name = {
+	#	first_valid = {
+	#		triggered_desc = {
+	#			trigger = {
+	#				OR = {
+	#					religion = religion:northmen_religion
+	#					religion = religion:anduinic_religion
+	#					religion = religion:dwarven_religion
+	#					religion = religion:talataerim_religion
+	#				}
+	#			}
+	#			desc = tenet_jultyde_name
+	#		}
+	#		triggered_desc = {
+	#			trigger = {
+	#				OR = {
+	#					religion = religion:hobbit_religion
+	#					religion = religion:ainur_religion
+	#					religion = religion:gwathuirim_religion
+	#				}
+	#			}
+	#			desc = tenet_yuletide_name
+	#		}
+	#		desc = tenet_midwinter_name
+	#	}
+	#}
+
+	desc = tenet_seasonal_festivities_desc
+	#desc = {
+	#	first_valid = {
+	#		triggered_desc = {
+	#			trigger = {
+	#				OR = {
+	#					religion = religion:northmen_religion
+	#					religion = religion:anduinic_religion
+	#					religion = religion:dwarven_religion
+	#					religion = religion:talataerim_religion
+	#				}
+	#			}
+	#			desc = tenet_jultyde_desc
+	#		}
+	#		triggered_desc = {
+	#			trigger = {
+	#				OR = {
+	#					religion = religion:dunedain_religion
+	#					religion = religion:elven_religion
+	#					religion = religion:dru_diaspora_religion
+	#					religion = religion:forodwaith_religion
+	#					religion = religion:rhudaur_religion
+	#				}
+	#			}
+	#			desc = tenet_yuletide_desc
+	#		}
+	#		desc = tenet_midwinter_desc
+	#	}
+	#}
+
+	piety_cost = {
+		if = {
+			limit = {
+				OR = {
+					religion = religion:northmen_religion
+					religion = religion:anduinic_religion
+					religion = religion:hobbit_religion
+				}
+			}
+			value = faith_tenet_cost_low
+		}
+		else_if = { # Elves dont generally practice this
+			limit = {
+				religion = religion:elven_religion
+			}
+			value = faith_tenet_cost_high
+		}
+		else = {
+			value = faith_tenet_cost_mid
+		}
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_yuletide }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	is_shown = {
+		OR = {
+			# Should only pick it up around the Westlands
+			# Still relatively unrestricted to let players sandbox
+			religion = religion:northmen_religion
+			religion = religion:anduinic_religion
+			religion = religion:dwarven_religion
+			religion = religion:hobbit_religion
+			religion = religion:dunedain_religion
+			religion = religion:elven_religion
+			religion = religion:rhudaur_religion
+			religion = religion:gwathuirim_religion
+			religion = religion:forodwaith_religion
+			religion = religion:talataerim_religion
+			religion = religion:dru_diaspora_religion
+		}
+	}
+
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_ritual_hospitality_trigger
+			NOT = { doctrine:tenet_ritual_hospitality = { is_in_list = selected_doctrines } }
+		}
+	}
+
+	parameters = {
+		host_honored_guests_active = yes
+		lotr_unlock_yuletide_activity = yes
+	}
+
+	traits = {
+		virtues = {
+			generous
+		}
+		sins = {
+			callous
+		}
+	}
+
+	character_modifier = {
+		monthly_piety_gain_per_happy_powerful_vassal_add = 0.3
+	}
+}
+
+tenet_hobbit_wandering = { # Proto-Hobbit Wandering tenet
+	icon = tenet_hobbit_wandering
+
+	is_shown = {
+		OR = {
+			# Should only pick it up around the Westlands
+			# Still relatively unrestricted to let players sandbox
+			religion = religion:northmen_religion
+			religion = religion:anduinic_religion
+			religion = religion:dwarven_religion
+			religion = religion:hobbit_religion
+			religion = religion:dunedain_religion
+			religion = religion:elven_religion
+			religion = religion:rhudaur_religion
+			religion = religion:gwathuirim_religion
+			religion = religion:forodwaith_religion
+			religion = religion:talataerim_religion
+			religion = religion:dru_diaspora_religion
+		}
+	}
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_armed_pilgrimages_vs_forbidden_pilgrimages
+			NOT = { doctrine:doctrine_pilgrimage_forbidden = { is_in_list = selected_doctrines } }
+		}
+	}
+	
+	piety_cost = {
+		value = faith_tenet_cost_high
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_hobbit_wandering }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	
+	character_modifier = {
+		#monthly_lifestyle_xp_gain_mult = 0.15
+		#monthly_piety_gain_mult = -0.1
+		#monthly_county_control_decline_factor = -0.1
+		#desert_attrition_mult = -0.1
+		#desert_mountains_attrition_mult = -0.1
+	}
+	
+	traits = {
+		virtues = { lifestyle_traveler }
+		sins = { reclusive }
+	}
+
+	parameters = {
+		pilgrimage_decision_active = yes
+		lotr_traveler_rewards = yes
+		unlock_voluntary_laampdom_faith = yes
+	}
+}
+
+### MEN OF DARKNESS TENETS ###
+
+tenet_unforgetting = { # Dunlending warmonger tenet
+	icon = core_tenet_warmonger
+	piety_cost = {
+		if = {
+			limit = {
+				religion = { is_in_family = rf_eruhini }
+			}
+			value = faith_tenet_cost_massive
+		}
+		else = {
+			value = faith_tenet_cost_mid
+		}
+		if = {
+			limit = { has_doctrine = tenet_unforgetting }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	is_shown = {
+		religion = { is_in_family = rf_darkness }
+	}
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_pacifism_trigger
+			NOT = { doctrine:tenet_pacifism = { is_in_list = selected_doctrines } }
+		}
+		# custom_description = {
+			# text = incompatible_tenet_dharmic_pacifism_trigger
+			# NOT = { doctrine:tenet_dharmic_pacifism = { is_in_list = selected_doctrines } }
+		# }
+		custom_description = {
+			text = incompatible_with_influence_trigger
+			NOR = {
+				doctrine:doctrine_echoes_of_the_ainur = { is_in_list = selected_doctrines }
+				doctrine:doctrine_a_people_apart = { is_in_list = selected_doctrines }
+			}
+		}
+	}
+
+	character_modifier = {
+		diplomacy = -2
+		ai_war_chance = 1
+		ai_war_cooldown = -1
+	}
+	traits = {
+		virtues = { vengeful reaver }
+		sins = { forgiving }
+	}
+	parameters = {
+		warmonger = yes
+		conquest_cb_enabled = yes
+		invasion_cb_enabled = yes
+		clergy_can_fight = yes
+		piety_from_long_peace = -0.02
+		allows_berserkers = yes
+	}
+}
+
+tenet_unquiet_waters = { # Dunlending reincarnation tenet
+	icon = tenet_unquiet_waters
+	piety_cost = {
+		if = {
+			limit = {
+				religion = { is_in_family = rf_eruhini }
+			}
+			value = faith_tenet_cost_high
+		}
+		else_if = {
+			limit = {
+				NOR = {
+					religion = { is_in_family = rf_forcesofevil }
+					religion = { is_in_family = rf_eruhini }
+				}
+			}
+			value = faith_tenet_cost_low
+		}
+		else = {
+			value = faith_tenet_cost_mid
+		}
+		if = {
+			limit = { has_doctrine = tenet_unquiet_waters }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	is_shown = {
+		NOT = { religion = { is_in_family = rf_eruhini } }
+		religion = religion:gwathuirim_religion
+	}
+	can_pick = { always = yes }
+
+	character_modifier = {
+		# Increase stress and dread gain if holding is coastal.
+		# scope:county is_coastal = yes
+		stress_gain_mult = 0.1
+		dread_gain_mult = 0.1
+	}
+	traits = {
+		virtues = { reincarnation = 2 }
+		sins = { adventurer = 2 }
+	}
+	parameters = {
+		reincarnation_resistance_to_conversion = yes
+		reincarnation_events_active = yes
+	}
+}
+
+tenet_sacred_waters = {
+	icon = tenet_sacred_waters
+	is_shown = {
+		NOT = { religion = { is_in_family = rf_forcesofevil } }
+	}
+
+	can_pick = {
+		always = yes
+	}
+	
+	piety_cost = {
+			value = faith_tenet_cost_low
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_sacred_waters }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	traits = {
+		virtues = {
+			calm
+		}
+	}
+
+	character_modifier = {
+		health = 0.15
+		negate_health_penalty_add = 0.1
+		stress_gain_mult = -0.1
+	}
+}
+
+tenet_offbrand_tulkas = { # For the Sederi. XOXO Juke~
+	icon = tenet_primacy_of_tulkas_ralph
+	is_shown = {
+		religion = religion:mumakan_religion
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		if = {
+			limit = { has_doctrine = tenet_offbrand_tulkas }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+		clergy_can_fight = yes
+	}
+
+	character_modifier = {
+		monthly_piety_gain_per_knight_mult = 0.02
+		prowess_per_stress_level = 3
+	}
+
+	traits = {
+		virtues = { ambitious strong }
+		sins = { content }
+	}
+}
+
+tenet_tamska_main = { # Tamska succession stuff
+	icon = tenet_primacy_of_vana # Placeholder
+	is_shown = {
+		religion = religion:magrin_religion
+	}
+
+	can_pick = {
+		custom_description = {
+			text = lotr_doctrine_requires_temporal_head_of_faith_trigger
+			NOR = {
+				doctrine:doctrine_spiritual_head = { is_in_list = selected_doctrines }
+				doctrine:doctrine_no_head = { is_in_list = selected_doctrines }
+			}
+		}
+		custom_description = {
+			text = lotr_doctrine_requires_female_clergy_trigger
+			NOR = {
+				doctrine:doctrine_clerical_gender_male_only = { is_in_list = selected_doctrines }
+				doctrine:doctrine_clerical_gender_either = { is_in_list = selected_doctrines }
+			}
+		}
+		custom_description = {
+			text = lotr_incompatible_tenet_rite_trigger
+			NOT = { doctrine:tenet_rite = { is_in_list = selected_doctrines } }
+		}
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		if = {
+			limit = { has_doctrine = tenet_tamska_main }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+		lotr_tamska_hof = yes
+		lotr_hold_court_piety_reward = yes
+		maintains_head_of_faith_on_creation = yes
+		block_from_create_hof_parameter = yes
+		# And finally, you and your old faith see each other as astray.
+		## Please note, unlike other hostility overrides, this is _bilateral_, not unilateral.
+		same_hof_hostility_override = 1
+	}
+
+	character_modifier = {
+	}
+
+	traits = {
+		virtues = { }
+		sins = { }
+	}
+}
+
+tenet_adunaic_birthright = { # Adunaic Supremacy Tenet
+	icon = tenet_memory_of_akallabeth
+	
+	piety_cost = {
+		# Similar Tenet
+		if = {
+			limit = {
+				has_doctrine = tenet_adunaic_mandate
+			}
+			value = faith_tenet_cost_low
+		}
+		else = {
+			value = faith_tenet_cost_mid
+		}
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_adunaic_birthright }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	is_shown = {
+		religion = religion:adunai_religion
+	}	
+	
+	can_pick = {
+		custom_description = {
+			text = incompatible_with_influence_trigger
+			NOT = {
+				doctrine:doctrine_echoes_of_the_ainur = { is_in_list = selected_doctrines }
+			}
+		}
+		custom_description = {
+			text = incompatible_tenet_memory_of_akallabeth_trigger
+			NOT = { doctrine:tenet_memory_of_akallabeth = { is_in_list = selected_doctrines } }
+		}
+		custom_description = {
+			text = incompatible_tenet_adunaic_mandate_trigger
+			NOT = { doctrine:tenet_adunaic_mandate = { is_in_list = selected_doctrines } }
+		}
+		custom_description = {
+			text = incompatible_tenet_communal_identity_trigger
+			NOT = { doctrine:tenet_communal_identity = { is_in_list = selected_doctrines } }
+		}
+	}
+	
+	traits = {
+		virtues = { ambitious }
+		sins = { content }
+	}
+	
+	parameters = {
+		conversion_nerf_outside_numenorean_group = yes # Conversion nerf for non-numenorean cultures
+		conversion_buff_adunai_religion = yes # Conversion buff for numenorean cultures
+		lotr_numenor_blood_bonuses = yes #Boni for blood of numenor traits. Replaces use of it as a virtue
+		#piety_from_feasts_active = yes
+		# Unlocks the 'Sponsor Adunaic Propaganda' activity option
+		adunaic_propaganda_active_desc = 0
+	}
+}
+
+tenet_adunaic_mandate = { # Adunaic Caste Tenet
+	icon = tenet_memory_of_akallabeth
+	
+	piety_cost = {
+		# Similar Tenet
+		if = {
+			limit = {
+				has_doctrine = tenet_adunaic_birthright
+			}
+			value = faith_tenet_cost_low
+		}
+		else = {
+			value = faith_tenet_cost_mid
+		}
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_adunaic_mandate }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	is_shown = {
+		religion = religion:adunai_religion
+	}	
+	
+	can_pick = {
+		custom_description = {
+			text = incompatible_with_influence_trigger
+			NOT = {
+				doctrine:doctrine_dominion_of_the_dark = { is_in_list = selected_doctrines }
+			}
+		}
+		custom_description = {
+			text = incompatible_tenet_adunaic_birthright_trigger
+			NOT = { doctrine:tenet_adunaic_birthright = { is_in_list = selected_doctrines } }
+		}
+		custom_description = {
+			text = incompatible_tenet_memory_of_akallabeth_trigger
+			NOT = { doctrine:tenet_memory_of_akallabeth = { is_in_list = selected_doctrines } }
+		}
+		custom_description = {
+			text = incompatible_tenet_communal_identity_trigger
+			NOT = { doctrine:tenet_communal_identity = { is_in_list = selected_doctrines } }
+		}
+	}
+	
+	traits = {
+		virtues = { just }
+		sins = { arbitrary }
+	}
+	
+	character_modifier = {
+		domain_tax_different_faith_mult = 0.2
+		levy_reinforcement_rate_same_faith = 0.25
+		levy_reinforcement_rate_different_faith = -0.25
+	}
+	
+	parameters = {
+		unlock_taxnonbelievers_contract = yes #Identical to unlock_jizya_contract but used for loc only cause otherwise virtues break
+		conversion_nerf_outside_numenorean_group = yes # Conversion nerf for non-numenorean cultures
+		conversion_buff_adunai_religion = yes # Conversion buff for numenorean cultures
+		lotr_numenor_blood_bonuses = yes #Boni for blood of numenor traits. Replaces use of it as a virtue
+		# Unlocks the 'Sponsor Adunaic Propaganda' activity option
+		adunaic_propaganda_active_desc = 0
+	}
+}
+
+tenet_long_vengeance = { #Haruzan Revanchism
+	icon = core_tenet_struggle_submission
+	piety_cost = {
+		if = {
+			limit = {
+				religion = religion:harad_religion
+			}
+			value = faith_tenet_cost_low
+		}
+		else = {
+			value = faith_tenet_cost_high
+		}
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_long_vengeance }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	
+	traits = {
+		virtues = { vengeful }
+		sins = { forgiving }
+	}
+	
+	is_shown = {
+		OR = {
+			religion = religion:harad_religion
+			religion = religion:far_harad_religion
+			religion = religion:umbarean_religion
+		}
+	}
+	
+	can_pick = {
+		custom_description = {
+			text = incompatible_with_influence_trigger
+			NOR = {
+				doctrine:doctrine_echoes_of_the_ainur = { is_in_list = selected_doctrines }
+				doctrine:doctrine_a_people_apart = { is_in_list = selected_doctrines }
+			}
+		}
+	}
+
+	parameters = {
+		# great_holy_wars_active = yes # No crusades for Haruze
+		ghw_no_hof_conversion_buffs_active = yes
+		bonus_holy_war_piety_active = yes
+	}
+}
+
+tenet_dune_covens = { #LotR witch covens tenet
+#allows you to summon a witch, witches are considered virtuous
+	icon = core_tenet_ritual_celebrations
+	piety_cost = {
+		if = {
+			limit = {
+				doctrine:doctrine_dominion_of_the_dark = { is_in_list = selected_doctrines }
+			}
+			value = faith_tenet_cost_high
+		}
+		
+		else = {
+			value = faith_tenet_cost_massive
+		}
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_dune_covens }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	
+	traits = {
+		virtues = { witch disloyal }
+		sins = { loyal }
+	}
+	
+	is_shown = {
+		OR = {
+			religion = religion:harad_religion
+			religion = religion:far_harad_religion
+			religion = religion:umbarean_religion
+		}
+		OR = {
+			religion = { is_in_family = rf_forcesofevil }
+			religion = { is_in_family = rf_darkness }
+		}
+	}
+	
+	can_pick = {
+		custom_description = {
+			text = incompatible_with_crimes_trigger
+			NOR = {
+				doctrine:doctrine_witchcraft_shunned = { is_in_list = selected_doctrines }
+				doctrine:doctrine_witchcraft_crime = { is_in_list = selected_doctrines }
+			}
+		}
+		custom_description = {
+			text = incompatible_with_influence_trigger
+			NOT = {
+				doctrine:doctrine_echoes_of_the_ainur = { is_in_list = selected_doctrines }
+			#	doctrine:doctrine_a_people_apart = { is_in_list = selected_doctrines }
+			}
+		}
+	}
+	
+	character_modifier = {
+		monthly_intrigue_lifestyle_xp_gain_mult = 0.1
+		monthly_learning_lifestyle_xp_gain_mult = 0.1
+		#different_faith_opinion = -5
+		liege_opinion = -10
+	}
+	
+	parameters = {
+		summon_witch_active = yes
+	}
+}
+
+tenet_pathtreaders = { # path of gurzil tenet - incorporates sun trials
+	icon = core_tenet_inner_journey
+
+	is_shown = {
+		OR = {
+			religion = religion:harad_religion
+			religion = religion:far_harad_religion
+			religion = religion:magrin_religion
+			religion = religion:thani_hazad_religion
+			religion = religion:umbarean_religion
+		}
+	}
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_armed_pilgrimages_vs_forbidden_pilgrimages
+			NOT = { doctrine:doctrine_pilgrimage_forbidden = { is_in_list = selected_doctrines } }
+		}
+	}
+	
+	piety_cost = {
+		value = faith_tenet_cost_high
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_pathtreaders }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	
+	character_modifier = {
+		#monthly_lifestyle_xp_gain_mult = 0.15
+		#monthly_piety_gain_mult = -0.1
+		monthly_county_control_decline_factor = -0.1
+		desert_attrition_mult = -0.1
+		desert_mountains_attrition_mult = -0.1
+	}
+	
+	traits = {
+		virtues = { fickle lifestyle_traveler }
+		sins = { stubborn }
+	}
+
+	parameters = {
+		pilgrimage_decision_active = yes
+		lotr_traveler_rewards = yes
+		trial_by_sun_active = yes
+	}
+}
+
+tenet_corsairs = { # corsair tenet - lets you raid better
+	icon = core_tenet_struggle_submission
+
+	is_shown = {
+		OR = {
+			religion = religion:harad_religion
+			religion = religion:far_harad_religion
+			religion = religion:adunai_religion
+			religion = religion:umbarean_religion
+		}
+	}
+	can_pick = {
+		custom_description = {
+			text = incompatible_with_influence_trigger
+			NOT = {
+				doctrine:doctrine_echoes_of_the_ainur = { is_in_list = selected_doctrines }
+			}
+		}
+	}
+	
+	piety_cost = {
+		value = faith_tenet_cost_high
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_corsairs }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	
+	character_modifier = {
+		raid_speed = 0.25
+		max_loot_mult = 0.1
+	}
+	
+	traits = {
+		virtues = { viking lifestyle_mariner }
+		sins = {  }
+	}
+
+	parameters = {
+		faith_can_raid = yes
+		faith_can_raid_overseas = yes
+		lotr_extra_raid_loot = yes
+		lotr_harder_to_convert = yes
+		sailing_traits_more_common_faith = yes
+	}
+}
+
+tenet_sirayn_syncretism = {
+	icon = core_tenet_eastern_syncretism
+	
+	piety_cost = {
+		value = faith_tenet_cost_mid
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_sirayn_syncretism }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	is_shown = {
+		NOT = { religion = { is_in_family = rf_forcesofevil } }
+		OR = {
+			religion = religion:sirayn_religion
+			religion = religion:ormalbay_religion
+			religion = religion:far_harad_religion
+			religion = religion:dru_diaspora_religion
+			religion = religion:mumakan_religion
+		}
+	}
+	can_pick = {
+		custom_description = {
+			text = doctrine_pluralism_fundamentalist_trigger
+			NOT = { doctrine:doctrine_pluralism_fundamentalist = { is_in_list = selected_doctrines } }
+		}
+	}
+	
+	traits = {
+		virtues = {
+			calm
+		}
+		sins = {
+			wrathful
+		}
+	}
+	
+	parameters = {
+		hostility_override_tenet_sirayn_syncretism = 1
+		unlock_tayee_shrine_decision = yes # Unlocks a minor decision to build local shrines
+	}
+}
+
+tenet_vidavan = {
+	icon = core_tenet_armed_pilgrimages # TEMP - needs unique 
+
+	piety_cost = {
+		value = faith_tenet_cost_mid
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_vidavan }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	is_shown = {
+		religion = religion:ormalbay_religion
+	}
+	can_pick = {
+		doctrine:doctrine_pluralism_fundamentalist = { is_in_list = selected_doctrines }
+		custom_description = {
+			text = incompatible_tenet_pacifism_trigger
+			NOT = { doctrine:tenet_pacifism = { is_in_list = selected_doctrines } }
+		}
+	}
+	traits = {
+		virtues = {
+			zealous
+		}
+		sins = {
+			possessed_1
+		}
+	}
+	#Unrelenting Faith modifiers 
+	character_modifier = {
+		prowess = 4
+		tolerance_advantage_mod = 2
+	}
+	parameters = {
+		clergy_can_fight = yes # Unrelenting faiths
+		cheaper_holy_wars_active = yes # Armed Pilgrimages
+		great_holy_wars_active = yes # Crusades! 
+		great_holy_wars_active_if_reformed = yes # Jank because this needs to exist somewhere
+		easier_to_convert_faith_in_same_religion = yes # LOTR
+	}
+
+}
+
+tenet_spread_the_light = {
+	icon = core_tenet_mendicant_preachers
+	piety_cost = {
+		value = faith_tenet_cost_high
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_mendicant_preachers }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_hedonistic_trigger
+			NOT = { doctrine:tenet_hedonistic = { is_in_list = selected_doctrines } }
+		}
+		religion = religion:ormalbay_religion
+	}
+
+	parameters = {
+		mendicant_preachers_conversion_active = yes # Might need to remove for balance
+		pilgrimage_decision_active = yes
+		unlock_voluntary_laampdom_faith = yes
+		meditation_mechanics_active = yes
+		can_evangelize = yes
+	}
+	traits = {
+		virtues = { temperate }
+		sins = { craven }
+	}
+}
+
+tenet_mumakani_berserkers = { # Combination of Sacred Destruction, Cranial Trophies, Struggle and Submission
+	icon = core_tenet_cranial_trophies
+
+	piety_cost = {
+		if = {
+			limit = { has_doctrine = tenet_warmonger }
+			value = faith_tenet_cost_mid
+		}
+		else = {
+			value = faith_tenet_cost_high
+		}
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_mumakani_berserkers }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	is_shown = {
+		religion = religion:mumakan_religion
+	}
+
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_pacifism_trigger
+			NOT = { doctrine:tenet_pacifism = { is_in_list = selected_doctrines } }
+		}
+		custom_description = {
+			text = incompatible_tenet_dharmic_pacifism_trigger
+			NOT = { doctrine:tenet_dharmic_pacifism = { is_in_list = selected_doctrines } }
+		}
+		custom_description = {
+			text = incompatible_tenet_tenet_preservation_trigger
+			NOT = { doctrine:tenet_preservation = { is_in_list = selected_doctrines } }
+		}
+	}
+
+	character_modifier = {
+		prowess_per_piety_level = 1
+		# maa_damage_mult = 0.1
+		jungle_advantage = 5
+		monthly_piety_gain_per_dread_add = 0.01
+	}
+	
+	parameters = {
+		successful_sieges_give_piety = yes
+		bonus_holy_war_piety_active = yes
+		unlock_voluntary_laampdom_faith = yes
+		allows_berserkers = yes
+		unlock_maa_mubadar_berserkers = yes
+	}
+	
+	traits = {
+		virtues = { wrathful berserker }
+		sins = { craven }
+	}
+}
+
+tenet_jungle_trials = { # Someday make a custom pilgrage type for them.
+	icon = core_tenet_inner_journey
+
+	is_shown = {
+		religion = religion:mumakan_religion
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_high
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_jungle_trials }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	traits = {
+		virtues = { patient calm lifestyle_hunter lifestyle_herbalist}
+		sins = { impatient }
+	}
+
+	parameters = {
+		meditation_mechanics_active = yes
+		lotr_traveler_rewards = yes
+		jungle_trait_bonuses = yes
+		lotr_jungle_trait_bonuses = yes
+		# wasteland_pilgrimage_allowed = yes # Re-add when pilrimage events adjusted to prevent wasteland characteres
+	}
+
+	character_modifier = {
+		jungle_travel_danger = 100
+		jungle_advantage = 2
+	}
+}
+
+tenet_hathorim_isolation = {
+	icon = core_tenet_pastoral_isolation
+
+	is_shown = {
+		religion = religion:mumakan_religion
+	}
+
+	can_pick = {
+		
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_high
+	}
+
+	parameters = {
+		sanctioned_false_conversion = yes
+		# tenet_unlocks_t3_withdraw_from_view = yes #Too many parameters atm
+		holy_wars_forbidden = yes
+		no_sailing = yes
+	}
+
+	character_modifier = {
+		hills_development_growth_factor = 0.1
+		different_faith_liege_opinion = -20
+		opinion_of_different_faith_liege = -20
+		diplomatic_range_mult = -0.5
+		controlled_province_advantage = 5
+		hills_advantage = 5
+		hostile_raid_time = 3
+		naval_movement_speed_mult = -0.50
+	}
+
+	traits = {
+		virtues = { content reclusive }
+		sins = { ambitious }
+	}
+}
+
+tenet_holy_hunts = {
+	icon = core_tenet_bear
+
+	is_shown = {
+		religion = religion:mumakan_religion
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_high
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_holy_hunts }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	character_modifier = {
+		jungle_travel_danger = jungle_high_danger_reduction
+		# lifestyle_hunter_xp_gain_mult = 0.05 #bc it won't stop erroring
+	}
+	
+	parameters = {
+		# frequent_bear_sightings = yes
+		efficient_hunt_cornering = yes
+		# allows_bear_sacrifice = yes
+		chance_to_gain_prowess_during_all_hunts = yes
+		more_frequent_hunts_faith = yes
+	}
+	
+	traits = {
+		virtues = { lifestyle_hunter }
+	}
+}
+
+tenet_communal_celebrations = {
+	icon = core_tenet_ritual_celebrations
+	is_shown = {
+		always = yes
+	}
+	can_pick = {
+		always = yes
+	}
+
+	piety_cost = {
+		if = {
+			limit = {
+				OR = {
+					has_doctrine = tenet_mendicant_preachers
+					religion = { is_in_family = rf_eruhini }
+				}
+			}
+			value = faith_tenet_cost_mid
+		}
+		else = {
+			value = faith_tenet_cost_high 
+		}
+
+		#Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_communal_celebrations }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+		piety_from_gifts_active = yes
+		piety_from_marrying_lowborn_active = yes
+		piety_from_feasts_active = yes
+		mandatory_feast_attendance = yes
+	}
+
+	character_modifier = {
+		monthly_county_control_growth_factor = -0.2
+		build_gold_cost = -0.1
+		county_opinion_add = 10 
+		vassal_opinion = 5
+		courtier_opinion = 5
+	}
+
+	traits = {
+		virtues = { generous comfort_eater }
+		sins = { arrogant inappetetic greedy }
+	}
+}
+
+tenet_tumrakhis_chosen = {
+	icon = core_tenet_unrelenting_faith
+
+	is_shown = {
+		religion = religion:talataerim_religion
+	}
+
+	can_pick = {
+		doctrine:doctrine_pluralism_fundamentalist = { is_in_list = selected_doctrines }
+		custom_description = {
+			text = incompatible_tenet_pacifism_trigger
+			NOT = { doctrine:tenet_pacifism = { is_in_list = selected_doctrines } }
+		}
+		custom_description = {
+			text = incompatible_with_influence_trigger
+			NOR = {
+				doctrine:doctrine_echoes_of_the_ainur = { is_in_list = selected_doctrines }
+				doctrine:doctrine_a_people_apart = { is_in_list = selected_doctrines }
+			}
+		}
+	}
+
+	piety_cost = {
+		if = {
+			limit = {
+				OR = {
+					#rhas_doctrine = pagan_hostility_doctrine
+					#religion_tag = hinduism_religion
+					#religion_tag = islam_religion
+				}
+			}
+			value = faith_tenet_cost_mid
+		}
+		else_if = {
+			limit = {
+				#religion_tag = judaism_religion
+
+			}
+			value = faith_tenet_cost_high
+		}
+		else = {
+			value = faith_tenet_cost_massive
+		}
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_pursuit_of_power }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+		warmonger = yes
+		successful_sieges_give_piety = yes
+		faith_can_raid = yes
+		piety_from_long_peace = -0.5
+	}
+
+	character_modifier = {
+		ai_war_chance = 0.5
+		ai_war_cooldown = -0.25
+		prowess = 4
+		tolerance_advantage_mod = 2
+	}
+
+	traits = {
+		virtues = { zealous }
+		sins = { craven }
+	}
+}
+
+tenet_children_of_khand = {
+	icon = core_tenet_reincarnation
+
+	is_shown = {
+		religion = religion:talataerim_religion
+	}
+
+	piety_cost = {
+		if = {
+			limit = {
+				always = no #LOTR
+				OR = {
+					#religion_tag = christianity_religion
+					#religion_tag = judaism_religion
+				}
+			}
+			value = faith_tenet_cost_low
+		}
+		else_if = {
+			limit = {
+				has_doctrine = freepeoples_hostility_doctrine
+				# has_doctrine = pagan_hostility_doctrine
+			}
+			value = faith_tenet_cost_high
+		}
+		else = {
+			value = faith_tenet_cost_mid
+		}
+
+	}
+	can_pick = {
+		custom_description = {
+			text = doctrine_requires_head_of_faith_trigger
+			NOT = {
+				doctrine:doctrine_no_head = { is_in_list = selected_doctrines }
+			}
+		}
+		custom_description = {
+			text = incompatible_tenet_sacred_shadows_trigger
+			NOT = {
+				doctrine:tenet_sacred_shadows = { is_in_list = selected_doctrines }
+			}
+		}
+	}
+
+	parameters = {
+		seek_indulgences_active = yes
+		seek_indulgences_active_2 = yes
+		excommunication_active = yes
+		reincarnation_resistance_to_conversion = yes
+		reincarnation_events_active = yes
+	}
+}
+
+### FORCES OF EVIL TENETS ###
+
+tenet_dark_tower_subjugation = { #For Lidless Eye (Sauron Faith) only
+	icon = tenet_dark_tower_subjugation
+	piety_cost = {
+			value = faith_tenet_cost_mid
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_dark_tower_subjugation }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	is_shown = {
+		OR = {
+			religion = { is_in_family = rf_forcesofevil }
+		}
+	}
+	
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_melkor_worship_trigger
+			NOT = { doctrine:tenet_melkor_worship = { is_in_list = selected_doctrines } }
+		}
+		# custom_description = {
+			# text = incompatible_tenet_dragon_boshfai_trigger
+			# NOT = { doctrine:tenet_dragon_boshfai = { is_in_list = selected_doctrines } }
+		# }
+	}
+	
+	traits = {
+		virtues = {
+			greedy
+		}
+		sins = {
+			compassionate
+			craven #Logic is that Sauron demands service, both military and economic from his subjects
+		}
+	}
+	character_modifier = {
+		domain_tax_mult = 0.1
+		vassal_tax_mult = 0.1
+		levy_reinforcement_rate_friendly_territory = 0.25
+	}
+}
+
+tenet_encroaching_shadow = {
+	icon = tenet_encroaching_shadow
+	piety_cost = {
+		if = {
+			limit = {
+				religion = { is_in_family = rf_eruhini }
+			}
+			value = faith_tenet_cost_massive
+		}
+		else = {
+			value = faith_tenet_cost_mid
+		}
+		if = {
+			limit = { has_doctrine = tenet_unforgetting }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	is_shown = {
+		religion = { is_in_family = rf_forcesofevil }
+	}
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_pacifism_trigger
+			NOT = { doctrine:tenet_pacifism = { is_in_list = selected_doctrines } }
+		}
+		# custom_description = {
+			# text = incompatible_tenet_dharmic_pacifism_trigger
+			# NOT = { doctrine:tenet_dharmic_pacifism = { is_in_list = selected_doctrines } }
+		# }
+	}
+
+	character_modifier = {
+		diplomacy = -2
+		prowess = 2
+		ai_war_chance = 1
+		ai_war_cooldown = -1
+	}
+	traits = {
+		virtues = { 
+			callous 
+			ambitious
+		}
+		sins = { 
+			forgiving = 2 
+		}
+	}
+	parameters = {
+		warmonger = yes
+		conquest_cb_enabled = yes
+		invasion_cb_enabled = yes
+		clergy_can_fight = yes
+		piety_from_long_peace = -1
+		#raiding_active_desc = 0
+		faith_can_raid = yes
+		successful_sieges_give_piety = yes
+	}
+}
+
+tenet_melkor_worship = {
+	icon = core_tenet_gruesome_festivals
+	piety_cost = {
+		if = {
+			limit = {
+				religion = { is_in_family = rf_eruhini }
+			}
+			value = faith_tenet_cost_massive
+		}
+		else = {
+			value = faith_tenet_cost_mid
+		}
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_melkor_worship }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	is_shown = {
+		OR = {
+			religion = { is_in_family = rf_forcesofevil }
+		}
+	}
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_dark_tower_subjugation_trigger
+			NOT = { doctrine:tenet_dark_tower_subjugation = { is_in_list = selected_doctrines } }
+		}
+		# custom_description = {
+			# text = incompatible_tenet_dragon_boshfai_trigger
+			# NOT = { doctrine:tenet_dragon_boshfai = { is_in_list = selected_doctrines } }
+		# }
+	}
+
+	parameters = {
+		#raiding_active_desc = 0
+		warmonger = yes
+		conquest_cb_enabled = yes
+		invasion_cb_enabled = yes
+		successful_sieges_give_piety = yes
+		# great_holy_wars_active_if_reformed = yes - No AA crusades
+		clergy_can_fight = yes
+		flower_war_cb_active = yes
+		faith_can_raid = yes
+	}
+		character_modifier = {
+	}
+	traits = {
+		virtues = {
+			ambitious
+		}
+	}
+}
+
+tenet_wraith_worship = { # Unlocks Petition Murghuri decision for Yellow Mountain orcs
+	icon = tenet_primacy_of_mandos
+
+	is_shown = {
+		religion = religion:southern_orcish_religion
+	}
+	can_pick = {
+		custom_description = {
+			text = doctrine_no_head_of_faith_trigger
+			doctrine:doctrine_no_head = { is_in_list = selected_doctrines }
+		}
+		custom_description = {
+			text = incompatible_tenet_false_conversion_sanction_trigger
+			NOT = {
+				doctrine:tenet_false_conversion_sanction = { is_in_list = selected_doctrines }
+			}
+		}
+	}
+
+	piety_cost = {
+		value = faith_tenet_cost_high
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_wraith_worship }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}			
+	}
+
+	parameters = {
+		petition_nazgul_decision = yes
+	}
+
+	character_modifier = {
+		different_faith_liege_opinion = 15
+		opinion_of_different_faith_liege = 15
+		monthly_piety_gain_per_dread_add = 0.01
+		dread_gain_mult = 0.1
+	}
+
+	traits = {
+		virtues = { nazgul = { scale = 3 weight = 2 } }			
+	}
+}
+
+tenet_deep_worship = {		#Deep Cultist Nameless Thing worship- Adorcism+
+	icon = core_tenet_bhakti
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_deep_worship }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	is_shown = {
+	OR = {
+			religion = { is_in_family = rf_forcesofevil }
+		}
+	
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	parameters = {
+		spirit_possession_active = yes
+	}
+
+	character_modifier = {
+		prowess_per_stress_level = 3
+		intrigue_per_stress_level = 2
+		stress_gain_mult = 0.15
+		stress_loss_mult = 0.15
+	}
+
+	traits = {
+		virtues = { paranoid possessed_1 = 2 }
+		sins = { trusting }
+	}
+}
+
+tenet_desperate_wards = {		#Mark-Etcher faith
+	name = {
+		first_valid = {
+				triggered_desc = {
+				trigger = {
+					religion_tag = southern_orcish_religion
+				}
+				desc = tenet_desperate_wards_marketcher_name
+				}
+			desc = tenet_desperate_wards_name
+		}
+	}
+
+	icon = core_tenet_esotericism
+
+
+
+	piety_cost = {
+		value = faith_tenet_cost_low
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_desperate_wards }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	is_shown = {
+		religion = { is_in_family = rf_forcesofevil }
+	}
+
+	can_pick = {
+		always = yes
+	}
+
+	# parameters = { #We hate everyone
+		# hostility_same_religion = 3
+		# hostility_same_family = 3
+		# hostility_others = 3
+	# }
+
+	character_modifier = {
+		learning_per_stress_level = 2
+		stewardship_per_stress_level = 2
+		stress_gain_mult = 0.15
+		stress_loss_mult = 0.15
+	}
+
+	traits = {
+		virtues = { paranoid diligent }
+		sins = { trusting possessed_1 = 2 }
+	}
+}
+
+tenet_orc_raiding = { # orc raid tenet - lets you raid better		#version of the corsair tenet reoriented for orcs
+	icon = core_tenet_struggle_submission
+
+	is_shown = {
+		OR = {
+			religion = religion:orcish_religion
+			religion = religion:southern_orcish_religion
+			religion = religion:sauronic_religion
+		}
+	}
+	can_pick = {
+		custom_description = {
+			text = incompatible_with_influence_trigger
+			NOT = {
+				doctrine:doctrine_echoes_of_the_ainur = { is_in_list = selected_doctrines }
+			}
+		}
+	}
+	
+	piety_cost = {
+		value = faith_tenet_cost_high
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_orc_raiding }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	
+	character_modifier = {
+		raid_speed = 0.25
+		max_loot_mult = 0.1
+	}
+	
+	traits = {
+		virtues = { viking brave }
+		sins = { content craven }
+	}
+
+	parameters = {
+		faith_can_raid = yes
+		successful_sieges_give_piety = yes
+		lotr_extra_raid_loot = yes
+		death_is_glory = yes
+	}
+	character_modifier = {
+		short_reign_duration_mult = -0.5
+		ai_war_chance = 1
+		ai_war_cooldown = -0.5
+	}
+}
+
+tenet_dark_trophies = {	#Cranial Trophies clone for Ulukai orcs
+	icon = core_tenet_cranial_trophies
+	name = {
+		first_valid = {
+				triggered_desc = {
+				trigger = {
+					religion_tag = orcish_religion
+				}
+				desc = tenet_dark_trophies_ulukai_name
+				}
+			desc = tenet_dark_trophies_name
+		}
+	}
+	desc = {
+		first_valid = {
+				triggered_desc = {
+				trigger = {
+					religion_tag = orcish_religion
+				}
+				desc = tenet_dark_trophies_ulukai_desc
+				}
+			desc = tenet_dark_trophies_desc
+		}
+	}
+	is_shown = {
+		has_tgp_dlc_trigger = yes
+		OR = {
+			religion = religion:orcish_religion
+			religion = religion:southern_orcish_religion
+			religion = religion:sauronic_religion
+		}
+	}
+
+	piety_cost = {
+		if = {
+			limit = {
+				always = no
+			}
+			value = faith_tenet_cost_low
+		}
+		else = {
+			value = faith_tenet_cost_massive
+		}
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = tenet_dark_trophies }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	parameters = {
+		killing_bestows_heads = yes
+		decapitation_steals_prestige_as_piety = yes
+		better_artifacts = yes
+	}
+
+	character_modifier = {
+		halls_advantage = 5
+		halls_attrition_mult = -0.25
+		halls_min_combat_roll = 1
+		monthly_piety_gain_per_dread_add = 0.01
+		prowess = 3
+	}
+}
+
+tenet_gold_veneration = {
+	icon = core_tenet_vows_of_poverty
+	
+	piety_cost = {
+		value = faith_tenet_cost_massive
+	}
+
+	is_shown = {
+		always = yes
+	}
+
+	can_pick = {
+		NOT = { has_doctrine = tenet_vows_of_poverty }
+	}
+	
+	traits = {
+		virtues = { greedy }
+		sins = { generous }
+	}
+	
+	parameters = {
+		piety_loss_from_gifts_active = yes
+	}
+
+	character_modifier = {
+		domain_tax_mult = 0.05
+	}
+}

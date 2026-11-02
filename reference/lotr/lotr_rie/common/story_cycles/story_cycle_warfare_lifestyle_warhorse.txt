@@ -1,0 +1,227 @@
+﻿story_cycle_martial_lifestyle_warhorse = {
+	visible = yes
+	
+	icon = { #LotR
+		trigger = { story_owner = { is_elf = yes } }
+		reference = "gfx/interface/icons/regimenttypes/grey_elven_heavy_cavalry.dds"
+	}
+	icon = { #LotR
+		trigger = { story_owner.dynasty = dynasty:dynasty_eorl }
+		reference = "gfx/interface/icons/regimenttypes/eorlingas_warriors.dds"
+	}
+	icon = {
+		trigger = {
+			always = yes
+		}
+		reference = "gfx/interface/icons/regimenttypes/nomad_lancers.dds"
+	}
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/courtyard.dds"
+	}
+	
+	visualization = {
+		custom_string_key = "WARHORSE_STORY_PRACTICAL_INFORMATION_STRING"
+		modifiers = {
+			horse_story_modifier
+			horse_strength_modifier
+			horse_agility_modifier
+			horse_endurance_modifier
+			horse_fierceness_modifier
+			horse_strength_strength_modifier
+			horse_agility_strength_modifier
+			horse_agility_agility_modifier
+			horse_endurance_strength_modifier
+			horse_endurance_agility_modifier
+			horse_endurance_endurance_modifier
+			horse_fierceness_strength_modifier
+			horse_fierceness_agility_modifier
+			horse_fierceness_endurance_modifier
+			horse_fierceness_fierceness_modifier
+			horse_practice_modifier
+			cursed_horse_modifier
+			#LotR
+			meara_story_modifier
+			elf_horse_story_modifier
+			bonded_with_steed_modifier
+		}
+	}
+
+	on_setup = {
+		assign_horse_gender_effect = { GENDER = random }
+		story_owner = {
+			if = { #LotR
+				limit = { dynasty = dynasty:dynasty_eorl }
+				add_character_modifier = {
+					modifier = meara_story_modifier
+				}
+			}
+			else_if = { #LotR
+				limit = { is_elf = yes }
+				add_character_modifier = {
+					modifier = elf_horse_story_modifier
+				}
+			}
+			else = { 
+				add_character_modifier = {
+					modifier = horse_story_modifier
+				}
+			}
+			add_character_flag = had_warhorse_story
+			set_variable = { # Set up the variable so we can check its value in the modifier event
+				name = warhorse_modifier_level
+				value = 0
+			}
+			#LotR - Naming historical horses
+			if = { #Snowmane - Théoden's horse
+				limit = { this = character:lineofeorl28 }
+				scope:story = {
+					set_variable = { #Snowmane
+						name = story_cycle_horse_name
+						value = flag:snowmane
+					}
+				}
+			}
+			if = { #Ashere - Héra's horse
+				limit = { this = character:lineofeorl15 }
+				scope:story = {
+					set_variable = { #Ashere
+						name = story_cycle_horse_name
+						value = flag:ashere
+					}
+				}
+			}
+			if = { #Thunar - Helm's horse
+				limit = { this = character:lineofeorl11 }
+				scope:story = {
+					set_variable = { #Thunar
+						name = story_cycle_horse_name
+						value = flag:thunar
+					}
+				}
+			}
+			if = { #Asfaloth - Glorfindel's horse
+				limit = { this = character:lineofglorfindel }
+				scope:story = {
+					set_variable = { #Asfaloth
+						name = story_cycle_horse_name
+						value = flag:bucephalus #Reflavoured to Asfaloth
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					exists = var:story_cycle_horse_name
+					story_owner = {
+						has_character_flag = is_in_naming_event
+					}
+				}
+			}
+			story_owner = {
+				add_character_flag = is_in_naming_event
+				trigger_event = {
+					id = warhorse.0001
+					days = 2
+				}
+			}
+		}
+	}
+
+	on_end = {
+		story_owner = {
+			remove_horse_story_modifiers_effect = yes
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	effect_group = { # Something happens - random events
+		days = { 275 400 }
+		chance = 25
+
+		trigger = {
+			exists = var:story_cycle_horse_name
+			story_owner = {
+				is_available = yes
+				NOT = {
+					has_character_flag = is_breeding_warhorse
+				}
+			}
+		}
+
+		triggered_effect = {
+			trigger = { exists = var:story_cycle_horse_name }
+			effect = {
+				story_owner = {
+					trigger_event = {
+						on_action = ongoing_warhorse_events
+					}
+				}
+			}
+		}
+
+		triggered_effect = { # A fellow governor is jealous of your horse
+			trigger = {
+				story_owner = {
+					is_ai = yes
+					is_governor = yes 
+					liege = {
+						any_vassal = {
+							this != root.story_owner
+							is_available_adult = yes 
+							is_governor = yes
+						}
+					}
+				}
+			}
+			effect = {
+				story_owner = {
+					save_scope_as = horse_owner
+					liege = {
+						random_vassal = {
+							limit = {
+								this != root.story_owner
+								is_available_adult = yes
+								is_governor = yes
+							}
+							trigger_event = ep3_yearly.1010 
+						}
+					}
+				}
+			}
+		}
+	}
+
+	effect_group = { # You trusted steed is getting old, you should consider breeding!
+		days = { 5000 7000 }
+		chance = 100
+
+		trigger = {
+			story_owner = {
+				is_available = yes
+				NOR = {
+					has_character_modifier = meara_story_modifier
+					has_character_modifier = elf_horse_story_modifier
+				}
+			}
+		}
+	
+		triggered_effect = {
+			trigger = { always = yes }
+			effect = {
+				story_owner = {
+					add_character_flag = {
+						flag = is_breeding_warhorse
+						days = 200
+					}
+					trigger_event = {
+						on_action = breed_warhorse
+					}
+				}
+			}
+		}
+	}
+}

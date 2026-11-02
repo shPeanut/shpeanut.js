@@ -1,0 +1,99 @@
+﻿##################
+#### LOSSOTH ####
+##################
+
+dynasty_harviala = {
+	name = "dynn_harviala"
+	culture = "lossoth"
+	motto = dynn_harviala_motto
+}
+
+dynasty_isotalo = {
+	name = "dynn_isotalo"
+	culture = "lossoth"
+	motto = dynn_isotalo_motto
+}
+
+dynasty_tavast = {
+	name = "dynn_tavast"
+	culture = "lossoth"
+	motto = dynn_tavast_motto
+}
+
+dynasty_itaman = {
+	name = "dynn_itaman"
+	culture = "lossoth"
+	motto = dynn_itaman_motto
+}
+
+dynasty_jarannit = {
+	name = "dynn_jarannit"
+	culture = "lossoth"
+	motto = dynn_jarannit_motto
+}
+
+dynasty_salmi = {
+	name = "dynn_salmi"
+	culture = "lossoth"
+	motto = dynn_salmi_motto
+}
+
+dynasty_homela = {
+	name = "dynn_homela"
+	culture = "lossoth"
+	motto = dynn_homela_motto
+}
+
+dynasty_osekki = {
+	name = "dynn_osekki"
+	culture = "lossoth"
+	motto = dynn_osekki_motto
+}
+
+dynasty_hakka = {
+	name = "dynn_hakka"
+	culture = "lossoth"
+	motto = dynn_hakka_motto
+}
+
+dynasty_jori = {
+	name = "dynn_jori"
+	culture = "lossoth"
+	motto = dynn_jori_motto
+}
+
+dynasty_rauta = {
+	name = "dynn_rauta"
+	culture = "lossoth"
+	motto = dynn_rauta_motto
+}
+
+dynasty_hirvo = {
+	name = "dynn_hirvo"
+	culture = "lossoth"
+	motto = dynn_hirvo_motto
+}
+
+dynasty_ressu = {
+	name = "dynn_ressu"
+	culture = "lossoth"
+	motto = dynn_ressu_motto
+}
+
+dynasty_pelavi = {
+	name = "dynn_pelavi"
+	culture = "lossoth"
+	motto = dynn_pelavi_motto
+}
+
+dynasty_ailempi = {
+	name = "dynn_ailempi"
+	culture = "lossoth"
+	motto = dynn_ailempi_motto
+}
+
+dynasty_kerkonnen = {
+	name = "dynn_kerkonnen"
+	culture = "lossoth"
+	motto = dynn_kerkonnen_motto
+}

@@ -1,0 +1,5189 @@
+﻿namespace = seregul
+
+###########
+#	Who to target first?
+#	seregul.0001 - seregul.0100
+#
+#	Focus South 
+#	seregul.0001 - seregul.0100
+#
+#	Focus East
+#	seregul.0101 - seregul.0201
+#
+#	Focus West
+#	seregul.0201 - seregul.0250
+#
+#   Heartlands revolt!
+#	seregul.0251 - seregul.0299
+#
+#	Stormhost Chain 
+#	seregul.0300 - seregul.0399
+#
+#	Work with the Stormhost
+#	seregul.0400 - seregul.0501
+###########
+
+seregul.9996 = { # Seregul became leader on the canon path
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	override_background = { reference = docks_adunai }
+	title = seregul.9996.t
+	desc = seregul.9996.desc
+
+	left_portrait = {
+		character = root
+		animation = scepter
+	}
+	right_portrait = {
+		character = title:e_thon_an_kharlokh.holder
+		animation = anger
+	}
+	
+	option = {
+		name = seregul.9996.a
+		custom_tooltip = seregul.9996.a.tt
+		if = {
+			limit = { NOT = { has_trait = paranoid } }
+			random = {
+				chance = 10
+				add_trait = paranoid
+			}
+		}
+	}
+	after = {
+		title:e_thon_an_kharlokh.holder = {
+			trigger_event = {
+				id = seregul.9997
+				days = 2
+			}
+		}
+	}
+}
+
+seregul.9997 = { # Stormhost event when Seregul becomes leader
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	override_background = { reference = docks_adunai }
+	title = seregul.9997.t
+	desc = seregul.9997.desc
+
+	left_portrait = {
+		character = character:lineofagathohin173
+		animation = scepter
+	}
+	right_portrait = {
+		character = root
+		animation = anger
+	}
+	immediate = {
+		if = {
+			limit = { character:lineofagathohin173 = { any_secret = { type = secret_murder } } }
+			character:lineofagathohin173 = {
+				random_secret = {
+					type = secret_murder
+					save_scope_as = seregul_secret
+				}
+			}
+		}
+		else = {
+			character:lineofagathohin173 = {
+				random_secret = {
+					save_scope_as = seregul_secret
+				}
+			}
+		}
+		random_confederation = {
+			limit = { has_variable = balan_lai_confederation }
+			every_confederation_member = {
+				limit = { this != character:lineofagathohin173 }
+				add_to_temporary_list = balan_lai
+			}
+		}
+	}
+	option = {
+		trigger = { character:lineofagathohin173 = { has_character_flag = accepted_stormhost } }
+		name = seregul.9997.a
+		add_stress = medium_stress_impact_gain
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = {
+		trigger = { character:lineofagathohin173 = { has_character_flag = accepted_stormhost } }
+		name = seregul.9997.b
+		add_stress = minor_stress_impact_gain
+		start_scheme = {
+			target_character = character:lineofagathohin173
+			type = murder
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = {
+		trigger = { character:lineofagathohin173 = { has_character_flag = end_of_gifts } }
+		name = seregul.9997.c
+		add_prestige = medium_prestige_gain
+		add_short_term_gold = 100
+		start_scheme = {
+			target_character = character:lineofagathohin173
+			type = murder
+		}
+		every_in_list = {
+			list = balan_lai
+			scope:seregul_secret = {
+				reveal_to ?= prev
+			}
+		}
+	}
+}
+
+seregul.9998 = { #How dare anyone else become the leader of the Balan Lai?!
+	content_source = realms_dlc
+	type = character_event
+	theme = crown
+	title = seregul.9998.t
+	desc = seregul.9998.desc
+	
+	left_portrait = {
+		character = root
+		animation = eyeroll
+	}
+	right_portrait = {
+		character = scope:leader
+		animation = scepter
+	}
+	immediate = {
+		title:d_balan_lai_leader.holder = { save_scope_as = leader }
+	}
+
+	option = { # It should have been me
+		name = seregul.9998.a
+		add_stress = medium_stress_impact_gain
+		if = {
+			limit = { NOT = { has_trait = paranoid } }
+			random = {
+				chance = 10
+				add_trait = paranoid
+			}
+		}
+		set_relation_rival = {
+			target = scope:leader
+			reason = rival_seized_throne_reason
+		}
+	}
+}
+
+seregul.9999 = {
+	content_source = realms_dlc
+	type = character_event
+	theme = realm
+	title = seregul.9999.t
+	desc = seregul.9999.desc
+	
+	left_portrait = {
+		character = root
+		animation = dismissal
+	}
+	right_portrait = {
+		character = character:lineofzuberi7
+		animation = personality_bold
+	}
+	lower_left_portrait = {
+		character = scope:bandit_ruler
+		animation = personality_bold
+	}
+	lower_center_portrait = {
+		character = scope:toya
+		animation = personality_zealous
+	}
+	lower_right_portrait = {
+		character = scope:mag_ruler
+		animation = personality_bold
+	}
+
+	immediate = {
+		title:c_obishamba.holder = { save_scope_as = bandit_ruler }
+		title:d_bukumagen.holder = { save_scope_as = mag_ruler }
+		title:c_mokuba.holder = { save_scope_as = toya }
+	}
+
+	option = { # Focus South
+		name = seregul.9999.a
+		custom_tooltip = seregul.9999.a.tt
+		add_character_modifier = {	#Some scheme bonuses for going southward
+			modifier = seregul_focusing_south_modifier
+			years = 4
+		}
+		add_character_flag = seregul_focusing_south
+		trigger_event = {
+			id = seregul.0004
+			days = 30 
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+
+	option = { # East
+		name = seregul.9999.b
+		custom_tooltip = seregul.9999.b.tt
+		add_character_modifier = {	#Mil buff
+			modifier = seregul_focusing_east_modifier
+			years = 4
+		}
+		add_character_flag = seregul_focusing_east
+		trigger_event = {
+			id = seregul.0101
+		    days = 30 
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 10
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+
+	option = { #West
+		name = seregul.9999.c
+		custom_tooltip = seregul.9999.c.tt
+		add_character_modifier = {	#In realm diplo bonus
+			modifier = seregul_focusing_west_modifier
+			years = 4
+		}
+		add_character_flag = seregul_focusing_west
+		trigger_event = {
+			id = seregul.0201
+		    days = 30 
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 10
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+
+	option = { #Everything 
+		name = seregul.9999.d
+		custom_tooltip = seregul.9999.d.tt
+		add_character_modifier = {	#Overextension modifier
+			modifier = seregul_focusing_everywhere_modifier
+			years = 4
+		}
+		add_character_flag = seregul_focusing_everywhere
+		trigger_event = {
+			id = seregul.0004
+			days = 15 
+		}
+		trigger_event = {
+			id = seregul.0101
+			days = 30 
+		}
+		trigger_event = {
+			id = seregul.0201
+			days = 45 
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 5
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+}
+
+#Choose vengeance
+
+seregul.0001 = { #The Fate of the Mayor 
+	content_source = realms_dlc
+	type = character_event
+	theme = rival_relation
+	title = seregul.0001.t
+	desc = seregul.0001.desc
+	
+	left_portrait = {
+		character = root
+		animation = eyeroll
+	}
+	right_portrait = {
+		character = character:lineofzuberi7
+		animation = personality_bold
+	}
+
+	immediate = {
+		character:lineofzuberi7 = { save_scope_as = mayor }
+		add_character_modifier = {
+			modifier = seregul_plotting_modifier
+			months = 12
+		}
+	}
+   
+	option = { #Murder
+		name = seregul.0001.a 
+		start_scheme = {
+			target_character = character:lineofzuberi7
+			type = murder
+			save_scope_as = murder
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 34
+			}
+		}
+	}
+
+	option = { # Abduct
+		name = seregul.0001.b 
+		start_scheme = { 
+			target_character = character:lineofzuberi7
+			type = abduct
+			save_scope_as = abduct
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 20
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+
+	option = { #Who needs subtlety? War! (Annoys vassals)
+		name = seregul.0001.c
+		add_dread = 15
+		every_vassal_or_below = {
+			limit = {
+				OR = {
+					culture = title:d_barasi.holder.culture
+					faith = title:d_barasi.holder.faith
+				}
+				highest_held_title_tier > tier_barony
+			}
+			add_opinion = { modifier = insult_opinion target = root opinion = -50 }
+		}
+		start_war = {
+			casus_belli = stabilize_pel_cb
+			target = character:lineofzuberi7
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 5
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+	after = {
+		trigger_event = {
+			id = seregul.0002
+			days = 7
+		}
+	}
+}
+
+seregul.0002 = { #The Fate of your wife
+	content_source = realms_dlc
+	type = character_event
+	theme = bastardy
+	title = seregul.0002.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					OR = {
+						any_scheme = {
+							type = murder
+							scheme_target_character = character:lineofzuberi7
+						}
+						any_scheme = {
+							type = abduct
+							scheme_target_character = character:lineofzuberi7
+						}
+					}
+				}
+				desc = seregul.0002.desc
+			}
+			desc = seregul.0002.desc.b
+		}
+	}
+
+	left_portrait = {
+		character = root
+		animation = disgust
+	}
+	right_portrait = {
+		character = character:lineofagathohin196
+		animation = fear
+	}
+	lower_right_portrait = {
+		character = character:lineofzuberi7
+		animation =	flirtation
+	}
+	immediate = {
+		character:lineofagathohin196 = { save_scope_as = wife }
+		if = {
+			limit = {
+				any_scheme = {
+					type = murder
+					scheme_target_character = character:lineofzuberi7
+				}
+			}
+			scope:murder = {
+				random_scheme_agent_slot = {
+					limit = {
+						is_agent_slot_type = agent_assassin
+					}
+					save_scope_as = assassin
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				any_scheme = {
+					type = abduct
+					scheme_target_character = character:lineofzuberi7
+				}
+			}
+			scope:abduct = {
+				random_scheme_agent_slot = {
+					limit = {
+						is_agent_slot_type = agent_footpad
+					}
+					save_scope_as = footpad
+				}
+			}
+		}
+	}
+   
+	option = { #Imprison
+		name = seregul.0002.a 
+		imprison = { 
+			target = character:lineofagathohin196
+			type = house_arrest
+		}
+		every_vassal_or_below = { add_opinion = { modifier = angry_opinion target = root opinion = -15 } }
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 10
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+	option = { #Murder
+		name = seregul.0002.b 
+		start_scheme = {
+			target_character = character:lineofagathohin196
+			type = murder
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 5
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+	option = { #She will have to prove her loyalty, murder
+		trigger = {
+			NOT = {
+				character:lineofagathohin196 = {
+					is_scheming_against = {
+						target = character:lineofzuberi7
+						type = murder
+					}
+				}
+			}
+			is_scheming_against = {
+				target = character:lineofzuberi7
+				type = murder
+			}
+		}
+		name = seregul.0002.c
+		character:lineofagathohin196 = {
+			force_add_to_agent_slot = { 
+				agent_slot = scope:assassin
+				years = 5
+			}
+			add_opinion = { modifier = outraged_opinion target = root opinion = -50 }
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+	option = { #She will have to prove her loyalty, abduct
+		trigger = {
+			NOT = {
+				character:lineofagathohin196 = {
+					is_scheming_against = {
+						target = character:lineofzuberi7
+						type = abduct
+					}
+				}
+			}
+			is_scheming_against = {
+				target = character:lineofzuberi7
+				type = abduct
+			}
+		}
+		name = seregul.0002.c
+		character:lineofagathohin196 = {
+			force_add_to_agent_slot = { 
+				agent_slot = scope:footpad
+				years = 5
+			}
+			add_opinion = { modifier = outraged_opinion target = root opinion = -30 }
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+	option = { #Ignore 
+		name = seregul.0002.d
+		if = {
+			limit = { NOT = { has_trait = paranoid } }
+			random = {
+				chance = 10
+				add_trait = paranoid
+			}
+		}
+		reverse_add_opinion = {
+			target = character:lineofagathohin196
+			modifier = grateful_opinion
+			opinion = 15
+		}
+		add_stress = medium_stress_impact_gain
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 10
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+	after = {
+		trigger_event = {
+			id = seregul.0003
+			days = 7
+		}
+	}
+
+}
+
+seregul.0003 = { #The Fate of the child 
+	content_source = realms_dlc
+	type = character_event
+	theme = bastardy
+	title = seregul.0003.t
+	desc = seregul.0003.desc
+	
+	left_portrait = {
+		character = root
+		animation = disgust
+	}
+	right_portrait = {
+		character = character:lineofagathohin209
+		animation = fear
+	}
+	lower_right_portrait = {
+		character = character:lineofzuberi7
+		animation =	flirtation
+	}
+	lower_center_portrait = {
+		character = character:lineofagathohin196
+		animation =	flirtation
+	}
+	immediate = {
+		character:lineofagathohin209 = {
+			add_pressed_claim = title:k_pel
+			add_pressed_claim = title:d_pel
+			add_pressed_claim = title:c_arpel
+			add_pressed_claim = title:d_barasi
+			add_pressed_claim = title:c_shalala	
+		}
+	}
+
+	option = { #Imprison
+		name = seregul.0003.a 
+		imprison = { 
+			target = character:lineofagathohin209
+			type = house_arrest
+		}
+		every_vassal_or_below = {
+			limit = {
+				OR = {
+					culture != root.culture
+					faith != root.faith
+				}
+				highest_held_title_tier > tier_barony
+			}
+			add_opinion = { modifier = insult_opinion target = root opinion = -30 }
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 15
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+	option = { #Murder
+		name = seregul.0003.b 
+		start_scheme = {
+			target_character = character:lineofagathohin209
+			type = murder
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 34
+			}
+		}
+	}
+	option = { #Legitimize
+		name = seregul.0003.c
+		if = {
+			limit = { NOT = { has_trait = paranoid } }
+			random = {
+				chance = 10
+				add_trait = paranoid
+			}
+		}
+		add_dread = -10
+		legitimize_bastard_interaction_opinions_effect = {
+			BASTARD = character:lineofagathohin209
+			HOUSE_HEAD = root
+			LEGITIMIZER = root
+		}
+		character:lineofagathohin209 = { set_house = character:lineofagathohin196.house }
+		add_stress = medium_stress_impact_gain
+		if = {
+			limit = {
+				character:lineofagathohin196 = {
+					is_alive = yes
+				}
+			}
+			reverse_add_opinion = {
+				modifier = legitimized_my_child_opinion
+				target = character:lineofagathohin196
+			}
+		}
+		if = { # Move the child to the legitimizer's court if relevant
+			limit = {
+				character:lineofagathohin209 ?= {
+					NOT = { is_in_the_same_court_as_or_guest = root }
+				}
+				exists = court_owner
+			}
+			if = {
+				limit = {
+					character:lineofagathohin209 ?= {
+						NOT = { is_courtier_of = ROOT } # Check that char is not already at your court (theoretical fix)
+					}
+					OR = {
+						this = court_owner
+						is_courtier_of = court_owner
+					}
+				}
+				add_courtier = character:lineofagathohin209
+			}
+			else = {
+				character:lineofagathohin209 ?= { visit_court_of = root.court_owner }
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 10
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+}
+
+#Focus South 
+
+seregul.0004 = { #How to deal with the city? 
+	content_source = realms_dlc
+	type = character_event
+	theme = diplomacy_foreign_affairs_focus
+	title = seregul.0004.t
+	desc = seregul.0004.desc
+
+	left_portrait = {
+		character = root
+		animation = personality_callous
+	}
+	right_portrait = {
+		character = title:d_barasi.holder
+		animation = worry
+	}
+
+	immediate = {
+		title:d_barasi.holder = { save_scope_as = mayor }
+	}
+   
+	option = { #War
+		trigger = { NOT = { is_at_war_with = title:d_barasi.holder } }
+		name = seregul.0004.a 
+		start_war = {
+			casus_belli = stabilize_pel_cb
+			target = title:d_barasi.holder
+		}
+		add_dread = 15
+		every_vassal_or_below = {
+			limit = {
+				OR = {
+					culture = title:d_barasi.holder.culture
+					faith = title:d_barasi.holder.faith
+				}
+				highest_held_title_tier > tier_barony
+			}
+			add_opinion = { modifier = insult_opinion target = root opinion = -50 }
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+
+	option = { #Economic Strangle
+		trigger = { NOT = { is_at_war_with = title:d_barasi.holder } }
+		name = seregul.0004.b
+		remove_short_term_gold = 75
+		title:c_shalala = {
+			add_county_modifier = {
+				modifier = seregul_strangled_trade_modifier
+				years = 5
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+
+	option = { # We're already at war!
+		trigger = {
+			is_at_war_with = title:d_barasi.holder
+		}
+		name = seregul.0004.c
+		add_prestige = minor_prestige_gain
+
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+seregul.0005 = { #What to do with the defeated? 
+	content_source = realms_dlc
+	type = character_event
+	theme = corruption
+	title = seregul.0005.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					title:c_shalala.development_level <= 7
+				}
+			desc = seregul.0005.desc
+			}
+		desc = seregul.0005.desc.b
+		}
+	}
+	left_portrait = {
+		character = root
+		animation = celebrate_dagger
+	}
+	right_portrait = {
+		character = scope:mayor
+		animation = beg
+	}
+	lower_left_portrait = {
+		character = scope:potential_oligarchic_vassal
+	}
+	lower_right_portrait = {
+		character = scope:local_oligarchic_vassal
+	}
+
+	immediate = {
+		create_character = {
+			gender_female_chance = 15
+			location = root.location
+			template = loyal_fan_character
+			faith = root.faith
+			culture = root.culture
+			save_scope_as = potential_oligarchic_vassal
+		}
+		create_character = {
+			gender_female_chance = 15
+			location = root.location
+			template = loyal_fan_character 
+			faith = title:c_shalala.faith
+			culture = title:c_shalala.culture
+			save_scope_as = local_oligarchic_vassal
+		}
+		if = {
+			limit = {
+				title:c_shalala.holder != root
+			}
+			title:c_shalala.holder = { save_scope_as = mayor }
+		}
+		else = {
+			title:c_shalala.previous_holder = { save_scope_as = mayor }
+		}
+		title:c_shalala = {
+			remove_county_modifier = seregul_strangled_trade_modifier
+		}
+	}
+   
+	option = { #I shall rule it!
+		name = seregul.0005.a
+		create_title_and_vassal_change = {
+			type = usurped
+			save_scope_as = change
+			add_claim_on_loss = yes
+		}
+		title:c_shalala = {
+			change_title_holder_include_vassals = {
+				holder = title:k_pel.holder
+				change = scope:change
+			}
+			random_list = {
+				33 = {
+					change_county_control = -30
+				}
+				33 = {
+					change_county_control = -60
+				}
+				33 = {
+					change_county_control = -90
+				}
+			}
+		}
+		title:c_shalala.title_province = { set_holding_type = castle_holding }
+		resolve_title_and_vassal_change = scope:change
+		add_stress = medium_stress_impact_loss
+		add_dread = 5
+		every_vassal_or_below = {
+			limit = {
+				OR = {
+					culture = title:c_shalala.previous_holder.culture
+					faith = title:c_shalala.previous_holder.faith
+				}
+				highest_held_title_tier > tier_barony
+			}
+			add_opinion = { modifier = outraged_opinion target = root opinion = -45 }
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 15
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+
+	option = { #I shall integrate it
+		name = seregul.0005.b
+
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:c_shalala = {
+			change_title_holder_include_vassals = {
+				holder = scope:potential_oligarchic_vassal
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		title:c_shalala.holder = { change_government = oligarchy_government }
+		every_vassal_or_below = {
+			limit = {
+				OR = {
+					culture = title:c_shalala.previous_holder.culture
+					faith = title:c_shalala.previous_holder.faith
+				}
+				highest_held_title_tier > tier_barony
+			}
+			add_opinion = { modifier = outraged_opinion target = root opinion = -30 }
+		}
+		scope:potential_oligarchic_vassal = { save_scope_as = granted_vassal }
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 34
+			}
+		}
+	}
+	option = { #I shall endure it
+		name = seregul.0005.c
+		# Leave as city 
+		if = {
+			limit = { NOT = { has_trait = paranoid } }
+			random = {
+				chance = 10
+				add_trait = paranoid
+			}
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:c_shalala = {
+			change_title_holder_include_vassals = {
+				holder = scope:local_oligarchic_vassal
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		title:c_shalala.holder = { change_government = oligarchy_government }
+		every_vassal_or_below = {
+			limit = {
+				OR = {
+					culture = title:c_shalala.previous_holder.culture
+					faith = title:c_shalala.previous_holder.faith
+				}
+				highest_held_title_tier > tier_barony
+			}
+			add_opinion = { modifier = pleased_opinion target = root opinion = 40 }
+		}
+		scope:local_oligarchic_vassal = { save_scope_as = granted_vassal }
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 10
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+
+	after = {
+		trigger_event = {
+			id = seregul.0006
+			days = 30 
+		}
+		if = {
+			limit = { exists = scope:granted_vassal }
+			hidden_effect = {
+				scope:granted_vassal = { 
+					trigger_event = seregul.0007
+				}
+			}
+		}
+		if = {
+			limit = { title:c_shalala.previous_holder = { is_landed = yes } }
+			title:c_shalala.previous_holder = {
+				trigger_event = seregul.0007
+			}
+		}
+	}
+}
+
+seregul.0006 = { #What about the Druedain?
+	content_source = realms_dlc
+	type = character_event
+	theme = corruption
+	title = seregul.0006.t
+	desc = seregul.0006.desc.a
+	
+	left_portrait = {
+		character = root
+		animation = eyeroll
+	}
+	right_portrait = {
+		character = scope:chaialla_ruler
+		animation = worry
+	}
+
+	trigger = {
+		title:k_pel = { #Make sure there ARE chaialla in Pel
+			any_de_jure_county_holder = {
+				is_independent_ruler = yes
+				culture ?= {
+					OR = {
+						this = culture:chaialla
+						any_parent_culture_or_above = { this = culture:chaialla }
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		title:k_pel = { #Make sure there ARE chaialla in Pel
+			random_de_jure_county_holder = {
+				limit = {
+					is_independent_ruler = yes
+					culture = {
+						OR = {
+							this = culture:chaialla
+							any_parent_culture_or_above = { this = culture:chaialla }
+						}
+					}
+				}
+				save_scope_as = chaialla_ruler 
+			}
+		}
+	}
+   
+	option = { #Conquer, vassals get grumpy 
+		name = seregul.0006.a
+
+		start_war = {
+			casus_belli = stabilize_pel_cb
+			target = scope:chaialla_ruler
+		}
+
+		add_dread = 5
+		every_vassal_or_below = {
+			limit = { highest_held_title_tier > tier_barony }
+			add_opinion = { modifier = insult_opinion target = root opinion = -20 }
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+   
+	option = { #Vassal via diplo/intrigue challenge
+		name = seregul.0006.b
+
+		duel = {
+			skill = diplomacy
+			skill = intrigue
+			value = very_high_skill_rating
+			33 = { # Becomes vassal
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					# Always give _some_ chance.
+					min = -32
+				}
+				desc = seregul.0006.b.tt.vassal
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = seregul.0006.b.tt.vassal
+					left_icon = root
+				}
+				create_title_and_vassal_change = {
+					type = swear_fealty
+					save_scope_as = title_change
+				}
+				scope:chaialla_ruler = {
+					change_liege = {
+						liege = root
+						change = scope:title_change
+					}		
+				}
+				resolve_title_and_vassal_change = scope:title_change
+				scope:chaialla_ruler = { add_character_flag = chaialla_vassalized }
+			}
+			20 = { # War it is
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					# Limit how low the off-chance can go.
+					min = -19
+				}
+				desc = seregul.0006.b.tt.tributary
+				start_war = {
+					casus_belli = stabilize_pel_cb
+					target = scope:chaialla_ruler
+				}
+				every_vassal_or_below = {
+					limit = { highest_held_title_tier > tier_barony }
+					add_opinion = { modifier = insult_opinion target = root opinion = -15 }
+				}
+				add_prestige = medium_prestige_loss
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	after = {
+		if = {
+			limit = { scope:chaialla_ruler = { has_character_flag = chaialla_vassalized } }
+			scope:chaialla_ruler = { 
+				trigger_event = seregul.0007
+			}
+		}
+	}
+}
+
+seregul.0007 = { # Hidden event to give everyone Seregul vassalizes their contracts
+	hidden = yes
+	immediate = {
+		if = {
+			limit = { root = { has_government = feudal_government } }
+			hidden_effect = {
+				root = {
+					vassal_contract_set_obligation_level = { type = jizya_special_rights level = 1 } 
+					vassal_contract_set_obligation_level = { type = special_contract level = 4 }
+				}
+			}
+		}
+		else = {
+			hidden_effect = {
+				root = {
+					vassal_contract_set_obligation_level = { type = jizya_special_rights level = 1 }
+				}
+			}
+		}
+	}
+} 
+
+## Focus East
+
+seregul.0101 = { # Bandits and Magri
+	content_source = realms_dlc
+	type = character_event
+	theme = corruption
+	title = seregul.0101.t
+	desc = seregul.0101.desc.a
+	left_portrait = {
+		character = root
+		animation = eyeroll
+	}
+	right_portrait = {
+		character = scope:bandit_ruler
+		animation = personality_bold
+	}
+	lower_right_portrait = {
+		character = scope:mag_ruler
+		animation = personality_bold
+	}
+
+	immediate = {
+		title:c_obishamba.holder = { save_scope_as = bandit_ruler }
+		if = {
+			limit = { title:c_igwanja.holder.culture = culture:mag }
+			title:d_bukumagen.holder ?= { save_scope_as = mag_ruler }
+		} 
+		else_if = {
+			limit = { title:d_bukumagen.holder.culture = culture:mag }
+			title:c_igwanja.holder ?= { save_scope_as = mag_ruler }
+		} 
+	}
+   
+	option = { #Play the bandits and mag against each other. Triggers a tough diplo/intrigue challenge where success sets the 2 of them at war, and failure gives them an alliance.
+		name = seregul.0101.a 
+
+		duel = {
+			skill = diplomacy
+			skill = intrigue
+			value = high_skill_rating
+			33 = { # The two of them go to war with each other
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					# Always give _some_ chance.
+					min = -39
+				}
+				desc = seregul.0101.a.tt.success
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = seregul.0101.a.tt.success
+					left_icon = root
+				}
+				scope:mag_ruler = {
+					start_war = {
+						casus_belli = vassalization_cb
+						target = scope:bandit_ruler
+					}
+				}
+				add_prestige = major_prestige_gain
+			}
+			33 = { # Two of them get an alliance
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					# Limit how low the off-chance can go.
+					min = -19
+				}
+				desc = seregul.0101.a.tt.failure
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = seregul.0101.a.tt.failure
+					left_icon = root
+				}
+				scope:mag_ruler = {
+					create_alliance = {
+						target = scope:bandit_ruler
+						allied_through_owner = scope:mag_ruler
+						allied_through_target = scope:mag_ruler
+					}
+				}
+				scope:bandit_ruler = {
+					add_opinion = {
+						modifier = perk_negotiated_alliance_opinion
+						target = scope:mag_ruler
+					}
+				}
+				start_war = {
+					casus_belli = stabilize_pel_cb
+					target = scope:bandit_ruler
+				}
+				start_war = {
+					casus_belli = stabilize_pel_cb
+					target = scope:mag_ruler
+				}
+				every_vassal_or_below = {
+					limit = {
+						culture != root.culture
+						faith != root.faith
+					}
+					add_opinion ?= { modifier = outraged_opinion target = root opinion = -15 }
+				}
+				add_dread = 10
+				add_prestige = major_prestige_loss
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+
+	option = { # Pick them off individually
+		name = seregul.0101.b
+		start_war = {
+			casus_belli = stabilize_pel_cb
+			target = scope:bandit_ruler
+		}
+		start_war = {
+			casus_belli = stabilize_pel_cb
+			target = scope:mag_ruler
+		}
+		every_vassal_or_below = {
+			limit = {
+				culture != root.culture
+				faith != root.faith
+			}
+			add_opinion ?= { modifier = outraged_opinion target = root opinion = -50 }
+		}
+		add_dread = 20
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	after = { add_character_flag = east_event }
+}
+
+seregul.0102 = { # How to Pacify the Bandits? 
+	content_source = realms_dlc
+	type = character_event
+	theme = corruption
+	title = seregul.0102.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = seregul_focusing_east }
+				desc = seregul.0102.desc.a
+			}
+			desc = seregul.0102.desc.b
+		}
+	}
+	left_portrait = {
+		character = root
+		animation = eyeroll
+	}
+	right_portrait = {
+		character = scope:bandit_king
+		animation = personality_bold
+	}
+
+	immediate = {
+		title:c_obishamba.holder = { save_scope_as = bandit_king }
+		if = {
+			limit = { title:c_igwanja.holder.culture = culture:mag }
+			title:d_bukumagen.holder ?= { save_scope_as = mag_ruler }
+		} 
+		else_if = {
+			limit = { title:d_bukumagen.holder.culture = culture:mag }
+			title:c_igwanja.holder ?= { save_scope_as = mag_ruler }
+		} 
+	}
+   
+	option = { #Try to vassalize the Bandit King
+		name = seregul.0102.a
+
+		duel = {
+			skill = diplomacy
+			skill = intrigue
+			value = high_skill_rating
+			33 = { #He accepts, but how much will it cost
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					# Always give _some_ chance.
+					min = -39
+				}
+				desc = seregul.0102.a.tt.success
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = seregul.0102.a.tt.success
+					left_icon = root
+				}
+				duel = {
+					skill = stewardship
+					value = low_skill_rating
+					33 = { 
+						compare_modifier = {
+							value = scope:duel_value
+							multiplier = 3.5
+							# Always give _some_ chance.
+							min = -39
+						}
+						pay_short_term_gold = {
+							target = scope:bandit_king
+							gold = 75
+						}
+					}
+					33 = {
+						compare_modifier = {
+							value = scope:duel_value
+							multiplier = -3.5
+							# Limit how low the off-chance can go.
+							min = -19
+						}
+						pay_short_term_gold = {
+							target = scope:bandit_king
+							gold = 150
+						}
+					}
+				}
+				create_title_and_vassal_change = {
+					type = swear_fealty
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				scope:bandit_king = {
+					change_liege = {
+						liege = root
+						change = scope:change
+					}
+				}
+				resolve_title_and_vassal_change = scope:change
+
+				scope:bandit_king = {
+					set_variable = bandit_king_vassalized
+					every_held_county = {
+						change_county_control = -50
+					}
+				}
+				add_truce_both_ways = {
+					character = scope:bandit_king
+					days = 1095
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			33 = { #War it is
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					# Limit how low the off-chance can go.
+					min = -19
+				}
+				start_war = {
+					casus_belli = stabilize_pel_cb
+					target = title:c_obishamba.holder
+				}
+				every_vassal_or_below = {
+					limit = {
+						OR = {
+							culture = scope:bandit_king.culture
+							faith = scope:bandit_king.faith
+						}
+						highest_held_title_tier > tier_barony
+					}
+					add_opinion = { modifier = insult_opinion target = root opinion = -25 }
+				}
+				add_prestige = medium_prestige_loss
+				add_dread = 10
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+   
+	option = { #Conquest
+		name = seregul.0102.b
+		start_war = {
+			casus_belli = stabilize_pel_cb
+			target = scope:bandit_king
+		}
+		add_dread = 20
+		every_vassal_or_below = {
+			limit = {
+				OR = {
+					culture = scope:bandit_king.culture
+					faith = scope:bandit_king.faith
+				}
+				highest_held_title_tier > tier_barony
+			}
+			add_opinion = { modifier = insult_opinion target = root opinion = -50 }
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+
+	after = {
+		if = {
+			limit = { scope:bandit_king = { has_variable = bandit_king_vassalized } }
+			scope:bandit_king = { trigger_event = seregul.0007 }
+			remove_variable = bandit_king_vassalized
+		}
+	}
+}
+
+seregul.0103 = { # How to tackle the Mag? 
+	content_source = realms_dlc
+	type = character_event
+	theme = corruption
+	title = seregul.0103.t
+	desc = seregul.0103.desc.a
+	left_portrait = {
+		character = root
+		animation = eyeroll
+	}
+	right_portrait = {
+		character = scope:mag_ruler
+		animation = personality_bold
+	}
+
+	immediate = {
+		title:k_pel = {
+			random_de_jure_county_holder = {
+				limit = {
+					AND = {
+						is_independent_ruler = yes 
+						culture ?= {
+							OR = {
+								this = culture:mag
+								any_parent_culture_or_above = { this = culture:mag }
+							}
+						}
+					}
+				}
+				save_scope_as = mag_ruler
+			}
+		}
+		
+	}
+   
+	option = { #Conquest
+		name = seregul.0103.a
+		start_war = {
+			casus_belli = stabilize_pel_cb
+			target = scope:mag_ruler
+		}
+		add_dread = 20
+		every_vassal_or_below = {
+			limit = {
+				culture != root.culture
+				faith != root.faith
+				highest_held_title_tier > tier_barony
+			}
+			add_opinion = { modifier = insult_opinion target = root opinion = -50 }
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { #Vassalization
+		name = seregul.0103.b
+		duel = {
+			skill = diplomacy
+			skill = martial
+			target = scope:mag_ruler
+			33 = { 
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					# Always give _some_ chance.
+					min = -39
+				}
+				desc = seregul.0102.a.tt.success
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = seregul.0102.a.tt.success
+					left_icon = root
+				}
+				create_title_and_vassal_change = {
+					type = swear_fealty
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				scope:mag_ruler = {
+					change_liege = {
+						liege = root
+						change = scope:change
+					}
+				}
+				resolve_title_and_vassal_change = scope:change
+				add_truce_both_ways = {
+					character = scope:mag_ruler
+					days = 1095
+					name = TRUCE_ENFORCE_TRUCE
+				}
+				scope:mag_ruler = { add_character_flag = mag_vassalized }
+			}
+			33 = { #War it is
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					# Limit how low the off-chance can go.
+					min = -19
+				}
+				start_war = {
+					casus_belli = stabilize_pel_cb
+					target = scope:mag_ruler
+				}
+				every_vassal_or_below = {
+					limit = {
+						OR = {
+							culture != root.culture
+							faith != root.faith
+						}
+						highest_held_title_tier > tier_barony
+					}
+					add_opinion = { modifier = insult_opinion target = root opinion = -25 }
+				}
+				add_prestige = medium_prestige_loss
+				add_dread = 10
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	after = {
+		if = { 
+			limit = { scope:mag_ruler = { has_character_flag = mag_vassalized } }
+			scope:mag_ruler = { trigger_event = seregul.0007 }
+			remove_character_flag = mag_vassalized
+		}
+	}
+}
+
+seregul.0104 = { # Conquering the Mag
+	content_source = realms_dlc
+	type = character_event
+	theme = war
+	title = seregul.0104.t
+	desc = seregul.0104.desc
+	left_portrait = {
+		character = root
+		animation = eyeroll
+	}
+	right_portrait = {
+		character = scope:defender
+		animation = worry
+	}
+	immediate = {
+		if = { 
+			limit = { exists = title:d_bukumagen }
+			destroy_title = title:d_bukumagen
+		}
+		if = {
+			limit = { 
+				scope:defender = {
+					this = character:lineofbukumagen1 
+					is_imprisoned = no
+				}
+			}
+			imprison = {
+				target = character:lineofbukumagen1
+				type = dungeon
+			}
+		}
+		scope:defender = {
+			every_held_title = {
+				limit = { target_is_de_jure_liege_or_above = title:k_pel }
+				title_tier >= county
+				add_to_list ?= revoke_titles
+			}
+		}
+	}
+	option = { # Take it all
+		name = seregul.0104.a
+		create_title_and_vassal_change = {
+			type = conquest
+			save_scope_as = change
+			add_claim_on_loss = yes
+		}
+		every_in_list = {
+			list = revoke_titles
+			change_title_holder_include_vassals ?= {
+				holder = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # Sell it to the Bandit King
+		trigger = { 
+			character:lineofbandit1 = title:c_obishamba.holder
+			any_in_list = {
+				list = revoke_titles
+				target_is_de_jure_liege_or_above = title:d_shanwo 
+			}
+		}
+		name = seregul.0104.b
+		add_short_term_gold = 200
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		every_in_list = {
+			list = revoke_titles
+			change_title_holder_include_vassals ?= {
+				holder = character:lineofbandit1
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	after = {
+		if = { 
+			limit = { character:lineofbukumagen1 = { is_imprisoned_by = character:lineofagathohin173 } }
+			execute_prisoner_effect = {
+				VICTIM = character:lineofbukumagen1
+				EXECUTIONER = character:lineofagathohin173
+			}
+		}
+	}
+}
+
+# Focus West
+seregul.0201 = { #Focus West
+	content_source = realms_dlc
+	type = character_event
+	theme = elven
+	title = seregul.0201.t
+	desc = seregul.0201.desc
+	
+	left_portrait = {
+		character = root
+		animation = eyeroll
+	}
+	right_portrait = {
+		character = scope:toya
+		animation = personality_zealous
+	}
+	lower_right_portrait = {
+		character = scope:terilaen
+		animation = interested_left
+	}
+
+	immediate = {
+		title:c_mokuba.holder = { save_scope_as = toya }
+		title:k_drel.holder = { save_scope_as = terilaen }
+	}
+
+	option = { #Try to negotiate
+		name = seregul.0201.a
+		duel = {
+			skill = diplomacy
+			skill = intrigue
+			target = scope:terilaen
+			33 = { 
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					# Always give _some_ chance.
+					min = -39
+				}
+				desc = seregul.0201.a.tt.success
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = seregul.0201.a.tt.success
+					left_icon = root
+				}
+				create_title_and_vassal_change = {
+					type = swear_fealty
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				scope:toya = {
+					change_liege = {
+						liege = root
+						change = scope:change
+					}
+				}
+				resolve_title_and_vassal_change = scope:change
+				add_truce_both_ways = {
+					character = scope:toya
+					days = 1095
+					name = TRUCE_ENFORCE_TRUCE
+				}
+				scope:toya = { add_character_flag = toya_vassalized }
+			}
+			33 = { #War it is
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					# Limit how low the off-chance can go.
+					min = -19
+				}
+				start_war = {
+					casus_belli = stabilize_pel_cb
+					target = scope:toya
+				}
+				every_vassal_or_below = {
+					limit = {
+						OR = {
+							culture != root.culture
+							faith != root.faith
+						}
+						highest_held_title_tier > tier_barony
+					}
+					add_opinion = { modifier = insult_opinion target = root opinion = -50 }
+				}
+				add_prestige = major_prestige_loss
+				add_dread = 10
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { #Hope that you are faster than the elves!
+		name = seregul.0201.b
+		start_war = {
+			casus_belli = stabilize_pel_cb
+			target = scope:toya
+		}
+		add_character_modifier = {
+			modifier = seregul_against_the_west_modifier
+			years = 1
+		}
+		every_vassal_or_below = {
+			limit = {
+				OR = {
+					culture != root.culture
+					faith != root.faith
+				}
+				highest_held_title_tier > tier_barony
+			}
+			add_opinion = { modifier = insult_opinion target = root opinion = -50 }
+		}
+		add_dread = 20
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	after = {
+		if = {
+			limit = { scope:toya = { has_character_flag = toya_vassalized } }
+			scope:toya = {
+				trigger_event = seregul.0007
+				remove_character_flag = toya_vassalized
+			}
+		}
+		add_character_flag = west_event 
+	}
+}
+
+seregul.0202 = { #Negotiate with Terilaen
+	content_source = realms_dlc
+	type = character_event
+	theme = elven
+	title = seregul.0202.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = seregul_focusing_west }
+				desc = seregul.0202.desc.a
+			}
+			desc = seregul.0202.desc.b
+		}
+	}
+	
+	left_portrait = {
+		character = root
+		animation = eyeroll
+	}
+	right_portrait = {
+		character = scope:toya
+		animation = personality_zealous
+	}
+	lower_right_portrait = {
+		character = scope:terilaen
+		animation = interested_left
+	}
+	immediate = {
+		title:c_mokuba.holder = { save_scope_as = toya }
+		title:k_drel.holder = { save_scope_as = terilaen }
+	}
+
+	option = { #Try to negotiate
+		name = seregul.0202.a
+		duel = {
+			skill = diplomacy
+			skill = intrigue
+			target = scope:terilaen
+			33 = { 
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					# Always give _some_ chance.
+					min = -39
+				}
+				desc = seregul.0201.a.tt.success
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = seregul.0201.a.tt.success
+					left_icon = root
+				}
+				create_title_and_vassal_change = {
+					type = swear_fealty
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				scope:toya = {
+					change_liege = {
+						liege = root
+						change = scope:change
+					}
+				}
+				resolve_title_and_vassal_change = scope:change
+				add_truce_both_ways = {
+					character = scope:toya
+					days = 1095
+					name = TRUCE_ENFORCE_TRUCE
+				}
+				scope:toya = { add_character_flag = toya_vassalized }
+			}
+			33 = { #War it is
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					# Limit how low the off-chance can go.
+					min = -19
+				}
+				start_war = {
+					casus_belli = stabilize_pel_cb
+					target = scope:toya
+				}
+				every_vassal_or_below = {
+					limit = {
+						OR = {
+							culture != root.culture
+							faith != root.faith
+						}
+						highest_held_title_tier > tier_barony
+					}
+					add_opinion = { modifier = insult_opinion target = root opinion = -25 }
+				}
+				add_dread = 5
+				add_prestige = medium_prestige_loss
+			}
+		}
+	}
+	after = {
+		if = {
+			limit = { scope:toya = { has_character_flag = toya_vassalized } }
+			scope:toya = {
+				trigger_event = seregul.0007
+				remove_character_flag = toya_vassalized
+			}
+		}
+	}
+}
+
+##Heartlands revolt!
+
+seregul.0250 = { # Pél is stabilized
+	content_source = realms_dlc
+	type = character_event
+	theme = crown
+	title = seregul.0250.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { dread >= 60 }
+				desc = seregul.0250.desc.a
+			}
+			desc = seregul.0250.desc.b
+		}
+	}
+
+	left_portrait = {
+		character = root
+		animation = scepter
+	}
+
+	option = {
+		name = seregul.0250.a
+		add_character_modifier = {
+			modifier = seregul_stabilized_pel_modifier
+			years = 10
+		}
+		add_legitimacy = 1000
+		root.dynasty = { add_dynasty_prestige = 250 }
+	}
+}
+
+seregul.0251 = { # Five years to stabilize Pél!
+	content_source = realms_dlc
+	type = character_event
+	theme = war
+	title = seregul.0251.t
+	desc = seregul.0251.desc
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	trigger = { global_var:pel_destabilized = yes }
+	immediate = {
+		title:d_barasi = {
+			every_de_jure_county_holder = {
+				limit = { 
+					is_independent_ruler = yes
+					this != root
+					NOT = { any_truce_holder = { this = root } }
+				}
+				add_to_list = target_character
+			}
+		}
+		title:d_shanwo = {
+			every_de_jure_county_holder = {
+				limit = {
+					is_independent_ruler = yes
+					this != root
+					NOT = { any_truce_holder = { this = root } }
+				}
+				add_to_list = target_character_2
+			}
+		}
+		title:d_pel = {
+			every_de_jure_county_holder = {
+				limit = {
+					is_independent_ruler = yes
+					this != root
+					NOT = { any_truce_holder = { this = root } }
+				}
+				add_to_list = target_character_3
+			}
+		}
+	}
+   
+	option = { # Sure I will stabilize
+		name = seregul.0251.a 
+		if = {
+			limit = { NOT = { has_trait = paranoid } }
+			random = {
+				chance = 10
+				add_trait = paranoid
+			}
+		}
+	}
+	option = { # I have unfinished business in Barasi
+		name = seregul.0251.b
+		trigger = { 
+			NOT = { completely_controls = title:d_barasi }
+			title:d_barasi = { 
+				any_de_jure_county_holder = { 
+					is_independent_ruler = yes
+					NOT = { is_at_war_with = character:lineofagathohin173 }
+				}
+			}
+		}
+		every_in_list = {
+			list = target_character
+			limit = { 
+				NOT = { is_at_war_with = character:lineofagathohin173 }
+				is_independent_ruler = yes
+			}
+			character:lineofagathohin173 = {
+				start_war ?= {
+					casus_belli = stabilize_pel_cb
+					target ?= prev
+				}
+			}
+		}
+		every_vassal_or_below = {
+			limit = {
+				OR = {
+					culture != root.culture
+					faith != root.faith
+				}
+				highest_held_title_tier > tier_barony
+			}
+			add_opinion = { modifier = angry_opinion target = root opinion = -30 }
+		}
+	}
+	option = { # I have unfinished business in the East
+		name = seregul.0252.c
+		trigger = { 
+			NOT = { completely_controls = title:d_shanwo }
+			title:d_shanwo = { 
+				any_de_jure_county_holder = {
+					is_independent_ruler = yes
+					NOT = { is_at_war_with = character:lineofagathohin173 } 
+				} 
+			}
+		}
+		every_in_list = {
+			list = target_character_2
+			limit = { 
+				NOT = { is_at_war_with = character:lineofagathohin173 }
+				is_independent_ruler = yes
+			}
+			character:lineofagathohin173 = {
+				start_war ?= {
+					casus_belli = stabilize_pel_cb
+					target ?= prev
+				}
+			}
+		}
+		every_vassal_or_below = {
+			limit = {
+				OR = {
+					culture != root.culture
+					faith != root.faith
+				}
+				highest_held_title_tier > tier_barony
+			}
+			add_opinion = { modifier = angry_opinion target = root opinion = -30 }
+		}
+	}
+	option = { # I have unfinished business in the West
+		name = seregul.0252.d
+		trigger = { 
+			NOT = { completely_controls = title:d_pel }
+			title:d_pel = {
+				any_de_jure_county_holder = { 
+					is_independent_ruler = yes
+					NOT = { is_at_war_with = character:lineofagathohin173 } 
+				}
+			}
+		}
+		every_in_list = {
+			list = target_character_3
+			limit = { 
+				NOT = { is_at_war_with = character:lineofagathohin173 }
+				is_independent_ruler = yes
+			}
+			character:lineofagathohin173 = {
+				start_war ?= {
+					casus_belli = stabilize_pel_cb
+					target ?= prev
+				}
+			}
+		}
+		every_vassal_or_below = {
+			limit = {
+				OR = {
+					culture != root.culture
+					faith != root.faith
+				}
+				highest_held_title_tier > tier_barony
+			}
+			add_opinion = { modifier = angry_opinion target = root opinion = -30 }
+		}
+	}
+	after = {
+		trigger_event = {
+			id = seregul.0258
+			years = 5
+		}
+	}
+}
+
+seregul.0258 = { # Balan-Lai is not helping this guy
+	hidden = yes
+	trigger = { global_var:pel_destabilized = yes }
+	immediate = {
+		hidden_effect = {
+			random_confederation = {
+				limit = { has_variable = balan_lai_confederation }
+				remove_confederation_member = root
+			}
+			remove_trait = balan_lai_member
+		}
+		if = {
+			limit = {
+				this = title:k_pel.holder
+				title:k_pel = {
+					any_dejure_vassal_title_holder = {
+						this != root
+						is_at_war = no
+						is_imprisoned = no
+						culture != root.culture
+						highest_held_title_tier > tier_barony
+						highest_held_title_tier < tier_kingdom
+					}
+				}
+			}
+			trigger_event = {
+				id = seregul.0252
+				days = 1
+			}
+		}
+		else = { remove_character_modifier = pel_destabilized_modifier }
+	}
+}
+
+seregul.0252 = { # Time's up, the heartlands of Pél revolt!
+	content_source = realms_dlc
+	type = character_event
+	theme = war
+	title = seregul.0252.t
+	desc = seregul.0252.desc
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:rebel_leader
+		animation = aggressive_sword
+	}
+	trigger = { global_var:pel_destabilized = yes }
+	immediate = {
+		title:k_pel = {
+			ordered_dejure_vassal_title_holder = {
+				limit = { 
+					this != root
+					is_at_war = no
+					is_imprisoned = no
+					culture != root.culture
+					highest_held_title_tier > tier_barony
+					highest_held_title_tier < tier_kingdom
+				}
+				order_by = military_power
+				position = 1
+				save_scope_as = rebel_leader
+			}
+			every_dejure_vassal_title_holder = {
+				limit = { 
+					this != scope:rebel_leader
+					is_imprisoned = no
+					culture != root.culture
+					highest_held_title_tier > tier_barony
+					highest_held_title_tier < tier_kingdom
+					NOT = { is_at_war_with = root }
+				}
+				add_to_list ?= seregul_attackers
+			}
+			every_dejure_vassal_title_holder = {
+				limit = { 
+					this != root
+					is_at_war = no
+					is_imprisoned = no
+					culture = culture:kharadunaim
+					highest_held_title_tier > tier_barony
+					highest_held_title_tier < tier_kingdom
+					NOT = { is_at_war_with = root }
+				}
+				add_to_list ?= seregul_defenders
+			}
+		}
+		scope:rebel_leader = {
+			start_war = {
+				casus_belli = nation_fracturing_faction_war
+				target = root
+				target_title = title:k_pel
+			}
+		}
+		scope:rebel_leader = {
+			random_character_war = {
+				limit = {
+					using_cb = nation_fracturing_faction_war
+				}
+				save_scope_as = join_war
+			}
+		}
+	}
+   
+	option = { # Time to rebuild Pél the hard way
+		name = seregul.0252.a
+		every_in_list = {
+			list = seregul_attackers
+			scope:join_war = {
+				add_attacker ?= prev
+			}
+		}
+		every_in_list = {
+			list = seregul_defenders
+			scope:join_war = {
+				add_defender ?= prev
+			}
+		}
+		remove_character_modifier = pel_destabilized_modifier
+	}
+	after = {
+		trigger_event = {
+			id = seregul.0253
+			days = 5
+		}
+	}
+}
+
+seregul.0253 = { # Balan Lai is not coming
+	content_source = realms_dlc
+	type = character_event
+	theme = war
+	title = seregul.0253.t
+	desc = seregul.0253.desc
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+	option = {
+		name = seregul.0253.a
+		add_stress = medium_stress_impact_gain
+	}
+}
+
+seregul.0254 = { # Seregul has lost Pél!
+	content_source = realms_dlc
+	type = character_event
+	theme = war
+	title = seregul.0254.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { highest_held_title_tier > tier_county }
+				desc = seregul.0254.desc.a
+			}
+			desc = seregul.0254.desc.b
+		}
+	}
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+	immediate = {
+		if = { 
+			limit = { 
+				highest_held_title_tier > tier_county 
+				is_landed = yes
+			}
+			random_confederation = {
+				limit = { has_variable = balan_lai_confederation } 
+				add_confederation_member = root
+			}
+		}
+	}
+	option = { 
+		name = seregul.0254.a
+		every_in_list = {
+			list = seregul_attackers
+			limit = { is_vassal_or_below_of = root }
+			create_title_and_vassal_change = {
+				type = independency
+				save_scope_as = change
+			}
+			becomes_independent ?= { change = scope:change }
+		}
+		resolve_title_and_vassal_change ?= scope:change
+	}
+	after = {
+		set_global_variable = {
+			name = pel_destabilized
+			value = no
+		}
+	}
+}
+
+seregul.0255 = { # Seregul has won!
+	content_source = realms_dlc
+	type = character_event
+	theme = war
+	title = seregul.0255.t
+	desc = seregul.0255.desc
+	left_portrait = {
+		character = root
+		animation = celebrate_sword
+	}
+	immediate = {
+		random_confederation = {
+			limit = { has_variable = balan_lai_confederation } 
+			add_confederation_member = root 
+		}
+		hidden_effect = { add_trait = balan_lai_member }
+	}
+	option = {
+		name = seregul.0255.a
+		add_dread = 30
+		every_in_list = {
+			list = seregul_attackers
+			limit = { is_imprisoned = no }
+			imprison = {
+				target ?= this
+				type = dungeon
+			}
+		}
+	}
+}
+seregul.0256 = { # Maintenance for AI Seregul to stabilize Pél
+	hidden = yes
+	immediate = {
+		if = {
+			limit = { any_vassal = { is_at_war_with = root } }
+			every_vassal = {
+				every_character_war = {
+					limit = { any_war_participant = { this = root } }
+					end_war ?= white_peace
+				}
+			}
+		}
+		if = {
+			limit = { exists = title:d_bukumagen }
+			destroy_title = title:d_bukumagen
+		}
+		if = {
+			limit = { 
+				character:lineofbukumagen1 = { 
+					is_alive = yes
+					is_ai = yes
+				} 
+			}
+			imprison = {
+				target = character:lineofbukumagen1
+				type = dungeon
+			}
+		}
+		if = {
+			limit = { 
+				title:d_barasi.holder = {
+					this = character:lineofzuberi7
+					is_ai = yes
+				}
+			}
+			imprison = {
+				target = character:lineofzuberi7
+				type = dungeon
+			}
+			title:d_barasi = {
+				create_title_and_vassal_change = {
+					type = usurped
+					save_scope_as = title_change
+					add_claim_on_loss = no
+				}
+				change_title_holder_include_vassals = {
+					holder = root
+					change = scope:title_change
+				}
+				resolve_title_and_vassal_change = scope:title_change
+			}
+			trigger_event = {
+				id = seregul.0005
+				days = 1
+			}
+		}
+		trigger_event = {
+			id = seregul.0257
+			days = 2
+		}
+	}
+}
+
+seregul.0257 = {
+	hidden = yes
+	trigger = {
+		any_prisoner = {
+			OR = {
+				this = character:lineofbukumagen1
+				this = character:lineofzuberi7
+			}
+		}
+	}
+	immediate = {
+		every_prisoner = {
+			limit = {
+				OR = {
+					this = character:lineofbukumagen1
+					this = character:lineofzuberi7
+				}
+			}
+			execute_prisoner_effect = {
+				EXECUTIONER = root
+				VICTIM ?=this
+			}
+		}
+	}
+}
+
+## Stormhost Chain 
+
+seregul.0300 = { # Think to the future 
+	content_source = realms_dlc
+	type = character_event
+	theme = corruption
+	title = seregul.0300.t
+	desc = seregul.0300.desc
+	left_portrait = {
+		character = root
+		animation = scheme
+	}
+	right_portrait = {
+		character = title:d_balan_lai_leader.holder
+		animation = worry
+	}
+	lower_right_portrait = {
+		character = character:linealsariastwo37 
+		animation = personality_bold
+	}
+	immediate = {
+		character:lineofgimilthani48 = { save_scope_as = phorakon }
+		character:linealsariastwo37 = { save_scope_as = imrazor }
+	}
+	
+	option = { # Why should I stop with Pel?
+		name = seregul.0300.a 
+		if = {
+			limit = { title:e_thon_an_kharlokh.holder = { is_ai = no }}
+			title:e_thon_an_kharlokh.holder = {
+				trigger_event = {
+					id = seregul.0301
+					days = { 300 400 }
+				}
+			}
+		}
+		else = {
+			trigger_event = {
+				id = seregul.0302
+				days = { 300 400 }
+			}
+		}
+		add_dread = 10
+		add_prestige = medium_prestige_gain
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # Perhaps I should be content with my gains 
+		name = seregul.0300.b 
+		if = {
+			limit = { title:e_thon_an_kharlokh.holder = { is_ai = no }}
+			title:e_thon_an_kharlokh.holder = {
+				trigger_event = {
+					id = seregul.0301
+					days =  { 300 400 }
+				}
+			}
+		}
+		else = {
+			trigger_event = {
+				id = seregul.0302
+				days = { 300 400 }
+			}
+		}
+		add_prestige = medium_prestige_gain
+		confederation = {
+			every_confederation_member = {
+				limit = { this != root }
+				add_opinion = {
+					modifier = grateful_opinion
+					opinion = 15
+					target = root
+				}
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+seregul.0301 = { # SH player chooses whether to send the letter
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	title = seregul.0301.t
+	desc = seregul.0301.desc
+	left_portrait = {
+		character = root
+		animation = scheme
+	}
+	right_portrait = {
+		character = scope:seregul
+		animation = worry
+	}
+	immediate = { character:lineofagathohin173 = { save_scope_as = seregul } }
+
+	option = { # Send the letter
+		trigger = { character:lineofagathohin173 != title:d_balan_lai_leader.holder }
+		name = seregul.0301.a
+		custom_tooltip = seregul.0301.a.tt
+		scope:seregul = {
+			trigger_event = {
+				id = seregul.0302
+				days = { 20 30 }
+			}
+		}
+	}
+	option = { # Too risky
+		name = seregul.0301.b
+		custom_tooltip = seregul.0301.b.tt
+	}
+}
+
+seregul.0302 = { # A letter on the desk 
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	title = seregul.0302.t
+	desc = seregul.0302.desc
+
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	immediate = {
+		if = {
+			limit = { NOT = { has_trait = paranoid } }
+			random = {
+				chance = 10
+				add_trait = paranoid
+			}
+		}
+	}
+	option = { #Open the letter 
+		name = seregul.0302.a 
+		trigger_event = {
+			id = seregul.0303
+		   days = 1
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # Toss it in the fire
+		name = seregul.0302.b
+		custom_tooltip = seregul.0302.b.tt
+		stress_impact = {
+			base = 25
+			paranoid = 50
+			craven = -15
+			brave = 10
+			ambitious = 20
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+seregul.0303 = { # The Offer...
+	content_source = realms_dlc
+	type = letter_event
+	opening = seregul.0303.t
+	desc = seregul.0303.desc
+	sender = title:e_thon_an_kharlokh.holder 
+   
+	option = { #Accept
+		trigger = { character:lineofagathohin173 != title:d_balan_lai_leader.holder }
+		name = seregul.0303.a 
+		custom_tooltip = seregul.0303.a.tt
+		add_character_flag = accepted_stormhost
+		title:e_thon_an_kharlokh.holder = {
+			trigger_event = {
+				id = seregul.0401
+				days = {55 75}
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # Bring this to the Balan Lai
+		name = seregul.0303.b
+		custom_tooltip = seregul.0303.b.tt
+		trigger_event = seregul.0316
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+seregul.0316 = { # When will I bring this to the Balan Lai
+	content_source = realms_dlc
+	type = character_event
+	theme = diplomacy
+	title = seregul.0316.t
+	desc = seregul.0316.desc
+
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	immediate = {
+		title:d_balan_lai_leader.holder.capital_county.title_province = { save_scope_as = seregul_destination }
+	}
+
+	option = {
+		trigger = { is_available_adult = yes }
+		name = seregul.0316.a
+		start_travel_plan = {
+			destination = scope:seregul_destination
+			can_cancel_planning = no
+			on_arrival_event = seregul.0304
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {
+		trigger = { is_available_adult = no }
+		name = seregul.0316.b
+		trigger_event = {
+			id = seregul.0316
+			months = 4
+		}
+	}
+}
+
+seregul.0304 = { # Bring the Issue to the Balan Lai
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	title = seregul.0304.t
+	desc = seregul.0304.desc
+
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = title:d_holzoreth.holder
+		animation = anger
+	}
+	lower_left_portrait = {
+		character = title:d_balan_lai_leader.holder 
+		animation = personality_rational
+	}
+	lower_right_portrait = {
+		character = title:e_thon_an_kharlokh.holder 
+		animation = schadenfreude
+	}
+	immediate = {
+		hidden_effect = {
+			struggle:thani_hazad_struggle = {
+					every_involved_ruler = {
+					limit = { 
+						this != root 
+						has_trait = balan_lai_member
+					}
+					send_interface_toast = {
+						title = seregul.0304.toast
+						left_icon = root
+						right_icon = this
+						show_as_tooltip = {
+							struggle:thani_hazad_struggle = {
+								activate_struggle_catalyst = {
+									catalyst = catalyst_stormhost_threatens
+									character = root
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+   
+	option = { # Let's unite against the stormhost - with me in charge
+		trigger = { is_ai = no }
+		name = seregul.0304.a 
+		add_prestige = 1000
+		add_legitimacy = major_legitimacy_gain
+		reverse_add_opinion = {
+			target = title:d_holzoreth.holder
+			modifier = grateful_opinion
+			opinion = 25
+		}
+		reverse_add_opinion = {
+			target = title:d_alsarias.holder
+			modifier = grateful_opinion
+			opinion = 20
+		}
+		add_legitimacy = medium_legitimacy_gain
+		confederation = {
+			every_confederation_member = {
+				add_opinion = {
+					modifier = grateful_opinion
+					opinion = 25
+					target = root
+				}
+			}
+		}
+		trigger_event = {
+			id = seregul.0305
+			days = 15
+		}
+	}
+
+	option = { # You're welcome, see you!
+		name = seregul.0304.b 
+		custom_tooltip = seregul.0304.b.tt
+		add_prestige = 600
+		add_legitimacy = major_legitimacy_gain
+		confederation = {
+			every_confederation_member = {
+				add_opinion = {
+					modifier = grateful_opinion
+					opinion = 50
+					target = root
+				}
+			}
+		}
+		reverse_add_opinion = {
+			target = title:d_holzoreth.holder
+			modifier = grateful_opinion
+			opinion = 25
+		}
+		reverse_add_opinion = {
+			target = title:d_alsarias.holder
+			modifier = grateful_opinion
+			opinion = 20
+		}
+		add_legitimacy = major_legitimacy_gain
+		add_character_flag = seregul_not_leading
+
+		##### Puts it to a vote on council ### See Jamie about this
+
+		title:d_balan_lai_leader.holder = {
+			trigger_event = {
+				id = seregul.0305
+				days = 15
+			}
+		}
+		stress_impact = {
+			base = 25
+			craven = -15
+			brave = 10
+			ambitious = 20
+		}
+	}
+	after = {
+		struggle:thani_hazad_struggle = {
+			activate_struggle_catalyst = {
+				catalyst = catalyst_stormhost_threatens
+				character = root
+			}
+		}
+	}
+}
+
+seregul.0305 = { # How to fight the SH?
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	title = seregul.0305.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { root = character:lineofagathohin173 }
+				desc = seregul.0305.desc.a
+			}
+			desc = seregul.0305.desc.b
+		}
+	}
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+	right_portrait = {
+		character = title:e_thon_an_kharlokh.holder 
+		animation = worry
+	}
+	immediate = {
+		title:e_thon_an_kharlokh.holder = { save_scope_as = storm_marshal }
+		title:e_bellakar.holder = { save_scope_as = niluhin }
+		title:d_balan_lai_leader.holder = { save_scope_as = phorakon }
+		character:lineofagathohin173 = { save_scope_as = seregul }
+	}
+   
+	option = { # Ally with Bellakar
+		trigger = { NOT = { has_character_flag = bellakar_rejected } }
+		name = seregul.0305.a 
+		title:e_bellakar.holder = {
+			trigger_event = {
+			id = seregul.0306
+			days = {40 60}
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+	option = { # Support Disent 
+		trigger = { NOT = { has_character_flag = ab_refused } }
+		name = seregul.0305.b
+		remove_short_term_gold = 200
+		trigger_event = { # How to stir up rebels?
+			id = seregul.0310
+			days = 15
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 15
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 34
+			}
+		}
+	}
+	option = { # Immediate Attack 
+		name = seregul.0305.c 
+		add_unpressed_claim = title:k_an_balkumagan
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 10
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+}
+
+seregul.0306 = { # Bellakar chooses to ally with TH or not
+	content_source = realms_dlc
+	type = character_event
+	theme = diplomacy
+	title = seregul.0306.t
+	desc = seregul.0306.desc
+	
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = title:d_balan_lai_leader
+		animation = personality_bold
+	}
+   
+	option = { # Defensive Alliance 
+		name = seregul.0305.a 
+		character:lineofagathohin173 = {
+			if = {
+				limit = { NOT = { has_character_flag = seregul_not_leading } }
+				trigger_event = {
+					id = seregul.0307
+					days = { 40 60 }
+				}
+			 }
+			else = {	
+				title:d_balan_lai_leader.holder = {
+					trigger_event = {
+						id = seregul.0307
+						days = { 40 60 }
+					}
+				}
+			}
+		}
+		set_global_variable = {
+			name = bellakar_defensive_allies
+			value = yes
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 34
+			}
+		}
+	}
+	option = { # Full Alliance 
+		name = seregul.0305.b
+
+		character:lineofagathohin173 = {
+			if = {
+				limit = { NOT = { has_character_flag = seregul_not_leading } }
+				trigger_event = {
+					id = seregul.0308
+					days = { 40 60 }
+				}
+			 }
+			else = {	
+				title:d_balan_lai_leader.holder = {
+					trigger_event = {
+						id = seregul.0308
+						days = { 40 60 }
+					}
+				}
+			}
+		}
+		show_as_tooltip = {
+			create_alliance = {
+				target = title:d_balan_lai_leader.holder
+				allied_through_owner = title:d_balan_lai_leader.holder
+				allied_through_target = title:e_bellakar.holder
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 15
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+	option = { # Nope! 
+		name = seregul.0305.c
+		add_prestige = 150
+		reverse_add_opinion = {
+			target = title:d_balan_lai_leader.holder
+			modifier = grateful_opinion
+			opinion = -25
+		}
+		if = {
+			limit = { 
+				NOT = { 
+					character:lineofagathohin173 = { 
+						has_character_flag = seregul_not_leading 
+					} 
+				}
+			}
+			character:lineofagathohin173 = {
+				trigger_event = {
+					id = seregul.0309
+					days = { 40 60 }
+				}
+			}
+		}	 
+		else = {	
+			title:d_balan_lai_leader.holder = {
+				trigger_event = {
+					id = seregul.0309
+					days = { 40 60 }
+				}
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 10
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+}
+
+seregul.0307 = { # Bellakar said yes - defensive alliance 
+	content_source = realms_dlc
+	type = character_event
+	theme = diplomacy
+	title = seregul.0307.t
+	desc = seregul.0307.desc
+	
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = title:e_bellakar.holder
+		animation = personality_coward
+	}
+   
+	option = { # Sucess! 
+		name = seregul.0307.a
+		add_diplomacy_lifestyle_xp = 350
+		add_prestige = medium_prestige_gain
+		add_legitimacy = medium_legitimacy_gain
+	}
+}
+
+seregul.0308 = { # Bellakar said yes - full alliance 
+	content_source = realms_dlc
+	type = character_event
+	theme = diplomacy
+	title = seregul.0308.t
+	desc = seregul.0308.desc
+	
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = title:e_bellakar.holder
+		animation = personality_bold
+	}
+   
+	option = { # Sucess! 
+		name = seregul.0308.a 
+		add_diplomacy_lifestyle_xp = 500
+		add_prestige = major_prestige_gain
+		add_legitimacy = medium_legitimacy_gain
+		create_alliance = {
+			target = title:d_balan_lai_leader.holder
+			allied_through_owner = title:e_bellakar.holder
+			allied_through_target = title:d_balan_lai_leader.holder
+		}
+	}
+}
+
+seregul.0309 = { # Bellakar rejected alliance 
+	content_source = realms_dlc
+	type = character_event
+	theme = diplomacy
+	title = seregul.0309.t
+	desc = seregul.0309.desc
+	
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = title:e_bellakar.holder
+		animation = personality_dishonorable
+	}
+   
+	option = { # Failure
+		name = seregul.0309.a 
+		add_prestige = major_prestige_loss
+		trigger_event = {
+			id = seregul.0305
+			days = 1
+		}
+		add_character_flag = bellakar_rejected
+	}
+}
+
+seregul.0310 = { # How to stir up rebellion?
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	title = seregul.0310.t
+	desc = seregul.0310.desc
+
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+	right_portrait = {
+		character = title:e_thon_an_kharlokh.holder 
+		animation = worry
+	}
+   
+	option = { # Among the nobles 
+		name = seregul.0310.a 
+		title:k_an_balkumagan.holder = {
+			trigger_event = {
+			id = seregul.0311
+			days = 90
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # Among the commoners
+		name = seregul.0310.b 
+		trigger_event = { # Trigger Rebels Early - check this doesn't break things
+			id = lotr_thani_hazad.1999
+			days = { 1800 2000 }
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+seregul.0311 = { # An-Balkumagan's choice
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	title = seregul.0311.t
+	desc = {
+		desc = seregul.0311.desc
+	}
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = title:e_thon_an_kharlokh.holder 
+		animation = worry
+	}
+	lower_left_portrait = {
+		character = title:d_balan_lai_leader.holder
+		animation = personality_rational
+	}
+	immediate = { title:k_an_balkumagan.holder = { save_scope_as = ab_ruler } }
+   
+	option = { # Accept the offer
+		name = seregul.0311.a 
+		custom_tooltip = seregul.0311.a.tt
+		add_gold = 200
+		reverse_add_opinion = {
+			target = title:d_balan_lai_leader.holder
+			modifier = grateful_opinion
+			opinion = 25
+		}
+		reverse_add_opinion = {
+			target = title:e_thon_an_kharlokh.holder
+			modifier = grateful_opinion
+			opinion = -25
+		}
+		set_global_variable = {
+			name = ab_rallied_to_war
+			value = yes
+		}
+		if = {
+			limit = { 
+				NOT = { 
+					character:lineofagathohin173 = { 
+						has_character_flag = seregul_not_leading 
+					} 
+				}
+			}
+			character:lineofagathohin173 = {
+				trigger_event = {
+					id = seregul.0312
+					days = { 40 60 }
+				}
+			}
+		}	 
+		else = {	
+			title:d_balan_lai_leader.holder = {
+				trigger_event = {
+					id = seregul.0312
+					days = { 40 60 }
+				}
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+
+	option = { # Nope!
+		name = seregul.0311.b 
+		add_prestige = 150
+		reverse_add_opinion = {
+			target = title:d_balan_lai_leader.holder
+			modifier = grateful_opinion
+			opinion = -25
+		}
+		reverse_add_opinion = {
+			target = title:e_thon_an_kharlokh.holder
+			modifier = grateful_opinion
+			opinion = 25
+		}
+		if = {
+			limit = { 
+				NOT = { 
+					character:lineofagathohin173 = { 
+						has_character_flag = seregul_not_leading 
+					} 
+				}
+			}
+			character:lineofagathohin173 = {
+				trigger_event = {
+					id = seregul.0313
+					days = { 40 60 }
+				}
+			}
+		}	 
+		else = {	
+			title:d_balan_lai_leader.holder = {
+				trigger_event = {
+					id = seregul.0313
+					days = { 40 60 }
+				}
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+seregul.0312 = { # An-Balkumagan accepted offer 
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	title = seregul.0312.t
+	desc = seregul.0312.desc
+	
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = title:k_an_balkumagan.holder
+		animation = personality_bold
+	}
+   
+	option = { # Sucess
+		name = seregul.0312.a
+		add_prestige = major_prestige_gain
+		add_diplomacy_lifestyle_xp = 350
+		add_legitimacy = medium_legitimacy_gain
+	}
+}
+
+seregul.0313 = { # An-Balkumagan refused offer 
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	title = seregul.0313.t
+	desc = seregul.0313.desc
+	
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = title:k_an_balkumagan.holder
+		animation = personality_dishonorable
+	}
+   
+	option = { # Failure
+		name = seregul.0313.a 
+		add_prestige = medium_prestige_loss
+		add_short_term_gold = 200
+		add_character_flag = ab_refused
+		trigger_event = {
+			id = seregul.0305
+			days = 1
+		}
+	}
+}
+
+seregul.0314 = { # Bellakar is being attacked!
+	content_source = realms_dlc
+	type = character_event
+	theme = war
+	title = seregul.0314.t
+	desc = seregul.0314.desc
+
+	left_portrait = {
+		character = title:e_bellakar.holder
+		animation = war_defender
+	}
+	right_portrait = {
+		character = title:e_thon_an_kharlokh.holder
+		animation = war_attacker
+	}
+	trigger = {
+		NOT = { is_at_war_with = title:e_thon_an_kharlokh.holder }
+	}
+	immediate = {
+		title:e_thon_an_kharlokh.holder = {
+			random_character_war = {
+				limit = { using_cb = invade_bellakar_cb }
+				save_scope_as = join_war
+			}
+		}
+		root.primary_title = { save_scope_as = princedom }
+	}
+	option = { # Muster the troops!
+		name = seregul.0314.a
+		add_prestige = minor_prestige_gain
+		scope:join_war = { add_defender = root }
+		add_legitimacy = minor_legitimacy_gain
+		ai_chance = {
+			base = 50
+			modifier = {
+				any_neighboring_realm_owner = { this = title:e_thon_an_kharlokh.holder }
+				add = 100
+			}
+			modifier = {
+				faith_is_good = yes
+				add = 100
+			}
+			modifier = {
+				has_trait = brave
+				add = 50
+			}
+			modifier = {
+				has_trait = craven
+				add = -50
+			}
+			ai_value_modifier = {
+				ai_honor = 2
+				ai_boldness = 1.5
+			}
+		}
+	}
+	option = { # Actually...
+		name = seregul.0314.b
+		add_prestige = major_prestige_loss
+		add_legitimacy = medium_legitimacy_loss
+		confederation = {
+			every_confederation_member = {
+				limit = { is_defender_in_war = scope:join_war }
+				add_opinion = {
+					opinion = -30
+					modifier = angry_opinion
+					target = root
+				}
+			}
+		}
+		title:e_bellakar.holder = {
+			reverse_add_opinion = {
+				target = root
+				opinion = -50
+				modifier = angry_opinion
+			}
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				any_neighboring_realm_owner = { this = title:e_thon_an_kharlokh.holder }
+				add = -100
+			}
+			modifier = {
+				faith_is_good = yes
+				add = -100
+			}
+			modifier = {
+				has_trait = brave
+				add = -50
+			}
+			modifier = {
+				has_trait = craven
+				add = 50
+			}
+			ai_value_modifier = {
+				ai_honor = -2
+				ai_boldness = -1.5
+			}
+		}
+	}
+}
+
+seregul.0315 = { # AB event when the Bellakar war starts
+	content_source = realms_dlc
+	type = character_event
+	theme = war
+	title = seregul.0315.t
+	desc = seregul.0315.desc
+
+	left_portrait = {
+		character = title:e_bellakar.holder
+		animation = war_defender
+	}
+	right_portrait = {
+		character = title:e_thon_an_kharlokh.holder
+		animation = war_attacker
+	}
+
+	option = { # It's a great time to break free
+		name = seregul.0315.a
+		add_prestige = major_prestige_gain
+		start_war = {
+			casus_belli = independence_war
+			target = title:e_thon_an_kharlokh.holder
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # No helping the Balan-Lai
+		name = seregul.0315.b
+		add_prestige = medium_prestige_loss
+		add_legitimacy = medium_legitimacy_gain
+		reverse_add_opinion = {
+			target = title:e_thon_an_kharlokh.holder
+			opinion = 75
+			modifier = pleased_opinion
+		}
+		random_confederation = {
+			limit = { has_variable = balan_lai_confederation }
+			every_confederation_member = {
+				add_opinion = {
+					target = title:k_an_balkumagan.holder
+					opinion = -50
+					modifier = angry_opinion
+				}
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+## Work with the Stormhost
+
+seregul.0401 = { # SH event
+	content_source = realms_dlc
+	type = letter_event
+	opening = seregul.0401.t
+	desc = seregul.0401.desc
+	sender = scope:seregul
+	immediate = { 
+		title:e_thon_an_kharlokh.holder = { save_scope_as = storm_marshal }
+		character:lineofagathohin173 = { save_scope_as = seregul }
+	}
+
+	option = { # Send him the first gift
+		trigger = { character:lineofagathohin173 != title:d_balan_lai_leader.holder }
+		name = seregul.0401.a
+		custom_tooltip = seregul.0401.a.tt
+		scope:seregul = {
+			trigger_event = {
+				id = seregul.0402
+				days = {30 40}
+			}
+		}
+	}
+	option = { # We shouldn't gift the Balan Lai leader
+		trigger = { character:lineofagathohin173 = title:d_balan_lai_leader.holder }
+		name = seregul.0401.b
+		custom_tooltip = seregul.0401.b.tt
+	}
+}
+
+seregul.0402 = { # The First Gift
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	title = seregul.0402.t
+	desc = seregul.0402.desc
+	
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+	right_portrait = {
+		character = title:e_thon_an_kharlokh.holder
+		animation = personality_dishonorable
+	}
+   
+	option = { # Excellent 
+		name = seregul.0402.a 
+		add_short_term_gold = 200
+		if = {
+			limit = { character:lineofagathohin173 != title:d_balan_lai_leader.holder }
+			trigger_event = {
+				id = seregul.0418
+				days = { 300 400 }
+			}
+		}
+	}
+}
+
+seregul.0418 = {
+	hidden = yes
+	trigger = { character:lineofagathohin173 != title:d_balan_lai_leader.holder }
+	immediate = {
+		trigger_event = {
+			id = seregul.0403
+			days = 1
+		}
+	}
+}
+
+seregul.0403 = { # The Second Gift 
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	title = seregul.0403.t
+	desc = seregul.0403.desc
+	
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+	right_portrait = {
+		character = title:e_thon_an_kharlokh.holder
+		animation = personality_dishonorable
+	}
+   
+	option = { # Event troops
+		name = seregul.0403.a 
+		spawn_army = {		 
+			uses_supply = yes
+			inheritable = no
+			name = stormhost_mercenaries 
+			men_at_arms = {
+				type = indentured_conscripts
+				stacks = 4
+			}
+			men_at_arms = {
+				type = zagar_an_adunai
+				stacks = 2
+			}
+			men_at_arms = {
+				type = ephalzagar_an_adunai
+				stacks = 2
+			}
+			men_at_arms = {
+				type = knights_of_kharadune
+				stacks = 1
+			}
+			location = capital_province
+		}
+		if = {
+			limit = { character:lineofagathohin173 != title:d_balan_lai_leader.holder }
+			trigger_event = {
+				id = seregul.0419
+				days = {300 400}
+			}
+		}	
+	}
+}
+
+seregul.0419 = {
+	hidden = yes
+	trigger = { character:lineofagathohin173 != title:d_balan_lai_leader.holder }
+	immediate = {
+		trigger_event = {
+			id = seregul.0404
+			days = 1
+		}
+	}
+}
+
+seregul.0404 = { # The Final Gift
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	title = seregul.0404.t
+	desc = seregul.0404.desc
+	
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+	right_portrait = {
+		character = title:e_thon_an_kharlokh.holder
+		animation = personality_dishonorable
+	}
+	trigger = { character:lineofagathohin173 != title:d_balan_lai_leader.holder }
+   
+	option = { # Excellent 
+		name = seregul.0404.a 
+		add_character_modifier = {
+			modifier = seregul_anbalukkhori_advisers_modifier
+			years = 5
+		}
+		remove_character_flag = accepted_stormhost
+		add_character_flag = end_of_gifts
+		trigger_event = {
+			id = seregul.0405
+			years = 7
+		}
+	}
+}
+
+seregul.0405 = {
+	scope = none
+  	hidden = yes
+	trigger = {
+		NOR = {
+			character:lineofagathohin173 = { has_character_flag = seregul_has_declared_war }
+			character:lineofagathohin173 = title:d_balan_lai_leader.holder
+		}
+		character:lineofagathohin173 = { highest_held_title_tier >= tier_duchy }
+	}
+	immediate = {
+		character:lineofagathohin173 = {
+			trigger_event = {
+				id = seregul.0406
+				days = 1
+			}
+		}
+	}
+}
+
+seregul.0406 = { # The First Warning 
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	title = seregul.0406.t
+	desc = seregul.0406.desc
+	
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = title:e_thon_an_kharlokh.holder
+		animation = personality_vengeful
+	}
+   
+	option = { # Excellent 
+		name = seregul.0406.a
+		add_stress = minor_stress_impact_gain
+		trigger_event = {
+			id = seregul.0407
+			days = {700 800}
+		}
+	}
+}
+
+seregul.0407 = {
+	scope = none
+  	hidden = yes
+	trigger = {
+		NOR = {
+			character:lineofagathohin173 = { has_character_flag = seregul_has_declared_war }
+			character:lineofagathohin173 = title:d_balan_lai_leader.holder
+		}
+		character:lineofagathohin173 = { highest_held_title_tier >= tier_duchy }
+	}
+	immediate = {
+		character:lineofagathohin173 = {
+			trigger_event = {
+				id = seregul.0408
+				days = 1
+			}
+		}
+	}
+}
+
+seregul.0408 = { # The Last Warning 
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	title = seregul.0408.t
+	desc = seregul.0408.desc
+	
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = title:e_thon_an_kharlokh.holder
+		animation = rage
+	}
+   
+	option = { # A year and a day 
+		name = seregul.0408.a
+		add_stress = medium_stress_impact_gain
+		trigger_event = {
+			id = seregul.0409
+			days = 365
+		}
+	}
+}
+
+seregul.0409 = {
+	scope = none
+  	hidden = yes
+	trigger = {
+		NOR = {
+			character:lineofagathohin173 = { has_character_flag = seregul_has_declared_war }
+			character:lineofagathohin173 = title:d_balan_lai_leader.holder
+		}
+		character:lineofagathohin173 = { highest_held_title_tier >= tier_duchy }
+	}
+	immediate = {
+		random_confederation = {
+			limit = { has_variable = balan_lai_confederation }
+			remove_confederation_member = character:lineofagathohin173
+		}
+		character:lineofagathohin173 = { remove_trait = balan_lai_member }
+		character:lineofagathohin173 = {
+			trigger_event = {
+				id = seregul.0410
+				days = 1
+			}
+		}
+	}
+}
+
+seregul.0410 = { # Time's up
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	title = seregul.0410.t
+	desc = seregul.0410.desc
+	
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = title:e_thon_an_kharlokh.holder
+		animation = rage
+	}
+	immediate = {
+		title:d_balan_lai_leader.holder = { save_scope_as = leader }
+		set_global_variable = {
+			name = seregul_exposed
+			value = yes
+		}
+		title:d_balan_lai_leader.holder = { add_unpressed_claim = root.primary_title }
+		
+		random_confederation = {
+			limit = { has_variable = balan_lai_confederation }
+			every_confederation_member = {
+				limit = {
+					this != character:lineofagathohin173
+					this != title:d_balan_lai_leader.holder
+				}
+				add_to_list ?= betrayed_by_seregul
+			}
+		}
+		title:d_balan_lai_leader.holder = {
+			start_war = {
+				casus_belli = claim_cb
+				target = character:lineofagathohin173
+				claimant = title:d_balan_lai_leader.holder
+				target_title = root.primary_title
+			}
+		}
+		title:d_balan_lai_leader.holder = {
+			random_character_war = {
+				limit = {
+					using_cb = claim_cb
+					primary_defender = root
+				}
+				save_scope_as = join_war
+			}
+		}
+	}
+
+	option = { # @&#$?&! 
+		name = seregul.0410.a
+		add_stress = major_stress_impact_gain
+		title:d_balan_lai_leader.holder = { trigger_event = seregul.0411 }
+		every_in_list = {
+			list = betrayed_by_seregul
+			scope:join_war = {
+				add_attacker ?= prev
+			}
+		}
+	}
+	after = { remove_character_flag = end_of_gifts }
+}
+
+seregul.0411 = { # Seregul has betrayed us! 
+	content_source = realms_dlc
+	type = character_event
+	theme = intrigue
+	title = seregul.0411.t
+	desc = seregul.0411.desc
+	
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+	right_portrait = {
+		character = scope:seregul
+		animation = worry
+	}
+	immediate = { 
+		character:lineofagathohin173 = { save_scope_as = seregul }
+		show_as_tooltip = {
+			every_in_list = {
+				list = betrayed_by_seregul
+				scope:join_war = {
+					add_attacker ?= prev
+				}
+			}
+		}
+	}
+   
+	option = { # @&#$?&! 
+		name = seregul.0411.a
+		custom_tooltip = seregul.0411.a.tt
+		random_confederation = {
+			limit = { has_variable = balan_lai_confederation }
+			every_confederation_member = {
+				limit = { this != root }
+				send_interface_toast = {
+					title = seregul.0411.tt
+					left_icon = character:lineofagathohin173
+					right_icon = title:d_balan_lai_leader.holder 
+				}
+			}
+		}
+		## Set up event to DOW via council vote: see Jamie
+	}
+}
+
+seregul.0412 = { # DOW on the Balan Lai
+	content_source = realms_dlc
+	type = character_event
+	theme = war
+	title = seregul.0412.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = title:e_thon_an_kharlokh
+					title:e_thon_an_kharlokh.holder ?= {
+						is_target_in_global_variable_list = {
+							name = unavailable_unique_decisions
+							target = flag:decision_murder_bellakar
+						}
+						NOT = { is_at_war_with = title:e_bellakar.holder }
+					}
+				}
+				desc = seregul.0412.desc.a
+			}
+			desc = seregul.0412.desc.b
+		}
+	}
+	
+	left_portrait = {
+		character = root
+		animation = war_over_win 
+	}
+	right_portrait = {
+		character = title:d_balan_lai_leader.holder
+		animation = worry
+	}
+	immediate = {
+		start_war = {
+			casus_belli = seregul_invasion_cb
+			target = title:d_balan_lai_leader.holder
+			target_title = title:k_zimrathani
+			target_title = title:k_gimilthani
+			target_title = title:k_kharadune
+			target_title = title:d_balan_lai_leader
+		}
+		random_character_war = {
+			limit = { using_cb = seregul_invasion_cb }
+			save_scope_as = join_war
+		}
+		random_confederation = {
+			limit = { has_variable = balan_lai_confederation }
+			every_confederation_member = { 
+				limit = { this != title:d_balan_lai_leader.holder }
+				add_to_list = join_defenders 
+			}
+		}
+		if = {
+			limit = { title:d_holzoreth.holder = { is_confederation_member = yes } }
+			title:d_holzoreth.holder = { set_relation_rival = root }
+		}
+	}
+
+	option = { # I hope I win
+		name = seregul.0412.a
+		every_in_list = {
+			list = join_defenders
+			scope:join_war = {
+				add_defender ?= prev
+			}
+		}
+		scope:join_war = { add_defender = title:c_mispir.holder	}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # Ask for the Stormhost's help
+		trigger = {
+			exists = title:e_thon_an_kharlokh
+			title:e_thon_an_kharlokh.holder ?= {
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:decision_murder_bellakar
+				}
+				NOT = { is_at_war_with = title:e_bellakar.holder }
+			}
+		}
+		name = seregul.0412.b
+		custom_tooltip = {
+			text = call_stormhost
+			title:e_thon_an_kharlokh.holder = { 
+				trigger_event = {
+					id = seregul.0413 
+					days = { 30 45 }
+				}
+			}
+		}
+		every_in_list = {
+			list = join_defenders
+			scope:join_war = {
+				add_defender ?= prev
+			}
+		}
+		scope:join_war = { add_defender = title:c_mispir.holder	}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	after = { remove_character_flag = end_of_gifts }
+}
+
+seregul.0413 = { # SH event, Seregul calls for aid
+	content_source = realms_dlc
+	type = character_event
+	theme = war
+	title = seregul.0413.t
+	desc = seregul.0413.desc
+	left_portrait = {
+		character = root
+		animation = schadenfreude
+	}
+	right_portrait = {
+		character = scope:seregul
+		animation = beg
+	}
+	trigger = { character:lineofagathohin173 = { is_alive = yes } }
+	immediate = { character:lineofagathohin173 = { save_scope_as = seregul } }
+
+	option = { # For a price...
+		name = seregul.0413.a
+		custom_tooltip = seregul.0413.a.tt
+		set_global_variable = {
+			name = stormhost_helped
+			value = yes
+		}
+		scope:join_war = { add_attacker = root }
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 60
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+
+	option = { # Hah!
+		name = seregul.0413.b
+		add_stress = minor_stress_impact_loss
+		scope:seregul = {
+			send_interface_toast = {
+				title = seregul.0413.b.tt
+				left_icon = title:e_thon_an_kharlokh.holder
+				add_stress = minor_stress_impact_gain
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 40
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+seregul.0414 = { # War over - Victory for Seregul!
+	content_source = realms_dlc
+	type = character_event
+	theme = war
+	title = seregul.0414.t
+	desc = seregul.0414.desc
+	
+	left_portrait = {
+		character = root
+		animation = ecstasy
+	}
+	right_portrait = {
+		character = scope:defender
+		animation = prisondungeon
+	}
+
+	option = { # Heads will roll
+		name = seregul.0414.a
+		every_prisoner = {
+			limit = {
+				this = scope:defender
+				OR = {
+					this = { has_relation_rival = root }
+					this = { has_relation_nemesis = root }
+					this = { has_relation_grudge = root }
+				}
+			}
+			root = {
+				execute_prisoner_effect ?= {
+					VICTIM ?= prev
+					EXECUTIONER = root
+				}
+			}
+		}
+		add_dread = 30
+		add_stress = major_stress_impact_loss
+		root.dynasty = { add_dynasty_prestige = 500 }
+	}
+	after = {
+		if = { 
+			limit = { exists = title:e_thon_an_kharlokh.holder }
+			trigger_event = {
+				id = seregul.0416
+				days = { 15 30 }
+			}
+		}
+	}
+}
+
+seregul.0415 = { # War over - Seregul defeated!
+	content_source = realms_dlc
+	type = character_event
+	theme = war
+	title = seregul.0415.t
+	desc = {
+		first_valid = {
+			triggered_desc = { # Imrazor desc
+				trigger = { root = scope:imrazor }
+				desc = seregul.0415.desc.a
+			}
+			triggered_desc = { # Seregul desc
+				trigger = { root = scope:seregul }
+				desc = seregul.0415.desc.b
+			}
+		}
+	}
+	
+	left_portrait = {
+		character = scope:imrazor
+		animation = celebrate_sword
+	}
+	right_portrait = {
+		character = scope:seregul
+		animation = prisondungeon
+	}
+	immediate = {
+		scope:loser = { save_scope_as = seregul }
+		scope:winner = { save_scope_as = imrazor }
+		character:lineofagathohin173 = { remove_trait = balan_lai_member }
+	}
+
+	option = { # Imrazor version
+		trigger = { root = scope:imrazor }
+		name = seregul.0415.a
+		scope:imrazor = {
+			execute_prisoner_effect = {
+				VICTIM = scope:seregul
+				EXECUTIONER = scope:imrazor
+			}
+		}
+		add_prestige = massive_prestige_gain
+	}
+	option = { # Seregul version of the event
+		trigger = { root = scope:seregul }
+		name = seregul.0415.b
+		root.dynasty = {
+			add_dynasty_prestige = -500
+			add_dynasty_prestige_level = -1
+		}
+		show_as_tooltip = {
+			scope:imrazor = {
+				execute_prisoner_effect = {
+					VICTIM = scope:seregul
+					EXECUTIONER = scope:imrazor
+				}
+			}
+		}
+	}
+	after = {
+		if = {
+			limit = { scope:seregul = { is_alive = yes } }
+			random_confederation = {
+			limit = { has_variable = balan_lai_confederation }
+				every_confederation_member = {
+					add_opinion = {
+						target = scope:seregul
+						opinion = -200
+						modifier = outraged_opinion
+					}
+				}
+			}
+		}
+		else = {
+			random_confederation = {
+			limit = { has_variable = balan_lai_confederation }
+				every_confederation_member = {
+					add_opinion = {
+						target = scope:seregul.player_heir
+						opinion = -200
+						modifier = outraged_opinion
+					}
+				}
+			}
+		}
+	}
+}
+
+seregul.0416 = { # Stormhost's demands
+	content_source = realms_dlc
+	type = character_event
+	theme = war
+	title = seregul.0416.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = global_var:stormhost_helped }
+				desc = seregul.0416.desc.a
+			}
+			desc = seregul.0416.desc.b
+		}
+	}
+	
+	left_portrait = {
+		character = title:k_pel.holder
+		animation = shock
+	}
+	right_portrait = {
+		character = title:e_thon_an_kharlokh.holder
+		animation = schadenfreude
+	}
+	immediate = { title:e_thon_an_kharlokh.holder = { save_scope_as = storm_marshal } }
+
+	option = { # Accept (tributary)
+		trigger = { NOT = { exists = global_var:stormhost_helped } }
+		name = seregul.0416.a
+		start_tributary = {
+			contract_group = tributary_subjugated
+			suzerain = title:e_thon_an_kharlokh.holder
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # Accept (vassalization)
+		trigger = { exists = global_var:stormhost_helped }
+		name = seregul.0416.b
+
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		change_liege = {
+			liege = title:e_thon_an_kharlokh.holder
+			change = scope:change
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change2
+			add_claim_on_loss = no
+		}
+		title:k_kharadune = {
+			change_title_holder_include_vassals = {
+				holder = title:e_thon_an_kharlokh.holder
+				change = scope:change2
+			}
+		}
+		resolve_title_and_vassal_change = scope:change2
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # This is absurd, let them come!
+		name = seregul.0416.c
+		title:e_thon_an_kharlokh.holder = {
+			start_war = {
+				casus_belli = invasion_war
+				target = root
+				target_title = title:k_kharadune
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+seregul.0417 = { # A new Prince of Pél, probably a placeholder event until we can make this a vote in the Balan-Lai
+	content_source = realms_dlc
+	type = character_event
+	theme = crown
+	title = seregul.0417.t
+	override_background = { reference = docks_adunai }
+	desc = seregul.0417.desc
+
+	left_portrait = {
+		character = root
+		animation = interested
+	}
+	right_portrait = {
+		character = scope:potential_prince_1
+		animation = thinking
+	}
+	lower_left_portrait = scope:potential_prince_2
+	lower_center_portrait = scope:potential_prince_3
+	lower_right_portrait = scope:potential_prince_4
+
+	immediate = { 
+		lotr_balan_lai_list_potential_princes_effect = yes
+		ordered_courtier = {
+			limit = {
+                any_close_family_member = { is_landed = no }
+				culture = { 
+					OR = {
+						this = culture:kharadunaim
+						any_parent_culture_or_above = { this = culture:kharadunaim }
+					}
+				}
+                is_male = yes
+			}
+			order_by = {
+            	value = 0
+                add = diplomacy
+                add = intrigue
+            }
+			position = 1
+			save_scope_as = fallback_prince
+		}
+		hidden_effect = {
+			if = {
+				limit = { root != title:c_arpel.holder }
+				create_title_and_vassal_change = {
+					type = usurped
+					save_scope_as = change2
+					add_claim_on_loss = yes
+				}
+				title:c_arpel = {
+					change_title_holder = {
+						holder = root
+						change = scope:change2
+					}
+				}
+				resolve_title_and_vassal_change = scope:change2
+			}
+		}
+		ordered_in_list = {
+			list = potential_prince
+			order_by = {
+				value = 0
+				add = diplomacy
+				add = intrigue
+			}
+			position = 1
+			check_range_bounds = no
+			save_scope_as ?= potential_prince_1
+		}
+		if = {
+			limit = { exists = scope:potential_prince_1 }
+			ordered_in_list = {
+				list = potential_prince
+				limit = { this.house != scope:potential_prince_1.house }
+				order_by = {
+					value = 0
+					add = diplomacy
+					add = intrigue
+				}
+				position = 1
+				check_range_bounds = no
+				save_scope_as ?= potential_prince_2
+			}
+		}
+		if = {
+			limit = { exists = scope:potential_prince_2 }
+			ordered_in_list = {
+				list = potential_prince
+				limit = { 
+					this.house != scope:potential_prince_1.house
+					this.house != scope:potential_prince_2.house 
+				}
+				order_by = {
+					value = 0
+					add = diplomacy
+					add = intrigue
+				}
+				position = 1
+				check_range_bounds = no
+				save_scope_as ?= potential_prince_3
+			}
+		}
+		if = {
+			limit = { exists = scope:potential_prince_3 }
+			ordered_in_list = {
+				list = potential_prince
+				limit = { 
+					this.house != scope:potential_prince_1.house
+					this.house != scope:potential_prince_2.house
+					this.house != scope:potential_prince_3.house 
+				}
+				order_by = {
+					value = 0
+					add = diplomacy
+					add = intrigue
+				}
+				position = 1
+				check_range_bounds = no
+				save_scope_as ?= potential_prince_4
+			}
+		}
+	}
+
+	option = {
+		trigger = { exists = scope:potential_prince_1 }
+		name = seregul.0417.a
+		hidden_effect = { scope:potential_prince_1 = { set_employer = root } }
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:k_pel = {
+			change_title_holder_include_vassals = {
+				holder = scope:potential_prince_1
+				change = scope:change
+			}
+		}
+		title:c_arpel = {
+			change_title_holder_include_vassals = {
+				holder = scope:potential_prince_1
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = change2
+		}
+		title:d_concordant_circle.holder = {
+			change_liege = {
+				liege = scope:potential_prince_1
+				change = scope:change2
+			}
+		}
+		resolve_title_and_vassal_change = scope:change2
+		scope:potential_prince_1 = { add_trait = balan_lai_member }
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 70
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = { exists = scope:potential_prince_2 }
+		name = seregul.0417.b
+		hidden_effect = { scope:potential_prince_2 = { set_employer = root } }
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:k_pel = {
+			change_title_holder_include_vassals = {
+				holder = scope:potential_prince_2
+				change = scope:change
+			}
+		}
+		title:c_arpel = {
+			change_title_holder_include_vassals = {
+				holder = scope:potential_prince_2
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = change2
+		}
+		title:d_concordant_circle.holder = {
+			change_liege = {
+				liege = scope:potential_prince_2
+				change = scope:change2
+			}
+		}
+		resolve_title_and_vassal_change = scope:change2
+		scope:potential_prince_2 = { add_trait = balan_lai_member }
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 10
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = { exists = scope:potential_prince_3 }
+		name = seregul.0417.c
+		hidden_effect = { scope:potential_prince_3 = { set_employer = root } }
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:k_pel = {
+			change_title_holder_include_vassals = {
+				holder = scope:potential_prince_3
+				change = scope:change
+			}
+		}
+		title:c_arpel = {
+			change_title_holder_include_vassals = {
+				holder = scope:potential_prince_3
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = change2
+		}
+		title:d_concordant_circle.holder = {
+			change_liege = {
+				liege = scope:potential_prince_3
+				change = scope:change2
+			}
+		}
+		resolve_title_and_vassal_change = scope:change2
+		scope:potential_prince_3 = { add_trait = balan_lai_member }
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 10
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = { exists = scope:potential_prince_4 }
+		name = seregul.0417.d
+		hidden_effect = { scope:potential_prince_4 = { set_employer = root } }
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:k_pel = {
+			change_title_holder_include_vassals = {
+				holder = scope:potential_prince_4
+				change = scope:change
+			}
+		}
+		title:c_arpel = {
+			change_title_holder_include_vassals = {
+				holder = scope:potential_prince_4
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = change2
+		}
+		title:d_concordant_circle.holder = {
+			change_liege = {
+				liege = scope:potential_prince_4
+				change = scope:change2
+			}
+		}
+		resolve_title_and_vassal_change = scope:change2
+		scope:potential_prince_4 = { add_trait = balan_lai_member }
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 5
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+	option = { # Fall back, just look for a courtier
+		fallback = yes
+		name = seregul.0417.e
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:k_pel = {
+			change_title_holder_include_vassals = {
+				holder = scope:fallback_prince
+				change = scope:change
+			}
+		}
+		title:c_arpel = {
+			change_title_holder_include_vassals = {
+				holder = scope:fallback_prince
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = change2
+		}
+		title:d_concordant_circle.holder = {
+			change_liege = {
+				liege = scope:fallback_prince
+				change = scope:change2
+			}
+		}
+		resolve_title_and_vassal_change = scope:change2
+		scope:fallback_prince = { add_trait = balan_lai_member }
+	}
+	after = {
+		title:k_pel.holder = {
+			trigger_event = {
+				id = seregul.0420
+				days = 1
+			}
+		}
+		add_hook = {
+			type = strong_obligation_hook
+			target = title:k_pel.holder
+		}
+	}
+}
+
+seregul.0420 = {
+	hidden = yes
+	immediate = {
+		random_confederation = {
+			limit = { has_variable = balan_lai_confederation }
+			add_confederation_member = root
+		}
+		if = {
+			limit = {
+				AND = {
+					title:c_shalala.holder = { has_government = feudal_government }
+					title:c_shalala.title_province = { has_holding_type = city_holding }
+				}
+			}
+			title:c_shalala.holder = { change_government = oligarchy_government }
+		}
+	}
+}

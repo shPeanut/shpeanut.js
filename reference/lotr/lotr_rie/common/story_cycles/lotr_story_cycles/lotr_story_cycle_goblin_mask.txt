@@ -1,0 +1,21 @@
+﻿story_cycle_goblin_mask = {
+    on_setup = {
+    }
+    on_end = {
+
+    }
+    on_owner_death = {
+        end_story = yes
+    }
+    visible = yes
+    icon = {
+        reference = "gfx/interface/icons/regimenttypes/risen_carrion.dds"
+    }
+    background = {
+        reference = "gfx/interface/illustrations/event_scenes/lotr_halls.dds"
+    }
+    visualization = {
+        decisions = { decision_put_on_the_mask decision_try_to_lose_the_mask }
+		modifiers = { lotr_found_the_mask_modifier lotr_mask_takes_hold_modifier lotr_haunted_by_the_mask lotr_terrified_by_the_mask lotr_dominated_by_the_mask lotr_devastated_by_the_mask lotr_crippled_by_the_mask }
+    }
+}

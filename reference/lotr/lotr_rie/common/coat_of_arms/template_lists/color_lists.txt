@@ -1,0 +1,1699 @@
+#LotR: removed triggers.
+
+color_lists = {
+	all_color_list = { # PM : basically the average of medieval frequencies in roll of arms (strong bias towards 13th c), with values cut in half
+		30 = "red"
+		12 = "blue"
+		1 = "green"
+		14 = "black"
+		0 = "purple"
+		24 = "yellow"
+		26 = "white"
+	}
+
+	### HOBBIT ###
+
+	hobbit_normal_colors = {
+		40 = "red"
+		10 = "blue"
+		25 = "green"
+		15 = "black"
+		10 = "purple"
+	}
+
+	hobbit_metal_colors = {
+		20 = "yellow"
+		30 = "white"
+	}
+
+	hobbit_greens = {
+		1 = "green_light"
+		1 = "green"
+		1 = rgb { 11 140 11 }
+		1 = "rhun_green"
+	}
+
+	hobbit_browns = {
+		1 = rgb { 177 93 47 }
+		1 = "brown"
+	}
+
+	hobbit_fruit_colours = {
+		3 = rgb { 150 51 111 }
+		2 = "dark_purple"
+		2 = { 166 39 39 }
+		1 = "red_nougat"
+		2 = "blue_light"
+		1 = rgb { 107 167 113 }
+		1 = rgb { 72 72 159 }
+		1 = "grey"
+	}
+
+	### DWARVEN ###
+
+	dwarven_background_color_list = {
+		1 = "moria_grey_blue"
+		1 = "evil_metallic_grey_2"
+		1 = "evil_metallic_grey_1"
+	}
+	dwarven_color_list = {
+		2 = "umbar_dark_gold"
+		2 = "red"
+		5 = "arnor_blue"
+		5 = "moria_blue"
+		2 = "rhudaur_rust"
+		1 = "rust_brown"
+		# 1 = "rhun_green"
+	}
+	dwarven_metal_color_list = {
+		1 = "red_nougat"
+		1 = "evil_gold"
+		2 = "blue_mountains_silver"
+		2 = "blue_mountains_brass"
+		4 = "evil_white_2"
+	}
+
+	dwarven_dark_color_list = {
+		1 = moria_grey_blue
+		1 = evil_metallic_grey_2
+		1 = evil_metallic_grey_1
+		1 = evil_grey_1
+		1 = evil_grey_3
+		1 = arnor_blue
+		1 = moria_blue
+		1 = rust_brown
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = blacklock_coa_gfx }
+			}
+			20 = bellakari_gold_dark
+			10 = maroon
+			5 = anbaluk_red
+			5 = rhudaur_rust
+			5 = evil_red_2
+			20 = blacklock_brown_dark
+			10 = sirayn_dark_brown
+			5 = evil_grey_1
+			5 = evil_grey_3
+			5 = rust_brown
+		}
+	}
+
+	dwarven_light_color_list = {
+		1 = "red_nougat"
+		1 = "evil_gold"
+		1 = "blue_mountains_silver"
+		1 = "blue_mountains_brass"
+		1 = evil_white_2
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = blacklock_coa_gfx }
+			}
+			20 = umbar_dark_gold
+			10 = evil_gold
+			5 = blue_mountains_brass
+			20 = red
+			10 = red_nougat
+			5 = evil_white_2
+			5 = evil_white_1
+		}
+	}
+
+	dwarven_greyscale_color_list = {
+		1 = evil_black
+		1 = evil_grey_1
+		1 = evil_grey_2
+		1 = evil_grey_3
+		1 = evil_metallic_grey_2
+		1 = evil_metallic_grey_1
+	}
+	
+	### ELVEN ###
+	elven_background_color_list = {
+		4 = "dark_green"
+		4 = "dark_purple"
+		8 = "navy_blue"
+		4 = "dark_purple"
+	}
+	elven_color_list = {
+		1 = "red"
+		6 = "blue"
+		2 = "yellow"
+		6 = "green"
+		2 = "purple"
+		1 = "orange"
+		4 = "ocean_blue"
+		4 = "frost_blue"
+		1 = "light_purple"
+		special_selection = {
+			trigger = { scope:culture = { has_coa_gfx = noldor_coa_gfx } }
+			2 = "red"
+			2 = "orange"
+		}
+	}
+	elven_metal_color_list = {
+		1 = "black"
+		1 = "grey"
+		8 = "white"
+		2 = "light_gold"
+		1 = "frost_blue"
+		1 = "mint_green"
+	}
+	
+	### Rhûn ###
+	rhun_background_colors_list = {
+		# dark
+		4 = "black"
+		4 = "pitch_black"
+		1 = "dark_purple"
+		1 = "navy_blue"
+		# red
+		2 = "roman_red"
+		2 = "dark_chocolate"
+		2 = "dark_rust"
+		2 = "beige"
+		1 = "dark_burgundy"
+		4 = "rhun_red"
+		4 = "rhun_red2"
+		# purple
+		4 = "rhun_purple"
+		4 = "rhun_maroon"
+		4 = "rhun_brown"
+	}
+	rhun_emblem_colors_list = {
+		# gold
+		2 = "roman_gold"
+		2 = "syracuse_yellow"
+		4 = "rhun_darkgold"
+		4 = "rhun_gold"
+		4 = "rhun_gold2"
+		4 = "rhun_gold3"
+		# reds
+		2 = "red_nougat"
+		2 = "burned_red"
+		4 = "rhun_lightmaroon"
+		# colours
+		2 = "rhun_blue"
+		2 = "rhun_green"
+	}
+	rhun_metal_colors_list = {
+		1 = "light_gold"
+		1 = "offwhite"
+		4 = "rhun_lightgold"
+		4 = "rhun_cream"
+	}
+	
+	### URUK ###
+	uruk_normal_colors_1 = {
+		30 = "red"
+		30 = "mordor_red"
+		30 = "rhudaur_rust"
+		30 = "dark_rust"
+		30 = "rust_brown"
+		30 = "brown"
+		30 = "erebor_red"
+		30 = "maroon"
+		30 = "anbaluk_red"
+		30 = "anbaluk_red_light"
+	}
+	uruk_normal_colors_2 = {
+		30 = "black"
+		30 = "pitch_black"
+	}
+	uruk_metal_colors = {
+		40 = "white"
+		20 = "grey"
+		20 = "yellowish_grey"
+		20 = "bone_white"
+		20 = "offwhite"
+		20 = "iron_hills_rust"
+	}
+
+	### HARADRIM ###
+	haradrim_normal_colors_1 = {
+		30 = "red"
+		20 = "mordor_red"
+		30 = "rhudaur_rust"
+		30 = "dark_rust"
+		10 = "rust_brown"
+		10 = maroon
+		50 = rgb { 110 81 77 }
+		20 = rgb { 53 40 35 }
+		20 = rgb { 45 38 32 }
+		10 = rgb { 81 105 128 }
+		20 = rgb { 91 53 55 }
+		20 = rgb { 116 76 30 }
+		20 = rgb { 109 70 25 }
+		20 = rgb { 60 34 25 }
+		20 = rgb { 108 87 136 }
+		special_selection = {
+			trigger = {
+				OR = {
+					scope:faith = { has_doctrine = doctrine_echoes_of_the_ainur }
+					scope:faith.religion = { is_in_family = rf_eruhini }
+				}
+			}
+			50 = rgb { 110 81 77 }
+			50 = rgb { 81 105 128 }
+			50 = rgb { 69 96 48 }
+		}
+		special_selection = {
+			trigger = {
+				OR = {
+					scope:faith = { has_doctrine = doctrine_dominion_of_the_dark }
+					scope:faith.religion = { is_in_family = rf_forcesofevil }
+				}
+			}
+			50 = "mordor_red"
+			50 = "dark_rust"
+			50 = rgb { 53 40 35 }
+			50 = maroon
+			100 = "pitch_black"
+			100 = "black"
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_cultural_pillar = heritage_middle_apysaic }
+			}
+			100 = rgb { 116 76 30 }
+			100 = rgb { 109 70 25 }
+			100 = rgb { 60 34 25 }
+			20 = rgb { 108 87 136 }
+		}
+	}
+	haradrim_normal_colors_2 = {
+		40 = "black"
+		20 = "dark_burgundy"
+		20 = "dark_chocolate"
+		30 = "pitch_black"
+		10 = "dark_purple"
+		20 = "amroth_dark_grey"
+		20 = "lamedon_blue"
+		30 = "moria_grey_blue"
+		10 = "purple"
+		20 = "orange"
+		10 = "cardolan_green"
+		10 = "blue"
+		20 = "navy_blue"
+		20 = rgb { 60 70 120 }
+		special_selection = {
+			trigger = {
+				OR = {
+					scope:faith = { has_doctrine = doctrine_echoes_of_the_ainur }
+					scope:faith.religion = { is_in_family = rf_eruhini }
+				}
+			}
+			100 = "blue"
+			100 = "lamedon_blue"
+			100 = "cardolan_green"
+			100 = { 100 100 100 }
+		}
+		special_selection = {
+			trigger = {
+				OR = {
+					scope:faith = { has_doctrine = doctrine_dominion_of_the_dark }
+					scope:faith.religion = { is_in_family = rf_forcesofevil }
+				}
+			}
+			100 = "black"
+			100 = "pitch_black"
+		}
+	}
+	haradrim_metal_colors = {
+		10 = "white"
+		40 = "yellow"
+		20 = "yellow_light"
+		20 = "roman_gold"
+		40 = rgb { 226 181 114 }
+		special_selection = {
+			trigger = {
+				OR = {
+					scope:faith = { has_doctrine = doctrine_echoes_of_the_ainur }
+					scope:faith.religion = { is_in_family = rf_eruhini }
+				}
+			}
+			100 = "white"
+			100 = rgb { 209 193 165 }
+		}
+		special_selection = {
+			trigger = {
+				OR = {
+					scope:faith = { has_doctrine = doctrine_dominion_of_the_dark }
+					scope:faith.religion = { is_in_family = rf_forcesofevil }
+				}
+			}
+			100 = "yellow"
+			100 = "roman_gold"
+			100 = anbaluk_gold
+		}
+	}
+
+	### EDAIN ###
+	dunedain_colors = {
+		20 = "red"
+		30 = "blue"
+		 0 = "yellow"
+		20 = "green"
+		40 = "black"
+		 0 = "white"
+		 1 = "purple"
+		 0 = "orange"
+		 5 = "grey"
+		 0 = "brown"
+		10 = "pitch_black"
+		10 = "dark_rust"
+		10 = "dark_green"
+		10 = "navy_blue"
+		10 = "dark_burgundy"
+		special_selection = {
+			trigger = {
+				scope:faith.religion = { is_in_family = rf_eruhini }
+				scope:culture = { has_coa_gfx = dunedain_group_coa_gfx }
+			}
+			10 = "gondor_blue"
+			10 = "ocean_blue"
+			10 = "parthia_blue"
+		}
+		special_selection = {
+			trigger = {
+				OR = {
+					scope:culture = { has_coa_gfx = numenorean_coa_gfx }
+					scope:culture = { has_coa_gfx = southern_numenorean_coa_gfx }
+				}
+			}
+			 10 = "yellow"
+			100 = "black"
+			 20 = "purple"
+			 20 = "orange"
+			 20 = "grey"
+			 20 = "brown"
+			  5 = "roman_red"
+			  5 = "dark_chocolate"
+			  5 = "red_nougat"
+			  5 = "dark_rust"
+			  5 = "burned_red"
+			  5 = "rust_brown"
+			  5 = "dark_purple"
+		}
+		special_selection = {
+			trigger = {
+				OR = {
+					scope:culture = { has_coa_gfx = numenorean_coa_gfx }
+					scope:culture = { has_coa_gfx = southern_numenorean_coa_gfx }
+				}
+			}
+			 50 = "red_nougat"
+			100 = "dark_rust"
+			 50 = "burned_red"
+			100 = "rust_brown"
+			 50 = "imperator_green"
+			100 = "desaturated_green"
+			 25 = "ocean_blue"
+			100 = "navy_blue"
+			100 = "navy_blue"
+			100 = "dark_purple"
+			100 = "dark_burgundy"
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = bellakari_coa_gfx }
+			}
+			100 = purple
+			100 = bellakari_purple_light
+			100 = dark_purple
+			100 = dark_burgundy
+			100 = bellakari_purple_deep
+			#50 = bellakari_green_light
+			#25 = "imperator_green"
+			#25 = "desaturated_green"
+			#25 = "dark_green"
+			#50 = green
+			#50 = green_light
+			12 = "red_nougat"
+			25 = "dark_rust"
+			12 = "burned_red"
+			25 = "rust_brown"
+			12 = "ocean_blue"
+			25 = "navy_blue"
+			25 = "navy_blue"
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = southern_evil_numenorean_coa_gfx }
+			}
+			500 = anbaluk_blue_dark
+			400 = anbaluk_blue
+			400 = black
+			300 = pitch_black
+			500 = anbaluk_red
+			500 = maroon
+			400 = red
+			300 = red_nougat
+			300 = burned_red
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = eredrim_coa_gfx }
+			}
+			 0 = "dark_green"
+		}
+	}
+	dunedain_light_colors = {
+		  5 = "yellow"
+		100 = "white"
+		  1 = "grey"
+		 10 = "blue_light"
+		special_selection = {
+			trigger = {
+				scope:faith.religion = { is_in_family = rf_eruhini }
+				scope:culture = { has_coa_gfx = dunedain_group_coa_gfx }
+			}
+			10 = "light_blue"
+			10 = "frost_blue"
+		}
+		special_selection = {
+			trigger = {
+				OR = {
+					scope:culture = { has_coa_gfx = numenorean_coa_gfx }
+					scope:culture = { has_coa_gfx = southern_numenorean_coa_gfx }
+				}
+			}
+			10 = "yellow"
+			10 = "orange"
+			10 = "grey"
+			10 = "brown"
+			 5 = "bone_white"
+			 5 = "offwhite"
+			 5 = "yellowish_grey"
+			 5 = "light_purple"
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = southern_evil_numenorean_coa_gfx }
+			}
+			100 = anbaluk_blue_light
+			100 = anbaluk_blue
+			100 = anbaluk_red_light
+			100 = red
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = bellakari_coa_gfx }
+			}
+			100 = bellakari_purple_light
+			100 = light_purple
+			#50 = bellakari_green_light
+			#25 = "desaturated_green"
+			#50 = green_light
+			10 = "yellow"
+			10 = "orange"
+			10 = "grey"
+			10 = "brown"
+			5 = "bone_white"
+			5 = "offwhite"
+			5 = "yellowish_grey"
+			5 = "frost_blue"
+			5 = "ocean_blue"
+			5 = "white"
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = southern_numenorean_coa_gfx }
+			}
+			1 = "orange"
+			1 = "yellow"
+			5 = "white"
+			5 = "light_blue"
+			5 = "ocean_blue"
+			5 = "light_purple"
+			5 = "frost_blue"
+			5 = "light_purple"
+		}
+	}
+	dunedain_metal_colors = {
+		40 = "white"
+		special_selection = {
+			trigger = {
+				scope:faith.religion = { is_in_family = rf_eruhini }
+				scope:culture = { has_coa_gfx = dunedain_group_coa_gfx }
+			}
+			 5 = "cardolan_light_green"
+			 5 = "rhudaur_yellow"
+			 5 = "light_blue"
+			 5 = "frost_blue"
+			 5 = "umbar_gold"
+		}
+		special_selection = {
+			trigger = {
+				OR = {
+					scope:culture = { has_coa_gfx = numenorean_coa_gfx }
+					scope:culture = { has_coa_gfx = southern_numenorean_coa_gfx }
+				}
+			}
+			40 = "bone_white"
+			40 = "offwhite"
+			40 = "umbar_gold"
+			20 = anbaluk_gold
+			20 = anbaluk_gold_light
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = southern_evil_numenorean_coa_gfx }
+			}
+			20 = "bone_white"
+			20 = "offwhite"
+			40 = "umbar_gold"
+			10 = bellakari_gold
+			50 = anbaluk_gold
+			50 = anbaluk_gold_light
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = bellakari_coa_gfx }
+			}
+			200 = bellakari_gold
+			100 = white
+			20 = bone_white
+			20 = offwhite
+			20 = umbar_gold
+			10 = anbaluk_gold
+			10 = anbaluk_gold_light
+		}
+	}
+	dunedain_dark_metal_colors = {
+		40 = "black"
+		special_selection = {
+			trigger = {
+				OR = {
+					scope:culture = { has_coa_gfx = numenorean_coa_gfx }
+					scope:culture = { has_coa_gfx = southern_numenorean_coa_gfx }
+					scope:culture = { has_coa_gfx = southern_evil_numenorean_coa_gfx }
+				}
+			}
+			40 = "pitch_black"
+			40 = "umbar_dark_gold"
+			40 = anbaluk_gold
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = bellakari_coa_gfx }
+			}
+			200 = bellakari_gold_dark
+			100 = pitch_black
+			40 = umbar_dark_gold
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = dunedain_group_coa_gfx }
+			}
+			1000 = black
+			1000 = pitch_black
+			1000 = evil_metallic_grey_1
+			1000 = evil_grey_1
+			1000 = evil_grey_2
+			1000 = evil_grey_3
+		}
+	}
+	gurzyul_charge_colors = {
+		1 = evil_white_1
+		1 = evil_white_2
+		1 = evil_metallic_grey_1
+		1 = evil_rust
+		1 = evil_gold
+	}
+	gurzyul_colors = {
+		1 = evil_black
+		1 = evil_grey_1
+		1 = evil_grey_2
+		1 = evil_grey_3
+		1 = evil_gunpowder_1
+		1 = evil_gunpowder_2
+		1 = evil_metallic_grey_2
+		1 = evil_purple_1
+		1 = evil_purple_2
+		1 = evil_red_1
+		1 = evil_red_2
+		1 = evil_brown_1
+		1 = evil_brown_2
+	}
+	gurzyul_charge_dark_colors = {
+		1 = evil_black
+		1 = evil_grey_1
+		1 = evil_metallic_grey_1
+		1 = evil_red_2
+		1 = evil_rust
+	}
+	gurzyul_light_colors = {
+		1 = evil_white_2
+		1 = evil_grey_2
+		1 = evil_grey_3
+		1 = evil_gunpowder_1
+		1 = evil_gunpowder_2
+		1 = evil_metallic_grey_2
+		1 = evil_purple_1
+		1 = evil_purple_2
+		1 = evil_red_1
+		1 = evil_brown_1
+		1 = evil_brown_2
+		1 = evil_gold
+	}
+	dunlending_colours = {
+		10 = "red"
+		 1 = "yellow"
+		 1 = "green"
+		 1 = "orange"
+		10 = "grey"
+		10 = "brown"
+		10 = "green_light"
+		40 = "yellowish_grey"
+		40 = "dark_chocolate"
+		40 = "red_nougat"
+		40 = "dark_rust"
+		40 = "burned_red"
+		40 = "rust_brown"
+		40 = "beige"
+		10 = "light_green"
+		 1 = "mint_green"
+		10 = "desaturated_green"
+		 5 = "frost_blue"
+		40 = "dark_burgundy"
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = andrastrim_coa_gfx }
+			}
+			10 = "yellow"
+			 0 = "dark_rust"
+			 0 = "burned_red"
+			 0 = "rust_brown"
+			60 = "beige"
+			 0 = "dark_burgundy"
+			60 = "desaturated_green"
+			20 = "frost_blue"
+			20 = "dark_burgundy"
+		}
+	}
+	dunlending_metal_colours = {
+		10 = "black"
+		10 = "white"
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = andrastrim_coa_gfx }
+			}
+			 1 = "black"
+			20 = "white"
+			40 = "dark_green"
+			20 = "navy_blue"
+		}
+	}
+	
+	### NORTHRON ###
+	northron_colours = {
+		# Northron Green
+		10 = { 138 162 138 }
+		10 = { 72 90 80 }
+		10 = { 80 100 90 }
+		10 = { 56 90 70 }
+		10 = { 72 86 80 }
+		10 = { 174 192 114 }
+		10 = { 92 130 88 }
+		10 = "dark_green"
+		10 = "green"
+		10 = "imperator_green"
+		special_selection = { # rare colours
+			trigger = {
+				OR = {
+					scope:culture = { has_coa_gfx = woodmen_coa_gfx }
+					scope:culture = { has_coa_gfx = vale_coa_gfx }
+				}
+			}
+			2 = { 198 78 50 }
+			2 = { 158 104 140 }
+			2 = { 230 122 60 }
+			2 = { 170 55 60 }
+		}
+		special_selection = { # Anduin Vale & Beornings
+			trigger = {
+				scope:culture = { has_coa_gfx = vale_coa_gfx }
+			}
+			10 = "vale_green"
+			10 = "vale_brown"
+			# brown
+			5 = { 90 70 70 }
+			5 = { 60 55 50 }
+			5 = { 94 94 80 }
+		}
+		special_selection = { # Rohirrim
+			trigger = {
+				scope:culture = { has_coa_gfx = rohirrim_coa_gfx }
+			}
+			100 = "rohan_green01"
+			100 = "rohan_green02"
+			 50 = "rohan_red"
+			 50 = "rohan_blue"
+			 20 = { 32 92 72 }
+		}
+		special_selection = { # Settled Northron: Dorwinion and Dale.
+			trigger = {
+				OR = {
+					scope:culture = { has_coa_gfx = dale_coa_gfx }
+					scope:culture = { has_coa_gfx = dorwinion_coa_gfx }
+				}
+			}
+			50 = { 114 46 54 } # wine 01
+			50 = { 110 62 100 } # wine 02
+			50 = { 146 48 100 } # wine 03
+			50 = { 4 78 148 } # Dale blue
+			100 = { 168 56 34 } # Dale red
+			100 = { 238 152 74 } # Dale orange
+			# warm colours
+			50 = { 196 102 76 }
+			50 = { 98 80 76 }
+			50 = { 168 96 96 }
+			20 = { 110 110 95 }
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = dale_coa_gfx }
+			}
+			10 = { 200 100 60 }
+			10 = { 204 84 94 }
+			10 = { 52 62 80 }
+			10 = { 196 74 62 }
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = dale_coa_gfx }
+			}
+			10 = { 188 96 134 }
+			10 = { 136 104 182 }
+			10 = { 100 22 76 }
+			10 = { 152 38 102 }
+		}
+	}
+	northron_accent_colours = {
+		5 = { 224 140 112 }
+		5 = { 200 162 188 }
+		5 = { 208 118 124 }
+		5 = { 242 176 122 }
+		special_selection = { # Rohirrim
+			trigger = {
+				scope:culture = { has_coa_gfx = rohirrim_coa_gfx }
+			}
+			100 = "rohan_white"
+			100 = "rohan_gold"
+			100 = { 100 118 48 }
+			100 = { 170 50 50 }
+		#	100 = {  }
+		#	100 = {  }
+		#	100 = {  }
+		}
+		special_selection = { # Settled Northron: Dorwinion and Dale.
+			trigger = {
+				OR = {
+					scope:culture = { has_coa_gfx = dale_coa_gfx }
+					scope:culture = { has_coa_gfx = dorwinion_coa_gfx }
+				}
+			}
+			10 = { 242 222 180 }
+			10 = { 242 208 212 }
+			10 = { 210 200 114 }
+			10 = { 236 244 228 }
+		}
+	}
+	light_woodmen_colors = {
+		10 = "white"
+		10 = "beige"		
+		10 = "mint_green"
+		# 10 = "desaturated_green"
+	}
+	woodmen_colors = {
+		10 = "vale_green"
+		5 = "gelin_green"
+		5 = "dark_green"
+		5 = "green"
+		5 = "imperator_green"
+		10 = "yellow"
+		5 = "yellow_light"		
+		10 = "vale_brown"
+		10 = "rust_brown"
+	}
+	light_valemen_colors = {
+		10 = "white"
+		10 = "beige"
+		# 10 = "yellow_light"
+		# 10 = "yellow"
+		10 = "mint_green"
+	}
+	valemen_colors = {
+		# 50 = "vale_brown"
+		# 10 = "vale_green"
+		10 = "gelin_green"
+		10 = "dark_green"
+		10 = "green"
+		# 10 = "imperator_green"
+		# 10 = "yellow"
+	}
+	brown_valemen_colors = {
+		10 = "vale_brown"
+		10 = "rust_brown"
+	}
+
+	tulwangi_dark_colors = {
+		2 = red
+		2 = maroon
+		2 = tulwangi_dark_brown
+		6 = green
+		6 = tulwangi_deep_green
+		4 = tulwangi_green
+		4 = tulwangi_dark_green
+		2 = purple
+		1 = tulwangi_dark_purple
+		2 = blue
+		2 = black
+		4 = orange
+		2 = tulwangi_deep_blue
+		2 = tulwangi_dark_gold
+		2 = bellakari_gold_dark
+		1 = "roman_red"
+		1 = "dark_rust"
+		1 = "dark_burgundy"
+		1 = evil_grey_3
+		1 = evil_purple_1
+	}
+
+	tulwangi_light_colors = {
+		2 = yellow
+		6 = green_light
+		2 = bellakari_gold
+		2 = anbaluk_gold
+		2 = tulwangi_dark_yellow
+		2 = tulwangi_light_blue
+		1 = tulwangi_light_purple
+		1 = tulwangi_light_brown
+		1 = evil_gold
+	}
+
+	tulwangi_metal_colors = {
+		1 = white
+		1 = "yellow_light"
+		1 = { 210 190 161 } # Pale White
+		1 = { 217 170 101 } #Light Yellow
+		1 = bone_white
+		1 = offwhite
+	}
+
+	# Harshandatt
+	 harshandatt_dark_colors = {
+		 14 = { 56 23 0 } # Deep Brown
+		 20 = "red"
+		 3 = "orange"
+		 5 = { 99 44 15 } # Medium Brown
+		 15 = { 56 8 0 } # Deep Red
+		 3 = { 153 58 0 } # Rich Orange
+	 }
+	 
+	 harshandatt_light_colors = {
+		 20 = { 209 180 138 } # Sandy/Bone White
+		 10 = { 210 190 161 } # Pale White
+		 5 = "yellow"
+		 15 = { 217 170 101 } #Light Yellow
+		 5 = { 207 167 108 } # Tan
+		 5 = { 169 99 53 } # Orange Clay		 
+	 }
+
+	harshandatt_gem_colors = {
+		10 = { 38 97 156 } # Lapis Lazuli
+		5 = "green"
+		5 = "red"
+		5 = "purple"	
+		5 = { 22 44 63 } #Deep Navy
+	 }
+
+	 harshandatt_light_colors_sans_yellow = {
+		 20 = { 209 180 138 } # Sandy/Bone White
+		 10 = { 210 190 161 } # Pale White
+		 10 = { 217 170 101 } #Light Yellow
+		 5 = { 207 167 108 } # Tan
+		 5 = { 169 99 53 } # Orange Clay	
+	 }
+
+
+	#Khy#
+
+	khyan_light_colors = {
+		20 = { 209 180 138 } # Sandy/Bone White
+		10 = { 210 190 161 } # Pale White
+		5 = "yellow"
+		15 = { 217 170 101 } #Light Yellow
+		5 = { 207 167 108 } # Tan	
+		10 = "yellow_light"	 
+	}
+
+	## Sirayn ##
+
+	sirayn_dark_colors = {
+		5 = "red"
+		5 = "maroon"
+		1 = { 99 44 15 } # Medium Brown
+		1 = { 56 8 0 } # Deep Red
+		1 = "vale_brown"
+		1 = { 56 23 0 } # Deep Brown
+		5 = "sirayn_dark_yellow"
+		5 = "sirayn_dark_brown"
+		5 = "sirayn_dull_dark_green"
+		1 = "sirayn_dull_dark_dark_green"
+		1 = "gelin_green"
+		5 = "rhun_maroon"
+		1 = amroth_dark_blue
+	}
+	
+	sirayn_light_background = {
+		10 = { 209 180 138 } # Sandy/Bone White
+		10 = { 210 190 161 } # Pale White
+		10 = { 207 167 108 } # Tan
+		10 = { 242 207 155 } # Kirmlesra Bonewhite
+		5 = { 214 186 145 } # Desat Isra Bonewhite
+		10 = { 227 191 137 } # Warm Powa Beige
+		10 = { 242 190 113 } # Bright Pale Yellow
+		5 = { 200 160 100 } # Tan
+		5 = { 242 221 196 } # Warm White
+		5 = { 255 243 211 } # Bright Warm White
+		5 = bone_white
+	}
+	
+	sirayn_color_trim = {
+		1 = umbar_dark_gold								###
+		#1 = bellakari_gold_dark
+		2 = yellow
+		#1 = yellow_light
+		8 = { 158 56 42 } # Chennacatt Light Red
+		2 = bellakari_gold
+		2 = anbaluk_gold
+		#5 = "purple"
+		2 = { 132 65 68 } # Isra Desat Pinkish Red
+		2 = { 154 54 60 } # Isra Rich Pink
+		5 = { 98 111 67 } # Forest Green
+		1 = sirayn_green_light
+	}
+	
+	sirayn_golds = {
+		1 = umbar_dark_gold								###
+		#1 = bellakari_gold_dark
+		1 = yellow
+		1 = yellow_light
+		1 = bellakari_gold
+		1 = anbaluk_gold
+		#5 = "purple"
+	}
+	
+	sirayn_dark_background = {
+		3 = "red"
+		3 = "maroon"
+		3 = { 56 8 0 } # Deep Red
+		5 = "vale_brown"
+		5 = { 56 23 0 } # Deep Brown
+		5 = "sirayn_dull_dark_green"
+		5 = "sirayn_dull_dark_dark_green"
+		5 = { 59 79 61 } # Isra Desat Bluegreen
+		5 = { 81 17 21 } # Isra Dark Purple/Red
+		10 = { 81 17 38 } # Isra Dark Purple
+		5 = amroth_dark_blue
+		5 = { 6 35 62 } # Khamrattyn Deep Blue
+		5 = "sirayn_dark_yellow"		
+		5 = { 130 80 0 } # Sirayn Dark Gold
+	}
+
+	sirayn_metal_colors = {
+		1 = yellow
+		1 = yellowish_grey
+		1 = umbar_dark_gold
+		1 = bellakari_gold_dark
+		1 = bone_white
+		1 = offwhite
+		1 = bellakari_gold
+		1 = anbaluk_gold
+	}
+
+	sirayn_metal_colors_light = {
+		1 = bone_white
+		1 = offwhite
+		1 = white
+		
+	}
+	
+	sirayn_light_colors = {
+		1 = bone_white
+		1 = offwhite
+		1 = yellow_light
+		1 = { 209 180 138 } # Sandy/Bone White
+		1 = { 210 190 161 } # Pale White
+		1 = { 207 167 108 } # Tan
+		1 = bellakari_purple_light
+		1 = sirayn_green_light
+		1 = amroth_blue
+		1 = sirayn_red_light
+		1 = sirayn_orange_light
+	}
+
+	mumakan_metal_color_list = {
+		special_selection = {
+			trigger = {
+				faith_is_evil = yes
+			}
+			2 = "blue_mountains_silver"
+			2 = umbar_gold
+			1 = bone_white
+			1 = offwhite
+			1 = white
+			4 = "evil_white_2"
+			1 = rgb { 186 166 133 }	#Tanturak Beige
+		}		
+		special_selection = {
+			trigger = {
+				faith_is_evil = no
+			}
+			2 = { 250 180 80 } # Light Gold
+			2 = umbar_gold
+			1 = bone_white
+			1 = offwhite
+			3 = white
+			2 = rgb { 186 166 133 }	#Tanturak Beige
+		}
+	}
+
+	mumakan_dark_color_list = {
+		special_selection = {
+			trigger = {
+				faith_is_evil = yes
+			}
+			5 = black
+			5 = rgb { 40 40 40 }	#Charcoal Black
+			3 = "pitch_black"
+			5 = rgb { 75 20 20 }	#Darker Red
+			5 = "umbar_dark_gold"
+			5 = anbaluk_gold
+			3 = "maroon"
+			4 = { 104 41 41 } #Pale Desat Red
+			3 = { 56 8 0 } # Deep Red
+			5 = { 56 23 0 } # Deep Brown
+			10 = rgb { 36 52 58 }	#Darker Desat Green
+			3 = { 59 79 61 } # Isra Desat Bluegreen
+			5 = { 81 17 38 } # Isra Dark Purple
+			5 = amroth_dark_blue
+			5 = { 6 35 62 } # Khamrattyn Deep Blue
+			5 = "sirayn_dark_yellow"		
+			5 = { 130 80 0 } # Sirayn Dark Gold
+		}
+		special_selection = {
+			trigger = {
+				faith_is_evil = no
+			}
+			20 = "red"
+			15 = { 56 23 0 } # Deep Brown
+			15 = "maroon"
+			5 = "green"
+			10 = "purple"
+			5 = "tulwangi_deep_blue"
+			5 = rgb { 30 76 72 } #Tumag Turquoise
+			10 = rgb { 175 105 10 } #Rich Gold
+			5 = rgb { 36 52 58 }	#Darker Desat Green
+			5 = rgb { 60 80 60 }	#Tanturak Desat Green
+		}		
+	}
+
+	mumakan_dark_color_list_2 = {
+		special_selection = {
+			trigger = {
+				faith_is_evil = yes
+			}
+			20 = "black"
+			20 = rgb { 40 40 40 }	#Charcoal Black
+			20 = "dark_burgundy"
+			20 = "dark_chocolate"
+			30 = "pitch_black"
+			20 = "amroth_dark_grey"
+			10 = "lamedon_blue"
+			20 = "moria_grey_blue"
+			5 = rgb { 150 84 44 }	#Desat Orange
+			10 = rgb { 85 95 70 }	#Desat Green
+			5 = rgb { 36 52 58 }	#Darker Desat Green
+			5 = rgb { 60 80 60 }	#Tanturak Desat Green
+			15 = rgb { 75 20 20 }	#Darker Red
+			10 = "blue"
+			10 = "navy_blue"
+			10 = rgb { 60 70 120 }	#Blue
+			10 = rgb { 120 60 60 }	#Red
+			10 = rgb { 89 56 55 }	#Desat Pale Red
+			20 = rgb { 56 30 25 }	#Dark Desat Red
+		}
+		special_selection = {
+			trigger = {
+				faith_is_evil = no
+			}
+			20 = "red"
+			15 = { 56 23 0 } # Deep Brown
+			15 = "maroon"
+			5 = "green"
+			10 = "purple"
+			5 = "tulwangi_deep_blue"
+			5 = rgb { 30 76 72 } #Tumag Turquoise
+			10 = rgb { 175 105 10 } #Rich Gold
+			5 = rgb { 36 52 58 }	#Darker Desat Green
+			5 = rgb { 60 80 60 }	#Tanturak Desat Green
+		}
+	}
+	
+	shayn_color_list = {
+		1 = "red"
+		1 = "blue"
+		1 = "green"
+		1 = "black"
+		1 = "pitch_black"
+		special_selection = { #mostly shades of green
+			trigger = {
+				OR = {
+					scope:culture = culture:ganim
+					scope:culture = { any_parent_culture_or_above = { this = culture:ganim } }
+				}
+			}
+			10 = "dark_green"
+			20 = "sirayn_dull_dark_green"
+			30 = "sirayn_dull_dark_dark_green"
+			30 = { 59 79 61 } # Isra Desat Bluegreen
+			15 = { 81 17 38 } # Isra Dark Purple
+			16 = tulwangi_deep_green
+			14 = tulwangi_green
+			14 = tulwangi_dark_green
+			20 = "gelin_green"
+			10 = "imperator_green"
+
+		}
+		special_selection = { #mostly cool colors with a few warm reds and oranges
+			trigger = {
+				OR = {
+					scope:culture = culture:lynerian
+					scope:culture = { any_parent_culture_or_above = { this = culture:lynerian } }
+				}
+			}
+			15 = "purple"
+			5 = "orange"
+			1 = "roman_red"
+			20 = "gondor_blue"
+			20 = "ocean_blue"
+			15 = "parthia_blue"
+			15 = "navy_blue"
+			5 = "dark_chocolate"
+			5 = "dark_purple"
+			15 = "light_blue"
+			15 = amroth_dark_blue
+			10 = "red_nougat"
+			5 = "dark_purple"
+		}
+		special_selection = { #Mostly warmer colors and shades of muted colors or browns
+			trigger = {
+				OR = {
+					scope:culture = culture:ahava
+					scope:culture = { any_parent_culture_or_above = { this = culture:ahava } }
+				}
+			}
+			20 = "red"
+			10 = "burned_red"
+			10 = "dark_rust"
+			1 = "purple"
+			10 = "roman_red"
+			10 = "rust_brown"
+			10 = "dark_burgundy"
+			5 = "maroon"
+			5 = "rhun_maroon"
+			20 = { 168 56 34 } # Dale red
+			20 = "rhun_red"
+			20 = { 56 8 0 } # Deep Red
+			10 = "red_nougat"
+			5 = "dark_purple"
+		}
+	}
+
+	shayn_metal_light_colors = {
+		20 = { 209 180 138 } # Sandy/Bone White
+		10 = { 210 190 161 } # Pale White
+		5 = { 207 167 108 } # Tan	
+		special_selection = { #mostly shades of green
+			trigger = {
+				OR = {
+					scope:culture = culture:ganim
+					scope:culture = { any_parent_culture_or_above = { this = culture:ganim } }
+				}
+			}
+			1 = umbar_dark_gold	
+			1 = anbaluk_gold
+			10 = { 209 180 138 } # Sandy/Bone White
+			10 = { 210 190 161 } # Pale White
+			10 = { 242 207 155 } # Kirmlesra Bonewhite
+			5 = { 214 186 145 } # Desat Isra Bonewhite
+			10 = { 227 191 137 } # Warm Powa Beige
+			10 = { 242 190 113 } # Bright Pale Yellow
+			5 = { 200 160 100 } # Tan
+			5 = { 242 221 196 } # Warm White
+			10 = bone_white
+			5 = { 217 170 101 } #Light Yellow
+
+		}
+		special_selection = { #mostly cool colors with a few warm reds and oranges
+			trigger = {
+				OR = {
+					scope:culture = culture:lynerian
+					scope:culture = { any_parent_culture_or_above = { this = culture:lynerian } }
+				}
+			} 
+			5 = "yellow"
+			1 = umbar_dark_gold	
+			10 = anbaluk_gold
+			10 = { 209 180 138 } # Sandy/Bone White
+			10 = { 210 190 161 } # Pale White
+			10 = { 242 207 155 } # Kirmlesra Bonewhite
+			5 = { 214 186 145 } # Desat Isra Bonewhite
+			10 = { 227 191 137 } # Warm Powa Beige
+			10 = { 242 190 113 } # Bright Pale Yellow
+			5 = { 200 160 100 } # Tan
+			5 = { 242 221 196 } # Warm White
+			10 = { 255 243 211 } # Bright Warm White
+			10 = bone_white
+			5 = { 217 170 101 } #Light Yellow
+			10 = "frost_blue"
+		}
+		special_selection = { #Mostly warmer colors and shades of muted colors or browns
+			trigger = {
+				OR = {
+					scope:culture = culture:ahava
+					scope:culture = { any_parent_culture_or_above = { this = culture:ahava } }
+				}
+			}
+			10 = umbar_dark_gold	
+			1 = anbaluk_gold
+			10 = { 210 190 161 } # Pale White
+			10 = { 242 207 155 } # Kirmlesra Bonewhite
+			5 = { 214 186 145 } # Desat Isra Bonewhite
+			10 = { 227 191 137 } # Warm Powa Beige
+			5 = { 200 160 100 } # Tan
+			5 = { 242 221 196 } # Warm White
+			5 = bone_white
+		}
+	}
+
+	# Wastelands
+	wastelands_colors = {
+		10 = "black"
+		# 10 = "grey"		
+	}
+
+	light_wastelands_colors = {
+		10 = "white"
+		# 10 = "beige"
+		# 10 = "mint_green"		
+	}
+
+	
+	normal_colors = {
+		30 = "red"
+		12 = "blue"
+		1 = "green"
+		14 = "black"
+		0 = "purple"
+		special_selection = {
+			trigger = { scope:culture = { has_coa_gfx = rhun_group_coa_gfx } }
+			20 = "rhun_purple"
+			20 = "rhun_maroon"
+			20 = "rhun_blue"
+			20 = "rhun_red"
+			20 = "rhun_darkgold"
+			20 = "rhun_gold"
+			20 = "rhun_brown"
+			20 = "rhun_gold2"
+			20 = "rhun_lightmaroon"
+			20 = "rhun_green"
+			20 = "dark_rust"
+			 5 = "burned_red"
+			20 = "rust_brown"
+			10 = "beige"
+			10 = "imperator_green"
+			 5 = "desaturated_green"
+			10 = "dark_green"
+			20 = "navy_blue"
+			20 = "dark_purple"
+			20 = "dark_burgundy"
+		}
+		special_selection = {
+			trigger = { scope:culture = { has_coa_gfx = enedhwaith_coa_gfx } }
+			25 = "green"
+			15 = "blue"
+			10 = "brown"
+			15 = "green_light"
+			10 = "beige"
+			 5 = "desaturated_green"
+			 5 = "dark_green"
+		}
+		special_selection = {
+			trigger = {
+				always = no	
+				# coa_breton_trigger = yes
+			}
+			25 = "red"
+			13 = "blue"
+			5 = "black"			
+			5 = "green"
+		}
+		special_selection = {
+			trigger = {
+				always = no	
+				# coa_byzantine_trigger = yes
+			}
+			20 = "red"
+			8 = "blue"
+			7 = "black"			
+			9 = "green"
+		} 		
+		special_selection = {
+			trigger = {
+				always = no	
+				# scope:culture = { has_coa_gfx = latin_group_coa_gfx }
+			}
+			20 = "red"
+			8 = "blue"
+			7 = "black"			
+			9 = "green"
+		} 				
+		special_selection = {
+			trigger = {
+				always = no
+				# scope:culture = {
+				# 	OR = {
+				# 		has_coa_gfx = anglo_saxon_coa_gfx
+				# 		has_coa_gfx = welsh_coa_gfx
+				# 	}
+				# }
+			}
+			20 = "red"
+			8 = "blue"
+			16 = "black"
+			9 = "green"
+		}
+		special_selection = {
+			trigger = {
+				always = no	
+				# coa_french_trigger = yes
+			}
+			30 = "red"
+			9 = "blue"
+			6 = "black"	
+			2 = "green"			
+		}		
+		special_selection = {
+			trigger = {
+				always = no	
+				# scope:culture = { has_coa_gfx = occitan_coa_gfx }
+			}
+			12 = "red"
+			28 = "blue"
+			1 = "black"
+			3 = "green"
+		}	
+		special_selection = {
+			trigger = {  # PM : This can be split into South & North as there are stats for both
+				always = no
+				# scope:culture = {
+				# 	has_coa_gfx = german_group_coa_gfx
+				# 	NOT = { has_coa_gfx = frisian_coa_gfx }
+				# }
+			}
+			27 = "red"
+			10 = "blue"
+			18 = "black"
+			1 = "green"
+		}
+		special_selection = {
+			trigger = {
+				always = no
+				# scope:culture = {
+				# 	OR = {
+				# 		has_coa_gfx = norse_coa_gfx
+				# 		has_coa_gfx = norwegian_coa_gfx
+				# 		has_coa_gfx = swedish_coa_gfx
+				# 		has_coa_gfx = danish_coa_gfx
+				# 	}
+				# }
+			}
+			13 = "red"
+			22 = "blue"
+			11 = "black"
+			1 = "green"
+		}		
+		special_selection = {
+			trigger = {
+				always = no
+				# scope:culture = {
+				# 	OR = {
+				# 		has_coa_gfx = english_coa_gfx
+				# 		has_coa_gfx = scottish_coa_gfx
+				# 	}
+				# }
+			}
+			26 = "red"
+			18 = "blue"
+			9 = "black"	
+			1 = "green"
+		}	
+		special_selection = {
+			trigger = {
+				always = no
+				# scope:culture = { has_coa_gfx = frisian_coa_gfx }
+			}
+			31 = "red"
+			4 = "blue"
+			14 = "black"
+			2 = "green"
+		}	
+		special_selection = {
+			trigger = {
+				always = no
+				# scope:culture = { has_coa_gfx = norman_coa_gfx }
+			}
+			34 = "red"
+			11 = "blue"
+			3 = "black"	
+			5 = "green"
+		}	
+		special_selection = {
+			trigger = {
+				always = no
+				# scope:culture = { has_coa_gfx = iberian_group_coa_gfx }
+			}
+			38 = "red"
+			3 = "blue"
+			20 = "black"
+		}	
+		special_selection = {
+			trigger = {
+				always = no
+				# scope:culture = {
+				# 	OR = {
+				# 		has_coa_gfx = magyar_group_coa_gfx
+				# 		has_coa_gfx = west_slavic_group_coa_gfx
+				# 	}
+				# }
+			}
+			34 = "red"
+			8 = "blue"
+			13 = "black"
+		}	
+		special_selection = {
+			trigger = {
+				always = no
+				# coa_african_culture_trigger = yes
+			}
+			30 = "green"
+			30 = "black"
+		}	
+		special_selection = {
+			trigger = {
+				always = no
+				# coa_mena_trigger = yes
+			}
+			18 = "blue"
+			6 = "black"	
+			29 = "green"
+		}
+		special_selection = {
+			trigger = {
+				always = no
+				# coa_irish_trigger = yes
+			}
+			10 = "green"
+		}
+		special_selection = {
+			trigger = {
+				always = no
+				# coa_leonese_trigger = yes
+			}
+			10 = "purple"
+		}
+		special_selection = {
+			trigger = {
+				always = no
+				# coa_polish_trigger = yes
+			}
+			20 = "red"
+		}		
+		special_selection = {
+			trigger = {
+				always = no
+				# coa_indian_trigger = yes
+			}
+			1000 = "red"
+			1000 = "orange"
+			1000 = "blue"
+			1000 = "black"
+			1000 = "purple"
+			1000 = "green"
+		}
+	}
+
+	metal_colors = {
+		24 = "yellow"
+		26 = "white"
+		special_selection = {
+			trigger = {
+				coa_indian_trigger = yes
+
+			}
+			10 = "white"
+		}
+		special_selection = {
+			trigger = {
+				always = no
+				# coa_polish_trigger = yes
+			}
+			5 = "white"
+		}	
+		special_selection = {
+			trigger = {
+				always = no
+				# coa_breton_trigger = yes
+			}
+			26 = "yellow"
+			24 = "white"
+		}		
+		special_selection = {
+			trigger = {
+				always = no
+				# scope:culture = { has_coa_gfx = welsh_coa_gfx }
+			}
+			16 = "yellow"
+			34 = "white"
+		}	
+		special_selection = {
+			trigger = {
+				always = no
+				# coa_french_trigger = yes
+			}
+			26 = "yellow"
+			24 = "white"	
+		}			
+		special_selection = {
+			trigger = {
+				always = no
+				# scope:culture = { has_coa_gfx = occitan_coa_gfx }
+			}
+			31 = "yellow"
+			19 = "white"
+		}
+		special_selection = {
+			trigger = {
+				always = no
+				# scope:culture = {
+				# 	has_coa_gfx = german_group_coa_gfx
+				# 	NOT = { has_coa_gfx = frisian_coa_gfx_coa_gfx }
+				# }
+			}
+			14 = "yellow"
+			29 = "white"
+		}	
+		special_selection = {
+			trigger = {
+				always = no
+				# scope:culture = {
+				# 	OR = {
+				# 		has_coa_gfx = danish_coa_gfx
+				# 		has_coa_gfx = norwegian_coa_gfx
+				# 		has_coa_gfx = swedish_coa_gfx
+				# 	}
+				# }
+			}
+			8 = "yellow"
+			40 = "white"
+		}
+		special_selection = {
+			trigger = {
+				always = no
+				# scope:culture = {
+				# 	OR = {
+				# 		has_coa_gfx = english_coa_gfx
+				# 		has_coa_gfx = scottish_coa_gfx
+				# 	}
+				# }
+			}
+			15 = "yellow"
+			26 = "white"
+		}	
+		special_selection = {
+			trigger = {
+				always = no
+				# culture = { has_coa_gfx = frisian_coa_gfx }
+			}
+			20 = "yellow"
+			26 = "white"
+		}	
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = adornaen_coa_gfx }
+				# scope:culture = { has_coa_gfx = norman_coa_gfx }
+			}
+			20 = "yellow"
+			16 = "white"
+		}	
+		special_selection = {
+			trigger = {
+				always = no
+				# scope:culture = { has_coa_gfx = iberian_group_coa_gfx }
+			}
+			37 = "yellow"
+			8 = "white"	
+		}	
+		special_selection = {
+			trigger = {
+				always = no
+				# scope:culture = {
+				# 	OR = {
+				# 		has_coa_gfx = magyar_group_coa_gfx
+				# 		has_coa_gfx = west_slavic_group_coa_gfx
+				# 	}
+				# }
+			}
+			15 = "yellow"
+			28 = "white"
+		}
+		special_selection = {
+			trigger = {
+				coa_mena_trigger = yes
+			}
+			9 = "yellow"
+			40 = "white"
+		}	
+		special_selection = {
+			trigger = {
+				coa_african_culture_trigger = yes
+			}
+			15 = "yellow"
+		}		
+	}
+
+}

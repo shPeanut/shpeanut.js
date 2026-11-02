@@ -1,0 +1,1860 @@
+﻿#####	Forodwaith (e_forodwaith)
+####	Angmar (k_angmar)
+###		Kanelemas (d_kanelemas)
+##		Carn Dûm (c_carn_dum)
+
+5120 = {	#Carn Dûm (b_carn_dum)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		wild_orcs
+		ghosts
+	}
+	500.1.1 = {
+		special_building_slot = wonder_carn_dum_01
+	}
+	5330.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_evil
+		holding = castle_holding
+		special_building = wonder_carn_dum_01
+		buildings = {	#ROA Buildings
+			castle_04
+			hill_forts_08
+			furnaces_08
+		}
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		special_building = wonder_carn_dum_ruin_02
+		buildings = {
+			shadow_of_mordor
+			ghosts
+		}
+	}
+}
+
+5121 = {	#Anghul (b_anghul)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+5122 = {	#Gûl (b_gul)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+5123 = {	#Crudu (b_crudu)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Angsûl (c_angsul)
+
+5124 = {	#Angsûl (b_angsul)
+	culture = balsharim
+	religion = faith_angmar_balsha
+	holding = tribal_holding
+	5330.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_evil
+		holding = castle_holding
+		buildings = {
+			castle_02
+			hill_forts_04
+			pastures_04
+		}
+	}
+	5600.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_evil
+		holding = castle_holding
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			wild_orcs
+		}
+	}
+}
+
+5125 = {	#Idima (b_idima)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+5126 = {	#Ahûs (b_ahus)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Moku (c_moku)
+
+5127 = {	#Uhmardu (b_uhmardu)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4200.1.1 = {
+		culture = balsharim
+		religion = faith_angmar_balsha
+		holding = tribal_holding
+	}
+	5330.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_evil
+		holding = castle_holding
+		buildings = {	#ROA Buildings
+			castle_01
+			hill_forts_02
+			barracks_02
+		}
+	}
+	5600.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_evil
+		holding = castle_holding
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			frozen_ground
+		}
+	}
+}
+
+5128 = {	#Khoila (b_khoila)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Himbar (c_himbar)
+
+5129 = {	#Mindil Kepich (b_mindil_kepich)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		wild_orcs
+		frozen_ground
+	}
+	4200.1.1 = {
+		culture = balsharim
+		religion = faith_angmar_balsha
+		holding = tribal_holding
+	}
+	5330.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_evil
+		holding = castle_holding
+		buildings = {	#ROA Buildings
+			castle_01
+			hill_forts_02
+			barracks_02
+		}
+	}
+
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			frozen_ground
+		}
+	}
+}
+
+5130 = {	#Ghrashkha (b_ghrashkha)
+	culture = angmarrim
+	religion = faith_angmar_azira
+	holding = none
+}
+
+5131 = {	#Ravda (b_ravda)
+	culture = angmarrim
+	religion = faith_angmar_azira
+	holding = none
+
+}
+
+##	Barad Madrûs (c_barad_madrus)
+
+5132 = {	#Barad Madrûs (b_barad_madrus)
+	culture = worauthai_madur
+	religion = way_of_strength
+	holding = dwarven_holding
+	5330.1.1 = {
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_04
+			slave_mines_04
+			furnaces_04
+		}
+	}
+
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			strange_creatures
+			ghosts
+		}
+	}
+}
+
+##	Zarak Dûm (c_zarak_dum)
+
+5133 = {	#Zarak Dûm (b_zarak_dum)
+	culture = worauthai_madur
+	religion = way_of_strength
+	holding = dwarven_holding
+	5330.1.1 = {
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_03
+			slave_mines_03
+			furnaces_04
+		}
+	}
+
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			strange_creatures
+		}
+	}
+}
+
+##	Khûlmarkh (c_khulmarkh)
+
+5134 = {	#Khûlmarkh (b_khulmarkh)
+	culture = worauthai_madur
+	religion = way_of_strength
+	holding = dwarven_holding
+	5330.1.1 = {
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_03
+			slave_mines_03
+			furnaces_04
+		}
+	}
+
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			stale_air
+		}
+	}
+}
+
+###	Foryagsh (d_foryagsh)
+##	Rogarthuk (c_rogarthuk)
+
+5135 = {	#Rogarthuk (b_rogarthuk)
+	culture = worauthai_madur
+	religion = cult_of_the_ulukai
+	holding = dwarven_holding
+	5330.1.1 = {
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+		buildings = {	#ROA Buildings
+			dwarven_depths_03
+			slave_mines_03
+			furnaces_02
+		}
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+		}
+	}
+	6544.4.4 = { # Orcs from Gundabad begin to resettle the area
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6830.9.9 = { # War of Dwarves and Orcs, all Orcs are either slain or flee
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+		}
+	}
+}
+
+##	Durshigak (c_durshigak)
+
+5136 = {	#Durshigak (b_durshigak)
+	culture = worauthai_madur
+	religion = cult_of_the_ulukai
+	holding = dwarven_holding
+	5330.1.1 = {
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+		buildings = {	#ROA Buildings
+			dwarven_depths_02
+			warg_pits_02
+			raiding_camps_02
+		}
+	}
+
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+		}
+	}
+}
+
+##	Akturag (c_akturag)
+
+5137 = {	#Akturag (b_akturag)
+	culture = worauthai_madur
+	religion = way_of_strength
+	holding = dwarven_holding
+	5330.1.1 = {
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+		buildings = {	#ROA Buildings
+			dwarven_depths_02
+			raiding_camps_03
+			furnaces_02
+		}
+	}
+
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+		}
+	}
+}
+
+##	Kerisak (c_kerisak)
+
+5138 = {	#Kerisak (b_kerisak)
+	culture = worauthai_madur
+	religion = cult_of_the_ulukai
+	holding = dwarven_holding
+	5330.1.1 = {
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+		buildings = {	#ROA Buildings
+			dwarven_depths_02
+			hunting_outposts_02
+			furnaces_01
+		}
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+		}
+	}
+	6544.4.4 = { # Orcs from Gundabad begin to resettle the area
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6830.9.9 = { # War of Dwarves and Orcs, all Orcs are either slain or flee
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+		}
+	}
+}
+
+##	Makharaz (c_makharaz)
+
+5139 = {	#Makharaz (b_makharaz)
+	culture = worauthai_madur
+	religion = cult_of_the_ulukai
+	holding = castle_holding
+	5330.1.1 = {
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+		buildings = {	#ROA Buildings
+			dwarven_depths_02
+			slave_mines_02
+			uruk_pits_02
+		}
+	}
+	6000.1.1 = {
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	6899.9.9 = {
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+}
+
+##	Mardunazh (c_mardunazh)
+
+5140 = {	#Mardunazh (b_mardunazh)
+	culture = worauthai_madur
+	religion = way_of_strength
+	holding = castle_holding
+	5330.1.1 = {
+		culture = worauthai_madur
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+		buildings = {	#ROA Buildings
+			dwarven_depths_02
+			raiding_camps_02
+			scouting_posts_02
+		}
+	}
+	6000.1.1 = {
+		culture = bonesnapper_goblin
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	6877.7.7 = {
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+}
+
+###	Nan Angmar (d_nan_angmar)
+##	Litash (c_litash)
+
+5141 = {	#Litash (b_litash)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		wolf_den
+	}
+	5330.1.1 = {
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = castle_holding
+		buildings = {	#ROA Buildings
+			castle_01
+			raiding_camps_02
+			slave_mines_02
+		}
+	}
+
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+		}
+	}
+}
+
+5142 = {	#Gath Uior (b_gath_uior)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+5143 = {	#Barad Gularan (b_barad_gularan)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Parth Gurthil (c_parth_gurthil)
+
+5144 = {	#Gurthil (b_gurthil)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		bandits
+		frozen_ground
+	}
+	5330.1.1 = {
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = castle_holding
+		buildings = {	#ROA Buildings
+			castle_01
+			slave_mines_03
+			raiding_camps_02
+		}
+	}
+
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			frozen_ground
+		}
+	}
+}
+
+5145 = {	#Nan Gurth (b_nan_gurth)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+5146 = {	#Grontar (b_grontar)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Malenhad (c_malenhad)
+
+5147 = {	#Gabilshathûr (b_gabilshathur)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4200.1.1 = {
+		culture = balsharim
+		religion = faith_angmar_balsha
+		holding = tribal_holding
+	}
+	5330.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_azira
+		holding = castle_holding
+		buildings = {	#ROA Buildings
+			castle_01
+			pastures_02
+			hill_farms_02
+		}
+	}
+	5600.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_evil
+		holding = castle_holding
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			flooded_lands
+		}
+	}
+}
+
+5148 = {	#Maethad (b_maethad)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+5149 = {	#Tyrn Lhuig (b_tyrn_lhuig)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Arakhanûr (c_arakhanur)
+
+5150 = {	#Shedûn (b_shedun)
+	culture = balsharim
+	religion = faith_angmar_balsha
+	holding = tribal_holding
+	5330.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_azira
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_02
+			quarries_02
+		}
+	}
+	5600.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_evil
+		holding = castle_holding
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+		}
+	}
+}
+
+5151 = {	#Morkai (b_morkai)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+5152 = {	#Boglakh (b_boglakh)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Balkashûr (c_balkashur)
+
+5153 = {	#Lûgât (b_lugat)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	5330.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_azira
+		holding = castle_holding
+		buildings = {	#ROA Buildings
+			castle_01
+			hill_forts_01
+			hill_farms_02
+		}
+	}
+	5600.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_evil
+		holding = castle_holding
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			flooded_lands
+		}
+	}
+}
+
+5154 = {	#Zenlyar (b_zenlyar)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Lûgazag (c_lugazag)
+
+5155 = {	#Lûgazag (b_lugazag)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	5330.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_azira
+		holding = castle_holding
+		buildings = {
+			castle_01
+			quarries_02
+			slave_mines_03
+		}
+	}
+	5600.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_evil
+		holding = castle_holding
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			flooded_lands
+		}
+	}
+}
+
+5156 = {	#Roshmakat (b_roshmakat)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+###	Haryagsh (d_haryagsh)
+##	Barûk-Zigil (c_baruk_zigil)
+
+5157 = {	#Barûk-Zigil (b_baruk_zigil)
+	culture = worauthai_madur
+	religion = way_of_strength
+	holding = tribal_holding
+	special_building_slot = wonder_mtgram
+	special_building = wonder_mtgram
+	5330.1.1 = {
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+		buildings = {	#ROA Buildings
+			dwarven_depths_04
+			slave_mines_04
+			orc_siege_works_02
+		}
+	}
+
+	5400.1.1 = { # Witch-king subjugates the Mt Gram orcs
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+	}
+
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			flooded_tunnels
+		}
+	}
+	6700.1.1 = {
+		culture = bonesnapper_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_03
+			slave_mines_03
+			orc_siege_works_01
+		}
+	}
+}
+
+##	Ongbishûk (c_ongbishuk)
+
+5158 = {	#Ongbishûk (b_ongbishuk)
+	culture = worauthai_madur
+	religion = way_of_strength
+	holding = tribal_holding
+
+	5330.1.1 = {
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+		buildings = {	#ROA Buildings
+			dwarven_depths_02
+			raiding_camps_01
+			furnaces_02
+		}
+	}
+
+	5400.1.1 = { # Witch-king subjugates the Mt Gram orcs
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+	}
+
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			stale_air
+		}
+	}
+
+	6700.1.1 = {
+		culture = bonesnapper_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+}
+
+##	Gormakh (c_gormakh)
+
+5159 = {	#Gormakh (b_gormakh)
+	culture = worauthai_madur
+	religion = way_of_strength
+	holding = tribal_holding
+	5330.1.1 = {
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+		buildings = {	#ROA Buildings
+			dwarven_depths_02
+			slave_mines_01
+			furnaces_02
+		}
+	}
+
+	5400.1.1 = { # Witch-king subjugates the Mt Gram orcs
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+	}
+
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			stale_air
+			wild_orcs
+		}
+	}
+
+	6700.1.1 = {
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+}
+
+##	Zargûl (c_zargul)
+
+5160 = {	#Zargûl (b_zargul)
+	culture = worauthai_madur
+	religion = way_of_strength
+	holding = dwarven_holding
+	5330.1.1 = {
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+
+	5400.1.1 = { # Witch-king subjugates the Mt Gram orcs
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+	}
+
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+		}
+	}
+
+	6700.1.1 = {
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+
+	6855.5.5 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+		}
+	}
+
+}
+
+##	Garzûgûl (c_garzugul)
+
+5161 = {	#Garzûgûl (b_garzugul)
+	culture = worauthai_madur
+	religion = way_of_strength
+	holding = dwarven_holding
+	5330.1.1 = {
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+
+	5400.1.1 = { # Witch-king subjugates the Mt Gram orcs
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+	}
+
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			stale_air
+		}
+	}
+}
+
+##	Suk Skuthruga (c_suk_skuthruga)
+
+5162 = {	#Storugorûz (b_storugoruz)
+	culture = worauthai_madur
+	religion = way_of_strength
+	holding = castle_holding
+	5330.1.1 = {
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = castle_holding
+		buildings = {	#ROA Buildings
+			castle_01
+			hill_forts_02
+			slave_mines_01
+		}
+	}
+
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			wild_orcs
+		}
+	}
+}
+
+5163 = {	#Vûsbas (b_vusbas)
+	culture = angmarrim
+	religion = faith_lossoth
+	holding = none
+}
+
+###	Sweicelis (d_sweicelis)
+##	Fasach Falroid (c_fasach_falroid)
+
+5164 = {	#Cargash (b_cargash)
+	culture = balsharim
+	religion = faith_angmar_balsha
+	holding = tribal_holding
+	5330.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_azira
+		holding = castle_holding
+		buildings = {	#ROA Buildings
+			castle_01
+			curtain_walls_02
+			barracks_02
+		}
+	}
+	5600.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_evil
+		holding = castle_holding
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			troll_cave
+		}
+	}
+}
+
+5165 = {	#Rarnath (b_rarnath)
+	culture = angmarrim
+	religion = angmar_azira
+	holding = none
+}
+
+5166 = {	#Karghal (b_karghal)
+	culture = angmarrim
+	religion = angmar_azira
+	holding = none
+}
+
+##	Ram Dúath (c_ram_duath)
+
+5167 = {	#Kuska (b_kuska)
+	culture = balsharim
+	religion = faith_angmar_balsha
+	holding = tribal_holding
+	5330.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_azira
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_02
+			barracks_02
+		}
+	}
+	5600.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_evil
+		holding = castle_holding
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+		}
+	}
+}
+
+5168 = {	#Culdakh (b_culdakh)
+	culture = angmarrim
+	religion = angmar_azira
+	holding = none
+}
+
+5169 = {	#Barras Dar (b_barras_dar)
+	culture = angmarrim
+	religion = angmar_azira
+	holding = none
+}
+
+##	Fasach Larran (c_fasach_larran)
+
+5170 = {	#Eldenar (b_eldenar)
+	culture = balsharim
+	religion = faith_angmar_balsha
+	holding = tribal_holding
+	5330.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_azira
+		holding = castle_holding
+		buildings = {	#ROA Buildings
+			castle_01
+			ramparts_02
+			outposts_02
+		}
+	}
+	5600.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_evil
+		holding = castle_holding
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+		}
+	}
+}
+
+5171 = {	#Aughaire (b_aughaire)
+	culture = angmarrim
+	religion = angmar_azira
+	holding = none
+}
+
+5172 = {	#Gringhask (b_gringhask)
+	culture = angmarrim
+	religion = angmar_azira
+	holding = none
+}
+
+##	Roakaru (c_roakaru)
+
+5173 = {	#Vihi (b_vihi)
+	culture = balsharim
+	religion = faith_angmar_balsha
+	holding = tribal_holding
+	5330.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_azira
+		holding = castle_holding
+		buildings = {	#ROA Buildings
+			castle_01
+			curtain_walls_02
+			military_camps_02
+		}
+	}
+	5600.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_evil
+		holding = castle_holding
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			frozen_ground
+		}
+	}
+}
+
+5174 = {	#Aidus (b_aidus)
+	culture = angmarrim
+	religion = angmar_azira
+	holding = none
+}
+
+5175 = {	#Kamaleie (b_kamaleie)
+	culture = angmarrim
+	religion = angmar_azira
+	holding = none
+}
+
+####	Forochel (k_forochel)
+###	Kotiniemi (d_kotiniemi)
+##	Salmi (c_salmi)
+
+5176 = {	#Angsikita (b_angsikita)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_02
+			market_villages_02
+		}
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = lossoth
+		religion = faith_whale_cult
+		holding = tribal_holding
+		buildings = {
+			tribe_01
+			palisades_01
+			market_villages_01
+		}
+	}
+	6960.6.6 = {
+		religion = faith_lossoth
+	}
+}
+
+5177 = {	#Susimetsiä (b_susimetsia)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+5178 = {	#Mäntimetsä (b_mantimetsa)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+5179 = {	#Korkeama (b_korkeama)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+	3500.1.1 = {
+		holding = castle_holding
+	}
+	4000.1.1 = {
+		holding = none
+	}
+}
+
+5180 = {	#Sjangeri (b_sjangeri)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Salmi (c_salmi)
+
+5182 = {	#Suri-Kylä (b_suri_kyla)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_02
+			war_camps_02
+		}
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = lossoth
+		religion = faith_whale_cult
+		holding = tribal_holding
+		buildings = {
+			tribe_02
+			palisades_02
+			market_villages_01
+		}
+		special_building_slot = wonder_lodge_forochel_01
+		special_building = wonder_lodge_forochel_01
+	}
+	6960.6.6 = {
+		religion = faith_lossoth
+	}
+}
+
+5181 = {	#Yläman (b_ylaman)
+	culture = lossoth
+	religion = faith_whale_cult
+	holding = none
+}
+
+5183 = {	#Hautamäki (b_hautamaki)
+	culture = lossoth
+	religion = faith_whale_cult
+	holding = none
+	6807.1.1 = {
+		religion = faith_lossoth
+	}
+}
+
+##	Homela (c_homela)
+
+5184 = {	#Homela (b_homela)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = tribal_holding
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			pirate_remnants
+			frozen_ground
+		}
+	}
+	6888.8.8 = {
+		culture = lossoth
+		religion = faith_lossoth
+		holding = tribal_holding
+	}
+}
+
+5185 = {	#Peurakotin (b_peurakotin)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+5186 = {	#Kuollutsotu (b_kuollutsotu)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Pulju (c_pulju)
+
+5187 = {	#Karhuma (b_karhuma)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = tribal_holding
+
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bear_den
+			frozen_ground
+		}
+	}
+	7174.1.1 = { # FoA Temp Date
+		culture = lossoth
+		religion = faith_lossoth
+		holding = tribal_holding
+	}
+}
+
+5188 = {	#Pitkätput (b_pitkatput)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+5189 = {	#Kylmäkenttä (b_kylmakentta)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Jä-Kuru (c_ja_kuru)
+
+5190 = {	#Jämäki (b_jamaki)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_02
+			war_camps_02
+		}
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			frozen_ground
+		}
+	}
+}
+
+5191 = {	#Ruokakenttä (b_ruokakentta)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Ja-Rokkä (c_ja_rokka)
+
+5192 = {	#Jaloala (b_jaloala)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_02
+			war_camps_02
+		}
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wolf_den
+			frozen_ground
+		}
+	}
+}
+
+5193 = {	#Rautamäki (b_rautamaki)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+5194 = {	#Mahlametsiä (b_mahlametsia)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+###	Järanikko (d_jaranikko)
+##	Talvi-Müri (c_talvi_muri)
+
+5195 = {	#Ylikokoontua (b_ylikokoontua)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = tribal_holding
+	3911.1.1 = {	# Downfall flooding - Lossoth flee inland
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_lands
+		}
+	}
+	4000.1.1 = {
+		culture = lossoth
+		religion = faith_lossoth
+		holding = tribal_holding
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_01
+			palisades_01
+			longhouses_01
+		}
+	}
+}
+
+5196 = {	#Henkeä-Metsä (b_henkea_metsa)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+5197 = {	#Kauppakoti (b_kauppakoti)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Roväla (c_rovala)
+
+5198 = {	#Kuru-Leiri (b_kuru_leiri)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = tribal_holding
+	3911.1.1 = {	# Downfall flooding - Lossoth flee inland
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_lands
+		}
+	}
+	6000.1.1 = {
+		culture = lossoth
+		religion = faith_lossoth
+		holding = tribal_holding
+	}
+}
+
+5199 = {	#Küsila (b_kusila)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+5200 = {	#Alalahti (b_alalahti)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Länsi-Ma (c_lansi_ma)
+
+5201 = {	#Kuonaranta (b_kuonaranta)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_01
+			war_camps_01
+			market_villages_01
+		}
+	}
+}
+
+5202 = {	#Ratuas (b_ratuas)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+5203 = {	#Kairijoena (b_kairijoena)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+5207 = {	#Klanitapa (b_klanitapa)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Itä-Man (c_ita_man)
+
+5204 = {	#Pikkun-Nä (b_pikkun_na)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = tribal_holding
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wolf_den
+			bandits
+		}
+	}
+	6888.8.8 = {
+		culture = lossoth
+		religion = faith_lossoth
+		holding = tribal_holding
+	}
+}
+
+5205 = {	#Sapatti (b_sapatti)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+5206 = {	#Laino-Matta (b_laino_matta)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Niva (c_niva)
+
+5208 = {	#Monetsali (b_monetsali)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		flooded_lands
+	}
+	4000.1.1 = {
+		culture = lossoth
+		religion = faith_lossoth
+		holding = tribal_holding
+	}
+	5300.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_lands
+			bandits
+		}
+	}
+}
+
+4736 = {	#Lumranlad (b_lumranlad)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+##	Sükli (c_sukli)
+
+5209 = {	#Lompolä (b_lompola)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		frozen_ground
+	}
+	4000.1.1 = {
+		culture = lossoth
+		religion = faith_lossoth
+		holding = tribal_holding
+	}
+	5300.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			frozen_ground
+		}
+	}
+}
+
+5210 = {	#Kurkkia (b_kurkkia)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+5211 = {	#Honkämukka (b_honkamukka)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+}
+
+###	Jokirantä (d_jokiranta)
+##	Ja-Ürho (c_ja_urho)
+
+5212 = {	#Kultila (b_kultila)
+	culture = balsharim
+	religion = faith_angmar_balsha
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_02
+			war_camps_02
+		}
+	}
+	5600.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_evil
+		holding = tribal_holding
+		buildings = {
+			tribe_01
+			palisades_02
+			war_camps_01
+		}
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wolf_den
+			flooded_lands
+		}
+	}
+}
+
+5213 = {	#Hammastupa (b_hammastupa)
+	culture = balsharim
+	religion = faith_angmar_balsha
+	holding = none
+
+	6007.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+5214 = {	#Kylmiämetsiä (b_kylmiametsia)
+	culture = balsharim
+	religion = faith_angmar_balsha
+	holding = none
+
+	6007.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+##	Junnas (c_junnas)
+
+5215 = {	#Ivaja-Matti (b_ivaja_matti)
+	culture = balsharim
+	religion = faith_angmar_balsha
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_01
+			palisades_02
+			war_camps_01
+		}
+	}
+	5600.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_evil
+		holding = tribal_holding
+	}
+
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+		}
+	}
+}
+
+5216 = {	#Hentan-Mä (b_hentan_ma)
+	culture = balsharim
+	religion = faith_angmar_balsha
+	holding = none
+
+	6007.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+5217 = {	#Moikansuvä (b_moikansuva)
+	culture = balsharim
+	religion = faith_angmar_balsha
+	holding = none
+
+	6007.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+##	Hannula (c_hannula)
+
+5218 = {	#Kauppa-Kohta (b_kauppa_kohta)
+	culture = balsharim
+	religion = faith_angmar_balsha
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_02
+			war_camps_02
+		}
+	}
+	6007.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			frozen_ground
+		}
+	}
+}
+
+5219 = {	#Illisvara (b_illisvara)
+	culture = balsharim
+	religion = faith_angmar_balsha
+	holding = none
+
+	6007.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+}
+
+###	Korkein-Mä (d_korkein_ma)
+##	Palo (c_palo)
+
+5220 = {	#Törmän (b_torman)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		frozen_ground
+		ghosts
+	}
+}
+
+5221 = {	#Koskeloniemi (b_koskeloniemi)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+}
+
+5222 = {	#Alaniemi (b_alaniemi)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+}
+
+##	Paksü-ma (c_paksu_ma)
+
+5223 = {	#Kamasmukka (b_kamasmukka)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		flooded_lands
+		frozen_ground
+	}
+}
+
+5224 = {	#Jarven-Pä (b_jarven_pa)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+}
+
+##	Ponso (c_ponso)
+
+5225 = {	#Tulimäki (b_tulimaki)
+	culture = balsharim
+	religion = faith_angmar_balsha
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_01
+			palisades_01
+			war_camps_02
+		}
+	}
+	6007.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			frozen_ground
+			bear_den
+		}
+	}
+	7174.1.1 = { # FoA Temp Date
+		culture = lossoth
+		religion = faith_lossoth
+		holding = tribal_holding
+	}
+}
+
+5226 = {	#Leveäppu (b_leveappu)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+	5600.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+##	Ojala (c_ojala)
+
+5227 = {	#Surnutua (b_surnutua)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	5203.11.23 = {
+		culture = angmarrim
+		religion = faith_angmar_azira
+		holding = tribal_holding
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_01
+			palisades_01
+			war_camps_01
+		}
+	}
+	5395.2.4 = {
+		holding = castle_holding
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+		}
+	}
+}
+
+5228 = {	#Jarvensu (b_jarvensu)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+	5330.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_azira
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+5229 = {	#Tiaina (b_tiaina)
+	culture = lossoth
+	religion = faith_lossoth
+	holding = none
+	5330.1.1 = {
+		culture = angmarrim
+		religion = faith_angmar_azira
+	}
+	6007.1.1 = { # Witch King is defeated in battle, flees to Mordor
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+

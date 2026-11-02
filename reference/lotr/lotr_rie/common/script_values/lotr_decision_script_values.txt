@@ -1,0 +1,909 @@
+﻿lotr_form_tedjin_confederacy_total_convinced = {
+	value = 0
+	if = {
+		limit = {
+			any_county_in_region = {
+				region = custom_reform_tedjin_confederacy
+				exists = holder
+				holder = { is_independent_ruler = yes }
+				holder.culture = culture:tedjin
+				NOT = { holder = root }
+				count = all  
+				holder = { add_to_temporary_list = tedjin_rulers }
+			}
+		}
+	}
+	every_in_list = {
+		list = tedjin_rulers
+		limit = {
+			OR = {
+				# Is you, just in case
+				this = root
+				# your friend
+				has_relation_friend = root
+				AND = {
+					has_diarchy_type = regency
+					diarch = {
+						has_relation_friend = root
+					}
+				}
+				# your lover
+				has_relation_lover = root
+				AND = {
+					has_diarchy_type = regency
+					diarch = {
+						has_relation_lover = root
+					}
+				}
+				# Your ally
+				any_ally = {
+					this = root
+				}
+				AND = {
+					has_diarchy_type = regency
+					diarch = {
+						any_ally = {
+							this = root
+						}
+					}
+				}
+				# Your hooked
+				root = {
+					has_hook = prev
+				}
+				AND = {
+					has_diarchy_type = regency
+					diarch = {
+						root = {
+							has_hook = prev
+						}
+					}
+				}
+				#Your tributary
+				is_tributary_of_suzerain_or_above = root
+			}
+		}
+		add = 1
+	}
+}
+
+lotr_form_tedjin_confederacy_total = {
+	value = 0
+	if = {
+		limit = {
+			any_county_in_region = {
+				region = custom_reform_tedjin_confederacy
+				exists = holder
+				holder = { is_independent_ruler = yes }
+				holder.culture = culture:tedjin
+				NOT = { holder = root }
+				count = all  
+				holder = { add_to_temporary_list = tedjin_rulers }
+			}
+		}
+	}
+	every_in_list = {
+		list = tedjin_rulers
+		add = 1
+	}
+}
+
+lotr_nurniag_dukes_cowed = {
+	value = 0
+	if = {
+		limit = {
+			title:k_nurn = {
+				any_de_jure_county_holder = {
+					primary_title.tier >= tier_duchy #Ignore counts
+					this != root # Ignore you
+					culture = culture:nurniag # Only look at Nurniags
+					count = all
+					add_to_temporary_list = nurniag_dukes
+				}
+			}
+		}
+	}
+	every_in_list = {
+		list = nurniag_dukes
+		limit = {
+			OR = {
+				# All Nurniag duchy or above rulers -
+				has_dread_level_towards = { # are terrified of you
+					target = root
+					level = 2
+				}
+				opinion = { # Love you
+					target = root
+					value >= 80
+				}
+			}
+		}
+		add = 1
+	}
+}
+
+lotr_dorwinion_influenced_rulers_count = {
+	value = 0
+	if = {
+		limit = {
+			title:k_dorwinion = {
+    			any_de_jure_county_holder = {
+					is_independent_ruler = yes
+					is_landed = yes
+					is_human = yes
+					this != root
+					highest_held_title_tier <= tier_duchy
+					capital_county.kingdom ?= title:k_dorwinion
+					OR = {
+						opinion = {
+							target = root
+							value >= very_high_positive_opinion
+						}
+						root = { has_strong_hook = prev }
+						root = { has_relation_friend = prev }
+						root = { is_allied_to = prev }
+					}
+					count = all
+					add_to_temporary_list = dorwinion_holders
+				}
+			}
+		}
+	}
+	every_in_list = {
+		list = dorwinion_holders
+		add = 1
+	}
+	max = lotr_dorwinion_influenced_rulers_count_max
+}
+lotr_dorwinion_influenced_rulers_count_max = 4
+lotr_dorwinion_influencable_rulers_count = {
+	value = 0
+	if = {
+		limit = {
+			title:k_dorwinion = {
+    			any_de_jure_county_holder = {
+					is_independent_ruler = yes
+					is_landed = yes
+					is_human = yes
+					this != root
+					highest_held_title_tier <= tier_duchy
+					capital_county.kingdom ?= title:k_dorwinion
+					count = all
+					add_to_temporary_list = dorwinion_holders
+				}
+			}
+		}
+	}
+	every_in_list = {
+		list = dorwinion_holders
+		add = 1
+	}
+}
+
+lotr_nurniag_dukes_total = {
+	value = 0
+	if = {
+		limit = {
+			title:k_nurn = {
+				any_de_jure_county_holder = {
+					primary_title.tier >= tier_duchy #Ignore counts
+					this != root # Ignore you
+					culture = culture:nurniag # Only look at Nurniags
+					count = all
+					add_to_temporary_list = nurniag_dukes
+				}
+			}
+		}
+	}
+	every_in_list = {
+		list = nurniag_dukes
+		add = 1
+	}
+}
+
+lotr_despoil_ithilien_value = {
+	value = 0
+	every_realm_province = {
+		limit = {
+			OR = {
+				has_building_or_higher = logging_camps_01
+				has_building_or_higher = logging_outposts_01
+			}
+			kingdom = title:k_ithilien
+		}
+		add = 1
+	}
+}
+
+lotr_despoil_ithilien_raided_value = {
+	value = 0
+	title:k_ithilien = {
+		every_de_jure_county = {
+			limit = { 
+				NOT = {
+					duchy = title:d_minas_ithil
+				}
+				OR = {
+					holder.top_liege = root
+					any_neighboring_county = {
+						holder.top_liege = root
+					}
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+lotr_gorgoroth_dev_counties_value = {
+	value = 0
+	title:k_gorgoroth = {
+		every_de_jure_county = {
+			limit = {
+				development_level >= 10
+			}
+			add = 1
+		}
+	}
+	# divide = 20 # Counties in Gorgoroth #Shown in loc
+}
+
+lotr_gorgoroth_building_count_value = {
+	value = 0
+	every_sub_realm_barony = {
+		limit = {
+			kingdom = title:k_gorgoroth
+			title_province = {
+				OR = {
+					has_building_or_higher = slave_mines_04
+					has_building_or_higher = slave_farms_04
+					has_building_or_higher = furnaces_04
+				}
+			}
+		}
+		add = 1
+	}
+}
+
+lotr_northron_settlers_cooldown = {
+	value = 40
+	if = {
+		limit = {
+			capital_province = {
+				geographical_region = custom_eastern_gondor
+			}
+		}
+		add = -20
+	}
+}
+
+lotr_northron_settlers_small_cost = {
+	value = 25
+	multiply = {
+		value = root.primary_title.tier
+		subtract = 1
+		min = 1
+	}
+	if = {
+		limit = {
+			root.primary_title.tier > tier_duchy
+		}
+		add = 25
+	}
+	if = {
+		limit = {
+			root= {
+				exists = dynasty
+				dynasty = {
+					has_dynasty_perk = law_legacy_1
+				}
+			}
+		}
+		multiply = law_legacy_cost_reduction_mult
+	}
+	if = {
+		limit = {
+			root= {
+				government_has_flag = government_is_tribal
+			}
+		}
+		multiply = 0.5
+	}
+	# Make it a little easier for smaller realms
+	if = {
+		limit = {
+			root= {
+				sub_realm_size < 3
+			}
+		}
+		multiply = 0.8
+	}
+	
+	if = {
+		limit = {
+			is_landed = yes
+			capital_province = {
+				NOT = { geographical_region = custom_eastern_gondor }
+			}	
+		}
+		multiply = 1.5
+	}
+	#if = { #Potentially reflavor for Kin-Strife
+	#	limit = {
+	#		exists = struggle:RICE_normandy_struggle
+	#		root = {
+	#			any_character_struggle = {
+	#				involvement = involved
+	#				is_struggle_type = RICE_normandy_struggle
+	#			}
+	#		}
+	#		struggle:RICE_normandy_struggle = {
+	#			is_struggle_phase = struggle_RICE_normandy_phase_confrontation
+	#		}	
+	#	}
+	#	multiply = 0.75
+	#}
+	min = 50
+	max = 125
+}
+
+lotr_northron_settlers_large_cost = {
+	value = 50
+	multiply = {
+		value = root.primary_title.tier
+		subtract = 1
+		min = 1
+	}
+	if = {
+		limit = {
+			root.primary_title.tier > tier_duchy
+		}
+		add = 25
+	}
+	if = {
+		limit = {
+			root= {
+				exists = dynasty
+				dynasty = {
+					has_dynasty_perk = law_legacy_1
+				}
+			}
+		}
+		multiply = law_legacy_cost_reduction_mult
+	}
+	if = {
+		limit = {
+			root= {
+				government_has_flag = government_is_tribal
+			}
+		}
+		multiply = 0.5
+	}
+	# Make it a little easier for smaller realms
+	if = {
+		limit = {
+			root= {
+				sub_realm_size < 3
+			}
+		}
+		multiply = 0.8
+	}
+
+	if = {
+		limit = {
+			is_landed = yes
+			capital_province = {
+				NOT = { geographical_region = custom_eastern_gondor }
+			}	
+		}
+		multiply = 1.5
+	}
+	#if = { #Potentially reflavor for Kin-Strife
+	#	limit = {
+	#		exists = struggle:RICE_normandy_struggle
+	#		root = {
+	#			any_character_struggle = {
+	#				involvement = involved
+	#				is_struggle_type = RICE_normandy_struggle
+	#			}
+	#		}
+	#		struggle:RICE_normandy_struggle = {
+	#			is_struggle_phase = struggle_RICE_normandy_phase_confrontation
+	#		}	
+	#	}
+	#	multiply = 0.75
+	#}
+	min = 75
+	max = 200
+}
+
+RICE_build_small_tayee_site_cost = {
+	value = 25
+	multiply = {
+		value = root.primary_title.tier
+		subtract = 1
+		min = 1
+	}
+	if = {
+		limit = {
+			root.primary_title.tier > tier_duchy
+		}
+		multiply = 1.25
+	}
+	if = {
+		limit = {
+			root= {
+				government_has_flag = government_is_tribal
+			}
+		}
+		multiply = 0.75
+	}
+	# Make it a little easier for smaller realms
+	if = {
+		limit = {
+			root= {
+				sub_realm_size < 3
+			}
+		}
+		multiply = 0.75
+	}
+	min = 25
+	max = 100
+}
+
+RICE_build_medium_tayee_site_cost = {
+	value = 50
+	multiply = {
+		value = root.primary_title.tier
+		subtract = 1
+		min = 1
+	}
+	if = {
+		limit = {
+			root.primary_title.tier > tier_duchy
+		}
+		multiply = 1.25
+	}
+	if = {
+		limit = {
+			root= {
+				government_has_flag = government_is_tribal
+			}
+		}
+		multiply = 0.75
+	}
+	# Make it a little easier for smaller realms
+	if = {
+		limit = {
+			root= {
+				sub_realm_size < 3
+			}
+		}
+		multiply = 0.75
+	}
+	min = 50
+	max = 200
+}
+
+RICE_build_large_tayee_site_cost = {
+	value = 75
+	multiply = {
+		value = root.primary_title.tier
+		subtract = 1
+		min = 1
+	}
+	if = {
+		limit = {
+			root.primary_title.tier > tier_duchy
+		}
+		multiply = 1.25
+	}
+	if = {
+		limit = {
+			root= {
+				government_has_flag = government_is_tribal
+			}
+		}
+		multiply = 0.75
+	}
+	# Make it a little easier for smaller realms
+	if = {
+		limit = {
+			root= {
+				sub_realm_size < 3
+			}
+		}
+		multiply = 0.75
+	}
+	min = 75
+	max = 300
+}
+
+RICE_tayee_building_dynasty_prestige_amount = {
+	value = 0
+	if = {
+		limit = {
+			root = {
+				piety_level >= 5
+			}
+		}
+		add = 125
+	}
+	else_if = {
+		limit = {
+			root = {
+				piety_level >= 4
+			}
+		}
+		add = 100
+	}
+	else_if = {
+		limit = {
+			root = {
+				piety_level >= 3
+			}
+		}
+		add = 75
+	}
+	else_if = {
+		limit = {
+			root = {
+				piety_level >= 2
+			}
+		}
+		add = 50
+	}
+	else = {
+		add = 25
+	}
+}
+
+sponsored_tayee_sites_count = { # Juke Note: For applying prophet modifier, hence floor of 1
+	value = 0
+	if = {
+		limit = {
+			exists = var:tayee_sponsorship_count
+		}
+		add = var:tayee_sponsorship_count
+	}
+	else = { add = 1 }
+}
+
+sponsored_tayee_sites_count_avatar = { # Juke Note: For displaying avatar decision trigger, hence floor 0
+	value = 0
+	if = {
+		limit = {
+			exists = var:tayee_sponsorship_count
+		}
+		add = var:tayee_sponsorship_count
+	}
+	max = sponsored_tayee_sites_count_avatar_max
+}
+sponsored_tayee_sites_count_avatar_max = 3
+
+tayee_successful_murders_count = {
+	value = 0
+	every_memory = {
+		memory_type = successful_murder
+		add = 1
+	}
+	max = tayee_successful_murders_count_max
+}
+tayee_successful_murders_count_max = 3
+
+tayee_friends_count = {
+	value = 0
+	every_relation = {
+		type = friend
+		add = 1
+	}
+	max = tayee_friends_count_max
+}
+tayee_friends_count_max = 5
+
+tayee_lovers_count = {
+	value = 0
+	every_relation = {
+		type = lover
+		add = 1
+	}
+	max = tayee_lovers_count_max
+}
+tayee_lovers_count_max = 5
+
+tayee_followers_count = {
+	value = 0
+	every_courtier_or_guest = {
+		# custom = every_follower_custom # Just for loc
+		add = 1
+	}
+	max = tayee_followers_count_max
+}
+tayee_followers_count_max = 15
+
+tayee_mothered_children_count = {
+	value = 0
+	every_child = {
+		even_if_dead = yes
+		add = 1
+	}
+	max = tayee_mothered_children_count_max
+}
+tayee_mothered_children_count_max = 5
+
+tayee_sired_children_count = {
+	value = 0
+	every_child = {
+		even_if_dead = yes
+		add = 1
+	}
+	max = tayee_sired_children_count_max
+}
+tayee_sired_children_count_max = 8
+
+# Sakal an Khar
+lotr_sakal_an_khar_geographical_region_control_complete = {
+	value = 0
+	add = lotr_sakal_an_khar_geographical_region_control
+	divide = lotr_sakal_an_khar_geographical_region
+	multiply = 100
+}
+
+lotr_sakal_an_khar_geographical_region_control = {
+	value = 0
+	every_county_in_region = {
+		region = special_sakal_an_khar_formable
+		limit = { 
+			culture = root.culture
+			faith = root.faith
+		}
+		add = 1
+	}
+}
+
+lotr_sakal_an_khar_geographical_region = {
+	value = 0
+	every_county_in_region = {
+		region = special_sakal_an_khar_formable
+		add = 1
+	}
+}
+
+lotr_mardat_coup_odds_of_success = {
+	value = 1
+	if = {
+		limit = {
+			root = {
+				has_character_flag = mardat_capital_conversion
+			}
+		}
+		add = 33
+	}
+	if = {	
+		limit = {
+			root = {
+				has_character_flag = mardat_navy
+			}
+		}
+		add = 33
+	}
+	if = {	
+		limit = {
+			root = {
+				has_character_flag = mardat_guard
+			}
+		}
+		add = 33
+	}
+	if = {	
+		limit = {
+			root = {
+				has_character_flag = mardat_chaos_coup
+			}
+		}
+		add = 60
+	}	
+}
+
+lotr_derei_convince_values = {
+	value = 0
+	add = derei_skill_value
+	add = derei_relationship_value
+	add = derei_blackmail_value
+	add = derei_prince_personality
+	add = derei_princes_convinced
+}
+
+derei_skill_value = { 
+	value = 0
+	add = {
+		value = diplomacy
+		divide = 2
+	}
+	add = {
+		value = learning
+		divide = 2
+	}
+	max = 25
+}
+
+derei_relationship_value = { 
+	value = 0
+	if = {
+		limit = { root = { has_relation_best_friend = scope:target_prince } }
+		add = 25
+	}
+	if = {
+		limit = { root = { has_relation_friend = scope:target_prince }
+		}
+		add = 15
+	}
+	if = {
+		limit = { root = { has_relation_lover = scope:target_prince } }
+		add = 15
+	}
+	if = {
+		limit = { root = { has_relation_soulmate = scope:target_prince } }
+		add = 25
+	}
+	if = {
+		limit = { root = { has_relation_rival = scope:target_prince } }
+		add = -15
+	}
+	if = {
+		limit = { root = { has_relation_nemesis = scope:target_prince } }
+		add = -25
+	}
+}
+
+derei_blackmail_value = { 
+	value = 0
+	if = {
+		limit = { root = { has_hook = scope:target_prince } }
+		add = 15
+	}
+	else_if = {
+		limit = { root = { has_strong_hook = scope:target_prince } }
+		add = 25
+	}
+}
+
+derei_prince_personality = { 
+	if = {
+		limit = { scope:target_prince = { has_trait = just } }
+		add = 8
+	}
+	if = {
+		limit = { scope:target_prince = { has_trait = compassionate } }
+		add = 8
+	}
+	if = {
+		limit = { scope:target_prince = { has_trait = forgiving } }
+		add = 8
+	}
+	if = {
+		limit = { scope:target_prince = { has_trait = generous } }
+		add = 8
+	}
+	if = {
+		limit = { scope:target_prince = { has_trait = humble } }
+		add = 8
+	}
+	if = {
+		limit = { scope:target_prince = { has_trait = content } }
+		add = 5
+	}
+	if = {
+		limit = { scope:target_prince = { has_trait = fickle } }
+		add = 5
+	}
+	if = {
+		limit = { scope:target_prince = { has_trait = honest } }
+		add = 5
+	}
+	if = {
+		limit = { scope:target_prince = { has_trait = gregarious } }
+		add = 5
+	}
+	if = {
+		limit = { scope:target_prince = { has_trait = greedy } }
+		add = -8
+	}
+	if = {
+		limit = { scope:target_prince = { has_trait = sadistic } }
+		add = -8
+	}
+	if = {
+		limit = { scope:target_prince = { has_trait = stubborn } }
+		add = -8
+	}
+	if = {
+		limit = { scope:target_prince = { has_trait = callous } }
+		add = -8
+	}
+	if = {
+		limit = { scope:target_prince = { has_trait = paranoid } }
+		add = -8
+	}
+	if = {
+		limit = { scope:target_prince = { has_trait = arbitrary } }
+		add = -8
+	}
+	if = {
+		limit = { scope:target_prince = { has_trait = arrogant } }
+		add = -8
+	}
+	if = {
+		limit = { scope:target_prince = { has_trait = zealous } }
+		add = -20
+	}
+	if = {
+		limit = { scope:target_prince = { has_title = title:d_balan_lai_leader } }
+		add = -10
+	}
+	if = {
+		limit = { 
+			OR = {
+				has_trait = theologian 
+				has_trait = scholar
+			}
+		}
+		add = 10
+	}
+	if = {
+		limit = { has_trait = diplomat }
+		add = 8
+	}
+}
+
+derei_princes_convinced = { 
+	value = 0
+	if = {
+		limit = {
+			confederation = {
+				any_confederation_member = {
+					percent >= 0.25
+					has_faith = faith:faith_gimileth
+				}
+			}
+		}
+		add = 5
+	}
+	if = {
+		limit = {
+			confederation = {
+				any_confederation_member = {
+					percent >= 0.5
+					has_faith = faith:faith_gimileth
+				}
+			}
+		}
+		add = 10
+	}
+	if = {
+		limit = {
+			confederation = {
+				any_confederation_member = {
+					percent >= 0.75
+					has_faith = faith:faith_gimileth
+				}
+			}
+		}
+		add = 15
+	}
+	if = {
+		limit = {
+			confederation = {
+				any_confederation_member = {
+					percent < 0.25
+					has_faith = faith:faith_gimileth
+				}
+			}
+		}
+		add = -10
+	}
+	if = {
+		limit = { title:d_balan_lai_leader.holder = { has_faith = faith:faith_gimileth } }
+		add = 10
+	}
+}

@@ -1,0 +1,1286 @@
+coat_of_arms_template_lists = {
+	# Root may be the set character, if in the ruler designer it will not exist yet but the saved scopes will so use them instead of checking the character
+	# scope:faith is the faith of the character, always set
+	# scope:culture is the culture of the character, always set
+	# scope:title is the primary title of the character, may be unset
+	all = {
+		# Simple catch all
+		
+		3 = basic_charge_01
+		3 = basic_charge_01b
+		3 = basic_ordinary_01
+		3 = basic_ordinary_01_inverted
+		
+		#500 = basic_charge_02
+		#50000 = basic_charge_03
+		#1 = basic_charge_04
+		#50000 = basic_charge_05
+		#3 = basic_charge_06
+		
+		# Turned off
+		#1 = basic_charge_13
+		#1 = basic_charge_13_b		
+		#1 = border_01
+		#1 = border_01_metal
+		#1 = basic_ordinary_02
+		#1 = basic_ordinary_02_b		
+		#1 = dynasty_godwin
+		#1 = dynasty_godwin_02		
+
+
+		
+		#3 = basic_ordinary_division_01
+		#1 = basic_ordinary_division_02
+		#3 = basic_ordinary_chief_01
+		#1 = basic_ordinary_chief_02
+		
+		# # LotR Coat of Arms Templates
+		# # 	Additional CoA templates used:
+		# # 		Germanic Paganism
+		# # 		Christian Iberian
+		# # 		Christian Scandinavian
+		
+		### ELVES ###
+		special_selection = {
+			trigger = { scope:culture = { has_coa_gfx = elven_group_coa_gfx } }
+			8000 = elven_01_template
+			16000 = elven_02_template
+		}
+
+		### DWARVES ###
+		special_selection = {
+			trigger = { 
+				OR = {
+					scope:culture = { has_coa_gfx = dwarven_group_coa_gfx }
+					scope:culture = { has_coa_gfx = blacklock_coa_gfx }
+				}
+			}
+			2000 = dwarven_01_template
+			2000 = dwarven_02_template # Many Mountains, Central Rune
+			5000 = dwarven_03_template # Mountain Valley, Central Emblem
+			5000 = dwarven_03_b_template # Mountain Valley (layered), Central Emblem
+			2000 = dwarven_04_template # Tall Mountains, 7 Stars, 3 Runes
+			10000 = dwarven_05_template # Erebor - Dunedain Mashup with logo 
+
+			5000 = dwarven_06_dark_template
+			5000 = dwarven_06_light_template
+			5000 = dwarven_07_dark_template
+			5000 = dwarven_07_light_template
+		}
+
+		### HOBBITS ###
+		special_selection = {
+			trigger = { scope:culture = { has_coa_gfx = hobbit_coa_gfx } }
+			20000 = hobbit_01_template # Animals - argent
+			1000 = hobbit_02_template # Fruit
+			3000 = hobbit_03_template # Grapes
+			6000 = hobbit_04_template # Trees
+			3000 = hobbit_05_template # Trees - inverse
+			4000 = hobbit_06_template # Wheat
+			3500 = hobbit_07_template # Objects - or
+			3000 = hobbit_08_template # Objects - or - inverse
+			1000 = hobbit_09_template # Cornucopia
+			10000 = hobbit_10_template # Animals - or
+			3500 = hobbit_11_template # Objects - argent
+			3000 = hobbit_12_template # Objects - argent - inverse
+		}
+
+		### BOZISHA MIRAZ ###
+
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = tulwangi_coa_gfx }
+			}
+			16000 = tulwangi_spiral_template_01
+			16000 = tulwangi_spiral_template_02
+			16000 = tulwangi_pattern_template_01
+			16000 = tulwangi_pattern_template_02
+		}
+	
+		### HARSHANDATT ###
+		
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = harshandatt_group_coa_gfx }
+			}
+			16000 = harshandatt_pottery_template_1 #Light Figure, Horizontal
+			16000 = harshandatt_pottery_template_2 #Dark Figure, Horizontal
+			16000 = harshandatt_pottery_template_3 #Light Figure, Vertical
+			16000 = harshandatt_pottery_template_4 #Dark Figure, Vertical
+			4000 = harshandatt_pottery_template_5 #Gem Colors Figure, Horizontal
+			4000 = harshandatt_pottery_template_6 #Gem Colors Figure, Vertical
+			4000 = harshandatt_pottery_template_7 #Gem Colors Background, Light Figure, Horizontal
+			4000 = harshandatt_pottery_template_8 #Gem Colors Background, Light Figure, Vertical
+			4000 = harshandatt_pottery_template_9 #Gem Colored Oval Cartouche, Vertical
+			4000 = harshandatt_pottery_template_10 #Gem Colored Oval Cartouche, Vertical, Inverted
+			4000 = harshandatt_pottery_template_11 #Gem Colored Rectangular Cartouche, Vertical
+			4000 = harshandatt_pottery_template_12 #Gem Colored Rectangular Cartouche, Vertical, Inverted
+			4000 = harshandatt_pottery_template_13 #Gem Colored Rectangular Cartouche, Vertical, triple meander
+			4000 = harshandatt_pottery_template_14 #Gem Colored Rectangular Cartouche, triple meander, Vertical, Inverted
+			2000 = harshandatt_pottery_template_15 #Light Colored Oval Cartouche, Vertical
+			2000 = harshandatt_pottery_template_16 #Dark Colored Oval Cartouche, Vertical
+			2500 = harshandatt_pottery_template_17 #Light Colored Rectangular Cartouche, Vertical
+			2000 = harshandatt_pottery_template_18 #Dark Colored Rectangular Cartouche, Vertical, Inverted
+			2000 = harshandatt_pottery_template_19 #Dark Colored Rectangular Cartouche, Vertical, triple meander
+			2500 = harshandatt_pottery_template_20 #Light Colored Rectangular Cartouche, triple meander, Vertical
+		}
+
+		#Khy#
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = khyan_group_coa_gfx }
+			}
+			4000 = khyan_square_template_1 #Simple Square with charge
+			4000 = khyan_square_template_2 #Square and outer circle
+			4000 = khyan_square_template_3 #Square with four dots and sun
+			4000 = khyan_square_template_4 #Square with four dots and sun and outer circle
+			4000 = khyan_rectangle_template_1 #rectangle with samanid leaf
+			4000 = khyan_rectangle_template_2 #rectangle with small circles
+			500 = harshandatt_pottery_template_11 #Gem Colored Rectangular Cartouche, Vertical
+			500 = harshandatt_pottery_template_12 #Gem Colored Rectangular Cartouche, Vertical, Inverted
+			500 = harshandatt_pottery_template_13 #Gem Colored Rectangular Cartouche, Vertical, triple meander
+			500 = harshandatt_pottery_template_14 #Gem Colored Rectangular Cartouche, triple meander, Vertical, Inverted
+			500 = harshandatt_pottery_template_17 #Light Colored Rectangular Cartouche, Vertical
+			500 = harshandatt_pottery_template_18 #Dark Colored Rectangular Cartouche, Vertical, Inverted
+			500 = harshandatt_pottery_template_19 #Dark Colored Rectangular Cartouche, Vertical, triple meander
+			500 = harshandatt_pottery_template_20 #Light Colored Rectangular Cartouche, triple meander, Vertical
+		}
+
+		#Sirayn#
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = sirayni_group_coa_gfx }
+			}
+			6000 = sirayn_template_01
+			6000 = sirayn_template_01_b
+			6000 = sirayn_template_02
+			6000 = sirayn_template_02_b
+			6000 = sirayn_template_03
+			6000 = sirayn_template_03_b
+			6000 = sirayn_template_04
+			6000 = sirayn_template_04_b
+
+			4000 = sirayn_template_05
+			4000 = sirayn_template_05_b
+			4000 = sirayn_template_05_c
+			4000 = sirayn_template_06
+			4000 = sirayn_template_06_b
+			4000 = sirayn_template_06_c
+
+			4000 = sirayn_template_07
+			4000 = sirayn_template_07_b
+			4000 = sirayn_template_07_c
+			4000 = sirayn_template_08
+			4000 = sirayn_template_08_b
+			4000 = sirayn_template_08_c
+
+			8000 = sirayn_template_09
+			8000 = sirayn_template_09_b
+		}
+
+		#Mumakan#
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = mumakan_group_coa_gfx }
+			}
+			4000 = mumakan_triangle_template_1
+			1000 = mumakan_triangle_template_1_90_right
+			1000 = mumakan_triangle_template_1_90_left
+			1000 = mumakan_triangle_template_1_flipped
+			4000 = mumakan_triangle_with_circles_template_1
+			1000 = mumakan_triangle_with_circles_template_1_90_right
+			1000 = mumakan_triangle_with_circles_template_1_90_left
+			1000 = mumakan_triangle_with_circles_template_1_flipped
+			8000 = mumakan_triangle_circle_charge_1
+			4000 = mumakan_triangle_circle_charge_with_circles_1
+			1000 = mumakan_triangle_circle_charge_with_circles_1_90_right
+			1000 = mumakan_triangle_circle_charge_with_circles_1_90_left
+			1000 = mumakan_triangle_circle_charge_with_circles_1_flipped
+			8000 = mumakan_circle_with_two_backgrounds_1
+			4000 = mumakan_triangle_with_circles_template_2
+			1000 = mumakan_triangle_with_circles_template_2_90_right
+			1000 = mumakan_triangle_with_circles_template_2_90_left
+			1000 = mumakan_triangle_with_circles_template_2_flipped
+			2000 = mumakan_triangle_template_3
+			750 = mumakan_triangle_template_3_90_right
+			750 = mumakan_triangle_template_3_90_left
+			750 = mumakan_triangle_template_3_flipped
+			2000 = mumakan_triangle_with_circles_template_3
+			750 = mumakan_triangle_with_circles_template_3_90_right
+			750 = mumakan_triangle_with_circles_template_3_90_left
+			750 = mumakan_triangle_with_circles_template_3_flipped
+			2000 = mumakan_triangle_complex_with_circle_charge_template
+			750 = mumakan_triangle_complex_with_circle_charge_template_90_right
+			750 = mumakan_triangle_complex_with_circle_charge_template_90_left
+			750 = mumakan_triangle_complex_with_circle_charge_template_flipped
+			2000 = mumakan_triangle_complex_with_circles_circle_charge_template
+			750 = mumakan_triangle_complex_with_circles_circle_charge_template_90_right
+			750 = mumakan_triangle_complex_with_circles_circle_charge_template_90_left
+			750 = mumakan_triangle_complex_with_circles_circle_charge_template_flipped
+
+			# Sunset below templates, slightly off center
+			1000 = circled_mumakan_template
+			1000 = circled_mumakan_template_inverted
+		}
+
+		#Shayn#
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = lynerian_coa_gfx }
+			}
+			3000 = shayn_circle_square_frame_01
+			3000 = shayn_circle_square_frame_01_inverted
+			3000 = shayn_two_horizontal_template
+			3000 = shayn_two_horizontal_template_inverted
+			3000 = shayn_central_template
+			3000 = shayn_central_template_inverted
+			1500 = shayn_vertical_mirror_template
+			1500 = shayn_vertical_mirror_template_inverted
+			1500 = shayn_vertical_mirror_circles_template
+			1500 = shayn_vertical_mirror_circles_template_inverted
+			special_selection = {
+				trigger = {
+					OR = {
+						scope:culture = culture:ganim
+						scope:culture = { any_parent_culture_or_above = { this = culture:ganim } }
+					}
+				}
+				3000 = circled_shayn_template
+				3000 = circled_shayn_template_inverted
+			}
+		}
+
+		# WASTELAND / NATURE
+		special_selection = {
+			trigger = {
+				culture = culture:wastelands
+				# culture ?= culture:wastelands
+			}
+			10000000 = basic_wastelands_template
+		}
+		
+		### RHÛN ###
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = rhun_group_coa_gfx }
+			}
+			16000 = rhun_01_template
+			16000 = rhun_02_template
+			16000 = rhun_03_template
+			16000 = rhun_04_template
+			16000 = rhun_05_template
+		}
+
+		### URUK ###
+
+
+
+		special_selection = {
+			trigger = {
+				exists = root
+				OR = {
+					culture = { is_orc_culture = yes }
+					scope:culture = { has_coa_gfx = orc_coa_gfx }
+				}
+			}
+			16000 = uruk_template
+			16000 = uruk_template_2
+			16000 = uruk_template_3
+			16000 = uruk_template_4
+			16000 = uruk_template_5
+			16000 = uruk_template_6
+			16000 = uruk_template_7
+			special_selection = {
+				trigger = {
+					trigger_if = {
+						limit = { exists = scope:title }
+						scope:title = { is_mercenary_company = yes }
+					}
+				}
+				16000 = uruk_merc_template
+				16000 = uruk_merc_template_2
+				8000 = uruk_merc_template_3
+				8000 = uruk_merc_template_4
+			}
+		}
+
+		### HARADRIM ###
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = haradrim_group_coa_gfx }
+			}
+			1600 = haradrim_pennant_template				# basic pennant, tamghas arranged vertically along edges
+			1600 = haradrim_pennant_template_inverted
+			1600 = haradrim_pennant_template_2				# basic pennant, tamghas arranged vertically along edges inside distinct border
+			1600 = haradrim_pennant_template_2_inverted
+			1600 = haradrim_pennant_template_3				# basic pennant, tamghas arranged along pennant edges
+			1600 = haradrim_pennant_template_3_inverted
+			1600 = haradrim_pennant_template_4				# basic pennant w/ sun-rays, tamghas arranged vertically along edges inside distinct border
+			1600 = haradrim_pennant_template_4_inverted
+			1600 = haradrim_pennant_template_4_alt			# forked pennant w/ sun-rays, tamghas arranged vertically along edges inside distinct border
+			1600 = haradrim_pennant_template_4_alt_inverted
+			1600 = haradrim_pennant_template_5				# basic pennant w/ sun-rays, tamghas arranged vertically along edges
+			1600 = haradrim_pennant_template_5_inverted
+			1600 = haradrim_pennant_template_5_alt			# forked pennant w/ sun-rays, tamghas arranged vertically along edges
+			1600 = haradrim_pennant_template_5_alt_inverted
+			1600 = haradrim_pennant_template_6				# basic pennant w/ sun-rays, tamghas arranged along pennant edges inside distinct border
+			1600 = haradrim_pennant_template_6_inverted
+			1600 = haradrim_pennant_template_7				# basic pennant w/ sun-rays, tamghas arranged along pennant edges
+			1600 = haradrim_pennant_template_7_inverted
+			1600 = haradrim_pennant_template_8				# basic pennant, tamghas arranged along pennant edges inside distinct border
+			1600 = haradrim_pennant_template_8_inverted
+			1600 = haradrim_pennant_template_9				# basic pennant w/ roundel, tamghas arranged vertically along edges
+			1600 = haradrim_pennant_template_9_inverted
+			1600 = haradrim_pennant_template_9_alt			# forked pennant w/ roundel, tamghas arranged vertically along edges
+			1600 = haradrim_pennant_template_9_alt_inverted
+			1600 = haradrim_pennant_template_10			# basic pennant w/ roundel, tamghas arranged vertically along edges inside distinct border
+			1600 = haradrim_pennant_template_10_inverted
+			1600 = haradrim_pennant_template_10_alt		# forked pennant w/ roundel, tamghas arranged vertically along edges inside distinct border
+			1600 = haradrim_pennant_template_10_alt_inverted
+			1600 = haradrim_pennant_template_11			# basic pennant w/ roundel, tamghas arranged along pennant edges
+			1600 = haradrim_pennant_template_11_inverted
+			1600 = haradrim_pennant_template_12			# basic pennant w/ roundel, tamghas arranged along pennant edges inside distinct border
+			1600 = haradrim_pennant_template_12_inverted
+
+			8500 = haradrim_roundel_template				# roundel with bordered charge in centre and surrounding crescents and decorations
+			8500 = haradrim_roundel_template_inverted
+			8500 = haradrim_roundel_template_2				# bordered roundel with bordered decoration in centre and surrounding crescents and charges
+			8500 = haradrim_roundel_template_2_inverted
+			8500 = haradrim_roundel_template_2_alt
+			8500 = haradrim_roundel_template_2_alt_inverted
+		}
+		### DUNEDAIN ###
+		special_selection = {
+			trigger = {
+				OR = {
+					scope:culture = { has_coa_gfx = southern_numenorean_coa_gfx }
+					scope:culture = { has_coa_gfx = bellakari_coa_gfx }
+				}
+			}
+			100 = southern_numenorean_group_template_01
+			100 = southern_numenorean_group_template_01_b
+			100 = southern_numenorean_group_template_02
+			100 = southern_numenorean_group_template_02_b
+			100 = southern_numenorean_group_template_03
+			100 = southern_numenorean_group_template_04
+			100 = southern_numenorean_group_template_05
+			100 = southern_numenorean_group_template_06
+			100 = southern_numenorean_group_template_07
+			100 = southern_numenorean_group_template_08
+			100 = southern_numenorean_group_template_09
+			100 = southern_numenorean_group_template_10
+			100 = southern_numenorean_group_template_11
+			100 = southern_numenorean_group_template_12
+			100 = southern_numenorean_group_template_13
+			100 = southern_numenorean_group_template_14
+			100 = southern_numenorean_group_template_15
+			100 = southern_numenorean_group_template_16
+			100 = southern_numenorean_group_template_16_b
+			100 = southern_numenorean_group_template_17
+			100 = southern_numenorean_group_template_17_b
+			100 = southern_numenorean_group_template_18
+			100 = southern_numenorean_group_template_19
+			100 = southern_numenorean_group_template_20
+			100 = southern_numenorean_group_template_21
+			100 = southern_numenorean_group_template_22
+			100 = southern_numenorean_group_template_23
+			100 = southern_numenorean_group_template_24
+			100 = southern_numenorean_group_template_25
+			100 = southern_numenorean_group_template_26
+			100 = southern_numenorean_group_template_27
+			100 = southern_numenorean_group_template_28
+			100 = southern_numenorean_group_template_29
+			100 = southern_numenorean_group_template_30
+			100 = southern_numenorean_group_template_31
+			100 = southern_numenorean_group_template_32
+			100 = southern_numenorean_group_template_33
+			100 = southern_numenorean_group_template_34
+			100 = southern_numenorean_group_template_35
+			100 = southern_numenorean_group_template_36
+			100 = southern_numenorean_group_template_37
+			100 = southern_numenorean_group_template_37_b
+			100 = southern_numenorean_group_template_38
+			100 = southern_numenorean_group_template_38_a
+			100 = southern_numenorean_group_template_38_b
+			100 = southern_numenorean_group_template_38_ba
+			100 = southern_numenorean_group_template_39
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = southern_evil_numenorean_coa_gfx }
+			}
+			1000 = southern_numenorean_group_template_01
+			1000 = southern_numenorean_group_template_01_b
+			100 = southern_numenorean_group_template_02
+			10000 = southern_numenorean_group_template_02_b
+			1000 = southern_numenorean_group_template_03
+			1000 = southern_numenorean_group_template_04
+			1000 = southern_numenorean_group_template_05
+			100 = southern_numenorean_group_template_06
+			100 = southern_numenorean_group_template_07
+			100 = southern_numenorean_group_template_08
+			100 = southern_numenorean_group_template_09
+			100 = southern_numenorean_group_template_10
+			100 = southern_numenorean_group_template_11
+			100 = southern_numenorean_group_template_12
+			100 = southern_numenorean_group_template_13
+			100 = southern_numenorean_group_template_14
+			100 = southern_numenorean_group_template_15
+			1000 = southern_numenorean_group_template_16
+			1000 = southern_numenorean_group_template_16_b
+			1000 = southern_numenorean_group_template_17
+			1000 = southern_numenorean_group_template_17_b
+			100 = southern_numenorean_group_template_18
+			100 = southern_numenorean_group_template_19
+			100 = southern_numenorean_group_template_20
+			1000 = southern_numenorean_group_template_21
+			100 = southern_numenorean_group_template_22
+			100 = southern_numenorean_group_template_23
+			100 = southern_numenorean_group_template_24
+			100 = southern_numenorean_group_template_25
+			100 = southern_numenorean_group_template_26
+			100 = southern_numenorean_group_template_27
+			100 = southern_numenorean_group_template_28
+			100 = southern_numenorean_group_template_29
+			100 = southern_numenorean_group_template_30
+			100 = southern_numenorean_group_template_31
+			100 = southern_numenorean_group_template_32
+			100 = southern_numenorean_group_template_33
+			100 = southern_numenorean_group_template_34
+			100 = southern_numenorean_group_template_35
+			100 = southern_numenorean_group_template_36
+			1000 = southern_numenorean_group_template_37
+			1000 = southern_numenorean_group_template_37_b
+			1000 = southern_numenorean_group_template_38
+			1000 = southern_numenorean_group_template_38_a
+			1000 = southern_numenorean_group_template_38_b
+			1000 = southern_numenorean_group_template_38_ba
+			1000 = southern_numenorean_group_template_39
+		}
+		special_selection = {
+			trigger = {
+				scope:faith.religion = { is_in_family = rf_forcesofevil }
+				scope:culture = {
+					OR = {
+						has_coa_gfx = numenorean_coa_gfx
+						has_coa_gfx = southern_numenorean_coa_gfx
+						has_coa_gfx = southern_evil_numenorean_coa_gfx
+						has_coa_gfx = bellakari_coa_gfx
+					}
+				}
+			}
+			50000000 = gurzyul_template_01
+			50000000 = gurzyul_template_02
+		}
+		special_selection = {
+			trigger = {
+				# coa_eredrim_tartan_trigger = yes
+				scope:culture = { has_coa_gfx = eredrim_coa_gfx }
+			}
+			100000 = eredrim_tartan_trigger_template
+			# 100000 = dunedain_tartan_trigger_template
+			  5000 = numenorean_group_template
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = welsh_coa_gfx }
+			}
+			100000 = enedwaith_group_charge_template
+		}
+		special_selection = {
+			trigger = {
+				OR = {
+					scope:culture = { has_coa_gfx = dunedain_group_coa_gfx }
+				}
+			}
+			100000 = dunedain_template
+			 50000 = dunedain_white_template
+			100000 = dunedain_border_template
+			 50000 = dunedain_pattern_template
+			 25000 = dunedain_division_template
+			  5000 = dunedain_division_three_template
+			100000 = numenorean_group_template
+			 50000 = numenorean_group_template_diamond
+			 50000 = numenorean_group_template_01
+			 50000 = numenorean_group_template_02
+			 25000 = numenorean_group_template_03
+			 50000 = numenorean_group_template_diamond_two
+			 50000 = numenorean_group_template_square
+			100000 = numenorean_group_template_charge_01
+		}
+		### DUNLENDING & ENEDHWAITH ###
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = dunlending_group_coa_gfx }
+			}
+			50000 = dunlending_template
+			10000 = dunlending_division_template
+			 5000 = enedwaith_group_charge_template
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = adornaen_coa_gfx }
+			}
+			50000 = adornaen_template
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = andrastrim_coa_gfx }
+			}
+			10000 = haleth_template
+			  500 = dunedain_division_template
+			 1000 = dunedain_division_three_template
+			 5000 = eriador_group_template
+		}
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = enedhwaith_coa_gfx }
+			}
+			10000 = druedain_group_charge_template
+		}
+		### ERIADOR ###
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = eriador_group_coa_gfx }
+			}
+			5000 = eriador_group_template
+		}
+		### NOTHRON ###
+		# ROHIRRIM
+		special_selection = {
+			trigger = { scope:culture = { has_coa_gfx = rohirrim_coa_gfx } }
+			10000 = rohirrim_template_01
+			 1000 = rohirrim_template_02
+			10000 = rohirrim_template_03
+			 5000 = rohirrim_border_template_01
+			10000 = rohirrim_royal_template
+		}
+		# NORTHRON
+		special_selection = {
+			trigger = { scope:culture = { has_coa_gfx = woodmen_coa_gfx } }
+			1000 = basic_woodmen_template
+		}
+		special_selection = {
+			trigger = { scope:culture = { has_coa_gfx = vale_coa_gfx } }
+			1000 = basic_vale_template
+		}
+		special_selection = {
+			trigger = { scope:culture = { has_coa_gfx = northron_coa_gfx } }
+			1000 = northron_template_01
+			 100 = northron_template_02
+			 100 = northron_template_03
+			1000 = northron_template_04
+			1500 = northron_template_05
+			1500 = northron_template_06
+			  40 = northron_pattern_template_01
+			  40 = northron_pattern_template_02
+			  40 = northron_pattern_template_03
+			  40 = northron_pattern_template_04
+			  40 = northron_pattern_template_05
+			 500 = basic_hadorim_template
+		}
+		# DALE & DORWINION
+		special_selection = {
+			trigger = {
+				OR = {
+					scope:culture = { has_coa_gfx = dale_coa_gfx }
+					scope:culture = { has_coa_gfx = dorwinion_coa_gfx }
+				}
+			}
+			8000 = northron_bordered_emblem
+			2000 = northron_bordered_emblem_reversed
+			8000 = northron_bordered_emblem_vertical
+			2000 = northron_bordered_emblem_vertical_reversed
+			 500 = northron_triplet
+			2000 = northron_orlmond_template
+		}
+		
+		
+		# Crosses
+		special_selection = {
+			trigger = {
+				always = no
+				# coa_cross_trigger = yes
+			}
+			1 = basic_ordinary_cross_01
+			3 = basic_ordinary_cross_02
+			1 = basic_ordinary_cross_03
+			3 = basic_ordinary_cross_04
+		
+			1 = basic_ordinary_saltire_01
+			1 = basic_ordinary_saltire_02
+			#1 = basic_ordinary_saltire_03
+			#1 = basic_ordinary_saltire_04
+		}
+		
+		# Pagan catch-all
+		special_selection = {
+			trigger = {
+				always = no	
+				# scope:faith.religion = { 
+				# 	save_temporary_scope_as = religion 
+				# }
+				# scope:religion = { is_in_family = rf_pagan }
+				# NOT = {
+				# 	scope:religion = religion:slavic_religion
+				# 	scope:religion = religion:baltic_religion
+				# 	scope:religion = religion:finno_ugric_religion
+				# 	scope:religion = religion:magyar_religion
+				# 	scope:religion = religion:germanic_religion
+				# 	scope:religion = religion:zoroastrianism_religion
+				# 	scope:religion = religion:tengrism_religion
+				# 	scope:religion = religion:akom_religion
+				# 	scope:religion = religion:akom_religion
+				# 	scope:religion = religion:waaqism_religion
+				# 	scope:religion = religion:west_african_religion
+				# 	scope:religion = religion:west_african_bori_religion
+				# 	scope:religion = religion:west_african_roog_religion		
+				# 	scope:religion = religion:west_african_orisha_religion
+				# }					
+			}
+			5000 = basic_charge_01
+			#50000 = basic_charge_02
+		}
+		# European Paganism - Single, Circle, Senester
+		special_selection = {
+			trigger = {
+				always = no
+				# scope:faith.religion = { 
+				# 	save_temporary_scope_as = religion 
+				# }
+				# OR = {
+				# 	scope:religion = religion:slavic_religion
+				# 	scope:religion = religion:baltic_religion
+				# 	scope:religion = religion:finno_ugric_religion
+				# 	scope:religion = religion:magyar_religion
+				# }			
+			}
+			# Weights are temps
+			16000 = basic_pagan_template
+			16000 = basic_pagan_template_inverted			
+			8000 = basic_pagan_template_senester
+			8000 = basic_pagan_template_senester_inverted
+			3000 = geometrical_pagan_template
+			4000 = geometrical_pagan_template_inverted				
+			3000 = geometrical_pagan_template_senester	
+			2000 = circled_pagan_template
+			2000 = circled_pagan_template_inverted
+			2000 = circled_pagan_template_offset	
+			2000 = circled_pagan_template_offset_inverted
+		}				
+		
+		# Germanic Paganism
+		special_selection = {
+			trigger = {
+				scope:faith.religion = religion:gwathuirim_religion
+				# scope:faith.religion = religion:germanic_religion
+			}
+			5000 = basic_pagan_template
+			5000 = basic_pagan_template_inverted			
+			2500 = basic_pagan_template_senester
+			2500 = basic_pagan_template_senester_inverted	
+			5000 = geometrical_pagan_template
+			5000 = geometrical_pagan_template_inverted				
+			2500 = geometrical_pagan_template_senester	
+			7500 = circled_pagan_template
+			7500 = circled_pagan_template_inverted	
+
+		}	
+
+		special_selection = {
+			trigger = {
+				coa_indian_trigger = yes
+			}	
+			50 = basic_charge_01
+			50 = basic_charge_01b
+			50 = basic_ordinary_01
+			50 = basic_ordinary_01_inverted
+			100 = indian_geometrical_template
+			100 = indian_geometrical_template_inverted
+			50 = indian_single_border_template
+			50 = indian_single_border_template_inverted	
+			150 = circled_indian_template
+			150 = circled_indian_template_inverted
+			60  = circled_indian_template_offset
+			60  = circled_indian_template_offset_inverted				
+		}
+		# India proper (to tone down those very cultural specific designs vs catch all)
+		special_selection = {
+			trigger = {
+				exists = scope:title
+				scope:title = {
+					any_this_title_or_de_jure_above = {
+						OR = {
+							this = title:e_bozisha_miraz
+							this = title:k_ray
+							this = title:k_tulwang
+							this = title:k_raishoul
+							this = title:k_zajantak
+							this = title:k_aukar
+							# this = title:e_india
+							# this = title:e_deccan
+							# this = title:e_rajastan
+							# this = title:k_gondwana
+							# this = title:k_bihar
+							# this = title:k_orissa
+						}
+					}
+				}
+			}	
+			100 = indian_single_template
+			100 = indian_single_template_inverted	
+			100 = indian_single_template_senester
+			100 = indian_single_template_senester_inverted				
+			100 = circled_indian_single_symbol_template
+			100 = circled_indian_single_symbol_template_inverted			
+		}		
+		
+		# Tamgha users - Circle/Roundel
+		special_selection = {
+			trigger = {
+				always = no	
+				# scope:faith = faith:faith_haruze
+				# scope:faith.religion = { 
+				# 	save_temporary_scope_as = religion 
+				# }
+				# OR = {
+				# 	scope:faith = faith:nestorian
+				# 	scope:religion = religion:tengrism_religion
+				# 	scope:religion = religion:zoroastrianism_religion
+				# 	scope:religion = religion:magyar_religion
+				# 	AND = {
+				# 		scope:religion = religion:judaism_religion
+				# 		scope:culture = { has_coa_gfx = turkic_group_coa_gfx }
+				# 	}					
+				# }
+			}
+			5000 = basic_tamgha_template
+			5000 = basic_tamgha_template_inverted	
+			2500 = circled_tamgha_template
+			2500 = circled_tamgha_template_inverted		
+			2500 = roundel_tamgha_template
+			2500 = roundel_tamgha_template_inverted
+
+		}
+
+		special_selection = {
+			trigger = {
+				exists = root
+				scope:faith.religion = {
+					save_temporary_scope_as = religion
+				}
+				AND = {
+					# OR = {
+					# 	scope:faith = faith:nestorian
+					# 	scope:religion = religion:tengrism_religion
+					# 	scope:religion = religion:zoroastrianism_religion
+					# 	scope:religion = religion:magyar_religion
+					# 	AND = {
+					# 		scope:religion = religion:judaism_religion
+					# 		scope:culture = { has_coa_gfx = turkic_group_coa_gfx }
+					# 	}
+					# }
+					government_has_flag = government_is_nomadic
+				}
+			}
+			5000 = triangle_tamgha_template
+			5000 = triangle_tamgha_template_inverted
+		}
+
+		special_selection = {
+			trigger = {
+				exists = root
+				scope:faith.religion = {
+					save_temporary_scope_as = religion
+				}
+				AND = {
+					# OR = {
+					# 	scope:faith = faith:nestorian
+					# 	scope:religion = religion:tengrism_religion
+					# 	scope:religion = religion:zoroastrianism_religion
+					# 	scope:religion = religion:magyar_religion
+					# 	AND = {
+					# 		scope:religion = religion:judaism_religion
+					# 		scope:culture = { has_coa_gfx = turkic_group_coa_gfx }
+					# 	}
+					# }
+					government_has_flag = government_is_herder
+				}
+			}
+			5000 = basic_tamgha_herder_template
+			5000 = basic_tamgha_herder_template_inverted
+
+		}
+		# African Paganism - Single charge, geometrical patterns
+		special_selection = {
+			trigger = {
+				OR = {
+					coa_african_religion_trigger = yes
+					scope:culture = { has_coa_gfx = central_african_group_coa_gfx }
+				}
+				
+			}
+			2000 = basic_african_template
+			2000 = basic_african_template_inverted	
+			2000 = circled_african_template
+			2000 = circled_african_template_inverted
+			2500 = geometrical_african_template
+			2500 = geometrical_african_template_inverted					
+		}		
+		# Feudal Europe
+		special_selection = {
+			trigger = {
+				always = no	
+				# scope:faith.religion = religion:christianity_religion
+				# scope:culture = { has_coa_gfx = western_coa_gfx }
+			}
+			# A (main = charge)
+			# Rougly 50% of all cases, 50% of it being from bestiary, 50% of said bestiary being lions.
+			2500 = hr_single_charge_template
+			2500 = hr_single_charge_template_inverted		
+			500 = hr_three_charges_template	
+			500 = hr_three_charges_template_inverted	
+			250 = hr_six_charges_template	
+			250 = hr_six_charges_template_inverted	
+			200 = hr_charge_under_chief_template
+			200 = hr_charge_under_chief_template_inverted	
+			200 = hr_lion_semy_template
+			200 = hr_lion_semy_template_inverted	
+			100 = hr_three_charges_in_pale_template
+			100 = hr_three_charges_in_pale_template_inverted			
+			100 = hr_seven_charges_template
+			100 = hr_seven_charges_template_inverted			
+			100 = hr_ten_charges_template
+			100 = hr_ten_charges_template_inverted	
+			100 = hr_charge_and_canton_template	
+			100 = hr_charge_and_canton_template_inverted
+			100 = hr_escutcheon_orle_template
+			100 = hr_escutcheon_orle_template_inverted
+			50 = hr_semy_template
+			50 = hr_semy_template_inverted
+			100 = hr_canton_template
+			100 = hr_canton_template_inverted			
+			50 = hr_charge_canton_ermine_template
+			50 = hr_charge_canton_ermine_template_inverted				
+			10 = hr_five_charges_template
+			10 = hr_five_charges_template_inverted		
+			10 = hr_single_charge_on_mount_template
+			10 = hr_single_charge_on_mount_template_inverted			
+			# Two charges in pale (ie Normandy)
+			
+			# B (main = ordinaries & partitions)
+			# Roughly 50% of all cases : 50% divisions, 50% ordinaries (not counting any accompanying charge)
+			2500 = hr_geometrical_template	
+			2500 = hr_geometrical_template_inverted	
+			100 = hr_geometrical_field_canton_template
+			100 = hr_geometrical_field_canton_template_inverted			
+			200 = hr_three_charges_in_bend_template	
+			200 = hr_three_charges_in_bend_template_inverted			
+			200 = hr_three_charges_in_chief_template
+			200 = hr_three_charges_in_chief_template_inverted	
+			200 = hr_three_charges_in_fess_template
+			200 = hr_three_charges_in_fess_template_inverted	
+			200 = hr_cross_ch_five_template
+			200 = hr_cross_ch_five_template_inverted	
+			200 = hr_cross_acc_four_template
+			200 = hr_cross_acc_four_template_inverted
+			100 = hr_chevron_acc_three_template
+			100 = hr_chevron_acc_three_template_inverted
+			100 = hr_fess_acc_three_template
+			100 = hr_fess_acc_three_template_inverted	
+			100 = hr_fess_acc_six_charges_template
+			100 = hr_fess_acc_six_charges_template_inverted	
+			100 = hr_bend_acc_six_charges_template
+			100 = hr_bend_acc_six_charges_template_inverted			
+			100 = hr_charge_issant_chief_template
+			100 = hr_charge_issant_chief_template_inverted
+			50 = hr_canton_ermine_template
+			50 = hr_canton_ermine_template_inverted			
+		
+			# C (mixed)
+			100 = hr_vair_template
+			100 = hr_ermine_template
+			100 = hr_charge_within_border_template
+			100 = hr_charge_within_border_template_inverted	
+		
+		}
+		special_selection = {	
+			trigger = {
+				always = no	
+				# scope:faith.religion = religion:christianity_religion
+				# scope:culture = { has_coa_gfx = iberian_group_coa_gfx }				
+			}			
+			1000 = hr_five_charges_template
+			1000 = hr_five_charges_template_inverted	
+		}		
+		special_selection = {	
+			trigger = {
+				always = no	
+				# scope:faith.religion = religion:christianity_religion
+				# scope:culture = { has_coa_gfx = german_group_coa_gfx }								
+			}			
+			500 = hr_single_charge_on_mount_template
+			500 = hr_single_charge_on_mount_template_inverted
+		}			
+		special_selection = {	
+			trigger = {
+				always = no	
+				# scope:faith.religion = religion:christianity_religion
+				# coa_french_trigger = yes
+			}			
+			200 = hr_semy_template
+			200 = hr_semy_template_inverted	
+			200 = hr_seven_charges_template
+			200 = hr_seven_charges_template_inverted			
+			200 = hr_ten_charges_template
+			200 = hr_ten_charges_template_inverted	
+			100 = hr_vair_template
+			100 = hr_ermine_template
+			100 = hr_charge_issant_chief_template
+			100 = hr_charge_issant_chief_template_inverted
+			50 = hr_charge_canton_ermine_template
+			50 = hr_charge_canton_ermine_template_inverted
+			100 = hr_escutcheon_orle_template
+			100 = hr_escutcheon_orle_template_inverted			
+		}	
+		
+		special_selection = {	
+			trigger = {
+				always = no	
+				scope:faith.religion = { is_in_family = rf_eruhini }
+				coa_settled_gwathuirim_trigger = yes
+				# scope:faith.religion = religion:christianity_religion
+				# coa_scandinavian_trigger = yes
+			}			
+			1500 = hr_dimidiated_charge_and_geometrical
+			1500 = hr_dimidiated_charge_and_geometrical_inverted	
+			2500 = hr_single_charge_template
+			2500 = hr_single_charge_template_inverted	
+			1000 = hr_three_charges_template	
+			1000 = hr_three_charges_template_inverted	
+			1500 = hr_three_charges_in_pall_template	
+			1500 = hr_three_charges_in_pall_template_inverted	
+			2500 = hr_geometrical_template	
+			2500 = hr_geometrical_template_inverted
+			1000 = hr_three_charges_arranged_in_bend_template	
+			1000 = hr_three_charges_arranged_in_bend_template_inverted				
+			1000 = hr_three_charges_arranged_in_bend_template_senester	
+			1000 = hr_three_charges_arranged_in_bend_template_senester_inverted		
+			1500 = hr_single_charge_chevron_chief
+			1500 = hr_single_charge_chevron_chief_inverted	
+			2500 = hr_single_charge_in_bend
+		}	
+		
+		special_selection = {	
+			trigger = {
+				always = no	
+				# scope:faith.religion = religion:christianity_religion
+				# scope:culture = { has_coa_gfx = polish_coa_gfx }
+			}			
+			2500 = hr_single_charge_template
+			2500 = hr_single_charge_template_inverted											
+		}		
+		special_selection = {	
+			trigger = {
+				always = no	
+				# scope:faith.religion = religion:christianity_religion
+				# scope:culture = {
+				# 	OR = {
+				# 		has_coa_gfx = west_slavic_group_coa_gfx
+				# 		has_coa_gfx = south_slavic_group_coa_gfx
+				# 		has_coa_gfx = east_slavic_group_coa_gfx
+				# 		has_coa_gfx = baltic_group_coa_gfx
+				# 		has_coa_gfx = balto_finnic_group_coa_gfx
+				# 	}
+				# }
+			}			
+			5000 = hr_single_charge_template
+			5000 = hr_single_charge_template_inverted	
+			2500 = hr_geometrical_template	
+			2500 = hr_geometrical_template_inverted				
+		}		
+		
+		# Middle East
+		# Islam - catch all - Persian, Turkic & others will use these only
+		special_selection = {	
+			trigger = {
+				scope:culture = { has_coa_gfx = arabic_group_coa_gfx }
+				# scope:faith.religion = religion:islam_religion
+			}			
+			2000 = circled_mena_template
+			2000 = circled_mena_template_inverted
+			2000 = roundel_mena_template
+			2000 = roundel_mena_template_inverted
+			4000 = mena_geometrical_template
+			4000 = mena_geometrical_template_inverted
+		}		
+		# MENA - Saracen/Mamluk heraldry - Additionnal layer centered on arabic & berber cultures
+		special_selection = {
+			trigger = {
+				# scope:faith.religion = religion:islam_religion
+				scope:culture = {
+					# OR = {
+					# 	has_coa_gfx = arabic_group_coa_gfx
+					# 	has_coa_gfx = berber_group_coa_gfx
+					# }
+					has_coa_gfx = arabic_group_coa_gfx
+				}
+			}
+			1000 = mena_fess_01
+			1000 = mena_fess_01_barrulets
+			1000 = mena_fess_02
+			1000 = mena_fess_02_barrulets
+			1000 = mena_fess_03
+			1000 = mena_fess_03_barrulets
+			1000 = mena_fess_04
+			1000 = mena_fess_04_barrulets # 100000
+			1000 = mena_fess_05
+			1000 = mena_fess_05_barrulets
+			1000 = mena_fess_06
+			1000 = mena_fess_06_barrulets
+			1000 = mena_chief_01
+			1000 = mena_chief_01_b # 50000
+			1000 = mena_chief_03
+			1000 = mena_chief_04
+			1000 = mena_bend_01
+			1000 = mena_bend_02
+			500 = mena_fess_chief
+			500 = mena_lowered_fess
+			500 = mena_fess_chief_inverted
+			500 = mena_lowered_fess_inverted			
+			# larger bend for larger charge, those could be used for arabic calligraphy (ie Nasrid)
+		}
+
+		special_selection = {
+			trigger = {
+				# scope:culture = { has_coa_gfx = byzantine_group_coa_gfx } #LotR
+				always = no #LotR
+			}
+			500 = byzantine_circled_single_symbol
+			500 = byzantine_circled_single_symbol_inverted
+			250 = byzantine_circled_single_symbol_mask
+			250 = byzantine_circled_single_symbol_mask_inverted
+			400 = byzantine_three_charges_in_pale
+			400 = byzantine_three_charges_in_pale_inverted
+			100 = byzantine_alpha_omega_in_pale
+			100 = byzantine_alpha_omega_in_pale_inverted
+			250 = byzantine_two_charges_stacked_in_pale
+			250 = byzantine_two_charges_stacked_in_pale_inverted
+			250 = byzantine_charges_stacked_in_chief
+			250 = byzantine_charges_stacked_in_chief_inverted
+			250 = byzantine_basic_charge
+			250 = byzantine_basic_charge_inverted
+			250 = byzantine_ordinary_cross
+			250 = byzantine_ordinary_cross_inverted
+		}
+
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = japanese_coa_gfx }
+			}
+
+			### Radial Three - 5040
+			360 = kamon_radial_three
+			360 = kamon_radial_three_hole
+			360 = kamon_radial_three_framed
+			360 = kamon_radial_three_alternating
+			360 = kamon_radial_three_alternating_hole
+			360 = kamon_radial_three_alternating_framed
+			360 = kamon_radial_three_alternating_mirrored_framed
+			360 = kamon_radial_three_alternating_mirrored
+			360 = kamon_radial_three_alternating_mirrored_hole
+			360 = kamon_radial_three_mirrored_framed
+
+			360 = kamon_radial_three_inverted
+			360 = kamon_radial_three_inverted_hole
+			360 = kamon_radial_three_framed_inverted
+			360 = kamon_radial_three_alternating_inverted
+			360 = kamon_radial_three_alternating_inverted_hole
+			360 = kamon_radial_three_alternating_framed_inverted
+			360 = kamon_radial_three_alternating_mirrored_framed_inverted
+			360 = kamon_radial_three_alternating_mirrored_inverted
+			360 = kamon_radial_three_alternating_mirrored_inverted_hole
+			360 = kamon_radial_three_mirrored_framed_inverted
+
+			### Radial Four - 2520
+			630 = kamon_radial_four
+			630 = kamon_radial_four_hole
+			630 = kamon_radial_four_framed
+
+			630 = kamon_radial_four_inverted
+			630 = kamon_radial_four_inverted_hole
+			630 = kamon_radial_four_framed_inverted
+
+			### Radial Five - 2520
+			630 = kamon_radial_five
+			630 = kamon_radial_five_hole
+			630 = kamon_radial_five_framed
+
+			630 = kamon_radial_five_inverted
+			630 = kamon_radial_five_inverted_hole
+			630 = kamon_radial_five_framed_inverted
+
+			### Radial Six - 2520
+			315 = kamon_radial_six
+			315 = kamon_radial_six_alternating
+			315 = kamon_radial_six_hole
+			315 = kamon_radial_six_alternating_hole
+			315 = kamon_radial_six_framed
+			315 = kamon_radial_six_alternating_framed
+
+			315 = kamon_radial_six_inverted
+			315 = kamon_radial_six_alternating_inverted
+			315 = kamon_radial_six_inverted_hole
+			315 = kamon_radial_six_alternating_inverted_hole
+			315 = kamon_radial_six_framed_inverted
+			315 = kamon_radial_six_alternating_framed_inverted
+
+
+			### Kamon Bloom - 5040
+			1260 = kamon_bloom
+			1260 = kamon_bloom_framed
+
+			1260 = kamon_bloom_inverted
+			1260 = kamon_bloom_framed_inverted
+
+			### Kamon Parallel - 5040
+			280 = kamon_parallel_horizontal_two
+			280 = kamon_parallel_horizontal_two_framed
+			280 = kamon_parallel_horizontal_three
+			280 = kamon_parallel_horizontal_three_framed
+			280 = kamon_parallel_vertical_two
+			280 = kamon_parallel_vertical_two_framed
+			280 = kamon_parallel_vertical_three
+			280 = kamon_parallel_vertical_three_framed
+
+			280 = kamon_parallel_horizontal_two_inverted
+			280 = kamon_parallel_horizontal_two_framed_inverted
+			280 = kamon_parallel_horizontal_three_inverted
+			280 = kamon_parallel_horizontal_three_framed_inverted
+			280 = kamon_parallel_vertical_two_inverted
+			280 = kamon_parallel_vertical_two_framed_inverted
+			280 = kamon_parallel_vertical_three_inverted
+			280 = kamon_parallel_vertical_three_framed_inverted
+
+			### Kamon Laurel - 5040
+			420 = kamon_laurel
+			420 = kamon_laurel_framed
+			420 = kamon_laurel_block
+			420 = kamon_laurel_mirrored
+			420 = kamon_laurel_mirrored_framed
+			420 = kamon_laurel_block_mirrored
+
+			420 = kamon_laurel_inverted
+			420 = kamon_laurel_framed_inverted
+			420 = kamon_laurel_block_inverted
+			420 = kamon_laurel_mirrored_inverted
+			420 = kamon_laurel_mirrored_framed_inverted
+			420 = kamon_laurel_block_mirrored_inverted
+
+
+			### Kamon Central - 5040
+			1260 = kamon_central
+			1260 = kamon_central_framed
+
+			1260 = kamon_central_inverted
+			1260 = kamon_central_framed_inverted
+
+			### Kamon Block - 5040
+			504 = kamon_aligned_four
+			504 = kamon_aligned_four_framed
+			504 = kamon_aligned_six
+			504 = kamon_aligned_six_framed
+			504 = kamon_aligned_nine
+
+			504 = kamon_aligned_four_inverted
+			504 = kamon_aligned_four_framed_inverted
+			504 = kamon_aligned_six_inverted
+			504 = kamon_aligned_six_framed_inverted
+			504 = kamon_aligned_nine_inverted
+
+			### Kamon Diamond 2520
+			630 = kamon_diamond_frame
+			630 = kamon_diamond
+			630 = kamon_diamond_frame_inverted
+			630 = kamon_diamond_inverted
+
+			### Kamon Mirror 2520
+			630 = kamon_mirror_frame
+			630 = kamon_mirror
+			630 = kamon_mirror_frame_inverted
+			630 = kamon_mirror_inverted
+		}
+
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = chinese_group_coa_gfx }
+			}
+
+			1260 = chinese_seal_pictorial
+			1260 = chinese_seal_frame_pictorial
+			1260 = chinese_seal_frame_full_pictorial
+			1260 = chinese_seal_pictorial_frame_pictorial_vertical
+			1260 = chinese_seal_pictorial_frame_pictorial_vertical_full
+			1260 = chinese_seal_frame_pictorial_mirror
+			1260 = chinese_seal_frame_full_pictorial_mirror
+			1260 = chinese_seal_frame_divided_pictorial_mirror
+			1260 = chinese_seal_frame_divided_flip_pictorial_mirror
+			1260 = chinese_seal_pictorial_mirror
+
+			special_selection = {
+				trigger = { 
+					always = no #LotR
+					#has_recognizable_chinese_seal = yes
+				}
+				5040 = chinese_seal_name
+				5040 = chinese_seal_frame_name
+				5040 = chinese_seal_frame_full_name
+				1260 = chinese_seal_pictorial_frame_name
+				1260 = chinese_seal_pictorial_frame_name_full
+				1260 = chinese_seal_pictorial_frame_offset_name
+				1260 = chinese_seal_pictorial_frame_offset_name_full
+				1260 = chinese_seal_frame_pictorial_name
+				1260 = chinese_seal_frame_name_pictorial
+				1260 = chinese_seal_frame_qualifier_name
+				1260 = chinese_seal_frame_full_pictorial_name
+				1260 = chinese_seal_frame_full_name_pictorial
+				1260 = chinese_seal_frame_full_qualifier_name
+				1260 = chinese_seal_frame_divided_pictorial_name
+				1260 = chinese_seal_frame_divided_name_pictorial
+				1260 = chinese_seal_frame_divided_qualifier_name
+				1260 = chinese_seal_frame_divided_flip_pictorial_name
+				1260 = chinese_seal_frame_divided_flip_name_pictorial
+				1260 = chinese_seal_frame_divided_flip_qualifier_name
+				1260 = chinese_seal_pictorial_name
+				1260 = chinese_seal_name_pictorial
+				1260 = chinese_seal_qualifier_name
+			}
+		}
+
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = burman_group_coa_gfx }
+			}
+			1000 = khmer_central
+			1000 = khmer_central_inverted
+			1000 = khmer_central_framed
+			1000 = khmer_central_framed_inverted
+			1000 = khmer_vertical_two_mirror
+			1000 = khmer_vertical_two_mirror_inverted
+			500 = khmer_horizontal_two
+			500 = khmer_horizontal_two_framed
+			500 = khmer_horizontal_two_inverted
+			500 = khmer_horizontal_two_framed_inverted
+		}
+	}
+
+	religious_title = {
+		100 = religious_icon_01
+		100 = religious_icon_01_metal
+	}
+
+	factions = {
+		100 = faction_01
+	}
+	
+}

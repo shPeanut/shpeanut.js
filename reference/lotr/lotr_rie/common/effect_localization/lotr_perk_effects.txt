@@ -1,0 +1,202 @@
+﻿### Stewardship Lifestyle Effects
+
+### Intrigue Lifestyle Effects
+
+smooth_operator_perk_elf_effect = {
+	global = smooth_operator_perk_elf_effect
+	first = smooth_operator_perk_elf_effect
+	third = smooth_operator_perk_elf_effect
+}
+
+graceful_recovery_perk_elf_effect = {
+	global = graceful_recovery_perk_elf_effect
+	first = graceful_recovery_perk_elf_effect
+	third = graceful_recovery_perk_elf_effect
+}
+
+home_advantage_perk_elf_effect = {
+	global = home_advantage_perk_elf_effect
+	first = home_advantage_perk_elf_effect
+	third = home_advantage_perk_elf_effect
+}
+
+mortal_adoration_perk_elf_effect = {
+	global = mortal_adoration_perk_elf_effect
+	first = mortal_adoration_perk_elf_effect
+	third = mortal_adoration_perk_elf_effect
+}
+
+subtle_desire_perk_elf_effect = {
+	global = subtle_desire_perk_elf_effect
+	first = subtle_desire_perk_elf_effect
+	third = subtle_desire_perk_elf_effect
+}
+
+unshackled_lust_perk_elf_effect = {
+	global = unshackled_lust_perk_elf_effect
+	first = unshackled_lust_perk_elf_effect
+	third = unshackled_lust_perk_elf_effect
+}
+
+dark_insights_perk_elf_effect = {
+	global = dark_insights_perk_elf_effect
+	first = dark_insights_perk_elf_effect
+	third = dark_insights_perk_elf_effect
+}
+
+divine_retribution_perk_elf_effect = {
+	global = divine_retribution_perk_elf_effect
+	first = divine_retribution_perk_elf_effect
+	third = divine_retribution_perk_elf_effect
+}
+
+malice_implicit_perk_elf_effect = {
+	global = malice_implicit_perk_elf_effect
+	first = malice_implicit_perk_elf_effect
+	third = malice_implicit_perk_elf_effect
+}
+
+fear_tax_perk_elf_effect = {
+	global = fear_tax_perk_elf_effect
+	first = fear_tax_perk_elf_effect
+	third = fear_tax_perk_elf_effect
+}
+
+### Learning Lifestyle Effects
+restraint_perk_elf_effect = {
+	global = restraint_perk_elf_effect
+	first = restraint_perk_elf_effect
+	third = restraint_perk_elf_effect
+}
+wash_your_hands_perk_elf_effect = {
+	global = wash_your_hands_perk_elf_effect
+	first = wash_your_hands_perk_elf_effect
+	third = wash_your_hands_perk_elf_effect
+}
+
+### Crafting Lifestyle Effects
+add_crafting_lifestyle_xp = {
+	global = GAINS_CRAFTING_LIFESTYLE_XP
+	global_past = GAINED_CRAFTING_LIFESTYLE_XP
+	first = I_GAIN_CRAFTING_LIFESTYLE_XP
+	first_past = I_GAINED_CRAFTING_LIFESTYLE_XP
+	third = TARGET_GAINS_CRAFTING_LIFESTYLE_XP
+	third_past = TARGET_GAINED_CRAFTING_LIFESTYLE_XP
+}
+add_crafting_lifestyle_perk_points = {
+	global = GAINS_A_CRAFTING_LIFESTYLE_PERKPOINT
+	global_past = GAINED_A_CRAFTING_LIFESTYLE_PERKPOINT
+	first = I_GAIN_CRAFTING_A_LIFESTYLE_PERKPOINT
+	first_past = I_GAINED_A_CRAFTING_LIFESTYLE_PERKPOINT
+	third = TARGET_GAINS_A_CRAFTING_LIFESTYLE_PERKPOINT
+	third_past = TARGET_GAINED_A_CRAFTING_LIFESTYLE_PERKPOINT
+}
+
+### Artificer Tree Perks
+
+increased_crafting_xp = {
+	global = material_knowledge_perk_desc
+}
+
+increased_weapon_regalia_success_chance = {
+	global = weapons_of_war_perk_desc
+}
+
+increased_helmet_armor_success_chance = {
+	global = protective_gear_perk_desc
+}
+
+increased_trinket_success_chance = {
+	global = decoration_and_ornament_perk_desc
+}
+
+deadly_edge_perk_global = {
+	global = deadly_edge_perk_desc
+}
+
+expert_protection_perk_global = {
+	global = expert_protection_perk_desc
+}
+
+symbols_of_power_perk_global = {
+	global = symbols_of_power_perk_desc
+}
+
+experienced_hands_perk_global = {
+	global = experienced_hands_perk_desc
+}
+
+### Expedition Tree Perks
+
+expedition_leader_perk_effect = {
+	global = expedition_leader_perk_desc
+}
+
+exotic_minerals_perk_effect = {
+	global = exotic_minerals_perk_desc
+}
+
+persistent_surveyor_perk_effect = {
+	global = persistent_surveyor_perk_desc
+}
+
+rare_finds_perk_effect = {
+	global = rare_finds_perk_desc
+}
+
+productive_mines_perk_effect = {
+	global = productive_mines_perk_desc
+}
+
+contingency_planning_perk_effect = {
+	global = contingency_planning_perk_desc
+}
+
+middleearths_bounty_perk_effect = {
+	global = middleearths_bounty_perk_desc
+}
+
+### Enchanter tree
+
+loreseeker_perk_global = {
+	global = loreseeker_perk_desc
+}
+
+archive_frequenter_perk_global = {
+	global = archive_frequenter_perk_desc
+}
+
+tinkerer_perk_global = {
+	global = tinkerer_perk_desc
+}
+
+the_knack_perk_global = {
+	global = the_knack_perk_desc
+}
+
+transmutation_perk_global = {
+	global = transmutation_perk_desc
+}
+
+material_potential_perk_global = {
+	global = material_potential_perk_desc
+}
+
+experimental_methods_perk_global = {
+	global = experimental_methods_perk_desc
+}
+
+made_to_last_perk_global = {
+	global = made_to_last_perk_desc
+}
+
+### Adventure Legacy Perk 1 ###
+fp1_adventure_legacy_1_effect_lotr = {
+	global = fp1_adventure_legacy_1_effect_lotr_desc 
+}
+
+local_arbitration_rangers_purpose = {
+	global = local_arbitration_rangers_purpose
+	first = local_arbitration_rangers_purpose
+	third = local_arbitration_rangers_purpose
+}

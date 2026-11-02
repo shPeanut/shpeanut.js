@@ -1,0 +1,5796 @@
+﻿#LotR travel events
+
+namespace = lotr_travel_danger_events
+
+############################
+## LotR Travel Danger Events
+############################
+
+# lotr_travel_danger_events.0001 		- Giant Scorpion Attack
+# lotr_travel_danger_events.0002 		- Sandstorm!
+# lotr_travel_danger_events.0003		- Mount Doom's Breath
+# lotr_travel_danger_events.0004		- Troll Attack!
+# lotr_travel_danger_events.0005		- Flies and Spiders
+# lotr_travel_danger_events.0006      	- Shuddering Earth
+# lotr_travel_danger_events.0007		- Black Flags...
+# lotr_travel_danger_events.0008		- Raiders of the Ship-lords
+# lotr_travel_danger_events.0200-0204	- Orc encounter
+
+############################################
+
+
+##########################################
+# Giant Scorpion Attack
+# by Jaco_Daan and Juke
+# 0002
+# Attacked by Giant Scorpion in the Dune Sea!
+##########################################
+
+scripted_effect lotr_travel_events_scorpion_duel_effect = {	#lifted from #travel_danger_events_6000_beast_duel_effect
+	$FIGHTER$ = {
+		duel = {
+			skill = prowess
+			value = high_skill_rating
+			5 = {
+				desc = lotr_travel_danger_events.0001.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+					min = -49
+				}
+				root = {
+					send_interface_toast = {
+						title = lotr_travel_danger_events.0001.success
+						left_icon = $FIGHTER$
+						$FIGHTER$ = { add_prestige = medium_prestige_gain }
+					}
+				}
+				min = 1
+			}
+			15 = {
+				desc = lotr_travel_danger_events.0001.wound
+				trigger = {
+					NOT = {
+						has_trait_rank = {
+							trait = wounded
+							rank > 1
+						}
+					}
+				}
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				root = {
+					send_interface_toast = {
+						title = lotr_travel_danger_events.0001.wound
+						left_icon = $FIGHTER$
+						$FIGHTER$ = {
+							hunt_animal_wound_effect = { VARIABLE = root.var:animal_type }
+						}
+					}
+				}
+				min = 3
+			}
+			10 = {
+				desc = lotr_travel_danger_events.0001.failure
+				trigger = {
+					cannot_be_killed = no #lotr
+				}
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				root = {
+					send_interface_toast = {
+						title = lotr_travel_danger_events.0001.failure
+						left_icon = $FIGHTER$
+						$FIGHTER$ = {
+							death = { death_reason = death_scorpion }
+						}
+					}
+				}
+				min = 2
+				modifier = {
+					add = -30
+					is_elf = yes
+				}
+			}
+		}
+	}
+}
+lotr_travel_danger_events.0001 = { ### GIANT SCORPION ###
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_travel_danger_events.0001.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = had_scorpion_event_recently }
+				desc = lotr_travel_danger_events.0001.desc.again
+			}
+			desc = lotr_travel_danger_events.0001.desc
+		}
+		triggered_desc = {
+			trigger = { exists = scope:beast_victim }
+			desc = lotr_travel_danger_events.0001.desc.victim
+		}
+	}
+	theme = travel_danger
+	left_portrait = {
+		character = root
+		animation = shock
+	}
+	right_portrait = {
+		character = scope:beast_victim
+		animation = fear
+	}
+	lower_left_portrait = {
+		trigger = { exists = scope:travel_leader }
+		character = scope:travel_leader
+	}
+	cooldown = { years = 5 }
+	widgets = {
+		widget = {
+			gui = "event_window_widget_vfx_sandstorm"
+			container = "foreground_shader_vfx_container"
+		}
+	}
+	trigger = {
+		is_location_valid_for_travel_event_on_land = yes
+		is_available_travelling = yes
+		location = {
+			OR = {
+				terrain = dune_sea
+				terrain = desert
+				terrain = red_desert
+				terrain = oasis
+			}
+		}
+		location = { geographical_region = middleearth_harad_dunesea }
+	}
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 3
+			location = { terrain = dune_sea }
+		}
+	}
+	immediate = {
+		mp_delay_travel_plan = { DAYS = 90 }
+		traveler_danger_xp_effect = {
+			MIN = 3
+			MAX = 6
+		}
+		current_travel_plan = {
+			random_entourage_character = {
+				limit = {
+					can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+					cannot_be_killed = no #lotr
+				}
+				alternative_limit = { always = yes }
+				weight = {
+					base = 1
+					modifier = { add = prowess }
+					modifier = {
+						add = 10
+						has_court_position = bodyguard_court_position
+					}
+					modifier = {
+						add = 10
+						is_knight_of = root
+					}
+				}
+				save_scope_as = beast_victim
+			}
+			#Save travel leader
+			if = {
+				limit = {
+					NOT = { travel_leader ?= scope:beast_victim }
+				}
+				travel_leader ?= { save_scope_as = travel_leader }
+			}
+			#Save destination scope 
+			next_destination_province = { save_scope_as = destination }
+		}
+	}
+	option = { #Fight it
+		name = lotr_travel_danger_events.0001.a
+		save_scope_as = fighter
+		stress_impact = {
+			craven = medium_stress_gain
+		}
+		lotr_travel_events_scorpion_duel_effect = { FIGHTER = root }
+		current_travel_plan = { 
+			delay_travel_plan = { days = 5 }
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				has_trait = craven
+			}
+		}
+		
+	}
+
+	option = { #Distract with someone else
+		name = lotr_travel_danger_events.0001.b
+		trigger = { exists = scope:beast_victim }
+		lotr_travel_events_scorpion_duel_effect = { FIGHTER = scope:beast_victim }
+		current_travel_plan = { 
+			delay_travel_plan = { days = 2 }
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_gain
+			brave = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				has_trait = compassionate
+			}
+		}
+	}
+
+	option = { #Run!
+		name = lotr_travel_danger_events.0001.c
+		trigger = {
+			culture = {
+				NOT = { has_innovation = innovation_dune_sea_warfare }
+			}
+		}
+		add_prestige = minor_prestige_loss
+		current_travel_plan = { 
+			delay_travel_plan = { days = 15 }
+		}
+		stress_impact = {
+			base = minor_stress_impact_gain
+			craven = minor_stress_impact_gain
+		}
+		stress_impact = {
+			brave = medium_stress_impact_gain
+			craven = minor_stress_impact_loss
+		}
+		random_list = {
+			50 = {
+				desc = lotr_travel_danger_events.0001.ran
+				send_interface_toast = {
+					title = lotr_travel_danger_events.0001.ran
+				}
+			}
+			40 = {
+				desc = lotr_travel_danger_events.0001.wound
+				trigger = {
+					NOT = {
+						has_trait_rank = {
+							trait = wounded
+							rank > 1
+						}
+					}
+				}
+				send_interface_toast = {
+					title = lotr_travel_danger_events.0001.wound
+					left_icon = root
+					root = {
+						hunt_animal_wound_effect = { VARIABLE = root.var:animal_type }
+					}
+				}
+			}
+			10 = {
+				desc = lotr_travel_danger_events.0001.failure
+				trigger = {
+					cannot_be_killed = no #lotr
+				}
+				send_interface_toast = {
+					title = lotr_travel_danger_events.0001.failure
+					left_icon = root
+					root = {
+						death = { death_reason = death_scorpion }
+					}
+				}
+				modifier = {
+					add = -30
+					is_elf = yes
+				}
+			}
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				has_trait = brave
+			}
+		}
+	}
+	option = {
+		name = lotr_travel_danger_events.0001.d
+		trigger = {
+			culture = {
+				has_innovation = innovation_dune_sea_warfare
+			}
+		}
+		custom_tooltip = lotr_travel_danger_events.0001.d.tt
+		send_interface_toast = {
+			title = lotr_travel_danger_events.0001.sneak
+			left_icon = root
+		}
+		stress_impact = {
+			base = minor_stress_impact_gain
+			impatient = medium_stress_gain
+			reckless = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 500
+			modifier = {
+				factor = 0.1
+				OR = {
+					has_trait = reckless
+					has_trait = impatient
+				}
+			}
+		}
+	}
+	
+	after = {
+		mp_resume_travel_plan = yes
+		#First time getting the event
+		if = {
+			limit = {
+				is_alive = yes
+			}
+			add_character_flag = {
+				flag = had_scorpion_event_recently
+				years = 1
+			}
+		}
+	}
+}
+
+##########################################
+# Sandstorm!
+# by Jaco_Daan and Juke
+# 0003
+# A great Sand Storm engulfs you in the dune sea/desert
+##########################################
+
+lotr_travel_danger_events.0002 = { # Sandstorm!
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_travel_danger_events.0002.t
+	desc = lotr_travel_danger_events.0002.desc
+	theme = travel_danger
+	left_portrait = {
+		character = root 
+	   	animation = fear
+	}
+	right_portrait = {
+		character = root.current_travel_plan.travel_leader
+	   	animation = stress
+	}
+	cooldown = { years = 1 }
+	widgets = {
+		widget = {
+			gui = "event_window_widget_vfx_sandstorm"
+			container = "foreground_shader_vfx_container"
+		}
+	}
+	trigger = {
+		is_location_valid_for_travel_event_on_land = yes
+		exists = current_travel_plan.travel_leader
+		NOT = { current_travel_plan.travel_leader = root }
+		is_available_travelling = yes
+		location = {
+			OR = {
+				terrain = red_desert
+				terrain = oasis
+				terrain = desert
+				terrain = dune_sea
+			}
+		}
+	}
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 2
+			location = { terrain = desert }
+		}
+		modifier = {
+			add = 3
+			location = { terrain = dune_sea }
+		}
+	}
+	immediate = {
+		mp_delay_travel_plan = { DAYS = 90 }
+		hidden_effect = {
+			while = {
+				count = 5
+				current_travel_plan = {
+					random_entourage_character = {
+						limit = {
+							NOT = { this = root }
+							cannot_be_killed = no #lotr
+						}
+						weight = {
+							base = 1
+							# Try to find someone relevant
+							modifier = {
+								is_close_family_of = root
+								add = 1
+							}
+							modifier = {
+								is_elf = yes
+								add = -0.75
+							}
+						}
+						add_to_list = drowning_courtiers_list
+					}
+				}
+			}
+		}
+		traveler_danger_xp_effect = {
+			MIN = 3
+			MAX = 7
+		}
+	}
+	# Trust your guide's judgement
+	option = {
+		name = lotr_travel_danger_events.0002.a
+		current_travel_plan = { 
+			delay_travel_plan = { days = 10 }
+		}
+		current_travel_plan.travel_leader = {
+			duel = {
+				skill = martial
+				value = high_skill_rating
+				50 = { # You manage to navigate the storm
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 0.5
+					}
+					custom_tooltip = sandstorm_survived
+					hidden_effect = {
+						root = {
+							send_interface_toast = {
+								title = sandstorm_survived
+								left_icon = root
+								add_prestige = 10
+							}
+						}
+					}
+				}
+				40 = { # You mess up and get someone killed
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -0.5
+					}
+					add_prestige = medium_prestige_loss
+					increase_wounds_effect = { REASON = sandstorm}
+					custom_tooltip = sandstorm_someone_dies
+					hidden_effect = {
+						root = {
+							send_interface_toast = {
+								title = sandstorm_someone_dies
+								left_icon = root
+								random_in_list = {
+									list = drowning_courtiers_list
+									death = {
+										death_reason = death_sandstorm
+									}
+								}
+							}
+						}
+					}
+				}
+				10 = { # They mess up a lot and kill a lot of people
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -0.5
+					}
+					increase_wounds_effect = { REASON = sandstorm}
+					custom_tooltip = sandstorm_many_die
+					hidden_effect = {
+						root = {
+							send_interface_toast = {
+								title = sandstorm_many_die
+								left_icon = root
+								every_in_list = {
+									list = drowning_courtiers_list
+									death = {
+										death_reason = death_sandstorm
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		stress_impact = {
+			arrogant = medium_stress_impact_gain
+			brave = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				OR = {
+					has_trait = arrogant
+					has_trait = brave
+				}
+			}
+		}
+	}
+	# I will coordinate the camp!
+	option = {
+		name = lotr_travel_danger_events.0002.b
+		stress_impact = {
+			arrogant = minor_stress_impact_loss
+			craven = medium_stress_impact_gain
+		}
+		progress_towards_rival_effect = {
+			REASON = rival_upstaged_at_sea
+			CHARACTER = root.current_travel_plan.travel_leader
+			OPINION = default_rival_opinion
+		}
+		duel = {
+			skill = martial
+			value = high_skill_rating
+			50 = { # You manage to navigate the storm
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 0.5
+				}
+				send_interface_toast = {
+					title = sandstorm_survived
+					left_icon = root
+				current_travel_plan = { 
+					delay_travel_plan = { days = 3 }
+				}
+					add_prestige = medium_prestige_gain
+				}
+			}
+			40 = { # You mess up and get someone killed
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.5
+				}
+				custom_tooltip = sandstorm_someone_dies
+
+				send_interface_toast = {
+					title = sandstorm_someone_dies
+					left_icon = root
+					every_in_list = {
+						list = drowning_courtiers_list
+						death = {
+							death_reason = death_sandstorm
+						}
+					}
+					current_travel_plan = { 
+						delay_travel_plan = { days = 15 }
+					}
+					add_prestige = medium_prestige_loss
+					increase_wounds_effect = { REASON = sandstorm}
+				}
+			}
+			10 = { # You really mess up and get yourself killed
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.5
+				}
+				IF = {
+					limit = {
+						cannot_be_killed = yes #lotr
+					}
+					send_interface_toast = {
+						title = travel_danger_events.6020.immortaltoast #you return to middle earth
+						left_icon = root
+						current_travel_plan = { 
+							delay_travel_plan = { days = 30 }
+						}
+						add_prestige = medium_prestige_loss
+						add_character_modifier = {
+							modifier = recovering_from_storm_modifier
+							years = 2
+						}
+					}
+				}
+				ELSE = {
+					send_interface_toast = {
+						title = sandstorm_you_die
+						left_icon = root
+						current_travel_plan = { 
+							delay_travel_plan = { days = 15 }
+						}
+						add_prestige = medium_prestige_loss
+						death = {
+							death_reason = death_sandstorm
+						}
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				has_trait = arrogant
+			}
+			modifier = {
+				factor = 0
+				has_trait = craven
+			}
+		}
+	}
+	# I will Save myself!
+	option = {
+		name = lotr_travel_danger_events.0002.c
+		current_travel_plan = { 
+			delay_travel_plan = { days = 8 }
+		}
+		add_prestige = minor_prestige_loss
+		stress_impact = {
+			just = medium_stress_impact_gain
+			patient = medium_stress_impact_gain
+			compassionate = medium_stress_impact_gain
+			craven = minor_stress_impact_loss
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				OR = {
+					has_trait = arrogant
+					has_trait = brave
+				}
+			}
+		}
+	}
+	after = {
+		mp_resume_travel_plan = yes
+	}
+}
+
+##########################################
+# Mount Doom's Breath
+# by Juke
+# 0010
+# The fel winds of Mordor burn your throat
+##########################################
+
+lotr_travel_danger_events.0003 = { # Mount Doom's Breath
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_travel_danger_events.0003.t
+	desc = lotr_travel_danger_events.0003.desc
+	theme = battle
+	override_background = {
+		reference = wilderness_volcanic
+	}
+	override_effect_2d = {
+		reference = smoke	
+	}
+	left_portrait = {
+		character = root 
+	   	animation = sick
+	}
+	right_portrait = {
+		character = root.current_travel_plan.travel_leader
+	   	animation = pain
+	}
+	cooldown = { months = 1 }
+	trigger = {
+		is_location_valid_for_travel_event_on_land = yes
+		exists = current_travel_plan.travel_leader
+		NOT = { current_travel_plan.travel_leader = root }
+		is_available_travelling = yes
+		location = {
+			geographical_region = middleearth_mordor
+			terrain = volcanic_plains
+		}
+	}
+	immediate = {
+		mp_delay_travel_plan = { DAYS = 90 }
+		traveler_danger_xp_effect = {
+			MIN = 3
+			MAX = 7
+		}
+	}
+	# Every breath hurts.
+	option = {
+		name = {
+			trigger = { is_orc = yes }
+			text = lotr_travel_danger_events.0003.a.orc
+		}
+		name = lotr_travel_danger_events.0003.a
+		current_travel_plan = { 
+			delay_travel_plan = { days = 10 }
+		}
+		stress_impact = {
+			base = minor_stress_impact_gain
+		}
+		if = {
+			limit = {
+				NOR = {
+					is_elf = yes
+					cannot_be_killed = yes
+					has_character_modifier = scorched_throat_modifier
+				}
+			}
+			random = {
+				chance = 65
+				add_character_modifier = {
+					modifier = scorched_throat_modifier
+					years = 10
+				}
+			}
+		}
+		current_travel_plan = {
+			every_entourage_character = {
+				limit = {
+					NOR = {
+						this = root
+						is_elf = yes
+						cannot_be_killed = yes
+						has_character_modifier = scorched_throat_modifier
+					}
+				}
+				random = {
+					chance = 65
+					add_character_modifier = {
+						modifier = scorched_throat_modifier
+						years = 10
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	after = {
+		mp_resume_travel_plan = yes
+	}
+}
+
+##########################################
+# Troll Attack!
+# by Juke
+# 0011
+# You encounter a huge, geographically appropriate troll!
+##########################################
+
+scripted_trigger lotr_travel_events_black_troll_trigger = {
+	location = {
+		OR = { # Only in Mordor
+			geographical_region = middleearth_mordor
+		}
+		OR = {
+			terrain = volcanic_plains
+			terrain = mountains
+			terrain = hills
+		}
+	}
+}
+scripted_trigger lotr_travel_events_cave_troll_trigger = {
+	location = {
+		terrain = halls
+	}
+}
+scripted_trigger lotr_travel_events_sand_troll_trigger = {
+	location = {
+		OR = { # Only in the South
+			geographical_region = middleearth_harad
+		}
+		OR = {
+			terrain = desert
+			terrain = desert_mountains
+			terrain = dune_sea
+			terrain = hills
+			terrain = red_desert
+			terrain = plains
+			terrain = savanna
+			terrain = drylands
+		}
+	}
+}
+scripted_trigger lotr_travel_events_snow_troll_trigger = {
+	location = {
+		OR = { # Only in the far North
+			geographical_region = middleearth_forodwaith
+		}
+		NOR = { # Not in Angmar
+			geographical_region = middleearth_forodwaith_angmar
+		}
+		OR = {
+			terrain = arctic
+			terrain = taiga
+			terrain = plains
+			terrain = wetlands
+			terrain = mountains
+			terrain = forest
+		}
+	}
+}
+scripted_trigger lotr_travel_events_mountain_troll_trigger = {
+	location = {
+		terrain = mountains
+		OR = {
+			geographical_region = middleearth_mountains_misty_high_pass
+			geographical_region = middleearth_mountains_misty_gundabad
+			geographical_region = middleearth_forodwaith_angmar
+		}
+	}
+}
+scripted_trigger lotr_travel_events_hill_troll_trigger = {
+	location = {
+		OR = {
+			geographical_region = middleearth_west
+		}
+		OR = {
+			terrain = hills
+			terrain = plains
+			terrain = wetlands
+			terrain = mountains
+			terrain = forest
+		}
+	}
+}
+scripted_effect lotr_travel_events_0011_riddle_effect = {
+	random_list = {
+		1 = {
+			custom_tooltip = lotr_travel_danger_events.0004.riddle1
+		}
+		1 = {
+			custom_tooltip = lotr_travel_danger_events.0004.riddle2
+		}
+		1 = {
+			custom_tooltip = lotr_travel_danger_events.0004.riddle3
+		}
+		1 = {
+			custom_tooltip = lotr_travel_danger_events.0004.riddle4
+		}
+	}
+	add_diplomacy_lifestyle_xp = 250
+	if = {
+		limit = {
+			scope:troll_fodder ?= { cannot_be_killed = no }
+		}
+		scope:troll_fodder = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 30
+			}
+		}
+	}
+}
+lotr_travel_danger_events.0004 = { # Troll Attack!
+	content_source = realms_dlc
+	type = character_event
+	title = {
+		desc = lotr_travel_danger_events.0004.t.intro
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:troll_type = flag:black_troll }
+				desc = lotr_travel_danger_events.0004.t.black_troll
+			}
+			triggered_desc = {
+				trigger = { scope:troll_type = flag:cave_troll }
+				desc = lotr_travel_danger_events.0004.t.cave_troll
+			}
+			triggered_desc = {
+				trigger = { scope:troll_type = flag:sand_troll }
+				desc = lotr_travel_danger_events.0004.t.sand_troll
+			}
+			triggered_desc = {
+				trigger = { scope:troll_type = flag:snow_troll }
+				desc = lotr_travel_danger_events.0004.t.snow_troll
+			}
+			triggered_desc = {
+				trigger = { scope:troll_type = flag:mountain_troll }
+				desc = lotr_travel_danger_events.0004.t.mountain_troll
+			}
+			triggered_desc = {
+				trigger = { scope:troll_type = flag:hill_troll }
+				desc = lotr_travel_danger_events.0004.t.hill_troll
+			}
+			desc = lotr_travel_danger_events.0004.t.hill_troll #Fallback
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:troll_type = flag:black_troll }
+				desc = lotr_travel_danger_events.0004.desc.black_troll
+			}
+			triggered_desc = {
+				trigger = { scope:troll_type = flag:cave_troll }
+				desc = lotr_travel_danger_events.0004.desc.cave_troll
+			}
+			triggered_desc = {
+				trigger = { scope:troll_type = flag:sand_troll }
+				desc = lotr_travel_danger_events.0004.desc.sand_troll
+			}
+			triggered_desc = {
+				trigger = { scope:troll_type = flag:snow_troll }
+				desc = lotr_travel_danger_events.0004.desc.snow_troll
+			}
+			triggered_desc = {
+				trigger = { scope:troll_type = flag:mountain_troll }
+				desc = lotr_travel_danger_events.0004.desc.mountain_troll
+			}
+			triggered_desc = {
+				trigger = { scope:troll_type = flag:hill_troll }
+				desc = lotr_travel_danger_events.0004.desc.hill_troll
+			}
+			desc = lotr_travel_danger_events.0004.desc.hill_troll #Fallback
+		}
+		triggered_desc = {
+			trigger = { scope:troll_fodder ?= { cannot_be_killed = no } }
+			desc = lotr_travel_danger_events.0004.desc.outro
+		}
+	}
+	theme = travel_danger
+	#left_portrait = {
+	#	character = root
+	#	animation = shock
+	#}
+	right_portrait = {
+		character = scope:troll
+		triggered_animation = {
+			trigger = { scope:troll_type = flag:black_troll }
+			animation = aggressive_mace
+		}
+		animation = aggressive_unarmed
+	}
+
+	lower_left_portrait = {
+		character = root
+	}
+	lower_center_portrait = {
+		trigger = { scope:troll_fodder ?= { cannot_be_killed = no } }
+		character = scope:troll_fodder
+	}
+	cooldown = { years = 15 }	
+	trigger = {
+		is_location_valid_for_travel_event_on_land = yes
+		is_available_travelling = yes
+		cannot_be_killed = no
+		lotr_canon_safe_from_harm_trigger = no
+		OR = {
+			lotr_travel_events_black_troll_trigger = yes
+			lotr_travel_events_cave_troll_trigger = yes
+			lotr_travel_events_sand_troll_trigger = yes
+			lotr_travel_events_snow_troll_trigger = yes
+			lotr_travel_events_mountain_troll_trigger = yes
+			lotr_travel_events_hill_troll_trigger = yes
+		}
+		current_travel_plan = {
+			#Potential troll fodder ?
+			any_entourage_character = {
+				cannot_be_killed = no
+				NOT = { is_elf = yes }
+			}
+		}
+	}
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 1
+			location = {
+				county.holder = { is_wastelands = yes }
+			}
+		}
+		modifier = { #More likely in Underground
+			add = 1
+			lotr_travel_events_cave_troll_trigger = yes
+		}
+		modifier = { #More likely in Gorgoroth
+			add = 1
+			lotr_travel_events_black_troll_trigger = yes
+			location = {
+				geographical_region = middleearth_mordor_gorgoroth
+			}
+		}
+		modifier = { #More likely in Angmar
+			add = 1
+			lotr_travel_events_hill_troll_trigger = yes
+			location = {
+				geographical_region = middleearth_forodwaith_angmar
+			}
+		}
+		modifier = { #Much More likely in Rhudaur
+			add = 2
+			lotr_travel_events_hill_troll_trigger = yes
+			location = {
+				geographical_region = middleearth_west_arnor_rhudaur
+			}
+		}
+		modifier = { #less likely in developed lands
+			location.county.development_level > bad_development_level
+			NOT = { location.culture = { is_orc_culture = yes } }
+			factor = 0.5
+		}
+		modifier = {
+			location.county.development_level > medium_development_level
+			NOT = { location.culture = { is_orc_culture = yes } }
+			factor = 0.5
+		}
+		modifier = {
+			location.county.development_level > good_development_level
+			NOT = { location.culture = { is_orc_culture = yes } }
+			factor = 0.5
+		}
+	}
+	immediate = {
+		mp_delay_travel_plan = { DAYS = 90 }
+		traveler_danger_xp_effect = {
+			MIN = 3
+			MAX = 6
+		}
+		# Pick a troll!
+		if = { # Olog
+			limit = {
+				lotr_travel_events_black_troll_trigger = yes
+			}
+			save_scope_value_as = {
+				name = troll_type
+				value = flag:black_troll
+			}
+			create_character = {
+				template = troll_character
+				gender = male
+				dynasty = none
+				location = root.location
+				culture = culture:black_troll
+				faith = faith:red_eye_cult
+				save_scope_as = troll
+			}
+		}
+		else_if = { # Cave Troll
+			limit = {
+				lotr_travel_events_cave_troll_trigger = yes
+			}
+			save_scope_value_as = {
+				name = troll_type
+				value = flag:cave_troll
+			}
+			create_character = {
+				template = troll_character
+				gender = male
+				dynasty = none
+				location = root.location
+				culture = culture:cave_troll
+				faith = faith:way_of_strength
+				save_scope_as = troll
+			}
+		}
+		else_if = { # Sand Troll
+			limit = {
+				lotr_travel_events_sand_troll_trigger = yes
+			}
+			save_scope_value_as = {
+				name = troll_type
+				value = flag:sand_troll
+			}
+			create_character = {
+				template = troll_character
+				gender = male
+				dynasty = none
+				location = root.location
+				culture = culture:sand_troll
+				faith = faith:way_of_strength
+				save_scope_as = troll
+			}
+		}
+		else_if = { # Snow Troll
+			limit = {
+				lotr_travel_events_snow_troll_trigger = yes
+			}
+			save_scope_value_as = {
+				name = troll_type
+				value = flag:snow_troll
+			}
+			create_character = {
+				template = troll_character
+				gender = male
+				dynasty = none
+				location = root.location
+				culture = culture:snow_troll
+				faith = faith:way_of_strength
+				save_scope_as = troll
+			}
+		}
+		else_if = { # Mountain Troll
+			limit = {
+				lotr_travel_events_mountain_troll_trigger = yes
+			}
+			save_scope_value_as = {
+				name = troll_type
+				value = flag:mountain_troll
+			}
+			create_character = {
+				template = troll_character
+				gender = male
+				dynasty = none
+				location = root.location
+				culture = culture:mountain_troll
+				faith = faith:way_of_strength
+				save_scope_as = troll
+			}
+		}
+		else = { # Hill Troll
+			#No trigger as its the fallback
+			save_scope_value_as = {
+				name = troll_type
+				value = flag:hill_troll
+			}
+			create_character = {
+				template = troll_character
+				gender = male
+				dynasty = none
+				location = root.location
+				culture = culture:hill_troll
+				faith = faith:way_of_strength
+				save_scope_as = troll
+			}
+		}
+		
+		current_travel_plan = {
+			#Save potential troll fodder
+			random_entourage_character = {
+				limit = {
+					cannot_be_killed = no #lotr
+					NOT = { is_elf = yes }
+				}
+				weight = {
+					base = 1
+					#modifier = { add = prowess }
+					modifier = { # Clowns are extra delicious
+						add = 4
+						has_court_position = court_jester_court_position
+					}
+					modifier = { # Feeding family to trolls is generally considered rude
+						add = -0.9
+						is_close_family_of = ROOT
+					}
+					modifier = { # ...unless you really, really hate them
+						add = 10
+						has_relation_rival = ROOT
+					}
+				}
+				save_scope_as = troll_fodder
+			}
+			#Save travel leader
+			if = {
+				limit = {
+					NOT = { travel_leader ?= scope:troll_fodder }
+				}
+				travel_leader ?= { save_scope_as = travel_leader }
+			}
+			#Save destination scope 
+			next_destination_province = { save_scope_as = destination }
+		}
+	}
+	
+	#Juke note: tweaked the order the options appear in, which is why they arent alphabetical
+	option = { #Give it supplies
+		name = lotr_travel_danger_events.0004.c
+		trigger = {
+			NOT = {
+				culture = {
+					OR = {
+						has_cultural_tradition = tradition_horse_breeder
+						has_cultural_tradition = tradition_riders_of_the_mark
+						has_cultural_tradition = tradition_warriors_of_rhun
+						has_cultural_tradition = tradition_variag_horse_lords
+						has_cultural_tradition = tradition_warriors_of_rhun
+					}
+				}
+			}
+		}
+		remove_short_term_gold = medium_gold_value
+		add_dread = -15
+		stress_impact = {
+			base = minor_stress_impact_gain
+			greedy = minor_stress_impact_gain
+			brave = minor_stress_impact_gain
+			generous = medium_stress_impact_loss
+		}
+		current_travel_plan = { 
+			delay_travel_plan = { days = 10 }
+		}
+		ai_chance = {
+			base = 300
+		}
+	}
+	
+	option = { #Give it a horse
+		name = lotr_travel_danger_events.0004.d
+		trigger = {
+			culture = {
+				OR = {
+					has_cultural_tradition = tradition_horse_breeder
+					has_cultural_tradition = tradition_riders_of_the_mark
+					has_cultural_tradition = tradition_warriors_of_rhun
+					has_cultural_tradition = tradition_variag_horse_lords
+					has_cultural_tradition = tradition_warriors_of_rhun
+				}
+			}
+		}
+		add_prestige = -150
+		stress_impact = {
+			base = medium_stress_impact_gain
+			greedy = minor_stress_impact_gain
+			brave = minor_stress_impact_gain
+			generous = medium_stress_impact_loss
+		}
+		current_travel_plan = { 
+			delay_travel_plan = { days = 10 }
+		}
+		ai_chance = {
+			base = 500
+		}
+		
+	}
+	
+	option = { #Courtier can spare an arm, right?
+		name = lotr_travel_danger_events.0004.f
+		trigger = {
+			OR = {
+				has_trait = callous
+				has_trait = sadistic
+				is_orc = yes
+				faith.religion = { is_in_family = rf_forcesofevil }
+			}
+			NOT = { is_elf = yes }
+			NOT = { # We dont want too many options
+				AND = {
+					has_trait = lifestyle_poet
+					NOT = { is_orc = yes }
+				}
+			}
+		}
+		scope:troll_fodder = {
+			if = {
+				limit = {
+					has_trait = maimed
+					has_trait = one_legged
+				}
+				increase_wounds_effect = { REASON = fight }
+			}
+			else_if = {
+				limit = { has_trait = maimed }
+				add_trait = one_legged
+				increase_wounds_effect = { REASON = fight }
+			}
+			else = {
+				apply_maimed_trait_and_modifier_effect = yes
+				increase_wounds_effect = { REASON = fight }
+			}
+			random_list = {
+				85 = {
+					progress_towards_rival_effect = {
+						CHARACTER = root
+						REASON = rival_left_for_dead
+						OPINION = default_rival_opinion
+					}
+					add_opinion = {
+						target = root
+						modifier = angry_opinion
+						opinion = -50
+					}
+				}
+				15 = {
+					death = {
+						death_reason = death_eaten
+						killer = scope:troll
+					}
+				}
+			}
+		}
+		current_travel_plan = {
+			every_entourage_character = {
+				limit = {
+					NOR = {
+						this = root
+						this = scope:troll_fodder
+						has_trait = callous
+						has_trait = sadistic
+						has_trait = cannibal
+						is_orc = yes
+					}
+				}
+				add_opinion = {
+					target = root
+					modifier = absolutely_horrified_opinion
+					opinion = -30
+				}
+			}
+		}
+		add_tyranny = 5
+		current_travel_plan = { 
+			delay_travel_plan = { days = 5 }
+		}
+		ai_chance = {
+			base = 300
+			modifier = {
+				factor = 0
+				has_trait = compassionate
+			}
+			modifier = {
+				factor = 0
+				is_elf = yes
+			}
+			modifier = {
+				factor = 0.1
+				faith_is_good = yes
+			}
+		}
+	}
+
+	option = { #Guards! To Arms!
+		name = lotr_travel_danger_events.0004.b
+		trigger = {
+			current_travel_plan = {
+				OR = {
+					has_travel_option = hire_experienced_mercenaries_option
+					has_travel_option = military_recruits_option
+					any_entourage_character = {
+						is_knight_of = root 
+						has_court_position = bodyguard_court_position 
+					}
+				}
+			}
+		}
+		
+		random_list = {
+			45 = {
+				desc = lotr_travel_danger_events.0004.b.success.tt
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = lotr_travel_danger_events.0004.b.success.tt
+					right_icon = scope:troll
+				}
+				if = {
+					scope:troll_fodder = {
+						add_opinion = {
+							target = root
+							modifier = grateful_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+			50 = {
+				desc = lotr_travel_danger_events.0004.b.failure.tt
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = lotr_travel_danger_events.0004.b.failure.tt
+					right_icon = scope:troll
+					increase_wounds_effect = { REASON = fight }
+					scope:troll_fodder = {
+						death = {
+							death_reason = death_eaten
+							killer = scope:troll
+						}
+					}
+				}
+			}
+			5 = {
+				desc = lotr_travel_danger_events.0004.b.critical_failure.tt
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = lotr_travel_danger_events.0004.b.critical_failure.tt
+					right_icon = scope:troll
+					if = {
+						limit = {
+							NOT = { is_elf = yes }
+							cannot_be_killed = no
+						}
+						death = {
+							death_reason = death_eaten
+							killer = scope:troll
+						}
+					}
+					scope:troll_fodder = {
+						increase_wounds_effect = { REASON = fight }
+					}
+				}
+				modifier = { # Make AI die less
+					factor = 0.3
+					is_ai = yes
+				}
+			}
+		}
+		
+		stress_impact = {
+			compassionate = minor_stress_impact_gain
+			forgiving = minor_stress_impact_gain
+			craven = minor_stress_impact_gain
+		}
+		
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 2
+				has_trait = brave
+			}
+			modifier = {
+				factor = 0.25
+				has_trait = compassionate
+			}
+			modifier = {
+				factor = 0.25
+				has_trait = forgiving
+			}
+			modifier = {
+				factor = 0.25
+				has_trait = generous
+			}
+			modifier = {
+				factor = 0.25
+				prowess < 15
+			}
+			modifier = {
+				factor = 2
+				prowess >= 15
+			}
+		}
+	}
+	
+	option = { #I will slay you myself!
+		name = lotr_travel_danger_events.0004.a
+		stress_impact = {
+			craven = medium_stress_gain
+			brave = medium_stress_loss
+			fickle = minor_stress_loss
+		}
+		custom_tooltip = lotr_travel_danger_events.0004.a.tt
+		duel = {
+			skill = prowess
+			target = scope:troll
+			9 = {
+				desc = lotr_travel_danger_events.0004.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+					min = -49
+				}
+				send_interface_toast = {
+					title = lotr_travel_danger_events.0004.success
+					right_icon = scope:troll
+					if = {
+						limit = {
+							exists = promoted_legend
+							promoted_legend = {
+								legend_owner = root
+							}
+						}
+						promoted_legend = {
+							change_legend_quality_effect = {
+								VALUE = minor_legend_quality_increase
+							}
+						}
+					}
+					add_legitimacy_effect = { LEGITIMACY = minor_legitimacy_gain }
+					add_prestige = 300
+					if = {
+						limit = {
+							scope:troll_fodder ?= { cannot_be_killed = no }
+						}
+						scope:troll_fodder = {
+							add_opinion = {
+								target = root
+								modifier = grateful_opinion
+								opinion = 30
+							}
+						}
+					}
+				}
+				min = 1
+			}
+			14 = {
+				desc = lotr_travel_danger_events.0004.wound
+				trigger = {
+					NOT = {
+						has_trait_rank = {
+							trait = wounded
+							rank > 1
+						}
+					}
+				}
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				send_interface_toast = {
+					title = lotr_travel_danger_events.0004.wound
+					right_icon = scope:troll
+					increase_wounds_effect = { REASON = fight }
+					scope:troll_fodder = {
+						death = {
+							death_reason = death_eaten
+							killer = scope:troll
+						}
+					}
+				}
+				current_travel_plan = { 
+					delay_travel_plan = { days = 5 }
+				}
+				min = 3
+			}
+			7 = {
+				desc = lotr_travel_danger_events.0004.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				send_interface_toast = {
+					title = lotr_travel_danger_events.0004.failure
+					right_icon = scope:troll
+					if = {
+						limit = {
+							cannot_be_killed = no #lotr
+							NOT = { is_elf = yes }
+						}
+						death = {
+							death_reason = death_eaten
+							killer = scope:troll
+						}
+					}
+					scope:troll_fodder = {
+						increase_wounds_effect = { REASON = fight }
+					}
+				}
+				current_travel_plan = { 
+					delay_travel_plan = { days = 10 }
+				}
+				min = 2
+				modifier = {
+					factor = 0.5
+					is_elf = yes
+				}
+				modifier = { # Make AI die less
+					factor = 0.3
+					is_ai = yes
+				}
+			}
+		}
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				has_trait = craven
+			}
+			modifier = {
+				factor = 0
+				prowess < 15
+			}
+			modifier = {
+				factor = 2
+				has_trait = brave
+				prowess >= 15
+			}
+			modifier = {
+				factor = 2
+				NOT = { has_trait = brave }
+				prowess >= 25
+			}
+		}
+	}
+	
+	option = { #Distract it with a riddle
+		name = lotr_travel_danger_events.0004.j
+		trigger = {
+			NOT = { has_trait = lifestyle_poet }
+			OR = {
+				is_hobbit = yes
+				diplomacy >= 16
+			}
+			NOT = {
+				faith_is_evil = yes
+			}
+		}
+		duel = {
+			skill = diplomacy
+			value = very_high_skill_rating
+			20 = {
+				desc = lotr_travel_danger_events.0004.e.success.tt
+				custom_tooltip = lotr_travel_danger_events.0004.e.success.tt
+				show_as_tooltip = {
+					add_diplomacy_lifestyle_xp = 250
+					if = {
+						limit = {
+							scope:troll_fodder ?= { cannot_be_killed = no }
+						}
+						scope:troll_fodder = {
+							add_opinion = {
+								target = root
+								modifier = grateful_opinion
+								opinion = 30
+							}
+						}
+					}
+				}
+				hidden_effect = {
+					send_interface_toast = {
+						type = event_toast_effect_good
+						title = lotr_travel_danger_events.0004.e.success.tt
+						right_icon = scope:troll
+						lotr_travel_events_0011_riddle_effect = yes
+					}
+				}
+			}
+			8 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.5
+				}
+				desc = lotr_travel_danger_events.0004.e.failure.tt
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = lotr_travel_danger_events.0004.e.failure.tt
+					right_icon = scope:troll
+					increase_wounds_effect = { REASON = fight }
+					remove_short_term_gold = minor_gold_value
+					add_prestige = -100
+				}
+			}
+			3 = {
+				trigger = {
+					NOT = { is_elf = yes }
+					cannot_be_killed = no
+				}
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.5
+				}
+				desc = lotr_travel_danger_events.0004.e.critical_failure.tt
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = lotr_travel_danger_events.0004.e.critical_failure.tt
+					right_icon = scope:troll
+					death = {
+						death_reason = death_eaten
+						killer = scope:troll
+					}
+					remove_short_term_gold = minor_gold_value
+					add_prestige = -100
+				}
+				modifier = { # Make AI die less
+					factor = 0.3
+					is_ai = yes
+				}
+			}
+		}
+		current_travel_plan = { 
+			delay_travel_plan = { days = 2 }
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_trait = shy
+			}
+			modifier = {
+				factor = 3
+				diplomacy >= 18
+			}
+		}
+	}
+	
+	option = { #Distract it with a riddle (Always succeeds)
+		name = lotr_travel_danger_events.0004.e
+		trigger = {
+			OR = {
+				is_hobbit = yes
+				diplomacy >= 10
+			}
+			has_trait = lifestyle_poet
+			NOT = { is_orc = yes }
+		}
+		custom_tooltip = lotr_travel_danger_events.0004.e.success.tt
+		show_as_tooltip = {
+			add_diplomacy_lifestyle_xp = 250
+			if = {
+				limit = {
+					scope:troll_fodder ?= { cannot_be_killed = no }
+				}
+				scope:troll_fodder = {
+					add_opinion = {
+						target = root
+						modifier = grateful_opinion
+						opinion = 30
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = lotr_travel_danger_events.0004.e.success.tt
+				right_icon = scope:troll
+				lotr_travel_events_0011_riddle_effect = yes
+			}
+		}
+		current_travel_plan = { 
+			delay_travel_plan = { days = 2 }
+		}
+		ai_chance = {
+			base = 500
+		}
+	}
+	
+	option = { # Attempt to recruit it!
+		name = lotr_travel_danger_events.0004.g
+		trigger = {
+			OR = {
+				is_orc = yes
+				AND = {
+					faith_is_evil = yes
+					cannot_be_killed = yes
+				}
+			}
+		}
+		stress_impact = {
+			gregarious = minor_stress_impact_loss
+			ambitious = minor_stress_impact_loss
+			shy = medium_stress_impact_gain
+		}
+		duel = {
+			skill = diplomacy
+			value = medium_skill_rating
+			20 = {
+				desc = lotr_travel_danger_events.0004.g.success.tt
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = lotr_travel_danger_events.0004.g.success.tt
+					right_icon = scope:troll
+					add_character_modifier = {
+						modifier = orcs_recruited_troll_modifier
+						years = 10
+					}
+					add_legitimacy_effect = { LEGITIMACY = minor_legitimacy_gain }
+					add_diplomacy_lifestyle_xp = 250
+					remove_short_term_gold = minor_gold_value
+					add_prestige = 150
+				}
+			}
+			8 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.5
+				}
+				desc = lotr_travel_danger_events.0004.g.failure.tt
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = lotr_travel_danger_events.0004.g.failure.tt
+					right_icon = scope:troll
+					increase_wounds_effect = { REASON = fight }
+					remove_short_term_gold = minor_gold_value
+					add_prestige = -100
+				}
+			}
+			2 = {
+				trigger = {
+					NOT = { is_elf = yes }
+					cannot_be_killed = no
+				}
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.5
+				}
+				desc = lotr_travel_danger_events.0004.g.critical_failure.tt
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = lotr_travel_danger_events.0004.g.critical_failure.tt
+					right_icon = scope:troll
+					death = {
+						death_reason = death_eaten
+						killer = scope:troll
+					}
+					remove_short_term_gold = minor_gold_value
+					add_prestige = -100
+				}
+				modifier = { # Make AI die less
+					factor = 0.3
+					is_ai = yes
+				}
+			}
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 2
+				OR = {
+					has_trait = ambitious
+					has_trait = gregarious
+				}
+			}
+		}
+	}
+	
+	option = { #Run!
+		name = lotr_travel_danger_events.0004.h
+		add_prestige = minor_prestige_loss
+		current_travel_plan = { 
+			delay_travel_plan = { days = 10 }
+		}
+		stress_impact = {
+			base = minor_stress_impact_gain
+			craven = minor_stress_impact_loss
+			brave = medium_stress_impact_gain
+			stubborn = minor_stress_impact_gain
+			arrogant = minor_stress_impact_gain
+		}
+		random_list = {
+			25 = {
+				desc = lotr_travel_danger_events.0004.h.success.tt
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = lotr_travel_danger_events.0004.h.success.tt
+					right_icon = scope:troll
+					custom_tooltip = lotr_travel_danger_events.0004.h.continue.tt
+				}
+			}
+			65 = {
+				desc = lotr_travel_danger_events.0004.h.failure.tt
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = lotr_travel_danger_events.0004.h.failure.tt
+					right_icon = scope:troll
+					increase_wounds_effect = { REASON = fight }
+					scope:troll_fodder = {
+						death = {
+							death_reason = death_eaten
+							killer = scope:troll
+						}
+					}
+				}
+			}
+			10 = {
+				desc = lotr_travel_danger_events.0004.h.critical_failure.tt
+				trigger = {
+					cannot_be_killed = no
+					NOT = { is_elf = yes }
+				}
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = lotr_travel_danger_events.0004.h.critical_failure.tt
+					right_icon = scope:troll
+					death = {
+						death_reason = death_eaten
+						killer = scope:troll
+					}
+					scope:troll_fodder = {
+						increase_wounds_effect = { REASON = fight }
+					}
+				}
+				modifier = { # Make AI die less
+					factor = 0.3
+					is_ai = yes
+				}
+			}
+		}
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 0.5
+				has_trait = brave
+			}
+		}
+	}
+
+	after = {
+		mp_resume_travel_plan = yes
+		hidden_effect = { # Dont want troll courtiers runnin around
+			scope:troll = {
+				if = {
+					limit = { is_alive = yes }
+					silent_disappearance_effect = yes
+				}
+			}
+		}
+	}
+}
+
+##########################################
+# Flies and Spiders
+# by Aerien
+# 0015
+# When travelling through Mirkwood
+##########################################
+
+lotr_travel_danger_events.0005 = { # Flies and Spiders
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_travel_danger_events.0005.t
+	desc = lotr_travel_danger_events.0005.desc
+	theme = travel_danger
+	override_background = {
+		reference = wilderness_forest_deep
+    }
+	left_portrait = {
+		character = root
+	   	animation = worry
+	}
+	right_portrait = {
+		character = root.current_travel_plan.travel_leader
+	   	animation = personality_rational
+	}
+	cooldown = { years = 8 }
+	trigger = {
+		is_available_travelling = yes
+		is_location_valid_for_travel_event_on_land = yes
+		location = {
+			geographical_region = middleearth_west_rhovanion_mirkwood
+		}
+		NOR = {
+			is_sauron = yes
+		}
+	}
+	immediate = {
+		mp_delay_travel_plan = { DAYS = 90 }
+		current_travel_plan = {
+			random_entourage_character = { save_scope_as = caravan_leader }
+		}
+	}
+	option = { # Those spiders might make useful allies
+		name = lotr_travel_danger_events.0005.a
+		trigger = {
+			OR = {
+				is_orc = yes
+				is_nazgul = yes
+			}
+		}
+		stress_impact = {
+			base = minor_stress_impact_loss
+			ambitious = major_stress_impact_loss
+		}
+		add_prestige = 50
+	}
+	option = { # We should move unseen!
+		name = lotr_travel_danger_events.0005.b
+		trigger = {
+			OR = {
+				is_elf = yes
+				has_trait = shrewd
+				is_hobbit = yes
+			}
+		}
+		current_travel_plan = { 
+			delay_travel_plan = { days = 5 }
+		}
+		add_intrigue_lifestyle_xp = 200
+	}
+	option = { # We fight our way through them
+		name = lotr_travel_danger_events.0005.c
+		stress_impact = {
+			base = minor_stress_impact_gain
+			impatient = miniscule_stress_impact_loss
+			wrathful = miniscule_stress_impact_loss
+			patient = major_stress_impact_gain
+		}
+		random_list = {
+			25 = {
+				current_travel_plan = { 
+					delay_travel_plan = { days = 5 }
+				}
+			}
+			25 = {
+				if = {
+					limit = { exists = scope:caravan_leader }
+					scope:caravan_leader = { increase_wounds_effect = { REASON = spider } }
+				}
+			}
+			15 = {
+				increase_wounds_effect = { REASON = spider }
+			}
+			25 = { 
+				add_prestige = 50
+			}
+		}
+	}
+	
+	option = { # Stay on the path!
+		name = lotr_travel_danger_events.0005.d
+		stress_impact = {
+			base = major_stress_impact_gain
+			patient = miniscule_stress_impact_gain
+			content = miniscule_stress_impact_loss
+		}
+	}
+	
+	option = { # We'll wait until they're gone...
+		name = lotr_travel_danger_events.0005.e
+		current_travel_plan = { 
+			delay_travel_plan = { days = 7 }
+		}
+
+	}
+	option = { #Hack down the forest to make another path!
+		name = lotr_travel_danger_events.0005.f
+		trigger = { 
+			OR = {
+				has_trait = greedy
+				is_dwarf = yes
+				is_orc = yes
+			}
+		}
+		current_travel_plan = { 
+			delay_travel_plan = { days = 2 }
+		}
+	}
+	after = {
+		mp_resume_travel_plan = yes
+	}
+}
+
+##########################################
+# Shuddering Earth
+# by Icy, inspired by Juke
+# 0017
+# When travelling through Mordor
+##########################################
+
+lotr_travel_danger_events.0006 = {
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_travel_danger_events.0006.t
+	desc = lotr_travel_danger_events.0006.desc
+	theme = travel_danger
+	override_background = {
+		reference = wilderness_volcanic
+	}
+	left_portrait = {
+		character = root
+	   	animation = worry
+	}
+	cooldown = { years = 18 }
+	trigger = {
+		is_available_travelling = yes
+		is_location_valid_for_travel_event_on_land = yes
+		location = {
+			geographical_region = middleearth_mordor_gorgoroth
+			terrain = volcanic_plains
+		}
+		NOR = {
+			is_sauron = yes
+			is_nazgul = yes
+		}
+	}
+	immediate = {
+		mp_delay_travel_plan = { DAYS = 90 }
+		traveler_danger_xp_effect = {
+			MIN = 3
+			MAX = 7
+		}
+	}
+	option = { #Brace!
+		name = lotr_travel_danger_events.0006.a
+		stress_impact = {
+			base = minor_stress_impact_gain
+		}
+		
+		random = {
+			chance = 50
+			increase_wounds_effect = { REASON = fall }
+		}
+		
+		current_travel_plan = {
+			every_entourage_character = {
+				limit = {
+					NOR = {
+						this = root
+						is_elf = yes
+						cannot_be_killed = yes
+						
+					}
+				}
+				random = {
+					chance = 50
+					increase_wounds_effect = { REASON = fall }
+				}
+			}
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				has_trait = lazy
+				has_trait = craven
+			}
+			modifier = {
+				factor = 0
+				has_trait = diligent
+				has_trait = brave
+			}
+		}
+		
+	}
+	option = { # Run for higher ground!
+		name = lotr_travel_danger_events.0006.b
+		duel = {
+			skill = learning
+			value = average_skill_rating
+			60 = {
+				desc = lotr_travel_danger_events.0006.b.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				send_interface_toast = {
+					left_icon = root
+					title = lotr_travel_danger_events.0006.b.success.tt
+					stress_impact = {
+						base = minor_stress_gain
+						craven = minor_stress_impact_gain
+					}
+				}
+			}
+			40 = {
+				desc = lotr_travel_danger_events.0006.b.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				send_interface_toast = {
+					left_icon = root
+					title = lotr_travel_danger_events.0006.b.failure.tt
+					increase_wounds_effect = { REASON = fall }
+					stress_impact = {
+						base = medium_stress_impact_gain
+						craven = minor_stress_impact_gain
+					}
+				}
+			}
+		}
+		stress_impact = {
+			craven = major_stress_impact_gain
+			lazy = major_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				has_trait = brave
+				has_trait = diligent
+			}
+			modifier = {
+				factor = 0
+				has_trait = craven
+				has_trait = lazy
+			}
+		}
+
+	}
+
+	option = { # Prostrate before the Dark Lord
+		name = lotr_travel_danger_events.0006.c
+		trigger = {
+			sauron_is_alive = yes
+			faith_is_good = yes
+			NOR = {
+				has_trait = zealous
+				is_elf = yes
+			}
+		}
+		custom_tooltip = lotr_travel_danger_events.0006.c.tt
+		add_piety = -1000
+		add_piety = -500
+		remove_short_term_gold = minor_gold_value
+		every_vassal = {
+			limit = {faith_is_good = yes}
+			add_opinion = {
+				modifier = disappointed_opinion
+				opinion = -25
+				target = root
+			}
+		}
+			
+		random = {
+			chance = 25
+			increase_wounds_effect = { REASON = fall }
+		}
+		stress_impact = {
+			compassionate = major_stress_impact_gain
+			forgiving = major_stress_impact_gain
+			brave = major_stress_impact_gain
+			just = major_stress_impact_gain
+			arrogant = major_stress_impact_gain
+			ambitious = major_stress_impact_gain
+			honest = major_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				has_trait = craven
+				has_trait = cynical
+			}
+			modifier = {
+				factor = 0
+				has_trait = compassionate
+				has_trait = forgiving
+				has_trait = just
+				has_trait = arrogant
+				has_trait = honest
+				has_trait = ambitious
+			}
+		}
+		
+
+	}
+
+	option = { # Pray to the Dark Lord
+		name = lotr_travel_danger_events.0006.d
+		trigger = {
+			faith_is_evil = yes
+		}
+		custom_tooltip = lotr_travel_danger_events.0006.d.tt
+		add_piety = 50
+		add_prestige = -45
+		remove_short_term_gold = minor_gold_value
+			
+		random = {
+			chance = 25
+			increase_wounds_effect = { REASON = fall }
+		}
+		stress_impact = {
+			cynical = medium_stress_impact_gain
+			arrogant = major_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				has_trait = zealous
+				has_trait = craven
+			}
+			modifier = {
+				factor = 0
+				has_trait = arrogant
+				has_trait = cynical
+			}
+		}
+	}
+	
+	after = {
+		mp_resume_travel_plan = yes
+	}
+}
+
+##########################################
+# Black Flags
+# by Alrain
+# 0101
+# Event for coastal duchy, corsairs attack
+##########################################
+
+lotr_travel_danger_events.0007 = { # Corsairs Attack!
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_travel_danger_events.0007.t
+	desc = lotr_travel_danger_events.0007.desc
+	theme = travel_danger
+	left_portrait = {
+		character = root
+		animation = war_defender
+	}
+	right_portrait = {
+		character = scope:corsair_leader
+		animation = random_weapon_aggressive
+	}
+	trigger = {
+		root.location = {
+			OR = {
+				AND = {
+					is_sea_province = yes
+					any_neighboring_province = {
+						geographical_region = custom_greater_corsair_coast
+					}
+				}
+				geographical_region = custom_greater_corsair_coast
+			}
+		}
+		is_available_travelling = yes
+		NOR = {
+			is_ai = yes
+			is_nazgul = yes
+			is_sauron = yes
+		}
+	}
+	cooldown = { years = 5 }
+	immediate = {
+		mp_delay_travel_plan = { DAYS = 90 }
+		create_character = {
+			template = knight_errant_character
+			location = root.location
+			gender_female_chance = 5
+			random_culture = {
+				culture:umbarean = { weight = 50 }
+				culture:corsair = { weight = 50 }
+				culture:tuloriyan = { weight = 30 }
+				culture:soriyan = { weight = 30 }
+				culture:mardrukan = { weight = 20 }
+				culture:harondorim = { weight = 20 }
+				culture:felayan = { weight = 10 }
+				culture:anbalukkhori = { weight = 10 }
+				culture:bellakaze = { weight = 5 }
+				culture:kharadunaim = { weight = 5 }
+			}
+			random_traits_list = {
+				count = { 0 3 }
+				wrathful = {}
+				arrogant = {}
+				lustful = {}
+				brave = {}
+				stubborn = {}
+				sadistic = {}
+				vengeful = {}
+			}
+			random_traits_list = {
+				count = { 0 3 }
+				lifestyle_blademaster = {}
+				lifestyle_hunter = {}
+				lifestyle_physician = {}
+				strategist = {}
+				overseer = {}
+				torturer = {}
+				logistician = {}
+				aggressive_attacker = {}
+				rough_terrain_expert = {}
+				organizer = {}
+			}
+			random_traits_list = {
+				count = { 0 1 }
+				lunatic_1 = {}
+				depressed_1 = {}
+				possessed_1 = {}
+				albino = {}
+				giant = {}
+				hunchbacked = {}
+				beauty_bad_3 = {}
+				intellect_bad_3 = {}
+				physique_bad_3 = {}
+				scarred = {}
+				one_eyed = {}
+				one_legged = {}
+			}
+			trait = lifestyle_traveler
+			random_traits = yes
+			faith = faith:faith_corsair
+			save_scope_as = corsair_leader
+		}
+		scope:corsair_leader = {
+			add_random_tiered_trait_track_xp_effect = {
+				TRAIT = lifestyle_traveler
+				TRACK = travel
+				LEVEL_1 = yes
+				LEVEL_3 = yes
+			}
+			add_random_tiered_trait_track_xp_effect = {
+				TRAIT = lifestyle_traveler
+				TRACK = danger
+				LEVEL_1 = yes
+				LEVEL_3 = yes
+			}
+		}
+	}
+
+	option = { # Immediately duel them to the death
+		name = lotr_travel_danger_events.0007.a
+		trigger = {
+			can_start_single_combat_trigger = yes
+		}
+		skill = prowess
+		custom_tooltip = lotr_travel_danger_events.0007.a.tt.duel_begins
+		configure_start_single_combat_effect = {
+			SC_INITIATOR = root
+			SC_ATTACKER = root
+			SC_DEFENDER = scope:corsair_leader
+			FATALITY = always
+			FIXED = no
+			LOCALE = terrain_scope
+			INVALIDATION_EVENT = single_combat.1006
+			OUTPUT_EVENT = single_combat.1006
+		}
+		stress_impact = {
+			brave = minor_stress_impact_loss
+			craven = minor_stress_impact_gain
+		}
+	}
+	option = { # Martial + prowess regular duel, kill or etc
+		name = lotr_travel_danger_events.0007.b
+		duel = {
+			skills = { martial prowess }
+			target = scope:corsair_leader
+			# Critical victory!
+			20 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				min = 5
+				desc = lotr_travel_danger_events.0007.b.tt.crit_success
+				send_interface_toast = {
+					type = event_generic_good
+					title = lotr_travel_danger_events.0007.b.tt.crit_success.tt
+					left_icon = scope:corsair_leader
+					add_gold = { 25 50 }
+					add_prestige = medium_prestige_gain
+					imprison = {
+						target = scope:corsair_leader
+						type = dungeon
+					}
+				}
+				stress_impact = {
+					brave = minor_stress_impact_loss
+					arrogant = minor_stress_impact_loss
+					wrathful = minor_stress_impact_loss
+					greedy = minor_stress_impact_gain
+				}
+			}
+			# Victory!
+			40 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				min = 5
+				scope:corsair_leader = { death = { death_reason = death_chopped_up_ocean killer = root } }
+				desc = lotr_travel_danger_events.0007.b.tt.success
+				send_interface_toast = {
+					type = event_generic_good
+					title = lotr_travel_danger_events.0007.b.tt.success.tt
+					left_icon = scope:corsair_leader
+				}
+				add_prestige = minor_prestige_gain
+			}
+			# Defeat.
+			40 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				min = 5
+				desc = lotr_travel_danger_events.0007.b.tt.failure
+				send_interface_toast = {
+					type = event_generic_bad
+					title = lotr_travel_danger_events.0007.b.tt.failure.tt
+					left_icon = scope:corsair_leader
+				}
+				add_prestige = minor_prestige_loss
+				pay_short_term_gold = {
+					gold = { 25 50 }
+					target = scope:corsair_leader
+				}
+				current_travel_plan = {
+					every_entourage_character = {
+						add_opinion = {
+							target = root
+							modifier = disappointed_opinion
+							opinion = -10
+						}
+					}
+				}
+				stress_impact = {
+					brave = minor_stress_impact_gain
+					arrogant = minor_stress_impact_gain
+					wrathful = minor_stress_impact_gain
+					greedy = medium_stress_impact_gain
+				}
+			}
+		}
+	}
+	option = { # Diplomacy duel, join me
+		name = lotr_travel_danger_events.0007.c
+		duel = {
+			skill = diplomacy
+			target = scope:corsair_leader
+			# Victory!
+			55 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				min = 5
+				add_to_entourage_court_and_activity_effect = {
+					CHAR_TO_ADD = scope:corsair_leader 
+					NEW_COURT_OWNER = root 
+				}
+				desc = lotr_travel_danger_events.0007.c.tt.success
+				send_interface_toast = {
+					type = event_generic_good
+					title = lotr_travel_danger_events.0007.c.tt.success.tt
+					left_icon = scope:corsair_leader
+				}
+				add_prestige = minor_prestige_gain
+				stress_impact = {
+					gregarious = minor_stress_impact_loss
+					shy = minor_stress_impact_gain
+				}
+			}
+			# Defeat.
+			45 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				min = 5
+				desc = lotr_travel_danger_events.0007.c.tt.failure
+				send_interface_toast = {
+					type = event_generic_bad
+					title = lotr_travel_danger_events.0007.c.tt.failure.tt
+					left_icon = scope:corsair_leader
+				}
+				add_prestige = minor_prestige_loss
+				pay_short_term_gold = {
+					gold = { 25 50 }
+					target = scope:corsair_leader
+				}
+				current_travel_plan = {
+					every_entourage_character = {
+						add_opinion = {
+							target = root
+							modifier = disappointed_opinion
+							opinion = -20
+						}
+					}
+				}
+				stress_impact = {
+					gregarious = minor_stress_impact_gain
+					greedy = medium_stress_impact_gain
+					arrogant = medium_stress_impact_gain
+				}
+			}
+		}
+	}
+
+	after = {
+		mp_resume_travel_plan = yes
+	}
+}
+
+##########################################
+# Anbalukkhori raiders
+# by Alrain
+# 0103
+# Event for k_tulwang, k_zajantak, k_kharadune
+##########################################
+
+lotr_travel_danger_events.0008 = {
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_travel_danger_events.0008.t
+	desc = {
+		desc = lotr_travel_danger_events.0008.desc.pref
+		first_valid = {
+			triggered_desc = {
+				trigger = { 
+					culture = {
+						OR = {
+							has_cultural_pillar = heritage_southern_adunaic
+						}
+					}
+				}
+				desc = lotr_travel_danger_events.0008.desc.adunaic
+			}
+			triggered_desc = {
+				trigger = { 
+					culture = {
+						OR = {
+							has_cultural_pillar = heritage_tulwangi
+							has_cultural_pillar = heritage_bellakari
+						}
+					}
+				}
+				desc = lotr_travel_danger_events.0008.desc.tulbel
+			}
+			desc = lotr_travel_danger_events.0008.desc.normal
+		}
+		desc = lotr_travel_danger_events.0008.desc.end
+	}
+	theme = travel_danger
+	left_portrait = {
+		character = root
+		animation = war_defender
+	}
+	right_portrait = {
+		character = scope:anbaluk_leader
+		animation = random_weapon_aggressive
+	}
+	lower_left_portrait = {
+		character = scope:anbaluk_captain_one
+	}
+	lower_right_portrait = {
+		character = scope:anbaluk_captain_two
+	}
+	trigger = {
+		root.location = {
+			OR = {
+				# is_sea_province = yes # Can happen anywhere right now, needs a more regional trigger
+				geographical_region = custom_anbalkumagan_neighbors
+			}
+		}
+		is_available_travelling = yes
+		NOR = {
+			is_ai = yes
+			is_nazgul = yes
+			is_sauron = yes
+		}
+	}
+	cooldown = { years = 5 }
+	immediate = {
+		mp_delay_travel_plan = { DAYS = 90 }
+		create_character = {
+			template = knight
+			location = root.location
+			culture = culture:anbalukkhori
+			trait = arrogant
+			random_traits_list = {
+				count = { 0 2 }
+				wrathful = {}
+				lustful = {}
+				brave = {}
+				stubborn = {}
+				sadistic = {}
+				vengeful = {}
+			}
+			trait = reaver
+			random_traits_list = {
+				count = { 0 2 }
+				lifestyle_hunter = {}
+				lifestyle_physician = {}
+				strategist = {}
+				overseer = {}
+				torturer = {}
+				logistician = {}
+				aggressive_attacker = {}
+				rough_terrain_expert = {}
+				organizer = {}
+			}
+			trait = scarred
+			random_traits_list = {
+				count = { 0 1 }
+				lunatic_1 = {}
+				depressed_1 = {}
+				possessed_1 = {}
+				physique_good_1 = {}
+				strong = {}
+				one_eyed = {}
+				one_legged = {}
+			}
+			trait = lifestyle_blademaster
+			faith = faith:faith_anballukhor
+			save_scope_as = anbaluk_leader
+			after_creation = {
+				add_random_tiered_trait_xp_effect = {
+					TRAIT = lifestyle_blademaster
+					LEVEL_1 = yes
+					LEVEL_3 = yes
+				}
+			}
+		}
+		create_character = {
+			template = knight
+			location = root.location
+			random_culture = {
+				culture:tuloriyan = { weight = 1 }
+				culture:anbalukkhori = { weight = 3 }
+			}
+			trait = arrogant
+			random_traits_list = {
+				count = { 0 2 }
+				wrathful = {}
+				lustful = {}
+				brave = {}
+				stubborn = {}
+				sadistic = {}
+				vengeful = {}
+			}
+			random_traits_list = {
+				count = { 0 2 }
+				lifestyle_hunter = {}
+				lifestyle_physician = {}
+				strategist = {}
+				overseer = {}
+				torturer = {}
+				logistician = {}
+				aggressive_attacker = {}
+				rough_terrain_expert = {}
+				organizer = {}
+			}
+			random_traits_list = {
+				count = { 0 1 }
+				lunatic_1 = {}
+				depressed_1 = {}
+				possessed_1 = {}
+				physique_good_1 = {}
+				strong = {}
+				one_eyed = {}
+				one_legged = {}
+				scarred = {}
+			}
+			trait = lifestyle_blademaster
+			faith = faith:faith_anballukhor
+			save_scope_as = anbaluk_captain_one
+			after_creation = {
+				add_random_tiered_trait_xp_effect = {
+					TRAIT = lifestyle_blademaster
+					LEVEL_1 = yes
+					LEVEL_3 = no
+				}
+			}
+		}
+		create_character = {
+			template = knight
+			location = root.location
+			random_culture = {
+				culture:tuloriyan = { weight = 1 }
+				culture:anbalukkhori = { weight = 3 }
+			}
+			trait = arrogant
+			random_traits_list = {
+				count = { 0 2 }
+				wrathful = {}
+				lustful = {}
+				brave = {}
+				stubborn = {}
+				sadistic = {}
+				vengeful = {}
+			}
+			random_traits_list = {
+				count = { 0 2 }
+				lifestyle_hunter = {}
+				lifestyle_physician = {}
+				strategist = {}
+				overseer = {}
+				torturer = {}
+				logistician = {}
+				aggressive_attacker = {}
+				rough_terrain_expert = {}
+				organizer = {}
+			}
+			random_traits_list = {
+				count = { 0 1 }
+				lunatic_1 = {}
+				depressed_1 = {}
+				possessed_1 = {}
+				physique_good_1 = {}
+				strong = {}
+				one_eyed = {}
+				one_legged = {}
+				scarred = {}
+			}
+			trait = lifestyle_blademaster
+			faith = faith:faith_anballukhor
+			save_scope_as = anbaluk_captain_two
+			after_creation = {
+				add_random_tiered_trait_xp_effect = {
+					TRAIT = lifestyle_blademaster
+					LEVEL_1 = yes
+					LEVEL_3 = no
+				}
+			}
+		}
+		location = { save_scope_as = location }
+	}
+
+	option = { # Immediately duel them to the death
+		name = lotr_travel_danger_events.0008.a
+		trigger = {
+			can_start_single_combat_trigger = yes
+		}
+		skill = prowess
+		custom_tooltip = lotr_travel_danger_events.0008.a.tt.duel_begins
+		configure_start_single_combat_effect = {
+			SC_INITIATOR = root
+			SC_ATTACKER = root
+			SC_DEFENDER = scope:anbaluk_leader
+			FATALITY = always
+			FIXED = no
+			LOCALE = terrain_scope
+			INVALIDATION_EVENT = single_combat.1006
+			OUTPUT_EVENT = single_combat.1006
+		}
+		stress_impact = {
+			brave = minor_stress_impact_loss
+			craven = minor_stress_impact_gain
+		}
+	}
+	option = { # Martial + prowess regular duel, kill or etc
+		name = lotr_travel_danger_events.0008.b
+		duel = {
+			skills = { martial prowess }
+			target = scope:anbaluk_leader
+			# Critical victory!
+			20 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				modifier = {
+					add = 10
+					culture = {
+						OR = {
+							has_cultural_pillar = heritage_tulwangi
+							has_cultural_pillar = heritage_bellakari
+						}
+					}
+				}
+				min = 5
+				desc = lotr_travel_danger_events.0008.b.tt.crit_success
+				send_interface_toast = {
+					type = event_generic_good
+					title = lotr_travel_danger_events.0008.b.tt.crit_success.tt
+					left_icon = scope:anbaluk_leader
+					add_prestige = medium_prestige_gain
+					imprison = {
+						target = scope:anbaluk_leader
+						type = dungeon
+					}
+					imprison = {
+						target = scope:anbaluk_captain_one
+						type = dungeon
+					}
+					imprison = {
+						target = scope:anbaluk_captain_two
+						type = dungeon
+					}
+				}
+				stress_impact = {
+					brave = minor_stress_impact_loss
+					arrogant = minor_stress_impact_loss
+					wrathful = minor_stress_impact_loss
+					greedy = minor_stress_impact_gain
+				}
+			}
+			# Victory!
+			40 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				modifier = {
+					add = 10
+					culture = {
+						OR = {
+							has_cultural_pillar = heritage_tulwangi
+							has_cultural_pillar = heritage_bellakari
+						}
+					}
+				}
+				min = 5
+				scope:anbaluk_leader = { death = { death_reason = death_battle killer = root } }
+				scope:anbaluk_captain_one = { death = { death_reason = death_battle killer = root } }
+				scope:anbaluk_captain_two = { death = { death_reason = death_battle killer = root } }
+				desc = lotr_travel_danger_events.0008.b.tt.success
+				send_interface_toast = {
+					type = event_generic_good
+					title = lotr_travel_danger_events.0008.b.tt.success.tt
+					left_icon = scope:anbaluk_leader
+				}
+				add_prestige = minor_prestige_gain
+			}
+			# Defeat.
+			40 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				modifier = {
+					add = -10
+					culture = {
+						OR = {
+							has_cultural_pillar = heritage_tulwangi
+							has_cultural_pillar = heritage_bellakari
+						}
+					}
+				}
+				min = 5
+				desc = lotr_travel_danger_events.0008.b.tt.failure
+				send_interface_toast = {
+					type = event_generic_bad
+					title = lotr_travel_danger_events.0008.b.tt.failure.tt
+					left_icon = scope:anbaluk_leader
+				}
+				add_prestige = minor_prestige_loss
+				pay_short_term_gold = {
+					gold = { 25 50 }
+					target = scope:anbaluk_leader
+				}
+				root = {
+					if = {
+						limit = { has_trait = wounded_3 }
+						add_trait = maimed
+					}
+					else_if = {
+						limit = { has_trait = wounded_2 }
+						remove_trait = wounded_2
+						add_trait = wounded_3
+					}
+					else_if = {
+						limit = { has_trait = wounded_1 }
+						remove_trait = wounded_1
+						add_trait = wounded_2
+					}
+					else = {
+						add_trait = wounded_1
+					}
+				}
+				current_travel_plan = {
+					every_entourage_character = {
+						add_opinion = {
+							target = root
+							modifier = disappointed_opinion
+							opinion = -10
+						}
+					}
+				}
+				stress_impact = {
+					brave = minor_stress_impact_gain
+					arrogant = minor_stress_impact_gain
+					wrathful = minor_stress_impact_gain
+					greedy = medium_stress_impact_gain
+				}
+			}
+		}
+	}
+	option = { # Adunai option, join me
+		trigger = {
+			culture = {
+				has_cultural_pillar = heritage_southern_adunaic
+			}
+		}
+		name = lotr_travel_danger_events.0008.c
+		duel = {
+			skill = diplomacy
+			target = scope:anbaluk_leader
+			# Critical Victory!
+			20 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				modifier = {
+					add = 10
+					culture = culture:anbalukkhori
+				}
+				min = 5
+				add_to_entourage_court_and_activity_effect = {
+					CHAR_TO_ADD = scope:anbaluk_leader 
+					NEW_COURT_OWNER = root 
+				}
+				add_to_entourage_court_and_activity_effect = {
+					CHAR_TO_ADD = scope:anbaluk_captain_one
+					NEW_COURT_OWNER = root 
+				}
+				add_to_entourage_court_and_activity_effect = {
+					CHAR_TO_ADD = scope:anbaluk_captain_two
+					NEW_COURT_OWNER = root 
+				}
+				desc = lotr_travel_danger_events.0008.c.tt.crit_success
+				send_interface_toast = {
+					type = event_generic_good
+					title = lotr_travel_danger_events.0008.c.tt.crit_success.tt
+					left_icon = scope:anbaluk_leader
+				}
+				add_prestige = minor_prestige_gain
+				stress_impact = {
+					gregarious = minor_stress_impact_loss
+					shy = minor_stress_impact_gain
+				}
+			}
+			# Victory!
+			40 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				modifier = {
+					add = 10
+					culture = culture:anbalukkhori
+				}
+				min = 5
+				add_to_entourage_court_and_activity_effect = {
+					CHAR_TO_ADD = scope:anbaluk_captain_one 
+					NEW_COURT_OWNER = root 
+				}
+				desc = lotr_travel_danger_events.0008.c.tt.success
+				send_interface_toast = {
+					type = event_generic_good
+					title = lotr_travel_danger_events.0008.c.tt.success.tt
+					left_icon = scope:anbaluk_captain_one
+				}
+				add_prestige = minor_prestige_gain
+				stress_impact = {
+					gregarious = minor_stress_impact_loss
+					shy = minor_stress_impact_gain
+				}
+			}
+			# Defeat.
+			40 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				modifier = {
+					add = -10
+					culture = culture:anbalukkhori
+				}
+				min = 5
+				desc = lotr_travel_danger_events.0008.c.tt.failure
+				send_interface_toast = {
+					type = event_generic_bad
+					title = lotr_travel_danger_events.0008.c.tt.failure.tt
+					left_icon = scope:anbaluk_leader
+				}
+				add_prestige = minor_prestige_loss
+				current_travel_plan = {
+					every_entourage_character = {
+						add_opinion = {
+							target = root
+							modifier = disappointed_opinion
+							opinion = -20
+						}
+					}
+				}
+				stress_impact = {
+					gregarious = minor_stress_impact_gain
+					greedy = medium_stress_impact_gain
+					arrogant = medium_stress_impact_gain
+				}
+			}
+		}
+	}
+	option = { # Take the money
+		name = lotr_travel_danger_events.0008.d
+		pay_short_term_gold = {
+			gold = 50
+			target = scope:anbaluk_leader
+		}
+		add_prestige = minor_prestige_loss
+		current_travel_plan = {
+			every_entourage_character = {
+				add_opinion = {
+					target = root
+					modifier = relieved_opinion
+					opinion = 5
+				}
+			}
+		}
+	}
+
+	after = {
+		mp_resume_travel_plan = yes
+	}
+}
+
+########################
+## Orc Nemesis Cycle 
+## by Aerien 
+## 0200 - 0204
+########################
+scripted_trigger can_be_orc_ambush_location = {
+	culture = { is_elf_culture = no }
+	OR = {
+		geographical_region = middleearth_west_arnor
+		geographical_region = middleearth_forodwaith
+		geographical_region = middleearth_mordor
+		geographical_region = middleearth_mountains_misty
+		geographical_region = middleearth_west_rhovanion
+		geographical_region = middleearth_west_gondor_ithilien
+		geographical_region = middleearth_mountains_iron
+		geographical_region = middleearth_mountains_yellow
+		geographical_region = middleearth_mountains_blue
+		geographical_region = middleearth_uttersouth_usakan
+		geographical_region = middleearth_uttersouth_mumakan
+		geographical_region = middleearth_harad_bayoformal_sirayn
+	}
+	NOR = { # Orcs cant really ambush here because too flat, too much sun, too wet
+		terrain = dune_sea
+		terrain = desert
+		terrain = floodplains
+		terrain = wetlands
+	}
+}
+lotr_travel_danger_events.0200 = { # First time meeting the Orc
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_travel_danger_events.0200.t
+	desc = lotr_travel_danger_events.0200.desc
+	theme = travel_danger
+	left_portrait = {
+		character = root
+	   	animation = personality_callous
+	}
+	right_portrait = {
+		character = scope:nemesis_orc
+		animation = threatening
+	}
+	trigger = {
+		is_available_travelling = yes
+		is_location_valid_for_travel_event_on_land = yes
+		location = { can_be_orc_ambush_location = yes }
+		NOR = {
+			is_nazgul = yes
+			is_sauron = yes
+			has_character_flag = met_nemesis_orc
+		}
+	}
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 1
+			location = {
+				OR = {
+					terrain = halls
+					terrain = mountains
+					terrain = volcanic_plains
+				}
+			}
+		}
+		modifier = { # Settled Lands not orcish or wasteland
+			factor = 0.5
+			location = {
+				NOR = {
+					is_wastelands = yes
+					culture = { is_orc_culture = yes }
+					county = { any_neighboring_county = { culture = { is_orc_culture = yes } } }
+				}
+			}
+		}
+		modifier = { # Less ideal for orcs to ambush you from
+			factor = 0.8
+			location = {
+				OR = {
+					terrain = plains
+					terrain = steppe
+					terrain = savanna
+					terrain = farmlands
+				}
+			}
+		}
+		modifier = { #less likely in developed lands
+			factor = 0.7
+			location.county.development_level > bad_development_level
+			NOT = { location.culture = { is_orc_culture = yes } }
+		}
+		modifier = {
+			factor = 0.7
+			location.county.development_level > medium_development_level
+			NOT = { location.culture = { is_orc_culture = yes } }
+		}
+		modifier = {
+			factor = 0.7
+			location.county.development_level > good_development_level
+			NOT = { location.culture = { is_orc_culture = yes } }
+		}
+	}
+	cooldown = { years = 15 }
+	immediate = {
+		mp_delay_travel_plan = { DAYS = 90 }
+		if = {	# Rhovanion
+			limit = {
+				location = { geographical_region = middleearth_west_rhovanion }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:kazgumhoth
+				faith = faith:sons_of_sauron
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Eriador
+			limit = {
+				location = { geographical_region = middleearth_west_arnor }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:ghrazim
+				faith = faith:cult_of_the_ulukai
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Enedhwaith
+			limit = {
+				location = { geographical_region = middleearth_west_enedhwaith }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 28
+				gender_female_chance = 0
+				culture = culture:isengard_urukhai
+				faith = faith:white_hand_cult
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Rhûn
+			limit = {
+				location = { geographical_region = middleearth_rhun }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 28
+				gender_female_chance = 0
+				culture = culture:kazgumhoth
+				faith = faith:sons_of_sauron
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Lindon
+			limit = {
+				location = { geographical_region = middleearth_west_beleriand }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:worauthai_madur
+				faith = faith:way_of_strength
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Harad
+			limit = {
+				location = { geographical_region = middleearth_harad }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 27
+				gender_female_chance = 0
+				culture = culture:rukhashai
+				faith = faith:sons_of_sauron
+				save_scope_as = nemesis_orc
+				prowess = 17
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Utter South
+			limit = {
+				location = { geographical_region = middleearth_uttersouth }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 27
+				gender_female_chance = 0
+				culture = culture:rukhashai
+				faith = faith:volcano_cult
+				save_scope_as = nemesis_orc
+				prowess = 17
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Bay of Ormal
+			limit = {
+				location = { geographical_region = middleearth_harad_bayoformal }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 27
+				gender_female_chance = 0
+				culture = culture:rukhashai
+				faith = faith:red_eye_cult
+				save_scope_as = nemesis_orc
+				prowess = 17
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else = {	 # Fallback
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:murdurhai
+				faith = faith:sons_of_sauron
+				save_scope_as = nemesis_orc
+				prowess = 17
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			random_list = { # Make sure his nickname is retained when he cheats death
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_dreamer }
+					add_character_flag = nemesis_orc_dreamer
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_literate_one }
+					add_character_flag = nemesis_orc_literate_one
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_flogger }
+					add_character_flag = nemesis_orc_flogger
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_disgusting }
+					add_character_flag = nemesis_orc_disgusting
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_angry }
+					add_character_flag = nemesis_orc_angry
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_stalker }
+					add_character_flag = nemesis_orc_stalker
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_crafty }
+					add_character_flag = nemesis_orc_crafty
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_funny_one }
+					add_character_flag = nemesis_orc_funny_one
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_filthy }
+					add_character_flag = nemesis_orc_filthy
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_screamer }
+					add_character_flag = nemesis_orc_screamer
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_bloated }
+					add_character_flag = nemesis_orc_bloated
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_whiner }
+					add_character_flag = nemesis_orc_whiner
+				}
+			}
+		}
+		if = {
+			limit = {
+				current_travel_plan = { any_entourage_character = { has_court_position = bodyguard_court_position } }
+			}
+			current_travel_plan = {
+				random_entourage_character = { 
+					limit = { has_court_position = bodyguard_court_position }
+					save_scope_as = traveling_bodyguard 
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				any_courtier = { has_court_position = bodyguard_court_position }
+			}
+			random_courtier = { 
+				limit = { has_court_position = bodyguard_court_position }
+				save_scope_as = traveling_bodyguard 
+			}
+		}
+		else_if = {
+			limit = {
+				any_knight = { has_court_position = bodyguard_court_position }
+			}
+			random_knight = { 
+				limit = { has_court_position = bodyguard_court_position }
+				save_scope_as = traveling_bodyguard 
+			}
+		}
+	}
+	option = { # Pay him 
+		name = lotr_travel_danger_events.0200.a 
+		add_prestige = medium_prestige_loss 
+		remove_short_term_gold = minor_gold_value
+		add_character_flag = paid_nemesis_orc
+	}
+	option = { # Fight him myself
+		name = lotr_travel_danger_events.0200.b 
+		duel = {
+ 			skill = prowess
+			target = scope:nemesis_orc 
+ 			50 = {
+				# You're successful
+ 				desc = lotr_travel_danger_events.0200.b.success
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = 3.5
+ 					min = -49
+ 				}
+ 				hidden_effect = { 
+					send_interface_toast = {
+						title = lotr_travel_danger_events.0200.b.success
+						left_icon = root
+						right_icon = scope:nemesis_orc
+						custom_tooltip = lotr_travel_danger_events.0200.b.success
+					}
+				}
+				add_prestige = minor_prestige_gain
+				scope:nemesis_orc = { death = { death_reason = death_fight killer = root } }
+				if = {
+					limit = { has_character_flag = killed_nemesis_orc } 
+					add_character_flag = killed_nemesis_orc_again
+				}
+				else_if = {
+					limit = { has_character_flag = killed_nemesis_orc_again } 
+					add_character_flag = killed_nemesis_orc_yet_again
+				}
+				else = {
+					add_character_flag = killed_nemesis_orc
+				}
+ 			}
+ 			50 = {
+ 				# You failed
+ 				desc = lotr_travel_danger_events.0200.b.failure
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = -3.5
+ 					min = -49
+ 				}
+				hidden_effect = {
+					send_interface_toast = {
+						title = lotr_travel_danger_events.0200.b.failure
+						left_icon = root
+						right_icon = scope:nemesis_orc
+						custom_tooltip = lotr_travel_danger_events.0200.b.failure
+					}
+				}
+				increase_wounds_effect = { REASON = fight }
+				remove_short_term_gold = minor_gold_value
+				add_character_flag = nemesis_orc_beat_you
+ 			}
+		}
+	}
+	option = { # Run away
+		name = lotr_travel_danger_events.0200.c 
+		add_prestige = major_prestige_loss 
+		add_legitimacy_effect = { LEGITIMACY = minor_legitimacy_loss } 
+		stress_impact = {
+			base = minor_stress_gain
+			craven = medium_stress_loss
+			brave = medium_stress_gain
+		}
+		add_character_flag = ran_away_from_nemesis_orc
+	}
+	option = { # Intimidate him 
+		name = lotr_travel_danger_events.0200.d 
+		custom_tooltip = lotr_travel_danger_events.0200.d.tt 
+		trigger = {
+			OR = {
+				is_elf = yes 
+				is_orc = yes 
+				has_trait = skinchanger
+				is_maiar = yes 
+			}
+		}
+		add_prestige = minor_prestige_gain 
+		scope:nemesis_orc = { add_prestige = major_prestige_loss }
+		stress_impact = {
+			craven = medium_stress_gain
+			brave = medium_stress_loss
+			wrathful = medium_stress_loss 
+		}
+		add_character_flag = scared_nemesis_orc
+	}
+	option = { # Recruit him 
+		name = lotr_travel_danger_events.0200.e 
+		trigger = {
+			faith_is_evil = yes 
+		}
+		add_character_flag = recruited_nemesis_orc
+		add_courtier = scope:nemesis_orc
+	}
+	option = { # My bodyguard will fight
+		name = lotr_travel_danger_events.0200.f 
+		trigger = {
+			exists = scope:traveling_bodyguard
+		}
+		scope:traveling_bodyguard = {
+			duel = {
+				skill = prowess
+				target = scope:nemesis_orc 
+				50 = {
+					# You're successful
+					desc = lotr_travel_danger_events.0200.b.success
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 3.5
+						min = -49
+					}
+					hidden_effect = { 
+						root = {
+							send_interface_toast = {
+								title = lotr_travel_danger_events.0200.b.success
+								left_icon = root
+								right_icon = scope:nemesis_orc
+								custom_tooltip = lotr_travel_danger_events.0200.b.success
+							}
+						}
+					}
+					add_prestige = minor_prestige_gain
+					scope:nemesis_orc = { death = { death_reason = death_fight killer = scope:traveling_bodyguard } }
+					root = {
+						if = {
+							limit = { has_character_flag = killed_nemesis_orc } 
+							add_character_flag = killed_nemesis_orc_again
+						}
+						else_if = {
+							limit = { has_character_flag = killed_nemesis_orc_again } 
+							add_character_flag = killed_nemesis_orc_yet_again
+						}
+						else = {
+							add_character_flag = killed_nemesis_orc
+						}
+					}
+				}
+				50 = {
+					# You failed
+					desc = lotr_travel_danger_events.0200.b.failure
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -3.5
+						min = -49
+					}
+					hidden_effect = {
+						root = {
+							send_interface_toast = {
+								title = lotr_travel_danger_events.0200.b.failure
+								left_icon = root
+								right_icon = scope:nemesis_orc
+								custom_tooltip = lotr_travel_danger_events.0200.b.failure
+							}
+						}
+					}
+					increase_wounds_effect = { REASON = fight }
+					root = {
+						remove_short_term_gold = minor_gold_value
+						add_character_flag = nemesis_orc_beat_you
+					}
+				}
+			}
+		}
+	}
+	after = {
+		add_character_flag = met_nemesis_orc
+		add_character_flag = {
+			flag = nemesis_orc_first_encounter
+			months = 2 
+		}
+		if = {
+			limit = { NOT = { has_character_flag = recruited_nemesis_orc } }
+			scope:nemesis_orc = {
+				silent_disappearance_effect = yes 
+			}
+		}
+		mp_resume_travel_plan = yes
+	}
+}
+
+lotr_travel_danger_events.0201 = { # Second time meeting the Orc - Paid or ran away
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_travel_danger_events.0201.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = ran_away_from_nemesis_orc_again }
+				}
+				desc = lotr_travel_danger_events.0201.desc.craven
+			}
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = paid_nemesis_orc_again }
+				}
+				desc = lotr_travel_danger_events.0201.desc.craven
+			}
+			desc = lotr_travel_danger_events.0201.desc
+		}
+	}
+	theme = travel_danger
+	left_portrait = {
+		character = root
+	   	animation = shock
+	}
+	right_portrait = {
+		character = scope:nemesis_orc
+		animation = schadenfreude
+	}
+	trigger = {
+		is_available_travelling = yes
+		is_location_valid_for_travel_event_on_land = yes
+		location = { can_be_orc_ambush_location = yes }
+		NOT = { has_character_flag = nemesis_orc_first_encounter }
+		OR = {
+			has_character_flag = paid_nemesis_orc
+			has_character_flag = ran_away_from_nemesis_orc
+			has_character_flag = paid_nemesis_orc_again
+			has_character_flag = ran_away_from_nemesis_orc_again
+		}
+		NOR = {
+			is_nazgul = yes
+			is_sauron = yes
+			has_character_flag = recruited_nemesis_orc
+			has_character_flag = scared_nemesis_orc_yet_again
+			has_character_flag = killed_nemesis_orc_yet_again
+		}
+	}
+	cooldown = { years = 15 }
+	immediate = {
+		if = {	# Rhovanion
+			limit = {
+				location = { geographical_region = middleearth_west_rhovanion }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:kazgumhoth
+				faith = faith:sons_of_sauron
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Eriador
+			limit = {
+				location = { geographical_region = middleearth_west_arnor }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:ghrazim
+				faith = faith:cult_of_the_ulukai
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Enedhwaith
+			limit = {
+				location = { geographical_region = middleearth_west_enedhwaith }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 28
+				gender_female_chance = 0
+				culture = culture:isengard_urukhai
+				faith = faith:white_hand_cult
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Rhûn
+			limit = {
+				location = { geographical_region = middleearth_rhun }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 28
+				gender_female_chance = 0
+				culture = culture:kazgumhoth
+				faith = faith:sons_of_sauron
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Lindon
+			limit = {
+				location = { geographical_region = middleearth_west_beleriand }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:worauthai_madur
+				faith = faith:way_of_strength
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Harad
+			limit = {
+				location = { geographical_region = middleearth_harad }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 27
+				gender_female_chance = 0
+				culture = culture:rukhashai
+				faith = faith:sons_of_sauron
+				save_scope_as = nemesis_orc
+				prowess = 17
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Utter South
+			limit = {
+				location = { geographical_region = middleearth_uttersouth }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 27
+				gender_female_chance = 0
+				culture = culture:rukhashai
+				faith = faith:volcano_cult
+				save_scope_as = nemesis_orc
+				prowess = 17
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Bay of Ormal
+			limit = {
+				location = { geographical_region = middleearth_harad_bayoformal }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 27
+				gender_female_chance = 0
+				culture = culture:rukhashai
+				faith = faith:red_eye_cult
+				save_scope_as = nemesis_orc
+				prowess = 17
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else = {	 # Fallback
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:murdurhai
+				faith = faith:sons_of_sauron
+				save_scope_as = nemesis_orc
+				prowess = 17
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			random_list = { # Make sure his nickname is retained when he cheats death
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_dreamer }
+					add_character_flag = nemesis_orc_dreamer
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_literate_one }
+					add_character_flag = nemesis_orc_literate_one
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_flogger }
+					add_character_flag = nemesis_orc_flogger
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_disgusting }
+					add_character_flag = nemesis_orc_disgusting
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_angry }
+					add_character_flag = nemesis_orc_angry
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_stalker }
+					add_character_flag = nemesis_orc_stalker
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_crafty }
+					add_character_flag = nemesis_orc_crafty
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_funny_one }
+					add_character_flag = nemesis_orc_funny_one
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_filthy }
+					add_character_flag = nemesis_orc_filthy
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_screamer }
+					add_character_flag = nemesis_orc_screamer
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_bloated }
+					add_character_flag = nemesis_orc_bloated
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_whiner }
+					add_character_flag = nemesis_orc_whiner
+				}
+			}
+		}
+		if = {
+			limit = {
+				current_travel_plan = { any_entourage_character = { has_court_position = bodyguard_court_position } }
+			}
+			current_travel_plan = {
+				random_entourage_character = { 
+					limit = { has_court_position = bodyguard_court_position }
+					save_scope_as = traveling_bodyguard 
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				any_courtier = { has_court_position = bodyguard_court_position }
+			}
+			random_courtier = { 
+				limit = { has_court_position = bodyguard_court_position }
+				save_scope_as = traveling_bodyguard 
+			}
+		}
+		else_if = {
+			limit = {
+				any_knight = { has_court_position = bodyguard_court_position }
+			}
+			random_knight = { 
+				limit = { has_court_position = bodyguard_court_position }
+				save_scope_as = traveling_bodyguard 
+			}
+		}
+	}
+	option = { # Pay him 
+		name = lotr_travel_danger_events.0201.a 
+		add_prestige = medium_prestige_loss 
+		remove_short_term_gold = minor_gold_value
+		if = {
+			limit = { has_character_flag = paid_nemesis_orc }
+			add_character_flag = paid_nemesis_orc_again
+			remove_character_flag = paid_nemesis_orc
+		}
+		else = { 
+			add_character_flag = paid_nemesis_orc
+		}
+	}
+	option = { # Fight him
+		name = lotr_travel_danger_events.0201.b 
+		duel = {
+ 			skill = prowess
+			target = scope:nemesis_orc 
+ 			50 = {
+				# You're successful
+ 				desc = lotr_travel_danger_events.0201.b.success
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = 3.5
+ 					min = -49
+ 				}
+ 				hidden_effect = { 
+					send_interface_toast = {
+						title = lotr_travel_danger_events.0201.b.success
+						left_icon = root
+						right_icon = scope:nemesis_orc
+						custom_tooltip = lotr_travel_danger_events.0201.b.success
+					}
+				}
+				add_prestige = minor_prestige_gain
+				scope:nemesis_orc = { death = { death_reason = death_fight killer = root } }
+				if = {
+					limit = { has_character_flag = killed_nemesis_orc } 
+					add_character_flag = killed_nemesis_orc_again
+				}
+				else_if = {
+					limit = { has_character_flag = killed_nemesis_orc_again } 
+					add_character_flag = killed_nemesis_orc_yet_again
+				}
+				else = {
+					add_character_flag = killed_nemesis_orc
+				}
+ 			}
+ 			50 = {
+ 				# You failed
+ 				desc = lotr_travel_danger_events.0201.b.failure
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = -3.5
+ 					min = -49
+ 				}
+				hidden_effect = {
+					send_interface_toast = {
+						title = lotr_travel_danger_events.0201.b.failure
+						left_icon = root
+						right_icon = scope:nemesis_orc
+						custom_tooltip = lotr_travel_danger_events.0201.b.failure
+					}
+				}
+				increase_wounds_effect = { REASON = fight }
+				remove_short_term_gold = minor_gold_value
+				add_character_flag = nemesis_orc_beat_you
+ 			}
+		}
+	}
+	option = { # Run away
+		name = lotr_travel_danger_events.0201.c 
+		add_prestige = major_prestige_loss 
+		add_legitimacy_effect = { LEGITIMACY = minor_legitimacy_loss } 
+		stress_impact = {
+			base = minor_stress_gain
+			craven = medium_stress_loss
+			brave = medium_stress_gain
+		}
+		if = {
+			limit = { has_character_flag = ran_away_from_nemesis_orc }
+			add_character_flag = ran_away_from_nemesis_orc_again
+			remove_character_flag = ran_away_from_nemesis_orc
+		}
+		else = {
+			add_character_flag = ran_away_from_nemesis_orc
+		}
+	}
+	option = { # Intimidate him 
+		name = lotr_travel_danger_events.0201.d 
+		custom_tooltip = lotr_travel_danger_events.0201.d.tt 
+		trigger = {
+			OR = {
+				is_elf = yes 
+				is_orc = yes 
+				has_trait = skinchanger
+				is_maiar = yes 
+			}
+		}
+		add_prestige = minor_prestige_gain 
+		stress_impact = {
+			craven = medium_stress_gain
+			brave = medium_stress_loss
+			wrathful = medium_stress_loss 
+		}
+		if = {
+			limit = { has_character_flag = scared_nemesis_orc }
+			add_character_flag = scared_nemesis_orc_again
+			remove_character_flag = scared_nemesis_orc
+		}
+		if = {
+			limit = { has_character_flag = scared_nemesis_orc_again }
+			add_character_flag = scared_nemesis_orc_yet_again
+			remove_character_flag = scared_nemesis_orc_again
+		}
+		else = {
+			add_character_flag = scared_nemesis_orc
+		}
+	}
+	option = { # Recruit him 
+		name = lotr_travel_danger_events.0201.e 
+		trigger = {
+			faith_is_evil = yes 
+		}
+		add_courtier = scope:nemesis_orc
+		add_character_flag = recruited_nemesis_orc
+	}
+	option = { # My bodyguard will fight
+		name = lotr_travel_danger_events.0200.f 
+		trigger = {
+			exists = scope:traveling_bodyguard
+		}
+		scope:traveling_bodyguard = {
+			duel = {
+				skill = prowess
+				target = scope:nemesis_orc 
+				50 = {
+					# You're successful
+					desc = lotr_travel_danger_events.0200.b.success
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 3.5
+						min = -49
+					}
+					hidden_effect = { 
+						root = {
+							send_interface_toast = {
+								title = lotr_travel_danger_events.0200.b.success
+								left_icon = root
+								right_icon = scope:nemesis_orc
+								custom_tooltip = lotr_travel_danger_events.0200.b.success
+							}
+						}
+					}
+					add_prestige = minor_prestige_gain
+					scope:nemesis_orc = { death = { death_reason = death_fight killer = scope:traveling_bodyguard } }
+					root = {
+						if = {
+							limit = { has_character_flag = killed_nemesis_orc } 
+							add_character_flag = killed_nemesis_orc_again
+						}
+						else_if = {
+							limit = { has_character_flag = killed_nemesis_orc_again } 
+							add_character_flag = killed_nemesis_orc_yet_again
+						}
+						else = {
+							add_character_flag = killed_nemesis_orc
+						}
+					}
+				}
+				50 = {
+					# You failed
+					desc = lotr_travel_danger_events.0200.b.failure
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -3.5
+						min = -49
+					}
+					hidden_effect = {
+						root = {
+							send_interface_toast = {
+								title = lotr_travel_danger_events.0200.b.failure
+								left_icon = root
+								right_icon = scope:nemesis_orc
+								custom_tooltip = lotr_travel_danger_events.0200.b.failure
+							}
+						}
+					}
+					increase_wounds_effect = { REASON = fight }
+					root = {
+						remove_short_term_gold = minor_gold_value
+						add_character_flag = nemesis_orc_beat_you
+					}
+				}
+			}
+		}
+	}
+	after = {
+		if = {
+			limit = { NOT = { has_character_flag = recruited_nemesis_orc } }
+			scope:nemesis_orc = {
+				silent_disappearance_effect = yes 
+			}
+		}
+	}
+}
+
+lotr_travel_danger_events.0202 = { # Second time meeting the Orc - Cheated Death
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_travel_danger_events.0202.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = killed_nemesis_orc_again }
+				}
+				desc = lotr_travel_danger_events.0202.desc.killed_again
+			}
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = killed_nemesis_orc_yet_again }
+				}
+				desc = lotr_travel_danger_events.0202.desc.immortal
+			}
+			desc = lotr_travel_danger_events.0202.desc
+		}
+	}
+	theme = travel_danger
+	left_portrait = {
+		character = root
+	   	animation = war_defender
+	}
+	right_portrait = {
+		character = scope:nemesis_orc
+		animation = celebrate_sword
+	}
+	trigger = {
+		is_available_travelling = yes
+		is_location_valid_for_travel_event_on_land = yes
+		location = { can_be_orc_ambush_location = yes }
+		NOT = { has_character_flag = nemesis_orc_first_encounter }
+		OR = {
+			has_character_flag = killed_nemesis_orc
+			has_character_flag = killed_nemesis_orc_again
+		}
+		NOR = {
+			is_nazgul = yes
+			is_sauron = yes
+			has_character_flag = recruited_nemesis_orc
+			has_character_flag = scared_nemesis_orc_yet_again
+			has_character_flag = killed_nemesis_orc_yet_again
+		}
+	}
+	cooldown = { years = 15 }
+	immediate = {
+		if = {	# Rhovanion
+			limit = {
+				location = { geographical_region = middleearth_west_rhovanion }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:kazgumhoth
+				faith = faith:sons_of_sauron
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Eriador
+			limit = {
+				location = { geographical_region = middleearth_west_arnor }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:ghrazim
+				faith = faith:cult_of_the_ulukai
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Enedhwaith
+			limit = {
+				location = { geographical_region = middleearth_west_enedhwaith }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 28
+				gender_female_chance = 0
+				culture = culture:isengard_urukhai
+				faith = faith:white_hand_cult
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Rhûn
+			limit = {
+				location = { geographical_region = middleearth_rhun }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 28
+				gender_female_chance = 0
+				culture = culture:kazgumhoth
+				faith = faith:sons_of_sauron
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Lindon
+			limit = {
+				location = { geographical_region = middleearth_west_beleriand }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:worauthai_madur
+				faith = faith:way_of_strength
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Harad
+			limit = {
+				location = { geographical_region = middleearth_harad }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 27
+				gender_female_chance = 0
+				culture = culture:rukhashai
+				faith = faith:sons_of_sauron
+				save_scope_as = nemesis_orc
+				prowess = 17
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Utter South
+			limit = {
+				location = { geographical_region = middleearth_uttersouth }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 27
+				gender_female_chance = 0
+				culture = culture:rukhashai
+				faith = faith:volcano_cult
+				save_scope_as = nemesis_orc
+				prowess = 17
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Bay of Ormal
+			limit = {
+				location = { geographical_region = middleearth_harad_bayoformal }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 27
+				gender_female_chance = 0
+				culture = culture:rukhashai
+				faith = faith:red_eye_cult
+				save_scope_as = nemesis_orc
+				prowess = 17
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else = {	 # Fallback
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:murdurhai
+				faith = faith:sons_of_sauron
+				save_scope_as = nemesis_orc
+				prowess = 17
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			random_list = { # Make sure his nickname is retained when he cheats death
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_dreamer }
+					add_character_flag = nemesis_orc_dreamer
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_literate_one }
+					add_character_flag = nemesis_orc_literate_one
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_flogger }
+					add_character_flag = nemesis_orc_flogger
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_disgusting }
+					add_character_flag = nemesis_orc_disgusting
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_angry }
+					add_character_flag = nemesis_orc_angry
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_stalker }
+					add_character_flag = nemesis_orc_stalker
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_crafty }
+					add_character_flag = nemesis_orc_crafty
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_funny_one }
+					add_character_flag = nemesis_orc_funny_one
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_filthy }
+					add_character_flag = nemesis_orc_filthy
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_screamer }
+					add_character_flag = nemesis_orc_screamer
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_bloated }
+					add_character_flag = nemesis_orc_bloated
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_whiner }
+					add_character_flag = nemesis_orc_whiner
+				}
+			}
+		}
+		if = {
+			limit = {
+				current_travel_plan = { any_entourage_character = { has_court_position = bodyguard_court_position } }
+			}
+			current_travel_plan = {
+				random_entourage_character = { 
+					limit = { has_court_position = bodyguard_court_position }
+					save_scope_as = traveling_bodyguard 
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				any_courtier = { has_court_position = bodyguard_court_position }
+			}
+			random_courtier = { 
+				limit = { has_court_position = bodyguard_court_position }
+				save_scope_as = traveling_bodyguard 
+			}
+		}
+		else_if = {
+			limit = {
+				any_knight = { has_court_position = bodyguard_court_position }
+			}
+			random_knight = { 
+				limit = { has_court_position = bodyguard_court_position }
+				save_scope_as = traveling_bodyguard 
+			}
+		}
+	}
+	option = { # Pay him 
+		name = lotr_travel_danger_events.0202.a 
+		add_prestige = medium_prestige_loss 
+		remove_short_term_gold = minor_gold_value
+		if = {
+			limit = { has_character_flag = paid_nemesis_orc }
+			add_character_flag = paid_nemesis_orc_again
+			remove_character_flag = paid_nemesis_orc
+		}
+		else = { 
+			add_character_flag = paid_nemesis_orc
+		}
+	}
+	option = { # Fight him
+		name = lotr_travel_danger_events.0202.b 
+		duel = {
+ 			skill = prowess
+			target = scope:nemesis_orc 
+ 			50 = {
+				# You're successful
+ 				desc = lotr_travel_danger_events.0202.b.success
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = 3.5
+ 					min = -49
+ 				}
+ 				hidden_effect = { 
+					send_interface_toast = {
+						title = lotr_travel_danger_events.0202.b.success
+						left_icon = root
+						right_icon = scope:nemesis_orc
+						custom_tooltip = lotr_travel_danger_events.0202.b.success
+					}
+				}
+				add_prestige = minor_prestige_gain
+				scope:nemesis_orc = { death = { death_reason = death_fight killer = root } }
+				if = {
+					limit = { has_character_flag = killed_nemesis_orc } 
+					add_character_flag = killed_nemesis_orc_again
+				}
+				else_if = {
+					limit = { has_character_flag = killed_nemesis_orc_again } 
+					add_character_flag = killed_nemesis_orc_yet_again
+				}
+				else = {
+					add_character_flag = killed_nemesis_orc
+				}
+ 			}
+ 			50 = {
+ 				# You failed
+ 				desc = lotr_travel_danger_events.0202.b.failure
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = -3.5
+ 					min = -49
+ 				}
+				hidden_effect = {
+					send_interface_toast = {
+						title = lotr_travel_danger_events.0202.b.failure
+						left_icon = root
+						right_icon = scope:nemesis_orc
+						custom_tooltip = lotr_travel_danger_events.0202.b.failure
+					}
+				}
+				increase_wounds_effect = { REASON = fight }
+				remove_short_term_gold = minor_gold_value
+				add_character_flag = nemesis_orc_beat_you
+ 			}
+		}
+	}
+	option = { # Run away
+		name = lotr_travel_danger_events.0202.c 
+		add_prestige = major_prestige_loss 
+		add_legitimacy_effect = { LEGITIMACY = minor_legitimacy_loss } 
+		stress_impact = {
+			base = minor_stress_gain
+			craven = medium_stress_loss
+			brave = medium_stress_gain
+		}
+		if = {
+			limit = { has_character_flag = ran_away_from_nemesis_orc }
+			add_character_flag = ran_away_from_nemesis_orc_again
+			remove_character_flag = ran_away_from_nemesis_orc
+		}
+		else = { 
+			add_character_flag = ran_away_from_nemesis_orc
+		}
+	}
+	option = { # Intimidate him 
+		name = lotr_travel_danger_events.0202.d 
+		custom_tooltip = lotr_travel_danger_events.0202.d.tt 
+		trigger = {
+			OR = {
+				is_elf = yes 
+				is_orc = yes 
+				has_trait = skinchanger
+				is_maiar = yes 
+			}
+		}
+		add_prestige = minor_prestige_gain 
+		scope:nemesis_orc = { add_prestige = major_prestige_loss }
+		stress_impact = {
+			craven = medium_stress_gain
+			brave = medium_stress_loss
+			wrathful = medium_stress_loss 
+		}
+		if = {
+			limit = { has_character_flag = scared_nemesis_orc }
+			add_character_flag = scared_nemesis_orc_again
+			remove_character_flag = scared_nemesis_orc
+		}
+		if = {
+			limit = { has_character_flag = scared_nemesis_orc_again }
+			add_character_flag = scared_nemesis_orc_yet_again
+			remove_character_flag = scared_nemesis_orc_again
+		}
+		else = {
+			add_character_flag = scared_nemesis_orc
+		}
+	}
+	option = { # Recruit him 
+		name = lotr_travel_danger_events.0202.e 
+		trigger = {
+			faith_is_evil = yes 
+		}
+		add_courtier = scope:nemesis_orc
+		add_character_flag = recruited_nemesis_orc
+	}
+	option = { # My bodyguard will fight
+		name = lotr_travel_danger_events.0200.f 
+		trigger = {
+			exists = scope:traveling_bodyguard
+		}
+		scope:traveling_bodyguard = {
+			duel = {
+				skill = prowess
+				target = scope:nemesis_orc 
+				50 = {
+					# You're successful
+					desc = lotr_travel_danger_events.0200.b.success
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 3.5
+						min = -49
+					}
+					hidden_effect = { 
+						root = {
+							send_interface_toast = {
+								title = lotr_travel_danger_events.0200.b.success
+								left_icon = root
+								right_icon = scope:nemesis_orc
+								custom_tooltip = lotr_travel_danger_events.0200.b.success
+							}
+						}
+					}
+					add_prestige = minor_prestige_gain
+					scope:nemesis_orc = { death = { death_reason = death_fight killer = scope:traveling_bodyguard } }
+					root = {
+						if = {
+							limit = { has_character_flag = killed_nemesis_orc } 
+							add_character_flag = killed_nemesis_orc_again
+						}
+						else_if = {
+							limit = { has_character_flag = killed_nemesis_orc_again } 
+							add_character_flag = killed_nemesis_orc_yet_again
+						}
+						else = {
+							add_character_flag = killed_nemesis_orc
+						}
+					}
+				}
+				50 = {
+					# You failed
+					desc = lotr_travel_danger_events.0200.b.failure
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -3.5
+						min = -49
+					}
+					hidden_effect = {
+						root = {
+							send_interface_toast = {
+								title = lotr_travel_danger_events.0200.b.failure
+								left_icon = root
+								right_icon = scope:nemesis_orc
+								custom_tooltip = lotr_travel_danger_events.0200.b.failure
+							}
+						}
+					}
+					increase_wounds_effect = { REASON = fight }
+					root = {
+						remove_short_term_gold = minor_gold_value
+						add_character_flag = nemesis_orc_beat_you
+					}
+				}
+			}
+		}
+	}
+	after = {
+		if = {
+			limit = { NOT = { has_character_flag = recruited_nemesis_orc } }
+			scope:nemesis_orc = {
+				silent_disappearance_effect = yes 
+			}
+		}
+	}
+}
+
+lotr_travel_danger_events.0203 = { # Second time meeting the Orc - Scared him
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_travel_danger_events.0203.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = scared_nemesis_orc_yet_again }
+				}
+				desc = lotr_travel_danger_events.0203.desc.lunatic
+			}
+			desc = lotr_travel_danger_events.0203.desc
+		}
+	}
+	theme = travel_danger
+	left_portrait = {
+		character = root
+	   	animation = war_attacker
+	}
+	right_portrait = {
+		character = scope:nemesis_orc
+		animation = fear
+	}
+	trigger = {
+		exists = scope:nemesis_orc
+		is_available_travelling = yes
+		is_location_valid_for_travel_event_on_land = yes
+		location = { can_be_orc_ambush_location = yes }
+		NOT = { has_character_flag = nemesis_orc_first_encounter }
+		OR = {
+			has_character_flag = scared_nemesis_orc
+			has_character_flag = scared_nemesis_orc_again
+		}
+		NOR = {
+			is_nazgul = yes
+			is_sauron = yes
+			has_character_flag = recruited_nemesis_orc
+			has_character_flag = scared_nemesis_orc_yet_again
+			has_character_flag = killed_nemesis_orc_yet_again
+		}
+	}
+	cooldown = { years = 15 }
+	immediate = {
+		hidden_effect = {
+			if = {	# Rhovanion
+				limit = {
+					location = { geographical_region = middleearth_west_rhovanion }
+				}
+				create_character = {
+					template = new_warrior_character
+					dynasty = generate
+					location = root.location
+					age = { young_age middle_age }
+					gender_female_chance = 0
+					culture = culture:kazgumhoth
+					faith = faith:sons_of_sauron
+					after_creation = {
+						#copy_inheritable_appearance_from = character:nemesisorcdna
+						if = { 
+							limit = { has_trait = scarred }
+							remove_trait = scarred 
+						}
+					}
+				}
+			}
+			else_if = {	 # Eriador
+				limit = {
+					location = { geographical_region = middleearth_west_arnor }
+				}
+				create_character = {
+					template = new_warrior_character
+					dynasty = generate
+					location = root.location
+					age = { young_age middle_age }
+					gender_female_chance = 0
+					culture = culture:ghrazim
+					faith = faith:cult_of_the_ulukai
+					after_creation = {
+						#copy_inheritable_appearance_from = character:nemesisorcdna
+						if = { 
+							limit = { has_trait = scarred }
+							remove_trait = scarred 
+						}
+					}
+				}
+			}
+			else_if = {	 # Enedhwaith
+				limit = {
+					location = { geographical_region = middleearth_west_enedhwaith }
+				}
+				create_character = {
+					template = new_warrior_character
+					dynasty = generate
+					location = root.location
+					age = 28
+					gender_female_chance = 0
+					culture = culture:isengard_urukhai
+					faith = faith:white_hand_cult
+					after_creation = {
+						#copy_inheritable_appearance_from = character:nemesisorcdna
+						if = { 
+							limit = { has_trait = scarred }
+							remove_trait = scarred 
+						}
+					}
+				}
+			}
+			else_if = {	 # Rhûn
+				limit = {
+					location = { geographical_region = middleearth_rhun }
+				}
+				create_character = {
+					template = new_warrior_character
+					dynasty = generate
+					location = root.location
+					age = 28
+					gender_female_chance = 0
+					culture = culture:kazgumhoth
+					faith = faith:sons_of_sauron
+					after_creation = {
+						#copy_inheritable_appearance_from = character:nemesisorcdna
+						if = { 
+							limit = { has_trait = scarred }
+							remove_trait = scarred 
+						}
+					}
+				}
+			}
+			else_if = {	 # Lindon
+				limit = {
+					location = { geographical_region = middleearth_west_beleriand }
+				}
+				create_character = {
+					template = new_warrior_character
+					dynasty = generate
+					location = root.location
+					age = { young_age middle_age }
+					gender_female_chance = 0
+					culture = culture:worauthai_madur
+					faith = faith:way_of_strength
+					after_creation = {
+						#copy_inheritable_appearance_from = character:nemesisorcdna
+						if = { 
+							limit = { has_trait = scarred }
+							remove_trait = scarred 
+						}
+					}
+				}
+			}
+			else_if = {	 # Harad
+				limit = {
+					location = { geographical_region = middleearth_harad }
+				}
+				create_character = {
+					template = new_warrior_character
+					dynasty = generate
+					location = root.location
+					age = 27
+					gender_female_chance = 0
+					culture = culture:rukhashai
+					faith = faith:sons_of_sauron
+					save_scope_as = nemesis_orc
+					prowess = 17
+					after_creation = {
+						#copy_inheritable_appearance_from = character:nemesisorcdna
+						if = { 
+							limit = { has_trait = scarred }
+							remove_trait = scarred 
+						}
+					}
+				}
+			}
+			else_if = {	 # Utter South
+				limit = {
+					location = { geographical_region = middleearth_uttersouth }
+				}
+				create_character = {
+					template = new_warrior_character
+					dynasty = generate
+					location = root.location
+					age = 27
+					gender_female_chance = 0
+					culture = culture:rukhashai
+					faith = faith:volcano_cult
+					save_scope_as = nemesis_orc
+					prowess = 17
+					after_creation = {
+						#copy_inheritable_appearance_from = character:nemesisorcdna
+						if = { 
+							limit = { has_trait = scarred }
+							remove_trait = scarred 
+						}
+					}
+				}
+			}
+			else_if = {	 # Bay of Ormal
+				limit = {
+					location = { geographical_region = middleearth_harad_bayoformal }
+				}
+				create_character = {
+					template = new_warrior_character
+					dynasty = generate
+					location = root.location
+					age = 27
+					gender_female_chance = 0
+					culture = culture:rukhashai
+					faith = faith:red_eye_cult
+					save_scope_as = nemesis_orc
+					prowess = 17
+					after_creation = {
+						#copy_inheritable_appearance_from = character:nemesisorcdna
+						if = { 
+							limit = { has_trait = scarred }
+							remove_trait = scarred 
+						}
+					}
+				}
+			}
+			else = {	 # Fallback
+				create_character = {
+					template = new_warrior_character
+					dynasty = generate
+					location = root.location
+					age = { young_age middle_age }
+					gender_female_chance = 0
+					culture = culture:murdurhai
+					faith = faith:sons_of_sauron
+					save_scope_as = nemesis_orc
+					prowess = 17
+					after_creation = {
+						#copy_inheritable_appearance_from = character:nemesisorcdna
+						if = { 
+							limit = { has_trait = scarred }
+							remove_trait = scarred 
+						}
+					}
+				}
+			}
+			if = { # Make sure his nickname is retained when he cheats death
+				limit = { has_character_flag = nemesis_orc_dreamer }
+				scope:nemesis_orc = { give_nickname = nick_the_dreamer }
+			}
+			else_if = {
+				limit = { has_character_flag = nemesis_orc_literate_one }
+				scope:nemesis_orc = { give_nickname = nick_the_literate_one }
+			}
+			else_if = {
+				limit = { has_character_flag = nemesis_orc_flogger }
+				scope:nemesis_orc = { give_nickname = nick_the_flogger }
+			}
+			else_if = {
+				limit = { has_character_flag = nemesis_orc_disgusting }
+				scope:nemesis_orc = { give_nickname = nick_the_disgusting }
+			}
+			else_if = {
+				limit = { has_character_flag = nemesis_orc_angry }
+				scope:nemesis_orc = { give_nickname = nick_the_angry }
+			}
+			else_if = {
+				limit = { has_character_flag = nemesis_orc_stalker }
+				scope:nemesis_orc = { give_nickname = nick_the_stalker }
+			}
+			else_if = {
+				limit = { has_character_flag = nemesis_orc_crafty }
+				scope:nemesis_orc = { give_nickname = nick_the_crafty }
+			}
+			else_if = {
+				limit = { has_character_flag = nemesis_orc_funny_one }
+				scope:nemesis_orc = { give_nickname = nick_the_funny_one }
+			}
+			else_if = {
+				limit = { has_character_flag = nemesis_orc_filthy }
+				scope:nemesis_orc = { give_nickname = nick_the_filthy }
+			}
+			else_if = {
+				limit = { has_character_flag = nemesis_orc_screamer }
+				scope:nemesis_orc = { give_nickname = nick_the_screamer }
+			}
+			else_if = {
+				limit = { has_character_flag = nemesis_orc_bloated }
+				scope:nemesis_orc = { give_nickname = nick_the_bloated }
+			}
+			else_if = {
+				limit = { has_character_flag = nemesis_orc_whiner }
+				scope:nemesis_orc = { give_nickname = nick_the_whiner }
+			}
+			else = {
+				scope:nemesis_orc = { give_nickname = nick_the_butcher }
+			}
+		}
+		if = {
+			limit = {
+				current_travel_plan = { any_entourage_character = { has_court_position = bodyguard_court_position } }
+			}
+			current_travel_plan = {
+				random_entourage_character = { 
+					limit = { has_court_position = bodyguard_court_position }
+					save_scope_as = traveling_bodyguard 
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				any_courtier = { has_court_position = bodyguard_court_position }
+			}
+			random_courtier = { 
+				limit = { has_court_position = bodyguard_court_position }
+				save_scope_as = traveling_bodyguard 
+			}
+		}
+		else_if = {
+			limit = {
+				any_knight = { has_court_position = bodyguard_court_position }
+			}
+			random_knight = { 
+				limit = { has_court_position = bodyguard_court_position }
+				save_scope_as = traveling_bodyguard 
+			}
+		}
+	}
+	option = { # Pay him 
+		name = lotr_travel_danger_events.0203.a 
+		add_prestige = medium_prestige_loss 
+		remove_short_term_gold = minor_gold_value
+		if = {
+			limit = { has_character_flag = paid_nemesis_orc }
+			add_character_flag = paid_nemesis_orc_again
+			remove_character_flag = paid_nemesis_orc
+		}
+		else = { 
+			add_character_flag = paid_nemesis_orc
+		}
+	}
+	option = { # Fight him
+		name = lotr_travel_danger_events.0203.b 
+		duel = {
+ 			skill = prowess
+			target = scope:nemesis_orc 
+ 			50 = {
+				# You're successful
+ 				desc = lotr_travel_danger_events.0203.b.success
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = 3.5
+ 					min = -49
+ 				}
+ 				hidden_effect = { 
+					send_interface_toast = {
+						title = lotr_travel_danger_events.0203.b.success
+						left_icon = root
+						right_icon = scope:nemesis_orc
+						custom_tooltip = lotr_travel_danger_events.0203.b.success
+					}
+				}
+				add_prestige = minor_prestige_gain
+				scope:nemesis_orc = { death = { death_reason = death_fight killer = root } }
+				if = {
+					limit = { has_character_flag = killed_nemesis_orc } 
+					add_character_flag = killed_nemesis_orc_again
+				}
+				else_if = {
+					limit = { has_character_flag = killed_nemesis_orc_again } 
+					add_character_flag = killed_nemesis_orc_yet_again
+				}
+				else = {
+					add_character_flag = killed_nemesis_orc
+				}
+ 			}
+ 			50 = {
+ 				# You failed
+ 				desc = lotr_travel_danger_events.0203.b.failure
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = -3.5
+ 					min = -49
+ 				}
+				hidden_effect = {
+					send_interface_toast = {
+						title = lotr_travel_danger_events.0203.b.failure
+						left_icon = root
+						right_icon = scope:nemesis_orc
+						custom_tooltip = lotr_travel_danger_events.0203.b.failure
+					}
+				}
+				increase_wounds_effect = { REASON = fight }
+				remove_short_term_gold = minor_gold_value
+				add_character_flag = nemesis_orc_beat_you
+ 			}
+		}
+	}
+	option = { # Run away
+		name = lotr_travel_danger_events.0203.c 
+		add_prestige = major_prestige_loss 
+		add_legitimacy_effect = { LEGITIMACY = minor_legitimacy_loss } 
+		stress_impact = {
+			base = minor_stress_gain
+			craven = medium_stress_loss
+			brave = medium_stress_gain
+		}
+		if = {
+			limit = { has_character_flag = ran_away_from_nemesis_orc }
+			add_character_flag = ran_away_from_nemesis_orc_again
+			remove_character_flag = ran_away_from_nemesis_orc
+		}
+		else = {
+			add_character_flag = ran_away_from_nemesis_orc
+		}
+	}
+	option = { # Intimidate him 
+		name = lotr_travel_danger_events.0203.d 
+		custom_tooltip = lotr_travel_danger_events.0203.d.tt 
+		trigger = {
+			OR = {
+				is_elf = yes 
+				is_orc = yes 
+				has_trait = skinchanger
+				is_maiar = yes 
+			}
+		}
+		scope:nemesis_orc = { add_prestige = major_prestige_loss }
+		if = { 
+			limit = { has_character_flag = scared_nemesis_orc_yet_again }
+			scope:nemesis_orc = { add_trait = lunatic_1 }
+		}
+		add_prestige = minor_prestige_gain 
+		stress_impact = {
+			craven = medium_stress_gain
+			brave = medium_stress_loss
+			wrathful = medium_stress_loss 
+		}
+		if = {
+			limit = { has_character_flag = scared_nemesis_orc }
+			add_character_flag = scared_nemesis_orc_again
+			remove_character_flag = scared_nemesis_orc
+		}
+		if = {
+			limit = { has_character_flag = scared_nemesis_orc_again }
+			add_character_flag = scared_nemesis_orc_yet_again
+			remove_character_flag = scared_nemesis_orc_again
+		}
+		else = {
+			add_character_flag = scared_nemesis_orc
+		}
+	}
+	option = { # Recruit him 
+		name = lotr_travel_danger_events.0201.e 
+		trigger = {
+			faith_is_evil = yes 
+		}
+		add_courtier = scope:nemesis_orc 
+		add_character_flag = recruited_nemesis_orc
+	}
+	option = { # My bodyguard will fight
+		name = lotr_travel_danger_events.0200.f 
+		trigger = {
+			exists = scope:traveling_bodyguard
+		}
+		scope:traveling_bodyguard = {
+			duel = {
+				skill = prowess
+				target = scope:nemesis_orc 
+				50 = {
+					# You're successful
+					desc = lotr_travel_danger_events.0200.b.success
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 3.5
+						min = -49
+					}
+					hidden_effect = { 
+						root = {
+							send_interface_toast = {
+								title = lotr_travel_danger_events.0200.b.success
+								left_icon = root
+								right_icon = scope:nemesis_orc
+								custom_tooltip = lotr_travel_danger_events.0200.b.success
+							}
+						}
+					}
+					add_prestige = minor_prestige_gain
+					scope:nemesis_orc = { death = { death_reason = death_fight killer = scope:traveling_bodyguard } }
+					root = {
+						if = {
+							limit = { has_character_flag = killed_nemesis_orc } 
+							add_character_flag = killed_nemesis_orc_again
+						}
+						else_if = {
+							limit = { has_character_flag = killed_nemesis_orc_again } 
+							add_character_flag = killed_nemesis_orc_yet_again
+						}
+						else = {
+							add_character_flag = killed_nemesis_orc
+						}
+					}
+				}
+				50 = {
+					# You failed
+					desc = lotr_travel_danger_events.0200.b.failure
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -3.5
+						min = -49
+					}
+					hidden_effect = {
+						root = {
+							send_interface_toast = {
+								title = lotr_travel_danger_events.0200.b.failure
+								left_icon = root
+								right_icon = scope:nemesis_orc
+								custom_tooltip = lotr_travel_danger_events.0200.b.failure
+							}
+						}
+					}
+					increase_wounds_effect = { REASON = fight }
+					root = {
+						remove_short_term_gold = minor_gold_value
+						add_character_flag = nemesis_orc_beat_you
+					}
+				}
+			}
+		}
+	}
+	after = {
+		if = {
+			limit = { NOT = { has_character_flag = recruited_nemesis_orc } }
+			scope:nemesis_orc = {
+				silent_disappearance_effect = yes 
+			}
+		}
+	}
+}
+
+lotr_travel_danger_events.0204 = { # Second time meeting the Orc - He beat you
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_travel_danger_events.0204.t
+	desc = lotr_travel_danger_events.0204.desc
+	theme = travel_danger
+	left_portrait = {
+		character = root
+	   	animation = fear
+	}
+	right_portrait = {
+		character = scope:nemesis_orc
+		animation = threatening
+	}
+	trigger = {
+		is_available_travelling = yes
+		is_location_valid_for_travel_event_on_land = yes
+		location = { can_be_orc_ambush_location = yes }
+		has_character_flag = nemesis_orc_beat_you
+		NOT = { has_character_flag = nemesis_orc_first_encounter }
+		NOR = {
+			is_nazgul = yes
+			is_sauron = yes
+			has_character_flag = recruited_nemesis_orc
+			has_character_flag = scared_nemesis_orc
+			has_character_flag = scared_nemesis_orc_again
+			has_character_flag = scared_nemesis_orc_yet_again
+			has_character_flag = killed_nemesis_orc_yet_again
+		}
+	}
+	cooldown = { years = 15 }
+	immediate = {
+		if = {	# Rhovanion
+			limit = {
+				location = { geographical_region = middleearth_west_rhovanion }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:kazgumhoth
+				faith = faith:sons_of_sauron
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Eriador
+			limit = {
+				location = { geographical_region = middleearth_west_arnor }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:ghrazim
+				faith = faith:cult_of_the_ulukai
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Enedhwaith
+			limit = {
+				location = { geographical_region = middleearth_west_enedhwaith }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 28
+				gender_female_chance = 0
+				culture = culture:isengard_urukhai
+				faith = faith:white_hand_cult
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Rhûn
+			limit = {
+				location = { geographical_region = middleearth_rhun }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 28
+				gender_female_chance = 0
+				culture = culture:kazgumhoth
+				faith = faith:sons_of_sauron
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Lindon
+			limit = {
+				location = { geographical_region = middleearth_west_beleriand }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:worauthai_madur
+				faith = faith:way_of_strength
+				save_scope_as = nemesis_orc
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Harad
+			limit = {
+				location = { geographical_region = middleearth_harad }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 27
+				gender_female_chance = 0
+				culture = culture:rukhashai
+				faith = faith:sons_of_sauron
+				save_scope_as = nemesis_orc
+				prowess = 17
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Utter South
+			limit = {
+				location = { geographical_region = middleearth_uttersouth }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 27
+				gender_female_chance = 0
+				culture = culture:rukhashai
+				faith = faith:volcano_cult
+				save_scope_as = nemesis_orc
+				prowess = 17
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else_if = {	 # Bay of Ormal
+			limit = {
+				location = { geographical_region = middleearth_harad_bayoformal }
+			}
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = 27
+				gender_female_chance = 0
+				culture = culture:rukhashai
+				faith = faith:red_eye_cult
+				save_scope_as = nemesis_orc
+				prowess = 17
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		else = {	 # Fallback
+			create_character = {
+				template = new_warrior_character
+				dynasty = generate
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:murdurhai
+				faith = faith:sons_of_sauron
+				save_scope_as = nemesis_orc
+				prowess = 17
+				after_creation = {
+					#copy_inheritable_appearance_from = character:nemesisorcdna
+					if = { 
+						limit = { has_trait = scarred }
+						remove_trait = scarred 
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			random_list = { # Make sure his nickname is retained when he cheats death
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_dreamer }
+					add_character_flag = nemesis_orc_dreamer
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_literate_one }
+					add_character_flag = nemesis_orc_literate_one
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_flogger }
+					add_character_flag = nemesis_orc_flogger
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_disgusting }
+					add_character_flag = nemesis_orc_disgusting
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_angry }
+					add_character_flag = nemesis_orc_angry
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_stalker }
+					add_character_flag = nemesis_orc_stalker
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_crafty }
+					add_character_flag = nemesis_orc_crafty
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_funny_one }
+					add_character_flag = nemesis_orc_funny_one
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_filthy }
+					add_character_flag = nemesis_orc_filthy
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_screamer }
+					add_character_flag = nemesis_orc_screamer
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_bloated }
+					add_character_flag = nemesis_orc_bloated
+				}
+				1 = {
+					scope:nemesis_orc = { give_nickname = nick_the_whiner }
+					add_character_flag = nemesis_orc_whiner
+				}
+			}
+		}
+		if = {
+			limit = {
+				current_travel_plan = { any_entourage_character = { has_court_position = bodyguard_court_position } }
+			}
+			current_travel_plan = {
+				random_entourage_character = { 
+					limit = { has_court_position = bodyguard_court_position }
+					save_scope_as = traveling_bodyguard 
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				any_courtier = { has_court_position = bodyguard_court_position }
+			}
+			random_courtier = { 
+				limit = { has_court_position = bodyguard_court_position }
+				save_scope_as = traveling_bodyguard 
+			}
+		}
+		else_if = {
+			limit = {
+				any_knight = { has_court_position = bodyguard_court_position }
+			}
+			random_knight = { 
+				limit = { has_court_position = bodyguard_court_position }
+				save_scope_as = traveling_bodyguard 
+			}
+		}
+	}
+	option = { # Pay him 
+		name = lotr_travel_danger_events.0203.a 
+		add_prestige = medium_prestige_loss 
+		remove_short_term_gold = minor_gold_value
+		if = {
+			limit = { has_character_flag = paid_nemesis_orc }
+			add_character_flag = paid_nemesis_orc_again
+			remove_character_flag = paid_nemesis_orc
+		}
+		else = { 
+			add_character_flag = paid_nemesis_orc
+		}
+	}
+	option = { # Fight him
+		name = lotr_travel_danger_events.0203.b 
+		duel = {
+ 			skill = prowess
+			target = scope:nemesis_orc 
+ 			50 = {
+				# You're successful
+ 				desc = lotr_travel_danger_events.0203.b.success
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = 3.5
+ 					min = -49
+ 				}
+ 				hidden_effect = { 
+					send_interface_toast = {
+						title = lotr_travel_danger_events.0203.b.success
+						left_icon = root
+						right_icon = scope:nemesis_orc
+						custom_tooltip = lotr_travel_danger_events.0203.b.success
+					}
+				}
+				add_prestige = minor_prestige_gain
+				scope:nemesis_orc = { death = { death_reason = death_fight killer = root } }
+				if = {
+					limit = { has_character_flag = killed_nemesis_orc } 
+					add_character_flag = killed_nemesis_orc_again
+				}
+				else_if = {
+					limit = { has_character_flag = killed_nemesis_orc_again } 
+					add_character_flag = killed_nemesis_orc_yet_again
+				}
+				else = {
+					add_character_flag = killed_nemesis_orc
+				}
+ 			}
+ 			50 = {
+ 				# You failed
+ 				desc = lotr_travel_danger_events.0203.b.failure
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = -3.5
+ 					min = -49
+ 				}
+				hidden_effect = {
+					send_interface_toast = {
+						title = lotr_travel_danger_events.0203.b.failure
+						left_icon = root
+						right_icon = scope:nemesis_orc
+						custom_tooltip = lotr_travel_danger_events.0203.b.failure
+					}
+				}
+				increase_wounds_effect = { REASON = fight }
+				add_character_flag = nemesis_orc_beat_you
+ 			}
+		}
+	}
+	option = { # Run away
+		name = lotr_travel_danger_events.0203.c 
+		add_prestige = major_prestige_loss 
+		add_legitimacy_effect = { LEGITIMACY = minor_legitimacy_loss } 
+		stress_impact = {
+			base = minor_stress_gain
+			craven = medium_stress_loss
+			brave = medium_stress_gain
+		}
+		if = {
+			limit = { has_character_flag = ran_away_from_nemesis_orc }
+			add_character_flag = ran_away_from_nemesis_orc_again
+			remove_character_flag = ran_away_from_nemesis_orc
+		}
+		else = {
+			add_character_flag = ran_away_from_nemesis_orc
+		}
+	}
+	option = { # Intimidate him 
+		name = lotr_travel_danger_events.0203.d 
+		custom_tooltip = lotr_travel_danger_events.0203.d.tt 
+		trigger = {
+			OR = {
+				is_elf = yes 
+				is_orc = yes 
+				has_trait = skinchanger
+				is_maiar = yes 
+			}
+		}
+		scope:nemesis_orc = { add_prestige = major_prestige_loss }
+		if = { 
+			limit = { has_character_flag = scared_nemesis_orc_yet_again }
+			scope:nemesis_orc = { add_trait = lunatic_1 }
+		}
+		add_prestige = minor_prestige_gain 
+		stress_impact = {
+			craven = medium_stress_gain
+			brave = medium_stress_loss
+			wrathful = medium_stress_loss 
+		}
+		if = {
+			limit = { has_character_flag = scared_nemesis_orc }
+			add_character_flag = scared_nemesis_orc_again
+			remove_character_flag = scared_nemesis_orc
+		}
+		if = {
+			limit = { has_character_flag = scared_nemesis_orc_again }
+			add_character_flag = scared_nemesis_orc_yet_again
+			remove_character_flag = scared_nemesis_orc_again
+		}
+		else = {
+			add_character_flag = scared_nemesis_orc
+		}
+	}
+	option = { # Recruit him 
+		name = lotr_travel_danger_events.0201.e 
+		trigger = {
+			faith_is_evil = yes 
+		}
+		add_courtier = scope:nemesis_orc 
+		add_character_flag = recruited_nemesis_orc
+	}
+	option = { # My bodyguard will fight
+		name = lotr_travel_danger_events.0200.f 
+		trigger = {
+			exists = scope:traveling_bodyguard
+		}
+		scope:traveling_bodyguard = {
+			duel = {
+				skill = prowess
+				target = scope:nemesis_orc 
+				50 = {
+					# You're successful
+					desc = lotr_travel_danger_events.0200.b.success
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 3.5
+						min = -49
+					}
+					hidden_effect = { 
+						root = {
+							send_interface_toast = {
+								title = lotr_travel_danger_events.0200.b.success
+								left_icon = root
+								right_icon = scope:nemesis_orc
+								custom_tooltip = lotr_travel_danger_events.0200.b.success
+							}
+						}
+					}
+					add_prestige = minor_prestige_gain
+					scope:nemesis_orc = { death = { death_reason = death_fight killer = scope:traveling_bodyguard } }
+					root = {
+						if = {
+							limit = { has_character_flag = killed_nemesis_orc } 
+							add_character_flag = killed_nemesis_orc_again
+						}
+						else_if = {
+							limit = { has_character_flag = killed_nemesis_orc_again } 
+							add_character_flag = killed_nemesis_orc_yet_again
+						}
+						else = {
+							add_character_flag = killed_nemesis_orc
+						}
+					}
+				}
+				50 = {
+					# You failed
+					desc = lotr_travel_danger_events.0200.b.failure
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -3.5
+						min = -49
+					}
+					hidden_effect = {
+						root = {
+							send_interface_toast = {
+								title = lotr_travel_danger_events.0200.b.failure
+								left_icon = root
+								right_icon = scope:nemesis_orc
+								custom_tooltip = lotr_travel_danger_events.0200.b.failure
+							}
+						}
+					}
+					increase_wounds_effect = { REASON = fight }
+					root = {
+						remove_short_term_gold = minor_gold_value
+						add_character_flag = nemesis_orc_beat_you
+					}
+				}
+			}
+		}
+	}
+	after = {
+		if = {
+			limit = { NOT = { has_character_flag = recruited_nemesis_orc } }
+			scope:nemesis_orc = {
+				silent_disappearance_effect = yes 
+			}
+		}
+	}
+}

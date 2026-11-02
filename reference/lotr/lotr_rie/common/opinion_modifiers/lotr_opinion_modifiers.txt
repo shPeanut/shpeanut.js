@@ -1,0 +1,233 @@
+﻿dishonoured_oath_of_eorl_opinion = {
+	opinion = -25
+	years = 20
+	decaying = yes
+}
+
+dishonoured_oath_of_alliegeance_opinion = {
+	opinion = -30
+	years = 20
+	decaying = yes
+	revoke_title_reason = yes
+}
+
+rival_dark_lord = {
+	opinion = -200
+	years = 5000
+	decaying = no
+}
+
+### ORC LIFESTYLE EVENTS ###
+hatred_free_folk_character_opinion = {
+	opinion = -50
+	decaying = yes
+	years = 50
+}
+
+### SAILING LIFESTYLE ###
+whittled_me_a_gift = {
+	opinion = 20
+	decaying = yes
+	years = 5
+}
+
+### WILDERNESS ###
+wastelands_opinion = {
+	opinion = 100
+	decaying = no
+}
+
+### NELORNIETH EMBASSY ###
+kept_embassy_waiting_opinion = {
+	opinion = -10
+	years = 10
+	decaying = yes
+}
+
+elf_refused_alliance_opinion = {
+	opinion = -30
+	years = 20
+	decaying = yes
+}
+
+### EDHELLOND ELF MODIFIERS ###
+invite_elves_edhellond = {
+	opinion = 75
+	years = 20
+	decaying = yes
+}
+
+restored_edhellond_as_kingdom = {
+	opinion = 35
+	years = 20
+	decaying = yes
+}
+
+### DWARVEN MODIFIERS ###
+
+shaved_me = {
+	opinion = -50
+	decaying = yes
+	years = 50
+	imprisonment_reason = yes
+}
+
+shaved_family_member = {
+	opinion = -20
+	years = 20
+	decaying = yes
+}
+
+lotr_rightful_dwarven_liege = {
+	years = 25
+	decaying = yes
+	opinion = 40
+}
+
+refused_to_return_lands = {
+	years = 25
+	decaying = no
+	opinion = -40
+}
+
+### NORDINBAD ###
+
+nordinbad_refusal = {
+	opinion = -30
+	years = 20
+	decaying = yes
+}
+
+nordinbad_refusal_oathbreaker = {
+	opinion = -100
+	years = 500
+	decaying = no
+}
+
+### MINING ACTIVITY ###
+
+hosted_mining_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+}
+
+mining_distracted_opinion = {
+	monthly_change = 0.05
+	decaying = yes
+}
+
+mining_released_opportunists_opinion = {
+	opinion = -10
+	decaying = yes
+	years = 5
+}
+
+mining_did_not_shoot_opinion = {
+	monthly_change = 0.05
+	decaying = yes
+}
+
+recieved_title = {
+	monthly_change = 0.1
+	decaying = yes
+}
+
+made_me_a_tributary = {
+	years = 5
+	decaying = yes
+	opinion = 20
+}
+
+### WINE TASTING ACTIVITY
+lotr_wine_tasting_enjoyed_great = {
+	years = 10
+	decaying = yes
+	opinion = 15
+}
+lotr_wine_tasting_enjoyed = {
+	years = 10
+	decaying = yes
+	opinion = 5
+}
+lotr_wine_tasting_disapproves = {
+	years = 5
+	decaying = yes
+	opinion = -10
+}
+lotr_wine_tasting_frivolous_ruler = {
+	years = 5
+	decaying = yes
+	opinion = -10
+}
+
+### HORSE RACING ACTIVITY ###
+
+opinion_attended_horse_race_guest = {
+	years = 10
+	decaying = yes
+}
+
+opinion_attended_sailing_trip_guest = {
+	years = 10
+	decaying = yes
+}
+
+opinion_attended_sailing_trip_host = {
+	years = 10
+	decaying = yes
+}
+
+### YULE ACTIVITY ###
+
+lotr_yule_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+### HARRYING OF GONDOR ###
+
+didnt_raid_opinion = {
+	opinion = -50
+	years = 20
+	decaying = yes
+}
+
+tedjin_overtures_opinion = {
+	opinion = 50
+	years = 10
+	decaying = yes
+}
+
+### Orc Government ###
+
+lotr_orc_removed_me_as_second_in_command_modifier = {
+	years = 10
+	opinion = -50
+}
+
+impressed_modifier = {
+	opinion = 50
+	years = 10
+	decaying = yes
+}
+
+### Khyan Flavour Opinion Modifiers ###
+
+lotr_proclaimed_truthful_vision = {
+	opinion = 25
+	years = 10
+	decaying = yes
+}
+
+lotr_proclaimed_truthful_vision_lore_master_pov = {
+	opinion = -30
+	years = 5
+	decaying = yes
+}
+
+lotr_lore_master_pov = {
+	opinion = 15
+	years = 10
+	decaying = yes
+}

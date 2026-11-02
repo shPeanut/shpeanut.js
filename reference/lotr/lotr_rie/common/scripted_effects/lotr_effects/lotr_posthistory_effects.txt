@@ -1,0 +1,3985 @@
+﻿lotr_apply_posthistory_effect = {
+	### Preventing characters without family or titles from being removed from history
+	### Assigning base stats for characters who died during the Years of the Trees
+	### Assigning visual traits to characters
+
+	### ELVES
+
+	character:lineofimin1 ?= { # Imin
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 5
+			add_martial_skill = 5
+			add_stewardship_skill = 10
+			add_intrigue_skill = 7
+			add_learning_skill = 10
+			add_prowess_skill = 10
+		}
+	}
+	character:lineofimin2 ?= { # Iminye
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 11
+			add_martial_skill = 4
+			add_stewardship_skill = 9
+			add_intrigue_skill = 6
+			add_learning_skill = 11
+			add_prowess_skill = 5
+		}
+	}
+	character:lineofimin3 ?= { # Indoglaure
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 5
+			add_martial_skill = 7
+			add_stewardship_skill = 8
+			add_intrigue_skill = 7
+			add_learning_skill = 11
+			add_prowess_skill = 6
+		}
+	}
+	character:lineofimin4 ?= { # Ithe
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 5
+			add_martial_skill = 8
+			add_stewardship_skill = 9
+			add_intrigue_skill = 11
+			add_learning_skill = 9
+			add_prowess_skill = 5
+		}
+	}
+	character:lineofimin5 ?= { # Galadon
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 8
+			add_martial_skill = 6
+			add_stewardship_skill = 8
+			add_intrigue_skill = 11
+			add_learning_skill = 9
+			add_prowess_skill = 3
+		}
+	}
+	character:lineofimin6 ?= { # Inidye
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 10
+			add_martial_skill = 7
+			add_stewardship_skill = 8
+			add_intrigue_skill = 11
+			add_learning_skill = 9
+			add_prowess_skill = 8
+		}
+	}
+	character:lineofimin7 ?= { # Indoclar
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 5
+			add_martial_skill = 8
+			add_stewardship_skill = 9
+			add_intrigue_skill = 8
+			add_learning_skill = 11
+			add_prowess_skill = 5
+		}
+	}
+	character:lineofimin8 ?= { # Indise
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 7
+			add_martial_skill = 8
+			add_stewardship_skill = 10
+			add_intrigue_skill = 8
+			add_learning_skill = 5
+			add_prowess_skill = 3
+		}
+	}
+	character:lineofimin9 ?= { # Inid
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 5
+			add_martial_skill = 7
+			add_stewardship_skill = 12
+			add_intrigue_skill = 9
+			add_learning_skill = 11
+			add_prowess_skill = 4
+		}
+	}
+	character:lineofimin2 ?= { # Galye
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 6
+			add_martial_skill = 9
+			add_stewardship_skill = 8
+			add_intrigue_skill = 10
+			add_learning_skill = 7
+			add_prowess_skill = 7
+		}
+	}
+	character:lineoftata1 ?= { # Tata
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineoftata2 ?= { # Tatië
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineoftata3 ?= { # Calayondo
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineoftata4 ?= { # Hinye
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineoftata5 ?= { # Eldacása
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineoftata6 ?= { # Ríganna
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineoftata7 ?= { # Endero
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineoftata8 ?= { # Falassi
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineoftata9 ?= { # Feganir
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineoftata10 ?= { # Eséde
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineoftata11 ?= { # Maidros
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineoftata12 ?= { # Miretári
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofenel1 ?= { # Enel
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofenel2 ?= { # Enelye
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofenel3 ?= { # Arwe
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofenel4 ?= { # Nenye
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofenel5 ?= { # Galwe
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofenel6 ?= { # Delye
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofenel7 ?= { # Tugwe
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofenel8 ?= { # Elenye
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofenel9 ?= { # Wolwe
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofenel10 ?= { # Domye
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofenel11 ?= { # Wiswe
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofenel12 ?= { # Orye
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofenel13 ?= { # Ronwe
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofenel14 ?= { # Tarwende
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofenel15 ?= { # Gwetheril
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofingwe1 ?= { # Ilion
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 10
+			add_martial_skill = 6
+			add_stewardship_skill = 7
+			add_intrigue_skill = 9
+			add_learning_skill = 10
+			add_prowess_skill = 11
+		}
+	}
+	character:lineoffinwe1 ?= { # Finwe
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 2
+			add_martial_skill = 3
+			add_stewardship_skill = 13
+			add_intrigue_skill = 4
+			add_learning_skill = 6
+			add_prowess_skill = 25
+		}
+	}
+	character:lineoffinwe2 ?= { # Miriel, first wife of Finwe
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 10
+			add_martial_skill = 3
+			add_stewardship_skill = 11
+			add_intrigue_skill = 7
+			add_learning_skill = 30
+			add_prowess_skill = 10
+		}
+	}
+	character:lineoffinwe3 ?= { # Feanor
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 6
+			add_martial_skill = 5
+			add_stewardship_skill = 9
+			add_intrigue_skill = 5
+			add_learning_skill = 14
+			add_prowess_skill = 25
+		}
+	}
+	character:lineofrauggoth ?= { # Rauggoth 'Rog' of Gondolin, Lord of the House of the Hammer of Wrath
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+	character:lineofegalmoth ?= { # Egalmoth of Gondolin, Lord of the House of the Heavenly Arch
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+	character:lineofduilin ?= { # Duilin of Gondolin, Lord of the House of the Swallow
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+	character:lineofsalgant ?= { # Salgant of Gondolin, Lord of the House of the Harp
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+	character:lineofecthelion ?= { # Ecthelion of Gondolin, Lord of the House of the Fountain
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+	character:lineofmablung ?= { # Mablung
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+	character:lineofbeleg ?= { # Beleg Cúthalion
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+    character:lineofurindo1 ?= { # Urin
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 0
+			add_martial_skill = 0
+			add_stewardship_skill = 0
+			add_intrigue_skill = 0
+			add_learning_skill = 0
+			add_prowess_skill = 0
+		}
+	}
+	character:lineofithilbor1 ?= { # Ithilbor
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+	character:lineofithilbor2 ?= { # Wife of Ithilbor, Emelien
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+	character:lineofithilbor3 ?= { # Saeros
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+
+	### DWARVES
+
+	# LONGBEARDS
+	character:lineofnarvi ?= { # Narvi of Moria
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+	character:lineofnar1 ?= { # Nár, friend of Thrór
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+	character:lineofroa ?= { # Roa, the Raven Keeper
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+	character:lineofregin ?= { # Regin, the Ram Rider
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+
+	# FIREBEARDS
+
+	character:lineofuriI ?= { # Úri the Scarred
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 12
+			add_martial_skill = 15
+			add_stewardship_skill = 11
+			add_intrigue_skill = 11
+			add_learning_skill = 10
+			add_prowess_skill = 12
+		}
+	}
+	character:lineoftelchar1 ?= { # Telchar of Nogrod
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+	character:lineofgamilzirak ?= { # Gamil Zirak
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+	character:lineofuriIwife ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 12
+			add_martial_skill = 4
+			add_stewardship_skill = 6
+			add_intrigue_skill = 10
+			add_learning_skill = 4
+			add_prowess_skill = 3
+		}
+	}
+	character:lineofuri0a ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 5
+			add_martial_skill = 8
+			add_stewardship_skill = 7
+			add_intrigue_skill = 3
+			add_learning_skill = 4
+			add_prowess_skill = 6
+		}
+	}
+	character:lineofuri0b ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 14
+			add_martial_skill = 3
+			add_stewardship_skill = 5
+			add_intrigue_skill = 7
+			add_learning_skill = 5
+			add_prowess_skill = 4
+		}
+	}
+	character:lineofuri0c ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 4
+			add_martial_skill = 5
+			add_stewardship_skill = 10
+			add_intrigue_skill = 3
+			add_learning_skill = 7
+			add_prowess_skill = 6
+		}
+	}
+	character:lineofuri0d ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 3
+			add_martial_skill = 7
+			add_stewardship_skill = 9
+			add_intrigue_skill = 7
+			add_learning_skill = 4
+			add_prowess_skill = 5
+		}
+	}
+
+	# BROADBEAMS
+
+	character:lineofdwalinI ?= { # Dwálin the Wise
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 14
+			add_martial_skill = 10
+			add_stewardship_skill = 13
+			add_intrigue_skill = 9
+			add_learning_skill = 15
+			add_prowess_skill = 10
+		}
+	}
+	character:lineofdwalinIwife ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 4
+			add_martial_skill = 2
+			add_stewardship_skill = 4
+			add_intrigue_skill = 2
+			add_learning_skill = 3
+			add_prowess_skill = 5
+		}
+	}
+	character:lineofdwalin0a ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 6
+			add_martial_skill = 4
+			add_stewardship_skill = 7
+			add_intrigue_skill = 3
+			add_learning_skill = 8
+			add_prowess_skill = 7
+		}
+	}
+	character:lineofdwalin0b ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 9
+			add_martial_skill = 7
+			add_stewardship_skill = 7
+			add_intrigue_skill = 4
+			add_learning_skill = 6
+			add_prowess_skill = 8
+		}
+	}
+	character:lineofdwalin0c ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 4
+			add_martial_skill = 7
+			add_stewardship_skill = 10
+			add_intrigue_skill = 3
+			add_learning_skill = 8
+			add_prowess_skill = 5
+		}
+	}
+	character:lineofdwalin0d ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 1
+			add_martial_skill = 3
+			add_stewardship_skill = 5
+			add_intrigue_skill = 7
+			add_learning_skill = 9
+			add_prowess_skill = 8
+		}
+	}
+	
+	# IRONFISTS
+
+	character:lineofsindriI ?= { # Sindri the Rich
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 8
+			add_martial_skill = 9
+			add_stewardship_skill = 13
+			add_intrigue_skill = 14
+			add_learning_skill = 10
+			add_prowess_skill = 10
+		}
+	}
+	character:lineofsindriIwife ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 6
+			add_martial_skill = 8
+			add_stewardship_skill = 9
+			add_intrigue_skill = 4
+			add_learning_skill = 7
+			add_prowess_skill = 7
+		}
+	}
+	character:lineofsindri0a ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 7
+			add_martial_skill = 3
+			add_stewardship_skill = 6
+			add_intrigue_skill = 4
+			add_learning_skill = 6
+			add_prowess_skill = 3
+		}
+	}
+	character:lineofsindri0b ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 9
+			add_martial_skill = 7
+			add_stewardship_skill = 4
+			add_intrigue_skill = 8
+			add_learning_skill = 7
+			add_prowess_skill = 8
+		}
+	}
+	character:lineofsindri0c ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 7
+			add_martial_skill = 8
+			add_stewardship_skill = 4
+			add_intrigue_skill = 6
+			add_learning_skill = 7
+			add_prowess_skill = 10
+		}
+	}
+	character:lineofsindri0cbrother1 ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 5
+			add_martial_skill = 9
+			add_stewardship_skill = 8
+			add_intrigue_skill = 3
+			add_learning_skill = 7
+			add_prowess_skill = 6
+		}
+	}
+	character:lineofsindri0cbrother2 ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 7
+			add_martial_skill = 5
+			add_stewardship_skill = 6
+			add_intrigue_skill = 7
+			add_learning_skill = 4
+			add_prowess_skill = 5
+		}
+	}
+	character:lineofsindri0csister ?= { # Thrís the Peacemaker
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 8
+			add_martial_skill = 3
+			add_stewardship_skill = 7
+			add_intrigue_skill = 5
+			add_learning_skill = 6
+			add_prowess_skill = 4
+		}
+	}
+	character:lineofsindri0d ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 3
+			add_martial_skill = 2
+			add_stewardship_skill = 4
+			add_intrigue_skill = 6
+			add_learning_skill = 3
+			add_prowess_skill = 2
+		}
+	}
+	character:lineofdhrim0 ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 8
+			add_martial_skill = 7
+			add_stewardship_skill = 3
+			add_intrigue_skill = 6
+			add_learning_skill = 2
+			add_prowess_skill = 7
+		}
+	}
+	character:lineoftahm ?= { # Tahm, the traveling Ironfist craftsman
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+
+	# STIFFBEARDS
+
+	character:lineofthulinI ?= { # Thúlin the Swift
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 12
+			add_martial_skill = 15
+			add_stewardship_skill = 12
+			add_intrigue_skill = 11
+			add_learning_skill = 10
+			add_prowess_skill = 12
+		}
+	}
+	character:lineofhevdrok ?= { # Hevdrok, the Hero
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+	character:lineofthulinIwife ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 9
+			add_martial_skill = 4
+			add_stewardship_skill = 5
+			add_intrigue_skill = 7
+			add_learning_skill = 7
+			add_prowess_skill = 3
+		}
+	}
+	character:lineofthulin0a ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 6
+			add_martial_skill = 9
+			add_stewardship_skill = 9
+			add_intrigue_skill = 8
+			add_learning_skill = 4
+			add_prowess_skill = 4
+		}
+	}
+	character:lineofthulin0abrother ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 7
+			add_martial_skill = 4
+			add_stewardship_skill = 6
+			add_intrigue_skill = 1
+			add_learning_skill = 4
+			add_prowess_skill = 8
+		}
+	}
+	character:lineofthulin0b ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 5
+			add_martial_skill = 8
+			add_stewardship_skill = 7
+			add_intrigue_skill = 9
+			add_learning_skill = 10
+			add_prowess_skill = 2
+		}
+	}
+	character:lineofthulin0c ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 6
+			add_martial_skill = 8
+			add_stewardship_skill = 4
+			add_intrigue_skill = 6
+			add_learning_skill = 6
+			add_prowess_skill = 7
+		}
+	}
+	character:lineofthulin0c1 ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 6
+			add_martial_skill = 8
+			add_stewardship_skill = 9
+			add_intrigue_skill = 7
+			add_learning_skill = 6
+			add_prowess_skill = 4
+		}
+	}
+	character:lineofthulin0cbrother ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 4
+			add_martial_skill = 3
+			add_stewardship_skill = 5
+			add_intrigue_skill = 2
+			add_learning_skill = 6
+			add_prowess_skill = 6
+		}
+	}
+	character:lineofthulin0c2 ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 6
+			add_martial_skill = 5
+			add_stewardship_skill = 4
+			add_intrigue_skill = 5
+			add_learning_skill = 3
+			add_prowess_skill = 3
+		}
+	}
+	character:lineofthulin0d ?= {
+		if = {
+			limit = { is_alive = no }
+			add_diplomacy_skill = 4
+			add_martial_skill = 2
+			add_stewardship_skill = 6
+			add_intrigue_skill = 3
+			add_learning_skill = 5
+			add_prowess_skill = 6
+		}
+	}
+
+	# BLACKLOCKS
+
+    character:lineofthrarI ?= { # Thrár the Proud
+        if = {
+            limit = { is_alive = no }
+            add_diplomacy_skill = 9
+            add_martial_skill = 15
+            add_stewardship_skill = 10
+            add_intrigue_skill = 9
+            add_learning_skill = 9
+            add_prowess_skill = 15
+        }
+    }
+    character:lineofthrarIwife ?= {
+        if = {
+            limit = { is_alive = no }
+            add_diplomacy_skill = 3
+            add_martial_skill = 5
+            add_stewardship_skill = 6
+            add_intrigue_skill = 1
+            add_learning_skill = 5
+            add_prowess_skill = 5
+        }
+    }
+    character:lineofthrar0a ?= {
+        if = {
+            limit = { is_alive = no }
+            add_diplomacy_skill = 4
+            add_martial_skill = 3
+            add_stewardship_skill = 6
+            add_intrigue_skill = 5
+            add_learning_skill = 8
+            add_prowess_skill = 8
+        }
+    }
+    character:lineofthrar0b ?= {
+        if = {
+            limit = { is_alive = no }
+            add_diplomacy_skill = 8
+            add_martial_skill = 6
+            add_stewardship_skill = 4
+            add_intrigue_skill = 9
+            add_learning_skill = 7
+            add_prowess_skill = 2
+        }
+    }
+    character:lineofthrar0c ?= {
+        if = {
+            limit = { is_alive = no }
+            add_diplomacy_skill = 6
+            add_martial_skill = 4
+            add_stewardship_skill = 7
+            add_intrigue_skill = 4
+            add_learning_skill = 3
+            add_prowess_skill = 5
+        }
+    }
+    character:lineofthrar0d ?= {
+        if = {
+            limit = { is_alive = no }
+            add_diplomacy_skill = 5
+            add_martial_skill = 3
+            add_stewardship_skill = 3
+            add_intrigue_skill = 7
+            add_learning_skill = 4
+            add_prowess_skill = 6
+        }
+    }
+
+	# STONEFOOTS
+
+    character:lineofbavorIwife ?= {
+        if = {
+            limit = { is_alive = no }
+            add_diplomacy_skill = 5
+            add_martial_skill = 3
+            add_stewardship_skill = 6
+            add_intrigue_skill = 9
+            add_learning_skill = 7
+            add_prowess_skill = 4
+        }
+    }
+    character:lineofbavor0a ?= {
+        if = {
+            limit = { is_alive = no }
+            add_diplomacy_skill = 6
+            add_martial_skill = 5
+            add_stewardship_skill = 2
+            add_intrigue_skill = 7
+            add_learning_skill = 4
+            add_prowess_skill = 6
+        }
+    }
+    character:lineofbavor0b ?= {
+        if = {
+            limit = { is_alive = no }
+            add_diplomacy_skill = 4
+            add_martial_skill = 7
+            add_stewardship_skill = 8
+            add_intrigue_skill = 8
+            add_learning_skill = 9
+            add_prowess_skill = 5
+        }
+    }
+    character:lineofbavor0c ?= {
+        if = {
+            limit = { is_alive = no }
+            add_diplomacy_skill = 6
+            add_martial_skill = 3
+            add_stewardship_skill = 8
+            add_intrigue_skill = 4
+            add_learning_skill = 7
+            add_prowess_skill = 7
+        }
+    }
+    character:lineofbavor0d ?= {
+        if = {
+            limit = { is_alive = no }
+            add_diplomacy_skill = 4
+            add_martial_skill = 6
+            add_stewardship_skill = 3
+            add_intrigue_skill = 6
+            add_learning_skill = 5
+            add_prowess_skill = 9
+        }
+    }
+	character:lineofbavorI ?= { # Bavór the Cold
+        if = {
+            limit = { is_alive = no }
+            add_diplomacy_skill = 14
+            add_martial_skill = 10
+            add_stewardship_skill = 10
+            add_intrigue_skill = 11
+            add_learning_skill = 13
+            add_prowess_skill = 9
+        }
+    }
+    character:lineofzabad ?= { # Zabad the Jewelwright
+        if = {
+            limit = { is_alive = no }
+            make_unprunable = yes
+            
+            add_diplomacy_skill = 5
+            add_martial_skill = 3
+            add_stewardship_skill = 6
+            add_intrigue_skill = 5
+            add_learning_skill = 10
+            add_prowess_skill = 4
+        }
+    }
+    character:lineofbhofor ?= { # Bhôfor, the Bridgemaster
+        if = {
+            limit = { is_alive = no }
+            make_unprunable = yes
+        }
+    }
+	character:lineofshisen ?= { # Shisên, the Sampler
+        if = {
+            limit = { is_alive = no }
+            make_unprunable = yes
+        }
+    }
+	
+	### ORCS AND TROLLS
+	character:lineofcragking ?= { # Crag-King, semi-legendary troll slain by Iunást
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+	character:isengardlurtz ?= { # Historical Lurtz death after start so we can copy his dna 
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+
+	### MEN
+    character:lineofmalbeth ?= { # Malbeth the Seer
+        if = {
+            limit = { is_alive = no }
+            make_unprunable = yes
+        }
+    }
+    character:linegatarascholar1 ?= { # Radovân sân Gatar
+        if = {
+            limit = { is_alive = no }
+            make_unprunable = yes
+        }
+    }
+	character:lineiunast1 ?= { # Iunást, Hero of the Haradrim
+		if = {
+			limit = { is_alive = no }
+			make_unprunable = yes
+		}
+	}
+
+	#### DISFIGUREMENTS HISTORY SETUP ###
+
+	# DISFIGUREMENTS FULLY MASKED
+
+	character:linetagron13 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = visible_disfigurement_1
+			make_trait_inactive = disfigurement_fully_masked
+		}
+	}
+
+	# DISFIGUREMENTS PARTIALLY UNMASKED
+
+	character:lineoflotu ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = visible_disfigurement_4
+			make_trait_inactive = disfigurement_partially_masked
+		}
+	}
+	character:lineofmaltokka1 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = visible_disfigurement_5
+			make_trait_inactive = disfigurement_partially_masked
+		}
+	}
+
+	# DISFIGUREMENTS UNMASKED
+
+	character:lineskav2 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = visible_disfigurement_5
+		}
+	}
+
+	# EYEPATCH
+
+	character:lineofbomfur3 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = standard_eyepatch
+		}
+	}
+
+	character:lotr_vanity_jerman ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = triangle_eyepatch
+		}
+	}
+	character:lineofmorcad13 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = triangle_eyepatch
+		}
+	}
+	character:lineoflastpirate0 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = triangle_eyepatch
+		}
+	}
+
+	
+
+	# NO EYEPATCH
+
+	character:linebarazoncorsair42 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = no_eyepatch
+		}
+	}
+	character:lineofnilozor1 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = no_eyepatch
+		}
+	}
+	character:izindubethspecialfaithleader1 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = no_eyepatch
+		}
+	}
+	character:lineofroquendil16 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = no_eyepatch
+		}
+	}
+	character:lineofchief11 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = no_eyepatch
+		}
+	}
+	character:lineofdurin107 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = no_eyepatch
+		}
+	}
+	character:lineofrotbag1 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = no_eyepatch
+		}
+	}
+	character:lineofavkaisi3f1 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = no_eyepatch
+		}
+	}
+	character:lineoftacfimin5 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = no_eyepatch
+		}
+	}
+	character:linemelenkoud5 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = no_eyepatch
+		}
+	}
+	character:lineofazog4d ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = no_eyepatch
+		}
+	}
+	character:lineofmaghaz3 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = no_eyepatch
+		}
+	}
+	character:lineoftheuderic5 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = no_eyepatch
+		}
+	}
+	character:lineofguriz45 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = no_eyepatch
+		}
+	}
+	character:lineofganaseeyim4a ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = no_eyepatch
+		}
+	}
+
+	#### CROWNS HISTORY SETUP ###
+
+	# Elvenkings of Greenwood
+
+	character:lineoforopher1 ?= { # Oropher
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_woodland_realm
+		}
+	}
+
+	character:lineoforopher3 ?= { # Thranduil
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_woodland_realm
+		}
+	}
+
+	# Kings of Gondor and the Dunedain
+
+	character:lineofelendil ?= { # Elendil the Tall
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion1 ?= { # Anarion
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineisildur0 ?= { # Isildur
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion5 ?= { # Meneldil
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion7 ?= { # Cemendur
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion8 ?= { # Eärendil
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion9 ?= { # Anardil
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion10 ?= { # Ostoher
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion11 ?= { # Tarostar/Rómendacil I
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion12 ?= { # Turambar
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion13 ?= { # Atanatar
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion14 ?= { # Siriondil
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion15 ?= { # Tarannon Falastur
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion18 ?= { # Eärnil
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion19 ?= { # Ciryandil
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion20 ?= { # Hyarmendacil Ciryahe 
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion21 ?= { # Atanatar Alcarin 
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion22 ?= { # Narmacil
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion23 ?= { # Calmacil 
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion24 ?= { # Rómendacil 
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion26 ?= { # Valacar 
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion27 ?= { # Eldacar 
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion53 ?= { # Castamir, the Usurper 
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion29 ?= { # Aldamir  
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion30 ?= { # Hyarmendacil Vinyarion 
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion31 ?= { # Minardil 
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion32 ?= { # Telemnar 
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion37 ?= { # Tarondor
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion38 ?= { # Telumehtar Umbardacil
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion39 ?= { # Narmacil 
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion40 ?= { # Calimehtar 
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion41 ?= { # Ondoher 
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion50 ?= { # Eärnil II 
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineofanarion51 ?= { # Eärnur, the Last King of Gondor 
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineisildur42 ?= { # Elessar
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+	character:lineisildur43 ?= { # Eldarion
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+	}
+
+	# Castamiri
+
+	character:lineofanarion53 ?= { # Castamir the Usurper
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_castamiri_winged_crown
+		}
+	}
+	character:lineofcastamir2 ?= { # Castaher
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_castamiri_winged_crown
+		}
+	}
+	character:lineofcastamir3 ?= { # Castamaitë
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_castamiri_winged_crown
+		}
+	}
+	character:lineofanarion55 ?= { # Morlaen
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_castamiri_winged_crown
+		}
+	}
+	character:lineofanarion56 ?= { # Caramir
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_castamiri_winged_crown
+		}
+	}
+	character:lineofcastamir3 ?= { # Castamaitë
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_castamiri_winged_crown
+		}
+	}
+	character:lineofcastamir4 ?= { # Angamaite
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_castamiri_winged_crown
+		}
+	}
+	character:lineofcastamir5 ?= { # Sangahyando
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_castamiri_winged_crown
+		}
+	}
+	character:lineofcastamir6 ?= { # Sangahyandion
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_castamiri_winged_crown
+		}
+	}
+	character:lineofcastamir7 ?= { # Castamir II
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_castamiri_winged_crown
+		}
+	}
+	character:lineofcastamir8 ?= { # Castamir III
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_castamiri_winged_crown
+		}
+	}
+
+	# Princes of Dol Amroth
+
+	character:dolamroth3 ?= { # Galador
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth5 ?= { # Aradan
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth6 ?= { # Arbazan
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth7 ?= { # Minalthor
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth8 ?= { # Erchirion
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth9 ?= { # Gwaedor
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth10 ?= { # Meneldor
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth11 ?= { # Belzagar
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth12 ?= { # Tegilbor
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth13 ?= { # Ivrindir
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth14 ?= { # Sulabeth
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth15 ?= { # Sakalroth II
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth16 ?= { # Arkhor
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth17 ?= { # Torhir
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth18 ?= { # Ornhil
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth19 ?= { # Dunhil
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth20 ?= { # Aglarthor
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth21 ?= { # Rotthill
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth22 ?= { # Aglahad
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth23 ?= { # Angelimir
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth24 ?= { # Adrahil II
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth27 ?= { # Imrahil the Fair
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth28 ?= { # Elphir
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth37 ?= { # Alphros
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+	character:dolamroth38 ?= { # Adanhir #PLACEHOLDER NAME
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_swan_circlet
+		}
+	}
+
+	# Queens of Arnor #
+
+	character:wifeofelendil ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+	character:wifeofisildur ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+	character:lineofcaladir21b ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+	character:lineoftarmea7sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+	character:lineofeketya45sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+	character:lineofgunion19sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+	character:lineofhyarromenyar11sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+	character:linemelosse15sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+	character:lineofgirithlin43sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+	character:lineofsilivnir11sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+
+	# Queens of Arthedain (empire tier)
+
+	character:lineoftarmea31sister ?= { # Aerien vanity
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+	character:lineofcaladir47 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+	character:lineoferuthimar47sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+	character:lineofeketya79sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+	character:lineofgirithlin65sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+	character:lineoftarmea41sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+	character:lineoftarmacilin51sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+	character:lineofanarion44 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+	}
+
+	# Queens of Arthedain (kingdom tier) #
+
+	character:lineofceleberyn12sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arthedain_circlet
+		}
+	}
+	character:lineoftarmacilin21sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arthedain_circlet
+		}
+	}
+	character:linetaure3sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arthedain_circlet
+		}
+	}
+	character:lineoforro27sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arthedain_circlet
+		}
+	}
+	character:lineofhyarromenyar31sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arthedain_circlet
+		}
+	}
+	character:lineeldanar34 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arthedain_circlet
+		}
+	}
+	character:lineforo1131 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_arthedain_circlet
+		}
+	}
+
+	# Queens of Cardolan #
+
+	character:lineofcaladir35sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_cardolan_circlet
+		}
+	}
+	character:lineofgirithlin47sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_cardolan_circlet
+		}
+	}
+	character:lineoferuthimar33sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_cardolan_circlet
+		}
+	}
+	character:linearastil3sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_cardolan_circlet
+		}
+	}
+	character:lineofcerentir33sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_cardolan_circlet
+		}
+	}
+	character:lineedhellos43 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_cardolan_circlet
+		}
+	}
+	character:lineofemeraya33sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_cardolan_circlet
+		}
+	}
+	character:lineofgirithlin57sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_cardolan_circlet
+		}
+	}
+
+	# Queens of Rhudaur #
+
+	character:linehunen21sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_rhudaur_circlet
+		}
+	}
+	character:lineendril29sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_rhudaur_circlet
+		}
+	}
+	character:lineofsulmacil5sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_rhudaur_circlet
+		}
+	}
+	character:lineeldanar24sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_rhudaur_circlet
+		}
+	}
+	character:linemelosse29sister ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_rhudaur_circlet
+		}
+	}
+	character:lineendril35b ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_rhudaur_circlet
+		}
+	}
+	character:linehunen31brother ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_rhudaur_circlet
+		}
+	}
+
+	# Kings of Khazad-dum
+
+	character:lineofdurinI ?= { # Durin I
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin2 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin3 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin4 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin5 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin6 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin7 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin8 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurinII ?= { # Durin II
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin10 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin11 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin12 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin13 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin14 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin15 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin16 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin15b ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin17 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurinIII ?= { # Durin III
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin18 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin20 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin22 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin24 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin24b ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin24c ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin26 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin28 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin30 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin32 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin34 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin36 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin38 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin40 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin40a ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin42 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin44 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurinIV ?= { # Durin IV
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin46 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin48 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin50 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin52 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin54 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin56 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin54a ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin56a ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin58 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurinV ?= { # Durin V
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin60 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin62 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin64 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin66 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin68 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin70 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin72 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurinVI ?= { # Durin VI
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin73 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+
+	# Queens of Khazad-dum
+
+	character:lineofdurinIwife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin2wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofuri5b ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin4wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin5wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin6wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin7wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin8wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurinIIwife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin10wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin11wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin12wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin13wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin14wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin15wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin16wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin15bwife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin17wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurinIIIwife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin19 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin21 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin23 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin25 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin27 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin29 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin31 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin37 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin39 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin41 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin43 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin44wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin45 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin47 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin49 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin51 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin53 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin55 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin57 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin55b ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin57b ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin59 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurinVwife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin61 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin63 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin65 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin67 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin67 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin69 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin71 ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin72wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurinVIwife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+	character:lineofdurin73wife ?= {
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_longbeard_crown
+		}
+	}
+
+	# Kings of Erebor
+
+	character:lineofdurin74 ?= { # Thrain I
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_erebor_crown
+		}
+	}
+
+	character:lineofdurin75 ?= { # Thorin I
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_erebor_crown
+		}
+	}
+
+	character:lineofdurin81 ?= { # Thror
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_erebor_crown
+		}
+	}
+
+	character:lineofdurin83 ?= { # Thorin II
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_erebor_crown
+		}
+	}
+
+	# Queens of Erebor
+
+	character:lineofdurin74wife ?= { # Thrain I's wife
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_erebor_crown
+		}
+	}
+
+	character:lineofdurin75wife ?= { # Thorin I's wife
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_erebor_crown
+		}
+	}
+
+	character:lineoftherrel67sister ?= { # Thror's wife
+		if = {
+			limit = { lotr_qualifies_for_posthistory_trigger = yes }
+			make_trait_inactive = equipped_erebor_crown
+		}
+	}
+}
+
+lotr_laamp_setup_effect = {
+	# Set up camp members and types for LAAMPs
+	## Saruman - 1000TA
+	character:lineofsaruman ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				game_start_date >= 5033.1.1
+				game_start_date <= 6790.1.1
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_scholars
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+
+	## Gandalf - 1000TA
+	character:lineofgandalf ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				game_start_date >= 5033.1.1
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_scholars
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+
+	## Radagast - 1000TA
+	character:lineofradagast ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				game_start_date >= 5033.1.1
+				game_start_date <= 5433.1.1
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_scholars
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+
+	## Blue Wizards - 1000TA
+	character:lineofpallando ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				game_start_date >= 5033.1.1
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_scholars
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+
+	# Eradan - WotR
+	character:linecalinyar8 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+				game_start_date >= 6720.5.4
+			}
+			add_realm_law_skip_effects = camp_purpose_rangers
+			trigger_event = rangers.9401
+			trigger_event = rangers.9200 #Setting up Ranger tax
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+	# Elegost - WotR
+	character:linehalbarad10 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+				game_start_date >= 6989.4.10
+			}
+			add_realm_law_skip_effects = camp_purpose_rangers
+			trigger_event = rangers.9200 #Setting up Ranger tax
+			trigger_event = rangers.9401
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+	# Thorondor - LW
+	character:lineoforodhos65 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+				game_start_date = 6787.1.1
+			}
+			add_realm_law_skip_effects = camp_purpose_rangers
+			trigger_event = rangers.9200 #Setting up Ranger tax
+			trigger_event = rangers.9401
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+	# Halmir - LW
+	character:trgeolineofgalathol7 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+				game_start_date = 6787.1.1
+			}
+			add_realm_law_skip_effects = camp_purpose_rangers
+			trigger_event = rangers.9200 #Setting up Ranger tax
+			trigger_event = rangers.9401
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+	# Maratar - RoA
+	character:predolamroth181 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+				game_start_date >= 5382.4.5
+			}
+			add_realm_law_skip_effects = camp_purpose_rangers
+			trigger_event = rangers.9200 #Setting up Ranger tax
+			trigger_event = rangers.9401
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+
+	# Eltariel (SoW)
+	character:lineofeltariel ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+				game_start_date >= 6064.5.2
+			}
+			add_realm_law_skip_effects = camp_purpose_rangers
+			trigger_event = rangers.9200 #Setting up Ranger tax
+			trigger_event = rangers.9401
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+	
+	# Deneroth of Nelornieth
+	character:lineoflanthir5 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+				game_start_date >= 3700.7.1
+			}
+			add_realm_law_skip_effects = camp_purpose_rangers
+			trigger_event = rangers.9200 #Setting up Ranger tax
+			trigger_event = rangers.9401
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+	
+	# Alilêl, the Solitary Blade
+	character:lineofalilel ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+				game_start_date >= 3939.3.9
+			}
+			add_realm_law_skip_effects = camp_purpose_mercenaries
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+	
+	# Calmiriel of the Cuind
+	character:lineofmeglasul6 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+				game_start_date >= 3555.5.5
+			}
+			add_realm_law_skip_effects = camp_purpose_rangers
+			trigger_event = rangers.9200 #Setting up Ranger tax
+			trigger_event = rangers.9401
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+	
+	# Laerdan of Mirkwood
+	character:lineoflaerdan3 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+				game_start_date >= 5255.2.5
+			}
+			add_realm_law_skip_effects = camp_purpose_explorers
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+
+	## Khäz-Gramaze Preacher - 2754TA
+	character:lineofafalku28aSon ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				game_start_date >= 6781.6.21
+				game_start_date <= 6801.3.10
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_scholars
+		}
+	}
+
+	# Rârn of the Exiles of Nargubraz - Last Winter
+	character:lineofnain44 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				game_start_date >= 7020.1.1
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_mercenaries
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+
+	# Rârn of the Iron Garrison - WotR
+	character:lineofbifur2 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				game_start_date >= 7030.1.1
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_explorers
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+
+	## Nar of the Dwarf-road Pedlars - WOTR
+	character:lineofnarbilbo ?= {
+		if = {
+			limit = {
+				game_start_date >= 6974.1.4
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_scholars
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+
+	# Gráin of the Sons of Nain - WotR
+	character:lineofnain44 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				game_start_date >= 7020.1.1
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_rangers
+			trigger_event = rangers.9401
+			trigger_event = rangers.9200 #Setting up Ranger tax
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+
+	#Kindilár Sword-Clans - 2754TA
+	character:lineunurani1 ?= { #LotR
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+				game_start_date >= 6720.5.4
+			}
+			add_realm_law_skip_effects = camp_purpose_mercenaries
+			if = {
+				limit = {
+					character:lineunurani3a ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineunurani1 }
+					}
+				}
+				add_courtier = character:lineunurani3a
+			}
+			if = {
+				limit = {
+					character:lineunurani3 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineunurani1 }
+					}
+				}
+				add_courtier = character:lineunurani3
+			}
+			if = {
+				limit = {
+					character:lineunurani9 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineunurani1 }
+					}
+				}
+				add_courtier = character:lineunurani9
+			}
+		}
+	}
+	character:lineunurani3 ?= { #LotR
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+				game_start_date >= 6748.3.1
+			}
+			add_realm_law_skip_effects = camp_purpose_mercenaries
+			if = {
+				limit = {
+					character:lineunurani5 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineunurani3 }
+					}
+				}
+				add_courtier = character:lineunurani5
+			}
+			if = {
+				limit = {
+					character:lineunurani7 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineunurani3 }
+					}
+				}
+				add_courtier = character:lineunurani7
+			}
+			if = {
+				limit = {
+					character:lineunurani8 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineunurani3 }
+					}
+				}
+				add_courtier = character:lineunurani8
+			}
+		}
+	}
+	character:lineunurani7 ?= { #LotR
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+				game_start_date >= 6791.5.3
+			}
+			add_realm_law_skip_effects = camp_purpose_mercenaries
+			if = {
+				limit = {
+					character:lineunurani8 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineunurani7 }
+					}
+				}
+				add_courtier = character:lineunurani8
+			}
+			if = {
+				limit = {
+					character:lineunurani9 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineunurani7 }
+					}
+				}
+				add_courtier = character:lineunurani9
+			}
+		}
+	}
+
+	character:lineofsauron ?= {
+		create_story = story_the_necromancer
+	}
+	## Gildor Inglorion - 3000TA
+	character:lineofgildor ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_scholars
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+	## Rangers of Ithilien - 3000TA
+	character:linearphenian24 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_rangers
+			trigger_event = rangers.9200 #Setting up Ranger tax
+			trigger_event = rangers.9401
+			domicile ?= { change_provisions = minor_provisions_gain }
+			if = {
+				limit = {
+					character:lineofanborn1 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:linearphenian24 }
+					}
+				}
+				add_courtier = character:lineofanborn1
+			}
+			if = {
+				limit = {
+					character:linehathor17 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:linearphenian24 }
+					}
+				}
+				add_courtier = character:linehathor17
+			}
+			if = {
+				limit = {
+					character:lineofmadril1 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:linearphenian24 }
+					}
+				}
+				add_courtier = character:lineofmadril1
+			}
+		}
+	}
+
+	## Exiles of Umbar - 3000TA
+	character:lineofcalmacil15 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_brigands
+		}
+	}
+
+	character:lineofvalathmir1 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_rangers
+			trigger_event = rangers.9200 #Setting up Ranger tax
+			trigger_event = rangers.9401
+			if = {
+				limit = {
+					character:lineofvalathmir2 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofvalathmir1 }
+					}
+				}
+				add_courtier = character:lineofvalathmir2
+			}
+			if = {
+				limit = {
+					character:lineofvalathmir3 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofvalathmir1 }
+					}
+				}
+				add_courtier = character:lineofvalathmir3
+			}
+			if = {
+				limit = {
+					character:lineofvalathmir4 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofvalathmir1 }
+					}
+				}
+				add_courtier = character:lineofvalathmir4
+			}
+		}
+	}
+
+	# The host of Morgul, commanded by Lieutenant Gothmog
+	character:lieutenant_gothmog ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+				game_start_date >= 6989.4.10
+			}
+			add_realm_law_skip_effects = camp_purpose_rangers
+			trigger_event = rangers.9200 #Setting up Ranger tax
+			trigger_event = rangers.9401
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+		}
+	## Arkhâd's Venture - Bellakarean Adventurers
+	character:lineofsujanir_adventurer ?= { #LotR
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_explorers
+			if = {
+				limit = {
+					character:lininzilloniadventurer1 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofsujanir_adventurer }
+					}
+				}
+				add_courtier = character:lininzilloniadventurer1
+			}
+			if = {
+				limit = {
+					character:lininzilloniadventurer2 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofsujanir_adventurer }
+					}
+				}
+				add_courtier = character:lininzilloniadventurer2
+			}
+			if = {
+				limit = {
+					character:lineoftedkazir77brother ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofsujanir_adventurer }
+					}
+				}
+				add_courtier = character:lineoftedkazir77brother
+			}
+		}
+	}
+
+	## WotR Ormal pirate Laamp
+	character:lineoflastpirate0 ?= { #LotR
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_brigands
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+
+	#Dusk-Breaker Horde - 3000TA
+	character:lineofdriond35 ?= { #LotR
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_mercenaries
+			if = {
+				limit = {
+					character:lineofdriond37 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofdriond35 }
+					}
+				}
+				add_courtier = character:lineofdriond37
+			}
+			if = {
+				limit = {
+					character:lineofdriond39 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofdriond35 }
+					}
+				}
+				add_courtier = character:lineofdriond39
+			}
+			if = {
+				limit = {
+					character:lineofdriond42 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofdriond35 }
+					}
+				}
+				add_courtier = character:lineofdriond42
+			}
+			if = {
+				limit = {
+					character:lineofdriond45 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofdriond35 }
+					}
+				}
+				add_courtier = character:lineofdriond45
+			}
+			if = {
+				limit = {
+					character:lineofazumenakhad97 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofdriond35 }
+					}
+				}
+				add_courtier = character:lineofazumenakhad97
+			}
+			if = {
+				limit = {
+					character:lineoftejhazor8 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofdriond35 }
+					}
+				}
+				add_courtier = character:lineoftejhazor8
+			}
+		}
+	}
+	character:lineofdriond37 ?= { #LotR
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+				game_start_date >= 7006.4.18
+			}
+			add_realm_law_skip_effects = camp_purpose_mercenaries
+			house ?= {
+				if = {
+					limit = { NOT = { house_head = PREV } }
+					set_house_head = prev
+				}
+			}
+			if = {
+				limit = {
+					character:lineofdriond39 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofdriond37 }
+					}
+				}
+				add_courtier = character:lineofdriond39
+			}
+			if = {
+				limit = {
+					character:lineofdriond42 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofdriond37 }
+					}
+				}
+				add_courtier = character:lineofdriond42
+			}
+			if = {
+				limit = {
+					character:lineofdriond45 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofdriond37 }
+					}
+				}
+				add_courtier = character:lineofdriond45
+			}
+			if = {
+				limit = {
+					character:lineofazumenakhad97 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofdriond37 }
+					}
+				}
+				add_courtier = character:lineofazumenakhad97
+			}
+			if = {
+				limit = {
+					character:lineoftejhazor8 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofdriond37 }
+					}
+				}
+				add_courtier = character:lineoftejhazor8
+			}
+		}
+	}
+
+	## Axe That Walks - 2754TA
+	character:lineofargan1 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				# game_start_date >= 6781.6.21
+				game_start_date <= 6865.12.21
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_mercenaries
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+	}
+
+	character:lineofjauffre3 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				# game_start_date >= 6781.6.21
+				game_start_date <= 7000.6.20
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_scholars
+			# add_realm_law_skip_effects = equal_law
+		}
+	}
+
+	character:linegimilthanibastard1 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_legitimists
+		}
+	}
+
+	character:lineofkhyanexplorersarosh1 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_explorers
+		}
+	}
+
+	character:linenorrinkaraklongwinteradventure ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_brigands
+		}
+	}
+
+	#Shrouded Tribes - 3000TA
+	character:linedavorka3 ?= { #LotR
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_brigands
+			if = {
+				limit = {
+					character:linedavorka5 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:linedavorka3 }
+					}
+				}
+				add_courtier = character:linedavorka5
+			}
+			if = {
+				limit = {
+					character:linedavorka4 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:linedavorka3 }
+					}
+				}
+				add_courtier = character:linedavorka4
+			}
+		}
+	}
+	# Voice upon the Sands - Dune reference Legitimist LAAMP, TA 1349
+	character:lineofadrais3 ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				has_dlc_feature = roads_to_power
+			}
+			add_realm_law_skip_effects = camp_purpose_legitimists
+			if = {
+				limit = {
+					character:lineofadrais2 ?= {
+						is_alive = yes
+						is_landed = no
+						NOT = { is_courtier_of = character:lineofadrais3 }
+					}
+				}
+				add_courtier = character:lineofadrais3
+			}
+		}
+	}
+}
+
+lotr_confederation_setup_effect = {
+	
+	lotr_balan_lai_setup_effect = yes 
+
+	### Confederation of Koronande
+	
+	if = {
+		limit = {
+			OR = {
+				AND = {
+					game_start_date >= 5000
+					game_start_date <= 6000
+				}
+			}
+		}
+		title:c_korlan.holder = {
+			create_confederation = {
+				name = CONFEDERATION_NAME_KORONANDE
+			}
+			scope:new_confederation = {
+				set_variable = {
+					name = confederation_culture
+					value = culture:koronandi
+				}
+				set_variable = {
+					name = lotr_can_not_elevate_confederation
+					value = yes
+				}
+			}
+			every_independent_ruler = {
+				limit = {
+					is_landed = yes
+					highest_held_title_tier > tier_barony
+					highest_held_title_tier < tier_kingdom
+					faith = faith:faith_koronande
+					culture = culture:koronandi
+					is_confederation_member = no
+					any_held_title = {
+						tier = tier_county
+						OR = {
+							kingdom = title:k_koronande
+							any_neighboring_county = {
+								OR = {
+									kingdom = title:k_koronande
+								}
+							}
+							county = title:c_osoran
+						}
+					}
+				}
+				scope:new_confederation = {
+					add_confederation_member = prev
+				}
+			}
+		}
+	}
+
+	### Nurniag Warlords Alliance 
+
+	if = {
+		limit = {
+			OR = {
+				AND = {
+					game_start_date >= 5380
+					game_start_date <= 5400
+				}
+			}
+		}
+		title:c_amnash.holder = {
+			create_confederation = {
+				name = CONFEDERATION_NAME_NURNIAG
+			}
+			scope:new_confederation = {
+				set_variable = {
+					name = confederation_culture
+					value = culture:nurniag
+				}
+				set_variable = {
+					name = lotr_can_not_elevate_confederation
+					value = yes
+				}
+			}
+			every_independent_ruler = {
+				limit = {
+					is_landed = yes
+					highest_held_title_tier > tier_barony
+					highest_held_title_tier < tier_duchy
+					faith = faith:faith_nurniag
+					culture = culture:nurniag
+					is_confederation_member = no
+					any_held_title = {
+						tier = tier_county
+						OR = {
+							kingdom = title:k_nurn
+							any_neighboring_county = {
+								OR = {
+									kingdom = title:k_nurn
+								}
+							}
+						}
+					}
+				}
+				scope:new_confederation = {
+					add_confederation_member = prev
+				}
+			}
+		}
+	}
+
+	### Lynerian League & League of Lyneria opposing mercantile factions 
+	
+	if = {
+		limit = {
+			OR = {
+				AND = {
+					game_start_date >= 5000
+					game_start_date <= 6000
+				}
+			}
+		}
+		title:c_lyneria.holder = {
+			create_confederation = {
+				name = CONFEDERATION_NAME_LYNERIA
+			}
+			scope:new_confederation = {
+				set_variable = {
+					name = confederation_culture
+					value = culture:lynerian
+				}
+				set_variable = {
+					name = lotr_can_not_elevate_confederation
+					value = yes
+				}
+				set_variable = {
+					name = lynerian_league_confederation
+					value = yes
+				}
+			}
+			every_independent_ruler = {
+				limit = {
+					is_landed = yes
+					highest_held_title_tier > tier_barony
+					highest_held_title_tier < tier_kingdom
+					culture = culture:lynerian
+					is_confederation_member = no
+					any_held_title = {
+						tier = tier_county
+						duchy = title:d_meloria
+					}
+				}
+				scope:new_confederation = {
+					add_confederation_member = prev
+				}
+				trigger_event = {
+					id = lyneria.0001
+					days = 1
+				}
+			}
+		}
+		title:c_emelcyn.holder = {
+			create_confederation = {
+				name = CONFEDERATION_NAME_LEAGUE_OF_LYNERIA
+			}
+			scope:new_confederation = {
+				set_variable = {
+					name = confederation_culture
+					value = culture:lynerian
+				}
+				set_variable = {
+					name = lotr_can_not_elevate_confederation
+					value = yes
+				}
+				set_variable = {
+					name = lynerian_league_confederation
+					value = yes
+				}
+			}
+			every_independent_ruler = {
+				limit = {
+					is_landed = yes
+					highest_held_title_tier > tier_barony
+					highest_held_title_tier < tier_kingdom
+					culture = culture:lynerian
+					is_confederation_member = no
+					any_held_title = {
+						tier = tier_county
+						duchy = title:d_sylara
+					}
+				}
+				scope:new_confederation = {
+					add_confederation_member = prev
+				}
+				trigger_event = {
+					id = lyneria.0001
+					days = 1
+				}
+			}
+		}
+	}
+
+	### Lynerian League ###
+	if = {
+		limit = {
+			OR = {
+				AND = {
+					game_start_date >= 6000
+					game_start_date <= 6730 # Codyan puppet duchy
+				}
+				game_start_date >= 6824
+			}
+		}
+		title:c_lyneria.holder = {
+			create_confederation = {
+				name = CONFEDERATION_NAME_LYNERIA
+			}
+			scope:new_confederation = {
+				set_variable = {
+					name = confederation_culture
+					value = culture:lynerian
+				}
+				set_variable = {
+					name = lotr_can_not_elevate_confederation
+					value = yes
+				}
+				set_variable = {
+					name = lynerian_league_confederation
+					value = yes
+				}
+			}
+			every_independent_ruler = {
+				limit = {
+					is_landed = yes
+					highest_held_title_tier > tier_barony
+					highest_held_title_tier < tier_kingdom
+					culture = culture:lynerian
+					is_confederation_member = no
+					any_held_title = {
+						tier = tier_county
+						OR = {
+							kingdom = title:k_lyneria
+							any_neighboring_county = {
+								kingdom = title:k_lyneria
+							}
+						}
+					}
+				}
+				scope:new_confederation = {
+					add_confederation_member = prev
+				}
+				## Lynerian League Member Intros ##
+				if = {
+					limit = {
+						NOT = { this = character:lineofzantaka1 }
+					}
+					trigger_event = {
+						id = lyneria.0001
+						days = 1
+					}
+				}
+			}
+		}
+	}
+
+	### Logath Confederation ###
+	if = {
+		limit = {
+			game_start_date >= 6690 # Kingdom fractured into loose confederation
+			title:c_sadvar.holder.culture = culture:logath
+		}
+		title:c_sadvar.holder = {
+			create_confederation = {
+				name = CONFEDERATION_NAME_LOGATH
+			}
+			scope:new_confederation = {
+				set_variable = {
+					name = confederation_culture
+					value = culture:logath
+				}
+			}
+			every_independent_ruler = {
+				limit = {
+					is_landed = yes
+					highest_held_title_tier > tier_barony
+					highest_held_title_tier < tier_kingdom
+					culture = culture:logath
+					is_confederation_member = no
+				}
+				scope:new_confederation = {
+					add_confederation_member = prev
+				}
+			}
+		}
+	}
+
+	### Three Tigers Coalition ###
+	if = {
+		limit = {
+			game_start_date >= 6700
+			game_start_date <= 6900
+		}
+		title:c_bathiria.holder = {
+			create_confederation = {
+				name = CONFEDERATION_NAME_TIGERS
+			}
+			scope:new_confederation = {
+				set_variable = {
+					name = confederation_culture
+					value = culture:poan
+				}
+				# add_confederation_member = title:d_sadhradamrun.holder
+				add_confederation_member = title:d_nafar_poan.holder
+				add_confederation_member = title:d_zhar_daniz.holder
+			}
+		}
+	}
+
+	### Kalathun Confederation ###
+	if = {
+		limit = {
+			game_start_date >= 6700
+			game_start_date <= 6900
+		}
+		title:c_vynusal.holder = {
+			create_confederation = {
+				name = CONFEDERATION_NAME_KALATHUN
+			}
+			scope:new_confederation = {
+				set_variable = {
+					name = confederation_culture
+					value = culture:ayten
+				}
+				# add_confederation_member = title:c_rohmakhar.holder
+				add_confederation_member = title:c_phandurim.holder
+				add_confederation_member = title:c_velkarim.holder
+			}
+		}
+	}
+
+	### Estanrewas Confederation ###
+	if = {
+		limit = {
+			game_start_date >= 5345
+			game_start_date <= 5385
+		}
+		title:c_framsburg.holder = {
+			create_confederation = {
+				name = CONFEDERATION_NAME_ESTANREWAS
+			}
+			scope:new_confederation = {
+				set_variable = {
+					name = confederation_culture
+					value = culture:estarewas
+				}
+				add_confederation_member = title:c_taurau.holder
+				add_confederation_member = title:c_feorlond.holder
+				add_confederation_member = title:c_langburg.holder
+				add_confederation_member = title:c_mithlin_vale.holder
+				add_confederation_member = title:c_marsham.holder
+			}
+		}
+	}
+
+	### Aukar Confederation ###
+	if = {
+		limit = {
+			game_start_date >= 5345
+			game_start_date <= 5385
+		}
+		title:c_durwal.holder = {
+			create_confederation = {
+				name = CONFEDERATION_NAME_AUKAR
+			}
+			scope:new_confederation = {
+				set_variable = {
+					name = confederation_culture
+					value = culture:aukuag
+				}
+				add_confederation_member = title:c_sarmur.holder
+				add_confederation_member = title:c_tan.holder
+				add_confederation_member = title:c_hafarh.holder
+			}
+		}
+	}
+
+	### Variag Confederation ###
+	if = {
+		limit = {
+			game_start_date >= 5345
+			game_start_date <= 5385
+		}
+		title:d_aukhela.holder = {
+			create_confederation = {
+				name = CONFEDERATION_NAME_KHAND
+			}
+			scope:new_confederation = {
+				set_variable = {
+					name = confederation_culture
+					value = culture:variag
+				}
+				add_confederation_member = title:d_high_vracarath.holder
+				add_confederation_member = title:c_okharand.holder
+				#add_confederation_member = title:c_hafarh.holder
+			}
+		}
+	}
+
+	### Bellanarûd Confederation ###
+	if = { #With Bellakars authority weakened, the tribes of the hinterlands have to organize themselves
+		limit = {
+			game_start_date >= 6955
+			game_start_date <= 7056
+		}
+		title:c_ellin.holder = {
+			create_confederation = {
+				name = CONFEDERATION_NAME_BELLANARUD
+			}
+			scope:new_confederation = {
+				set_variable = {
+					name = confederation_culture
+					value = culture:bellanarud
+				}
+				add_confederation_member = title:d_urudath.holder
+				add_confederation_member = title:c_fonir.holder
+				add_confederation_member = title:c_kes_tosith.holder
+			}
+		}
+	}
+}
+
+lotr_balan_lai_setup_effect = {
+	title:d_balan_lai_leader.holder ?= {
+		lotr_create_defensive_alliance = {
+			DEFENSIVE_ALLY = title:d_alsarias.holder
+			LOC_KEY = balan_lai
+		}
+		scope:new_confederation ?= {
+			set_variable = lotr_permanent_defensive_alliance
+		}
+		every_independent_ruler = {
+			limit = {
+				culture = culture:kharadunaim
+				highest_held_title_tier > tier_county
+				primary_title != title:d_mispir
+				primary_title != title:d_metkharan
+				any_held_title = {
+					tier = tier_county
+					empire = title:e_thani_hazad
+				}
+				is_confederation_member = no
+			}
+			add_trait = balan_lai_member
+			add_unpressed_claim = title:d_balan_lai_leader
+			scope:new_confederation ?= {
+				add_confederation_member = prev
+			}
+		}
+	}
+}

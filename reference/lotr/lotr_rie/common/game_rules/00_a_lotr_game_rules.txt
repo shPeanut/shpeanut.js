@@ -1,0 +1,441 @@
+﻿#wotr = {
+#	default = default_wotr
+#
+#	default_wotr = {
+#
+#	}
+#	
+#	random_wotr = {
+#
+#	}
+#}
+
+ai_behavior = {
+	default = default_ai_behavior
+
+	categories = {
+		realms historicity ai
+	}
+
+	default_ai_behavior = { flag = lotr_game_rule }
+
+	weighted_ai_behavior = { flag = lotr_game_rule }
+	
+	random_ai_behavior = { flag = lotr_game_rule }
+}
+
+colonisation_speed_rule = {
+	default = default_colonisation_speed
+
+	categories = {
+		realms flavor historicity ai
+	}
+
+	default_colonisation_speed = { flag = lotr_game_rule }
+
+	weighted_colonisation_speed = { flag = lotr_game_rule } 
+
+	normal_colonisation_speed = { flag = lotr_game_rule }
+}
+
+shattered_earth_rule = {
+	default = shattered_earth_false
+
+	categories = {
+		realms flavor historicity
+	}
+
+	shattered_earth_false = { flag = lotr_game_rule }
+
+	shattered_earth_counties = { flag = lotr_game_rule }
+	
+}
+
+calendar_rule = {
+	default = sindarin_calendar
+
+	categories = {
+		realms flavor
+	}
+
+	sindarin_calendar = { flag = lotr_game_rule }
+
+	quenya_calendar = { flag = lotr_game_rule }
+
+	hobbit_calendar = { flag = lotr_game_rule }
+	
+	bellakaze_calendar = { flag = lotr_game_rule }
+
+	gregorian_calendar = { flag = lotr_game_rule }
+	
+}
+
+sauron_appearance_rule = {
+	default = armored_sauron
+
+	categories = {
+		realms flavor
+	}
+
+	fair_sauron = { flag = lotr_game_rule }
+
+	corrupted_sauron = { flag = lotr_game_rule }
+
+	crispy_sauron = { flag = lotr_game_rule }
+	
+	armored_sauron = { flag = lotr_game_rule }
+	
+}
+
+elven_expansion_rule = {
+	default = limited_elven_expansion
+
+	categories = {
+		realms tweaks historicity
+	}
+
+	limited_elven_expansion = { flag = lotr_game_rule }
+
+	free_elven_expansion = { flag = lotr_game_rule }
+	
+}
+
+elven_conversion_rule = {
+	default = slow_elven_conversion
+
+	categories = {
+		realms tweaks historicity culture
+	}
+
+	slow_elven_conversion = { flag = lotr_game_rule }
+
+	normal_elven_conversion = { flag = lotr_game_rule }
+
+}
+
+hope_change_rule = {
+	default = default_hope_change
+
+	categories = {
+		realms tweaks historicity
+	}
+
+	very_slow_hope_change = { flag = lotr_game_rule }
+	slow_hope_change = { flag = lotr_game_rule }
+	default_hope_change = { flag = lotr_game_rule }
+	fast_hope_change = { flag = lotr_game_rule }
+	very_fast_hope_change = { flag = lotr_game_rule  }
+
+}
+
+mithril_location_rule = {
+	default = mithril_only_moria
+
+	categories = {
+		realms tweaks historicity
+	}
+
+	mithril_only_moria = { flag = lotr_game_rule }
+
+	mithril_only_misties = { flag = lotr_game_rule }
+
+	mithril_anywhere = { flag = lotr_game_rule }
+
+}
+
+no_dwarven_remarriage_rule = {
+	default = no_dwarven_remarriage
+	categories = {
+		realms tweaks historicity culture
+	}
+
+	no_dwarven_remarriage = { flag = lotr_game_rule }
+
+	dwarven_remarriage_allowed = { flag = lotr_game_rule }
+}
+
+female_beards_rule = {
+	default = short_dwarven_beards
+
+	categories = {
+		realms tweaks historicity culture
+	}
+
+	no_female_beards = { flag = lotr_game_rule }
+
+	short_dwarven_beards = { flag = lotr_game_rule }
+
+	long_dwarven_beards = { flag = lotr_game_rule }
+
+	long_and_short_dwarven_beards = { flag = lotr_game_rule }
+
+	beards_for_all = { flag = lotr_game_rule }
+
+}
+
+dunedain_beards_rule = {
+	default = dunedain_beards_semi_canon
+
+	categories = {
+		realms tweaks historicity culture
+	}
+
+	dunedain_beards_canon = { flag = lotr_game_rule }
+
+	dunedain_beards_semi_canon = { flag = lotr_game_rule }
+
+	dunedain_beards_non_canon = { flag = lotr_game_rule }
+}
+
+news_alerts_rule = {
+	default = major_news
+
+	categories = {
+		realms flavor
+	}
+
+	no_news = { flag = lotr_game_rule }
+
+	major_news = { flag = lotr_game_rule }
+
+	all_news = { flag = lotr_game_rule }
+	
+}
+
+gil_galad_parentage_rule = {
+	default = orodreth_parent
+
+	categories = {
+		realms flavor
+	}
+
+	orodreth_parent = { flag = lotr_game_rule }
+
+	fingon_parent = { flag = lotr_game_rule }
+
+	finrod_parent = { flag = lotr_game_rule }
+
+	maglor_parent = { flag = lotr_game_rule }
+
+	caranthir_parent = { flag = lotr_game_rule }
+	
+}
+
+aesthetic_rhudaur_rule = {
+	default = ugly_rhudaur
+
+	categories = {
+		realms tweaks
+	}
+
+	ugly_rhudaur = { flag = lotr_game_rule }
+
+	aesthetic_rhudaur = { flag = lotr_game_rule }
+	
+}
+
+sunset_invasions_rule = {
+	default = valinor_intervention
+
+	categories = {
+		realms tweaks difficulty
+	}
+	
+	no_intervention = { flag = lotr_game_rule }
+
+	valinor_intervention = { flag = lotr_game_rule }
+
+	great_armament = { flag = lotr_game_rule }
+
+	# second_return_of_the_noldor = {
+	# }
+
+	# fleet_of_ciryatur = {
+	# }
+
+	second_coming_of_amav = { flag = lotr_game_rule }
+	
+	random_intervention = { flag = lotr_game_rule }
+}
+
+delay_for_sunset_invasions_rule = {
+	default = default_invasion_delay
+
+	categories = {
+		realms tweaks difficulty
+	}
+
+	default_invasion_delay = { flag = lotr_game_rule }
+
+	early_invasion_delay = { flag = lotr_game_rule }
+
+	late_invasion_delay = { flag = lotr_game_rule }
+}
+
+sauron_strength_rule = {
+	default = default_sauron_strength
+	
+	categories = {
+		realms historicity ai
+	}
+	
+	weakened_sauron_strength = { flag = lotr_game_rule }
+	
+	default_sauron_strength = { flag = lotr_game_rule }
+	
+	strong_sauron_strength = { flag = lotr_game_rule }
+	
+	very_strong_sauron_strength = { flag = lotr_game_rule }
+	
+	apocalyptic_sauron_strength = { flag = lotr_game_rule }
+	
+}
+
+evil_strength_rule = {
+	default = default_evil_strength
+	
+	categories = {
+		realms historicity ai
+	}
+	
+	weakened_evil_strength = { flag = lotr_game_rule }
+	
+	default_evil_strength = { flag = lotr_game_rule }
+	
+	strong_evil_strength = { flag = lotr_game_rule }
+	
+	very_strong_evil_strength = { flag = lotr_game_rule }
+
+	apocalyptic_evil_strength = { flag = lotr_game_rule }
+	
+	apocalyptic_conqueror_evil_strength = { flag = lotr_game_rule }
+	
+}
+
+gondor_strength_rule = {
+	default = default_gondor_strength
+	
+	categories = {
+		realms historicity ai
+	}
+	
+	weakened_gondor_strength = { flag = lotr_game_rule }
+	
+	default_gondor_strength = { flag = lotr_game_rule }
+	
+	strong_gondor_strength = { flag = lotr_game_rule }
+	
+	very_strong_gondor_strength = { flag = lotr_game_rule }
+	
+	apocalyptic_gondor_strength = { flag = lotr_game_rule }
+	
+}
+
+good_strength_rule = {
+	default = default_good_strength
+	
+	categories = {
+		realms historicity ai
+	}
+	
+	weakened_good_strength = { flag = lotr_game_rule }
+	
+	default_good_strength = { flag = lotr_game_rule }
+	
+	strong_good_strength = { flag = lotr_game_rule }
+	
+	very_strong_good_strength = { flag = lotr_game_rule }
+	
+	apocalyptic_good_strength = { flag = lotr_game_rule }
+
+	apocalyptic_conqueror_good_strength = { flag = lotr_game_rule }
+	
+}
+
+northern_orc_invasions = {
+	categories = {
+		realms difficulty historicity ai
+	}
+	
+	northern_orcs_invade = { flag = lotr_game_rule }
+	
+	northern_orcs_no_invade = { flag = lotr_game_rule }
+}
+
+southern_orc_invasions = {
+	categories = {
+		realms difficulty historicity ai
+	}
+	
+	southern_orcs_invade = { flag = lotr_game_rule }
+	
+	southern_orcs_no_invade = { flag = lotr_game_rule }
+	
+}
+
+hostile_holy_war_rule = {
+	default = hostile_holy_wars_unrestricted
+
+	categories = {
+		realms tweaks historicity
+	}
+
+	hostile_holy_wars_unrestricted = { flag = lotr_game_rule }
+
+	hostile_holy_wars_restricted = { flag = lotr_game_rule }
+}
+
+historicity_extra_admin_gondor = { # LOTR
+	
+	categories = { historicity }
+	
+	default = historicity_extra_admin_gondor_gameplay_not_administrative
+
+	historicity_extra_admin_gondor_gameplay_not_administrative = { flag = lotr_game_rule }
+
+	historicity_extra_admin_gondor_alt_historic_always = { flag = lotr_game_rule }
+}
+
+historicity_extra_admin_arnor = { # LOTR
+	
+	categories = { historicity }
+	
+	default = historicity_extra_admin_arnor_gameplay_not_administrative
+
+	historicity_extra_admin_arnor_gameplay_not_administrative = { flag = lotr_game_rule }
+
+	historicity_extra_admin_arnor_alt_historic_always = { flag = lotr_game_rule }
+}
+
+historicity_extra_admin_umbar = { # LOTR
+	
+	categories = { historicity }
+	
+	default = historicity_extra_admin_umbar_gameplay_not_administrative
+
+	historicity_extra_admin_umbar_gameplay_not_administrative = { flag = lotr_game_rule }
+
+	historicity_extra_admin_umbar_alt_historic_always = { flag = lotr_game_rule }
+}
+
+historicity_extra_admin_bellakar = { # LOTR
+	
+	categories = { historicity }
+	
+	default = historicity_extra_admin_bellakar_gameplay_not_administrative
+
+	historicity_extra_admin_bellakar_gameplay_not_administrative = { flag = lotr_game_rule }
+
+	historicity_extra_admin_bellakar_alt_historic_always = { flag = lotr_game_rule }
+}
+
+historicity_extra_admin_ray = { # LOTR
+	
+	categories = { historicity }
+	
+	default = historicity_extra_admin_ray_gameplay_not_administrative
+
+	historicity_extra_admin_ray_gameplay_not_administrative = { flag = lotr_game_rule }
+
+	historicity_extra_admin_ray_alt_historic_always = { flag = lotr_game_rule }
+}

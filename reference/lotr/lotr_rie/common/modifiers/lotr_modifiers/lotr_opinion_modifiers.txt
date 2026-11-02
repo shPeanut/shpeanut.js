@@ -1,0 +1,14 @@
+﻿evil_racial_hatred = {
+	icon = social_negative
+	rf_forcesofevil_opinion = -500
+}
+
+good_racial_hatred = {
+	icon = social_negative
+	rf_eruhini_opinion = -500
+}
+
+orcish_racial_hatred = {
+	icon = social_negative
+	orcish_religion_opinion = -500
+}

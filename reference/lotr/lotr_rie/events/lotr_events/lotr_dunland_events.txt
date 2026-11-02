@@ -1,0 +1,988 @@
+﻿namespace = dunland
+
+##################################################
+# Restoring the Dunlendings
+##################################################
+
+dunland.1001 = {
+	content_source = realms_dlc
+	type = character_event
+	title = dunland.1001.t
+	desc = {
+		first_valid = {
+			triggered_desc = { # More of a "Unification" angle
+				trigger = {
+					OR = {
+						culture = culture:adornaen
+						culture = { any_parent_culture_or_above = { this = culture:adornaen } }
+					}
+				}
+				desc = dunland.1001.desc_adornaen
+			}
+			triggered_desc = { # Mentions Wulf
+				trigger = {
+					game_start_date > 6787.1.1
+				}
+				desc = dunland.1001.desc
+			}
+			desc = dunland.1001.desc_older # Generic Dunlending
+		}
+	}
+	theme = realm
+	override_background = { reference = edoras }
+	left_portrait = {
+		character = scope:restorer
+		animation = personality_honorable
+	}
+	immediate = {
+		hidden_effect = {
+			# Establishes Isengard as the middle kingdom, incorporating several duchies
+			title:d_westmarches = {
+			set_de_jure_liege_title = title:k_isengard
+			}
+			title:d_dathabha = {
+				set_de_jure_liege_title = title:k_isengard
+			}
+			title:d_westfold = {
+				set_de_jure_liege_title = title:k_isengard
+			}
+			title:d_westemnet = {
+				set_de_jure_liege_title = title:k_isengard
+			}
+			title:d_isengard = {
+				set_de_jure_liege_title = title:k_isengard
+			}
+			### Dunlendings spill into Western Rohan
+			#Isengard Dunlendings
+			title:c_isengard = {
+				if = {
+					limit = {
+						culture = { NOT = { has_cultural_pillar = heritage_daen_lintis } }        
+					}
+					set_county_culture = culture:isengard_dunlending
+					set_county_faith = 	scope:restorer.faith
+				}
+			}
+			title:c_gapofrohan = {
+				if = {
+					limit = {
+						culture = { NOT = { has_cultural_pillar = heritage_daen_lintis } }        
+					}
+					set_county_culture = culture:isengard_dunlending
+					set_county_faith = 	scope:restorer.faith
+				}
+			}
+			title:c_grimslade = {
+				if = {
+					limit = {
+						culture = { NOT = { has_cultural_pillar = heritage_daen_lintis } }        
+					}
+					set_county_culture = culture:isengard_dunlending
+					set_county_faith = 	scope:restorer.faith
+				}
+			}
+			title:c_helmsdeep = {
+				if = {
+					limit = {
+						culture = { NOT = { has_cultural_pillar = heritage_daen_lintis } }        
+					}
+					set_county_culture = culture:isengard_dunlending
+					set_county_faith = 	scope:restorer.faith
+				}
+				
+			}
+			# Herd-Folk Dunlendings
+			title:c_westmarches = {
+				set_county_culture = culture:adornaen
+				set_county_faith = 	scope:restorer.faith
+			}
+			title:c_valesoftheadorn = {
+				set_county_culture = culture:adornaen
+				set_county_faith = 	scope:restorer.faith
+			}
+			# Hill Dunlendings
+			title:c_westfold_vale = {
+				if = {
+					limit = {
+						culture = { NOT = { has_cultural_pillar = heritage_daen_lintis } }        
+					}
+					set_county_culture = culture:adornaen
+					set_county_faith = 	scope:restorer.faith
+				}
+			}
+			title:c_westemnet = {
+				if = {
+					limit = {
+						culture = { NOT = { has_cultural_pillar = heritage_daen_lintis } }        
+					}
+					set_county_culture = culture:adornaen
+					set_county_faith = 	scope:restorer.faith
+				}
+			}
+			
+			# Innovations
+			scope:restorer.culture = { 
+				join_era = culture_era_high_medieval
+				get_all_innovations_from = culture:rohirrim
+			}
+			culture:adornaen = { 
+				join_era = culture_era_high_medieval
+				get_all_innovations_from = culture:rohirrim
+			}
+			culture:dunlending = { 
+				join_era = culture_era_high_medieval
+				get_all_innovations_from = culture:rohirrim
+			}
+			culture:isengard_dunlending = {
+				join_era = culture_era_high_medieval
+				get_all_innovations_from = culture:rohirrim
+			}
+			#every_sub_realm_county = {
+			#		limit = {
+			#			culture = { has_cultural_pillar = heritage_eotheod}
+			#			title_province = { geographical_region = special_rohan_t4a_kingdom }
+			#		}
+			#		add_county_modifier = {
+			#			modifier = reclaim_britannia_culture_modifier
+			#			days = 3650
+			#		}
+			#}			
+		}
+			
+		# Restorer character stuff
+		give_nickname = nick_champion_of_dunland
+		add_character_modifier = { modifier = unifier_of_the_dunlendings_character_modifier }
+		
+		# Give the Empire
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:e_dunland = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		if = {
+			limit = {
+				NOT = { has_primary_title = title:e_dunland }
+			}
+			set_primary_title_to = title:e_dunland
+		}
+		
+		custom_tooltip = dunland.1001.tt
+		custom_tooltip = dunland.1001.ttt
+		
+		# Shifts Dunland, Isengard and Rohan into the Empire
+		title:k_isengard = {
+			set_de_jure_liege_title = title:e_dunland
+			change_development_progress = 250
+			custom_tooltip = dunland.1001.tttt
+			change_county_control = 20
+		}
+		title:k_dunland = {
+				set_de_jure_liege_title = title:e_dunland
+				change_development_progress = 100
+		}
+		title:k_rohan = {
+			set_de_jure_liege_title = title:e_dunland
+			change_development_progress = -150
+		}
+	}
+	option = {
+		name = dunland.1001.a
+		trigger_event = dunland.1003
+	}
+}
+
+dunland.1003  = {	### Choose new Capital # Edited version of Castamiri Gondor Event
+	content_source = realms_dlc
+	type = character_event
+	title = dunland.1003.t
+	desc = dunland.1003.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = edoras }
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	option = { ###Isengard
+		name = dunland.1003.a			
+		ai_chance = 70
+		get_title=title:d_isengard
+		get_title=title:c_isengard
+		title:e_dunland = {
+			set_capital_county = title:c_isengard
+		}
+		set_realm_capital = title:c_isengard
+		title:c_isengard = {
+			add_county_modifier = {
+				modifier = dunland_capital_modifier
+				years = 30
+			}
+			change_county_control = 50
+		}	#removed the culture conversion, player can do that via the manual decision
+	}
+	option = { ### Frecalund
+		name = dunland.1003.b
+		ai_chance = 20
+		get_title=title:d_dunlandfells
+		get_title=title:c_frecalund
+		title:e_dunland = {
+			set_capital_county = title:c_frecalund
+		}
+		set_realm_capital = title:c_frecalund
+		title:c_frecalund = {
+			add_county_modifier = {
+				modifier = dunland_capital_modifier
+				years = 30
+			}
+			change_county_control = 50
+		}
+	}
+	option = { ### Kingstead
+		name = dunland.1003.c
+		ai_chance = 10
+		get_title=title:d_thefolde
+		get_title=title:c_kingstead
+		get_title=title:c_westweald
+		get_title=title:c_snowbourn
+		title:e_dunland = {
+			set_capital_county = title:c_kingstead
+		}
+		set_realm_capital = title:c_kingstead
+		title:c_kingstead = {
+			add_county_modifier = {
+				modifier = dunland_capital_modifier
+				years = 30
+			}
+			change_county_control = 50
+		}
+	}
+	
+}
+
+dunland.1004 = {
+	content_source = realms_dlc
+	type = character_event
+	title = dunland.1004.t
+	desc = dunland.1004.desc
+	theme = stewardship_duty_focus
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	option = { 
+		name = dunland.1004.a # Enedwaith is ours.
+		custom_tooltip = dunland.1004.tt
+		
+		
+	}
+}
+
+# Dunlending Lifestyle
+dunland.1005 = {
+	content_source = realms_dlc
+	type = character_event
+	title = dunland.1005.t
+	desc = dunland.1005.desc
+	theme = realm
+	left_portrait = root
+	override_background = { reference = throne_room }
+	
+	trigger = {
+		lotr_gwathuirim_heritage_trigger = yes
+		NOT = {
+			culture = { has_cultural_pillar = heritage_danan_lin }
+			has_character_flag = had_dunlending_lifestyle_event_0010
+			has_trait = impatient
+		}
+	}
+	immediate = {
+		add_character_flag = { flag = had_dunlending_lifestyle_event_0010 }
+	}
+	
+	option = {
+		name = dunland.1005.a
+		trigger = {
+			OR = {
+				has_trait = lifestyle_hunter
+				has_trait = brave
+				has_trait = patient
+				has_trait = paranoid
+			}
+		}
+		add_character_modifier = {
+			modifier = wild_forest_dweller_modifier
+			years = 15
+		}
+		ai_chance = { base = 1 }
+	}
+	option = {
+		name = dunland.1005.b
+		trigger = {
+			OR = {
+				has_trait = cautious_leader
+				has_trait = vengeful
+			}
+		}
+		add_character_modifier = {
+			modifier = wild_first_among_equals_modifier
+			years = 15
+		}
+		ai_chance = { base = 1 }
+	}
+	option = {
+		name = dunland.1005.c
+		trigger = {
+			culture = culture:isengard_dunlending
+			NOT = { has_trait = contrite }
+			OR = {
+				has_trait = brave
+				has_trait = education_intrigue
+				has_trait = education_learning
+			}
+		}
+		add_character_modifier = {
+			modifier = wild_eye_of_isengard_modifier
+			years = 15
+		}
+		ai_chance = { base = 1 }
+	}
+	option = {
+		name = dunland.1005.d
+		trigger = {
+			OR = {
+				has_trait = athletic
+				has_trait = vengeful
+				has_trait = paranoid
+			}
+		}
+		add_character_modifier = {
+			modifier = wild_mountain_savage_modifier
+			years = 15
+		}
+		ai_chance = { base = 1 }
+	}
+	option = {
+		name = dunland.1005.e
+		trigger = {
+			culture = culture:adornaen
+			OR = {
+				has_trait = wrathful
+				has_trait = stubborn
+				has_trait = education_learning
+			}
+		}
+		add_character_modifier = {
+			modifier = wild_dwarf_friend_modifier
+			years = 15
+		}
+		ai_chance = { base = 1 }
+	}
+	option = {
+		name = dunland.1005.f
+		add_character_modifier = {
+			modifier = wild_mist_child_modifier
+			years = 15
+		}
+		ai_chance = { base = 1 }
+	}
+}
+
+### Dunlending Soothsaying ###
+
+dunland.1801 = { # The Omens Speak Ill
+	content_source = realms_dlc
+	type = character_event
+	title = dunland.1801.t
+	desc = dunland.1801.desc
+	theme = learning_theology_focus
+	override_background = { reference = ettenmoors }
+	override_effect_2d = {
+		reference = fog
+	}
+	
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	right_portrait = {
+		character = scope:new_crone
+		animation = holding_staff
+	}
+	
+	immediate = { # Let's generate a nice crone 
+		create_character = { 
+			location = root.location
+			culture = root.culture
+			faith = root.faith
+			gender_female_chance = 100
+			age = 87
+			save_scope_as = new_crone
+			after_creation = {
+				add_trait = lifestyle_mystic
+				add_trait = hunchbacked
+			}
+		}
+	}
+	option = { # Yeah *whatever* old woman. I don't believe you.
+		name = dunland.1801.a 
+		stress_impact = {
+			cynical = medium_stress_impact_loss
+			zealous = medium_stress_impact_gain
+			shy = minor_stress_impact_gain
+			wrathful = minor_stress_impact_loss
+			paranoid = medium_stress_impact_gain
+  		}
+		add_piety = -10 
+		add_dread = minor_dread_gain
+	}
+	
+	option = { # I've got a bad feeling about this.
+		name = dunland.1801.b
+		stress_impact = {
+			cynical = medium_stress_impact_gain
+			zealous = medium_stress_impact_loss
+			compassionate = minor_stress_impact_loss
+			wrathful = minor_stress_impact_gain
+			paranoid = medium_stress_impact_loss
+  		}
+		add_piety = 10 
+		add_prestige = minor_prestige_gain
+	}
+	
+	option = { # Tell me to read the clouds myself
+		name = dunland.1801.c
+		random_list = {
+			25 = { 
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = dunland.1801.c.success
+					right_icon = root
+					add_learning_lifestyle_xp = 250 
+				}
+			}
+			25 = { 
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = dunland.1801.c.success
+					right_icon = root
+					add_learning_skill = 1
+				}
+			}
+			25 = { 
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = dunland.1801.c.success
+					right_icon = root
+					add_learning_lifestyle_perk_points = 1
+				}
+			}
+			25 = { 
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = dunland.1801.c.failure
+					right_icon = root
+					add_prestige = minor_prestige_loss
+				}
+			}
+		}
+	}
+	after = {
+		scope:new_crone = { silent_disappearance_effect = yes } # Poof
+	}
+}
+
+dunland.1802 = { # The Hidden Barrow
+	content_source = realms_dlc
+	type = character_event
+	title = dunland.1802.t
+	desc = dunland.1802.desc
+	theme = learning_theology_focus
+	override_background = { reference = wilderness_mountains }
+	override_effect_2d = {
+		reference = smoke
+	}
+	
+	left_portrait = {
+		character = root
+		animation = personality_callous
+	}
+	right_portrait = {
+		character = scope:new_crone
+		animation = holding_staff
+	}
+	
+	immediate = { # Let's generate a nice crone 
+		create_character = { 
+			location = root.location
+			culture = root.culture
+			faith = root.faith
+			gender_female_chance = 100
+			age = 86
+			save_scope_as = new_crone
+			after_creation = {
+				add_trait = lifestyle_mystic
+				add_trait = hunchbacked
+			}
+		}
+	}
+	option = { # Take the barrow's boon
+		name = dunland.1802.a 
+		add_gold = medium_gold_value
+		add_prestige = minor_prestige_gain
+		stress_impact = {
+			base = minor_stress_impact_gain
+			zealous = medium_stress_impact_gain
+			greedy = minor_stress_impact_loss
+		}
+	}
+	
+	option = { # Leave an offering
+		name = dunland.1802.b
+		stress_impact = {
+			greedy = minor_stress_impact_gain
+			zealous = medium_stress_impact_loss
+  		}
+		add_piety = medium_piety_gain 
+		add_prestige = minor_prestige_gain
+	}
+	
+	option = { # Study the tomb
+		name = dunland.1802.c
+		trigger = { NOT = { has_trait = shrewd } } 
+		random_list = {
+			95 = {}
+			5 = { add_trait = shrewd }
+		}
+	}
+	after = {
+		scope:new_crone = { silent_disappearance_effect = yes } # Poof
+	}
+}
+
+dunland.1803 = { # Voices in the Dark
+	content_source = realms_dlc
+	type = character_event
+	title = dunland.1803.t
+	desc = dunland.1803.desc
+	theme = learning_theology_focus
+	override_background = { reference = ep3_campfire }
+	override_effect_2d = {
+		reference = flies
+	}
+	
+	left_portrait = {
+		character = root
+		animation = paranoia
+	}
+	right_portrait = {
+		character = scope:new_crone
+		animation = holding_staff
+	}
+	
+	immediate = { # Let's generate a nice crone 
+		create_character = { 
+			location = root.location
+			culture = root.culture
+			faith = root.faith
+			gender_female_chance = 100
+			age = 89
+			save_scope_as = new_crone
+			after_creation = {
+				add_trait = lifestyle_mystic
+				add_trait = hunchbacked
+			}
+		}
+	}
+	option = { # Best get out of here
+		name = dunland.1803.a 
+		add_prestige = minor_prestige_loss
+		add_piety = minor_piety_loss
+		stress_impact = {
+			base = minor_stress_impact_loss
+			zealous = medium_stress_impact_gain
+			cynical = medium_stress_impact_loss
+			craven = major_stress_impact_loss
+			brave = medium_stress_impact_gain
+		}
+	}
+	
+	option = { # Stand to face them
+		name = dunland.1803.b
+		stress_impact = {
+			craven = minor_stress_impact_gain
+			zealous = medium_stress_impact_loss
+			brave = medium_stress_impact_loss
+  		}
+		add_piety = medium_piety_gain 
+		add_prestige = medium_prestige_gain
+	}
+	
+	option = { # This must be an elaborate trick.
+		name = dunland.1803.c
+		trigger = { NOT = { has_trait = lunatic_1 } }
+		random_list = {
+			20 = { 
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = dunland.1803.c.success
+					right_icon = root
+					add_intrigue_lifestyle_xp = 250 
+				}
+			}
+			20 = { 
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = dunland.1803.c.success
+					right_icon = root
+					add_intrigue_skill = 1
+				}
+			}
+			20 = { 
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = dunland.1803.c.success
+					right_icon = root
+					add_intrigue_lifestyle_perk_points = 1
+				}
+			}
+			20 = { 
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = dunland.1803.c.failure
+					right_icon = root
+					add_trait = lunatic_1
+				}
+			}
+			20 = { 
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = dunland.1803.c.failure
+					right_icon = root
+					add_prestige = medium_prestige_loss
+				}
+			}
+		}
+	}
+	after = {
+		scope:new_crone = { silent_disappearance_effect = yes } # Poof
+	}
+}
+
+dunland.1804 = { # The Crow on the Cairn
+	content_source = realms_dlc
+	type = character_event
+	title = dunland.1804.t
+	desc = dunland.1804.desc
+	theme = learning_theology_focus
+	override_background = { reference = fp1_runestone }
+	override_effect_2d = {
+		reference = fog
+	}
+	
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+	right_portrait = {
+		character = scope:new_crone
+		animation = holding_staff
+	}
+	
+	immediate = { # Let's generate a nice crone 
+		create_character = { 
+			location = root.location
+			culture = root.culture
+			faith = root.faith
+			gender_female_chance = 100
+			age = 90
+			save_scope_as = new_crone
+			after_creation = {
+				add_trait = lifestyle_mystic
+				add_trait = hunchbacked
+			}
+		}
+	}
+	option = { # An omen of victory for sure
+		name = dunland.1804.a 
+		random_list = {
+			20 = { 
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = dunland.1804.a.success
+					right_icon = root
+					add_martial_lifestyle_xp = 250 
+				}
+			}
+			20 = { 
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = dunland.1804.a.success
+					right_icon = root
+					add_martial_skill = 1
+				}
+			}
+			20 = { 
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = dunland.1804.a.success
+					right_icon = root
+					add_martial_lifestyle_perk_points = 1
+				}
+			}
+			40 = { 
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = dunland.1804.a.failure
+					right_icon = root
+					add_prestige = medium_prestige_loss
+				}
+			}
+		}
+	}
+	
+	option = { # This cannot be good, I must be careful.
+		name = dunland.1804.b
+		stress_impact = {
+			craven = minor_stress_impact_loss
+			brave = medium_stress_impact_gain
+  		}
+		add_piety = medium_piety_gain 
+		add_character_modifier = {
+			modifier = intrigue_modifier
+			years = 5
+		}
+	}
+	
+	option = { # It's _just_ a bird.
+		name = dunland.1804.c
+		add_piety = minor_piety_loss
+		stress_impact = {
+			cynical = minor_stress_impact_loss
+			zealous = medium_stress_impact_gain
+  		}
+		random = {
+			chance = 15
+			add_trait = strong 
+		}
+	}
+	after = {
+		scope:new_crone = { silent_disappearance_effect = yes } # Poof
+	}
+}
+
+
+dunland.1805 = { # No-one to be found
+	content_source = realms_dlc
+	type = character_event
+	title = dunland.1805.t
+	desc = dunland.1805.desc
+	theme = learning_theology_focus
+	override_background = { reference = ettenmoors }
+	override_effect_2d = {
+		reference = smoke
+	}
+	
+	left_portrait = {
+		character = root
+		animation = survey
+	}
+	
+	option = { # What a disappointment
+		name = dunland.1805.a 
+	}
+}
+
+dunland.1806 = { # Friendly crone gives you a boon
+	content_source = realms_dlc
+	type = character_event
+	title = dunland.1806.t
+	desc = dunland.1806.desc
+	theme = learning_theology_focus
+	override_background = { reference = ep3_campfire }
+	override_effect_2d = {
+		reference = legend_glow
+	}
+	
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = scope:new_crone
+		animation = holding_staff
+	}
+	
+	immediate = { # Let's generate a nice crone 
+		create_character = { 
+			location = root.location
+			culture = root.culture
+			faith = root.faith
+			gender_female_chance = 100
+			age = 91
+			save_scope_as = new_crone
+			after_creation = {
+				add_trait = lifestyle_mystic
+				add_trait = hunchbacked
+			}
+		}
+	}
+	
+	option = { # That's amazing
+		name = dunland.1806.a 
+		add_gold = 200
+		add_character_modifier = {
+			modifier = ate_good_meal
+			years = 2
+		}
+		add_character_modifier = {
+			modifier = ep3_fireside_chat_martial
+			years = 2
+		}
+		add_character_modifier = {
+			modifier = ep3_fireside_chat_stewardship
+			years = 2
+		}
+	}
+	
+	after = {
+		scope:new_crone = { silent_disappearance_effect = yes } # Poof
+	}
+}
+
+dunland.1807 = { # Crone offers you a courtier
+	content_source = realms_dlc
+	type = character_event
+	title = dunland.1807.t
+	desc = dunland.1807.desc
+	theme = learning_theology_focus
+	override_background = { reference = wilderness_mountains }
+	override_effect_2d = {
+		reference = fog
+	}
+	
+	left_portrait = {
+		character = root
+		animation = pondering
+	}
+	right_portrait = {
+		character = scope:new_crone
+		animation = holding_staff
+	}
+	lower_right_portrait = {
+		character = scope:crone_apprentice
+	}
+	
+	immediate = { # Let's generate a nice crone 
+		create_character = { 
+			location = root.location
+			culture = root.culture
+			faith = root.faith
+			gender_female_chance = 100
+			age = 84
+			save_scope_as = new_crone
+			after_creation = {
+				add_trait = lifestyle_mystic
+				add_trait = hunchbacked
+			}
+		}
+		create_character = { 
+			location = root.location
+			culture = root.culture
+			faith = root.faith
+			gender_female_chance = 100
+			age = 20
+			save_scope_as = crone_apprentice
+			after_creation = {
+				add_trait = lifestyle_mystic
+				add_trait = beauty_good_1
+				add_trait = shrewd
+			}
+		}
+		random = {
+			chance = 5
+			scope:crone_apprentice = { add_trait = sorcerer_1 }
+		}
+	}
+	
+	option = { # I'll take her
+		name = dunland.1807.a 
+		add_courtier = scope:crone_apprentice
+	}
+	
+	option = { # Nah keep her
+		name = dunland.1807.b
+		add_prestige = minor_prestige_gain
+		add_piety = minor_piety_gain
+		hidden_effect = {
+			scope:crone_apprentice = { silent_disappearance_effect = yes }
+		}
+	}
+	
+	after = {
+		scope:new_crone = { silent_disappearance_effect = yes } # Poof
+	}
+}
+
+
+
+dunland.1808 = { # Éira Bloodspear special
+	content_source = realms_dlc
+	type = character_event
+	title = dunland.1808.t
+	desc = dunland.1808.desc
+	theme = learning_theology_focus
+	override_background = { reference = ettenmoors }
+	override_effect_2d = {
+		reference = smoke
+	}
+	
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+	right_portrait = {
+		character = scope:new_crone
+		animation = holding_staff
+	}
+	
+	trigger = { # Has to be Éira
+		has_character_flag = eira_first_steps_taken
+		NOT = { has_character_flag = had_eira_crone_event } # Once per lifetime
+	}
+	
+	immediate = { # Let's generate a nice crone 
+		create_character = { 
+			location = root.location
+			culture = root.culture
+			faith = root.faith
+			name = Mor_rioghan #Mór-ríoghan
+			gender_female_chance = 100
+			age = 92
+			save_scope_as = new_crone
+			after_creation = {
+				add_trait = lifestyle_mystic
+				add_trait = hunchbacked
+			}
+		}
+		add_character_flag = had_eira_crone_event
+	}
+	
+	option = { # Thank you for your wisdom, mother
+		name = dunland.1808.a 
+		add_character_modifier = eira_crone_modifier
+		add_gold = 250
+		add_prestige = medium_prestige_gain
+		add_dread = minor_dread_gain
+	}
+	
+	after = {
+		scope:new_crone = { silent_disappearance_effect = yes } # Poof
+	}
+}

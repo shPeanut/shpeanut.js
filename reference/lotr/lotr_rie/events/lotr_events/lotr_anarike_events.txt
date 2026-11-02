@@ -1,0 +1,590 @@
+﻿namespace = anarike
+
+### Anarike Events ###
+# anarike.0050 - 0099		Decision Events 
+# anarike.1000 - 1050		Anarike ROA Events #includes Azulzir's travels!
+
+### The Bay Entrance Alliance Events ###
+
+anarike.0050 = { # Rebuild the Lynerian League
+	content_source = realms_dlc
+	type = character_event
+	title = anarike.0050.t
+	desc = anarike.0050.desc
+	theme = diplomacy
+	
+	left_portrait = {
+		character = root
+		animation = writing
+	}
+	
+	right_portrait = {
+		character = scope:lyneriaholder
+		animation = personality_honorable
+	}
+	lower_left_portrait = {
+		character = scope:twincitiesholder
+	}
+	lower_center_portrait = {
+		character = scope:nymaraholder
+	}
+	lower_right_portrait = {
+		character = scope:murnakholder
+	}
+	immediate = {
+		title:c_lyneria.holder = { save_scope_as = lyneriaholder }
+		title:c_pelorna.holder = { save_scope_as = twincitiesholder }
+		title:c_nymara.holder = { save_scope_as = nymaraholder }
+		title:c_murnak.holder = { save_scope_as = murnakholder }
+		title:c_lynhar.holder = { save_scope_as = lynharholder }
+		title:c_lyneria.holder.confederation = {
+			every_confederation_member = {
+				add_to_list = league_memebers
+			}
+		}
+	}
+	option = { # Choose the ruler of Lyneria
+		name = anarike.0050.a
+		custom_tooltip = anarike.0050.a.tt
+		title:c_lyneria.holder.confederation = {
+			every_confederation_member = {
+				limit = { NOT = { has_title = title:c_lyneria  } }
+				add_to_list = lynerian_fealty_lords
+			}
+		}
+		title:c_lyneria.holder = { 
+			get_title = title:k_lyneria
+		}
+	}	
+	option = { # Choose the ruler of the Twin Cities
+		name = anarike.0050.b
+		trigger = {
+			title:c_pelorna.holder.confederation = {
+				any_confederation_member = {
+					this = title:c_lyneria.holder
+				}
+			}
+		}
+		custom_tooltip = anarike.0050.b.tt
+		title:c_pelorna.holder.confederation = {
+			every_confederation_member = {
+				limit = { NOT = { has_title = title:c_pelorna  } }
+				add_to_list = lynerian_fealty_lords
+			}
+		}
+		title:c_pelorna.holder = { 
+			get_title = title:k_lyneria
+		}
+	}
+	option = { # Choose the ruler of Nymara
+		name = anarike.0050.c
+		trigger = {
+			title:c_nymara.holder.confederation = {
+				any_confederation_member = {
+					this = title:c_lyneria.holder
+				}
+			}
+		}
+		custom_tooltip = anarike.0050.c.tt
+		title:c_nymara.holder.confederation = {
+			every_confederation_member = {
+				limit = { NOT = { has_title = title:c_nymara  } }
+				add_to_list = lynerian_fealty_lords
+			}
+		}
+		title:c_nymara.holder = { 
+			get_title = title:k_lyneria
+		}
+	}
+	option = { # Choose the ruler of Muraakan
+		name = anarike.0050.d
+		trigger = {
+			title:c_murnak.holder.confederation = {
+				any_confederation_member = {
+					this = title:c_lyneria.holder
+				}
+			}
+		}
+		custom_tooltip = anarike.0050.d.tt
+		title:c_murnak.holder.confederation = {
+			every_confederation_member = {
+				limit = { NOT = { has_title = title:c_murnak  } }
+				add_to_list = lynerian_fealty_lords
+			}
+		}
+		title:c_murnak.holder = { 
+			get_title = title:k_lyneria
+		}
+	}
+	option = { # Choose the ruler of Lynhar 
+		name = anarike.0050.e 
+		trigger = {
+			title:c_lynhar.holder.confederation = {
+				any_confederation_member = {
+					this = title:c_lyneria.holder
+				}
+			}
+		}
+		custom_tooltip = anarike.0050.e.tt
+		title:c_lynhar.holder.confederation = {
+			every_confederation_member = {
+				limit = { NOT = { has_title = title:c_lynhar  } }
+				add_to_list = lynerian_fealty_lords
+			}
+		}
+		title:c_lynhar.holder = { 
+			get_title = title:k_lyneria
+		}
+	}
+	after = { # 
+		title:k_lyneria = {
+			set_title_name = k_lyneria_lynerian_league_name
+			set_definitive_form = yes
+			add_title_law = confederation_elective_succession_law
+			create_title_and_vassal_change = {
+				type = swear_fealty
+				save_scope_as = change
+				add_claim_on_loss = yes
+			}
+			every_in_list = {
+				list = lynerian_fealty_lords
+				change_liege = {
+					liege = title:k_lyneria.holder
+					change = scope:change
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+		
+		every_in_list = {
+			list = lynerian_fealty_lords
+			trigger_event = lyneria.0002
+		}
+		
+		title:k_lyneria.holder = {
+			trigger_event = lyneria.1003
+		}
+		
+		trigger_event = anarike.0051
+	}
+}
+
+anarike.0051 = { # Forging the Bay Entrance Alliance
+	content_source = realms_dlc
+	type = character_event
+	title = anarike.0051.t
+	desc = anarike.0051.desc
+	theme = diplomacy_foreign_affairs_focus
+	#override_background = throne_room
+	
+	left_portrait = {
+		character = root
+		animation = personality_compassionate
+	}
+	
+	right_portrait = {
+		character = scope:chosen_league_lord
+		animation = obsequious_bow
+	}
+	
+	immediate = {
+		title:k_lyneria.holder = { save_scope_as = chosen_league_lord }
+		add_prestige = major_prestige_gain
+	}
+	
+	option = { # Our alliance will prosper
+		name = anarike.0051.a 
+		custom_tooltip = anarike.0051.a.tt
+		create_alliance = {
+			target = scope:chosen_league_lord
+			allied_through_owner = root
+			allied_through_target = scope:chosen_league_lord
+		}
+		scope:chosen_league_lord = {
+			add_opinion = {
+				target = root
+				modifier = event_negotiated_alliance_opinion
+			}
+			spawn_army = {
+				name = event_troop_default_name
+				levies = 1000
+				men_at_arms = {
+					type = bowmen
+					stacks = 4
+				}
+				men_at_arms = {
+					type = ballistrai
+					stacks = 2
+				}
+				men_at_arms = {
+					type = light_footmen
+					stacks = 3
+				}
+				location = scope:chosen_league_lord.location
+				origin = scope:chosen_league_lord.location
+			}
+		}
+	}
+}
+
+anarike.0052 = { # Create the Ormal Empire
+	content_source = realms_dlc
+	type = character_event
+	title = anarike.0052.t
+	desc = anarike.0052.desc
+	theme = crown
+	#override_background = throne_room
+	
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+
+	immediate = {
+		show_as_tooltip = {
+			add_legitimacy = major_legitimacy_gain
+			root.primary_title = {
+				add_to_list = titles_to_shift
+			}
+			create_title_and_vassal_change = {
+				type = created
+				save_scope_as = title_change
+				add_claim_on_loss = yes
+			}
+			title:e_ormal_bay = {
+				change_title_holder = {
+					holder = root
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+			set_primary_title_to = title:e_ormal_bay
+			title:e_ormal_bay = {
+				set_capital_county = root.capital_county
+			}
+			
+			root.dynasty = {
+				add_dynasty_prestige = 500
+			}
+			every_in_list = {
+				list = titles_to_shift 
+				set_de_jure_liege_title = title:e_ormal_bay
+			}
+		}
+	}
+	
+	option = { # Awesome, we did it boys 
+		name = anarike.0052.a 
+		add_prestige = medium_prestige_gain 
+	}
+}
+
+##############################
+### Anarike Rise of Angmar ###
+##############################
+
+anarike.1001 = {
+	type = character_event
+	title = anarike.1001.t
+	desc = anarike.1001.desc
+	window = big_event_window
+	theme = realm
+	override_background = { reference = docks_adunai }
+ 
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	lower_center_portrait = {
+		character = scope:second_wife
+		animation = personality_content
+	}
+ 
+	trigger = {
+		is_alive = yes
+	}
+ 
+	immediate = {
+		character:lineofbalakhorin2 = { save_scope_as = first_son }
+		character:lineofbalakhorin3 = { save_scope_as = second_son }
+		character:lineofbalakhorin1wife = { save_scope_as = first_wife }
+		character:lineofbalakhorin1wife1 = { save_scope_as = second_wife }
+	}
+ 
+	option = { # I have been blessed beyond measure.
+		name = anarike.1001.a
+		add_piety = 100
+		stress_impact = {
+			base = major_stress_impact_loss
+		}
+		trigger_event = {
+			id = anarike.1002
+			days = { 7 14 }
+		}
+	}
+	option = { # What more could any man ask for, than peace?
+		name = anarike.1001.b
+		add_prestige = 100
+		stress_impact = {
+			base = major_stress_impact_loss
+		}
+		trigger_event = {
+			id = anarike.1002
+			days = { 7 14 }
+		}
+	}
+	option = { # And yet... my sons weigh upon me still.
+		name = anarike.1001.c
+		custom_tooltip = anarike.1001.c.tt
+		stress_impact = {
+			base = minor_stress_impact_gain
+		}
+		trigger_event = {
+			id = anarike.1002
+			days = { 7 14 }
+		}
+	}
+}
+ 
+ 
+# Event 2: Two Sons of Anarikê
+# The king observes both heirs from the high gallery.
+anarike.1002 = {
+	type = character_event
+	#window = big_event_window
+	title = anarike.1002.t
+	desc = anarike.1002.desc
+	theme = crown
+ 
+	left_portrait = {
+		character = scope:first_son
+		animation = aggressive_sword
+	}
+	right_portrait = {
+		character = scope:second_son
+		animation = personality_rational
+	}
+	lower_center_portrait = {
+		character = root
+		animation = personality_content
+	}
+ 
+	trigger = {
+		is_alive = yes
+	}
+ 
+	immediate = {
+		character:lineofbalakhorin2 = { save_scope_as = first_son }
+		character:lineofbalakhorin3 = { save_scope_as = second_son }
+		character:lineofbalakhorin1wife = { save_scope_as = first_wife }
+		character:lineofbalakhorin1wife1 = { save_scope_as = second_wife }
+	}
+ 
+	option = { # The elder should reign.
+		name = anarike.1002.a
+		custom_tooltip = anarike.1002.a.tt
+		add_character_flag = anarike_lean_traditionalist
+		trigger_event = {
+			id = anarike.1003
+			days = { 30 60 }
+		}
+	}
+	option = { # The younger sees the world as it is.
+		name = anarike.1002.b
+		custom_tooltip = anarike.1002.b.tt
+		add_character_flag = anarike_lean_reformer
+		trigger_event = {
+			id = anarike.1003
+			days = { 30 60 }
+		}
+	}
+	option = { # The Sâibêth must be heard.
+		name = anarike.1002.c
+		custom_tooltip = anarike.1002.c.tt
+		trigger_event = {
+			id = anarike.1003
+			days = { 30 60 }
+		}
+	}
+}
+ 
+ 
+# Event 3: The Sâibêth ’nAzrubârî Convenes
+# The High Council assembles to hear the king's last will.
+anarike.1003 = {
+	type = character_event
+	title = anarike.1003.t
+	desc = anarike.1003.desc
+	theme = crown
+ 
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	right_portrait = {
+		character = scope:first_son
+		animation = personality_bold
+	}
+	lower_left_portrait = {
+		character = scope:second_son
+		animation = personality_rational
+	}
+ 
+	trigger = {
+		is_alive = yes
+	}
+ 
+	immediate = {
+		character:lineofbalakhorin2 = { save_scope_as = first_son }
+		character:lineofbalakhorin3 = { save_scope_as = second_son }
+		character:lineofbalakhorin1wife = { save_scope_as = first_wife }
+		character:lineofbalakhorin1wife1 = { save_scope_as = second_wife }
+	}
+ 
+	option = { # Elder son shall reign.
+		name = anarike.1003.a
+		custom_tooltip = anarike.1003.a.tt
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				has_character_flag = anarike_lean_traditionalist
+			}
+			modifier = {
+				add = -25
+				has_character_flag = anarike_lean_reformer
+			}
+		}
+		# hidden_effect = {
+		# 	scope:first_son = {
+		# 		# NOTE: Define this character modifier in your common/modifiers
+		# 		# (e.g. legitimacy gain, monthly prestige, or +good_warrior opinion).
+		# 		add_character_modifier = {
+		# 			modifier = anarike_fathers_chosen_modifier
+		# 			years = 25
+		# 		}
+		# 	}
+		# 	scope:second_son = {
+		# 		add_opinion = {
+		# 			modifier = passed_over_opinion
+		# 			opinion = -10
+		# 			target = scope:first_son
+		# 		}
+		# 	}
+		# }
+		trigger_event = {
+			id = anarike.1004
+			days = { 365 730 }
+		}
+	}
+	option = { # Younger son shall reign.
+		name = anarike.1003.b
+		custom_tooltip = anarike.1003.b.tt
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				has_character_flag = anarike_lean_reformer
+			}
+			modifier = {
+				add = -25
+				has_character_flag = anarike_lean_traditionalist
+			}
+		}
+		# add_character_flag = anarike_heir_designated_reformer
+		# hidden_effect = {
+		# 	scope:second_son = {
+		# 		# NOTE: Define this character modifier in your common/modifiers
+		# 		# (e.g. diplomacy, scheme power vs. Khy, accept-treaty bonuses).
+		# 		add_character_modifier = {
+		# 			modifier = anarike_mandate_of_reconciliation_modifier
+		# 			years = 25
+		# 		}
+		# 	}
+		# 	scope:first_son = {
+		# 		add_opinion = {
+		# 			modifier = passed_over_opinion
+		# 			opinion = -15
+		# 			target = scope:second_son
+		# 		}
+		# 	}
+		# }
+		trigger_event = {
+			id = anarike.1004
+			days = { 365 730 }
+		}
+	}
+	option = { # Joint rule.
+		name = anarike.1003.c
+		custom_tooltip = anarike.1003.c.tt
+		ai_chance = { base = 25 }
+		#add_character_flag = anarike_heir_designated_joint_rule
+		hidden_effect = {
+			# scope:first_son = {
+			# 	add_character_modifier = {
+			# 		modifier = anarike_fathers_chosen_modifier
+			# 		years = 25
+			# 	}
+			# }
+		}
+		trigger_event = {
+			id = anarike.1004
+			days = { 365 730 }
+		}
+	}
+	option = { # Let the Council choose, when I am gone.
+		name = anarike.1003.d
+		custom_tooltip = anarike.1003.d.tt
+		ai_chance = { base = 25 }
+		# add_character_flag = anarike_heir_designated_council_choice
+		trigger_event = {
+			id = anarike.1004
+			days = { 365 730 }
+		}
+	}
+}
+ 
+ 
+# Event 4: Beyond the Sundering Seas
+# The king's death. His sons and second wife are at his bedside.
+anarike.1004 = {
+	type = character_event
+	title = anarike.1004.t
+	desc = anarike.1004.desc
+	theme = crown
+ 
+	left_portrait = {
+		character = scope:first_son
+		animation = sad
+	}
+	right_portrait = {
+		character = scope:second_son
+		animation = sad
+	}
+	lower_left_portrait = {
+		character = scope:second_wife
+		animation = sad
+	}
+	lower_center_portrait = {
+		character = root
+		animation = sad
+	}
+ 
+	trigger = {
+		is_alive = yes
+	}
+ 
+	immediate = {
+		character:lineofbalakhorin2 = { save_scope_as = first_son }
+		character:lineofbalakhorin3 = { save_scope_as = second_son }
+		character:lineofbalakhorin1wife = { save_scope_as = first_wife }
+		character:lineofbalakhorin1wife1 = { save_scope_as = second_wife }
+	}
+ 
+	option = { # (A king has died. Long live the king.)
+		name = anarike.1004.a
+		death = {
+			death_reason = death_old_age
+		}
+	}
+}

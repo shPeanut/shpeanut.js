@@ -1,0 +1,237 @@
+﻿knight_errant_character = {
+	age = { 18 32 }
+	dynasty = none
+	random_traits = no
+	culture = root.location.culture
+	faith = root.location.faith
+	random_traits_list = {
+		count = 1
+		education_martial_2 = {}
+		education_martial_3 = {}
+		education_martial_4 = {}
+	}
+	random_traits_list = {
+		count = 1
+		brave = {}
+		just = {}
+		gallant = {}
+	}
+	random_traits_list = {
+		count = 1
+		lustful = {}
+		chaste = {}
+		wrathful = {}
+		arrogant = {}
+		impatient = {}
+		ambitious = {}
+		stubborn = {}
+		beauty_good_1 = {}
+	}
+	martial = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	prowess = { 8 12 }
+	gender_female_chance = root_soldier_female_chance
+	after_creation = {
+		if = {
+			limit = { has_dlc_feature = tours_and_tournaments }
+			add_trait = tourney_participant
+			add_random_tourney_participant_level_effect = yes
+		}
+		if = { #LotR
+			limit = { is_wastelands = yes }
+			lotr_character_template_wilderness_effect = yes
+		}
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MAX = middle_age
+			MIN = majority_age
+		}
+	}
+}
+
+knight = {
+	age = { 18 32 }
+	dynasty = none
+	random_traits = yes
+#	culture = root.culture
+	random_culture = {
+		root.culture = {
+			trigger = {
+				root_culture_allowed = yes
+			}
+		}
+		root.capital_county.culture = {
+			trigger = {
+				capital_culture_trigger = yes
+			}
+		}
+		culture:isengard_dunlending = {
+			trigger = {
+				isengard_dunlending_trigger = yes
+			}
+		}
+		culture:isengard_urukhai = {
+			trigger = {
+				isengard_urukhai_trigger = yes
+			}
+		}
+		culture:morlughai = {
+			trigger = {
+				morlughai_trigger = yes
+			}
+		}
+		culture:black_numenorean = {
+			trigger = {
+				black_numenorean_trigger = yes
+			}
+		}
+	}
+	faith = root.faith
+	random_traits_list = {
+		count = 1
+		education_martial_2 = {}
+		education_martial_3 = {}
+		education_martial_4 = {}
+	}
+	random_traits_list = {
+		count = 1
+		brave = {}
+		just = {}
+		gallant = {}
+		honest = {}
+		gregarious = {}
+		generous = {}
+		diligent = {}
+		wrathful = {}
+	}
+	random_traits_list = {
+		count = 1
+		lustful = {}
+		chaste = {}
+		wrathful = {}
+		arrogant = {}
+		impatient = {}
+		deceitful = {}
+		ambitious = {}
+		stubborn = {}
+		fickle = {}
+		beauty_good_1 = {}
+	}
+	martial = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	prowess = { 8 12 }
+	gender_female_chance = root_soldier_female_chance
+	after_creation = {
+		if = { #LotR
+			limit = { is_wastelands = yes }
+			lotr_character_template_wilderness_effect = yes
+		}
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MAX = middle_age
+			MIN = majority_age
+		}
+	}
+}
+
+wandering_knight_character = {
+	age = { 18 35 }
+	dynasty = none
+	random_traits_list = {
+		count = 1
+		education_martial_2 = {}
+		education_martial_3 = {}
+	}
+	random_traits_list = {
+		count = 1
+		brave = {}
+		just = {}
+	}
+	random_traits_list = { #Something nice
+		count = 1
+		honest = {}
+		gregarious = {}
+		trusting = {}
+		compassionate = {}
+		generous = {}
+		humble = {}
+		calm = {}
+	}
+	random_traits_list = {
+		count = 1
+		lustful = {}
+		chaste = {}
+		arrogant = {}
+		impatient = {}
+		patient = {}
+		ambitious = {}
+		cynical = {}
+		zealous = {}
+		stubborn = {}
+	}
+	random_traits = no
+	faith = root.faith
+#	culture = root.culture
+	random_culture = {
+		root.culture = {
+			trigger = {
+				root_culture_allowed = yes
+			}
+		}
+		root.capital_county.culture = {
+			trigger = {
+				capital_culture_trigger = yes
+			}
+		}
+		culture:isengard_dunlending = {
+			trigger = {
+				isengard_dunlending_trigger = yes
+			}
+		}
+		culture:isengard_urukhai = {
+			trigger = {
+				isengard_urukhai_trigger = yes
+			}
+		}
+		culture:morlughai = {
+			trigger = {
+				morlughai_trigger = yes
+			}
+		}
+		culture:black_numenorean = {
+			trigger = {
+				black_numenorean_trigger = yes
+			}
+		}
+	}
+	martial = {
+		min_template_low_skill
+		max_template_low_skill
+	}
+	prowess = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	diplomacy = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	gender_female_chance = root_soldier_female_chance
+	after_creation = {
+		if = {
+			limit = { has_dlc_feature = tours_and_tournaments }
+			add_trait = tourney_participant
+			add_random_tourney_participant_level_effect = yes
+		}
+		if = { #LotR
+			limit = { is_wastelands = yes }
+			lotr_character_template_wilderness_effect = yes
+		}
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MAX = middle_age
+			MIN = majority_age
+		}
+	}
+}

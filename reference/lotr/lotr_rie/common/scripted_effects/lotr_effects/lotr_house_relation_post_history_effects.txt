@@ -1,0 +1,855 @@
+﻿lotr_apply_posthistory_house_relations_effect = {
+	if = {
+		limit = { game_start_date >= 2.1.1 }
+		dynasty:dynasty_durin.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_uri.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dwalin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_sindri.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thulin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thrar.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_bavor.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+		dynasty:dynasty_uri.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dwalin.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_sindri.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thulin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thrar.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_bavor.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = house:house_finarfin
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+		dynasty:dynasty_dwalin.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_sindri.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thulin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thrar.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_bavor.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_elwe.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+		dynasty:dynasty_sindri.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thulin.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thrar.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_bavor.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_nurwe.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+		dynasty:dynasty_thrar.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thulin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+		dynasty:dynasty_bavor.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thulin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thrar.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 2.8.9 }
+		dynasty:dynasty_sindri.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thulin.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thrar.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_bavor.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 400.1.1 }
+		house:house_feanor ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_uri.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dwalin.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 504.5.4 }
+		dynasty:dynasty_uri.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_durin.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dwalin.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_sindri.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thulin.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thrar.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_bavor.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_elwe.dynasty_founder.house
+				REASON = historical
+				LEVEL = rivalry
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 587.1.1 }
+		dynasty:dynasty_dwalin.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_durin.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 588.4.22 }
+		house:house_orodreth ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dwalin.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_uri.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+		dynasty:dynasty_nowe.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dwalin.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_uri.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 588.4.22 }
+		dynasty:dynasty_bavor.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thrar.dynasty_founder.house
+				REASON = historical
+				LEVEL = amity
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 1299.4.29 }
+		dynasty:dynasty_durin.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = house:house_feanor
+				REASON = historical
+				LEVEL = friendly
+			}
+			set_house_relation_level_effect = {
+				HOUSE = house:house_elrond
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = house:house_finarfin
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 2662.1.10 }
+		dynasty:dynasty_sindri.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thulin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thrar.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_bavor.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 3479.6.21 }
+		dynasty:dynasty_bavor.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thrar.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 3904.4.3 }
+		dynasty:dynasty_uri.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_durin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dwalin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_sindri.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thulin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thrar.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_bavor.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_elwe.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 3912.1.1 }
+		house:house_isildur ?= {
+			set_house_relation_level_effect = {
+				HOUSE = house:house_elrond
+				REASON = historical
+				LEVEL = amity
+			}
+		}
+		dynasty:dynasty_elendil.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_durin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_uri.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dwalin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = house:house_elrond
+				REASON = historical
+				LEVEL = amity
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 4033.1.1 }
+		dynasty:dynasty_sindri.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_durin.dynasty_founder.house
+				REASON = historical
+				LEVEL = quarrel
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_uri.dynasty_founder.house
+				REASON = historical
+				LEVEL = quarrel
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dwalin.dynasty_founder.house
+				REASON = historical
+				LEVEL = quarrel
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thulin.dynasty_founder.house
+				REASON = historical
+				LEVEL = quarrel
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thrar.dynasty_founder.house
+				REASON = historical
+				LEVEL = quarrel
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_bavor.dynasty_founder.house
+				REASON = historical
+				LEVEL = quarrel
+			}
+		}
+		dynasty:dynasty_durin.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_oropher.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_amdir.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 4339.10.11 }
+		dynasty:dynasty_sindri.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_durin.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_uri.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dwalin.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thulin.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_bavor.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thrar.dynasty_founder.house
+				REASON = historical
+				LEVEL = neutral
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 4947.7.19 }
+		dynasty:dynasty_uri.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_durin.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dwalin.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 5382.5.1 }
+		dynasty:dynasty_anarion.dynasty_founder.house ?= {
+			set_house_relation_level_effect = { # Growing tensions between the houses of Anarion and Calimehtar
+				HOUSE = house:house_castamir
+				REASON = historical
+				LEVEL = quarrel
+			}
+			set_house_relation_level_effect = { # Marriage of Eldacar and Macamire
+				HOUSE = house:house_roquendilin
+				REASON = historical
+				LEVEL = friendly
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_rhovanion.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_haldirionath.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dol_amroth.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = house:house_edhelion
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+		house:house_castamir ?= {
+			set_house_relation_level_effect = { # Growing power of Roquendil causes tensions with the Calimehtar
+				HOUSE = house:house_roquendilin
+				REASON = historical
+				LEVEL = quarrel
+			}
+			set_house_relation_level_effect = { # Generally allies in the Southern fiefs of Gondor
+				HOUSE = house:house_ciryaher
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = { # Business dealings between the Calimehtar and the Artari
+				HOUSE = house:house_artari
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = { # Powerful Lords of Umbar. Marriage of Castamir and Tiriel
+				HOUSE = dynasty:dynasty_telemnarion.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_gaerrandirath.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+		house:house_roquendilin ?= { # Betrohal between the houses of Roquendil and Orontur
+			set_house_relation_level_effect = {
+				HOUSE = house:house_orontur
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = { # Powerful vassals of the Roquendil
+				HOUSE = dynasty:dynasty_handirionath.dynasty_founder.house
+				REASON = historical
+				LEVEL = amity
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_eremirionath.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_sommorionath.dynasty_founder.house
+				REASON = historical
+				LEVEL = amity
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_duilinionath.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_astandilionath.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_arastilionath.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+		house:house_ciryaher ?= {
+			set_house_relation_level_effect = { # Marriage between Maltur and Elenwen
+				HOUSE = house:house_orontur
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = { # Business rivals
+				HOUSE = house:house_artari
+				REASON = historical
+				LEVEL = quarrel
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_telemirionath.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_barahirion.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_mylgennin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+		house:house_orontur ?= { # Long standing Allies in Lamedon, Support Eachother in Appointments and Militarily Allied for Centuries
+			set_house_relation_level_effect = {
+				HOUSE = house:house_gundor
+				REASON = historical
+				LEVEL = amity
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_barahirion.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thorion.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+		}
+		house:house_artari ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thorondirionath.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 5442.9.15 }
+		dynasty:dynasty_dourhand.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dwalin.dynasty_founder.house
+				REASON = historical
+				LEVEL = feud
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_uri.dynasty_founder.house
+				REASON = historical
+				LEVEL = feud
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 6008.11.20 }
+		dynasty:dynasty_oldbuck.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_durin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_uri.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dwalin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 6492.8.19 }
+		dynasty:dynasty_bavor.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thrar.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 6543.7.15 }
+		house:house_gondorstewards ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_eorl.dynasty_founder.house
+				REASON = historical
+				LEVEL = amity
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 6653.12.21 }
+		dynasty:dynasty_took.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_durin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_uri.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dwalin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 6826.1.1 }
+		dynasty:dynasty_ashmog.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_durin.dynasty_founder.house
+				REASON = historical
+				LEVEL = feud
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_uri.dynasty_founder.house
+				REASON = historical
+				LEVEL = rivalry
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dwalin.dynasty_founder.house
+				REASON = historical
+				LEVEL = rivalry
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_sindri.dynasty_founder.house
+				REASON = historical
+				LEVEL = rivalry
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thulin.dynasty_founder.house
+				REASON = historical
+				LEVEL = rivalry
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thrar.dynasty_founder.house
+				REASON = historical
+				LEVEL = rivalry
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_bavor.dynasty_founder.house
+				REASON = historical
+				LEVEL = rivalry
+			}
+		}
+		dynasty:dynasty_sindri.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_durin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_uri.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_dwalin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thulin.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_thrar.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_bavor.dynasty_founder.house
+				REASON = historical
+				LEVEL = cordial
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 6943.10.3 }
+		dynasty:dynasty_uri.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_nowe.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 6974.1.1 }
+		dynasty:dynasty_durin.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_baggins.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+			set_house_relation_level_effect = {
+				HOUSE = house:house_bifur
+				REASON = historical
+				LEVEL = friendly
+			}
+			set_house_relation_level_effect = {
+				HOUSE = house:house_bofur
+				REASON = historical
+				LEVEL = friendly
+			}
+			set_house_relation_level_effect = {
+				HOUSE = house:house_bombur
+				REASON = historical
+				LEVEL = friendly
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 6974.11.30 }
+		dynasty:dynasty_durin.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_baggins.dynasty_founder.house
+				REASON = historical
+				LEVEL = amity
+			}
+			set_house_relation_level_effect = {
+				HOUSE = house:house_bifur
+				REASON = historical
+				LEVEL = amity
+			}
+			set_house_relation_level_effect = {
+				HOUSE = house:house_bofur
+				REASON = historical
+				LEVEL = amity
+			}
+			set_house_relation_level_effect = {
+				HOUSE = house:house_bombur
+				REASON = historical
+				LEVEL = amity
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 6977.1.1 }
+		dynasty:dynasty_durin.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = house:house_bard
+				REASON = historical
+				LEVEL = amity
+			}
+		}
+	}
+	if = {
+		limit = { game_start_date >= 7032.12.30 }
+		dynasty:dynasty_durin.dynasty_founder.house ?= {
+			set_house_relation_level_effect = {
+				HOUSE = dynasty:dynasty_snail.dynasty_founder.house
+				REASON = historical
+				LEVEL = friendly
+			}
+		}
+	}
+}

@@ -1,0 +1,538 @@
+﻿#### Local Types ####
+@administration_1 = "gfx/interface/icons/culture_innovations/innovation_administration_01.dds"
+@administration_2 = "gfx/interface/icons/culture_innovations/innovation_administration_02.dds"
+@administration_3 = "gfx/interface/icons/culture_innovations/innovation_administration_03.dds"
+@civil_construction_1 = "gfx/interface/icons/culture_innovations/innovation_civil_construction_01.dds"
+@civil_construction_2 = "gfx/interface/icons/culture_innovations/innovation_civil_construction_02.dds"
+@leadership_1 = "gfx/interface/icons/culture_innovations/innovation_leadership_01.dds"
+@leadership_2 = "gfx/interface/icons/culture_innovations/innovation_leadership_02.dds"
+@raised_banner = "gfx/interface/icons/culture_innovations/innovation_raised_banner.dds"
+@fortifications = "gfx/interface/icons/culture_innovations/innovation_fortifications.dds"
+@siege_weapons = "gfx/interface/icons/culture_innovations/innovation_siege_weapons.dds"
+@levy_building = "gfx/interface/icons/culture_innovations/innovation_levy_building.dds"
+@maa_01 = "gfx/interface/icons/culture_innovations/innovation_maa_01.dds"
+@maa_02 = "gfx/interface/icons/culture_innovations/innovation_maa_02.dds"
+@weapons_and_armor_01 = "gfx/interface/icons/culture_innovations/innovation_weapons_and_armor_01.dds"
+@weapons_and_armor_02 = "gfx/interface/icons/culture_innovations/innovation_weapons_and_armor_02.dds"
+@knight = "gfx/interface/icons/culture_innovations/innovation_knight.dds"
+@majesty_01 = "gfx/interface/icons/culture_innovations/innovation_majesty_01.dds"
+@majesty_02 = "gfx/interface/icons/culture_innovations/innovation_majesty_02.dds"
+@majesty_03 = "gfx/interface/icons/culture_innovations/innovation_majesty_03.dds"
+@nobility_01 = "gfx/interface/icons/culture_innovations/innovation_nobility_01.dds"
+@nobility_02 = "gfx/interface/icons/culture_innovations/innovation_nobility_02.dds"
+@nobility_03 = "gfx/interface/icons/culture_innovations/innovation_nobility_03.dds"
+@nobility_04 = "gfx/interface/icons/culture_innovations/innovation_nobility_04.dds"
+@misc_inventions = "gfx/interface/icons/culture_innovations/innovation_misc_inventions.dds"
+@elephant = "gfx/interface/icons/culture_innovations/innovation_elephant.dds"
+@mumakil = "gfx/interface/icons/culture_innovations/innovation_mumakil.dds"
+@lotr_dunlending_boatbuilding = "gfx/interface/icons/culture_innovations/innovation_lotr_dunlending_boatbuilding.dds"
+@wilderness_lands = "gfx/interface/illustrations/event_scenes/wastelands.dds"
+@elven_law = "gfx/interface/icons/culture_innovations/innovation_elven_law.dds"
+@dwarven_law = "gfx/interface/icons/culture_innovations/innovation_dwarven_law.dds"
+@numenorean_law = "gfx/interface/icons/culture_innovations/innovation_numenorean_law.dds"
+@namalo = "gfx/interface/icons/culture_innovations/innovation_namalo.dds"
+@giant_scorpions = "gfx/interface/illustrations/men_at_arms_big/giant_scorpions.dds"
+
+innovation_numenorean_heritage = {
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @civil_construction_2
+
+	potential = {
+		OR = {
+			#Numenorean and descendant cultures
+			has_cultural_pillar = heritage_dunedain
+			this = culture:black_numenorean
+			this = culture:old_umbarean
+		}
+	}
+	character_modifier = {
+		embarkation_cost_mult = -0.5
+		naval_movement_speed_mult = 0.1
+		build_speed = -0.15
+		build_gold_cost = -0.05
+		development_growth_factor = 0.1
+	}
+
+	custom = unlocks_naval_raiding
+	custom = unlocks_sailable_major_rivers
+
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+innovation_daen_shipbuilding = {
+	skill = martial
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @lotr_dunlending_boatbuilding
+
+	potential = {
+		OR = {
+			has_cultural_pillar = heritage_daen_lintis
+		}
+	}
+	character_modifier = {
+		embarkation_cost_mult = -0.25		
+		raid_speed = 0.1
+	}
+
+	custom = unlocks_naval_raiding
+	custom = unlocks_sailable_major_rivers
+
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+innovation_northmen_shipbuilding = {
+	skill = stewardship
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	region = middleearth_west_rhovanion_tradelands
+	icon = @lotr_dunlending_boatbuilding
+
+	potential = {
+		has_cultural_pillar = heritage_northron	
+	}
+	character_modifier = {
+		embarkation_cost_mult = -0.50
+	}
+
+	custom = unlocks_sailable_major_rivers
+
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+innovation_lesser_numenorean_heritage = {
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @misc_inventions
+
+	potential = {
+		OR = {
+			has_cultural_pillar = heritage_southern_adunaic
+			has_cultural_pillar	= heritage_eastern_adunaic	
+			AND = {
+				has_cultural_pillar = heritage_bellakari
+				NOT = { this = culture:bellanarud }
+				NOT = { this = culture:mardrukan }
+			}
+			this = culture:umbarean
+		}
+	}
+	
+	character_modifier = {
+		embarkation_cost_mult = -0.25		
+		raid_speed = 0.1
+	}
+
+	custom = unlocks_naval_raiding
+	custom = unlocks_sailable_major_rivers
+
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+innovation_numenorean_architecture_01 = {
+	group = culture_group_regional
+	culture_era = culture_era_early_medieval
+	icon = @fortifications
+
+	potential = {
+		OR = {
+			this = culture:umbarean
+			this = culture:isengard_dunlending
+			has_cultural_pillar = heritage_northern_adunaic
+			has_cultural_pillar = heritage_southern_adunaic
+			has_cultural_pillar = heritage_eastern_adunaic
+			has_cultural_pillar = heritage_dunedain
+			has_cultural_pillar = heritage_bellakari
+			has_cultural_tradition = tradition_gondorian_legacy
+		}
+	}
+
+	custom = innovation_numenorean_architecture_01_tooltip
+	
+	flag = global_regional
+	flag = early_medieval_era_regional
+}
+
+innovation_numenorean_architecture_02 = {
+	group = culture_group_regional
+	culture_era = culture_era_early_medieval
+	icon = @fortifications
+
+	potential = {
+		OR = {
+			this = culture:black_numenorean
+			this = culture:umbarean
+			this = culture:old_umbarean
+			has_cultural_pillar = heritage_dunedain
+		}
+	}
+
+	custom = innovation_numenorean_architecture_02_tooltip
+	
+	flag = global_regional
+	flag = early_medieval_era_regional
+}
+
+innovation_numenorean_architecture_03 = {
+	group = culture_group_regional
+	culture_era = culture_era_early_medieval
+	icon = @fortifications
+
+	potential = {
+		OR = {
+			this = culture:numenorean
+			culture_head ?= {
+				has_title = title:h_numenor_in_exile
+			}
+		}
+	}
+
+	custom = innovation_numenorean_architecture_03_tooltip
+	
+	flag = global_regional
+	flag = early_medieval_era_regional
+}
+
+innovation_lords_of_the_westlands = { # Rewards for a resurgent Dunedain
+	group = culture_group_regional
+	culture_era = culture_era_late_medieval
+	icon = @fortifications
+
+	potential = {
+		always = no
+	}
+
+	character_modifier = {
+		army_damage_mult = 0.10
+		army_toughness_mult = 0.10
+		army_pursuit_mult = 0.05
+		army_screen_mult = 0.05
+		health = 0.4
+		knight_effectiveness_mult = 0.1
+		coastal_advantage = 6
+		monthly_lifestyle_xp_gain_mult = 0.075
+		epidemic_resistance = 10
+	}
+	
+	flag = global_regional
+	flag = late_medieval_era_regional	
+}
+
+innovation_mumakil_domestication = {
+	skill = stewardship
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	region = special_region_greater_harad
+	icon = @mumakil
+
+	can_progress = { #Must be Human
+		custom_description = {
+			text = "innovation_human_trigger_req"
+			is_human_culture = yes
+		}
+	}
+
+	custom = innovation_mumakil_domestication_tooltip_1
+	custom = innovation_mumakil_domestication_tooltip_2
+	custom = innovation_mumakil_domestication_tooltip_3
+	
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+innovation_war_mumak = {
+	skill = martial
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @mumakil
+
+	potential = { 
+		has_cultural_parameter = heritage_group_mumakani
+	}
+
+	character_modifier = {
+		elephant_cavalry_max_size_add = 2
+		elephant_cavalry_damage_mult = 0.2
+		elephant_cavalry_toughness_mult = 0.2
+	}
+
+	maa_upgrade = {
+		type = elephant_cavalry
+		# damage = 50
+		# toughness = 50
+		siege_value = 0.1
+	}
+
+	# unlock_maa = war_mumak
+	custom = unlock_war_mumak_recruitment
+	
+	flag = global_maa
+	flag = tribal_era_regional
+}
+
+innovation_scorpion_domestication = {
+	skill = martial
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	region = middleearth_harad_dunesea
+	icon = @giant_scorpions
+
+	custom = unlock_maa_giant_scorpions
+	
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+innovation_elven_bowmaking = { # Duplicate of Crossbows without MAA unlock
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @weapons_and_armor_01
+
+	potential = { is_elf_culture = yes }
+
+	maa_upgrade = {
+		type = archers
+		damage = 6 # Doubled Bonus compared with Human, showing Elven craftsmanship
+	}
+
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+innovation_ventilation = {
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @civil_construction_1
+
+	potential = {
+		has_cultural_pillar = heritage_south_khailuza
+	}
+
+	custom = unlock_windcatchers
+	
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+# innovation_wilderness_management_heritage = {
+# 	group = culture_group_regional
+# 	culture_era = culture_era_late_medieval
+# 	icon = @wilderness_lands
+
+# 	potential = {
+# 		OR = {
+# 			#Numenorean and descendant cultures
+# 			has_cultural_pillar = heritage_dunedain
+# 			this = culture:black_numenorean
+# 			this = culture:umbarean
+# 			this = culture:old_umbarean
+# 			this = dunedain_ranger
+# 		}
+# 	}
+
+# 	flag = global_regional
+# 	flag = late_medieval_era_regular
+# }
+
+innovation_iron_hills_goat_domestication = {
+	skill = martial
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @leadership_2
+
+	potential = {
+		this = culture:iron_hills
+	}
+	
+	character_modifier = {
+		heavy_cavalry_damage_mult = 0.1
+		heavy_cavalry_toughness_mult = 0.1
+		heavy_cavalry_max_size_add = 2
+	}
+	
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+### PRIMOGENITURE INNOVATIONS
+innovation_elven_law = { # Elvish law, unlocks succession and appointing of heirs
+	skill = diplomacy
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @elven_law
+
+	potential = {
+		OR = {
+			is_elf_culture = yes
+			is_maiar_culture = yes
+			# is_maiar_fallen_culture = yes
+		}
+	}
+
+	unlock_law = single_heir_succession_law
+	#unlock_law = single_heir_succession_law_youngest
+	custom = innovation_elven_law_sailed_west_succession_tooltip
+
+	flag = can_designate_heir
+
+	flag = global_regional
+	flag = tribal_era_regional
+}
+innovation_dwarven_law = {
+	skill = diplomacy
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @dwarven_law
+
+	potential = { is_dwarf_culture = yes }
+
+	unlock_law = single_heir_succession_law
+	custom = innovation_dwarven_law_dorfdad_reincarnation_succession_tooltip
+
+	flag = global_regional
+	flag = tribal_era_regional
+}
+innovation_numenorean_law = {
+	skill = diplomacy
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @numenorean_law
+
+	#can_progress = { #Unlocked by event.
+	#	custom_description = {
+	#		text = "innovation_unlocked_by_decision_trigger"
+	#		always = no
+	#	}
+	#}
+
+	potential = {
+		OR = {
+			#is_human_culture = yes
+			#is_hobbit_culture = yes
+			#is_druedain_culture = yes
+			has_cultural_pillar = heritage_northern_adunaic
+			has_cultural_pillar = heritage_southern_adunaic
+			has_cultural_pillar = heritage_dunedain
+			has_cultural_pillar = heritage_bellakari
+			has_cultural_pillar = heritage_eriadorim
+			
+			this = culture:breelander
+			this = culture:dalemen
+			this = culture:dorwinionrim
+			this = culture:rohirrim
+			this = culture:adornaen
+			this = culture:numenorean
+			
+			any_parent_culture_or_above = { # Hobbits after moving into Eriador
+				this = culture:breelander
+			}
+			any_parent_culture_or_above = {
+				this = culture:dalemen
+			}
+			any_parent_culture_or_above = {
+				this = culture:dorwinionrim
+			}
+			any_parent_culture_or_above = {
+				this = culture:rohirrim
+			}
+			any_parent_culture_or_above = { # catch all for Dunedain/Adunai hybrids
+				this = culture:numenorean
+			}
+		}
+	}
+
+	unlock_law = single_heir_succession_law
+
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+### Haradrim ###
+innovation_namalo = {
+	skill = stewardship
+	group = culture_group_regional
+	culture_era = culture_era_high_medieval
+	region = special_region_innovation_namalo
+	icon = @namalo
+
+	can_progress = { #Unlocked by decision
+		custom_description = {
+			text = "namalo_decision_done_req" # innovation_unlocked_by_decision_trigger
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:lotr_namalo_decision_done
+			}
+		}
+		trigger_if = { # Done so it displays better for non-humans
+			limit = {
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:lotr_namalo_decision_done
+				}
+			}
+			custom_description = { # Must be human of dwarf (yay, trade!)
+				text = "innovation_human_or_dwarf_trigger_req"
+				OR = {
+					is_human_culture = yes
+					is_dwarf_culture = yes
+				}
+			}
+		}
+	}
+	
+	character_modifier = {
+		diplomatic_range_mult = 0.05
+		domain_tax_mult = 0.02
+		opinion_of_different_faith = 5
+		different_faith_opinion = 5
+	}
+
+	culture_modifier = {
+		cultural_acceptance_gain_mult = 0.1
+	}
+
+	custom = innovation_unlock_trans_haradric_networking_tt
+	custom = innovation_unlock_namalo_synergy_tt
+
+	flag = global_regional
+	flag = high_medieval_era_regional
+}
+
+
+innovation_apysan_legacy = {
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @nobility_01
+
+	potential = {
+		always = no
+	}
+
+	can_progress = { #Unlocked by decision
+		custom_description = {
+			text = "innovation_unlocked_by_decision_trigger"
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_apysan_carving 
+			}
+		}
+	}
+	
+	character_modifier = {
+		diplomatic_range_mult = 0.1
+		learning = 1 
+		monthly_lifestyle_xp_gain_mult = 0.1
+		same_culture_opinion = 10
+	}
+
+	culture_modifier = {
+		cultural_acceptance_gain_mult = 0.1
+		culture_tradition_max_add = 1
+	}
+}

@@ -1,0 +1,319 @@
+﻿## Debt mechanic for the 8th Princedom story
+# Karasalas
+debt_karasalas_half = {
+    value = title:c_gidwama.var:debt_karasalas
+    divide = 2
+}
+debt_karasalas_quarter = {
+    value = title:c_gidwama.var:debt_karasalas
+    divide = 4
+}
+debt_karasalas_interest = {
+    value = title:c_gidwama.var:debt_karasalas
+    multiply = title:d_karasalas.var:loan_interest
+}
+debt_karasalas_value = {
+    value = title:c_gidwama.var:debt_karasalas
+    add = debt_karasalas_interest
+}
+debt_karasalas_half_value = {
+    value = debt_karasalas_half
+    add = debt_karasalas_interest
+}
+debt_karasalas_quarter_value = {
+    value = debt_karasalas_quarter
+    add = debt_karasalas_interest
+}
+debt_karasalas_total_half = {
+    value = debt_karasalas_value
+    divide = 2
+}
+debt_karasalas_total_quarter = {
+    value = debt_karasalas_value
+    divide = 4
+}
+# Alsarias
+debt_alsarias_half = {
+    value = title:c_gidwama.var:debt_alsarias
+    divide = 2
+}
+debt_alsarias_quarter = {
+    value = title:c_gidwama.var:debt_alsarias
+    divide = 4
+}
+debt_alsarias_interest = {
+    value = title:c_gidwama.var:debt_alsarias
+    multiply = title:d_alsarias.var:loan_interest
+}
+debt_alsarias_value = {
+    value = title:c_gidwama.var:debt_alsarias
+    add = debt_alsarias_interest
+}
+debt_alsarias_half_value = {
+    value = debt_alsarias_half
+    add = debt_alsarias_interest
+}
+debt_alsarias_quarter_value = {
+    value = debt_alsarias_quarter
+    add = debt_alsarias_interest
+}
+debt_alsarias_total_half = {
+    value = debt_alsarias_value
+    divide = 2
+}
+debt_alsarias_total_quarter = {
+    value = debt_alsarias_value
+    divide = 4
+}
+# Gimileth
+debt_gimileth_half = {
+    value = title:c_gidwama.var:debt_gimileth
+    divide = 2
+}
+debt_gimileth_quarter = {
+    value = title:c_gidwama.var:debt_gimileth
+    divide = 4
+}
+debt_gimileth_interest = {
+    value = title:c_gidwama.var:debt_gimileth
+    multiply = title:d_gimileth.var:loan_interest
+}
+debt_gimileth_value = {
+    value = title:c_gidwama.var:debt_gimileth
+    add = debt_gimileth_interest
+}
+debt_gimileth_half_value = {
+    value = debt_gimileth_half
+    add = debt_gimileth_interest
+}
+debt_gimileth_quarter_value = {
+    value = debt_gimileth_quarter
+    add = debt_gimileth_interest
+}
+debt_gimileth_total_half = {
+    value = debt_gimileth_value
+    divide = 2
+}
+debt_gimileth_total_quarter = {
+    value = debt_gimileth_value
+    divide = 4
+}
+# Gimilthani
+debt_gimilthani_half = {
+    value = title:c_gidwama.var:debt_gimilthani
+    divide = 2
+}
+debt_gimilthani_quarter = {
+    value = title:c_gidwama.var:debt_gimilthani
+    divide = 4
+}
+debt_gimilthani_interest = {
+    value = title:c_gidwama.var:debt_gimilthani
+    multiply = title:k_gimilthani.var:loan_interest
+}
+debt_gimilthani_value = {
+    value = title:c_gidwama.var:debt_gimilthani
+    add = debt_gimilthani_interest
+}
+debt_gimilthani_half_value = {
+    value = debt_gimilthani_half
+    add = debt_gimilthani_interest
+}
+debt_gimilthani_quarter_value = {
+    value = debt_gimilthani_quarter
+    add = debt_gimilthani_interest
+}
+debt_gimilthani_total_half = {
+    value = debt_gimilthani_value
+    divide = 2
+}
+debt_gimilthani_total_quarter = {
+    value = debt_gimilthani_value
+    divide = 4
+}
+# Inzilloni
+debt_inzilloni_half = {
+    value = title:c_gidwama.var:debt_inzilloni
+    divide = 2
+}
+debt_inzilloni_quarter = {
+    value = title:c_gidwama.var:debt_inzilloni
+    divide = 4
+}
+debt_inzilloni_interest = {
+    value = title:c_gidwama.var:debt_inzilloni
+    multiply = title:d_inzilloni.var:loan_interest
+}
+debt_inzilloni_value = {
+    value = title:c_gidwama.var:debt_inzilloni
+    add = debt_inzilloni_interest
+}
+debt_inzilloni_half_value = {
+    value = debt_inzilloni_half
+    add = debt_inzilloni_interest
+}
+debt_inzilloni_quarter_value = {
+    value = debt_inzilloni_quarter
+    add = debt_inzilloni_interest
+}
+debt_inzilloni_total_half = {
+    value = debt_inzilloni_value
+    divide = 2
+}
+debt_inzilloni_total_quarter = {
+    value = debt_inzilloni_value
+    divide = 4
+}
+# Pel
+debt_pel_half = {
+    value = title:c_gidwama.var:debt_pel
+    divide = 2
+}
+debt_pel_quarter = {
+    value = title:c_gidwama.var:debt_pel
+    divide = 4
+}
+debt_pel_interest = {
+    value = title:c_gidwama.var:debt_pel
+    multiply = title:k_pel.var:loan_interest
+}
+debt_pel_value = {
+    value = title:c_gidwama.var:debt_pel
+    add = debt_pel_interest
+}
+debt_pel_half_value = {
+    value = debt_pel_half
+    add = debt_pel_interest
+}
+debt_pel_quarter_value = {
+    value = debt_pel_quarter
+    add = debt_pel_interest
+}
+debt_pel_total_half = {
+    value = debt_pel_value
+    divide = 2
+}
+debt_pel_total_quarter = {
+    value = debt_pel_value
+    divide = 4
+}
+#Interest calculations
+total_yearly_interest = {
+    value = 0
+    if = {
+        limit = { title:c_gidwama = { has_variable = debt_karasalas } }
+        add = debt_karasalas_interest
+    }
+    if = {
+        limit = { title:c_gidwama = { has_variable = debt_alsarias } }
+        add = debt_alsarias_interest
+    }
+    if = {
+        limit = { title:c_gidwama = { has_variable = debt_gimileth } }
+        add = debt_gimileth_interest
+    }
+    if = {
+        limit = { title:c_gidwama = { has_variable = debt_gimilthani } }
+        add = debt_gimilthani_interest
+    }
+    if = {
+        limit = { title:c_gidwama = { has_variable = debt_pel } }
+        add = debt_pel_interest
+    }
+    if = {
+        limit = { title:c_gidwama = { has_variable = debt_inzilloni } }
+        add = debt_inzilloni_interest
+    }
+}
+
+interest_to_income_yearly = {
+    value = total_yearly_interest
+    if = {
+        limit = { yearly_character_income > 0 }
+        divide = yearly_character_income
+    }
+}
+
+hunt_no_activity_melee_danger_value = { # Used for the azrathani content
+	value = 25
+	root = {
+		if = {
+			limit = { exists = var:animal_type }
+			if = {
+				limit = {
+					OR = {
+						var:animal_type = flag:lion
+						var:animal_type = flag:tiger
+						var:animal_type = flag:leopard
+						var:animal_type = flag:warg #LotR
+						var:animal_type = flag:caragor #LotR
+					}
+				}
+				add = 25
+			}
+			else_if = {
+				limit = { var:animal_type = flag:bear }
+				add = 20
+			}
+			else_if = {
+				limit = {
+					OR = {
+						var:animal_type = flag:boar
+						var:animal_type = flag:bison
+						var:animal_type = flag:hart
+						var:animal_type = flag:reindeer
+						var:animal_type = flag:elk
+					}
+				}
+				add = 15
+			}
+			else_if = {
+				limit = {
+					OR = {
+						var:animal_type = flag:wolf
+						var:animal_type = flag:hyena
+						var:animal_type = flag:lynx
+						var:animal_type = flag:stag
+						var:animal_type = flag:antelope
+					}
+				}
+				add = 10
+			}
+			else_if = {
+				limit = {
+					OR = {
+						var:animal_type = flag:fox
+						var:animal_type = flag:roe
+						var:animal_type = flag:gazelle
+					}
+				}
+				add = -10
+			}
+			else_if = {
+				limit = { var:animal_type = flag:hare }
+				add = -20
+			}
+		}
+		# huntsmaster accolade bonuses
+		if = {
+			limit = {
+				root = {
+					any_active_accolade = {
+						accolade_parameter = acclaimed_knight_reduces_hunting_danger
+					}
+				}
+			}
+			add = acclaimed_knight_hunt_danger_value
+		}
+		else_if = {
+			limit = {
+				root = {
+					any_active_accolade = {
+						accolade_parameter = acclaimed_knight_reduces_hunting_danger_high
+					}
+				}
+			}
+			add = acclaimed_knight_hunt_danger_value_high
+		}
+	}
+}

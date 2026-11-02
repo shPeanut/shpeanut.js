@@ -1,0 +1,8190 @@
+﻿namespace = lotr_intro_events
+
+#################################
+# 
+#	Elven Intro Events:
+#	0000 - 2000
+#
+#	Dwarven Intro Events:
+#	2001 - 4000
+#
+#	Orc Intro Events:
+#	4001 - 5000
+#
+#	Hobbit Intro Events:
+#	5001 - 5500
+#
+#	Non-human Intro Events: (Nazgul/Istari for instance)
+#	5501 - 6000
+#
+#	Human Intro Events:
+#	6001 - 9999
+#		#	6001 - 6200 = Arnor
+#		#	6201 - 6400 = Gondor
+#		#	6401 - 6500 = Rohan
+#		#	6501 - 6600 = Anduin Vale
+#		#	6601 - 6700 = Greenwood/Woodmen
+#		#	6701 - 6800 = Rhovanion
+#		#	6801 - 7000 = Bellakar and Far Harad
+#		#	7001 - 7200 = Rhun and Khand
+#		#	7201 - 7400 = Near Harad
+#		#	7401 - 7500 = Umbar and Mardruak
+#		#	7501 - 7700 = Thani-Hazad
+		#	7701 - 7799 = Dunland & Enedhwaith
+#       #   7800 - 7899 = Long Winter
+		#	7900 - 7999 = Bay of Ormal
+#		# 	8000 - 8100 = Utter South
+#################################
+
+##########################
+###					   ###
+### Elven Intro Events ###
+###					   ###
+##########################
+
+lotr_intro_events.0001 = { # Introduction to Galadriel
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.0001.t
+	desc = lotr_intro_events.0001.desc
+	theme = elven
+	override_background = {
+		reference = lorien_day
+	}
+	right_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	lower_left_portrait = {
+		character = scope:feanor
+	}
+	lower_center_portrait = {
+		character = scope:finarfin
+	}
+	lower_right_portrait = {
+		character = scope:finwe
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_elves
+		culture:leofring = { save_scope_as = leofringculture }
+		save_scope_as = galadriel
+		character:lineoffinwe3 = {
+			save_scope_as = feanor
+		}
+		character:lineoffinwe8 = {
+			save_scope_as = finarfin
+		}
+		character:lineoffinwe1 = {
+			save_scope_as = finwe
+		}
+	}
+	
+	option = { 		#The Shadow is rising. We must act. (Offer vassalage to Parth Celebrant)
+		name = lotr_intro_events.0001.a
+		custom_tooltip = lotr_intro_events.0001.a.tt
+			trigger = {
+				exists = title:d_parth_celebrant.holder
+				current_year >= 7000 
+			}
+			title:d_parth_celebrant.holder = {
+			save_scope_as = parthruler
+				if = {
+					limit = {
+						is_alive = yes
+						is_landed = yes
+						is_ai = yes
+					}
+					trigger_event = {
+						id = elven.0150
+						days = 10
+					}
+				}
+			}
+		
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 80
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	
+	option = { 		#The Shadow is rising ~ Long Winter Edition
+		name = lotr_intro_events.0001.b
+		custom_tooltip = lotr_intro_events.0001.b.tt
+			trigger = {
+				exists = title:d_drownholt.holder
+				current_year < 7000 # 
+			}
+			title:d_drownholt.holder = {
+				save_scope_as = parthruler
+				if = {
+					limit = {
+						is_alive = yes
+						is_landed = yes
+						is_ai = yes
+						faith_is_good = yes
+					}
+					trigger_event = {
+						id = elven.0150
+						days = 10
+					}
+				}
+			}
+		
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 50
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 40
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 30
+			}
+		}
+	}
+	
+	option = { 		#Yup. Thats me.
+		name = lotr_intro_events.0001.c
+		custom_tooltip = lotr_intro_events.0001.c.tt
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 20
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+lotr_intro_events.0002 = { # Introduction to Thranduil
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.0002.t
+	desc = lotr_intro_events.0002.desc
+	theme = elven
+	override_background = {
+		reference = throne_room_thranduils_halls
+	}
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	lower_left_portrait = {
+		character = scope:oropher
+	}
+	lower_center_portrait = {
+		character = scope:legolas
+	}
+	lower_right_portrait = {
+		character = scope:galadriel
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_elves
+		save_scope_as = thranduil
+		character:lineoforopher1 = {
+			save_scope_as = oropher
+		}
+		character:lineoforopher6 = {
+			save_scope_as = legolas
+		}
+		character:lineoffinarfin5 = {
+			save_scope_as = galadriel
+		}
+	}
+	
+	option = { 
+		name = lotr_intro_events.0002.a
+	}
+}
+
+lotr_intro_events.0003 = { # Introduction to Elrond
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.0003.t
+	desc = lotr_intro_events.0003.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = imladris
+	}
+	right_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	lower_left_portrait = {
+		character = scope:earendil
+	}
+	lower_center_portrait = {
+		character = scope:elwing
+	}
+	lower_right_portrait = {
+		character = scope:gilgalad
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_elves
+		character:lineoffingolfin7 = {
+			save_scope_as = earendil
+		}
+		character:lineofelwe6 = {
+			save_scope_as = elwing
+		}
+		character:lineoforodreth4 = {
+			save_scope_as = gilgalad
+		}
+	}
+	
+	option = { 
+		name = lotr_intro_events.0003.a
+	}
+}
+
+lotr_intro_events.0004 = { # Introduction to Cirdan
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.0004.t
+	desc = lotr_intro_events.0004.desc
+	theme = elven
+	override_background = {
+		reference = grey_havens
+	}
+	right_portrait = {
+		character = root
+		animation = personality_content
+	}
+	lower_left_portrait = {
+		character = scope:gilgalad
+	}
+	lower_center_portrait = {
+		character = scope:elrond
+	}
+	
+	immediate = {
+		play_music_cue = mx_mood_call_22
+		character:lineoforodreth4 = {
+			save_scope_as = gilgalad
+		}
+		character:lineofelrond1 = {
+			save_scope_as = elrond
+		}
+	}
+	
+	option = { 
+		name = lotr_intro_events.0004.a
+	}
+}
+
+lotr_intro_events.0005 = { # Introduction to Bornmir
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.0005.t
+	desc = lotr_intro_events.0005.desc
+	theme = stewardship_duty_focus
+
+	override_background = {
+		reference = elven_holding
+	}
+
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = mx_mood_call_22
+		every_vassal_or_below = {
+			limit = { is_human = yes }
+			add_to_list = human_vassals
+		}
+	}
+	
+	option = { # The time of Sirgala has passed
+		name = lotr_intro_events.0005.a
+		custom_tooltip = lotr_intro_events.0005.a.tt
+
+		hidden_effect = {
+			create_title_and_vassal_change = {
+				type = swear_fealty
+				save_scope_as = change
+			}
+			every_in_list = {
+				list = human_vassals
+				change_liege = {
+					liege = title:e_arnor.holder
+					change = scope:change
+				}
+			}
+			title:d_emyn_beraid = { # Merethorn gets new titles
+				change_title_holder = {
+					holder = root
+					change = scope:change
+				}
+				every_de_jure_county = {
+					change_title_holder = {
+						holder = root
+						change = scope:change
+					}
+				}
+			}
+			every_held_title = { # All personal titles go to Elendil
+				limit = {
+					tier < tier_kingdom
+					tier >= tier_county
+				}
+				if = {
+					limit = { tier = tier_county }
+					title_province ?= { set_holding_type = castle_holding }
+					set_county_faith = title:e_arnor.holder.faith
+					set_county_culture = title:e_arnor.holder.culture
+				}
+				change_title_holder = {
+					holder = title:e_arnor.holder
+					change = scope:change
+				}
+			}
+			title:k_sirgala = {
+				every_in_de_jure_hierarchy = {
+					limit = { tier = tier_duchy }
+					set_de_jure_liege_title = title:k_arthedain
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+
+			destroy_title = title:k_sirgala
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # We shall never forget our lands!
+		name = lotr_intro_events.0005.b
+		custom_tooltip = lotr_intro_events.0005.b.tt
+
+		every_vassal_or_below = {
+			limit = { NOT = { is_elf = yes } }
+			trigger_event = {
+				id = elven.0501
+				days = 1
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+lotr_intro_events.0006 = { # Introduction to Lanthir
+	content_source = realms_dlc
+	type = character_event	
+	title = lotr_intro_events.0006.t
+	desc = lotr_intro_events.0006.desc
+	theme = elven
+	override_background = {
+		reference = wilderness_forest_deep
+	}
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	lower_center_portrait = {
+		character = scope:oropher
+	}
+	lower_right_portrait = {
+		character = scope:galadriel
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_elves
+		character:lineoflanthir1 = {
+			save_scope_as = lanthir
+		}
+		character:lineoforopher1 = {
+			save_scope_as = oropher
+		}
+		character:lineoffinarfin5 = {
+			save_scope_as = galadriel
+		}
+	}
+	
+	option = { 
+		name = lotr_intro_events.0006.a
+	}
+} 
+
+lotr_intro_events.0007 = { # Introduction to Terilaen of Drêl
+	content_source = realms_dlc
+	type = character_event	
+	title = lotr_intro_events.0007.t
+	desc = lotr_intro_events.0007.desc
+	theme = elven
+
+	override_background = {
+		reference = wilderness_forest_deep
+	}
+
+	right_portrait = {
+		character = root
+		animation = personality_compassionate
+	}
+	
+	immediate = {
+		add_character_flag = is_terilaen
+	}
+	option = { 
+		name = lotr_intro_events.0007.a
+	}
+}
+
+lotr_intro_events.0008 = { # Introduction to Maglor
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.0008.t
+	desc = lotr_intro_events.0008.desc
+	theme = stewardship_wealth_focus
+
+	override_background = {
+		reference = grey_havens
+	}
+
+	right_portrait = {
+		character = root
+		animation = personality_content
+	}
+	
+	immediate = {
+		play_music_cue = mx_mood_call_22
+		character:lineofcirdan = { save_scope_as = cirdan }
+	}
+
+	option = { # Rouse himself
+		name = lotr_intro_events.0008.a
+		end_tributary = yes
+		trigger_event = {
+			id = maglor_event_chain.0001
+			months = { 2 4 }
+		}
+
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 30
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	
+	option = { # Remain Melancholy 
+		name = lotr_intro_events.0008.b
+		custom_tooltip = opt_out_of_story_content
+
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 70
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			add_truce_both_ways = { 
+				character = character:lineofcirdan
+				years = 10
+				name = TRUCE_GRANT_INDEPENDENCE
+			}
+		}
+	}
+}
+
+lotr_intro_events.0009 = { # Introduction to Glorfindel
+	content_source = realms_dlc
+	type = character_event	
+	title = lotr_intro_events.0009.t
+	desc = lotr_intro_events.0009.desc
+	theme = martial_chivalry_focus
+
+	override_background = {
+		reference = imladris
+	}
+
+	left_portrait = {
+		character = root
+		animation = horse_conversing_left
+		camera = camera_event_horse_very_left
+	}
+	
+	option = { # My vigil continues
+		name = lotr_intro_events.0009.a
+		trigger_event = {
+			id = glorfindel.0001 
+			days = 30 
+		}
+	}
+}
+
+lotr_intro_events.0010 = { # Introduction to Eltariel
+	content_source = realms_dlc
+	type = character_event	
+	title = lotr_intro_events.0010.t
+	desc = lotr_intro_events.0010.desc
+	theme = intrigue_intimidation_focus
+
+	override_background = {
+		reference = lorien_night
+	}
+
+	left_portrait = {
+		character = root
+		animation = assassin
+		camera = camera_event_very_left
+	}
+	
+	trigger = {
+		has_dlc_feature = landless_playable # Don't trigger if she's not acutally a laamp
+	}
+
+	option = { # I will hunt in the name of the Lady
+		name = lotr_intro_events.0010.a
+        hidden_effect = {
+            contract_passive_spawn_effect = {
+                SPAWN_CONTRACTS = 5
+            }
+        }
+		trigger_event = { # Reinforcements 
+			id = elven.0200
+			months = { 9 15 }
+		}
+	}
+}
+
+lotr_intro_events.0011 = { # Introduction to Shelepinn 
+	content_source = realms_dlc
+	type = character_event	
+	title = lotr_intro_events.0011.t
+	desc = lotr_intro_events.0011.desc
+	theme = elven
+
+	override_background = {
+		reference = wilderness_forest
+	}
+
+	immediate = {
+		title:k_talilan.holder = { save_scope_as = talilan }
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+	lower_right_portrait = {
+		character = scope:talilan
+	}
+
+	option = { 
+		name = lotr_intro_events.0011.a
+	}
+}
+
+lotr_intro_events.0012 = { # Introduction to Dalavin
+	content_source = realms_dlc
+	type = character_event	
+	title = lotr_intro_events.0012.t
+	desc = lotr_intro_events.0012.desc
+	theme = elven
+
+	override_background = {
+		reference = wilderness_forest
+	}
+
+	immediate = {
+		character:lineoftainalann3 = { save_scope_as = shelepinn }
+		character:lineoftainalann5 = { save_scope_as = tulanal }
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_compassionate
+	}
+	lower_left_portrait = {
+		character = scope:tulanal
+	}
+	lower_right_portrait = {
+		character = scope:shelepinn
+	}
+
+	option = {
+		name = lotr_intro_events.0012.a
+	}
+}
+
+lotr_intro_events.0013 = { # Introduction to Alilêl, the Solitary Blade 
+	content_source = realms_dlc
+	type = character_event	
+	title = lotr_intro_events.0013.t
+	desc = lotr_intro_events.0013.desc
+	theme = hunt_activity
+
+	override_background = {
+		reference = wilderness_forest_pine
+	}
+
+	trigger = {
+		has_dlc_feature = landless_playable # Don't trigger if she's not acutally a laamp
+	}
+
+	immediate = {
+		character:lineoftainalann1 = { save_scope_as = tainalann }
+		title:k_talilan.holder = { save_scope_as = talilan }
+		title:d_gard_kinn.holder = { save_scope_as = shelepinn }
+		add_character_flag = wear_armor
+		domicile = {
+			add_domicile_building = camp_main_02
+			add_domicile_building = supply_tent_01 
+			add_domicile_building = barber_tent_01
+		}
+		add_gold = 50
+	}
+
+	left_portrait = {
+		character = root
+		animation = throne_room_two_handed_passive_shield
+	}
+	lower_right_portrait = {
+		character = scope:talilan
+	}
+	lower_left_portrait = {
+		character = scope:shelepinn 
+	}
+
+	option = { # Become a ranger of Talilan (canon path) 
+		name = lotr_intro_events.0013.a
+		domicile ?= { change_provisions = medium_provisions_gain }
+		create_maa_regiment = { type = avarin_pikemen check_can_recruit = no size = 4 }
+		create_maa_regiment = { type = avarin_archers check_can_recruit = no size = 4 }
+		add_realm_law_skip_effects = camp_purpose_rangers
+        offer_fealty_ranger_interaction_effect = {
+            TRIBUTARY = root
+            SUZERAIN = scope:talilan
+        }
+		trigger_event = rangers.9200
+		trigger_event = rangers.9400
+		ai_chance = { base = 100 }
+		title:k_talilan.holder = {
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = lotr_intro_events.0013.a.tt
+				left_icon = root
+				right_icon = title:k_talilan.holder
+				show_as_tooltip = {
+					offer_fealty_ranger_interaction_effect = {
+						TRIBUTARY = root
+						SUZERAIN = scope:talilan
+					}
+				}
+			}
+		}
+	}
+	option = { # Become a ranger of Shelepinn 
+		name = lotr_intro_events.0013.b
+		domicile ?= { change_provisions = medium_provisions_gain }
+		create_maa_regiment = { type = avarin_pikemen check_can_recruit = no size = 4 }
+		create_maa_regiment = { type = avarin_archers check_can_recruit = no size = 4 }
+		add_realm_law_skip_effects = camp_purpose_rangers
+        offer_fealty_ranger_interaction_effect = {
+            TRIBUTARY = root
+            SUZERAIN = scope:shelepinn
+        }
+		trigger_event = rangers.9200
+		trigger_event = rangers.9400
+		title:d_gard_kinn.holder = {
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = lotr_intro_events.0013.a.tt
+				left_icon = root
+				right_icon = title:d_gard_kinn.holder
+				show_as_tooltip = {
+					offer_fealty_ranger_interaction_effect = {
+						TRIBUTARY = root
+						SUZERAIN = scope:shelepinn
+					}
+				}
+			}
+		}
+	}
+	option = { # Remain unbound mercenary 
+		name = lotr_intro_events.0013.c 
+		add_gold = 250
+	}	
+	after = {
+		remove_character_flag = wear_armor 
+	}
+}
+
+lotr_intro_events.0014 = { # Introduction to Amroth of Lorien
+	content_source = realms_dlc
+	type = character_event	
+	title = lotr_intro_events.0014.t
+	desc = lotr_intro_events.0014.desc
+	theme = elven
+
+	override_background = {
+		reference = lorien_day
+	}
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	option = { 
+		name = lotr_intro_events.0014.a
+	}
+}
+
+############################
+###	   				     ###
+### Dwarven Intro Events ###
+###	  				     ###
+############################
+
+lotr_intro_events.2001 = { # Introduction to Dain
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2001.t
+	desc = lotr_intro_events.2001.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = throne_room_dwarf
+	}
+	
+	immediate = { play_music_cue = lotr_cue_dwarves }
+	
+	right_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	
+	option = { 
+		name = lotr_intro_events.2001.a
+	}
+}
+
+lotr_intro_events.2002 = { # Introduction to Balin
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2002.t
+	desc = lotr_intro_events.2002.desc
+	theme = martial_strategy_focus
+	override_background = {
+		reference = wilderness_underground
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_dwarves
+		add_gold = 100
+		character:lineofdurin106 = { save_scope_as = companion_1 }
+		character:lineofdurin98 = { save_scope_as = companion_2 }
+		set_variable = cannot_cancel_travel
+	}
+	
+	right_portrait = {
+		character = root
+		animation = celebrate_axe
+	}
+	
+	option = { # Take companions with you to Mirrormere
+		name = lotr_intro_events.2002.a
+
+		custom_tooltip = {
+			text = lotr_intro_events.2002.tt_1
+			add_character_flag = balin_with_friends
+			add_character_flag = balin_3
+			trigger_event = {
+				id = balin_event_chain.0100
+				days = { 1 2 }
+			}
+		}
+	}
+	
+	option = { # Go alone
+		name = lotr_intro_events.2002.b
+
+		custom_tooltip = {
+			text = lotr_intro_events.2002.tt
+			add_character_flag = balin_alone
+			add_character_flag = balin_1
+			trigger_event = {
+				id = balin_event_chain.0100
+				days = { 1 2 }
+			}
+		}
+	}
+	
+	option = { # Go with retinue
+		name = lotr_intro_events.2002.c
+
+		custom_tooltip = {
+			text = lotr_intro_events.2002.tt_2
+			add_character_flag = balin_with_squad
+			add_character_flag = balin_5
+			trigger_event = {
+				id = balin_event_chain.0100
+				days = { 1 2 }
+			}
+		}
+	}
+}
+
+lotr_intro_events.2003 = { # Introduction to Gorin of Nordinbad
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2003.t
+	desc = lotr_intro_events.2003.desc
+	theme = dwarven
+	override_background = {
+		reference = throne_room_dwarf
+	}
+	
+	immediate = { 
+		play_music_cue = lotr_cue_dwarves
+	}
+	
+	right_portrait = {
+		character = root
+		animation = personality_content
+	}
+	
+	option = { 
+		name = lotr_intro_events.2003.a
+	}
+}
+
+lotr_intro_events.2004 = { # Introduction to Argan, the Axe that Walks
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2004.t
+	desc = lotr_intro_events.2004.desc
+	theme = travel
+	override_background = {
+		reference = throne_room_dwarf
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_dwarves
+		add_gold = 200
+	}
+	
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	option = { 
+		trigger = { is_ai = no }
+		name = lotr_intro_events.2004.a
+
+		### Open Activity Window
+		if = {
+			limit = { is_ai = no }
+			open_view_data = {
+				view = activity_list_detail_host_window
+				data = activity_type:activity_expedition
+			}
+		}
+
+		ai_chance = {
+			base = 0 
+		}
+	}
+
+	option = { # Do Nothing
+		name = lotr_intro_events.2004.b
+
+		ai_chance = {
+			base = 5 
+		}
+	}
+	
+	option = { 
+		trigger = { is_ai = yes }
+		name = lotr_intro_events.2004.c
+
+		random_province = { # Works
+			limit = {
+				OR = {
+					county_is_underground_wastelands = yes
+					county_is_overground_wastelands = yes
+				}
+				
+				surrounding_lands_empty = yes
+				NOT = { county.duchy = title:d_glittering_caves }
+			}
+			save_scope_as = selected_county
+		}
+
+		start_travel_plan = { # Works
+			destination = scope:selected_county
+			on_arrival_event = dwarven.0331
+			return_trip = no
+			players_use_planner = no
+			on_arrival_destinations = last
+		}
+
+		ai_chance = {
+			base = 60 
+		}
+	}
+
+	option = { 
+		trigger = { is_ai = yes }
+		name = lotr_intro_events.2004.c
+
+		random_province = { # Works
+			limit = {
+				county_is_underground_wastelands = yes
+				surrounding_lands_empty = yes
+				NOT = { county.duchy = title:d_glittering_caves county.empire = title:e_blue_mountains county.empire = title:e_iron_mountains county.empire = title:e_misty_mountains county.empire = title:e_yellow_mountains}
+			}
+			save_scope_as = selected_county
+		}
+
+		start_travel_plan = { # Works
+			destination = scope:selected_county
+			on_arrival_event = dwarven.0331
+			return_trip = no
+			players_use_planner = no
+			on_arrival_destinations = last
+		}
+
+		ai_chance = {
+			base = 35
+		}
+	}
+}
+
+lotr_intro_events.2005 = { # Introduction to Eldberk
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2005.t
+	desc = lotr_intro_events.2005.desc
+	theme = dwarven
+	override_background = {
+		reference = throne_room_dwarf
+	}
+	
+	immediate = { play_music_cue = lotr_cue_dwarves }
+	
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	option = { 
+		name = lotr_intro_events.2005.a
+	}
+}
+
+lotr_intro_events.2006 = { # Introduction to Uri VI
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2006.t
+	desc = lotr_intro_events.2006.desc
+	theme = dwarven
+	override_background = {
+		reference = throne_room_dwarf
+	}
+	
+	immediate = { play_music_cue = lotr_cue_dwarves }
+	
+	right_portrait = {
+		character = root
+		animation = personality_content
+	}
+	
+	option = { 
+		name = lotr_intro_events.2006.a
+	}
+}
+
+lotr_intro_events.2007 = { # Introduction to Brokkur
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2007.t
+	desc = lotr_intro_events.2007.desc
+	theme = dwarven
+	override_background = {
+		reference = throne_room_dwarf
+	}
+	
+	immediate = { play_music_cue = lotr_cue_dwarves }
+	
+	right_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	
+	option = { 
+		name = lotr_intro_events.2007.a
+	}
+}
+
+lotr_intro_events.2008 = { # Introduction to Thrór ~ Long Winter
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2008.t
+	desc = lotr_intro_events.2008.desc
+	theme = dwarven
+	override_background = {
+		reference = throne_room_dwarf
+	}
+	
+	immediate = { play_music_cue = lotr_cue_dwarves }
+	
+	right_portrait = {
+		character = root
+		animation = personality_greedy
+	}
+	
+	option = { 
+		name = lotr_intro_events.2008.a
+	}
+}
+
+lotr_intro_events.2009 = { # Introduction to Argan, the Axe that Walks (Long Winter)
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2009.t
+	desc = lotr_intro_events.2009.desc
+	theme = travel_danger
+	override_background = {
+		reference = wilderness_desert
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_dwarves
+	}
+	
+	left_portrait = {
+		character = root
+		animation = stayback
+	}
+
+	right_portrait = {
+		character = character:lineofargan2
+		animation = shock
+	}
+	
+	option = { 
+		name = lotr_intro_events.2009.a
+		death = {
+			death_reason = death_scorpion
+		}
+	}
+}
+
+lotr_intro_events.2010 = { # Introduction to Grór ~ Long Winter
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2010.t
+	desc = lotr_intro_events.2010.desc
+	theme = dwarven
+	override_background = {
+		reference = throne_room_dwarf
+	}
+	
+	immediate = { play_music_cue = lotr_cue_dwarves }
+	
+	right_portrait = {
+		character = root
+		animation = personality_callous
+	}
+	
+	option = { 
+		name = lotr_intro_events.2010.a
+	}
+}
+
+lotr_intro_events.2011 = { # Introduction to Skorgrím Dourhand ~ Rise of Angmar
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2011.t
+	desc = lotr_intro_events.2011.desc
+	theme = dwarven
+	override_background = {
+		reference = kitchen_dwarven
+	}
+	
+	left_portrait = {
+		character = scope:skorgrim_dourhand
+		animation = disapproval
+	}
+
+	lower_left_portrait = scope:dwalin_V
+	lower_right_portrait = scope:fror_II
+
+	immediate = {
+		play_music_cue = lotr_cue_dwarves
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:lineofdwalinV = { save_scope_as = dwalin_V }
+		character:lineofuri67 = { save_scope_as = fror_II }
+	}
+
+	option = {
+		name = lotr_intro_events.2011.a
+		scope:skorgrim_dourhand = {
+			trigger_event = { # Skorgrim's story cycle begins here
+				id = skorgrim_dourhand.0100
+				days = { 5 8 }
+			}
+		}
+	}
+}
+
+lotr_intro_events.2012 = { # Introduction to Zorzir Kreyir, Blacklock expeditionary in Mablad-dum
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2012.t
+	desc = lotr_intro_events.2012.desc
+	theme = war
+	override_background = {
+		reference = wilderness_underground
+	}
+	immediate = {
+		character:lineofkreyir11 = { save_scope_as = zorzir }
+		character:lineoflughasya23 = { save_scope_as = bludbag_the_rash }
+		character:lineofkreyir9 = { save_scope_as = zorzir_brother }
+		character:thirdlineofthrar87 = { save_scope_as = adunabar }
+		add_character_modifier = zorzir_lost_contact
+	}
+	left_portrait = {
+		character = scope:zorzir
+		animation = aggressive_sword
+		triggered_outfit = {
+			outfit_tags = { dwarf_war_zorzirs_expedition }
+		}
+	}
+	right_portrait = {
+		character = scope:bludbag_the_rash
+		animation = aggressive_axe
+	}
+	lower_left_portrait = {
+		character = scope:zorzir_brother
+	}
+	lower_right_portrait = {
+		character = scope:adunabar
+	}
+	option = { #Event content- stand and fight.
+		name = lotr_intro_events.2012.a
+		trigger_event = {
+			id = zorzir_event_chain.0100
+			days = 10
+		}
+	}
+	option = { #Run away!
+		name = lotr_intro_events.2012.b
+		trigger = { is_ai = no }
+		add_stress = 50
+		remove_character_modifier = zorzir_lost_contact
+		if = {
+			limit = { 
+				has_ep3_dlc_trigger = yes
+			}
+			title:e_yellow_mountains.holder = {
+				get_title = title:c_felakheled
+			}
+			create_landless_adventurer_title_effect = {
+				REASON = flag:wanderer
+				FLAVOR_CHAR = root
+			}
+		}
+		else = {
+			add_gold = 200
+			### Open Activity Window
+			if = {
+				limit = { is_ai = no }
+				open_view_data = {
+					view = activity_list_detail_host_window
+					data = activity_type:activity_expedition
+				}
+			}
+		}
+
+		ai_chance = {
+			base = 0 
+		}		
+	}
+	after = {
+		hidden_effect = {
+			scope:zorzir = {
+				remove_trait = cannot_marry
+			}			
+		}
+
+	}
+}
+
+lotr_intro_events.2013 = { # Introduction to Adunabar, ruler of Thrar's Folk during WOTR
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2013.t
+	desc = lotr_intro_events.2013.desc
+	theme = stewardship
+	override_background = {
+		reference = throne_room_dwarf_eastern
+	}
+	immediate = {
+		character:thirdlineofthrar87 = { save_scope_as = adunabar }
+		character:thirdlineofthrar89 = { save_scope_as = godrathor }
+		character:lineofkreyir11 = { save_scope_as = zorzir }
+		character:lineoflughasya23 = { save_scope_as = bludbag_the_rash }
+		character:lineikkrak1 = { save_scope_as = thuk_the_knowing }
+		
+	}
+	left_portrait = {
+		character = scope:adunabar
+		animation =	personality_cynical
+	}
+	right_portrait = {
+		character = scope:bludbag_the_rash
+		animation = personality_bold
+	}
+	lower_left_portrait = {
+		character = scope:godrathor
+	}
+	lower_center_portrait = {
+		character = scope:thuk_the_knowing
+	}
+	lower_right_portrait = {
+		character = scope:zorzir
+		triggered_outfit = {
+			outfit_tags = { dwarf_war_zorzirs_expedition }
+		}
+	}
+	option = {
+		name = lotr_intro_events.2013.a
+		set_relation_rival = {
+            target = character:lineofkreyir11
+            reason = rival_grave_insult
+        }		
+	}
+}
+
+lotr_intro_events.2014 = { # Introduction to Glóni, ruler of Durin's Folk and Khazad-dûm during RoA
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2014.t
+	desc = lotr_intro_events.2014.desc
+	theme = dwarven
+	override_background = {
+		reference = throne_room_dwarf
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_dwarves
+		character:lineofdurin64 = { save_scope_as = gloni_III }
+		character:lineofdurin65 = { save_scope_as = loni_the_turncoat }
+	}
+	left_portrait = {
+		character = scope:gloni_III
+		animation = map_dismissal
+	}
+	right_portrait = {
+		character = scope:loni_the_turncoat
+		animation = map_rage
+	}
+	
+	option = { 
+		name = lotr_intro_events.2014.a
+	}
+}
+
+lotr_intro_events.2015 = { # Introduction to Lóni 'the Turncoat'
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2015.t
+	desc = lotr_intro_events.2015.desc
+	theme = dwarven
+	override_background = {
+		reference = temple_dwarven
+	}
+	
+	immediate = { play_music_cue = lotr_cue_dwarves }
+	
+	right_portrait = {
+		character = root
+		animation = map_rage
+		camera = camera_body_left_slight
+	}
+	
+	option = { 
+		name = lotr_intro_events.2015.a
+	}
+}
+
+lotr_intro_events.2016 = { # Introduction to Rârn of the Exiles of Nargubraz ~ Long Winter
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2016.t
+	desc = lotr_intro_events.2016.desc
+	theme = dwarven
+	override_background = { reference = bp1_courtyard_indian }
+	
+	immediate = { play_music_cue = lotr_cue_dwarves }
+	
+	right_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+
+	lower_left_portrait = {
+		character = character:lineofbarukodlig1
+	}
+
+	lower_center_portrait = {
+		character = character:lineofsauron
+	}
+
+	lower_right_portrait = {
+		character = character:secondlineofthrar77
+	}
+	
+	option = { 
+		name = lotr_intro_events.2016.a
+	}
+}
+
+lotr_intro_events.2017 = { # Introduction to the Bósi of the Iron Garrison (LOTRO) ~ War of the Ring
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2017.t
+	desc = lotr_intro_events.2017.desc
+	theme = dwarven
+	override_background = { reference = durins_door }
+	
+	immediate = { play_music_cue = lotr_cue_dwarves }
+	
+	right_portrait = {
+		character = root
+		animation = personality_callous
+	}
+
+	lower_left_portrait = {
+		character = character:lineofbifur3
+	}
+
+	lower_center_portrait = {
+		character = character:lineofbomfur3
+	}
+
+	lower_right_portrait = {
+		character = character:lineofbomfur4
+	}
+	
+	option = { 
+		name = lotr_intro_events.2017.a
+		domicile ?= {
+			change_provisions = miniscule_provisions_gain
+            move_domicile = title:c_west_hall.title_province
+        }
+	}
+}
+
+lotr_intro_events.2018 = { # Introduction to Nar of the Dwarf-road Pedlars ~ War of the Ring
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2018.t
+	desc = lotr_intro_events.2018.desc
+	theme = dwarven
+	override_background = { reference = daen_tavern }
+	
+	immediate = { play_music_cue = lotr_cue_dwarves }
+	
+	right_portrait = {
+		character = root
+		animation = toast
+	}
+
+	lower_left_portrait = {
+		character = character:lineofanarbilbo
+	}
+
+	lower_center_portrait = {
+		character = character:lineofhannarbilbo
+	}
+
+	lower_right_portrait = {
+		character = character:lineoflofarbilbo
+	}
+	
+	option = { 
+		name = lotr_intro_events.2018.a
+	}
+}
+
+lotr_intro_events.2019 = { # Introduction to Gráin of the Sons of Náin ~ War of the Ring
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2019.t
+	desc = lotr_intro_events.2019.desc
+	theme = dwarven
+	override_background = { reference = throne_room_dwarf }
+	
+	immediate = { play_music_cue = lotr_cue_dwarves }
+	
+	right_portrait = {
+		character = root
+		animation = war_defender
+	}
+
+	left_portrait = {
+		character = character:lineofdwalin91
+		animation = personality_content
+	}
+
+	lower_left_portrait = {
+		character = character:lineofnain45
+	}
+
+	lower_center_portrait = {
+		character = character:lineofnain43
+	}
+
+	lower_right_portrait = {
+		character = character:lineofnain47
+	}
+	
+	option = { 
+		name = lotr_intro_events.2019.a
+	}
+}
+
+lotr_intro_events.2020 = { # Introduction to Náin the Slakeless of Azanulinbar-dum ~ War of the Ring
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2020.t
+	desc = lotr_intro_events.2020.desc
+	theme = dwarven
+	override_background = { reference = throne_room_dwarf }
+	
+	immediate = { play_music_cue = lotr_cue_dwarves }
+	
+	right_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+
+	lower_left_portrait = {
+		character = character:lineofdurin90
+	}
+
+	lower_center_portrait = {
+		character = character:lineofazog6
+	}
+
+	lower_right_portrait = {
+		character = character:lineofdurin91
+	}
+	
+	option = { 
+		name = lotr_intro_events.2020.a
+	}
+}
+
+lotr_intro_events.2021 = { # Introduction to Glóin Gróinsson of Golden Hall ~ War of the Ring
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2021.t
+	desc = lotr_intro_events.2021.desc
+	theme = dwarven
+	override_background = { reference = market_dwarven }
+	
+	immediate = { play_music_cue = lotr_cue_dwarves }
+	
+	left_portrait = {
+		character = root
+		animation = personality_greedy
+	}
+
+	right_portrait = {
+		character = character:lineofdurin90
+		animation = personality_honorable
+	}
+
+	lower_left_portrait = {
+		character = character:lineofdurin98
+	}
+
+	lower_center_portrait = {
+		character = character:lineofdurin100
+	}
+
+	lower_right_portrait = {
+		character = character:lineofdurin83
+	}
+	
+	option = { 
+		name = lotr_intro_events.2021.a
+	}
+}
+
+lotr_intro_events.2022 = { # Introduction to Dwalin son of Fundin of Halls of Steel ~ War of the Ring
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2022.t
+	desc = lotr_intro_events.2022.desc
+	theme = dwarven
+	override_background = { reference = kitchen_dwarven }
+	
+	immediate = { play_music_cue = lotr_cue_dwarves }
+	
+	left_portrait = {
+		character = root
+		animation = marshal_axe
+	}
+
+	right_portrait = {
+		character = character:lineofdurin90
+		animation = personality_honorable
+	}
+
+	lower_left_portrait = {
+		character = character:lineofdurin82
+	}
+
+	lower_center_portrait = {
+		character = character:lineofdurin95
+	}
+
+	lower_right_portrait = {
+		character = character:lineofdurin83
+	}
+	
+	option = { 
+		name = lotr_intro_events.2022.a
+	}
+}
+
+lotr_intro_events.2023 = { # Introduction to Fror II of Uri's Folk ~ Rise of Angmar
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2023.t
+	desc = lotr_intro_events.2023.desc
+	theme = dwarven
+	override_background = {
+		reference = kitchen_dwarven
+	}
+	
+	left_portrait = {
+		character = scope:fror_II
+		animation = schadenfreude
+	}
+
+	right_portrait = {
+		character = scope:floi
+		animation = steward
+	}
+
+	lower_left_portrait = scope:fulan
+
+	lower_center_portrait = scope:skorgrim_dourhand
+
+	lower_right_portrait = scope:dwalin_V
+
+	immediate = {
+		play_music_cue = lotr_cue_dwarves
+		character:lineofuri65c = { save_scope_as = fulan }
+		character:lineofuri65d = { save_scope_as = floi }
+		character:lineofuri67 = { save_scope_as = fror_II }
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:lineofdwalinV = { save_scope_as = dwalin_V }
+		character:lineofuriV = { save_scope_as = uri_V }
+	}
+
+	option = {
+		name = lotr_intro_events.2023.a
+	}
+}
+
+lotr_intro_events.2024 = { # Introduction to Dwalin V of Dwalin's Folk ~ Rise of Angmar
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2024.t
+	desc = lotr_intro_events.2024.desc
+	theme = dwarven
+	override_background = {
+		reference = throne_room_dwarf
+	}
+	
+	left_portrait = {
+		character = scope:dwalin_V
+		animation = personality_honorable
+	}
+
+	right_portrait = {
+		character = scope:skorgrim_dourhand
+		animation = disapproval
+	}
+
+	lower_center_portrait = scope:fror_II
+
+	immediate = {
+		play_music_cue = lotr_cue_dwarves
+		
+		character:lineofdwalinI = { save_scope_as = dwalin_I }
+		character:lineofdwalinII = { save_scope_as = dwalin_II }
+		character:lineofdwalinIII = { save_scope_as = dwalin_III }
+		character:lineofdwalinIV = { save_scope_as = dwalin_IV }
+		character:lineofdwalinV = { save_scope_as = dwalin_V }
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:lineofuri67 = { save_scope_as = fror_II }
+	}
+
+	option = {
+		name = lotr_intro_events.2024.a
+	}
+}
+
+########################
+###					 ###
+### Orc Intro Events ###
+###					 ###
+########################
+
+lotr_intro_events.4001 = { # Introduction to Tharzog, Mount Gram Ruler in 3000 T.A.
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4001.t
+	desc = lotr_intro_events.4001.desc
+	theme = orcs
+	override_background = {
+		reference = throne_room
+	}
+
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+
+	option = {
+		name = lotr_intro_events.4001.a
+	}
+
+}
+
+lotr_intro_events.4002 = { # Introduction to Gorkil, ruler of Goblin Town in 3000 T.A.
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4002.t
+	desc = lotr_intro_events.4002.desc
+	theme = war
+
+	left_portrait = {
+		character = root
+		animation = personality_callous
+	}
+
+	option = {
+		name = lotr_intro_events.4002.a
+
+		spawn_army = {
+			name = event_troop_default_name
+			levies = 0
+			location = root.location
+			origin = root.location
+			men_at_arms = {
+				type = orc_warriors
+				stacks = 5
+			}
+			men_at_arms = {
+				type = orc_trackers
+				stacks = 5
+			}
+		}
+	}
+}
+
+lotr_intro_events.4003 = { # Introduction to Mazog the Outcast in 3000 T.A.
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4003.t
+	desc = lotr_intro_events.4003.desc
+	theme = martial
+	override_background = {     
+      reference = wilderness_mountains
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = {
+		name = lotr_intro_events.4003.a
+	}
+
+}
+
+lotr_intro_events.4004 = { # Introduction to Gorgol, ruler of Gundabad in 3000 T.A.
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4004.t
+	desc = lotr_intro_events.4004.desc
+	theme = orcs
+	override_background = {     
+      reference = throne_room_orc
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = {
+		name = lotr_intro_events.4004.a
+	}
+
+}
+
+lotr_intro_events.4005 = { # Mt Gram orc intro - The Heart-ripper
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4005.t
+	desc = lotr_intro_events.4005.desc
+	theme = orcs
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+	right_portrait = {
+		character = scope:mtgramorc2
+		animation = personality_irrational
+	}
+	lower_center_portrait = {
+		character = scope:witchking
+		animation = witchcraft
+	}
+	immediate = {
+		character:nazgul1 = { save_scope_as = witchking }
+		character:mtgramorc2 = { save_scope_as = mtgramorc2 }
+	}
+	option = { # I'll RIP out their HEARTS!
+		name = lotr_intro_events.4005.a
+	}
+}
+
+lotr_intro_events.4006 = { # Azog, Lord of Moria - LW Start Date
+	content_source = realms_dlc
+	type = character_event
+	window = big_event_window
+	title = lotr_intro_events.4006.t
+	desc = lotr_intro_events.4006.desc
+	theme = war
+	override_background = {
+		reference = wilderness_underground
+	}
+	left_portrait = {
+		character = root
+		animation = menacing
+	}
+	right_portrait = {
+		character = scope:goblin1
+		animation = writing
+	}
+	lower_right_portrait = {
+		character = scope:goblin2
+	}
+	lower_center_portrait = {
+		character = scope:goblin3
+	}
+	lower_left_portrait = {
+		character = scope:goblin4
+	}
+	immediate = {
+		character:linebookkeeper1 = { save_scope_as = goblin1 }
+		character:linegatewarden1 = { save_scope_as = goblin2 }
+		character:linescrapper1 = { save_scope_as = goblin3 }
+		character:lineburrower1 = { save_scope_as = goblin4 }
+		# hidden_effect = { # Fixed in title history - Trig
+		# 	set_character_faith = faith:way_of_strength
+		# 	character:lineofazog2 = { set_character_faith = faith:way_of_strength }
+		# }
+	}
+	option = { # All of the Misty Mountains will be mine
+		name = lotr_intro_events.4006.a
+		add_character_modifier = rise_of_azog_modifier
+		trigger_event = {
+			id = orcs.7000
+			days = 10
+		}
+	}
+}
+
+lotr_intro_events.4007 = { # Introduction to Bo Lagg "the Butcher" of Chennacatt in 3000 T.A.
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4007.t
+	desc = lotr_intro_events.4007.desc
+	theme = orcs
+	override_background = {
+		reference = battlefield 
+	}
+	immediate = {
+		character:linekuruhai1 = { save_scope_as = bo_lagg_the_butcher }
+		character:lineofvyas25 = { save_scope_as = tartaust_duke }
+		character:linekadash1 = { save_scope_as = vishrakh_coward }
+	}
+	left_portrait = {
+		character = scope:bo_lagg_the_butcher
+		animation = aggressive_unarmed 
+	}
+	right_portrait = {
+		character = scope:tartaust_duke
+		animation = fear 
+	}
+	lower_right_portrait = {
+		character = scope:vishrakh_coward
+	}
+	option = { 
+		name = lotr_intro_events.4007.a
+		add_pressed_claim = title:c_tartaust
+		spawn_army = {
+			uses_supply = no
+			inheritable = yes
+			name = rukhas_hai_raiders
+			men_at_arms = {
+				type = orc_trackers
+				stacks = 3
+			}
+			location = capital_province
+		}
+	}
+}
+
+lotr_intro_events.4008 = { # Introduction to Vîshrakh "the Scribe" of Ny Cénnacatt in 3000 T.A.
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4008.t
+	desc = lotr_intro_events.4008.desc
+	theme = learning_scholarship_focus
+	override_background = {
+		reference = throne_room_evil 
+	}
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	option = { 
+		name = lotr_intro_events.4008.a
+	}
+}
+
+lotr_intro_events.4009 = { # Introduction to Scutsparg the Mask-Bearer Goblin ruler of Ibdêkh-buzrû in Mt. Gundabad 3000 T.A.
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4009.t
+	desc = lotr_intro_events.4009.desc
+	theme = travel
+	override_background = {
+		reference = fp3_cave
+	}
+	left_portrait = {
+		character = root
+		animation = interested
+	}
+	option = { 
+		name = lotr_intro_events.4009.a
+		trigger_event = {
+			id = goblins.0200
+			days = 1
+		}
+	}
+}
+
+lotr_intro_events.4010 = { # Introduction to Hargrog "the Hasty", Adventurer Orc in LW
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4010.t
+	desc = lotr_intro_events.4010.desc
+	theme = orcs
+	override_background = {
+		reference = wilderness_underground
+	}
+	immediate = {
+		character:lineofhargash1 = { save_scope_as = hargrog_the_hasty }
+	}
+	right_portrait = {
+		character = scope:hargrog_the_hasty
+		animation = personality_bold
+	}
+
+	option = { 
+		name = lotr_intro_events.4010.a	#Let's go adventuring!
+		ai_chance = {
+			base = 0 
+		}
+		spawn_army = {
+			name = event_troop_default_name
+			levies = 1200
+			men_at_arms = {
+				type = orc_trackers
+				stacks = 2
+			}
+			men_at_arms = {
+				type = wargrider_scouts
+				stacks = 1
+			}
+			location = province:7928
+			origin = province:7928
+			inheritable = no
+		}
+		spawn_army = {
+			name = event_troop_default_name
+			levies = 1200
+			men_at_arms = {
+				type = orc_trackers
+				stacks = 2
+			}
+			men_at_arms = {
+				type = wargrider_scouts
+				stacks = 1
+			}
+			location = province:7928
+			origin = province:7928
+			inheritable = no
+		}
+
+		add_character_modifier = {
+			modifier = orc_lust_for_adventure_modifier
+			years = 5
+		}
+	}
+	option = {	#I hate fun
+		name = lotr_intro_events.4010.b
+		ai_chance = {
+			base = 100 
+		}
+		add_gold = 100
+	}
+}
+
+lotr_intro_events.4011 = { # Introduction to Ulzog of Mablad-dum in RoA
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4011.t
+	desc = lotr_intro_events.4011.desc
+	theme = learning_scholarship_focus
+	override_background = {
+		reference = throne_room_orc 
+	}
+	left_portrait = {
+		character = root
+		animation = drink_goblet
+	}
+	option = { 
+		name = lotr_intro_events.4011.a
+		trigger_event = {
+			id = yellow_mountain_orc.200
+			days = 1
+		}
+	}
+}
+
+lotr_intro_events.4012 = { # Introduction to Ozag the Firelord (YM WotR)
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4012.t
+	desc = lotr_intro_events.4012.desc
+	theme = intrigue_intimidation_focus
+	override_background = {
+		reference = throne_room_sauron 
+	}
+	immediate = {
+		character:lineoflughasya23 = { save_scope_as = bludbag_the_rash }
+		character:lineoflughasya12 = { save_scope_as = yagrad_the_fool }
+		character:lineofzukarok10 = { save_scope_as = ozag_firelord }
+	}
+	right_portrait = {
+		character = scope:bludbag_the_rash
+		animation = shame
+	}
+	left_portrait = {
+		character = scope:ozag_firelord
+		animation = aggressive_unarmed  
+	}
+	lower_center_portrait = {
+		character = scope:yagrad_the_fool
+	}
+	option = { 
+		name = lotr_intro_events.4012.a
+	}
+}
+
+lotr_intro_events.4013 = { # Introduction to Bludbag the Rash (YM WotR)
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4013.t
+	desc = lotr_intro_events.4013.desc
+	theme = martial_strategy_focus
+	override_background = {
+		reference = temple_dwarven
+	}
+	immediate = {
+		character:lineoflughasya23 = { save_scope_as = bludbag_the_rash }
+		character:lineoflughasya12 = { save_scope_as = yagrad_the_fool }
+		character:lineofkreyir11 = { save_scope_as = blacklock_tresspasser }
+		add_prestige_level = -1
+		add_prestige = -1000
+	}
+	left_portrait = {
+		character = scope:bludbag_the_rash
+		animation = shame
+	}
+	right_portrait = {
+		character = scope:blacklock_tresspasser
+		animation = aggressive_sword
+		triggered_outfit = {
+			outfit_tags = { dwarf_war_zorzirs_expedition }
+		}
+	}
+	lower_center_portrait = {
+		character = scope:yagrad_the_fool
+	}
+	option = { 
+		name = lotr_intro_events.4013.a
+	}
+}
+
+lotr_intro_events.4014 = { # Introduction to Bruka the Bleeder (YM WotR)
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4014.t
+	desc = lotr_intro_events.4014.desc
+	theme = orcs
+	override_background = {
+		reference = market_goblin
+	}
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
+	immediate = {
+		 spawn_army = {
+			 name = event_troop_default_name
+			 men_at_arms = {
+				 type = goblin_poison_archers
+				 stacks = 5
+			 }
+			 men_at_arms = {
+				 type = goblin_spear_throwers
+				 stacks = 5
+			 }
+			 location = province:7945
+			 origin = province:7945
+			 inheritable = no
+		 }
+		 spawn_army = {
+			 name = event_troop_default_name
+			 men_at_arms = {
+				 type = goblin_poison_archers
+				 stacks = 5
+			 }
+			 men_at_arms = {
+				 type = goblin_spear_throwers
+				 stacks = 5
+			 }
+			 location = province:7945
+			 origin = province:7945
+			 inheritable = no
+		 }
+	}
+	option = { 
+		name = lotr_intro_events.4014.a
+	}
+}
+
+lotr_intro_events.4015 = { # Introduction to Shank the Sneak (LW LAAMP)
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4015.t
+	desc = lotr_intro_events.4015.desc
+	theme = orcs
+	override_background = {
+		reference = wilderness_mountains
+	}
+	left_portrait = {
+		character = root
+		animation = personality_greedy
+	}
+	immediate = {
+		 spawn_army = {	#Has a troll in the film
+			 name = event_troop_default_name
+			 men_at_arms = {
+				 type = mountain_troll	
+				 stacks = 1
+			 }
+			 location = province:6247
+			 origin = province:6247
+			 inheritable = no
+		 }
+		 character:waroftherohirrim_orc_wrot = { save_scope_as = wrot }
+		 add_courtier = scope:wrot
+	}
+	
+	right_portrait = {
+		character = scope:wrot
+		animation = personality_bold
+	}
+	
+	option = { 
+		name = lotr_intro_events.4015.a
+		title:d_laamp_ring_collectors.holder = { # Give some rings
+			random_dummy_gender_effect = yes
+			create_artifact_ring_effect = {
+				OWNER = this
+				SMITH = scope:dummy_gender
+			}
+		}
+		title:d_laamp_ring_collectors.holder = { # Give some rings
+			random_dummy_gender_effect = yes
+			create_artifact_ring_effect = {
+				OWNER = this
+				SMITH = scope:dummy_gender
+			}
+		}
+		title:d_laamp_ring_collectors.holder = { # Give some rings
+			random_dummy_gender_effect = yes
+			create_artifact_ring_effect = {
+				OWNER = this
+				SMITH = scope:dummy_gender
+			}
+		}
+	}
+}
+
+lotr_intro_events.4016 = { # Introduction to Khurgru (LW LAAMP)
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4016.t
+	desc = lotr_intro_events.4016.desc
+	theme = orcs
+	override_background = {
+		reference = battlefield
+	}
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+	immediate = {
+
+	}
+	option = { 
+		name = lotr_intro_events.4016.a
+	}
+}
+
+lotr_intro_events.4017 = { # Introduction to Shagul Stonehead, Ku-hai RoA ruler
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4017.t
+	desc = lotr_intro_events.4017.desc
+	theme = orcs
+	override_background = {
+		reference = wilderness_underground
+	}
+	immediate = {
+		character:linegrolfig1 = { save_scope_as = enemygob }
+		create_character = {
+			template = new_warrior_character
+			dynasty = generate
+			gender_female_chance = 0
+			save_scope_as = new_kuhai
+			culture = culture:kuhai
+			faith = faith:dragon_cult
+			location = root.capital_province
+			after_creation = {
+				scope:new_kuhai = {
+					add_prowess_skill = 5
+					add_gold = 500
+					add_prestige = 1000
+					add_piety = 250
+				}
+			}
+		}	
+	}
+	left_portrait = {
+		character = root
+		animation = aggressive_unarmed
+	}
+	right_portrait = {
+		character = scope:enemygob
+		animation = aggressive_sword
+	}
+	option = { 
+		name = lotr_intro_events.4017.a
+		set_relation_rival = {
+            target = character:linegrolfig1
+            reason = rival_grave_insult
+        }	
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = {
+		name = lotr_intro_events.4017.b #Make Laamp
+		if = {
+			limit = { 
+				has_ep3_dlc_trigger = yes
+			}		
+			scope:new_kuhai = {
+				get_title = title:c_gabil_dum
+				add_character_modifier = {
+					modifier = orc_adventurer_slave_influx
+					years = 5
+				}
+			}
+			create_landless_adventurer_title_effect = {
+				REASON = flag:wanderer
+				FLAVOR_CHAR = root
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+lotr_intro_events.4018 = { # Introduction to Gazbag 'the Champion of Dragons' in RoA
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.4018.t
+	desc = lotr_intro_events.4018.desc
+	theme = orcs
+	override_background = {
+		reference = wilderness_arctic
+	}
+	left_portrait = {
+		character = root
+		animation = celebrate_sword
+	}
+	option = { 
+		name = lotr_intro_events.4018.a
+	}
+}
+
+###########################
+###					    ###
+### Hobbit Intro Events ###
+###					    ###
+###########################
+
+lotr_intro_events.5001 = { # Bullroarer Took - LW Start Date
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.5001.t
+	desc = lotr_intro_events.5001.desc
+	theme = war
+	override_background = {
+		reference = throne_room_hobbit
+	}
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	option = { # I will keep watch over the Shire
+		name = lotr_intro_events.5001.a
+	}
+}
+
+##############################
+###	   				       ###
+### Non-human Intro Events ###
+###	  				       ###
+##############################
+
+### Istari ###
+
+lotr_intro_events.5501 = { # Introduction to Saruman, Lord of Isengard
+	content_source = realms_dlc
+	type = character_event
+	content_source = realms_dlc
+	title = lotr_intro_events.5501.t
+	desc = lotr_intro_events.5501.desc
+	theme = white_hand
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	lower_left_portrait = scope:beren
+	lower_right_portrait = scope:helm
+	right_portrait = {
+		character = scope:frealaf
+		animation = personality_content
+	}
+
+	immediate = {
+		character:linesteward31 = { save_scope_as = beren }
+		character:linesteward38 = { save_scope_as = denethor }
+		character:lineofeorl16 = { save_scope_as = frealaf }
+		character:lineofeorl11 = { save_scope_as = helm }
+		character:lineoffreca3 = { save_scope_as = wulf }
+		title:c_isengard = { save_scope_as = title_c_isengard }
+		#Remove cannot marry for Grima if player
+		if = {
+			limit = {
+				character:linegrima6 = { is_ai = no } 
+			}
+			hidden_effect = { character:linegrima6 = { remove_trait = cannot_marry } }
+		}
+	}
+
+	option = { # And so have I remained for the last 240 years...
+		name = lotr_intro_events.5501.a
+		trigger_event = {
+			id = saruman_event_chain.0001
+			days = 5
+		}
+	}
+}
+
+### Sauron and Nazgul/Mouth ###
+
+lotr_intro_events.5502 = { # Introduction to Sauron
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.5502.t
+	desc = lotr_intro_events.5502.desc
+	theme = battle
+	override_background = {
+		reference = wilderness_volcanic
+	}
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_sauron
+	}
+	
+	option = { 
+		name = lotr_intro_events.5502.a
+		custom_tooltip = lotr_intro_events.5502.a.tt
+		trigger_event  = {
+			id = sauron.0512
+			years = 5 
+		}
+		hidden_effect = {
+			add_truce_both_ways = { 
+				character = title:e_gondor_steward.holder
+				years = 4
+				name = TRUCE_GONDOR_MORDOR
+			}
+		}
+	}
+}
+
+lotr_intro_events.5503 = { # Introduction to Khamul
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.5503.t
+	desc = lotr_intro_events.5503.desc
+	theme = stewardship_domain_focus
+	override_background = {
+		reference = fangorn
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_nazgul
+	}
+	
+	option = { 
+		name = lotr_intro_events.5503.a
+	}
+}
+
+lotr_intro_events.5504 = { # Introduction to Witch King (provided by discord user xgoatbush)
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.5504.t
+	desc = lotr_intro_events.5504.desc
+	theme = martial_strategy_focus
+	override_background = {
+		reference = throne_room_evil
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_nazgul
+	}
+	
+	option = { 
+		name = lotr_intro_events.5504.a
+	}
+}
+
+lotr_intro_events.5505 = { # Angmar Start Date | Witch-king intro event
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.5505.t
+	desc = lotr_intro_events.5505.desc
+	theme = realm
+	override_background = {
+		reference = throne_room
+    }
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+	immediate = {
+		play_music_cue = lotr_cue_nazgul
+	}
+	option = { # I shall crush the Dúnedain
+		name = lotr_intro_events.5505.a
+		if = {
+			limit = {
+				is_ai =yes
+			}
+			every_maa_regiment = { destroy_maa_regiment = yes }
+			create_maa_regiment = { type = unburied_wights check_can_recruit = no size = 4 }
+			create_maa_regiment = { type = gundabad_blackshields check_can_recruit = no size = 6 }
+			create_maa_regiment = { type = gundabad_blackshields check_can_recruit = no size = 6 }
+			create_maa_regiment = { type = orc_rabble check_can_recruit = no size = 6 }
+			create_maa_regiment = { type = gundabad_war_troll check_can_recruit = no size = 2 }
+		}
+	}
+}
+
+lotr_intro_events.5506 = { # Introduction to the Mouth of Sauron
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.5506.t
+	desc = lotr_intro_events.5506.desc
+	theme = realm
+
+	left_portrait = {
+		character = root
+		animation = disgust
+	}
+
+	option = { 
+		trigger = { is_ai = no }
+		name = lotr_intro_events.5506.a
+		remove_trait = cannot_marry
+	}
+	
+	option = { 
+		trigger = { is_ai = yes }
+		name = lotr_intro_events.5506.b
+
+		ai_chance = {
+			base = 100 
+		}
+	}
+}
+
+lotr_intro_events.5507 = { # Introduction to the Lord of the Nazgûl - Long Winter 
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.5507.t
+	desc = lotr_intro_events.5507.desc
+	theme = martial_strategy_focus
+	override_background = {
+		reference = throne_room_evil
+	}
+	left_portrait = {
+		character = root
+		animation = menacing
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_nazgul
+		# add_character_flag = witchking_long_winter
+	}
+	
+	option = { 
+		name = lotr_intro_events.5507.a
+		trigger = { is_ai = no }
+		trigger_event = {
+			id = mordor.1000
+			days = 10
+		}
+	}
+	option = {
+		name = lotr_intro_events.5507.a
+		trigger = { is_ai = yes }
+		title:k_wastelands.holder = { #Fire return of Sauron in 200 years
+			trigger_event = {
+				id = mordor.1009
+				years = 200
+			}
+		}
+	}
+}
+
+lotr_intro_events.5508 = { # Introduction to Sauron - Long Winter 
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.5508.t
+	desc = lotr_intro_events.5508.desc
+	theme = intrigue_intimidation_focus
+	override_background = {
+		reference = throne_room_evil
+	}
+	left_portrait = {
+		character = root
+		animation = menacing
+	}
+	right_portrait = {
+		character = character:nazgul1
+		animation = steward
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_sauron
+	}
+	
+	option = { #Continue as Sauron
+		name = lotr_intro_events.5508.a
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = { #Switch to the Witch-King
+		name = lotr_intro_events.5508.b
+		set_player_character = character:nazgul1
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+lotr_intro_events.5509 = { # Introduction to Khorahil - Rise of Angmar
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.5509.t
+	desc = lotr_intro_events.5509.desc
+	theme = intrigue_intimidation_focus
+	override_background = {
+		reference = throne_room_evil
+	}
+	left_portrait = {
+		character = root
+		animation = menacing
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_nazgul
+		add_dread = 75 #Set Natural Dread
+	}
+	
+	option = {
+		name = lotr_intro_events.5509.a
+		trigger_event = {	#News from Tanturak
+			id = sirayn.0018
+			days = { 180 365 }
+		}
+	}
+}
+
+
+### Istari in Rise of Angmar ###
+
+lotr_intro_events.5600 = { #Intro to the Blue Wizards
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.5600.t
+	desc = lotr_intro_events.5600.desc
+	theme = landless_adventurer
+	window = big_event_window
+
+	left_portrait = {
+		character = scope:pallando
+		animation = thinking
+	}
+	right_portrait = {
+		character = scope:alatar
+		animation = survey_staff
+	}
+	immediate = {
+		save_scope_as = pallando
+		character:lineofalatar = {
+			save_scope_as = alatar
+		}
+		title:e_khy.holder.capital_province = {
+			save_scope_as = khy_capital
+		}
+	}
+	option = { # Leave for the Steppe
+		name = lotr_intro_events.5600.a
+		custom_tooltip = lotr_intro_events.5600.a.tt
+		domicile ?= { change_provisions = medium_provisions_gain }
+		domicile = { 		
+			add_domicile_building = supply_tent_01		
+		}
+		add_piety = minor_piety_gain		
+        # start_travel_plan = { #Travel to Chey Sart
+        #     destination = title:c_arpel.title_province
+        #     on_arrival_event = istari.0110
+        #     return_trip = no
+        #     players_use_planner = no
+		# 	travel_with_domicile = yes
+        #     on_arrival_destinations = all
+        # }			
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 60
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+	option = { # Head to Sirayn
+		name = lotr_intro_events.5600.b
+		custom_tooltip = lotr_intro_events.5600.b.tt
+		domicile ?= { change_provisions = medium_provisions_gain }
+		domicile = {
+			add_domicile_building = baggage_train_01		
+		}
+		add_prestige = minor_prestige_gain	
+        start_travel_plan = { #Travel to Tul Harar
+            destination = title:c_tul_harar.title_province
+            # on_arrival_event = istari.0150
+            return_trip = no
+            players_use_planner = no
+			travel_with_domicile = yes
+            on_arrival_destinations = all
+        }			
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 20
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+	option = { # Stay in Khy
+		name = lotr_intro_events.5600.c
+		custom_tooltip = lotr_intro_events.5600.c.tt
+        start_travel_plan = { #Travel to the Emperor
+            destination = scope:khy_capital
+            # on_arrival_event = istari.0180
+            return_trip = no
+            players_use_planner = no
+			travel_with_domicile = yes
+            on_arrival_destinations = all
+        }			
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 20
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+
+	after = {
+		trigger_event = istari.0100 # Choose which Wizard to play as
+	}
+}
+
+### Istari in War of the Ring ###
+
+# lotr_intro_events.5610 # Intro to the Blue Wizards
+
+##########################
+###	   				   ###
+### Human Intro Events ###
+###	  				   ###
+##########################
+
+### Arnor ###
+
+lotr_intro_events.6001 = { # Introduction to Caradoc, last ruler of Hillmen in 3000 T.A.
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6001.t
+	desc = lotr_intro_events.6001.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = wilderness_mountains
+	}
+	right_portrait = {
+		character = root
+		animation = worry
+	}
+	
+	immediate = {
+		play_music_cue = lotr_base_evil_18
+	}
+	
+	option = {
+		name = lotr_intro_events.6001.a	
+	}
+}
+
+lotr_intro_events.6002 = { # Introduction to Aragorn
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6002.t
+	desc = lotr_intro_events.6002.desc
+	theme = stewardship_duty_focus
+
+	override_background = {
+		reference = wilderness_mountains
+	}
+
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	
+	immediate = {
+		play_music_cue = mx_mood_call_24
+	}
+	
+	option = { # From the ashes a fire shall be woken
+		name = lotr_intro_events.6002.a
+		#custom_tooltip = lotr_intro_events.6002.a.tt
+		title:e_arnor = { # Every landed Dunedain Ranger in Arnor gets the chance to swear fealty.
+			every_de_jure_county_holder = {
+				limit = {
+					is_independent_ruler = yes
+					culture = culture:dunedain_ranger
+					location.empire = title:e_arnor
+					NOT = { has_title = title:d_northern_dunedain }
+				}
+				trigger_event = {
+					id = rangers.0101
+					days = 1
+				}
+			}
+		}
+	}
+}
+
+lotr_intro_events.6003 = { # Introduction to Elegost
+	orphan = yes # No longer applicible.
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6003.t
+	desc = lotr_intro_events.6003.desc
+	theme = martial
+	override_background = { reference = wilderness_forest }
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	
+	immediate = {
+		play_music_cue = mx_mood_call_24
+	}
+	
+	option = { 
+		name = lotr_intro_events.6003.a
+		custom_tooltip = lotr_intro_events.6003.a.tt
+		spawn_army = {		 
+			uses_supply = no
+			inheritable = yes
+			name = dunedain_rangers_force
+			men_at_arms = {
+				type = dunedain_rangers
+				stacks = 1
+			}
+			location = capital_province
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { 
+		name = lotr_intro_events.6003.b
+		custom_tooltip = lotr_intro_events.6003.b.tt
+		trigger = { title:c_seabhagtir.holder = { is_ai = yes } }
+		hidden_effect = {
+			if = {
+				limit = { title:c_seabhagtir.holder = { is_ai = yes } }
+				title:c_den_runnach.holder = {
+					get_title = title:c_seabhagtir
+				}
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+lotr_intro_events.6004 = { # Introduction to Súlendil of Emyn Uial
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6004.t
+	desc = lotr_intro_events.6004.desc
+	theme = martial
+	override_background = { reference = wilderness_forest }
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	
+	immediate = {
+		play_music_cue = mx_mood_call_24
+	}
+	
+	option = { 
+		name = lotr_intro_events.6004.a
+		custom_tooltip = lotr_intro_events.6004.a.tt
+	}
+}
+
+lotr_intro_events.6005 = { # Introduction to Madogh
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6005.t
+	desc = lotr_intro_events.6005.desc
+	theme = stewardship_domain_focus
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+
+	option = { # A Realm Broken
+		name = lotr_intro_events.6005.a
+		
+		trigger_event = {
+			id = enedwaith.0300
+			days = { 30 60 }
+		}
+	}
+}
+
+lotr_intro_events.6007 = { # Introduction to Chieftain Arassuil - Long Winter Start Date
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6007.t
+	desc = lotr_intro_events.6007.desc
+	theme = stewardship_duty_focus
+	#window = big_event_window
+	window = big_event_window
+	override_background = {
+		reference = wilderness_forest
+	}
+	right_portrait = {
+		character = root.player_heir
+		scripted_animation = bow_drawn
+	}
+	
+	left_portrait = {
+		character = root
+		animation = throne_room_two_handed_passive_1
+	}
+	
+	immediate = {
+		play_music_cue = mx_mood_call_24
+		character:lineofaranbor15 = { save_scope_as = caramir }
+		character:lineofsilivnir51 = { save_scope_as = silivnir }
+	}
+	
+	option = { # I shall take up the defence of Eriador
+		name = lotr_intro_events.6007.a
+		trigger = { is_ai = no }
+		title:k_wastelands.holder = {
+			trigger_event = {
+				id = rangers.9001 # The Orc Threat
+				years = 8
+			}
+		}
+	}
+	option = { # AI only - don't get the Azog event automatically
+		name = lotr_intro_events.6007.b 
+		trigger = { is_ai = yes }
+		add_piety = 10 
+		ai_chance = {
+			base = 100 
+		}
+	}
+	after = {
+		# create_character = { # Trigger 3 years after start
+		# 	employer = root
+		# 	dynasty_house = house:house_isildur
+		# 	culture = root.culture
+		# 	faith = root.faith
+		# 	father = character:lineisildur38
+		# 	mother = character:lineoforodhos65sister2
+		# 	gender_female_chance = 0
+		# 	name = Argonui
+		# 	age = 0
+		# 	trait = blood_of_numenor_6
+		# }
+		title:e_arnor = { # Every landed Dunedain Ranger in Arnor gets the chance to swear fealty.
+			every_de_jure_county_holder = {
+				limit = {
+					is_independent_ruler = yes
+					culture = culture:dunedain_ranger
+					location.empire = title:e_arnor
+					NOT = { has_title = title:d_northern_dunedain }
+				}
+				trigger_event = {
+					id = rangers.0101
+					days = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					is_ai = yes
+					scope:caramir = { is_ai = yes }
+				}
+			}
+			scope:caramir = {
+				start_tributary = {
+					contract_group = tributary_subjugated
+					suzerain = root
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					is_ai = yes
+					scope:silivnir = { is_ai = yes }
+				}
+			}
+			scope:silivnir = {
+				start_tributary = {
+					contract_group = tributary_subjugated
+					suzerain = root
+				}
+			}
+		}
+	}
+}
+
+lotr_intro_events.6008 = { # Introduction to King Tarvegil | Angmar Start Date
+    content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6008.t
+	desc = lotr_intro_events.6008.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = throne_room
+    }
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+    option = {  # Do not ask for fealty
+		name = lotr_intro_events.6008.a
+	}
+}
+
+lotr_intro_events.6009 = { # Introduction to the Last Dúnadan Lord of the Angle | Angmar Start Date
+    content_source = realms_dlc
+	type = character_event
+	window = big_event_window
+	title = lotr_intro_events.6009.t
+	desc = lotr_intro_events.6009.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = war_defender 
+	}
+	right_portrait = {
+		character = scope:hwaldar
+		animation = war_attacker
+	}
+	immediate = {
+		character:linebroccach = { save_scope_as = hwaldar }
+		character:linemelosse33 = { save_scope_as = mellondir }
+		character:lineisildur18 = { save_scope_as = argeleb }
+	}
+	
+	option = { # War is upon us!
+		name = lotr_intro_events.6009.a
+		add_gold = 25
+		trigger_event = {
+			id = arnor.7002 #Decide if you want to stand and fight, or flee
+			days = 10
+		}	
+	}
+}
+
+lotr_intro_events.6010 = { # Introduction to King Argeleb | Angmar Start Date (ispanets)
+    content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6010.t
+	desc = lotr_intro_events.6010.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = fornost
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+    option = {  # Ask Cardolan and Rhudaur for fealty
+		name = lotr_intro_events.6010.a
+        
+        ai_chance = {
+			base = 100
+		}
+        title:k_rhudaur.holder = {
+            trigger_event = {
+				id = rhudaur.2001
+				days = { 30 60 }
+			}
+        }
+        title:k_cardolan.holder = {
+            trigger_event = {
+				id = arnor.3002
+				days = { 30 60 }
+			}
+        }
+	}
+	option = {  # Ask only Cardolan for fealty
+		name = lotr_intro_events.6010.b
+        
+        ai_chance = {
+			base = 0
+		}
+        title:k_cardolan.holder = {
+            trigger_event = {
+				id = arnor.3002
+				days = { 30 60 }
+			}
+        }
+	}
+    option = {  # Ask only Rhudaur for fealty
+		name = lotr_intro_events.6010.c
+        
+        ai_chance = {
+			base = 0
+		}
+        title:k_rhudaur.holder = {
+            trigger_event = {
+				id = rhudaur.2001
+				days = { 30 60 }
+			}
+        }
+	}
+    option = {  # Do not ask for fealty
+		name = lotr_intro_events.6010.d
+        
+        ai_chance = {
+			base = 0
+		}
+	}
+}
+
+lotr_intro_events.6011 = { # Introduction to Hwaldar | Angmar Start Date
+    content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6011.t
+	desc = lotr_intro_events.6011.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = throne_room
+    }
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	immediate = {
+		title:d_dor_en_egladil.holder = {
+			save_scope_as = mellondir
+		}
+		character:linerhudaur7 = { save_scope_as = lastking } #King Aldor, slain by Hwaldar
+		character:linebroccach = { #Set-up for Hwaldar's death & succession
+			create_story = story_hwaldar_succession
+		}
+	}
+    option = { 
+		name = lotr_intro_events.6011.a
+		add_prestige = 100
+	}
+}
+
+lotr_intro_events.6012 = { # Introduction to Eradan of the Warriors Three
+    content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6012.t
+	desc = lotr_intro_events.6012.desc
+	theme = laamp
+	window = big_event_window
+	override_background = {
+		reference = carrock
+    }
+	right_portrait = {
+		character = scope:andriel
+		animation = survey_staff
+		camera = camera_event_scheme_vs_center_look_left
+	}
+	center_portrait = {
+		character = root
+		animation = bow_idle
+	}
+	left_portrait = {
+		character = scope:farin 
+		animation = personality_honorable
+		triggered_outfit = {
+			outfit_tags = { dwarf_war_longbeard }
+		}
+	}
+
+	trigger = {
+		has_dlc_feature = landless_playable # Don't trigger if he's not acutally a laamp
+	}
+	
+	immediate = {
+		character:lineofandriel = { save_scope_as = andriel } 
+		character:lineofnorin2 = { save_scope_as = farin }
+		create_story = {
+			type = story_cycle_eradan
+			save_scope_as = eradan_story
+		}
+	}
+    option = { 
+		name = lotr_intro_events.6012.a
+		domicile = { change_provisions = medium_provisions_gain }
+		trigger_event = {
+			id = rangers.0400
+			days = 10 
+		}
+		custom_tooltip = eradan_safe_locations_tt
+	}
+}
+
+lotr_intro_events.6013 = { # Introduction to Thorondor Orodhoth Warden of Rhudaur
+    content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6013.t
+	desc = lotr_intro_events.6013.desc
+	theme = dread
+	window = big_event_window
+	override_background = {
+		reference = carrock
+    }
+	left_portrait = {
+		character = scope:handir
+		animation = bow_idle
+	}
+	center_portrait = {
+		character = root
+		animation = marshal
+	}
+	
+	immediate = {
+		character:lineoftarmea65brother = { save_scope_as = handir } 
+	}
+    option = { 
+		name = lotr_intro_events.6013.a
+		domicile = { change_provisions = medium_provisions_gain }
+		trigger_event = {
+			id = rangers.1000
+			days = 10 
+		}
+	}
+}
+
+lotr_intro_events.6014 = { # Introduction to Duinfinn Aramirach, descendant of Aramir, bastard son of Elenthorn the Strong of Rhudaur
+    content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6014.t
+	desc = lotr_intro_events.6014.desc
+	theme = dread
+	window = big_event_window
+	override_background = {
+		reference = carrock
+    }
+	left_portrait = {
+		character = scope:mellondir
+		animation = personality_honorable
+	}
+	center_portrait = {
+		character = root
+		animation = war_defender
+	}
+	right_portrait = {
+		character = scope:hwaldar
+		animation = war_attacker
+	}
+
+	lower_left_portrait = {
+		character = scope:elenthorn
+	}
+	lower_center_portrait = {
+		character = scope:culainn
+	}
+	lower_right_portrait = {
+		character = scope:aramir
+	}
+	
+	immediate = {
+		character:linerhudaur3 = { save_scope_as = elenthorn }
+		character:linerhudaur5 = { save_scope_as = forodagnir }
+		character:linerhudaur6 = { save_scope_as = elwen }
+		character:linerhudaur7 = { save_scope_as = aldor }
+		character:linearamir10 = { save_scope_as = ruadcara }
+		character:linearamir1 = { save_scope_as = aramir }  
+		character:linearamir27 = { save_scope_as = duinfinn }
+		character:linearamir33 = { save_scope_as = culainn } 
+		character:linebroccach = { save_scope_as = hwaldar } 
+		character:linemelosse33 = { save_scope_as = mellondir }
+	}
+    option = { 
+		name = lotr_intro_events.6014.a
+		set_relation_grudge = {
+            target = character:linebroccach
+            reason = rival_covetted_claim
+        }
+		if = {
+			limit = {
+				character:linearamir27 = { is_ai = yes }
+			}
+			hidden_effect = {
+				character:linearamir33 = { 
+					if = {
+						limit = { has_trait = cannot_marry }
+						remove_trait = cannot_marry
+					}
+				}
+				character:lineisildur18niece = { 
+					if = {
+						limit = { has_trait = cannot_marry }
+						remove_trait = cannot_marry
+					}
+				}
+			}
+		}
+	}
+}
+
+lotr_intro_events.6015 = { # Introduction to Lord Ainundur of Eketya (Arthedain)
+    content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6015.t
+	desc = lotr_intro_events.6015.desc
+	theme = family
+	window = big_event_window
+	override_background = {
+		reference = throne_room_dunedain
+    }
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+	center_portrait = {
+		character = scope:gorwen
+		animation = personality_dishonorable
+	}
+	right_portrait = {
+		character = scope:argeleb
+		animation = personality_callous
+	}
+
+	lower_left_portrait = {
+		character = scope:arveleg
+	}
+	lower_center_portrait = {
+		character = scope:aerien
+	}
+	lower_right_portrait = {
+		character = scope:boromir
+	}
+	
+	immediate = {
+		character:lineofeketya73sister2 = { save_scope_as = gorwen }
+		character:lineisildur18 = { save_scope_as = argeleb }
+		character:lineoftarmea29 = { save_scope_as = boromir }
+		character:lineoftarmea31sister = { save_scope_as = aerien }
+		character:lineisildur19 = { save_scope_as = arveleg }
+	}
+    option = { 
+		name = lotr_intro_events.6015.a
+		set_relation_grudge = scope:argeleb
+		set_relation_grudge = scope:boromir
+	}
+}
+
+### Gondor ###
+
+lotr_intro_events.6201 = { # Introduction to Denethor
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6201.t
+	desc = lotr_intro_events.6201.desc
+	theme = gondor
+	override_background = {
+		reference = minas_tirith
+	}
+	right_portrait = {
+		character = root
+		animation = worry
+	}
+	
+	immediate = {
+		play_music_cue = lotr_base_evil_18
+	}
+	
+	option = { # There is an Evil in Mordor that does not sleep.
+		name = lotr_intro_events.6201.a
+		custom_tooltip = lotr_intro_events.6201.a.tt
+		spawn_army = {		 
+			uses_supply = no
+			inheritable = yes
+			name = garrison_of_minas_tirith
+			men_at_arms = {
+				type = guard_of_the_citadel
+				stacks = 25
+			}
+			men_at_arms = {
+				type = trebuchet
+				stacks = 5
+			}
+			location = capital_province
+		}
+		# To give Gondor a fighting chance!
+		hidden_effect = {
+			IF = {	
+				limit = { is_ai = yes }
+				add_character_modifier = {
+					modifier = siege_of_gondor
+				}
+			}
+		}
+		hidden_effect = {
+			add_realm_law_skip_effects = crown_authority_1
+		}
+	}
+}
+
+lotr_intro_events.6202 = { # Introduction to Boromir
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6202.t
+	desc = lotr_intro_events.6202.desc
+	theme = gondor
+	override_background = {
+		reference = minas_tirith
+	}
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	immediate = {
+		play_music_cue = lotr_base_evil_18
+	}
+	
+	option = { 
+		name = lotr_intro_events.6202.a
+		spawn_army = {		 
+			uses_supply = no
+			inheritable = yes
+			name = gondorian_honorguard_force
+			men_at_arms = {
+				type = guard_of_the_citadel
+				stacks = 3
+			}
+			men_at_arms = {
+				type = armored_horsemen
+				stacks = 3
+			}
+			location = capital_province
+		}
+	}
+}
+
+lotr_intro_events.6203 = { # Introduction to Faramir
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6203.t
+	desc = lotr_intro_events.6203.desc
+	theme = gondor
+	override_background = {
+		reference = on_river
+	}
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	
+	immediate = {
+		play_music_cue = lotr_base_evil_18
+	}
+	
+	option = { 
+		name = lotr_intro_events.6203.a
+		spawn_army = {		 
+			uses_supply = no
+			inheritable = yes
+			name = ithilien_rangers_force
+			men_at_arms = {
+				type = rangers_of_ithilien
+				stacks = 5
+			}
+			location = capital_province
+		}
+		trigger_event = {
+			id = gondor.0301
+			days = 3
+		} 	
+	}
+}
+
+lotr_intro_events.6204 = { # Introduction to Dol Amroth
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6204.t
+	desc = lotr_intro_events.6204.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = dol_amroth
+	}
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	
+	option = { 
+		name = lotr_intro_events.6204.a
+		spawn_army = {		 
+			uses_supply = no
+			inheritable = yes
+			name = swan_knights_force
+			levies = 50
+			men_at_arms = {
+				type = swan_knights
+				stacks = 4
+			}
+			location = capital_province
+		}
+		trigger_event = {
+			id = dol_amroth.0401
+			days = 2
+		}
+	}
+}
+
+lotr_intro_events.6205 = { # Introduction to Tharagrondost
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6205.t
+	desc = lotr_intro_events.6205.desc
+	theme = gondor
+	override_background = {
+		reference = throne_room_dunedain
+	}
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	option = { 
+		name = lotr_intro_events.6205.a
+		custom_tooltip = lotr_intro_events.6205.tt
+		add_pressed_claim = title:c_ulond
+		add_pressed_claim = title:d_nan_enqui
+		spawn_army = {
+			uses_supply = no
+			inheritable = yes
+			name = men_of_tharagrondost
+			men_at_arms = {
+				type = gondorian_footmen 
+				stacks = 1
+			}
+			location = capital_province
+		}
+	}
+}
+
+lotr_intro_events.6206 = { # Introduction to Corsairs in Andrast
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6206.t
+	desc = lotr_intro_events.6206.desc
+	theme = martial
+	override_background = {
+		reference = fp1_beached_longships
+	}
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	option = { 
+		name = lotr_intro_events.6206.a
+		custom_tooltip = lotr_intro_events.6206.tt
+		add_prestige = 150
+	}
+}
+
+lotr_intro_events.6230 = { # Introduction to Steward Beren
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6230.t
+	desc = lotr_intro_events.6230.desc
+	theme = gondor
+	override_background = {
+		reference = minas_tirith
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = {
+		name = lotr_intro_events.6230.a
+		custom_tooltip = lotr_intro_events.6230.a.tt
+	}
+}
+
+lotr_intro_events.6231 = { # Introduction to Romendacil II 
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6231.t
+	desc = lotr_intro_events.6231.desc
+	theme = gondor
+	override_background = {
+		reference = minas_tirith
+	}
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
+
+	option = {
+		name = lotr_intro_events.6231.a
+	}
+}
+
+
+### Rohan ###
+
+lotr_intro_events.6401 = { # Introduction to Theoden
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6401.t
+	desc = lotr_intro_events.6401.desc
+	theme = rohan_theme
+	override_background = {
+		reference = edoras
+	}
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+
+	right_portrait = {
+		character = root.player_heir
+		animation = personality_bold
+	}
+
+	lower_left_portrait = scope:thengel
+	lower_right_portrait = scope:fengel
+	lower_center_portrait = scope:theodwyn
+
+	immediate = {
+		save_scope_as = theoden
+		player_heir = { save_scope_as = theodred }
+		real_father = { save_scope_as = thengel }
+		real_father.real_father = { save_scope_as = fengel }
+		character:lineofeorl32 = { save_scope_as = theodwyn }
+		play_music_cue = lotr_cue_rohan
+	}
+
+	option = {
+		name = lotr_intro_events.6401.a
+		
+		# if = { # Gotta account for Shattered World
+		# 	limit = {
+		# 		has_title = title:k_rohan
+		# 	}
+		# 	trigger_event = {
+		# 		id = rohan.0100
+		# 		days = 5
+		# 	}
+		# }
+	}
+}
+
+lotr_intro_events.6402 = { # Théodred
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6402.t
+	desc = lotr_intro_events.6402.desc
+	theme = rohan_theme
+	override_background = {
+		reference = edoras
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = lotr_cue_rohan
+	}
+
+	option = {
+		name = lotr_intro_events.6402.a
+	}
+}
+
+lotr_intro_events.6403 = { # Helm Hammerhand
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6403.t
+	desc = lotr_intro_events.6403.desc
+	theme = rohan_theme
+	override_background = {
+		reference = edoras
+	}
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	right_portrait = {
+		character = scope:freca
+		animation = personality_bold
+	}
+	lower_left_portrait = scope:haleth
+	lower_center_portrait = scope:hama
+	lower_right_portrait = scope:hera
+
+	immediate = {
+		play_music_cue = lotr_cue_rohan
+		character:lineoffreca1 = { save_scope_as = freca }
+		character:lineofeorl1 = { save_scope_as = eorl }
+		character:lineofeorl13 = { save_scope_as = haleth }
+		character:lineofeorl14 = { save_scope_as = hama }
+		character:lineofeorl15 = { save_scope_as = hera }
+
+		hidden_effect = {
+			add_character_modifier = {
+				modifier = fp1_reprieve_from_sa_modifier
+				years = 10
+			}
+		}
+	}
+
+	option = {
+		name = lotr_intro_events.6403.a
+		custom_tooltip = lotr_intro_events.6403.a.tooltip
+		scope:freca = {
+			trigger_event = { # Helm's story cycle begins here
+				id = war_of_the_rohirrim.0100
+				days = { 5 8 }
+			}
+		}
+	}
+
+}
+
+lotr_intro_events.6404 = { # Freca
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6404.t
+	desc = lotr_intro_events.6404.desc
+	theme = realm
+	override_background = {
+		reference = on_river
+	}
+	left_portrait = {
+		character = root
+		animation = personality_callous
+	}
+	right_portrait = {
+		character = scope:wulf
+		animation = personality_bold
+	}
+	lower_center_portrait = scope:helm
+
+	immediate = {
+		play_music_cue = lotr_cue_rohan
+		character:lineofeorl11 = { save_scope_as = helm }
+		character:lineoffreca3 = { save_scope_as = wulf }
+	}
+
+	option = {
+		name = lotr_intro_events.6404.a
+	}
+
+}
+
+lotr_intro_events.6405 = { # Eomund of Aldburg
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6405.t
+	desc = lotr_intro_events.6405.desc
+	theme = rohan_theme
+	override_background = {
+		reference = edoras
+	}
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+	right_portrait = {
+		character = scope:theoden
+		animation = personality_bold
+	}
+
+	lower_left_portrait = scope:eofor
+	lower_center_portrait = scope:theodwyn
+	lower_right_portrait = scope:eorl
+
+	immediate = {
+		play_music_cue = lotr_cue_rohan
+		character:lineofeofor16 = { save_scope_as = eomund }
+		player_heir = { save_scope_as = eomer }
+		character:lineofeorl2 = { save_scope_as = brego }
+		character:lineofeofor1 = { save_scope_as = eofor }
+		character:lineofeorl1 = { save_scope_as = eorl }
+		character:lineofeorl28 = { save_scope_as = theoden }
+		character:lineofeorl32 = { save_scope_as = theodwyn }
+		character:lineofeofor18 = { save_scope_as = eowyn }
+	}
+
+	option = {
+		name = lotr_intro_events.6405.a
+	}
+
+}
+
+### Anduin Vale ###
+
+lotr_intro_events.6501 = { # Introduction to Beornings
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6501.t
+	desc = lotr_intro_events.6501.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = carrock
+	}
+	left_portrait = {
+		character = root
+		animation = throne_room_two_handed_passive_1
+	}
+	right_portrait = {
+		character = character:lineofbeorn1
+		animation = marshal_axe
+	}
+	
+	option = { # 
+		name = lotr_intro_events.6501.a
+		custom_tooltip = lotr_intro_events.6501.a.tt
+		trigger_event = {
+			id = anduin_vale.0101
+			years = 14
+		}
+	}
+}
+
+lotr_intro_events.6502 = { # Introduction to Framlings
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6502.t
+	desc = lotr_intro_events.6502.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = carrock
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = character:linefram6
+		animation = admiration
+	}
+	
+	option = { # 
+		name = lotr_intro_events.6502.a
+		custom_tooltip = lotr_intro_events.6502.a.tt
+	}
+}
+
+lotr_intro_events.6503 = { # Introduction to Melburgis
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6503.t
+	desc = lotr_intro_events.6503.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = carrock
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	option = { # 
+		name = lotr_intro_events.6503.a
+		custom_tooltip = lotr_intro_events.6503.a.tt
+	}
+}
+
+lotr_intro_events.6504 = { # Introduction to Herimundis
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6504.t
+	desc = lotr_intro_events.6504.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = carrock
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = character:lineofherimundi7
+		animation = admiration
+	}
+	
+	option = { # 
+		name = lotr_intro_events.6504.a
+		custom_tooltip = lotr_intro_events.6504.a.tt
+	}
+}
+
+lotr_intro_events.6505 = { # Introduction to Kultamieli, T.A. 1349
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6505.t
+	desc = lotr_intro_events.6505.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = carrock
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	option = { 
+		name = lotr_intro_events.6505.a
+		custom_tooltip = lotr_intro_events.6505.a.tt
+		spawn_army = {
+			name = event_troop_default_name
+			levies = 0
+			location = root.location
+			origin = root.location
+			men_at_arms = {
+				type = orc_warriors
+				stacks = 5
+			}
+			men_at_arms = {
+				type = orc_trackers
+				stacks = 5
+			}
+		}
+		add_character_flag = is_kultamieli
+		add_character_modifier = {
+			modifier = kultamieli_intrigue_buff
+			years = 10
+		}
+	}
+}
+lotr_intro_events.6506 = { # Introduction to Riculfo of Taurau
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6506.t
+	desc = lotr_intro_events.6506.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = wilderness_mountains
+	}
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+	
+	option = {  
+		name = lotr_intro_events.6506.a	
+	}
+}
+
+lotr_intro_events.6507 = { # Introduction to Holden of Framsburg
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6507.t
+	desc = lotr_intro_events.6507.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = carrock
+	}
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	
+	option = {  
+		name = lotr_intro_events.6507.a
+		custom_tooltip = lotr_intro_events.6507.a.tt
+		add_character_flag = is_holden_of_framsburg
+	}
+}
+
+lotr_intro_events.6508 = { # Introduction to Harkind of Marsham
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6508.t
+	desc = lotr_intro_events.6508.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = carrock
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	option = { 
+		name = lotr_intro_events.6508.a
+	}
+}
+
+
+
+
+### Greenwood/Woodmen ###
+
+lotr_intro_events.6601 = { # Introduction to Gudamaris
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6601.t
+	desc = lotr_intro_events.6601.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = wilderness_forest_deep
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	option = { # 
+		name = lotr_intro_events.6601.a
+		custom_tooltip = lotr_intro_events.6601.a.tt
+	}
+}
+
+lotr_intro_events.6602 = { # Introduction to Sairthiduas
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6602.t
+	desc = lotr_intro_events.6602.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = wilderness_forest_deep
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	option = { # 
+		name = lotr_intro_events.6602.a
+		custom_tooltip = lotr_intro_events.6602.a.tt
+	}
+}
+
+lotr_intro_events.6603 = { # Introduction to Fadirings
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6603.t
+	desc = lotr_intro_events.6603.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = wilderness_forest_deep
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	option = { # 
+		name = lotr_intro_events.6603.a
+		custom_tooltip = lotr_intro_events.6603.a.tt
+	}
+}
+
+lotr_intro_events.6604 = { # Introduction to Meroagings
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6604.t
+	desc = lotr_intro_events.6604.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = wilderness_forest_deep
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	option = { # 
+		name = lotr_intro_events.6604.a
+		custom_tooltip = lotr_intro_events.6604.a.tt
+	}
+}
+
+lotr_intro_events.6605 = { # Introduction to Waldandings
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6605.t
+	desc = lotr_intro_events.6605.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = wilderness_forest_deep
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	option = { # 
+		name = lotr_intro_events.6605.a
+		custom_tooltip = lotr_intro_events.6605.a.tt
+	}
+}
+
+lotr_intro_events.6606 = { # Introduction to Corsechings
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6606.t
+	desc = lotr_intro_events.6606.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = fangorn
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = character:nazgul2
+		animation = admiration
+	}
+	
+	option = { # 
+		name = lotr_intro_events.6606.a
+		custom_tooltip = lotr_intro_events.6606.a.tt
+	}
+}
+
+### Rhovanion ###
+
+lotr_intro_events.6701 = { # Introduction to Bain of Dale
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6701.t
+	desc = lotr_intro_events.6701.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = dimril_dale
+	}
+	right_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	
+	option = { # The Free Men of the North will prosper
+		name = lotr_intro_events.6701.a
+		title:k_dale.holder = {
+			trigger_event = { # The council of Dale
+				id = dale.0001
+				days = 20
+			}
+		}
+	}
+}
+
+lotr_intro_events.6702 = { # Introduction to Lord Girnir of Dale ~ LW
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6702.t
+	desc = lotr_intro_events.6702.desc
+	theme = stewardship
+	override_background = {
+		reference = market_west
+	}
+	right_portrait = {
+		character = root
+		animation = interested
+	}
+	
+	option = { # Let the trade flow!
+		name = lotr_intro_events.6702.a
+	}
+}
+
+lotr_intro_events.6703 = { # Introduction to Realm-master Lindor of Dorwinion ~ LW
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6703.t
+	desc = lotr_intro_events.6703.desc
+	theme = diplomacy_majesty_focus
+	override_background = {
+		reference = market_west
+	}
+	right_portrait = {
+		character = root
+		animation = happiness
+	}
+	
+	option = { # Our traditions are maintained!
+		name = lotr_intro_events.6703.a
+	}
+}
+
+lotr_intro_events.6704 = { # Introduction to Realm-master Hawin of Dorwinion ~ WOTR
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6704.t
+	desc = lotr_intro_events.6704.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = fp2_garden }
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	
+	option = { # A delicate balance, but one I am born to maintain.
+		name = lotr_intro_events.6704.a
+	}
+}
+
+lotr_intro_events.6705 = { # Introduction to King Fulkahari of Rhovanion ~ RoA
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6705.t
+	desc = lotr_intro_events.6705.desc
+	theme = rohan_theme
+	override_background = { reference = plains }
+	left_portrait = {
+		character = root
+		animation = horse_surveying
+		camera = camera_event_center_moved_left
+	}
+	
+	option = { # I was born in the saddle.
+		name = lotr_intro_events.6705.a
+	}
+}
+
+### Bellakar and Far Harad ###
+
+lotr_intro_events.6801 = { # Introduction to Ayal, Kataj of the Confederacy
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6801.t
+	desc = lotr_intro_events.6801.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = wilderness_savanna }
+	
+	trigger = {
+		character:lineofthezij42 = root
+	}
+	
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = character:lineofazumenakhad79
+		animation = worry
+	}
+	
+	option = { # All my work for naught...
+		name = lotr_intro_events.6801.a
+		character:lineofthezij42 = {
+			trigger_event = {
+				id = tedjin.0099
+				days = { 250 500 }
+			}
+		}
+		character:lineofthezij51 = {
+			add_character_flag = is_temujin # Immunity to Factions
+		}
+	}
+}
+
+lotr_intro_events.6802 = { # Introduction to Nîlûhîn II
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6802.t
+	desc = lotr_intro_events.6802.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = bp1_courtyard_indian }
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = { # The Eighth Entail Stands
+		name = lotr_intro_events.6802.a
+		trigger_event = {
+			id = bellakar_story.0101
+			days = 10
+		}
+	}
+}
+
+lotr_intro_events.6803 = { # Introduction to Vâtalinar
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6803.t
+	desc = lotr_intro_events.6803.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = bp1_courtyard_indian }
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	option = { # An Uneasy Quiet
+		name = lotr_intro_events.6803.a
+		character:serpentlord13 = {
+			trigger_event = lotr_intro_events.6805
+		}
+		character:lineoftresti142 = {
+			trigger_event = lotr_intro_events.6804
+		}
+	}
+}
+
+lotr_intro_events.6804 = { # Introduction to Dêlasîmor II of Iunástîy
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6804.t
+	desc = lotr_intro_events.6804.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = bp1_courtyard_indian }
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	option = { # Preserve Our Traditions
+		name = lotr_intro_events.6804.a
+	}
+}
+
+lotr_intro_events.6805 = { # Introduction to Mardat of Sûza-Rîy
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6805.t
+	desc = lotr_intro_events.6805.desc
+	theme = faith
+	override_background = { reference = bp1_courtyard_indian }
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+
+	option = { # Preserve Our Traditions
+		name = lotr_intro_events.6805.a
+		hidden_effect = {
+			vassal_contract_set_obligation_level = {
+        		 type = title_revocation_rights
+        		level = 1
+        	}
+        	vassal_contract_set_obligation_level = {
+        		 type = religious_rights
+        		level = 1
+        	}			
+		}
+		character:serpentlord13 = { # Regicide in the Dar
+			trigger_event = {
+				id = ray_story.0001
+				days = 10
+			}
+		}
+	}
+}
+
+lotr_intro_events.6806 = { #Introduction to Fariyin/Gusar/Tandi rulers
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6806.t
+	desc = lotr_intro_events.6806.desc
+	theme = war
+	override_background = wilderness_forest
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+
+	trigger = {
+		OR = {
+			culture = culture:fariyin
+			culture = { any_parent_culture_or_above = { this = culture:fariyin } }
+		}
+	}
+
+	option = { # We shall keep to our own
+		name = lotr_intro_events.6806.a
+		add_piety = 100
+	}
+	option = { # Zajantak shall be restored
+		name = lotr_intro_events.6806.b
+		add_prestige = 100
+	}
+}
+
+lotr_intro_events.6807 = { # Introduction to King Bogho of Darsalan ~ LW
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6807.t
+	desc = lotr_intro_events.6807.desc
+	theme = diplomacy_majesty_focus
+	override_background = {
+		reference = throne_room
+	}
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	option = { # There is a tempest in me...
+		name = lotr_intro_events.6807.a
+	}
+}
+
+lotr_intro_events.6808 = { # Introducation to Fanaya of Khorsaj - RoA 
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6808.t
+	desc = lotr_intro_events.6808.desc
+	theme = sailing_activity
+	override_background = {
+		reference = docks
+	}
+	right_portrait = {
+		character = root
+		animation = marshal_axe
+	}
+	immediate = {
+		add_character_flag = wear_armor
+		add_character_flag = khorsaj_fate_open # Unlocks decision
+	}
+	option = { # This will be the greatest corsair haven ever
+		name = lotr_intro_events.6808.a
+		custom_tooltip = lotr_intro_events.6808.a.tt
+		spawn_army = {
+			name = event_troop_default_name
+			men_at_arms = {
+				type = corsair_warriors
+				stacks = 6
+			}
+			men_at_arms = {
+				type = tulwangi_cliffwardens
+				stacks = 4
+			}
+			men_at_arms = {
+				type = abrazanim_warbows
+				stacks = 3
+			}
+			men_at_arms = {
+				type = war_mumak
+				stacks = 1
+			}
+			location = root.location
+			origin = root.location
+		}
+		remove_character_flag = wear_armor
+		get_title = title:c_fult
+		get_title = title:d_khorsaj
+	}
+}
+
+lotr_intro_events.6809 = { # Introduction to Sakalkhad of Korlea - Rise of Angmar
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6809.t
+	desc = lotr_intro_events.6809.desc
+	theme = sailing_activity
+	override_background = { reference = docks_adunai }
+	window = big_event_window
+	left_portrait = {
+		character = scope:belphegor
+		animation = personality_callous
+	}
+	center_portrait = {
+		character = scope:lominzil
+		animation = storyteller
+	}
+	right_portrait = {
+		character = scope:nimruzir
+		animation = writing
+	}
+	lower_left_portrait = {
+		character = root
+	}
+	immediate = {
+		character:lineofnilubel25littlebrother = { save_scope_as = belphegor }
+		character:lineofostiohincadet23littlesister = { save_scope_as = lominzil }
+		character:lineborodiriath96brother = { save_scope_as = nimruzir }
+		hidden_effect = { # Make sure these three idiots are actually in Korlea when the expedition starts
+			add_courtier = scope:belphegor
+			add_courtier = scope:lominzil
+			add_courtier = scope:nimruzir
+		}
+	}
+	option = { # A new Expedition shall be launched
+		name = lotr_intro_events.6809.a
+		add_character_flag = korlea_expedition_ready
+		custom_tooltip = lotr_intro_events.6809.a.tt
+	}
+}
+
+### Rhun and Khand ###
+
+lotr_intro_events.7001 = { # Introduction to the Logath II
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7001.t
+	desc = lotr_intro_events.7001.desc
+	theme = realm
+	right_portrait = {
+		character = root
+		animation = admiration
+	}
+	override_background = { reference = wilderness_forest_pine }
+	trigger = {
+		is_ai = no
+		is_available_even_at_war_adult = yes
+		NOT = { has_character_flag = had_event_lotr_yearly_rhun_0011 }
+		has_culture = culture:logath
+		capital_province = { geographical_region = middleearth_west_rhovanion_dorwinion }
+	}
+	cooldown = { days = 5 }
+	immediate = { add_character_flag = { flag = had_event_lotr_yearly_rhun_0011 } }
+	option = { # The people of the vine now call for our amazonians.
+		name = lotr_intro_events.7001.a
+		root.capital_county = {
+			add_county_modifier = {
+				modifier = dorwinion_foederati_modifier
+				years = 10
+			}
+		}
+		culture:logath = {
+			change_cultural_acceptance = {
+				target = culture:dorwinionrim
+				value =	5
+				desc = cultural_acceptance_historical_relations
+			}
+		}
+	}
+	option = { # What can the short men offer us for livestock.
+		name = lotr_intro_events.7001.b
+		root.capital_county = {
+			add_county_modifier = {
+				modifier = dwarven_breadbasket_modifier
+				years = 10
+			}
+		}
+	}
+}
+
+lotr_intro_events.7002 = { # Introduction to the Logath III
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7002.t
+	desc = lotr_intro_events.7002.desc
+	theme = realm
+	right_portrait = {
+		character = root
+		animation = admiration
+	}
+	override_background = { reference = wilderness_forest_pine }
+	trigger = {
+		is_ai = no
+		is_available_even_at_war_adult = yes
+		NOT = { has_character_flag = had_event_lotr_yearly_rhun_0011 }
+		has_culture = culture:logath
+		capital_province = { geographical_region = middleearth_west_rhovanion_dorwinion }
+	}
+	immediate = { add_character_flag = { flag = had_event_lotr_yearly_rhun_0011 } }
+	option = { # The courtly women of Dale trade items of great beauty.
+		name = lotr_intro_events.7002.a
+		root.capital_county = {
+			add_county_modifier = {
+				modifier = dale_trade_modifier
+				years = 10
+			}
+		}
+		culture:logath = {
+			change_cultural_acceptance = {
+				target = culture:dalemen
+				value =	3
+				desc = cultural_acceptance_historical_relations
+			}
+		}
+	}
+	option = { # Migration is in our blood, assemble our great Easterling host!
+		name = lotr_intro_events.7002.b
+		root.capital_county = {
+			add_county_modifier = {
+				modifier = great_easterling_host_modifier
+				years = 10
+			}
+		}
+		add_character_modifier = {
+			modifier = formed_great_easterling_host_modifier
+			years = 10
+		}
+	}
+}
+
+lotr_intro_events.7003 = { # Introduction to Hûz-Margoz
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7003.t
+	desc = lotr_intro_events.7003.desc
+	theme = family
+	left_portrait = {
+		character = root
+		animation = shame
+	}
+	right_portrait = {
+		character = character:lineofszrel1
+		animation = pain
+	}
+
+	immediate = {
+		if = {
+			limit = { is_ai = yes }
+			get_title = title:d_dacranamel
+			add_gold = 333
+			add_dread = 100
+			add_prestige = 1200
+		}
+		add_unpressed_claim = title:c_palcana
+		add_unpressed_claim = title:c_rhonada
+		add_unpressed_claim = title:c_martakend
+		add_unpressed_claim = title:c_serverna
+		add_unpressed_claim = title:c_dargeca
+	}	
+	
+	option = {
+		name = lotr_intro_events.7003.a
+		custom_tooltip = lotr_intro_events.7003.a.tt
+		trigger_event = huzmargoz_event_chain.0001
+	}
+
+	option = {
+		name = lotr_intro_events.7003.b
+		custom_tooltip = lotr_intro_events.7003.b.tt
+		character:lineofzhamian3 = {
+			trigger_event = {
+				id = huzmargoz_event_chain.0002	
+				years = 14
+			}	
+		}	
+	}
+}
+
+lotr_intro_events.7004 = { # Introduction to Vangaris (provided by discord user xgoatbush)
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7004.t
+	desc = lotr_intro_events.7004.desc
+	theme = martial_strategy_focus
+	override_background = {
+		reference = throne_room_tribal	
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	immediate = {
+		play_music_cue = mx_cue_epic_sacral_moment
+	}
+	
+	option = { 
+		name = lotr_intro_events.7004.a
+	}
+}
+
+lotr_intro_events.7005 = { # Introduction to Keiseimu (provided by discord user xgoatbush)
+    content_source = realms_dlc
+    type = character_event
+    title = lotr_intro_events.7005.t
+    desc = lotr_intro_events.7005.desc
+    theme = martial_strategy_focus
+    override_background = {
+        reference = throne_room_tribal
+    }
+    left_portrait = {
+        character = root
+        animation = personality_bold
+    }
+
+    immediate = {
+        play_music_cue = the_silmarillion_war.mp3
+    }
+
+    option = { 
+        name = lotr_intro_events.7005.a
+    }
+}
+
+lotr_intro_events.7006 = { # Introduction to Bountig Medlokan (provided by discord user xgoatbush)
+    content_source = realms_dlc
+    type = character_event
+    title = lotr_intro_events.7006.t
+    desc = lotr_intro_events.7006.desc
+    theme = martial_strategy_focus
+    override_background = {
+        reference = wilderness_steppe
+    }
+
+	widgets = {
+		widget = {
+			gui = "lotr_shader_event_sparks"
+			container = "lotr_shader_event_foreground"
+		}
+		widget = {
+			gui = "lotr_shader_event_fire"
+			container = "lotr_shader_event_background"
+		}
+	}
+	
+    left_portrait = {
+        character = root
+        animation = pain
+    }
+
+    option = { # Canonical Route
+        name = lotr_intro_events.7006.a
+		set_variable = lotr_story_content
+		create_story = story_cycle_bountig_medlokan
+		add_trait = cannot_marry
+
+		ai_chance = {
+			base = 30 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 70
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 60
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+    }
+
+    option = { # Non-Canonical Route
+        name = lotr_intro_events.7006.b
+		save_scope_as = bountig
+		custom_tooltip = lotr_intro_events.7006.b.tt
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 40
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+    }
+}
+
+lotr_intro_events.7007 = { # Introduction to Timmir
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7007.t
+	desc = lotr_intro_events.7007.desc
+	theme = war
+	override_background = {
+		reference = wilderness_savanna	
+	}
+	left_portrait = {
+		character = root
+		animation = disbelief
+	}
+	right_portrait = {
+		character = character:vangarisofkhand
+		animation = personality_bold
+	}
+	option = { 
+		name = lotr_intro_events.7007.a
+	}
+}
+
+
+### Near Harad ###
+
+lotr_intro_events.7200 = { # Introduction to Medja
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7200.t
+	desc = lotr_intro_events.7200.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = wilderness_savanna
+	}
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = character:lineofkhadnom5
+		animation = personality_bold
+	}
+	
+	option = { # We will worship again publically soon
+		name = lotr_intro_events.7200.a
+	}
+}
+
+lotr_intro_events.7201 = { # Introduction to Kalafar
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7201.t
+	desc = lotr_intro_events.7201.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = wilderness_savanna
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = character:lineofkhadnom6
+		animation = admiration
+	}
+	
+	option = { # A serpent to the west, and a shadow to the North. We must hold.
+		name = lotr_intro_events.7201.a
+		custom_tooltip = lotr_intro_events.7201.a.tt
+
+		hidden_effect = {
+			character:lineofnadiaya7 = {
+				add_opinion = {
+					modifier = approving_opinion
+					target = character:lineofkhadnom4
+					opinion = 120
+				}
+				add_opinion = {
+					modifier = approving_opinion
+					target = root
+					opinion = 120
+				}
+				add_opinion = {
+					modifier = approving_opinion
+					target = character:lineofkhadnom6
+					opinion = 120
+				}
+				add_opinion = {
+					modifier = approving_opinion
+					target = character:lineofkhadnom7
+					opinion = 120
+				}
+				add_opinion = {
+					modifier = approving_opinion
+					target = character:lineofkhadnom9
+					opinion = 120
+				}
+				add_opinion = {
+					modifier = approving_opinion
+					target = character:lineofmedjanom1
+					opinion = 120
+				}
+				add_opinion = {
+					modifier = approving_opinion
+					target = character:lineofmedjanom2
+					opinion = 120
+				}
+				add_opinion = {
+					modifier = approving_opinion
+					target = character:lineofmedjanom3
+					opinion = 120
+				}
+			}
+		}
+
+		trigger_event = {
+			id = harad.0101
+			days = 14
+		}
+	}
+}
+
+lotr_intro_events.7202 = { # Introduction to Sûladan
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7202.t
+	desc = lotr_intro_events.7202.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = character:lineofafalku37
+		animation = personality_callous
+	}
+	
+	option = { # To Pezarsan!
+		name = lotr_intro_events.7202.a
+		trigger_event = harad.0216
+		trigger_event = harad.0224
+	}
+}
+
+lotr_intro_events.7203 = { # Introduction to Balkuthôr
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7203.t
+	desc = lotr_intro_events.7203.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = personality_callous
+	}
+	right_portrait = {
+		character = title:k_haruzan.holder
+		animation = personality_bold
+	}
+	
+	option = { # To Pezarsan!
+		name = lotr_intro_events.7203.a
+	}
+}
+
+lotr_intro_events.7204 = { # Introduction to Pezarsan
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7204.t
+	desc = lotr_intro_events.7204.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+
+	option = { # Chelkar!
+		name = lotr_intro_events.7204.a
+	}
+	option = { # Haruzan!
+		name = lotr_intro_events.7204.b
+	}
+}
+
+lotr_intro_events.7205 = { # Introduction to Scorpion King
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7205.t
+	desc = lotr_intro_events.7205.desc
+	theme = war
+	override_background = {
+		reference = wilderness_desert
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	
+	option = { # The Scorpion King will rise!
+		name = lotr_intro_events.7205.a
+		add_prestige = medium_prestige_gain
+		ai_chance = { base = 100 }
+	}
+	option = { # We must follow Haruzan's example...
+		name = lotr_intro_events.7205.b 
+		set_character_faith = faith:faith_haruze
+		add_piety = major_piety_gain
+		root.capital_county = { set_county_faith = faith:faith_haruze }
+		every_close_family_member = { set_character_faith = faith:faith_haruze }
+		every_spouse = { set_character_faith = faith:faith_haruze }
+	}
+	option = { # A new path lies before us all.
+		name = lotr_intro_events.7205.c
+		set_character_faith = faith:faith_iunast
+		add_piety = major_piety_gain
+		root.capital_county = { set_county_faith = faith:faith_iunast }
+		every_close_family_member = { set_character_faith = faith:faith_iunast }
+		every_spouse = { set_character_faith = faith:faith_iunast }
+	}
+}
+
+lotr_intro_events.7206 = { # Introduction to Yusraa
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7206.t
+	desc = lotr_intro_events.7206.desc
+	theme = war
+	override_background = {
+		reference = wilderness_desert
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = {
+		name = lotr_intro_events.7206.a
+	}
+}
+
+lotr_intro_events.7207 = { # Introduction to the Caravan-Born
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7207.t
+	desc = lotr_intro_events.7207.desc
+	theme = realm
+	override_background = {
+		reference = wilderness_desert
+	}
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = scope:mother
+		animation = disbelief
+	}
+	lower_center_portrait = {
+		character = scope:father
+	}
+	immediate = {
+		character:serpentlord11 = {save_scope_as = father}
+		character:lineofhidar16 = {save_scope_as = mother}
+	}
+	option = {
+		name = lotr_intro_events.7207.a
+	}
+}
+
+### Umbar and Mardruak ###
+
+lotr_intro_events.7401 = { # Introduction to the Ar-Adunaim
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7401.t
+	desc = lotr_intro_events.7401.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_adunai
+	}
+	
+	option = { #
+		name = lotr_intro_events.7401.a
+		custom_tooltip = lotr_intro_events.7401.a.tt
+		spawn_army = {		  # "Numenorean" Honor Guard. changing the old numenorean stuff to new Ar-Adunaim and Abrazanim MAA.
+			uses_supply = no
+			inheritable = yes
+			name = ar_ardunaim_event_troops
+			men_at_arms = {
+				type = narunaru_royal_guard
+				stacks = 2
+			}
+			men_at_arms = {
+				type = adunaim_armsmen
+				stacks = 2
+			}
+			men_at_arms = {
+				type = abrazanim_warbows
+				stacks = 1
+			}
+			location = capital_province
+		}
+		title:e_adunaim.holder = {
+			trigger_event = { # Check status on Adunaim conquests
+				id = umbar.0101
+				years = 1
+			}
+			trigger_event = { # Adunaim Tharbad
+				id = umbar.0103
+				days = 20
+			}
+		}
+	}
+}
+
+lotr_intro_events.7402 = { # Introduction to Umbar
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7402.t
+	desc = lotr_intro_events.7402.desc
+	theme = stewardship_duty_focus
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_adunai
+	}
+
+	option = {
+		name = lotr_intro_events.7402.a
+		custom_tooltip = lotr_intro_events.7402.a.tt
+		character:lineblackqueen9 = { # Beruthiel's plot
+			trigger_event = {
+				id = umbar.0201
+				days = 720
+			}
+		}
+	}
+}
+
+lotr_intro_events.7403 = { # Introduction to Aglarin of Narîk-Zadan
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7403.t
+	desc = lotr_intro_events.7403.desc
+	theme = sailing_activity
+	right_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_adunai
+	}
+	
+	option = { # My ships will haunt the seas
+		name = lotr_intro_events.7403.a
+	}
+}
+
+lotr_intro_events.7404 = { # Introduction to the Fleet of Shadows
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7404.t
+	desc = lotr_intro_events.7404.desc
+	theme = sailing_activity
+	override_background = { reference = black_ship }
+	right_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	
+	option = { # The Sacred Isles will be mine
+		name = lotr_intro_events.7404.a
+		custom_tooltip = unlocks_barren_isle_decision
+		custom_tooltip = unlocks_azruneth_ormal_decision
+	}
+}
+
+### Thani-Hazad ###
+
+lotr_intro_events.7501 = { # Introduction to Balâkhân
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7501.t
+	desc = lotr_intro_events.7501.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = docks_adunai }
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = character:nazgul5
+		animation = anger
+	}
+
+	option = { # A Cowed King
+		name = lotr_intro_events.7501.a
+	}
+}
+
+lotr_intro_events.7502 = { # Introduction to the Storm-host
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7502.t
+	desc = lotr_intro_events.7502.desc
+	theme = war
+	override_background = { reference = docks_adunai }
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = character:nazgul5
+		animation = personality_dishonorable
+	}
+
+	option = { # Bellakar shall at last be crushed! - For WotR
+		name = lotr_intro_events.7502.a
+		trigger = { current_year >= 7000 } #WotR only
+		add_dread = 50
+		
+		spawn_army = {
+			uses_supply = no
+			inheritable = yes
+			name = storm_host
+			men_at_arms = {
+				type = ephalzagar_an_adunai
+				stacks = 10
+			}
+			men_at_arms = {
+				type = zagar_an_adunai
+				stacks = 10
+			}
+			men_at_arms = {
+				type = indentured_conscripts
+				stacks = 15
+			}
+			location = capital_province
+		}
+		spawn_army = {
+			uses_supply = no
+			inheritable = yes
+			name = storm_host_auxiliaries
+			men_at_arms = {
+				type = tulwangi_junglewalkers
+				stacks = 4
+			}
+			men_at_arms = {
+				type = tulwangi_cliffwardens
+				stacks = 4
+			}
+			location = capital_province
+		}
+	}
+	option = { # Our Lord will return one day - For non WotR starts
+		name = lotr_intro_events.7502.b 
+		trigger = { #Fires in non-WotR starts
+			NOT = {
+				current_year >= 7033
+			}
+		}
+	}
+}
+
+lotr_intro_events.7503 = { # Introduction to Abrazan
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7503.t
+	desc = lotr_intro_events.7503.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = docks_adunai }
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = character:lotr_vanity_jerman
+		animation = ambitious
+	}
+
+	option = { # So it begins
+		name = lotr_intro_events.7503.a
+	}
+}
+
+lotr_intro_events.7504 = { # Introduction to Phorakôn II
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7504.t
+	desc = lotr_intro_events.7504.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = docks_adunai }
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+
+	option = {
+		name = lotr_intro_events.7504.a
+		trigger_event = lotr_thani_hazad.1000 # Set-up for stormhost spy event chain
+	}
+}
+
+lotr_intro_events.7505 = { # Introduction to Imrazôr III
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7505.t
+	desc = lotr_intro_events.7505.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = docks_adunai }
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+
+	option = {
+		name = lotr_intro_events.7505.a
+		trigger_event = lotr_thani_hazad.1000 # Set-up for stormhost spy event chain
+		trigger_event = {
+			id = lotr_thani_hazad.3000 # Imrazôr & Arimîth event chain
+			days = 10
+		}
+	}
+}
+
+lotr_intro_events.7506 = { # Introduction to Seregul
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7506.t
+	desc = lotr_intro_events.7506.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = docks_adunai }
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+
+	option = {
+		name = lotr_intro_events.7506.a
+		hidden_effect = { 
+			title:d_kurdurasi.holder = {
+				add_truce_both_ways = {
+					character = character:lineofbandit1
+					years = 10
+					name = TRUCE_TRADE_DEAL
+				}
+			}
+			add_legitimacy = -5000
+			add_prestige_level = -1
+		}
+		trigger_event = { # Choose a focus
+			id = seregul.9999
+			days = 3
+		}
+		trigger_event = { # Deal with your wife's lover
+			id = seregul.0001
+			days = 7
+		}
+		trigger_event = { # The Stormhost letter
+			id = seregul.0300
+		   days = { 1000 1200 }
+		}
+		trigger_event = { # Pél might revolt
+			id = seregul.0251
+			years = 5
+		}
+	}
+}
+
+lotr_intro_events.7507 = { # Introduction to Derei
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7507.t
+	desc = lotr_intro_events.7507.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = docks_adunai }
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	option = {
+		name = lotr_intro_events.7507.a
+		trigger_event = lotr_thani_hazad.1000 # Set-up for stormhost spy event chain
+		trigger_event = {
+			id = derei.1000
+			days = 3
+		}
+	}
+}
+
+lotr_intro_events.7508 = { # Introduction to Arimîth
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7508.t
+	desc = lotr_intro_events.7508.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = docks_adunai }
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+
+	option = {
+		name = lotr_intro_events.7508.a
+		trigger_event = lotr_thani_hazad.1000 # Set-up for stormhost spy event chain
+		trigger_event = {
+			id = lotr_thani_hazad.3000 # Imrazôr & Arimîth event chain
+			days = 10
+		}
+	}
+}
+
+lotr_intro_events.7509 = { # Introduction to Karaag
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7509.t
+	desc = lotr_intro_events.7509.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = docks_adunai }
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+
+	option = {
+		name = lotr_intro_events.7509.a
+		trigger_event = lotr_thani_hazad.1000 # Set-up for stormhost spy event chain
+	}
+}
+
+lotr_intro_events.7510 = { # Introduction to Arthazroc
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7510.t
+	desc = lotr_intro_events.7510.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = docks_adunai }
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+
+	option = {
+		name = lotr_intro_events.7510.a
+		trigger_event = lotr_thani_hazad.1000 # Set-up for stormhost spy event chain
+	}
+}
+
+lotr_intro_events.7511 = { # Introduction to Daroc III
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7511.t
+	desc = lotr_intro_events.7511.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = docks_adunai }
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+
+	option = {
+		name = lotr_intro_events.7511.a
+		trigger_event = lotr_thani_hazad.1000 # Set-up for stormhost spy event chain
+	}
+}
+
+lotr_intro_events.7512 = { # Introduction to Szoranh the dragon at world's end
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7512.t
+	desc = lotr_intro_events.7512.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = docks_adunai }
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	right_portrait = {
+		character = character:lineofbhalrimscarletsword
+		animation = personality_callous
+	}
+
+	option = {
+		name = lotr_intro_events.7512.a
+		spawn_army = {
+			uses_supply = no
+			inheritable = no
+			name = scarlet_blades
+			levies = 700
+			men_at_arms = {
+				 type = waw_pirates
+				 stacks = 2
+			}
+			location = capital_province
+		}
+	}
+}
+
+lotr_intro_events.7513 = { # Introduction to Opeyemi, chief of the Bukumagen tribe and sworn nemesis of Seregul
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7513.t
+	desc = lotr_intro_events.7513.desc
+	theme = martial_strategy_focus
+	override_background = { reference = fangorn }
+
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+
+	right_portrait = {
+		character = character:lineofagathohin173
+		animation = personality_callous
+	}
+
+	option = {
+		name = lotr_intro_events.7513.a
+		set_relation_rival = {
+            target = character:lineofagathohin173
+            reason = rival_grave_insult
+            involved_character = character:lineofbukumagen1
+        }
+	}
+}
+
+lotr_intro_events.7514 = { # Introduction to Tamska Ayanura
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7514.t
+	desc = lotr_intro_events.7514.desc
+	theme = crown
+	override_background = { reference = throne_room }
+	left_portrait = {
+		character = root
+		animation = boredom
+	}
+
+	lower_right_portrait = {
+		character = scope:tamska_regent
+	}
+
+	trigger = {
+		has_title = title:d_tamska_main
+		exists = diarch
+	}
+
+	immediate = {
+		diarch ?= {
+			save_scope_as = tamska_regent
+		}
+		scope:tamska_regent ?= {
+			add_opinion = {
+				target = ROOT
+				modifier = hate_opinion
+				opinion = -40
+			}
+		}
+		show_as_tooltip = { # Juke note: Actual regency handling is done in character history so it applies on gamestart
+			try_start_diarchy = regency
+		}
+	}
+
+	option = {
+		name = lotr_intro_events.7514.a
+	}
+}
+
+lotr_intro_events.7515 = { # Introduction to LAAMP 
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7515.t
+	desc = lotr_intro_events.7515.desc
+	theme = realm
+	override_background = { reference = wilderness_savanna }
+	left_portrait = {
+		character = root
+		animation = personality_callous
+	}
+
+	immediate = {
+		show_as_tooltip = {
+			add_realm_law = camp_purpose_mercenaries
+		}
+		spawn_army = {
+			name = event_troop_default_name
+			men_at_arms = {
+				type = horse_archers
+				stacks = 4
+			}
+			men_at_arms = {
+				type = tedjin_camel_archers
+				stacks = 2
+			}
+			men_at_arms = {
+				type = tedjin_khatajani
+				stacks = 3
+			}
+			location = root.location
+			origin = root.location
+		}
+	}
+
+	option = {
+		name = lotr_intro_events.7515.a
+	}
+}
+
+lotr_intro_events.7516 = { #Introduction to Pakir Adraias/Paul Atreides, T.A. 1349
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7516.t
+	desc = lotr_intro_events.7516.desc
+	theme = war
+	override_background = { reference = wilderness_desert }
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+	widgets = {
+		widget = {
+			gui = "event_window_widget_vfx_sandstorm"
+			container = "foreground_shader_vfx_container"
+		}
+	}
+	option = {
+		name = lotr_intro_events.7516.a 
+		add_prestige = 100
+		trigger_event = harad.2600
+	}
+}
+lotr_intro_events.7517 = { #Introduction to Vatrad Harruaban/Vladimir Harkonnen, T.A. 1349
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7517.t
+	desc = lotr_intro_events.7517.desc
+	theme = war
+	override_background = { reference = wilderness_desert }
+	left_portrait = {
+		character = root
+		animation = personality_callous
+	}
+	option = {
+		name = lotr_intro_events.7517.a 
+		add_pressed_claim = title:d_darsalan
+		add_pressed_claim = title:d_koanoz
+		add_pressed_claim = title:d_zhar_daniz
+	}
+}
+
+lotr_intro_events.7518 = { # Introduction to Azulzir's Travels Laamp
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7518.t
+	desc = lotr_intro_events.7518.desc
+	theme = travel_learning
+	override_background = { reference = docks_adunai }
+	left_portrait = {
+		character = root
+		animation = happy_teacher
+	}
+
+	trigger = {
+		has_dlc_feature = landless_playable # Don't trigger if not acutally a laamp
+	}
+
+	immediate = {	
+		hidden_effect = {
+			trigger_event = { id = lotr_thani_hazad.4003 }
+		}
+		add_character_modifier = {	#Makes first trips possible
+			modifier = azulzir_prepared_travel
+			years = 5
+		}					
+		add_gold = 1250 # inhereted Fortune from father
+	}
+
+
+	option = {# I hope to see the utter south, with all its trade and vibrancy, and return to share what I have discovered!
+		name = lotr_intro_events.7518.a
+		custom_tooltip = lotr_intro_events.7518.a.tt
+		add_realm_law_skip_effects = camp_purpose_explorers
+		domicile ?= { change_provisions = medium_provisions_gain }
+		domicile = { 		
+			add_domicile_building = supply_tent_01			
+			add_domicile_building = supply_tent_sutler			
+		}
+		add_prestige = minor_prestige_gain		
+        start_travel_plan = { #Travel to the caravan
+            destination = title:c_arpel.title_province
+            on_arrival_event = lotr_thani_hazad.4010
+            return_trip = no
+            players_use_planner = no
+			travel_with_domicile = yes
+            on_arrival_destinations = all
+        }			
+		ai_chance = { base = 50 } #Sometimes he will head mag and khy!
+	}
+
+	option = {# I hope to see the all the lands of the adunai, and see what has become of the legacy of our forefathers!
+		name = lotr_intro_events.7518.b
+		custom_tooltip = lotr_intro_events.7518.b.tt
+		domicile ?= { change_provisions = medium_provisions_gain }
+		add_realm_law_skip_effects = camp_purpose_explorers
+		domicile = { 
+			add_domicile_building = camp_fire_01			
+			add_domicile_building = camp_fire_local_hangers_on				
+		}	
+        add_prestige = minor_prestige_gain
+        start_travel_plan = { #Travel to the caravan
+            destination = title:c_adunazain.title_province
+            on_arrival_event = lotr_thani_hazad.4000
+            return_trip = no
+            players_use_planner = no
+			travel_with_domicile = yes
+            on_arrival_destinations = all
+        }		
+		ai_chance = { base = 50 } #Sometimes he will head northwards to An-balkumagan and Bellakar!		
+	}
+
+	option = { # I Hope to explore the world, find a new home, and get away from the city life!
+		name = lotr_intro_events.7518.c
+		custom_tooltip = lotr_intro_events.7518.c.tt
+		add_realm_law_skip_effects = camp_purpose_explorers
+		domicile ?= { change_provisions = medium_provisions_gain }
+		domicile = {
+			add_domicile_building = settlement_supplies_01
+			add_domicile_building = settlement_supplies_02
+		}		
+		ai_chance = { base = 0 } #player only so we don't random adunai somewhere
+	}
+
+	option = { # Nahhhh lets stay home and run for my father's office
+		name = lotr_intro_events.7518.d
+		custom_tooltip = lotr_intro_events.7518.d.tt	
+		create_title_and_vassal_change = { # Define type of title change as a granting of the title
+			type = usurped
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:d_mispir= {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+		}
+		title:c_mispir= {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+		}
+		title:b_tharazarul= {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+		}
+		hidden_effect = {
+			remove_character_modifier = azulzir_prepared_travel
+			add_character_modifier = {	#Makes Contact Possible
+				modifier = azulzir_prepared_rule
+				years = 10
+			} # Create troops since you don't inherit the city troops
+			create_maa_regiment = { type = knights_of_kharadune check_can_recruit = no size = 6 }
+			create_maa_regiment = { type = ephalzagar_an_adunai check_can_recruit = no size = 10 }	
+			create_maa_regiment = { type = trebuchet check_can_recruit = no size = 8 }
+			create_maa_regiment = { type = zagar_an_adunai check_can_recruit = no size = 10 }
+		}
+		add_prestige = 1000 # winning the election gives you great prestige
+		add_piety = 250 # for being content with your station
+		resolve_title_and_vassal_change = scope:title_change	
+		character:mispirtraveler = { create_story = story_mispir }	
+		ai_chance = { base = 0 } #player only so we don't accidentally usurp someone
+	}	
+}
+
+lotr_intro_events.7519 = { #Introduction to Lômizîr of the Eighth Princedom, T.A. 1349
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7519.t
+	desc = lotr_intro_events.7519.desc
+	theme = stewardship_domain_focus
+	override_background = { reference = docks_adunai }
+
+	left_portrait = {
+		character = root
+		animation = personality_greedy
+	}
+	right_portrait = {
+		character = character:lineofziranihin4
+		animation = survey
+	}
+	option = {
+		name = lotr_intro_events.7519.a
+		create_story = {
+			type = story_cycle_azrathani_expedition
+			save_scope_as = azrathani_expedition
+		}
+		trigger_event = { # Second intro event
+			id = azrathani.001
+			days = 1
+		}
+		hidden_effect = { # Payment for the county and councillors
+			character:linemabaro7 = { add_short_term_gold = 400 }
+			add_truce_both_ways = {
+				character = character:linemabaro7
+				years = 5
+				name = TRUCE_TRADE_DEAL
+			}
+			if = {
+				limit = { NOT = { any_court_position_holder = { type = court_physician_court_position } } }
+				appoint_court_position = {
+					recipient = character:linealsariastwo9bro
+					court_position = court_physician_court_position
+				}
+			}
+			if = {
+				limit = { NOT = { any_court_position_holder = { type = seneschal_court_position } } }
+				appoint_court_position = {
+					recipient = character:lineofkrassabarohin29bro5
+					court_position = seneschal_court_position
+				}
+			}
+			if = {
+				limit = { NOT = { any_learning_councillor = { this = character:linealsariastwo9bro } } }
+				assign_councillor_type = {
+					target = character:linealsariastwo9bro
+					type = councillor_court_chaplain
+					remove_existing_councillor = yes
+				}
+			}
+			if = {
+				limit = { NOT = { any_stewardship_councillor = { this = character:lineofkrassabarohin29bro5 } } }
+				assign_councillor_type = {
+					target = character:lineofkrassabarohin29bro5
+					type = councillor_steward
+					remove_existing_councillor = yes
+				}
+			}
+			if = {
+				limit = { NOT = { any_intrigue_councillor = { this = character:lineofadunazir59bro4 } } }
+				assign_councillor_type = {
+					target = character:lineofadunazir59bro4
+					type = councillor_spymaster
+					remove_existing_councillor = yes
+				}
+			}
+			if = {
+				limit = { NOT = { any_martial_councillor = { this = character:lineofziranihin4 } } }
+				assign_councillor_type = {
+					target = character:lineofziranihin4
+					type = councillor_marshal
+					remove_existing_councillor = yes
+				}
+			}
+		}
+		province:5389 = { add_province_modifier = mining_emerald_province_modifier }
+	}
+}
+
+########################
+#    Mumakan & Shayn   #
+########################
+ 
+lotr_intro_events.7600 { #Introduction to Sandamal, Emperor of Mumakan
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7600.t
+	desc = lotr_intro_events.7600.desc
+	theme = war
+	immediate = {
+		title:k_koronande.holder = { save_scope_as = koronandelord }
+		hidden_effect = {
+			title:c_korlan = {
+				add_county_modifier = {
+					modifier = koronande_sacked
+					years = 5
+				}
+				change_county_control = -100
+			}
+		}
+		show_as_tooltip = {
+			start_war = {
+				casus_belli = invasion_war
+				target = scope:koronandelord
+				target_title = title:k_koronande
+			}
+		}
+	}
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = scope:koronandelord 
+		animation = war_attacker 
+	}
+	option = {
+		name = lotr_intro_events.7600.a
+	}
+}
+
+lotr_intro_events.7601 { #Introduction to the Nafarati King 
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7601.t
+	desc = lotr_intro_events.7601.desc
+	theme = raid
+	override_background = { reference = wilderness_jungle }
+	immediate = {
+		title:e_mumakan.holder = { save_scope_as = sandamal }
+	}
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
+	right_portrait = {
+		character = scope:sandamal 
+		animation = marshal
+	}
+	option = {
+		name = lotr_intro_events.7601.a
+	}
+}
+
+lotr_intro_events.7602 = { # Intro to Ataraka, ruler of Koronande - the sack of Koronande
+	type = character_event
+	content_source = realms_dlc
+	title = lotr_intro_events.7602.t
+	desc = lotr_intro_events.7602.desc
+	theme = martial_strategy_focus
+	override_background = { reference = wilderness_jungle }
+
+	immediate = {
+		title:e_mumakan.holder = { save_scope_as = sandamal }
+		title:c_kipel.holder = { save_scope_as = generalisimo}
+		root = {
+			remove_short_term_gold = 1500
+			add_stress = 100
+		}
+	}
+
+	left_portrait = {
+		character = root
+		animation = grief
+	}
+
+	right_portrait = {
+		character = scope:sandamal 
+		animation = marshal
+	}
+
+	option = { # We shall fight to the last, even hopeless
+		name = lotr_intro_events.7602.a
+		custom_tooltip = lotr_intro_events.7602.a.tt
+		trigger_event = { id = mumakan.0110 days = 1 }
+		add_legitimacy = 300
+		ai_chance = { 
+			base = 60 
+		}		
+	}
+
+	option = { # We cannot win this war - we must away! (become laamp)
+		name = lotr_intro_events.7602.b
+		custom_tooltip = lotr_intro_events.7602.b.tt
+		trigger = { has_dlc_feature = roads_to_power }
+		save_scope_as = adventurer
+		custom_tooltip = become_landless_adventurer_decision_title_created_tt
+		hidden_effect_new_object = {
+			create_character = {
+				template = laamp_inheritor_template
+				culture = root.culture
+				faith = root.faith
+				dynasty = generate
+				location = root.capital_province
+				after_creation = {
+					save_scope_as = laamp_inheritor
+					add_character_flag = new_laamp_inheritor
+				}
+			}
+		}
+		create_landless_adventurer_title_tooltip_effect = yes
+		show_as_tooltip = {
+			add_prestige = medium_prestige_gain
+			add_character_modifier = {
+				modifier = ep3_voluntary_laamp_character_modifier
+				years = 5
+			}
+		}
+		trigger_event = ep3_laamps.0030
+		trigger_event = mumakan.0051
+		trigger_event = mumakan.0105
+		scope:generalisimo = {
+			trigger_event = { id = mumakan.0071 days = 1 }
+		}		
+		trigger_event = { id = mumakan.0110 days = 1 }
+		ai_chance = { #Canonical
+			base = 30 
+		}		
+	}
+
+	option = { # I must seek the mercy of the Emperor, for my people's sake
+		name = lotr_intro_events.7602.c
+		custom_tooltip = lotr_intro_events.7602.c.tt
+		scope:sandamal = {
+			trigger_event = {
+				id = mumakan.0400
+				days = 1 
+			}
+		}		
+		ai_chance = {
+			base = 10 
+		}
+	}
+}
+
+lotr_intro_events.7603 = {
+	hidden = yes
+	immediate = {	
+		add_character_modifier = fast_siege
+		random_character_war = {
+			limit = { using_cb = koronande_war_cb }
+			save_scope_as = koronande_war
+		}
+		title:k_koronande.holder = {
+			add_character_flag = ataraka_in_tannande
+		}
+		trigger_event = {
+			id = mumakan.0101 # gets rid of fast_siege and Ataraka flag
+			days = 10
+		}
+		spawn_army = { #Invasion Army
+			uses_supply = no
+			inheritable = no
+			name = event_troop_default_name
+			levies = 7000
+			location = province:7530
+			origin = province:7530
+			war = scope:koronande_war	
+			men_at_arms = {
+				type = war_mumak
+				stacks = 4
+			}
+			men_at_arms = {
+				type = mangonel
+				stacks = 6
+			}
+			men_at_arms = {
+				type = mumakani_spears
+				stacks = 12
+			}
+			men_at_arms = {
+				type = mumakani_skirmishers
+				stacks = 8
+			}			
+			men_at_arms = {
+				type = mubadar_berserkers
+				stacks = 4
+			}			
+		}		
+	}
+}
+
+lotr_intro_events.7604 = { # Introduction to General Mase, The Generalisimo
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7604.t
+	desc = lotr_intro_events.7604.desc
+	theme = war
+	immediate = {
+		title:k_koronande.holder = { save_scope_as = koronandelord }
+	}	
+	left_portrait = {
+		character = root
+		animation = celebrate_sword
+	}
+	right_portrait = {
+		character = scope:koronandelord
+		animation = personality_cynical
+	}
+
+	option = {
+		name = lotr_intro_events.7604.a
+	}
+}
+
+lotr_intro_events.7605 = { # Introduction to the Eye of the Majari, King of Gân
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7605.t
+	desc = lotr_intro_events.7605.desc
+	theme = diplomacy_majesty_focus
+	immediate = {
+		character:lineofganaseeyim0 = { save_scope_as = aaraaram }
+		character:lineofganaseeyim1 = { save_scope_as = enaama }
+		character:lineofganaseeyim4 = { save_scope_as = elyaar }
+		character:lineofmajaraveovim15 = { save_scope_as = loshaydaar }
+		character:nazgul4 = { save_scope_as = jiindur }
+		character:nazgul5 = { save_scope_as = khorahil }
+		character:lineofpelopiri10 = { save_scope_as = dunojonur }
+	}	
+	left_portrait = {
+		character = scope:dunojonur
+		animation = war_attacker
+	}
+	right_portrait = {
+		character = scope:enaama
+		animation = personality_bold
+	}
+
+	lower_left_portrait = {
+		character = scope:jiindur
+	}
+
+	lower_center_portrait = {
+		character = scope:elyaar
+	}
+
+	lower_right_portrait = {
+		character = scope:khorahil
+	}
+
+	option = {
+		name = lotr_intro_events.7605.a
+	}
+}
+
+########################
+# Dunland & Enedhwaith #
+########################
+
+lotr_intro_events.7701 = { # Introduction to Éira of Dunland ~ Angmar Start Date
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7701.t
+	desc = lotr_intro_events.7701.desc
+	theme = skull
+	window = big_event_window
+	right_portrait = {
+		character = root
+		animation = throne_room_two_handed_passive_1
+	}
+	center_portrait = {
+		character = scope:murdered_father
+		animation = dead
+		camera = camera_event_horse_left_centered
+	}
+	left_portrait = {
+		character = scope:gondorian_governor
+		animation = spymaster
+		camera = camera_event_group_talking_left_left
+	}
+	immediate = {
+		character:linemabon7 = { save_scope_as = murdered_father }
+		character:linearastil16 = { save_scope_as = gondorian_governor }
+	}
+	option = { # I will avenge my father
+		name = lotr_intro_events.7701.a 
+		trigger_event = bloody_swan.0001
+		create_story = {
+			type = story_cycle_eira
+			save_scope_as = eira_story
+		}
+	}
+}
+
+lotr_intro_events.7702 = { # Introduction to Maratar the Avenging Swan ~ Angmar Start Date
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7702.t
+	desc = lotr_intro_events.7702.desc
+	theme = martial
+	window = big_event_window
+	override_background = { reference = on_river }
+	right_portrait = {
+		character = root
+		animation = throne_room_one_handed_passive_1
+		camera = camera_body_right
+	}
+	lower_center_portrait = {
+		character = scope:rlain 
+	}
+	immediate = { 
+		character:linedilwun10 = { save_scope_as = rlain }
+		character:predolamroth182 = { 
+			add_character_flag = wear_armor
+		}
+	}
+	option = { # These crimes cannot go unpunished
+		name = lotr_intro_events.7702.a 
+		domicile ?= {
+			hidden_effect = { add_domicile_building = supply_tent_01 }
+			add_domicile_building = supply_tent_01
+			add_domicile_building = supply_tent_smithy
+			add_domicile_building = camp_main_02
+		}
+		create_maa_regiment = {
+			type = talon_knights
+			check_can_recruit = no
+			size = 5
+		}
+		create_maa_regiment = {
+			type = nimrodel_rangers
+			check_can_recruit = no
+			size = 5
+		}
+		create_maa_regiment = {
+			type = swan_knights
+			check_can_recruit = no
+			size = 5
+		}
+		trigger_event = {
+			id = bloody_swan.0101
+			days = 5
+		}
+	}
+}
+
+lotr_intro_events.7703 = { # Introduction to Governor Glormagil of Enedhwaith ~ Angmar Start Date
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7703.t
+	desc = lotr_intro_events.7703.desc
+	theme = gondor
+	window = big_event_window
+	override_background = { reference = throne_room_dunedain }
+	right_portrait = {
+		character = root
+		animation = spymaster
+	}
+	option = { # I will maintain order in the King's name
+		name = lotr_intro_events.7703.a 
+		trigger_event = bloody_swan.0201
+	}
+}
+
+lotr_intro_events.7704 = { # Introduction to Wulfgar of Dunlandfells ~ War of the Ring Start Date
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7704.t
+	desc = lotr_intro_events.7704.desc
+	theme = realm
+	override_background = { reference = throne_room_tribal }
+	immediate = {
+		character:lineoffreca1 = { save_scope_as = freca }
+		character:lineoffreca3 = { save_scope_as = wulf }
+		character:lineoffreca15 = { save_scope_as = wulfgar }
+		character:lineofeorl6 = { save_scope_as = freawine }
+		character:lineofeorl11 = { save_scope_as = helm }
+		character:lineofeorl28 = { save_scope_as = theoden }
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = scope:theoden
+		animation = personality_honorable
+	}
+	lower_left_portrait = {
+		character = scope:freca
+	}
+	lower_center_portrait = {
+		character = scope:helm
+	}
+	lower_right_portrait = {
+		character = scope:wulf
+	}
+	option = {
+		name = lotr_intro_events.7704.a 
+	}
+}
+
+lotr_intro_events.7705 = { # Introduction to Thrydan II Wolfsbane of Dathabha ~ War of the Ring Start Date
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7705.t
+	desc = lotr_intro_events.7705.desc
+	theme = martial
+	override_background = { reference = throne_room_tribal }
+	immediate = {
+		character:lineofdathabha4 = { save_scope_as = thrydan }
+		character:lineofsaruman = { save_scope_as = saruman }
+		character:lineofeorl28 = { save_scope_as = theoden }
+	}
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+	right_portrait = {
+		character = scope:saruman
+		animation = personality_honorable
+	}
+	lower_left_portrait = {
+		character = scope:freca
+	}
+	lower_center_portrait = {
+		character = scope:helm
+	}
+	lower_right_portrait = {
+		character = scope:wulf
+	}
+	option = {
+		name = lotr_intro_events.7705.a 
+	}
+}
+
+lotr_intro_events.7706 = { # Introduction to Wulfdene II of Emyn Adorn ~ War of the Ring Start Date
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7706.t
+	desc = lotr_intro_events.7706.desc
+	theme = realm
+	override_background = { reference = throne_room_tribal }
+	immediate = {
+		character:lineoffreca1 = { save_scope_as = freca }
+		character:lineoffreca3 = { save_scope_as = wulf }
+		character:lineoffreca13 = { save_scope_as = brynjar_II }
+		character:lineofwulfdening1 = { save_scope_as = wulfdene_I }
+		character:lineofwulfdening5 = { save_scope_as = wulfdene_II }
+		character:lineoffreca15 = { save_scope_as = wulfgar }
+		character:lineofeorl6 = { save_scope_as = freawine }
+		character:lineofeorl11 = { save_scope_as = helm }
+		character:lineofeorl28 = { save_scope_as = theoden }
+	}
+	left_portrait = {
+		character = root
+		animation = personality_callous
+	}
+	right_portrait = {
+		character = scope:wulfgar
+		animation = personality_bold
+	}
+	lower_left_portrait = {
+		character = scope:wulfdene_I
+	}
+	lower_center_portrait = {
+		character = scope:freca
+	}
+	lower_right_portrait = {
+		character = scope:brynjar_II
+	}
+	option = {
+		name = lotr_intro_events.7706.a 
+	}
+}
+
+lotr_intro_events.7707 = { # Introduction to Isenmund of West Marches ~ War of the Ring Start Date
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7707.t
+	desc = lotr_intro_events.7707.desc
+	theme = realm
+	override_background = { reference = throne_room_tribal }
+	immediate = {
+		character:linecerdicing4 = { save_scope_as = isenmund }
+		character:linecerdicing1 = { save_scope_as = cerdic_I }
+		character:lineordlac22 = { save_scope_as = cuthraed }
+		character:lineoffreca3 = { save_scope_as = wulf }
+		title:k_rohan.holder = { save_scope_as = theoden }
+	}
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	right_portrait = {
+		character = scope:theoden
+		animation = personality_bold
+	}
+	lower_left_portrait = {
+		character = scope:cerdic_I
+	}
+	lower_center_portrait = {
+		character = scope:wulf
+	}
+	lower_right_portrait = {
+		character = scope:cuthraed
+	}
+	option = {
+		name = lotr_intro_events.7707.a
+		custom_tooltip = lotr_intro_events.7707.a.tt
+		trigger_event = {
+			id = rohan.0104
+			days = 14
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 50
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = {
+		add_character_flag = {
+ 			flag = delay_player_faith_conversion_notification_event
+ 			weeks = 1
+ 		}
+ 		set_character_faith_with_conversion = faith:faith_dunlending_khrabnazerh
+		name = lotr_intro_events.7707.b
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 50
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = {
+		name = lotr_intro_events.7707.c
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 0
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 0
+			}
+		}
+	}
+}
+
+lotr_intro_events.7708 = { # Introduction to Ferumbras III of the Shire ~ War of the Ring Start Date
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7708.t
+	desc = lotr_intro_events.7708.desc
+	theme = realm
+	override_background = { reference = throne_room_hobbit }
+	immediate = {
+		character:lineoftook19 = { save_scope_as = fortinbras_II }
+		character:lineoftook25 = { save_scope_as = paladin_II }
+		character:lineofwhitfoot1 = { save_scope_as = will }
+		diarch ?= {
+			save_scope_as = lalia
+		}
+		show_as_tooltip = { # Juke note: Actual regency handling is done in character history so it applies on gamestart
+			try_start_diarchy = regency
+		}
+	}
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	right_portrait = {
+		character = scope:lalia
+		animation = personality_bold
+	}
+	lower_left_portrait = {
+		character = scope:fortinbras_II
+	}
+	lower_center_portrait = {
+		character = scope:paladin_II
+	}
+	lower_right_portrait = {
+		character = scope:will
+	}
+	option = {
+		name = lotr_intro_events.7708.a
+	}
+}
+
+lotr_intro_events.7709 = { # Introduction to Barliman Butterbur of Bree ~ War of the Ring Start Date
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7709.t
+	desc = lotr_intro_events.7709.desc
+	theme = realm
+	override_background = { reference = daen_tavern }
+	immediate = {
+		character:breehobbit1 = { save_scope_as = bob }
+		character:breehobbit2 = { save_scope_as = nob }
+	}
+	left_portrait = {
+		character = root
+		animation = serving_tray
+	}
+	lower_left_portrait = {
+		character = scope:bob
+	}
+	lower_right_portrait = {
+		character = scope:nob
+	}
+	option = {
+		name = lotr_intro_events.7709.a
+	}
+}
+
+lotr_intro_events.7710 = { # Introduction to Rlain, the Brazen Brigand ~ Angmar Start Date
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7710.t
+	desc = lotr_intro_events.7710.desc
+	theme = raid
+	window = big_event_window
+	override_background = { reference = throne_room_tribal }
+	immediate = {
+		character:predolamroth181 = { save_scope_as = maratar }
+	}
+	right_portrait = {
+		character = root
+		animation = menacing
+		camera = camera_body_right
+	}
+	lower_left_portrait = { 
+		character = scope:maratar
+	}
+	option = { # I will break the yoke of Gondor!
+		name = lotr_intro_events.7710.a 
+		custom_tooltip = unlocks_rlain_unification
+	}
+}
+
+####################
+### Long Winter ###
+###################
+
+lotr_intro_events.7800 = { # Introduction to Hussamadin of Harwan
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7800.t
+	desc = lotr_intro_events.7800.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	option = { 
+		name = lotr_intro_events.7800.a
+		custom_tooltip = lotr_intro_events.7800.tt
+		add_character_modifier = {
+			modifier = lotr_preparing_the_fleets_modifier
+			years = 15
+		}
+		if = {
+			limit = { 
+				is_ai = yes 
+			}
+			hidden_effect = {
+				add_truce_both_ways = { 
+					character = title:e_gondor_steward.holder
+					years = 4
+					name = TRUCE_GONDOR_MORDOR
+				}
+			}
+			trigger_event = {
+				id = harad.2999
+				years = 4
+			}
+		}
+	}
+}
+
+lotr_intro_events.7801 = { # Introduction to Arunaru of Umbar
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7801.t
+	desc = lotr_intro_events.7801.desc
+	theme = war
+	override_background = {
+		reference = black_ship
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	option = { 
+		name = lotr_intro_events.7801.a
+		custom_tooltip = lotr_intro_events.7800.tt
+		add_character_modifier = {
+			modifier = lotr_preparing_the_fleets_modifier
+			years = 15
+		}
+	}
+}
+
+lotr_intro_events.7802 = { # Introduction to Radovân Masamâvin of Ûsakan
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7802.t
+	desc = lotr_intro_events.7802.desc
+	theme = crown
+	override_background = {
+		reference = wilderness_forest
+	}
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	option = { 
+		name = lotr_intro_events.7802.a
+	}
+}
+
+lotr_intro_events.7803 = { # Introduction to Farisi Musanes, Bandit in Usakan
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7803.t
+	desc = lotr_intro_events.7803.desc
+	theme = intrigue
+	override_background = {
+		reference = alley_day 
+	}
+	left_portrait = {
+		character = root
+		animation = personality_greedy 
+	}
+	option = { 
+		name = lotr_intro_events.7803.a
+	}
+	option = {
+		name = lotr_intro_events.7803.b #Make Laamp
+		if = {
+			limit = { 
+				has_ep3_dlc_trigger = yes
+			}
+			title:d_tanturak.holder = {
+				get_title = title:c_hye_uvar
+				get_title = title:c_lwohebata
+			}
+			create_landless_adventurer_title_effect = {
+				REASON = flag:wanderer
+				FLAVOR_CHAR = root
+			}
+		}
+	}
+}
+
+lotr_intro_events.7804 = { # Introduction to Rhukar of Wariga, quarreling orc brother
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7804.t
+	desc = lotr_intro_events.7804.desc
+	theme = war
+	override_background = {
+		reference = throne_room_tribal 
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	option = { 
+		name = lotr_intro_events.7804.a
+	}
+}
+
+lotr_intro_events.7805 = { # Introduction to Radnu of Wariga, quarreling orc brother
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7805.t
+	desc = lotr_intro_events.7805.desc
+	theme = war
+	override_background = {
+		reference = battlefield 
+	}
+	left_portrait = {
+		character = root
+		animation = aggressive_hammer
+	}
+	option = { 
+		name = lotr_intro_events.7805.a
+	}
+}
+
+lotr_intro_events.7806 = { # Introduction to Radzag of Wariga, quarreling orc brother
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7806.t
+	desc = lotr_intro_events.7806.desc
+	theme = intrigue
+	override_background = {
+		reference = alley_night
+	}
+	left_portrait = {
+		character = root
+		animation = personality_vengeful 
+	}
+	option = { 
+		name = lotr_intro_events.7806.a
+	}
+}
+
+## BOZISHA-MIRAZ & THÂNI-HAZÂD ##
+
+lotr_intro_events.7807 = { # Introduction to Adunaphazôr and Gimilzôr
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7807.t
+	desc = lotr_intro_events.7807.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = docks_adunai }
+	left_portrait = {
+		character = scope:lw_storm_marshal
+		animation = wrestling_victory
+	}
+	right_portrait = {
+		character = scope:lw_k_anbalk
+		animation = sword_coup_degrace
+	}
+	immediate = {
+		character:lineofdulgu38 = { save_scope_as = lw_storm_marshal }
+		character:lineofanballukkhorohin24 = { save_scope_as = lw_k_anbalk }
+		character:lineofdulgu0 = { save_scope_as = dulgu }
+	}
+
+	option = {
+		name = lotr_intro_events.7807.a
+	}
+}
+
+lotr_intro_events.7808 = { # Introduction to Ziryô of Hôlzôrêth
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7808.t
+	desc = lotr_intro_events.7808.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = docks_adunai }
+	left_portrait = {
+		character = root
+		animation = disappointed
+	}
+	immediate = {
+		character:lineofdulgu38 = { save_scope_as = lw_storm_marshal }
+		character:linehammerdelgeneral40 = { save_scope_as = rendor }
+	}
+
+	option = {
+		name = lotr_intro_events.7808.a
+	}
+}
+
+lotr_intro_events.7809 = { # Introduction to Êruzagar of Pél
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7809.t
+	desc = lotr_intro_events.7809.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = interested
+	}
+	immediate = {
+		character:lineofagathohin145 = { save_scope_as = eruzagar }
+		character:lineofmajidodobandit2 = { save_scope_as = shibuzo }
+		character:lineofagathohin143 = { save_scope_as = eruzagardad }
+		character:lineofmajidodobandit1 = { save_scope_as = shibuzomom }
+	}
+
+	option = {
+		name = lotr_intro_events.7809.a
+		show_as_tooltip = {
+			scope:shibuzo = {
+				add_pressed_claim = title:k_pel
+			}
+		}
+		add_opinion = {
+			target = character:lineofmajidodobandit2
+			modifier = murdered_close_family_crime
+		}
+		character:lineofagathohin147 ?= {
+			add_opinion = {
+				target = character:lineofmajidodobandit2
+				modifier = murdered_close_family_crime
+			}
+		}
+	}
+}
+
+lotr_intro_events.7810 = { # Introduction to Shibuzo of Igwanja
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7809.t
+	desc = lotr_intro_events.7810.desc
+	theme = realm
+	override_background = { reference = wilderness_forest }
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	immediate = {
+		character:lineofagathohin145 = { save_scope_as = eruzagar }
+		character:lineofmajidodobandit2 = { save_scope_as = shibuzo }
+		character:lineofagathohin143 = { save_scope_as = eruzagardad }
+		character:lineofmajidodobandit1 = { save_scope_as = shibuzomom }
+	}
+
+	option = {
+		name = lotr_intro_events.7810.a
+		show_as_tooltip = {
+			add_pressed_claim = title:k_pel
+			scope:eruzagar = {
+				add_opinion = {
+					target = character:lineofmajidodobandit2
+					modifier = murdered_close_family_crime
+				}
+			}
+			character:lineofagathohin147 ?= {
+				add_opinion = {
+					target = character:lineofmajidodobandit2
+					modifier = murdered_close_family_crime
+				}
+			}
+		}
+		change_first_name = Shibuzo
+	}
+}
+
+lotr_intro_events.7811 = { # Introduction to Malador, unifier of the Tedjin
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7811.t
+	desc = lotr_intro_events.7811.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = wilderness_savanna }
+	
+	trigger = {
+		character:lineofthezij31 = root
+	}
+	
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	
+	option = { # The Tedjin must rise!
+		name = lotr_intro_events.7811.a
+		character:lineofthezij31 = {
+			trigger_event = {
+				id = tedjin.0500
+				days = 1  
+			}
+		}
+	}
+}
+
+lotr_intro_events.7812 = { # Introduction to Tihomi "The Great"
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7812.t
+	desc = lotr_intro_events.7812.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = wilderness_forest }
+	
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	
+	option = { # Raishoul is mine!
+		name = lotr_intro_events.7812.a
+		add_prestige = 200
+	}
+	option = { # I am content w/ Aus Yapat
+		name = lotr_intro_events.7812.b
+		add_piety = 200
+		remove_trait = ambitious
+		add_trait = content
+	}
+}
+
+
+
+
+
+### Bay of Ormal ###
+
+# Khyan noble families
+
+lotr_intro_events.7900 = { # Introduction to Emperor Taxmaspada of Khy (pt. 1 of 4, 'past')
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7900.t
+	desc = lotr_intro_events.7900.desc
+	theme = realm
+	
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = character:lineofvasnan22 # Advi Vasnan
+		animation = disgust
+		animate_if_dead = yes
+	}
+	lower_right_portrait = {
+		character = character:lineofvasnan42 # Jahanbad Vasnan
+		animation = personality_greedy
+	}
+	lower_left_portrait = {
+		character = character:lineoftirdahan5 # Ardacher VI Tridahan
+		animation = personality_honorable
+	}
+
+	option = { # A King is he that can hold his own
+		name = lotr_intro_events.7900.a
+		trigger_event = lotr_khy.0150 # Taxmaspada Intro Event pt 2.
+	}
+}
+
+# lotr_intro_events.7901 = { # Introduction to Ferozgar of Lower Khy, nephew of the king
+# 	content_source = realms_dlc
+# 	type = character_event
+# 	title = lotr_intro_events.7901.t
+# 	desc = lotr_intro_events.7901.desc
+# 	theme = realm
+	
+# 	left_portrait = {
+# 		character = root
+# 		animation = marshal
+# 	}
+
+# 	immediate = {
+# 	}
+	
+# 	option = { # To rise or fall with the king?
+# 		name = lotr_intro_events.7900.a
+# 	}
+# }
+
+lotr_intro_events.7902 = { # Introduction to King Jahanabad of Sammar (pt. 1 of 2)
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7902.t
+	desc = lotr_intro_events.7902.desc
+	theme = realm
+	
+	left_portrait = {
+		character = root
+		animation = schadenfreude
+	}
+
+	right_portrait = {
+		character = character:lineoftirdahan7
+		animation = disapproval
+	}
+
+	lower_right_portrait = {
+		character = character:lineofvasnan22
+	}
+
+	option = { # The Tirdâhan are ungrateful and weak
+		name = lotr_intro_events.7902.a
+		trigger_event = lotr_khy.0100
+	}
+}
+
+lotr_intro_events.7903 = { # Introduction to Ashtad Vasnan "the Magnificent"
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7903.t
+	desc = lotr_intro_events.7903.desc
+	theme = realm
+	
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	
+	option = { # Can this conflict not leave me alone?
+		name = lotr_intro_events.7903.a
+	}
+}
+
+lotr_intro_events.7915 = { # Introduction to Saran Farrokhan Gushtahmez, marshal of Khy
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7915.t
+	desc = lotr_intro_events.7915.desc
+	theme = martial
+	
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+	
+	option = { # I shall serve the Emperor
+		name = lotr_intro_events.7915.a
+	}
+}
+
+lotr_intro_events.7916 = { # Introduction to King Zimrikhâr of Anarike
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7916.t
+	desc = lotr_intro_events.7916.desc
+	theme = crown
+	
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	
+	option = { # Under my guidance, Anarike shall prosper
+		name = lotr_intro_events.7916.a
+	}
+}
+
+lotr_intro_events.7917 = { #introduction to Abrazamir the Utmost serene of Anarike
+	hidden = yes
+	immediate = {
+		trigger_event = {
+			id = anarike.1001
+			days = 0
+		}
+	}
+}
+
+# Sirayn 7950-7990
+
+lotr_intro_events.7951 = { # Introduction to Mâkha Khamrattyn, the Last Bulgan
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7951.t
+	desc = lotr_intro_events.7951.desc
+	theme = war
+	override_background = {
+		reference = battlefield 
+	}
+	left_portrait = {
+		character = scope:makha_last_bulgan
+		animation = personality_vengeful
+	}
+	right_portrait = {
+		character = scope:bulgan_nafarati_invader
+		animation = marshal
+	}
+	lower_left_portrait = {
+		character = scope:last_bulgan_father
+	}
+	
+	immediate = {
+		character:lineofkamratt17 = { save_scope_as = makha_last_bulgan }
+		character:lineofkamratt15 = { save_scope_as = last_bulgan_father }
+		character:lineofquadi6 = { save_scope_as = bulgan_nafarati_invader }
+	}
+	option = { 
+		name = lotr_intro_events.7951.a
+	}
+}
+
+lotr_intro_events.7952 = { # Introduction to Gabar Vyasadha of Tartaust
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7952.t
+	desc = lotr_intro_events.7952.desc
+	theme = crown
+	override_background = {
+		reference = throne_room
+	}
+	
+	right_portrait = {
+		character = scope:tartaust_duke_2
+		animation = personality_honorable
+	}
+	lower_left_portrait = {
+		character = scope:bulgan_nafarati_invader_2
+	}
+	lower_center_portrait = {
+		character = scope:bo_lagg_the_butcher_2
+	}
+	lower_right_portrait = {
+		character = scope:yomi_conqueror
+	}
+
+	immediate = {
+		character:linekuruhai1 = { save_scope_as = bo_lagg_the_butcher_2 }
+		character:lineofvyas25 = { save_scope_as = tartaust_duke_2 }
+		character:lineoflavrajyatante21 = { save_scope_as = yomi_conqueror }
+		character:lineofquadi6 = { save_scope_as = bulgan_nafarati_invader_2 }
+	 }
+
+	option = { 
+		name = lotr_intro_events.7952.a
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = {
+		name = lotr_intro_events.7952.b
+
+		#create_title_and_vassal_change = {	#Make Tributary Instead
+		#	type = swear_fealty
+		#	save_scope_as = change
+		#}
+		#root = {
+		#	change_liege = {
+		#		liege = title:k_isra.holder
+		#		change = scope:change
+		#	}
+		#}
+		#resolve_title_and_vassal_change = scope:change
+
+		start_tributary_interaction_effect = {
+			TRIBUTARY = root
+			SUZERAIN = title:k_isra.holder
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+lotr_intro_events.7953 = { # Introduction to Jangi Ezbaro "the Last Apayrabanda"
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7953.t
+	desc = lotr_intro_events.7953.desc
+	theme = dread
+	override_background = { reference = fp1_ocean }
+	
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+
+	immediate = {
+		character:lineoflastpirate0 = { save_scope_as = last_pirate }
+	}
+	
+	option = { # No mercy for those with no grave but the sea
+		name = lotr_intro_events.7953.a
+		trigger_event = lotr_khy.0300
+		scope:last_pirate = {
+			this.house ?= { add_house_modifier = owns_big_ship }
+		}
+	}
+}
+
+lotr_intro_events.7954 = { # Introduction to Kayna, the unifier of Powa
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7954.t
+	desc = lotr_intro_events.7954.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = inspect_weapon
+	}
+	override_background = { reference = wilderness_savanna }
+
+	option = { #Diplomacy Route
+		name = lotr_intro_events.7954.a
+		custom_tooltip = lotr_intro_events.7954.a.tt
+		set_variable = {
+			name = powan_unification
+			value = flag:diplomacy
+		}
+	}
+
+	option = { #Martial Route
+		name = lotr_intro_events.7954.b
+		custom_tooltip = lotr_intro_events.7954.b.tt
+		set_variable = {
+			name = powan_unification
+			value = flag:martial
+		}
+		custom_tooltip = {
+			text = lotr_intro_events.7954.b.tt_2
+			title:k_poa = {
+				every_de_jure_county = {
+					limit = { duchy.holder != root }
+					duchy = { save_scope_as = powa_duchy }
+					root = { add_pressed_claim = scope:powa_duchy}
+				}
+			}
+		}
+	}
+}
+
+lotr_intro_events.7955 = { # Introduction to Radyani, Queen of Isra
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7955.t
+	desc = lotr_intro_events.7955.desc
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	right_portrait = {
+		character = scope:uncle_tayb
+		animation = chaplain
+	}
+	lower_left_portrait = { character = scope:dead_father }
+	lower_right_portrait = { character = scope:invasion_target }
+	
+	immediate = {
+		character:lineoflavrajyatante22 = { save_scope_as = uncle_tayb }
+		character:lineofanaidhi40 = { save_scope_as = invasion_target }
+		character:lineoflavrajyatante19 = { save_scope_as = dead_father }
+		add_character_flag = radyani_holy_war #For handling events later
+		show_as_tooltip = {
+			start_war = {
+				cb = invasion_war
+				target = scope:invasion_target
+				target_title = title:d_maudara
+			}
+		}
+	}
+
+	option = { # I must end the oppression of Arien
+		name = lotr_intro_events.7955.a
+		add_piety = minor_piety_gain
+		trigger_event = {
+			id = sirayn.1600
+			days = { 7 30 }
+		}
+	}
+}
+
+lotr_intro_events.7956 = { # Introduction to Hamshi, bookmarked Muranian bloke
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7956.t
+	desc = lotr_intro_events.7956.desc
+	theme = faith
+	
+	override_background = { reference = corridor_day}
+
+	left_portrait = {
+		character = root
+		animation = prayer
+	}
+
+	lower_right_portrait = { character = character:lineaelenhi19 }
+
+	option = {
+		name = lotr_intro_events.7956.a
+	}
+}
+
+lotr_intro_events.7957 = { # Introduction to Zantaka, Lady of the Night
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7957.t
+	desc = lotr_intro_events.7957.desc
+	theme = intrigue
+	override_background = {
+		reference = corridor_night
+	}
+
+	left_portrait = {
+		character = root
+		animation = assassin
+	}
+
+	right_portrait = {
+		character = scope:old_ruler
+		animation = poison
+	}
+
+	lower_right_portrait = { character = scope:old_ruler_brother }
+	lower_center_portrait = { character = scope:old_ruler_wife }
+
+	immediate = {
+		character:lineofsylara59 = {save_scope_as = old_ruler}
+		character:lineofsylara61 = {save_scope_as = old_ruler_brother}
+		character:lineofsylara71 = {save_scope_as = old_ruler_wife}
+	}
+
+	option = {
+		name = lotr_intro_events.7957.a
+		trigger_event = {
+			id = zantaka_event_chain.0101
+			days = 1
+		}
+	}
+}
+
+lotr_intro_events.7958 = { # Introduction to Aykafaak of Ambason
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7958.t
+	desc = lotr_intro_events.7958.desc
+	theme = raid
+	override_background = {
+		reference = ce1_legendary_spring
+	}
+
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+
+	option = {
+		name = lotr_intro_events.7958.a
+	}
+}
+
+lotr_intro_events.7959 = { # Introduction to Chandiva Karuchhakar, Lord of Tul Harar, Rise of Angmar
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7959.t
+	desc = lotr_intro_events.7959.desc
+	theme = faith
+	
+	immediate = {
+		trigger_event = {
+			id = sirayn.1700
+			months = { 6 12 }
+		}
+	}
+	left_portrait = {
+		character = root
+		animation = disgust
+	}
+
+	option = {
+		name = lotr_intro_events.7959.a
+		set_relation_grudge = character:nazgul5
+		add_opinion = {
+			target = character:nazgul5
+			modifier = hate_opinion
+			opinion = -200
+		}
+		if = {
+			limit = {
+				character:nazgul5 = { is_ai = no } 
+			}			
+			spawn_army = {
+				uses_supply = no
+				inheritable = yes
+				name = event_troop_default_name
+				men_at_arms = {
+					type = war_elephant
+					stacks = {
+						value = 10
+					}
+				}
+				men_at_arms = {
+					type = tyari_tollkeepers
+					stacks = {
+						value = 10
+					}
+				}
+				location = capital_province
+			}
+			spawn_army = {
+				uses_supply = no
+				inheritable = yes
+				name = event_troop_default_name
+				men_at_arms = {
+					type = light_footmen
+					stacks = {
+						value = 10
+					}
+				}
+				men_at_arms = {
+					type = bowmen
+					stacks = {
+						value = 10
+					}
+				}
+				location = capital_province
+			}
+		}
+	}
+}
+
+### KHY Rise of Angmar ###
+
+
+# Codya - 7990-7999
+
+lotr_intro_events.7990 = { # Introduction to Nariman, Codyan governor of Anarike during the Long Winter
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7990.t
+	desc = lotr_intro_events.7990.desc
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
+	right_portrait = {
+		character = character:lineofaldhradan1
+		animation = personality_zealous
+	}
+
+	option = {
+		name = lotr_intro_events.7990.a
+		spawn_army = { #TEMP forces to balance against Khy
+			uses_supply = no
+			inheritable = yes
+			name = codyan_army
+			levies = 5000
+			men_at_arms = {
+				type = waw_pirates
+				stacks = 6
+			}
+			men_at_arms = {
+				type = vulmaw_venturers
+				stacks = 6
+			}
+			location = capital_province
+		}
+		# add_character_modifier = military_stipend # No longer needed 
+	}
+}
+
+#Introduction to Gandalf
+lotr_intro_events.7999 = { # Introduction to Gandalf
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.7999.t
+	desc = lotr_intro_events.7999.desc
+	theme = elven
+	override_background = {
+		reference = grey_havens
+	}
+	right_portrait = {
+		character = root
+		animation = personality_content
+	}
+	lower_left_portrait = {
+		character = scope:cirdan
+		animation = personality_content
+	}
+	lower_center_portrait = {
+		character = scope:saruman
+		animation = personality_callous
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_elves
+		save_scope_as = gandalf
+		character:lineofcirdan = {
+			save_scope_as = cirdan
+		}
+		character:lineofsaruman = {
+			save_scope_as = saruman
+		}
+	}
+	
+	option = { 
+		name = lotr_intro_events.7999.a
+	}
+}
+
+#Introduction to Legolas
+lotr_intro_events.8000 = { # Introduction to Legolas
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.8000.t
+	desc = lotr_intro_events.8000.desc
+	theme = elven
+	override_background = {
+		reference = throne_room_thranduils_halls
+	}
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	lower_left_portrait = {
+		character = scope:oropher
+		animation = personality_honorable
+	}
+	lower_center_portrait = {
+		character = scope:thranduil
+		animation = personality_greedy
+	}
+	lower_right_portrait = {
+		character = scope:arhendhiril
+		animation = personality_compassionate	
+	}
+	
+	immediate = {
+		save_scope_as = legolas
+		character:lineoforopher1 = {
+			save_scope_as = oropher
+		}
+		character:lineoforopher3 = {
+			save_scope_as = thranduil
+		}
+		character:lineoforopher4 = {
+			save_scope_as = arhendhiril
+		}
+	}
+	
+	option = { 
+		name = lotr_intro_events.8000.a
+	}
+}
+
+#Introduction to Celeborn
+lotr_intro_events.8001 = { # Introduction to Celeborn
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.8001.t
+	desc = lotr_intro_events.8001.desc
+	theme = elven
+	override_background = {
+		reference = lorien_day
+	}
+	right_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	lower_left_portrait = {
+		character = scope:galadriel
+		animation = personality_honorable
+	}
+	lower_center_portrait = {
+		character = scope:elrond
+		animation = personality_content
+	}
+	lower_right_portrait = {
+		character = scope:arwen
+		animation = personality_compassionate
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_elves
+		save_scope_as = celeborn
+		character:lineoffinarfin5 = {
+			save_scope_as = galadriel
+		}
+		character:lineofelrond1 = {
+			save_scope_as = elrond
+		}
+		character:lineofelrond4 = {
+			save_scope_as = arwen
+		}
+	}
+	
+	option = { 
+		name = lotr_intro_events.8001.a
+	}
+}
+
+lotr_intro_events.8002 = { # Introduction to Bilbo Baggins of the Shire
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.8002.t
+	desc = lotr_intro_events.8002.desc
+	theme = realm
+	override_background = {
+		reference = throne_room_hobbit
+	}
+	right_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	lower_left_portrait = {
+		character = scope:Frodo
+		animation = personality_honorable
+	}
+	lower_center_portrait = {
+		character = scope:Samwse
+		animation = personality_compassionate
+	}
+	lower_right_portrait = {
+		character = scope:Gandalf
+		animation = personality_content
+	}
+
+	immediate = {
+		save_scope_as = Bilbo
+		character:lineofbaggins29 = {
+			save_scope_as = Frodo
+		}
+		character:lineofgamgee10 = {
+			save_scope_as = Samwse
+		}
+		character:lineofgandalf = {
+			save_scope_as = Gandalf
+		}
+	}
+
+	option = { # And there always will be
+		name = lotr_intro_events.8002.a
+	}
+}
+
+# lotr_intro_events.8003 = { # Introduction to Elendil, High King of the Dúnedain
+	# content_source = realms_dlc
+	# type = character_event
+	# title = lotr_intro_events.8003.t
+	# desc = lotr_intro_events.8003.desc
+	# theme = gondor
+	# override_background = {
+		# reference = annuminas 
+	# }
+	# right_portrait = {
+		# character = root
+		# animation = personality_honorable
+	# }
+	# lower_left_portrait = {
+		# character = scope:Isildur
+		# animation = personality_bold
+	# }
+	# lower_center_portrait = {
+		# character = scope:Anarion
+		# animation = personality_content
+	# }
+	# lower_right_portrait = {
+		# character = scope:Gilgalad
+		# animation = personality_honorable
+	# }
+	
+	# immediate = {
+		# save_scope_as = Elendil
+		# character:lineisildur0 = {
+			# save_scope_as = Isildur
+		# }
+		# character:lineofanarion1 = {
+			# save_scope_as = Anarion
+		# }
+		# character:lineoforodreth4 = {
+			# save_scope_as = Gilgalad
+		# }
+	# }
+	
+	# option = { 
+		# name = lotr_intro_events.8003.a
+		# custom_tooltip = lotr_intro_events.8003.a.tt
+		# trigger = { is_ai = yes }
+		# add_piety = 1000
+		# add_prestige = 1000
+		# ai_chance = {
+			# base = 100 
+		# }
+	# }
+# }
+
+#Introduction to Haldir
+lotr_intro_events.8004 = { # Introduction to Haldir of Lórien
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.8004.t
+	desc = lotr_intro_events.8004.desc
+	theme = elven
+	override_background = {
+		reference = eaves_of_lorien
+	}
+	right_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	lower_left_portrait = {
+		character = scope:Galadriel
+		animation = personality_honorable
+	}
+	lower_center_portrait = {
+		character = scope:Celeborn
+		animation = personality_honorable
+	}
+	lower_right_portrait = {
+		character = scope:Meladorn
+		animation = personality_bold
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_elves
+		save_scope_as = Haldir
+		character:lineoffinarfin5 = {
+			save_scope_as = Galadriel
+		}
+		character:lineofelmo5 = {
+			save_scope_as = Celeborn
+		}
+		character:lineoftirneldor8 = {
+			save_scope_as = Meladorn
+		}
+	}
+	
+	option = { 
+		name = lotr_intro_events.8004.a
+	}
+}
+
+#Introduction to Lauriel, Last Follower of Maglor
+lotr_intro_events.8005 = { # Introduction to Lauriel, Last Follower of Maglor
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.8005.t
+	desc = lotr_intro_events.8005.desc
+	theme = elven
+	override_background = {
+		reference = grey_havens
+	}
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	lower_center_portrait = {
+		character = scope:Maglor
+		animation = personality_content
+	}
+	lower_right_portrait = {
+		character = scope:Cirdan
+		animation = personality_honorable
+	}
+	immediate = {
+		play_music_cue = lotr_cue_elves
+		save_scope_as = Lauriel
+		character:lineoffeanor2 = {
+			save_scope_as = Maglor
+		}
+		character:lineofcirdan = {
+			save_scope_as = Cirdan
+		}
+	}
+
+	option = { 
+		name = lotr_intro_events.8005.a
+	}
+}
+
+#Introduction to Utor the Stinger, Would be Savior of the World (Lol)
+lotr_intro_events.8006 = { # Introduction to Utor the Stinger, Would be Savior of the World (Lol)
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.8006.t
+	desc = lotr_intro_events.8006.desc
+	theme = orcs
+	override_background = {
+		reference = wilderness_underground
+	}
+	right_portrait = {
+		character = root
+		animation = personality_vengeful 
+	}
+	lower_center_portrait = {
+		character = scope:Krovik
+		animation = personality_bold
+	}
+	lower_right_portrait = { 
+		character = scope:Mûkojkun
+		animation = personality_greedy
+	}
+
+	immediate = {
+		save_scope_as = Utor
+		character:lineroofsleeper2 = {
+			save_scope_as = Krovik
+		}
+		character:lineroofsleeper3 = {
+			save_scope_as = Mûkojkun
+		}
+	}
+
+	option = {
+		name = lotr_intro_events.8006.a
+	}
+}
+
+#Introduction to Karamar, The Warden of the White Towers, Elven Heir of Sirgala
+lotr_intro_events.8007 = { # Introduction to Karamar, The Warden of the White Towers, Elven Heir of Sirgala
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.8007.t
+	desc = lotr_intro_events.8007.desc
+	theme = elven
+	override_background = {
+		reference = grey_havens
+	}
+	right_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	lower_left_portrait = {
+		character = scope:Bornmir
+		animation = personality_honorable
+	}
+	lower_center_portrait = {
+		character = scope:Merethorn
+		animation = personality_content
+	}
+	lower_right_portrait = {
+		character = scope:Írith
+		animation = personality_honorable
+	}
+
+	immediate = {
+		play_music_cue = lotr_cue_elves
+		save_scope_as = Karamar
+		character:lineofbornmir1 = {
+			save_scope_as = Bornmir
+		}
+		character:lineofbornmir3 = {
+			save_scope_as = Merethorn
+		}
+		character:lineofbornmir6 = {
+			save_scope_as = Írith
+		}
+	}
+
+	option = { 
+		name = lotr_intro_events.8007.a
+	}
+}
+
+#Introduction to Nimue, the Lady of Lond Daer
+lotr_intro_events.8008 = { # Introduction to Nimue, the Lady of Lond Daer
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.8008.t
+	desc = lotr_intro_events.8008.desc
+	theme = realm
+	override_background = {
+		reference = on_river
+	}
+	right_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	immediate = {
+		save_scope_as = Nimue
+	}
+
+	option = { 
+		name = lotr_intro_events.8008.a
+	}
+}
+
+#Introduction to Ciryandur, Lord of Pelargir
+lotr_intro_events.8009 = { # Introduction to Ciryandur, Lord of Pelargir
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.8009.t
+	desc = lotr_intro_events.8009.desc
+	theme = sailing_activity
+	override_background = {
+		reference = docks_dunedain
+	}
+	right_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	lower_left_portrait = {
+		character = scope:Miryaryon 
+		animation = personality_zealous
+	}
+	lower_center_portrait = {
+		character = scope:Eärnil
+		animation = personality_greedy
+	}
+	lower_right_portrait = {
+		character = scope:Estelmo
+		animation = personality_honorable
+	}
+	
+	immediate = {
+		save_scope_as = Ciryandur
+		character:lebennin17 = {
+			save_scope_as = Miryaryon
+		}
+		character:lebennin18 = {
+			save_scope_as = Eärnil
+		}
+		character:lebennin20 = {
+			save_scope_as = Estelmo
+		}
+	}
+
+	option = { 
+		name = lotr_intro_events.8009.a
+	}
+}
+
+#Introduction to Ôthour, the Khûdriag of Nurn, Servant of the Dark Lord
+lotr_intro_events.8010 = { # Introduction to Ôthour, the Khûdriag of Nurn, Servant of the Dark Lord
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.8010.t
+	desc = lotr_intro_events.8010.desc
+	theme = martial_strategy_focus
+	override_background = {
+		reference = wilderness_desert_rhun
+	}
+	right_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	lower_left_portrait = {
+		character = scope:Sauron
+		animation = personality_zealous
+	}
+	lower_center_portrait = {
+		character = scope:Akvoth
+		animation = personality_compassionate
+	}
+	lower_right_portrait = { 
+		character = scope:Keiseimu
+		animation = personality_vengeful
+	}
+
+	immediate = {
+		save_scope_as = Ôthour
+		character:lineofsauron = {
+			save_scope_as = Sauron
+		}
+		character:lineofarki37 = {
+			save_scope_as = Akvoth
+		}
+		character:keiseimuofkhand = {
+			save_scope_as = Keiseimu
+		}
+	}
+
+	option = {
+		name = lotr_intro_events.8010.a
+	}
+}
+
+#Introduction to Deneroth the 'Silver Stag', grandson of Lanthir, Lord of the Penni ELves
+lotr_intro_events.8011 = { 
+	content_source = realms_dlc
+	type = character_event	
+	title = lotr_intro_events.8011.t
+	desc = lotr_intro_events.8011.desc
+	theme = elven
+	override_background = {
+		reference = wilderness_forest_deep
+	}
+	right_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	lower_center_portrait = {
+		character = scope:Lanthir
+		animation = personality_honorable
+	}
+	lower_right_portrait = {
+		character = scope:Aramagor
+		animation = personality_zealous
+	}
+
+	immediate = {
+		play_music_cue = lotr_cue_elves
+		save_scope_as = Deneroth
+		character:lineoflanthir1 = {
+			save_scope_as = Lanthir
+		}
+		character:lineoflanthir4 = {
+			save_scope_as = Aramagor
+		}
+	}
+
+	option = { 
+		name = lotr_intro_events.8011.a
+	}
+}
+
+#Introduction to Laerdan the Veturous, Lasagladrim Explorer
+lotr_intro_events.8012 = { 
+	content_source = realms_dlc
+	type = character_event	
+	title = lotr_intro_events.8012.t
+	desc = lotr_intro_events.8012.desc
+	theme = elven
+	override_background = {
+		reference = wilderness_forest_deep
+	}
+	right_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	lower_center_portrait = {
+		character = scope:Vairë
+		animation = personality_honorable
+	}
+	lower_right_portrait = {
+		character = scope:Auredhir
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = lotr_cue_elves
+		save_scope_as = Laerdan
+		character:lineoflaerdan4 = {
+			save_scope_as = Vairë
+		}
+		character:lineoflaerdan5 = {
+			save_scope_as = Auredhir
+		}
+	}
+
+	option = { 
+		name = lotr_intro_events.8012.a
+	}
+}
+
+#Introduction to Calmiriel the Harrier
+lotr_intro_events.8013 = { 
+	content_source = realms_dlc
+	type = character_event	
+	title = lotr_intro_events.8013.t
+	desc = lotr_intro_events.8013.desc
+	theme = elven
+	override_background = {
+		reference = elven_holding
+	}
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	lower_center_portrait = {
+		character = scope:Terilaen
+		animation = personality_content
+	}
+
+	immediate = {
+		play_music_cue = lotr_cue_elves
+		save_scope_as = Calmiriel
+		character:lineofmeglasul3 = {
+			save_scope_as = Terilaen
+		}
+	}
+
+	option = { 
+		name = lotr_intro_events.8013.a
+	}
+}
+
+#Introduction to Gildor Inglorion
+lotr_intro_events.8015 = { 
+	content_source = realms_dlc
+	type = character_event	
+	title = lotr_intro_events.8015.t
+	desc = lotr_intro_events.8015.desc
+	theme = elven
+	override_background = {
+		reference = imladris
+	}
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = lotr_cue_elves
+		save_scope_as = Gildor
+	}
+
+	option = { 
+		name = lotr_intro_events.8015.a
+	}
+}

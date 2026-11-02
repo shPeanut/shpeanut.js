@@ -1,0 +1,715 @@
+﻿######################
+# MINING ACTIVITY VALUES
+######################
+
+## Costs and Cooldowns
+
+mining_activity_base_cost = {
+	value = standard_activity_base_cost
+}
+
+mining_poor_option_cost = {
+	value = 0
+}
+
+mining_normal_option_cost = {
+	value = 10
+	multiply = activity_cost_scale_by_tier
+	multiply = activity_cost_scale_by_era
+}
+
+mining_good_option_cost = {
+	value = 35
+	multiply = activity_cost_scale_by_tier
+	multiply = activity_cost_scale_by_era
+}
+
+standard_mining_cooldown_time = {
+	value = 4
+	if = {
+		limit = {
+			root.culture = { has_cultural_parameter = more_frequent_mining_expeditions }
+		}
+		multiply = 0.5
+	}
+}
+
+## Mining Success Chances
+
+mining_activity_success_increase_minor_value = 3
+mining_activity_success_increase_medium_value = 5
+mining_activity_success_increase_major_value = 10
+mining_activity_success_increase_massive_value = 15 # use very sparingly, this is huge
+
+mining_activity_success_decrease_minor_value = {
+	value = mining_activity_success_increase_minor_value
+	multiply = -1
+}
+mining_activity_success_decrease_medium_value = {
+	value = mining_activity_success_increase_medium_value
+	multiply = -1
+}
+mining_activity_success_decrease_major_value = {
+	value = mining_activity_success_increase_major_value
+	multiply = -1
+}
+mining_activity_success_decrease_massive_value = {
+	value = mining_activity_success_increase_massive_value
+	multiply = -1
+}
+
+mining_success_chance_value = {
+	activity_host = {
+		# HOST SKILLS
+		add = {
+			value = stewardship
+			divide = 4
+			ceiling = yes
+			max = 10
+			desc = stewardship_modifier
+		}
+		if = {
+			limit = {
+				involved_activity = {
+					has_activity_option = { category = special_type option = mining_type_prospecting }
+				}
+			}
+			add = {
+				value = learning
+				divide = 4
+				ceiling = yes
+				max = 10
+				desc = learning_modifier
+			}
+		}
+		else = {
+			add = {
+				value = prowess
+				divide = 4
+				ceiling = yes
+				max = 10
+				desc = prowess_modifier
+			}
+		}	
+
+		# HOST EXPEDITION LEADER LIFESTYLE PERK
+		if = {
+			limit = { has_perk = expedition_leader_perk }
+			add = {
+				value = 10
+				desc = expedition_leader_perk_modifier_desc
+			}
+		}
+
+		# SONS OF MAHAL DYNASTY PERK
+		if = {
+			limit = { dynasty ?= { has_dynasty_perk = lotr_khazad_legacy_4 } }
+			add = {
+				value = 10
+				desc = sons_of_mahal_perk_modifier_desc
+			}
+		}
+		
+		# Crafting 1 DYNASTY PERK
+		if = {
+			limit = { dynasty ?= { has_dynasty_perk = lotr_crafting_legacy_1 } }
+			add = {
+				value = 5
+				desc = lotr_crafting_legacy_1_perk_modifier_desc
+			}
+		}
+		
+		# Lucky Pickax Easter Egg
+		if = {
+			limit = {
+				any_character_artifact = {
+					has_variable = lucky_pickaxe
+				}
+			}
+			add = 1
+		}
+
+		# HOST MINING TRAIT
+		add = {
+			value = 0
+			if = {
+				limit = { has_trait = lifestyle_miner }
+				add = 3
+			}
+			if = {
+				limit = {
+					has_trait = lifestyle_miner
+					involved_activity = {
+						has_activity_option = { category = special_type option = mining_type_prospecting }
+					}
+					has_trait_xp = { trait = lifestyle_miner track = prospector value >= 25 }
+				}
+				add = {
+					value = 3
+					if = {
+						limit = {
+							has_trait_xp = { trait = lifestyle_miner track = prospector value >= 50 }
+						}
+						add = 3
+					}
+					if = {
+						limit = {
+							has_trait_xp = { trait = lifestyle_miner track = prospector value >= 75 }
+						}
+						add = 3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_trait = lifestyle_miner
+					involved_activity = {
+						NOT = {
+							has_activity_option = { category = special_type option = mining_type_prospecting }
+						}
+					}
+					has_trait_xp = { trait = lifestyle_miner track = hewer value >= 25 }
+				}
+				add = {
+					value = 3
+					if = {
+						limit = {
+							has_trait_xp = { trait = lifestyle_miner track = hewer value >= 50 }
+						}
+						add = 3
+					}
+					if = {
+						limit = {
+							has_trait_xp = { trait = lifestyle_miner track = hewer value >= 75 }
+						}
+						add = 3
+					}
+				}
+			}
+			desc = mining_success_chance.trait
+		}
+		# OVERSEER OF THE MINES
+		if = {
+			limit = { exists = court_position:overseer_of_the_mines_court_position }
+			add = {
+				value = 0
+				court_position:overseer_of_the_mines_court_position = {
+					if = {
+						limit = {
+							aptitude = { court_position = overseer_of_the_mines_court_position value <= 1 }
+						}
+						add = 3
+					}
+					else_if = {
+						limit = {
+							aptitude = { court_position = overseer_of_the_mines_court_position value = 2 }
+						}
+						add = 6
+					}
+					else_if = {
+						limit = {
+							aptitude = { court_position = overseer_of_the_mines_court_position value = 3 }
+						}
+						add = 9
+					}
+					else_if = {
+						limit = {
+							aptitude = { court_position = overseer_of_the_mines_court_position value = 4 }
+						}
+						add = 12
+					}				
+					else = { add = 15 }
+				}
+				desc = mining_success_chance.overseer_of_the_mines_court_position
+			}
+		}
+		# STONE SINGER
+		else_if = {
+			limit = { exists = court_position:stone_singer_court_position }
+			add = {
+				value = 0
+				court_position:stone_singer_court_position = {
+					if = {
+						limit = {
+							aptitude = { court_position = stone_singer_court_position value <= 1 }
+						}
+						add = 3
+					}
+					else_if = {
+						limit = {
+							aptitude = { court_position = stone_singer_court_position value = 2 }
+						}
+						add = 6
+					}
+					else_if = {
+						limit = {
+							aptitude = { court_position = stone_singer_court_position value = 3 }
+						}
+						add = 9
+					}
+					else_if = {
+						limit = {
+							aptitude = { court_position = stone_singer_court_position value = 4 }
+						}
+						add = 12
+					}				
+					else = { add = 15 }
+				}
+				desc = mining_success_chance.stone_singer_court_position
+			}
+		}
+	}
+	# GUESTS
+	if = { # Miners
+		limit = {
+			any_attending_character = {
+				NOR = {
+					this = prev.activity_host
+					prev.activity_host.court_position:overseer_of_the_mines_court_position ?= this
+					prev.activity_host.court_position:stone_singer_court_position ?= this
+				}
+				OR = {
+					has_trait = lifestyle_miner
+				}
+			}
+		}
+		add = {
+			value = 0
+			every_attending_character = {
+				limit = {
+					NOR = {
+						this = prev.activity_host
+						prev.activity_host.court_position:overseer_of_the_mines_court_position ?= this
+						prev.activity_host.court_position:stone_singer_court_position ?= this
+					}
+					has_trait = lifestyle_miner
+				}
+				add = 3
+			}
+			desc = mining_success_chance.attending_miners
+		}
+	}
+	# OPTIONS
+	if = { # Normal Surveyors
+		limit = {
+			has_activity_option = { category = mining_option_surveyors option = mining_surveyors_normal }
+		}
+		add = {
+			value = 1.25
+			multiply = mining_success_chance_roco_amenity_level_value
+			desc = mining_success_chance.mining_option_talented_surveyors
+		}
+	}
+	else_if = { # Many Surveyors
+		limit = {
+			has_activity_option = { category = mining_option_surveyors option = mining_surveyors_many }
+		}
+		add = {
+			value = 2.5
+			multiply = mining_success_chance_roco_amenity_level_value
+			desc = mining_success_chance.mining_option_expert_surveyors
+		}
+	}
+	# TEAM HUDDLE
+	if = {
+		limit = { 
+			exists = var:mining_team_huddle
+			var:mining_team_huddle = flag:pep_talk_success
+		}
+		add = {
+			value = 5
+			desc = mining_success_chance.pep_talk_success
+		}
+	}
+	if = {
+		limit = { 
+			exists = var:mining_team_huddle
+			var:mining_team_huddle = flag:pep_talk_failure
+		}
+		add = {
+			value = -5
+			desc = mining_success_chance.pep_talk_failure
+		}
+	}
+	if = {
+		limit = { 
+			exists = var:mining_team_huddle
+			var:mining_team_huddle = flag:strategy_success
+		}
+		add = {
+			value = 10
+			desc = mining_success_chance.strategy_success
+		}
+	}
+	if = {
+		limit = { 
+			exists = var:mining_team_huddle
+			var:mining_team_huddle = flag:strategy_failure
+		}
+		add = {
+			value = -10
+			desc = mining_success_chance.strategy_failure
+		}
+	}
+	if = {
+		limit = { 
+			exists = var:mining_team_huddle
+			var:mining_team_huddle = flag:threaten_success
+		}
+		add = {
+			value = 5
+			desc = mining_success_chance.threaten_success
+		}
+	}
+	if = {
+		limit = { 
+			exists = var:mining_team_huddle
+			var:mining_team_huddle = flag:threaten_failure
+		}
+		add = {
+			value = -10
+			desc = mining_success_chance.threaten_failure
+		}
+	}
+	if = {
+		limit = { 
+			exists = var:mining_team_huddle
+			var:mining_team_huddle = flag:overseer_success
+		}
+		add = {
+			value = 5
+			desc = mining_success_chance.overseer_success
+		}
+	}
+	if = {
+		limit = { 
+			exists = var:mining_team_huddle
+			var:mining_team_huddle = flag:overseer_failure
+		}
+		add = {
+			value = -5
+			desc = mining_success_chance.overseer_failure
+		}
+	}
+	if = {
+		limit = { 
+			exists = var:mining_team_huddle
+			var:mining_team_huddle = flag:stone_singer_success
+		}
+		add = {
+			value = 5
+			desc = mining_success_chance.stone_singer_success
+		}
+	}
+	if = {
+		limit = { 
+			exists = var:mining_team_huddle
+			var:mining_team_huddle = flag:stone_singer_failure
+		}
+		add = {
+			value = -5
+			desc = mining_success_chance.stone_singer_failure
+		}
+	}
+	# LOCATION
+#	activity_location = { add = mining_province_reference_value }
+	# CULTURE
+	save_temporary_scope_as = activity_temp
+	# EVENTS
+	if = {
+		limit = { exists = var:mining_success_chance_event }
+		add = {
+			value = var:mining_success_chance_event
+			desc = mining_success_chance.events
+		}
+	}
+	if = {
+		limit = { var:mining_success ?= flag:no }
+		multiply = 0
+	}
+	min = 10
+	max = 70
+}
+
+mining_success_chance_inverse_value = {
+	value = 100
+	subtract = mining_success_chance_value
+}
+
+mining_success_chance_roco_amenity_level_value = {
+	value = 0
+	if = {
+		limit = {
+			activity_host = { has_royal_court = yes }
+		}
+		if = {
+			limit = {
+				activity_host = {
+					amenity_level = { target = court_servants value = low_amenity_level }
+				}
+			}
+			add = 1
+		}
+		else_if = {
+			limit = {
+				activity_host = {
+					amenity_level = { target = court_servants value = medium_amenity_level }
+				}
+			}
+			add = 2
+		}
+		else_if = {
+			limit = {
+				activity_host = {
+					amenity_level = { target = court_servants value = high_amenity_level }
+				}
+			}
+			add = 3
+		}
+		else_if = {
+			limit = {
+				activity_host = {
+					amenity_level = { target = court_servants value = very_high_amenity_level }
+				}
+			}
+			add = 4
+		}
+	}
+	else = { add = 2 }
+}
+
+## Reward Values
+
+#Miner rank up thresholds
+miner_rank_up_1_threshold = 3
+miner_rank_up_2_threshold = 5
+miner_rank_up_3_threshold = 7
+
+mining_prestige_reward_value = {
+	# Standard value for most chars.
+	value = minor_prestige_value
+
+	scope:activity = {
+		if = {
+			limit = {
+				OR = {
+					scope:activity.var:mining_resource_found ?= flag:lead
+					scope:activity.var:mining_resource_found ?= flag:tin
+					scope:activity.var:mining_resource_found ?= flag:copper
+				}
+			}
+			multiply = 3
+		}
+		else_if = {
+			limit = {
+				OR = {
+					scope:activity.var:mining_resource_found ?= flag:silver
+					scope:activity.var:mining_resource_found ?= flag:ruby
+					scope:activity.var:mining_resource_found ?= flag:sapphire
+					scope:activity.var:mining_resource_found ?= flag:emerald
+				}
+			}
+			multiply = 4
+		}
+		else_if ={
+			limit = {
+				OR = {
+					scope:activity.var:mining_resource_found ?= flag:gold
+					scope:activity.var:mining_resource_found ?= flag:diamond
+				}
+			}
+			multiply = 5
+		}
+		else_if ={
+			limit = {
+				scope:activity.var:mining_resource_found ?= flag:mithril
+			}
+			multiply = 10
+		}
+		else = { multiply = 1 }
+		if = {
+			limit = {
+				has_activity_option = { category = mining_option_party_size option = mining_party_size_normal }
+			}
+			multiply = 1.25
+		}
+		else_if = {
+			limit = {
+				has_activity_option = { category = mining_option_party_size option = mining_party_size_many }
+			}
+			multiply = 1.5
+		}
+	}
+	if = {
+		limit = { scope:activity.var:mining_success ?= flag:no }
+		divide = 2
+	}
+}
+
+mining_prestige_with_piety_reward_value = {
+	value = mining_prestige_reward_value
+	divide = 2
+}
+
+mining_piety_reward_value = {
+	value = mining_prestige_reward_value
+	divide = 2
+}
+
+mining_prestige_guest_gain_value = {
+	value = mining_prestige_reward_value
+	divide = 2
+}
+
+mining_prestige_with_piety_guest_gain_value = {
+	value = mining_prestige_with_piety_reward_value
+	divide = 2
+}
+
+mining_piety_guest_gain_value = {
+	value = mining_piety_reward_value
+	divide = 2
+}
+
+mining_actual_activity_cost = {
+	value = mining_activity_base_cost
+	multiply = activity_cost_scale_by_era
+	if = {
+		limit = { has_perk = expedition_leader_perk }
+		multiply = {
+			value = 0.75
+		}
+	}
+	if = {
+		limit = {
+			scope:activity = { has_activity_option = { category = mining_option_surveyors option = mining_surveyors_normal } }
+		}
+		add = mining_normal_option_cost
+		if = {
+			limit = { has_perk = expedition_leader_perk }
+			multiply = {
+				value = 0.75
+			}
+		}
+	}
+	if = {
+		limit = {
+			scope:activity = { has_activity_option = { category = mining_option_surveyors option = mining_surveyors_many } }
+		}
+		add = mining_good_option_cost
+		if = {
+			limit = { has_perk = expedition_leader_perk }
+			multiply = {
+				value = 0.75
+			}
+		}
+	}
+	if = {
+		limit = {
+			scope:activity = { has_activity_option = { category = mining_option_party_size option = mining_party_size_normal } }
+		}
+		add = mining_normal_option_cost
+		if = {
+			limit = { has_perk = expedition_leader_perk }
+			multiply = {
+				value = 0.75
+			}
+		}
+	}
+	if = {
+		limit = {
+			scope:activity = { has_activity_option = { category = mining_option_party_size option = mining_party_size_many } }
+		}
+		add = mining_good_option_cost
+		if = {
+			limit = { has_perk = expedition_leader_perk }
+			multiply = {
+				value = 0.75
+			}
+		}
+	}
+}
+
+mining_success_gold_reward_value = {
+	value = mining_actual_activity_cost
+	 # Scale for value of resource mined
+	if = { # Valuable
+		limit = { 
+			scope:activity.activity_location = {
+				OR = {
+					has_province_modifier = mining_mithril_province_modifier
+					has_province_modifier = mining_gold_province_modifier
+					has_province_modifier = mining_diamond_province_modifier
+				}
+			}
+		}
+		multiply = 1.1
+	}
+	else_if = { # Semi-Valuable
+		limit = { 
+			scope:activity.activity_location = {
+				OR = {
+					has_province_modifier = mining_silver_province_modifier
+					has_province_modifier = mining_ruby_province_modifier
+					has_province_modifier = mining_sapphire_province_modifier
+					has_province_modifier = mining_emerald_province_modifier
+					has_province_modifier = mining_amethyst_province_modifier
+				}
+			}
+		}
+		multiply = 1.05
+	}
+	else = { # Non-Valuable
+		multiply = 0.95
+	}
+	if = {
+		limit = { scope:activity = { var:mining_success_scale ?= 1 } }
+		multiply = 1.2
+	}
+	else_if = {
+		limit = { scope:activity = { var:mining_success_scale ?= 2 } }
+		multiply = 1.4
+	}
+	else_if = {
+		limit = { scope:activity = { var:mining_success_scale ?= 3 } }
+		multiply = 1.6
+	}
+	else_if = {
+		limit = { scope:activity = { var:mining_success_scale ?= 4 } }
+		multiply = 1.8
+	}
+	else = {
+		multiply = 2.0
+	}
+	if = {
+		limit = { has_perk = middleearths_bounty_perk }
+		multiply = 1.2
+	}
+}
+
+mining_failure_gold_reward_value = {
+	value = mining_actual_activity_cost
+	if = {
+		limit = { has_perk = contingency_planning_perk }
+		multiply = 0.5
+	}
+	else_if = {
+		limit = { scope:activity = { var:mining_success_scale ?= 1 } }
+		multiply = 0.5
+	}
+	else_if = {
+		limit = { scope:activity = { var:mining_success_scale ?= 2 } }
+		multiply = 0.4
+	}
+	else_if = {
+		limit = { scope:activity = { var:mining_success_scale ?= 3 } }
+		multiply = 0.3
+	}
+	else_if = {
+		limit = { scope:activity = { var:mining_success_scale ?= 4 } }
+		multiply = 0.2
+	}
+	else = {
+		multiply = 0.1
+	}
+}

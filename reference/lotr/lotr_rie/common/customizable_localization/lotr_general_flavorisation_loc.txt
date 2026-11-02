@@ -1,0 +1,1534 @@
+﻿################################
+### LOTR - Flavorization Loc ###
+################################
+
+###############
+### GENERAL ###
+###############
+
+### Race Loc ###
+# Pulls capitalized "race" for localization, i.e. Man, Orc, Dwarf...
+# Pulls it as game concept if available
+# Use as [ROOT.Char.Custom('GetRaceSingular')]
+GetRacePlural = { # Plural, i.e. "Men"
+	type = character
+
+	text = {
+		trigger = {
+			is_elf = yes
+		}
+		localization_key = race_elf_plural
+	}
+
+	text = {
+		trigger = {
+			is_dwarf = yes
+		}
+		localization_key = race_dwarf_plural
+	}
+
+	text = {
+		trigger = {
+			is_troll = yes
+		}
+		localization_key = race_troll_plural
+	}
+
+
+	text = {
+		trigger = {
+			is_goblin = yes
+		}
+		localization_key = race_goblin_plural
+	}
+
+
+	text = {
+		trigger = {
+			is_orc = yes
+		}
+		localization_key = race_orc_plural
+	}
+
+	text = {
+		trigger = {
+			is_nazgul = yes
+		}
+		localization_key = race_nazgul_plural
+	}
+
+	text = {
+		trigger = {
+			is_istari = yes
+		}
+		localization_key = race_istari_plural
+	}
+
+	text = {
+		trigger = {
+			is_maiar = yes
+		}
+		localization_key = race_maia_plural
+	}
+
+	text = {
+		trigger = {
+			is_hobbit = yes
+		}
+		localization_key = race_hobbit_plural
+	}
+
+	text = {
+		trigger = {
+			is_druedain = yes
+		}
+		localization_key = race_druedain_plural
+	}
+
+	text = {
+		trigger = {
+			is_human = yes
+		}
+		localization_key = race_man_plural
+	}
+
+	text = {
+		fallback = yes
+		localization_key = race_fallback_plural
+	}
+}
+
+GetRaceSingular = { # Singular, i.e. "Man"
+	type = character
+
+	text = {
+		trigger = {
+			is_elf = yes
+		}
+		localization_key = race_elf_singular
+	}
+
+	text = {
+		trigger = {
+			is_dwarf = yes
+		}
+		localization_key = race_dwarf_singular
+	}
+
+	text = {
+		trigger = {
+			is_troll = yes
+		}
+		localization_key = race_troll_singular
+	}
+
+
+	text = {
+		trigger = {
+			is_goblin = yes
+		}
+		localization_key = race_goblin_singular
+	}
+
+
+	text = {
+		trigger = {
+			is_orc = yes
+		}
+		localization_key = race_orc_singular
+	}
+
+	text = {
+		trigger = {
+			is_nazgul = yes
+		}
+		localization_key = race_nazgul_singular
+	}
+
+	text = {
+		trigger = {
+			is_istari = yes
+		}
+		localization_key = race_istari_singular
+	}
+
+	text = {
+		trigger = {
+			is_maiar = yes
+		}
+		localization_key = race_maia_singular
+	}
+
+	text = {
+		trigger = {
+			is_hobbit = yes
+		}
+		localization_key = race_hobbit_singular
+	}
+
+	text = {
+		trigger = {
+			is_druedain = yes
+		}
+		localization_key = race_druedain_singular
+	}
+
+	text = {
+		trigger = {
+			is_human = yes
+		}
+		localization_key = race_man_singular
+	}
+
+	text = {
+		fallback = yes
+		localization_key = race_fallback_singular
+	}
+}
+
+GetRaceAdjective = { # Adjective, i.e. "Mannish"
+	type = character
+
+	text = {
+		trigger = {
+			is_elf = yes
+		}
+		localization_key = race_elf_adjective
+	}
+
+	text = {
+		trigger = {
+			is_dwarf = yes
+		}
+		localization_key = race_dwarf_adjective
+	}
+
+	text = {
+		trigger = {
+			is_troll = yes
+		}
+		localization_key = race_troll_adjective
+	}
+
+
+	text = {
+		trigger = {
+			is_goblin = yes
+		}
+		localization_key = race_goblin_adjective
+	}
+
+
+	text = {
+		trigger = {
+			is_orc = yes
+		}
+		localization_key = race_orc_adjective
+	}
+
+	text = {
+		trigger = {
+			is_nazgul = yes
+		}
+		localization_key = race_nazgul_adjective
+	}
+
+	text = {
+		trigger = {
+			is_istari = yes
+		}
+		localization_key = race_istari_adjective
+	}
+
+	text = {
+		trigger = {
+			is_maiar = yes
+		}
+		localization_key = race_maia_adjective
+	}
+
+	text = {
+		trigger = {
+			is_hobbit = yes
+		}
+		localization_key = race_hobbit_singular
+	}
+
+	text = {
+		trigger = {
+			is_druedain = yes
+		}
+		localization_key = race_druedain_adjective
+	}
+
+	text = {
+		trigger = {
+			is_human = yes
+		}
+		localization_key = race_man_adjective
+	}
+
+	text = {
+		fallback = yes
+		localization_key = race_fallback_adjective
+	}
+}
+
+GetRaceProvince = { # Use in province scopes, Plural, i.e. "Men"
+	type = province
+
+	text = {
+		trigger = {
+			culture = { is_elf_culture = yes }
+		}
+		localization_key = race_elf_plural
+	}
+
+	text = {
+		trigger = {
+			culture = { is_dwarf_culture = yes }
+		}
+		localization_key = race_dwarf_plural
+	}
+
+	text = {
+		trigger = {
+			culture = { is_troll_culture = yes }
+		}
+		localization_key = race_troll_plural
+	}
+
+
+	text = {
+		trigger = {
+			culture = { is_goblin_culture = yes }
+		}
+		localization_key = race_goblin_plural
+	}
+
+
+	text = {
+		trigger = {
+			culture = { is_orc_culture = yes }
+		}
+		localization_key = race_orc_plural
+	}
+
+	text = {
+		trigger = {
+			culture = { is_nazgul_culture = yes }
+		}
+		localization_key = race_nazgul_plural
+	}
+
+	text = {
+		trigger = {
+			culture = { is_maiar_culture = yes }
+		}
+		localization_key = race_istari_plural
+	}
+
+	text = {
+		trigger = {
+			OR = {
+				culture = { is_maiar_culture = yes }
+				culture = { is_maiar_fallen_culture = yes }
+			}
+		}
+		localization_key = race_maia_plural
+	}
+
+	text = {
+		trigger = {
+			culture = { is_hobbit_culture = yes }
+		}
+		localization_key = race_hobbit_plural
+	}
+
+	text = {
+		trigger = {
+			culture = { is_druedain_culture = yes }
+		}
+		localization_key = race_druedain_plural
+	}
+
+	text = {
+		trigger = {
+			culture = { is_human_culture = yes }
+		}
+		localization_key = race_man_plural
+	}
+
+	text = {
+		fallback = yes
+		localization_key = race_fallback_plural
+	}
+}
+
+### Pipeweed Loc - Pulls appropriate name for the herb
+GetPipeWeedName = { #[ROOT.Char.Custom('GetPipeWeedName')]
+	type = character
+
+	text = {
+		trigger = {
+			OR = {
+				is_hobbit = yes
+				culture = culture:breemen
+				culture = { any_parent_culture_or_above = { this = culture:breemen } }
+				is_istari = yes
+			}
+		}
+		localization_key = pipeweed_generic
+	}
+
+	text = {
+		trigger = {
+			OR = {
+				is_orc = yes
+			}
+		}
+		localization_key = pipeweed_gallows_weed
+	}
+
+	text = {
+		trigger = {
+			OR = {
+				culture = culture:arnorian
+				culture = { any_parent_culture_or_above = { this = culture:arnorian } }
+				culture = { has_cultural_pillar = heritage_daen_lintis }
+				is_elf = yes
+				capital_province ?= {
+					OR = {
+						geographical_region = middleearth_west_arnor
+					}
+				}
+				liege.capital_province ?= {
+					OR = {
+						geographical_region = middleearth_west_arnor
+					}
+				}
+				location ?= {
+					OR = {
+						geographical_region = middleearth_west_arnor
+					}
+				}
+			}
+		}
+		localization_key = pipeweed_sweet_galenas
+	}
+
+	text = {
+		trigger = {
+			OR = {
+				culture = { has_cultural_pillar = language_westron }
+				culture = { has_cultural_pillar = heritage_northron }
+				culture = { has_cultural_pillar = heritage_eotheod }
+				culture = { has_cultural_pillar = heritage_daen_coentis }
+				culture = { has_cultural_pillar = heritage_danan_lin }
+				capital_province ?= {
+					OR = {
+						geographical_region = middleearth_west
+						geographical_region = middleearth_mountains_blue
+						geographical_region = middleearth_mountains_misty
+						geographical_region = middleearth_mountains_iron
+					}
+				}
+				liege.capital_province ?= {
+					OR = {
+						geographical_region = middleearth_west
+						geographical_region = middleearth_mountains_blue
+						geographical_region = middleearth_mountains_misty
+						geographical_region = middleearth_mountains_iron
+					}
+				}
+				location ?= {
+					OR = {
+						geographical_region = middleearth_west
+						geographical_region = middleearth_mountains_blue
+						geographical_region = middleearth_mountains_misty
+						geographical_region = middleearth_mountains_iron
+					}
+				}
+			}
+		}
+		localization_key = pipeweed_westmans_weed
+	}
+	
+	text = {
+		trigger = {
+			OR = {
+				capital_province ?= {
+					OR = {
+						geographical_region = middleearth_rhun
+						geographical_region = middleearth_mordor # Nurn
+					}
+				}
+				liege.capital_province ?= {
+					OR = {
+						geographical_region = middleearth_rhun
+						geographical_region = middleearth_mordor # Nurn
+					}
+				}
+				location ?= {
+					OR = {
+						geographical_region = middleearth_rhun
+						geographical_region = middleearth_mordor # Nurn
+					}
+				}
+			}
+		}
+		localization_key = pipeweed_swuth
+	}
+	
+	text = {
+		trigger = {
+			OR = {
+				capital_province ?= {
+					OR = {
+						geographical_region = middleearth_harad
+					}
+				}
+				liege.capital_province ?= {
+					OR = {
+						geographical_region = middleearth_harad
+					}
+				}
+				location ?= {
+					OR = {
+						geographical_region = middleearth_harad
+					}
+				}
+			}
+		}
+		localization_key = pipeweed_ucason
+	}
+	
+	text = {
+		trigger = {
+			OR = {
+				capital_province ?= {
+					OR = {
+						geographical_region = middleearth_uttersouth
+						geographical_region = middleearth_mountains_yellow
+					}
+				}
+				liege.capital_province ?= {
+					OR = {
+						geographical_region = middleearth_uttersouth
+						geographical_region = middleearth_mountains_yellow
+					}
+				}
+				location ?= {
+					OR = {
+						geographical_region = middleearth_uttersouth
+						geographical_region = middleearth_mountains_yellow
+					}
+				}
+			}
+		}
+		localization_key = pipeweed_ul_ucason
+	}
+	
+	text = {
+		trigger = { is_dwarf = yes }
+		localization_key = pipeweed_generic
+	}
+
+	text = {
+		fallback = yes
+		localization_key = pipeweed_generic
+	}
+}
+
+GetRandomCloudType = { #For pipe-weed event
+	type = character
+	random_valid = yes
+	
+	text = {
+		localization_key = cloud_type_bottle
+	}
+	
+	text = {
+		localization_key = cloud_type_boat
+	}
+	
+	text = {
+		trigger = { is_hobbit = no }
+		localization_key = cloud_type_sword
+	}
+	
+	text = {
+		trigger = { is_dwarf = yes }
+		localization_key = cloud_type_axe
+	}
+	
+	text = {
+		trigger = { is_dwarf = yes }
+		localization_key = cloud_type_pickaxe
+	}
+	
+	text = {
+		trigger = { is_dwarf = yes }
+		localization_key = cloud_type_hammer
+	}
+	
+	text = {
+		localization_key = cloud_type_hill
+	}
+	
+	text = {
+		localization_key = cloud_type_mountain
+	}
+	
+	text = {
+		localization_key = cloud_type_tree
+	}
+	
+	text = {
+		localization_key = cloud_type_animal
+	}
+	
+	text = {
+		localization_key = cloud_type_lifestockfowl
+	}
+	
+	text = {
+		trigger = { faith_is_good = yes }
+		localization_key = cloud_type_eagle
+	}
+	
+	text = {
+		trigger = {
+			is_orc = no
+			is_dwarf = no
+		}
+		localization_key = cloud_type_horse
+	}
+	
+	text = {
+		localization_key = cloud_type_dragon
+	}
+	
+	text = {
+		localization_key = cloud_type_castle
+	}
+	
+	text = {
+		localization_key = cloud_type_fish
+	}
+	
+	text = {
+		localization_key = cloud_type_bird
+	}
+	
+	text = {
+		localization_key = cloud_type_hat
+	}
+	
+	text = {
+		localization_key = cloud_type_cake
+	}
+	
+	text = {
+		localization_key = cloud_type_cat
+	}
+	
+	text = {
+		localization_key = cloud_type_crown
+	}
+	
+	text = {
+		trigger = { is_orc = yes }
+		localization_key = cloud_type_grog_barrel
+	}
+	
+	text = {
+		trigger = { location ?= { geographical_region = middleearth_harad } }
+		localization_key = cloud_type_scorpion
+	}
+	
+	text = {
+		trigger = { has_trait = eccentric }
+		localization_key = cloud_type_butt
+	}
+	
+	text = {
+		localization_key = cloud_type_mill
+	}
+	
+	text = {
+		localization_key = cloud_type_rootvegetable
+	}
+	
+	text = {
+		trigger = {
+			OR = {
+				has_trait = gluttonous
+				has_trait = comfort_eater
+			}
+		}
+		localization_key = cloud_type_streetfood
+	}
+	
+	text = {
+		trigger = { has_trait = schemer }
+		localization_key = cloud_type_venomouscreature
+	}
+	
+	text = {
+		localization_key = cloud_type_regionalgame
+	}
+	
+	text = {
+		localization_key = cloud_type_wolf
+	}
+	
+	text = {
+		localization_key = cloud_type_bear
+	}
+	
+	text = {
+		localization_key = cloud_type_dog
+	}
+	
+	text = {
+		localization_key = cloud_type_apple
+	}
+	
+	text = {
+		localization_key = cloud_type_pear
+	}
+	
+	text = {
+		localization_key = cloud_type_wheel
+	}
+	
+	text = {
+		localization_key = cloud_type_table
+	}
+	
+	text = {
+		localization_key = cloud_type_chair
+	}
+
+	text = {
+		fallback = yes
+		localization_key = cloud_type_cloud
+	}
+}
+
+### Yuletide Loc - Finds an appropriate name for the celebration
+YuleName = {
+	type = character
+	log_loc_errors = no
+
+	# Jultyde
+	text = {
+		trigger = {
+			faith ?= {
+				OR = {
+					religion = religion:northmen_religion
+					religion = religion:anduinic_religion
+					religion = religion:dwarven_religion
+					religion = religion:talataerim_religion
+				}
+			}
+		}
+		localization_key = yulename_jultyde
+	}
+
+	# Yuletide
+	text = {
+		trigger = {
+			faith ?= {
+				OR = {
+					religion = religion:hobbit_religion
+					religion = religion:ainur_religion
+					religion = religion:gwathuirim_religion
+				}
+			}
+		}
+		localization_key = yulename_yuletide
+	}
+
+	# Midwinter - True Fallback
+	text = { 
+		localization_key = yulename_midwinter
+		fallback = yes
+	}
+}
+
+### Ancestor Veneration Title Loc
+AncestorVenerationName = {
+	type = character
+	log_loc_errors = no
+
+	# Regular
+	text = {
+		trigger = {
+			is_dwarf = yes
+		}
+		localization_key = ancestor_veneration_regular
+	}
+
+	# Saruman Special Case
+	text = {
+		trigger = {
+			is_istari = yes
+		}
+		localization_key = ancestor_veneration_saruman
+	}
+
+	# True Fallback
+	text = { 
+		localization_key = ancestor_veneration_regular
+		fallback = yes
+	}
+}
+
+AncestorVenerationDesc = {
+	type = character
+	log_loc_errors = no
+
+	# Regular
+	text = {
+		trigger = {
+			is_dwarf = yes
+		}
+		localization_key = ancestor_veneration_selection_tooltip_regular
+	}
+
+	# Saruman Special Case
+	text = {
+		trigger = {
+			is_istari = yes
+		}
+		localization_key = ancestor_veneration_selection_tooltip_saruman
+	}
+
+	# True Fallback
+	text = { 
+		localization_key = ancestor_veneration_selection_tooltip_regular
+		fallback = yes
+	}
+}
+
+AncestorVenerationArticle = {
+	type = character
+	log_loc_errors = no
+
+	# Regular
+	text = {
+		trigger = {
+			is_dwarf = yes
+		}
+		localization_key = activity_ancestor_veneration_host_an
+	}
+
+	# Saruman Special Case
+	text = {
+		trigger = {
+			is_istari = yes
+		}
+		localization_key = activity_ancestor_veneration_host_a
+	}
+
+	# True Fallback
+	text = { 
+		localization_key = activity_ancestor_veneration_host_an
+		fallback = yes
+	}
+}
+
+#############
+### MISC  ###
+#############
+
+### Tamskangi Origin Stories ###
+
+TamskangiOrigins = { # Origin stories for Tamska heir in Mag and Tumag, used in loc
+	type = character
+	random_valid = yes
+
+	text = {
+		trigger = {
+			is_lowborn = no
+			dynasty ?= {
+				this = dynasty:dynasty_tamskal
+			}
+			any_close_family_member = {
+				this = title:d_tamska_main.holder
+			}
+		}
+		localization_key = tamska_origin_your_relative
+	}
+
+	text = {
+		trigger = {
+			is_lowborn = no
+			dynasty ?= {
+				this = dynasty:dynasty_tamskal
+			}
+			NOT = {
+				any_close_family_member = {
+					this = title:d_tamska_main.holder
+				}
+			}
+		}
+		localization_key = tamska_origin_tamskic
+	}
+
+	text = {
+		trigger = {
+			is_lowborn = no
+			dynasty ?= {
+				NOT = { this = dynasty:dynasty_tamskal }
+				dynasty_prestige_level >= 2
+			}
+			OR = {
+				dynasty = { dynasty_prestige_level >= 2 }
+				is_landed = yes
+			}
+		}
+		localization_key = tamska_origin_highborn
+	}
+
+	text = {
+		trigger = {
+			is_lowborn = no
+			dynasty ?= {
+				NOT = { this = dynasty:dynasty_tamskal }
+				dynasty_prestige_level <= 1
+			}
+		}
+		localization_key = tamska_origin_noble
+	}
+
+	text = {
+		trigger = {
+			is_lowborn = no
+			OR = {
+				any_close_family_member = {
+					is_landed = yes
+					government_has_flag = government_is_tribal
+					house ?= ROOT.house
+				}
+			}
+		}
+		localization_key = tamska_origin_tribe
+	}
+
+	text = {
+		trigger = {
+			OR = {
+				has_trait = legitimized_bastard
+				has_trait = bastard
+				has_trait = bastard_founder
+			}
+		}
+		localization_key = tamska_origin_bastard
+	}
+
+	text = {
+		trigger = {
+			has_trait = lifestyle_mystic
+		}
+		localization_key = tamska_origin_mystic
+	}
+
+	text = {
+		trigger = {
+			is_lowborn = yes
+			OR = {
+				exists = mother
+				exists = father
+			}
+		}
+		localization_key = tamska_origin_courtier
+	}
+
+	text = {
+		trigger = {
+			is_lowborn = yes
+			NOR = {
+				exists = mother
+				exists = father
+			}
+		}
+		localization_key = tamska_origin_farmer
+	}
+
+	text = {
+		trigger = {
+			is_lowborn = yes
+			NOR = {
+				exists = mother
+				exists = father
+			}
+		}
+		localization_key = tamska_origin_fisher
+	}
+
+	text = {
+		trigger = {
+			is_lowborn = yes
+			NOR = {
+				exists = mother
+				exists = father
+			}
+		}
+		localization_key = tamska_origin_soldier
+	}
+
+	text = {
+		trigger = {
+			is_lowborn = yes
+			NOR = {
+				exists = mother
+				exists = father
+			}
+		}
+		localization_key = tamska_origin_worker
+	}
+
+	text = {
+		trigger = {
+			is_lowborn = yes
+			NOR = {
+				exists = mother
+				exists = father
+			}
+		}
+		localization_key = tamska_origin_urchin
+	}
+
+	text = {
+		trigger = { always = no }
+		fallback = yes
+		localization_key = tamska_origin_generic
+	}
+}
+
+### Study Manuscript Loc ###
+
+kathasaptha_manuscript_creator = {
+	type = character
+
+	random_valid = yes
+
+	# Self
+	text = {
+		trigger = {
+			var:kathasaptha_manuscript_author ?= flag:self
+		}
+		localization_key = kathasaptha_manuscript_creator_self_name
+	}
+
+	# Other Scribes
+	text = {
+		trigger = {
+			var:kathasaptha_manuscript_author ?= flag:other
+		}
+		localization_key = kathasaptha_manuscript_creator_others_name
+		fallback = yes
+	}
+
+}
+
+kathasaptha_manuscript_subject = {
+	type = character
+
+	text = {
+		trigger = {
+			var:kathasaptha_manuscript_type ?= flag:kathasaptha
+		}
+		localization_key = kathasaptha_artifact_subject_kathasaptha_name
+	}
+
+	text = {
+		trigger = {
+			var:kathasaptha_manuscript_type ?= flag:katpolozay
+		}
+		localization_key = kathasaptha_artifact_subject_katpolozay_name
+	}
+
+	text = {
+		trigger = {
+			var:kathasaptha_manuscript_type ?= flag:urenanvale
+		}
+		localization_key = kathasaptha_artifact_subject_urenanvale_name
+	}
+
+	text = {
+		trigger = {
+			var:kathasaptha_manuscript_type ?= flag:bozishkolir
+		}
+		localization_key = kathasaptha_artifact_subject_bozishkolir_name
+	}
+
+	text = {
+		trigger = {
+			var:kathasaptha_manuscript_type ?= flag:gatarazay
+		}
+		localization_key = kathasaptha_artifact_subject_gatarazay_name
+	}
+
+	text = {
+		trigger = {
+			var:kathasaptha_manuscript_type ?= flag:missingmountain
+		}
+		localization_key = kathasaptha_artifact_subject_missingmountain_name
+	}
+
+	text = {
+		trigger = {
+			var:kathasaptha_manuscript_type ?= flag:emissariesinnature
+		}
+		localization_key = kathasaptha_artifact_subject_emissariesinnature_name
+	}
+
+	text = {
+		trigger = {
+			var:kathasaptha_manuscript_type ?= flag:scoldingtheflames
+		}
+		localization_key = kathasaptha_artifact_subject_scoldingtheflames_name
+	}
+
+	text = {
+		trigger = {
+			always = no
+		}
+		localization_key = kathasaptha_artifact_subject_fallback_name
+		fallback = yes
+	}
+
+}
+
+
+### Festival of First-Fruits ###
+firstfruits_invoked_deity = { 
+	type = character
+
+	# Kathasaptha, Apysaic-leaning
+	text = {
+		trigger = {
+			faith.religion = religion:bellakari_religion
+			OR = {
+				culture = culture:bellanarud
+				culture = { has_cultural_parameter = heritage_group_apysaic }
+			}
+		}
+		localization_key = firstfruits_invoked_deity_ladnoca_and_eru
+	}
+
+	# Kathasaptha
+	text = {
+		trigger = {
+			faith.religion = religion:bellakari_religion
+		}
+		localization_key = firstfruits_invoked_deity_eru_and_ladnoca
+	}
+
+	# Cult of Ishtra
+	text = {
+		trigger = {
+			faith = faith:faith_ishtra
+		}
+		localization_key = firstfruits_invoked_deity_ishtra_and_ladnoca
+	}
+
+	# All other Far Haradric
+	text = {
+		trigger = {
+			faith.religion = religion:far_harad_religion
+		}
+		localization_key = firstfruits_invoked_deity_ladnoca
+	}
+
+	# Fallback
+	text = {
+		trigger = {
+			always = no
+		}
+		localization_key = firstfruits_invoked_deity_fertilitygod
+		fallback = yes
+	}
+}
+
+### Journey in the Dark Random Room Descriptions ###
+jind_RandomRoom_Type = {
+	type = character
+	random_valid = yes
+	
+	text = { localization_key = jind_RandomRoom_Type_Mine }
+	text = { localization_key = jind_RandomRoom_Type_Utility }
+	text = { localization_key = jind_RandomRoom_Type_Storeroom }
+	text = { localization_key = jind_RandomRoom_Type_SmallDwelling }
+	text = { localization_key = jind_RandomRoom_Type_Stairs }
+	text = { localization_key = jind_RandomRoom_Type_Watercourse }
+	text = { localization_key = jind_RandomRoom_Type_Garrison }
+	text = { localization_key = jind_RandomRoom_Type_Forge }
+	text = { localization_key = jind_RandomRoom_Type_Workshop }
+	text = { localization_key = jind_RandomRoom_Type_LargeDwelling }
+	text = { localization_key = jind_RandomRoom_Type_CivicBuilding }
+	text = { localization_key = jind_RandomRoom_Type_GreatHall }
+	text = { localization_key = jind_RandomRoom_Type_Tomb }
+	text = { localization_key = jind_RandomRoom_Type_Quarry }
+	text = { localization_key = jind_RandomRoom_Type_Farm }
+	text = { localization_key = jind_RandomRoom_Type_Tavern }
+}
+
+jind_RandomRoom_Appearance = {
+	type = character
+	random_valid = yes
+	
+	text = { localization_key = jind_RandomRoom_Appearance_Shunned }
+	text = { localization_key = jind_RandomRoom_Appearance_Unfinished }
+	text = { localization_key = jind_RandomRoom_Appearance_Austere }
+	text = { localization_key = jind_RandomRoom_Appearance_Ancient }
+	text = { localization_key = jind_RandomRoom_Appearance_Simple }
+	text = { localization_key = jind_RandomRoom_Appearance_Heroic }
+	text = { localization_key = jind_RandomRoom_Appearance_Homely }
+	text = { localization_key = jind_RandomRoom_Appearance_RichlyDecorated }
+	text = { localization_key = jind_RandomRoom_Appearance_Elven }
+	text = { localization_key = jind_RandomRoom_Appearance_Fortified }
+	text = { localization_key = jind_RandomRoom_Appearance_Natural }
+	text = { localization_key = jind_RandomRoom_Appearance_Enchanted }
+}
+
+jind_RandomRoom_Condition = {
+	type = character
+	random_valid = yes
+	
+	text = { localization_key = jind_RandomRoom_Condition_CampOrcs }
+	text = { localization_key = jind_RandomRoom_Condition_Blocked }
+	text = { localization_key = jind_RandomRoom_Condition_SuspiciouslyIntact }
+	text = { localization_key = jind_RandomRoom_Condition_Flooded }
+	text = { localization_key = jind_RandomRoom_Condition_UtterlyRuined }
+	text = { localization_key = jind_RandomRoom_Condition_GoblinGnawed }
+	text = { localization_key = jind_RandomRoom_Condition_EarthquakeShattered }
+	text = { localization_key = jind_RandomRoom_Condition_Burnt }
+	text = { localization_key = jind_RandomRoom_Condition_Despoiled }
+	text = { localization_key = jind_RandomRoom_Condition_PassageOfTime }
+	text = { localization_key = jind_RandomRoom_Condition_Intact }
+	text = { localization_key = jind_RandomRoom_Condition_CampAdventurer }
+	text = { localization_key = jind_RandomRoom_Condition_Battle }
+	text = { localization_key = jind_RandomRoom_Condition_Overgrown }
+	text = { localization_key = jind_RandomRoom_Condition_Frozen }
+	text = { localization_key = jind_RandomRoom_Condition_Lair }
+}
+
+
+
+####################
+### SONG BATTLES ###
+####################
+
+### Counter Skills
+
+sb_CounterSkill_Diplomacy = {
+	type = character
+
+	# Diplomacy is scope:skill_a.
+	text = {
+		trigger = {
+			scope:sb_skill_a = flag:diplomacy
+			scope:sb_skill_c = flag:intrigue
+		}
+		localization_key = sb_counterskill_intrigue
+	}
+}
+
+sb_CounterSkill_Intrigue = {
+	type = character
+	
+	# Intrigue is scope:skill_b.
+	text = {
+		trigger = {
+			scope:sb_skill_b = flag:intrigue
+			scope:sb_skill_a = flag:learning
+		}
+		localization_key = sb_counterskill_learning
+	}
+}
+
+sb_CounterSkill_Learning = {
+	type = character
+
+	# Learning is scope:skill_c.
+	text = {
+		trigger = {
+			scope:sb_skill_c = flag:learning
+			scope:sb_skill_b = flag:diplomacy
+		}
+		localization_key = sb_counterskill_diplomacy
+	}
+}
+
+### Moves & Pieces
+
+sb_RandomPoetPossessive = {
+	type = character
+	random_valid = yes
+	
+	text = { localization_key = sb_RandomPoetPossessive_Maglor }
+	text = { localization_key = sb_RandomPoetPossessive_Feanor }
+	text = { localization_key = sb_RandomPoetPossessive_Daeron }
+	text = { localization_key = sb_RandomPoetPossessive_Felagund }
+	text = { localization_key = sb_RandomPoetPossessive_Luthien }
+	text = { localization_key = sb_RandomPoetPossessive_Elrond }
+	text = { localization_key = sb_RandomPoetPossessive_Sauron }
+	text = { localization_key = sb_RandomPoetPossessive_Galadriel }
+	text = { localization_key = sb_RandomPoetPossessive_Melian }
+	text = { localization_key = sb_RandomPoetPossessive_Mithrandir }
+	text = { localization_key = sb_RandomPoetPossessive_Saruman }
+	text = { localization_key = sb_RandomPoetPossessive_Celebrimbor }
+}
+
+sb_RandomVerseType = {
+	type = character
+	random_valid = yes
+
+	# Gambit
+	text = { localization_key = sb_RandomVerseType_sonnet }
+	# Cross
+	text = { localization_key = sb_RandomVerseType_alexandrine }
+	# Stratagem
+	text = { localization_key = sb_RandomVerseType_ballad }
+	# Feint
+	text = { localization_key = sb_RandomVerseType_limerick }
+	# Rush
+	text = { localization_key = sb_RandomVerseType_alliterative }
+}
+
+sb_RandomFacialExpression = {
+	type = character
+
+	# They're smarmily confident.
+	text = {
+		trigger = {
+			OR = {
+				scope:sb_opponent ?= { has_trait = arrogant }
+				sb_cumulative_skill_score_comparison_value <= -20
+			}
+		}
+		localization_key = sb_randomfacialexpression_scornful
+	}
+	# They're confident.
+	text = {
+		trigger = {
+			sb_cumulative_skill_score_comparison_value > -20
+			sb_cumulative_skill_score_comparison_value <= -10
+		}
+		localization_key = sb_randomfacialexpression_confident
+	}
+	# They're ready for a fight.
+	text = {
+		trigger = {
+			sb_cumulative_skill_score_comparison_value > -10
+			sb_cumulative_skill_score_comparison_value <= 10
+		}
+		localization_key = sb_randomfacialexpression_fight
+		#fallback = yes
+	}
+	# They're unsure.
+	text = {
+		trigger = {
+			sb_cumulative_skill_score_comparison_value > 10
+			sb_cumulative_skill_score_comparison_value <= 20
+		}
+		localization_key = sb_randomfacialexpression_unsure
+	}
+	# They're quailing.	
+	text = {
+		trigger = { sb_cumulative_skill_score_comparison_value > 20 }
+		localization_key = sb_randomfacialexpression_quailing
+	}
+}
+
+####################
+##### CRAFTING #####
+####################
+
+### Artifact descriptions
+
+ArtifactBowShaftDescription = {
+	type = artifact
+
+	text = {
+		trigger = {
+			has_artifact_feature_group = shaft_decoration
+		}
+		localization_key = artifact_bow_shaft_decorated
+	}
+	text = { #This loc gives a bit more flavor to weight up for not having any decorations
+		trigger = {
+			NOT = { has_artifact_feature_group = shaft_decoration }
+		}
+		localization_key = artifact_bow_shaft_undecorated_alt
+	}
+	text = {
+		localization_key = artifact_bow_shaft_undecorated
+	}
+}
+
+ArtifactBowStringDescription = {
+	type = artifact
+
+	text = {
+		localization_key = artifact_bow_string
+	}
+}
+
+ArtifactFungiSpecies = {
+	type = character
+
+	text = {
+		trigger = {
+			exists = scope:fungi_species
+			scope:fungi_species = flag:fungi_type_cave_puffball
+		}
+		localization_key = fungi_type_cave_puffball
+	}
+	text = {
+		trigger = {
+			exists = scope:fungi_species
+			scope:fungi_species = flag:fungi_type_scaly_earthstar
+		}
+		localization_key = fungi_type_scaly_earthstar
+	}
+	text = {
+		trigger = {
+			exists = scope:fungi_species
+			scope:fungi_species = flag:fungi_type_cordyceps
+		}
+		localization_key = fungi_type_cordyceps
+	}
+	text = {
+		trigger = {
+			exists = scope:fungi_species
+			scope:fungi_species = flag:fungi_type_inky_cap
+		}
+		localization_key = fungi_type_inky_cap
+	}
+	text = {
+		trigger = {
+			exists = scope:fungi_species
+			scope:fungi_species = flag:fungi_type_turkey_tail
+		}
+		localization_key = fungi_type_turkey_tail
+	}
+	text = {
+		trigger = {
+			exists = scope:fungi_species
+			scope:fungi_species = flag:fungi_type_polypore
+		}
+		localization_key = fungi_type_polypore
+	}
+	text = {
+		trigger = {
+			exists = scope:fungi_species
+			scope:fungi_species = flag:fungi_type_panellus
+		}
+		localization_key = fungi_type_panellus
+	}
+	text = {
+		trigger = {
+			exists = scope:fungi_species
+			scope:fungi_species = flag:fungi_type_artists_conk
+		}
+		localization_key = fungi_type_artists_conk
+	}
+	text = {
+		trigger = {
+			exists = scope:fungi_species
+			scope:fungi_species = flag:fungi_type_phantom_orchid
+		}
+		localization_key = fungi_type_phantom_orchid
+	}
+	text = {
+		trigger = {
+			exists = scope:fungi_species
+			scope:fungi_species = flag:fungi_type_earth_fan
+		}
+		localization_key = fungi_type_earth_fan
+	}
+}
+
+ArtifactCraftingToolsHeadDescription = {
+	type = artifact
+
+	text = {
+		trigger = {
+			has_artifact_feature_group = head_decoration
+		}
+		localization_key = artifact_crafting_tools_head_decorated
+	}
+	text = {
+		localization_key = artifact_crafting_tools_head_undecorated
+	}
+}
+
+ArtifactCraftingToolsShaftDescription = {
+	type = artifact
+
+	text = {
+		trigger = {
+			has_artifact_feature_group = shaft_decoration
+		}
+		localization_key = artifact_crafting_tools_shaft_decorated
+	}
+	text = {
+		localization_key = artifact_crafting_tools_shaft_undecorated
+	}
+}
+
+ArtifactCraftingToolsHandleDescription = {
+	type = artifact
+
+	text = {
+		trigger = {
+			has_artifact_feature_group = metal_handle_decoration
+		}
+		localization_key = artifact_crafting_tools_handle_decorated
+	}
+	text = {
+		localization_key = artifact_crafting_tools_handle_undecorated
+	}
+}
+
+story_bountig_visiting_gondor_city = {
+	type = character
+	text = {
+		trigger = { has_variable = gondor_target_province }
+		localization_key = lotr_bountig_visiting_gondor_city
+	}
+	text = {
+		fallback = yes
+		localization_key = lotr_bountig_visiting_fallback_city
+	}
+}
+
+story_bountig_visiting_harwan_city = {
+	type = character
+	text = {
+		trigger = { has_variable = harwan_target_province }
+		localization_key = lotr_bountig_visiting_harwan_city
+	}
+	text = {
+		fallback = yes
+		localization_key = lotr_bountig_visiting_fallback_city
+	}
+}
+
+story_bountig_visiting_umbar_city = {
+	type = character
+	text = {
+		trigger = { has_variable = umbar_target_province }
+		localization_key = lotr_bountig_visiting_umbar_city
+	}
+	text = {
+		fallback = yes
+		localization_key = lotr_bountig_visiting_fallback_city
+	}
+}

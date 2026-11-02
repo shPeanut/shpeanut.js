@@ -1,0 +1,1517 @@
+﻿# Dwarven Kings
+
+# Durin
+k_durins_folk = {
+	2.2.3 = {
+		holder = lineofdurinI # Durin I
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_durins_hall } }
+	}
+	412.5.12 = {
+		holder = lineofdurin2 # Borin
+	}
+	600.2.30 = {
+		holder = lineofdurin3 # Farin
+	}
+	677.4.12 = {
+		holder = lineofdurin4 # Buri
+	}
+	775.11.1 = {
+		holder = lineofdurin5 # Dwili
+	}
+	862.2.12 = {
+		holder = lineofdurin6 # Throri
+	}
+	1033.5.21 = {
+		holder = lineofdurin7 # Fr_ain
+	}
+	1192.8.9 = {
+		holder = lineofdurin8 # Frerin
+	}
+	1299.4.29 = {
+		holder = lineofdurinII # Durin II
+	}
+	1472.9.22 = {
+		holder = lineofdurin10
+	}
+	1503.4.29 = {
+		holder = lineofdurin11
+	}
+	1632.8.13 = {
+		holder = lineofdurin12
+	}
+	1778.3.10 = {
+		holder = lineofdurin13
+	}
+	1867.2.12 = {
+		holder = lineofdurin14
+	}
+	2023.4.15 = {
+		holder = lineofdurin15
+	}
+	2123.4.15 = {
+		holder = lineofdurin16
+	}
+	2133.7.10 = {
+		holder = lineofdurin15b
+	}
+	2184.8.12 = {
+		holder = lineofdurin17
+	}
+	2250.4.22 = {
+		holder = lineofdurinIII # Durin III
+	}
+	2432.1.2 = {
+		holder = lineofdurin18
+	}
+	2511.8.23 = {
+		holder = lineofdurin20
+	}
+	2679.9.14 = {
+		holder = lineofdurin22
+	}
+	2691.11.24 = {
+		holder = lineofdurin24
+	}
+	2697.6.1 = {
+		holder = lineofdurin24b
+	}
+	2887.3.16 = {
+		holder = lineofdurin24c
+	}
+	2901.8.22 = {
+		holder = lineofdurin26
+	}
+	2936.4.18 = {
+		holder = lineofdurin28
+	}
+	3063.1.18 = {
+		holder = lineofdurin30
+	}
+	3151.10.26 = {
+		holder = lineofdurin32
+	}
+	3198.5.26 = {
+		holder = lineofdurin34
+	}
+	3311.11.22 = {
+		holder = lineofdurin36
+	}
+	3408.10.27 = {
+		holder = lineofdurin38
+	}
+	3567.2.14 = {
+		holder = lineofdurin40a
+	}
+	3601.11.8 = {
+		holder = lineofdurin40
+	}
+	3769.3.5 = {
+		holder = lineofdurin42
+	}
+	3891.9.28 = {
+		holder = lineofdurin44
+	}
+	3901.1.11 = {
+		holder = lineofdurinIV
+	}
+	4144.11.30 = {
+		holder = lineofdurin46
+	}
+	4185.1.3 = {
+		holder = lineofdurin48
+	}
+	4353.7.3 = {
+		holder = lineofdurin50
+	}
+	4479.1.18 = {
+		holder = lineofdurin52
+	}
+	4595.7.10 = {
+		holder = lineofdurin54
+	}
+	4734.6.4 = {
+		holder = lineofdurin56
+	}
+	4795.5.17 = {
+		holder = lineofdurin54a
+	}
+	4807.5.16 = {
+		holder = lineofdurin56a
+	}
+	4874.8.4 = {
+		holder = lineofdurin58
+	}
+	5016.4.1 = {
+		holder = lineofdurinV
+	}
+	5168.7.18 = {
+		holder = lineofdurin60
+	}
+	5200.2.16 = {
+		holder = lineofdurin62
+	}
+	5375.1.16 = { #Angmar start date ruler - Gl_oni
+		holder = lineofdurin64
+	}
+	5547.10.13 = {
+		holder = lineofdurin66
+	}
+	5660.2.28 = {
+		holder = lineofdurin68
+	}
+	5728.3.9 = {
+		holder = lineofdurin70
+	}
+	5851.8.20 = {
+		holder = lineofdurin72
+	}
+	5952.12.20 = {
+		holder = lineofdurinVI # Durin VI
+	}
+	6013.3.1 = {
+		holder = lineofdurin73 # Nain 1
+	}
+	6032.8.24 = {
+		holder = lineofdurin74
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_throne_of_erebor } }
+	}
+	6223.6.7 = { # Thorin I
+		holder = lineofdurin75
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_gondmaeglorn } }
+	}
+	6322.5.21 = { # Glóin
+		holder = lineofdurin76
+	}
+	6418.6.2 = { # Óin
+		holder = lineofdurin77
+	}
+	6521.3.30 = { # Náin II
+		holder = lineofdurin78
+	}
+	6618.1.8 = { # Dáin I.
+		holder = lineofdurin79
+	}
+	6622.1.6 = {
+		holder = lineofdurin81
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_throne_of_erebor } }
+	}
+	6823.5.13 = {
+		holder = lineofdurin82
+	}
+	6883.3.8 = {
+		holder = lineofdurin83
+	}
+	6974.11.30 = {
+		holder = lineofdurin90
+	}
+	7052.3.17 = { # Thorin III
+		holder = lineofdurin91
+	}
+}
+
+e_durins_folk = {
+	2.2.4 = {
+		holder = lineofdurinI # Durin I
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_durins_hall } }
+	}
+	412.5.12 = {
+		holder = lineofdurin2 # Borin
+	}
+	600.2.30 = {
+		holder = lineofdurin3 # Farin
+	}
+	677.4.12 = {
+		holder = lineofdurin4 # Buri
+	}
+	775.11.1 = {
+		holder = lineofdurin5 # Dwili
+	}
+	862.2.12 = {
+		holder = lineofdurin6 # Throri
+	}
+	1033.5.21 = {
+		holder = lineofdurin7 # Fr_ain
+	}
+	1192.8.9 = {
+		holder = lineofdurin8 # Frerin
+	}
+	1299.4.29 = {
+		holder = lineofdurinII # Durin II
+	}
+	1472.9.22 = {
+		holder = lineofdurin10
+	}
+	1503.4.29 = {
+		holder = lineofdurin11
+	}
+	1632.8.13 = {
+		holder = lineofdurin12
+	}
+	1778.3.10 = {
+		holder = lineofdurin13
+	}
+	1867.2.12 = {
+		holder = lineofdurin14
+	}
+	2023.4.15 = {
+		holder = lineofdurin15
+	}
+	2123.4.15 = {
+		holder = lineofdurin16
+	}
+	2133.7.10 = {
+		holder = lineofdurin15b
+	}
+	2184.8.12 = {
+		holder = lineofdurin17
+	}
+	2250.4.22 = {
+		holder = lineofdurinIII # Durin III
+	}
+	2290.1.1 = { # Fall of Gundabad and the Alliances of Dwarves and Men fails
+		holder = 0
+	}
+	6032.8.24 = {
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_throne_of_erebor } }
+	}
+	6243.12.25 = {
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_gondmaeglorn } }
+	}
+	6622.1.6 = {
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_throne_of_erebor } }
+	}
+	7062.1.13 = { # Thorin III Stonehelm
+		holder = lineofdurin91
+	}
+	7186.2.2 = { # Durin VII the Last
+		holder = lineofdurinVII
+	}
+}
+
+# Uri
+k_uris_folk = {
+	2.1.15 = {
+		holder = lineofuriI # _Uri
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_luznakuz } }
+	}
+	2.4.18 = {
+		holder = lineofuri0a # N_ivar
+	}
+	2.5.21 = {
+		holder = lineofuri0c # N_ali
+	}
+	2.8.9 = {
+		holder = lineofuri0e # Fini
+	}
+	255.8.12 = {
+		holder = lineofuri1 # Fragur
+	}
+	315.4.24 = {
+		holder = lineofuri3 # Naugladur
+	}
+	505.2.13 = {
+		holder = lineofuri5 # Thrur
+	}
+	570.4.9 = {
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_ursel_zabad } }
+	}
+	608.10.18 = {
+		holder = lineofuriII # _Uri II
+	}
+	770.3.27 = {
+		holder = lineofuri9 # Thur_or
+	}
+	836.11.12 = {
+		holder = lineofuri11 # Fr_ar
+	}
+	1007.3.2 = {
+		holder = lineofuri11a # N_ain
+	}
+	1096.5.9 = {
+		holder = lineofuri13 # Narin
+	}
+	1242.11.15 = {
+		holder = lineofuri15 # Farin
+	}
+	1396.11.28 = {
+		holder = lineofuri17 # B_uin
+	}
+	1537.4.19 = {
+		holder = lineofuri19 # Thrur
+	}
+	1643.8.5 = {
+		holder = lineofuri20a # Thur_or
+	}
+	1643.10.19 = {
+		holder = lineofuri19a # R_ori
+	}
+	1651.12.13 = {
+		holder = lineofuri19b # Thrur
+	}
+	1782.1.16 = {
+		holder = lineofuri20b # Onur
+	}
+	1885.5.1 = {
+		holder = lineofuri21 # N_ivar
+	}
+	1977.1.3 = {
+		holder = lineofuri23 # _Ori
+	}
+	2108.1.8 = {
+		holder = lineofuri25 # R_ori
+	}
+	2260.7.7 = {
+		holder = lineofuri27 # Thrur
+	}
+	2352.6.23 = {
+		holder = lineofuriIII # _Uri III
+	}
+	2623.9.18 = {
+		holder = lineofuri31 # Gamil
+	}
+	2730.10.24 = {
+		holder = lineofuri33 # N_oi
+	}
+	2877.8.15 = {
+		holder = lineofuri35 # Narin
+	}
+	2914.4.23 = {
+		holder = lineofuri36 # R_ori
+	}
+	2991.10.17 = {
+		holder = lineofuri37 # _Ari
+	}
+	3134.2.26 = {
+		holder = lineofuri37a # Ani
+	}
+	3282.10.31 = {
+		holder = lineofuri39 # _Ain
+	}
+	3368.5.21 = {
+		holder = lineofuri41 # N_ivar
+	}
+	3507.3.28 = {
+		holder = lineofuri42 # _Othin
+	}
+	3643.1.9 = {
+		holder = lineofuri43 # Garin
+	}
+	3732.3.9 = {
+		holder = lineofuri45 # _Ain
+	}
+	3904.4.3 = { #Realms-in-exile start date ruler
+		holder = lineofuriIV # _Uri IV
+	}
+	4066.11.11 = {
+		holder = lineofuri49 # Duri
+	}
+	4172.9.25 = {
+		holder = lineofuri51 # Ani
+	}
+	4260.8.27 = {
+		holder = lineofuri51b # _Othin
+	}
+	4384.4.2 = {
+		holder = lineofuri53 # Wigur
+	}
+	4526.8.2 = {
+		holder = lineofuri55 # L_oin
+	}
+	4626.9.16 = {
+		holder = lineofuri57 # Fror
+	}
+	4730.4.12 = {
+		holder = lineofuri59 # Nafur
+	}
+	4897.7.19 = {
+		holder = lineofuriV # _Uri V
+	}
+	5033.1.17 = {
+		holder = lineofuri63 # Barin
+	}
+	5120.8.2 = {
+		holder = lineofuri65 # Thrur
+	}
+	5251.5.15 = {
+		holder = lineofuri65b # Farli
+	}
+	5355.9.27 = {
+		holder = lineofuri65c # Fulan
+	}
+	5372.4.10 = { #Angmar start date ruler
+		holder = lineofuri67 # Fror
+	}
+	5442.10.5 = {
+		holder = lineofuri65d # Fl_oi
+	}
+	5474.11.2 = {
+		holder = lineofuri69 # Biling
+	}
+	5633.4.5 = {
+		holder = lineofuri70 # Nafur
+	}
+	5723.1.8 = {
+		holder = lineofuri71 # Farli
+	}
+	5856.1.26 = {
+		holder = lineofuri73a # T_onni
+	}
+	5952.1.9 = {
+		holder = lineofuri73 # T_oki
+	}
+	6002.10.28 = {
+		holder = lineofuri75 # T_ori
+	}
+	6139.1.23 = {
+		holder = lineofuri77 # T_eri
+	}
+	6243.4.11 = {
+		holder = lineofuri77a # Fror
+	}
+	6366.6.16 = {
+		holder = lineofuri79 # Thrur
+	}
+	6517.12.14 = {
+		holder = lineofuri81 # Bombur
+	}
+	6641.5.25 = {
+		holder = lineofuri83 # Austri
+	}
+	6739.3.25 = { #Long winter start date ruler
+		holder = lineofuri85 # F_orwi
+	}
+	6943.10.3 = {
+		holder = lineofuriVI # Uri VI
+	}
+	7054.2.21 = {
+		holder = lineofuri90 # Fr_ain
+	}
+	7223.3.12 = {
+		holder = lineofuri125 # Farli
+	}
+	7296.2.17 = {
+		holder = lineofuriVII # Uri VII
+	}
+}
+
+e_uris_folk = {
+	2.1.15 = {
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_luznakuz } }
+	}
+	570.4.9 = {
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_ursel_zabad } }
+	}
+}
+
+k_dwalins_folk = {
+	2.1.15 = {
+		holder = lineofdwalinI # Dwalin I
+	}
+	2.4.18 = {
+		holder = lineofdwalin0a # Andin
+	}
+	2.5.21 = {
+		holder = lineofdwalin0c # Finnur
+	}
+	2.8.9 = {
+		holder = lineofdwalin1 # Thr_uin
+	}
+	254.10.10 = {
+		holder = lineofdwalin3 # _Othin
+	}
+	374.6.14 = {
+		holder = lineofdwalin5 # Azaghal
+	}
+	474.3.3 = {
+		holder = lineofdwalinII # Dwalin II
+	}
+	570.4.9 = { # Dwalin's Folk mostly migrate to Khazad-dûm after the War of Wrath
+		liege = e_durins_folk
+		effect = {
+			lotr_move_dejure_capital_effect = { COUNTY = c_tagakhgershad }
+		}
+	}
+	717.4.12 = {
+		holder = lineofdwalin9 # Glonar
+	}
+	738.1.11 = {
+		holder = lineofdwalin13 # Gr_or I
+	}
+	988.6.19 = {
+		holder = lineofdwalin15 # Telchar
+	}
+	1110.7.21 = {
+		holder = lineofdwalin15b # Finnur II
+	}
+	1217.3.3 = {
+		holder = lineofdwalin15c # F_alar
+	}
+	1243.9.15 = {
+		holder = lineofdwalin17 # Munin I
+	}
+	1521.1.17 = {
+		holder = lineofdwalin19 # L_oni
+	}
+	1593.4.1 = {
+		holder = lineofdwalin21 # Kili
+	}
+	1728.2.15 = {
+		holder = lineofdwalin23 # Gr_or II
+	}
+	1928.1.23 = {
+		holder = lineofdwalin25 # Munin II 'the Reunifier'
+	}
+	1953.7.14 = { # The two lines of Dwalin's Folk are reforged
+		liege = 0
+	}
+	2107.1.18 = {
+		holder = lineofdwalinIII # Dwalin III
+	}
+	2286.1.5 = {
+		holder = lineofdwalin29 # Munin III
+	}
+	2400.12.23 = {
+		holder = lineofdwalin31 # Tholin
+	}
+	2554.5.1 = {
+		holder = lineofdwalin33 # _Ingvi
+	}
+	2591.3.3 = {
+		holder = lineofdwalin33b # _Othin
+	}
+	2599.10.13 = {
+		holder = lineofdwalin35 # Linar I
+	}
+	2772.12.18 = {
+		holder = lineofdwalin37a # Hargrim
+	}
+	2907.3.8 = {
+		holder = lineofdwalin37 # Tholin II
+	}
+	3059.3.8 = {
+		holder = lineofdwalin39 # Gl_oi
+	}
+	3251.9.9 = {
+		holder = lineofdwalin41 # Munin IV
+	}
+	3351.9.14 = {
+		holder = lineofdwalin43 # Dorin
+	}
+	3489.5.19 = {
+		holder = lineofdwalin45 # Tholin III
+	}
+	3536.5.19 = {
+		holder = lineofdwalinIV # Dwalin IV
+	}
+	3785.8.27 = { #Realms-in-exile start date ruler
+		holder = lineofdwalin47 # _Anar I
+	}
+	3922.6.18 = {
+		holder = lineofdwalin49 # Galar
+	}
+	4036.10.22 = {
+		holder = lineofdwalin51 # Linar II
+	}
+	4191.4.17 = {
+		holder = lineofdwalin53a # Gr_uin
+	}
+	4238.3.22 = {
+		holder = lineofdwalin51b # Lonin
+	}
+	4241.10.3 = {
+		holder = lineofdwalin53b # Munin V
+	}
+	4291.11.26 = {
+		holder = lineofdwalin53 # Hannin
+	}
+	4378.3.19 = {
+		holder = lineofdwalin55 # Hannar
+	}
+	4502.3.12 = {
+		holder = lineofdwalin57 # Handin
+	}
+	4621.5.3 = {
+		holder = lineofdwalin59 # Brokkur I
+	}
+	4750.5.8 = {
+		holder = lineofdwalin61 # _Oli
+	}
+	4860.5.24 = {
+		holder = lineofdwalin61b # N_iri
+	}
+	4918.5.24 = {
+		holder = lineofdwalin63 # Munin VI
+	}
+	5058.4.20 = {
+		holder = lineofdwalin65 # Onin
+	}
+	5140.10.15 = {
+		holder = lineofdwalin67 # Gr_uin
+	}
+	5267.3.2 = {
+		holder = lineofdwalin69 # Tholin IV
+	}
+	5340.11.4 = { #Angmar start date ruler
+		holder = lineofdwalinV # Dwalin V
+	}
+	5442.9.15 = {
+		holder = lineofdwalin73 # B_uin
+	}
+	5656.10.20 = {
+		holder = lineofdwalin73b # Thr_uin
+	}
+	5783.4.12 = {
+		holder = lineofdwalin75 # Thekkar
+	}
+	5965.4.8 = {
+		holder = lineofdwalinVI # Dwalin VI
+	}
+	6173.4.7 = {
+		holder = lineofdwalin79 # Brokkur II
+	}
+	6299.5.19 = {
+		holder = lineofdwalin81 # Munin VII
+	}
+	6462.2.12 = {
+		holder = lineofdwalin81b # Aurin
+	}
+	6606.6.19 = {
+		holder = lineofdwalin83 # H_ar
+	}
+	6705.4.19 = { #Long winter start date ruler
+		holder = lineofdwalin85 # Dari
+	}
+	6811.3.21 = {
+		holder = lineofdwalin89 # _Anar II
+	}
+	6915.6.18 = {
+		holder = lineofdwalin91 # Brokkur III
+	}
+	7046.5.4 = {
+		holder = lineofdwalin93 # Buri
+	}
+	7144.11.3 = {
+		holder = lineofdwalin103 # B_uin
+	}
+	7232.9.8 = {
+		holder = lineofdwalin105 # Dwalin VII
+	}
+}
+
+e_dwalins_folk = {
+	2.1.15 = {
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_azelanduzur } }
+	}
+	570.4.9 = {
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_tagakhgershad } }
+	}
+}
+
+k_sindris_folk = {
+	2.1.15 = { # Sindri I
+		holder = lineofsindriI
+	}
+	2.4.18 = {
+		holder = lineofsindri0a #The_e_leu_u_s
+	}
+	2.5.21 = {
+		holder = lineofsindri0c #Threvo_o_r
+	}
+	2.8.9 = {
+		holder = lineofsindri0e #Threvo_o_r
+	}
+	276.8.12 = {
+		holder = lineofsindri1 #Tarkha_a_n
+	}
+	345.7.19 = {
+		holder = lineofsindri3 #Takho_o_
+	}
+	524.7.13 = {
+		holder = lineofsindri5 #Shakhal
+	}
+	740.4.8 = {
+		holder = lineofsindri7 #Khryakta_a_r
+	}
+	854.3.13 = {
+		holder = lineofsindri9 #Dhru_u_s
+	}
+	1036.9.9 = {
+		holder = lineofsindri11 #Khurubra
+	}
+	1163.12.11 = { # Sindri II
+		holder = lineofsindriII
+	}
+	1377.1.23 = {
+		holder = lineofsindri15 #Bountig
+	}
+	1529.9.5 = {
+		holder = lineofsindri17 #Gour
+	}
+	1550.12.27 = {
+		holder = lineofsindri19 #Aili_i_kh
+	}
+	1736.3.24 = {
+		holder = lineofsindri21 #Retvir
+	}
+	1877.4.3 = {
+		holder = lineofsindri23 #Azernakh
+	}
+	2102.8.24 = {
+		holder = lineofsindri25 #Turga
+	}
+	2157.8.26 = {
+		holder = lineofsindri27 #Shakal
+	}
+	2319.2.17 = {
+		holder = lineofsindri29 #Rhugi_i_
+	}
+	2498.3.17 = {
+		holder = lineofsindri31 #Throme_e_l
+	}
+	2662.1.10 = { # Sindri III
+		holder = lineofsindriIII
+	}
+	2871.9.26 = {
+		holder = lineofsindri35 #Vhada_a_
+	}
+	3046.9.25 = {
+		holder = lineofsindri37 #Nikath
+	}
+	3203.7.28 = {
+		holder = lineofsindri40 #U_U_rpov
+	}
+	3220.1.8 = {
+		holder = lineofsindri94 #Akhev
+	}
+	3457.7.6 = {
+		holder = lineofsindri96 #U_U_lfakh
+	}
+	3575.11.28 = {
+		holder = lineofsindri98 #Mashak
+	}
+	3773.10.24 = {
+		holder = lineofsindri100 #Vho_o_rn
+	}
+	3945.6.2 = {
+		holder = lineofsindri102 #O_O_rn
+	}
+	4034.5.12 = {
+		holder = lineofsindri52 #Thre_e_lin
+	}
+	4207.5.28 = {
+		holder = lineofsindri54 #Lhiani_i_s
+	}
+	4305.6.5 = {
+		holder = lineofsindri56 #Balun
+	}
+	4349.3.15 = {
+		holder = lineofsindri58 #Bhari_i_
+	}
+	4633.10.4 = { # Sindri IV the Burned
+		holder = lineofsindriIV
+	}
+	4735.10.13 = {
+		holder = lineofsindri62 #Dhra_a_l
+	}
+	4873.4.2 = {
+		holder = lineofsindri64 #Arkish
+	}
+	4994.12.20 = {
+		holder = lineofsindri66 #O_O_rag
+	}
+	5150.4.14 = {
+		holder = lineofsindri68 #Vra_a_kh
+	}
+	5338.12.18 = {
+		holder = lineofsindri70 #O_O_rig
+	}
+	5353.3.3 = {
+		holder = lineofsindri72 #Anzhar
+	}
+	5448.7.24 = {
+		holder = lineofsindri74 #Akul
+	}
+	5642.5.20 = { # Sindri V the Wanderer
+		holder = lineofsindriV
+	}
+	5865.9.21 = {
+		holder = lineofsindri78 #Strogush
+	}
+	5924.11.13 = {
+		holder = lineofsindri80 #Vharta_a_n
+	}
+	6025.7.8 = {
+		holder = lineofsindri82 #O_O_van
+	}
+	6256.8.4 = {
+		holder = lineofsindri84 #Taro_o_k
+	}
+	6329.10.27 = {
+		holder = lineofsindri86 #Grasku
+	}
+	6484.2.6 = {
+		holder = lineofsindri88 #U_U_vatha
+	}
+	6781.12.19 = { # Sindri VI
+		holder = lineofsindriVI
+	}
+	6785.1.1 = { #While Sindi VI is dying early
+		holder = 0
+	}
+}
+
+k_thulins_folk = {
+	2.1.15 = { # Thulin I the Swift
+		holder = lineofthulinI
+	}
+	2.4.18 = {
+		holder = lineofthulin0abrother #Tha_a_maka_a_
+	}
+	2.5.21 = {
+		holder = lineofthulin0c #Thara_a_n
+	}
+	2.8.9 = {
+		holder = lineofthulin0e #Throme_e_l
+	}
+	279.7.4 = {
+		holder = lineofthulin1 #Khodid
+	}
+	343.10.7 = {
+		holder = lineofthulin3 #Dhru_u_l
+	}
+	544.1.1 = { #Thulin II
+		holder = lineofthulinII
+	}
+	766.5.4 = {
+		holder = lineofthulin7 #Thua_a_n
+	}
+	807.11.26 = {
+		holder = lineofthulin9 #Kwa_a_n
+	}
+	896.5.14 = {
+		holder = lineofthulin37 #Oran
+	}
+	1059.3.5 = {
+		holder = lineofthulin39 #Wha_a_n
+	}
+	1180.8.7 = {
+		holder = lineofthulin41 #Ia_a_x
+	}
+	1386.5.24 = {
+		holder = lineofthulin43 #Khorthu_u_l
+	}
+	1583.5.17 = { #Thulin III
+		holder = lineofthulinIII
+	}
+	1674.3.11 = {
+		holder = lineofthulin47 #Thua_a_n
+	}
+	1821.11.3 = {
+		holder = lineofthulin49 #Azev
+	}
+	1887.1.20 = {
+		holder = lineofthulin51 #Nikath
+	}
+	2186.11.11 = {
+		holder = lineofthulin53 #Bhalri_i_m
+	}
+	2310.2.12 = {
+		holder = lineofthulin56 #Whoma_a_r
+	}
+	2410.6.5 = {
+		holder = lineofthulin59 #O_O_vathar
+	}
+	2562.11.22 = {
+		holder = lineofthulin61 #Nazrog
+	}
+	2666.6.16 = {
+		holder = lineofthulin63 #U_U_sriev
+	}
+	2826.2.20 = {
+		holder = lineofthulin65 #Lu_u_thku
+	}
+	2946.6.27 = {
+		holder = lineofthulin67 #Khurubra
+	}
+	3089.10.15 = {
+		holder = lineofthulin69 #Ste_e_
+	}
+	3174.6.24 = { #Thulin IV
+		holder = lineofthulinIV
+	}
+	3353.5.19 = {
+		holder = lineofthulin73 #Thua_a_n
+	}
+	3501.7.1 = {
+		holder = lineofthulin75 #O_O_van
+	}
+	3505.10.27 = {
+		holder = lineofthulin77 #Zor
+	}
+	3730.7.14 = {
+		holder = lineofthulin79 #Ya_a_rkh
+	}
+	3851.3.10 = {
+		holder = lineofthulin81 #Alau_u_ph
+	}
+	3878.11.12 = {
+		holder = lineofthulin83 #Balkha_a_
+	}
+	4026.11.7 = {
+		holder = lineofthulin85 #Mhura_a_l
+	}
+	4177.11.9 = {
+		holder = lineofthulin87 #Harva_a_l
+	}
+	4365.8.27 = {
+		holder = lineofthulin89 #Va_a_rlog
+	}
+	4545.4.3 = {
+		holder = lineofthulin91 #Tha_a_maka_a_
+	}
+	4606.1.10 = { #Thulin V
+		holder = lineofthulinV
+	}
+	4896.1.19 = {
+		holder = lineofthulin95 #Thua_a_n
+	}
+	4937.6.19 = {
+		holder = lineofthulin97 #Adhara_a_n
+	}
+	5115.6.4 = {
+		holder = lineofthulin99 #O_O_davith
+	}
+	5123.1.10 = {
+		holder = lineofthulin101 #Varid
+	}
+	5295.10.5 = {
+		holder = lineofthulin103 #Babhu_u_ta
+	}
+	5478.7.11 = {
+		holder = lineofthulin105 #Shirra_a_n
+	}
+	5706.12.27 = {
+		holder = lineofthulin107 #Verakh
+	}
+	5817.1.15 = {
+		holder = lineofthulin109 #Kho_o_nebra
+	}
+	6067.6.12 = { #Thulin VI
+		holder = lineofthulinVI
+	}
+	6270.4.7 = {
+		holder = lineofthulin113 #Thua_a_n
+	}
+	6422.5.3 = {
+		holder = lineofthulin115 #Whoma_a_r
+	}
+	6505.8.13 = {
+		holder = lineofthulin117 #Thu_u_nin
+	}
+	6708.11.12 = {
+		holder = 0
+	}
+}
+
+k_thrars_folk = {
+	2.1.15 = { # Thrar I the Proud
+		holder = lineofthrarI
+	}
+	2.4.18 = {
+		holder = lineofthrar0a #Thru_u_hin
+	}
+	2.5.21 = {
+		holder = lineofthrar0c #Thra_a_hi
+	}
+	2.8.9 = {
+		holder = lineofthrar0e #Rhanzi_i
+	}
+	267.9.15 = {
+		holder = lineofthrar3 # Bhra_a_lli I
+	}
+	408.5.14 = {
+		holder = lineofthrar5 # Odda_a_
+	}
+	535.6.23 = {
+		holder = lineofthrar7 # Fulla_a_ I
+	}
+	677.4.1 = {
+		holder = lineofthrar9 # Fulla_a_ II
+	}
+	782.6.2 = {
+		holder = lineofthrar10b # Rodda_a_
+	}
+	888.7.29 = {
+		holder = lineofthrar11 # Izra_a_n
+	}
+	997.12.9 = {
+		holder = lineofthrar13 # A_A_rn
+	}
+	1092.11.13 = {
+		holder = lineofthrar15 # Bhra_a_lli II
+	}
+	1182.6.27 = {
+		holder = lineofthrar17 # Fulla_a_ III
+	}
+	1227.11.16 = { # Thrar II South-King sets up in Bizarûldûm
+		holder = lineofthrarII
+	}
+	1480.2.13 = {
+		holder = lineofthrar21 # Tormu_u_l I
+	}
+	1514.3.24 = {
+		holder = lineofthrar23 # Ta_a_uhu_u_m I
+	}
+	1589.1.4 = { # Thrar III
+		holder = lineofthrarIII
+	}
+	1716.9.3 = {
+		holder = lineofthrar27b # Vho_o_rn
+	}
+	1735.8.27 = {
+		holder = lineofthrar27c # No_o_rn
+	}
+	1912.1.2 = {
+		holder = lineofthrar29 # Tormu_u_l II
+	}
+	2024.6.19 = {
+		holder = lineofthrar31 # Fulla_a_ IV
+	}
+	2127.6.23 = {
+		holder = lineofthrar33 # Ulla_a_
+	}
+	2249.12.1 = {
+		holder = lineofthrar35 # Vella_a_
+	}
+	2395.3.9 = {
+		holder = lineofthrar37 # Fulla_a_ V
+	}
+	2533.1.26 = {
+		holder = lineofthrar39 # Ta_a_uhu_u_m II
+	}
+	2658.11.17 = {
+		holder = lineofthrar41 # Ma_a_hu_u_m
+	}
+	2793.12.18 = {
+		holder = lineofthrar43 # Ghru_u_m
+	}
+	2943.5.17 = {
+		holder = lineofthrar45 # Fulla_a_ VI
+	}
+	3049.1.21 = {
+		holder = lineofthrar47 # Amu_u_l
+	}
+	3180.12.18 = {
+		holder = lineofthrar49 # Tormu_u_l III
+	}
+	3294.1.22 = {
+		holder = lineofthrar49son # Farhu_u_m
+	}
+	3360.2.5 = {
+		holder = lineofthrar51 # Fulla_a_ VII Flamehand
+	}
+	3479.6.18 = { # Thrar IV
+		holder = lineofthrarIV
+	}
+	3479.6.21 = {
+		holder = thirdlineofthrar31 # Dru_u_hin I
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_ursulbazari } }
+	}
+	3611.11.12 = {
+		holder = thirdlineofthrar33 #Ra_a_uhe_e_n
+	}
+	3702.11.9 = {
+		holder = thirdlineofthrar35 #Soze_e_n
+	}
+	3792.3.14 = {
+		holder = thirdlineofthrar37 #Sulla_a_
+	}
+	3908.9.6 = {
+		holder = thirdlineofthrar39 #Bhroda_a_ I
+	}
+	4026.9.4 = {
+		holder = thirdlineofthrar41 #Dru_u_hin II
+	}
+	4148.3.24 = {
+		holder = thirdlineofthrar43 #Na_a_rn
+	}
+	4267.4.17 = {
+		holder = thirdlineofthrar45 #A_A_rn II
+	}
+	4393.8.8 = {
+		holder = thirdlineofthrar47 #A_A_tor
+	}
+	4507.4.28 = {
+		holder = thirdlineofthrar49 #A_A_gor
+	}
+	4621.8.10 = {
+		holder = thirdlineofthrar51 #Ha_a_gor
+	}
+	4738.11.19 = {
+		holder = thirdlineofthrar53 #Da_a_gor
+	}
+	4837.12.1 = {
+		holder = thirdlineofthrar55 #Dha_a_rim
+	}
+	4938.1.14 = {
+		holder = thirdlineofthrar56 #Dru_u_hin III
+	}
+	5037.6.21 = { # Thrar V
+		holder = lineofthrarV
+	}
+	5169.1.18 = {
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_nar_agathol } }
+	}
+	5321.10.24 = {
+		holder = thirdlineofthrar61 #Bhroda_a_ II
+	}
+	5362.9.9 = {
+		holder = thirdlineofthrar61c #Bru_u_nin
+	}
+	5379.8.23 = {
+		holder = thirdlineofthrar63 #Dru_u_hin IV
+	}
+	5499.3.5 = {
+		holder = thirdlineofthrar65 #Mu_u_razo_o_r
+	}
+	5633.3.26 = {
+		holder = thirdlineofthrar67 #Gimilzo_o_r
+	}
+	5741.5.10 = {
+		holder = thirdlineofthrar69 #Go_o_dratho_o_r
+	}
+	5876.7.20 = {
+		holder = thirdlineofthrar71 #Sapazu_u_r
+	}
+	5981.11.15 = {
+		holder = thirdlineofthrar72 #Sakalba_a_r
+	}
+	6091.8.3 = {
+		holder = thirdlineofthrar73 #Sakalba_a_r
+	}
+	6215.1.17 = {
+		holder = thirdlineofthrar75 #Narkuzi_i_r
+	}
+	6338.4.2 = { #Thrar VI
+		holder = lineofthrarVI
+	}
+	6523.10.8 = {
+		holder = thirdlineofthrar79 #Pharazo_o_n
+	}
+	6593.10.1 = {
+		holder = thirdlineofthrar81 #Za_a_nabe_e_n
+	}
+	6721.7.9 = {
+		holder = thirdlineofthrar83 #Be_e_lzagar
+	}
+	6833.4.25 = {
+		holder = thirdlineofthrar85 #Khibla_a_n
+	}
+	6954.7.6 = {
+		holder = thirdlineofthrar87 #Adu_u_naba_a_r
+	}
+	7078.4.10 = {
+		holder = thirdlineofthrar92 #Balkutho_o_r
+	}
+	7209.6.19 = {
+		holder = lineofthrarVII #Thrar VII
+	}
+}
+
+e_thrars_folk = {
+	1227.11.16 = { # Thrar II Main line sets up in Bizarûldûm
+		holder = lineofthrarII
+	}
+	1480.2.13 = {
+		holder = lineofthrar21 # Tormu_u_l
+	}
+	1514.3.24 = {
+		holder = lineofthrar23 # Ta_a_uhu_u_m
+	}
+	1589.1.4 = { # Thrar III
+		holder = lineofthrarIII
+	}
+	1716.9.3 = {
+		holder = lineofthrar27b # Vho_o_rn
+	}
+	1735.8.27 = {
+		holder = lineofthrar27c # No_o_rn
+	}
+	1912.1.2 = {
+		holder = lineofthrar29 # Tormu_u_l II
+	}
+	2024.6.19 = {
+		holder = lineofthrar31 # Fulla_a_ IV
+	}
+	2127.6.23 = {
+		holder = lineofthrar33 # Ulla_a_
+	}
+	2249.12.1 = {
+		holder = lineofthrar35 # Vella_a_
+	}
+	2395.3.9 = {
+		holder = lineofthrar37 # Fulla_a_ V
+	}
+	2533.1.26 = {
+		holder = lineofthrar39 # Ta_a_uhu_u_m
+	}
+	2658.11.17 = {
+		holder = lineofthrar41 # Ma_a_hu_u_m
+	}
+	2793.12.18 = {
+		holder = lineofthrar43 # Ghru_u_m
+	}
+	2943.5.17 = {
+		holder = lineofthrar45 # Fulla_a_ VI
+	}
+	3049.1.21 = {
+		holder = lineofthrar47 # Amu_u_l
+	}
+	3180.12.18 = {
+		holder = lineofthrar49 # Tormu_u_l
+	}
+	3294.1.22 = {
+		holder = lineofthrar49son # Farhu_u_m
+	}
+	3360.2.5 = { # Fulla_a_ VII Flamehand
+		holder = lineofthrar51
+	}
+	3479.6.18 = { # Thrar IV
+		holder = lineofthrarIV
+	}
+	3479.6.21 = {
+		holder = 0
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_ursulbazari } }
+	}
+	5169.1.18 = {
+		effect = { lotr_move_dejure_capital_effect = { COUNTY = c_nar_agathol } }
+	}
+}
+
+e_bavors_folk = {
+	3479.6.21 = {
+		holder = lineofbavor42 #Ma_a_lan
+	}
+	3580.6.11 = {
+		holder = lineofbavor44 #Takho_o_
+	}
+	3606.4.5 = {
+		holder = lineofbavor46 #Lakhi_i_r
+	}
+	3674.12.13 = { #Bavor IV Sole-King
+		holder = lineofbavorIV
+	}
+	3928.3.6 = {
+		holder = lineofbavor50 #Brodvaga
+	}
+	3944.1.25 = {
+		holder = lineofbavor52 #Demi_i_
+	}
+	4098.7.24 = {
+		holder = lineofbavor54 #Olriag
+	}
+	4282.3.7 = {
+		holder = lineofbavor56 #Nikath
+	}
+	4423.6.23 = {
+		holder = lineofbavor58 #Adhara_a_n
+	}
+	4593.3.23 = {
+		holder = lineofbavor60 #Hurnen
+	}
+	4638.12.27 = {
+		holder = lineofbavor62 #Ka_a_ledor
+	}
+	4839.11.23 = {
+		holder = lineofbavor64 #Varghu_u_s
+	}
+	4998.2.14 = { #Bavor V the Blessed
+		holder = lineofbavorV
+	}
+	5167.12.19 = {
+		holder = lineofbavor68 #Harvatha
+	}
+	5342.4.22 = {
+		holder = lineofbavor70 #Begu_u_lakariz
+	}
+	5439.2.23 = {
+		holder = lineofbavor72 #O_O_vatha
+	}
+	5561.12.24 = {
+		holder = lineofbavor74 #Dhama_a_
+	}
+	5710.7.6 = {
+		holder = lineofbavor76 #Shakal
+	}
+	5965.3.2 = {
+		holder = lineofbavor78 #Kadon
+	}
+	6105.8.16 = {
+		holder = lineofbavor80 #Karm
+	}
+	6116.7.16 = {
+		holder = lineofbavor82 #Ao_o_n
+	}
+	6322.12.26 = {
+		holder = lineofbavor84 #Ma_a_lan
+	}
+	6498.6.26 = { #Bavor VI
+		holder = lineofbavorVI
+	}
+	6684.12.21 = {
+		holder = lineofbavor88 #O_O_rag
+	}
+	6743.4.10 = {
+		holder = 0
+	}
+}
+
+k_bavors_folk = {
+	2.1.15 = { # Bavor I the Cold
+		holder = lineofbavorI
+	}
+	2.4.18 = {
+		holder = lineofbavor0a #Threvo_o_r
+	}
+	2.5.21 = {
+		holder = lineofbavor0c #Dauthar
+	}
+	2.8.9 = {
+		holder = lineofbavor0e #Balun
+	}
+	231.9.10 = {
+		holder = lineofbavor1 #Bha_a_s
+	}
+	405.10.16 = {
+		holder = lineofbavor3 #Ma_a_lan
+	}
+	516.10.8 = {
+		holder = lineofbavor5 #Whoma_a_r
+	}
+	706.6.6 = {
+		holder = lineofbavor7 #Dhru_u_s
+	}
+	824.4.14 = {
+		holder = lineofbavor9 #Adhara_a_n
+	}
+	1049.5.16 = { # Bavor II North-King
+		holder = lineofbavorII
+	}
+	1267.4.20 = {
+		holder = lineofbavor13 #Ma_a_lan
+	}
+	1467.8.12 = {
+		holder = lineofbavor16 #Dru_u_har
+	}
+	1609.7.2 = { #Bavor III the Steward
+		holder = lineofbavorIII
+	}
+	1828.3.21 = {
+		holder = lineofbavor20 #Dru_u_s
+	}
+	1889.1.6 = {
+		holder = lineofbavor22 #Dha_a_rim
+	}
+	2095.10.11 = {
+		holder = lineofbavor24 #Bhu_u_m
+	}
+	2217.4.14 = {
+		holder = lineofbavor26 #Gle_e_m
+	}
+	2357.8.12 = {
+		holder = lineofbavor28 #Dra_a_rn
+	}
+	2508.11.22 = {
+		holder = lineofbavor30 #Ma_a_lan
+	}
+	2749.9.12 = {
+		holder = lineofbavor32 #Gu_u_rn
+	}
+	2932.11.4 = {
+		holder = lineofbavor34 #Tormog
+	}
+	3009.9.6 = {
+		holder = lineofbavor36 #Vargaelaz
+	}
+	3267.1.16 = {
+		holder = lineofbavor38 #O_O_rag
+	}
+	3320.2.27 = {
+		holder = lineofbavor40 #The_e_leu_u_s
+	}
+	3433.2.25 = {
+		holder = lineofbavor42 #Ma_a_lan
+	}
+	3580.6.11 = {
+		holder = lineofbavor44 #Takho_o_
+	}
+	3606.4.5 = {
+		holder = lineofbavor46 #Lakhi_i_r
+	}
+	3674.12.13 = { #Bavor IV Sole-King
+		holder = lineofbavorIV
+	}
+	3928.3.6 = {
+		holder = lineofbavor50 #Brodvaga
+	}
+	3944.1.25 = {
+		holder = lineofbavor52 #Demi_i_
+	}
+	4098.7.24 = {
+		holder = lineofbavor54 #Olriag
+	}
+	4282.3.7 = {
+		holder = lineofbavor56 #Nikath
+	}
+	4423.6.23 = {
+		holder = lineofbavor58 #Adhara_a_n
+	}
+	4593.3.23 = {
+		holder = lineofbavor60 #Hurnen
+	}
+	4638.12.27 = {
+		holder = lineofbavor62 #Ka_a_ledor
+	}
+	4839.11.23 = {
+		holder = lineofbavor64 #Varghu_u_s
+	}
+	4998.2.14 = { #Bavor V the Blessed
+		holder = lineofbavorV
+	}
+	5167.12.19 = {
+		holder = lineofbavor68 #Harvatha
+	}
+	5342.4.22 = {
+		holder = lineofbavor70 #Begu_u_lakariz
+	}
+	5439.2.23 = {
+		holder = lineofbavor72 #O_O_vatha
+	}
+	5561.12.24 = {
+		holder = lineofbavor74 #Dhama_a_
+	}
+	5710.7.6 = {
+		holder = lineofbavor76 #Shakal
+	}
+	5965.3.2 = {
+		holder = lineofbavor78 #Kadon
+	}
+	6105.8.16 = {
+		holder = lineofbavor80 #Karm
+	}
+	6116.7.16 = {
+		holder = lineofbavor82 #Ao_o_n
+	}
+	6322.12.26 = {
+		holder = lineofbavor84 #Ma_a_lan
+	}
+	6498.6.26 = { #Bavor VI
+		holder = lineofbavorVI
+	}
+	6684.12.21 = {
+		holder = lineofbavor88 #O_O_rag
+	}
+	6743.4.10 = {
+		holder = 0
+	}
+}

@@ -1,0 +1,241 @@
+﻿#######################################
+############ Bôzisha-Mîraz ############
+#######################################
+
+dynasty_dar = { # Ancient quasi-historical High-Kings of the Bôzisha-Mîraz
+	name = "dynn_dar"
+	culture = "bozishnarud"
+	motto = dynn_dar_motto
+}
+dynasty_seaking = { # Angmar Start Date Rulers
+	name = "dynn_seaking"
+	culture = "bozishnarud"
+	motto = dynn_seaking_motto
+}
+dynasty_solarray = {
+	name = "dynn_solarray"
+	culture = "bozishnarud"
+	motto = dynn_solarray_motto
+}
+dynasty_tresti = {
+	name = "dynn_tresti"
+	culture = "bozishnarud"
+	motto = "dynn_tresti_motto"
+}
+dynasty_lavoraz = {
+	name = "dynn_lavoraz"
+	culture = "bozishnarud"
+	motto = "motto_remember_the_death_of_founder"
+}
+dynasty_riyesha = {
+	name = "dynn_riyesha"
+	culture = "bozishnarud"
+	motto = "dynn_riyesha_motto"
+}
+dynasty_masramar = {
+	name = "dynn_masramar"
+	culture = "bozishnarud"
+	motto = "dynn_masramar_motto"
+}
+dynasty_vatrak = {
+	name = "dynn_vatrak"
+	culture = "bozishnarud"
+	motto = "dynn_vatrak_motto"
+}
+dynasty_asril = {
+	name = "dynn_asril"
+	culture = "bozishnarud"
+	motto = "dynn_asril_motto"
+}
+
+dynasty_serpentlord = {
+	name = "dynn_serpentlord"
+	culture = "bozishnarud"
+	motto = "dynn_serpentlord_motto"
+}
+
+dynasty_ilamlake = {
+	name = "dynn_ilamlake"
+	culture = "bozishnarud"
+	motto = "dynn_ilamlake_motto"
+}
+
+dynasty_trasar = {
+	name = "dynn_trasar"
+	culture = "bozishnarud"
+	motto = "dynn_trasar_motto"
+}
+
+dynasty_masramarroa = {
+	name = "dynn_masramarroa"
+	culture = "bozishnarud"
+	motto = "dynn_masramarroa_motto"
+}
+
+dynasty_baliyak = {
+	name = "dynn_baliyak"
+	culture = "bozishnarud"
+	motto = "dynn_baliyak_motto"
+}
+
+dynasty_riyenarud = {
+	name = "dynn_riyenarud"
+	culture = "bozishnarud"
+	motto = "dynn_riyenarud_motto"
+}
+
+dynasty_riy = {
+	name = "dynn_riy"
+	culture = "bozishnarud"
+	motto = "dynn_riy_motto"
+}
+
+dynasty_nadili = {
+	name = "dynn_nadili"
+	culture = "bozishnarud"
+	motto = "dynn_nadili_motto"
+}
+
+dynasty_rado = {
+	name = "dynn_rado"
+	culture = bozishnarud
+	motto = dynn_rado_motto
+}
+
+# Narudbriyig
+dynasty_qalnan = {
+	name = "dynn_qalnan"
+	culture = "narudbriyig"
+	motto = "dynn_qalnan_motto"
+}
+
+dynasty_quarit = {
+	name = "dynn_quarit"
+	culture = "bozishnarud"
+	motto = "dynn_quarit_motto"
+}
+
+dynasty_narudat = {
+	name = "dynn_narudat"
+	culture = "narudbriyig"
+	motto = "dynn_narudat_motto"
+}
+
+dynasty_gainmes = {
+	name = "dynn_gainmes"
+	culture = "narudbriyig"
+	motto = "dynn_gainmes_motto"
+}
+
+dynasty_boyahnit = {
+	name = "dynn_boyahnit"
+	culture = "narudbriyig"
+	motto = "dynn_boyahnit_motto"
+}
+
+dynasty_salir = {
+	name = "dynn_salir"
+	culture = "narudbriyig"
+	motto = "dynn_salir_motto"
+}
+
+dynasty_longhard = {
+	name = "dynn_longhard"
+	culture = "narudbriyig"
+	motto = "dynn_longhard_motto"
+}
+
+dynasty_nara_lw = {
+	name = "dynn_nara_lw"
+	culture = "narudbriyig"
+	motto = "dynn_nara_lw_motto"
+}
+
+dynasty_moyey = {
+	name = "dynn_moyey"
+	culture = "narudbriyig"
+	motto = "dynn_moyey_motto"
+}
+
+dynasty_av_kaisi = {
+	name = "dynn_av_kaisi"
+	culture = "narudbriyig"
+	motto = "dynn_av_kaisi_motto"
+}
+
+dynasty_isharn = {
+	name = "dynn_isharn"
+	culture = "narudbriyig"
+	motto = "dynn_isharn_motto"
+}
+dynasty_gulavaz = {
+	name = "dynn_gulavaz"
+	culture = narudbriyig
+	motto = "dynn_gulavaz_motto"
+}
+
+# Gai
+
+dynasty_gai = {
+	name = "dynn_gai"
+	culture = "gai"
+	motto = "dynn_gai_motto"
+}
+
+dynasty_qublinar = {
+	name = "dynn_qublinar"
+	culture = "gai"
+	motto = "dynn_qublinar_motto"
+}
+
+dynasty_faijanad = {
+	name = "dynn_faijanad"
+	culture = "gai"
+	motto = "dynn_faijanad_motto"
+}
+
+dynasty_maramas = {
+	name = "dynn_maramas"
+	culture = "gai"
+	motto = "dynn_maramas_motto"
+}
+
+dynasty_powanar = {
+	name = "dynn_powanar"
+	culture = "gai"
+	motto = "dynn_powanar_motto"
+}
+
+# Gusar
+
+dynasty_kratilat = {
+	name = "dynn_kratilat"
+	culture = "gusar"
+	motto = dynn_kratilat_motto
+}
+
+dynasty_yargir = {
+	name = "dynn_yargir"
+	culture = "gusar"
+	motto = "dynn_yargir_motto"
+}
+
+dynasty_qalogos_lw = {
+	name = "dynn_qalogos_lw"
+	culture = "gusar"
+	motto = "dynn_qalogos_lw_motto"
+}
+
+# Kindilar
+dynasty_unurani = { # Kindilar Mercenary LAAMP in Long Winter
+	name = "dynn_nurani"
+	culture = "kindilar"
+	motto = "dynn_nurani_motto"
+}
+
+dynasty_velatik = { # Kindilar Brigand LAAMP TA 3000
+	name = "dynn_velatik"
+	prefix = "dynnp_nar"
+	culture = "kindilar"
+	motto = "dynn_velatik_motto"
+}

@@ -1,0 +1,1929 @@
+﻿### Languages ###
+## Elven
+# Eldarin
+# Quenya
+# Telerin
+# Sindarin
+# Avarin
+# Hwenti
+# Penni
+# Windan
+# Cuind
+# Kinn-lai (Kinnlai)
+# Kindi
+
+language_eldarin = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_eldarin
+		}
+	}
+	parameters = {
+		language_group_eldarin = yes
+		language_family_elven = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_eldarin }
+			multiply = 10
+		}
+	}
+	
+	color = minyar
+}
+
+language_quenya = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_quenya
+		}
+	}
+	parameters = {
+		language_group_eldarin = yes
+		language_family_elven = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_quenya }
+			multiply = 10
+		}
+	}
+	
+	color = noldor
+}
+
+language_telerin = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_telerin
+		}
+	}
+	parameters = {
+		language_group_eldarin = yes
+		language_family_elven = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_telerin }
+			multiply = 10
+		}
+	}
+	
+	color = teleri
+}
+
+language_sindarin = {
+	type = language
+	is_shown = {
+		OR = {
+			language_is_shown_trigger = {
+				LANGUAGE = language_sindarin
+			}
+			has_cultural_pillar = heritage_dunedain # Lets Dunedain players (elf simps) switch to sindarin
+		}
+	}
+	parameters = {
+		language_group_eldarin = yes
+		language_family_elven = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_sindarin }
+			multiply = 10
+		}
+		if = { #AI Dunedain should not do
+			limit = {
+				has_cultural_pillar = heritage_dunedain
+				NOT = { has_cultural_pillar = language_sindarin }
+			}
+			multiply = 0
+		}
+	}
+	
+	color = sindar
+}
+
+language_avarin = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_avarin
+		}
+	}
+	parameters = {
+		language_group_avarin = yes
+		language_family_elven = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_avarin }
+			multiply = 10
+		}
+	}
+	
+	color = avari
+}
+
+language_hwenti = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_hwenti
+		}
+	}
+	parameters = {
+		language_group_avarin = yes
+		language_family_elven = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_hwenti }
+			multiply = 10
+		}
+	}
+
+	color = hwenti
+}
+
+language_penni = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_penni
+		}
+	}
+	parameters = {
+		language_group_avarin = yes
+		language_family_elven = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_penni }
+			multiply = 10
+		}
+	}
+	
+	color = penni
+}
+
+language_windan = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_windan
+		}
+	}
+	parameters = {
+		language_group_avarin = yes
+		language_family_elven = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_windan }
+			multiply = 10
+		}
+	}
+	
+	color = windan
+}
+
+language_cuind = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_cuind
+		}
+	}
+	parameters = {
+		language_group_avarin = yes
+		language_family_elven = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_cuind }
+			multiply = 10
+		}
+	}
+	
+	color = cuind
+}
+
+language_kinnlai = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_kinnlai
+		}
+	}
+	parameters = {
+		language_group_avarin = yes
+		language_family_elven = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_kinnlai }
+			multiply = 10
+		}
+	}
+	
+	color = kinnlai
+}
+
+language_kindi = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_kindi
+		}
+	}
+	parameters = {
+		language_group_avarin = yes
+		language_family_elven = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_kindi }
+			multiply = 10
+		}
+	}
+	
+	color = kindi
+}
+
+language_westron = {
+	type = language
+	is_shown = {
+		OR = {
+			language_is_shown_trigger = {
+				LANGUAGE = language_westron
+			}
+			# Elessar note: Can switch dialects when diverging
+			has_cultural_pillar = language_hobbitish
+			has_cultural_pillar = language_westron_south
+			has_cultural_pillar = language_westron_orc
+		}
+	}
+	parameters = {
+		language_group_westron = yes
+		language_family_taliska = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_westron }
+			multiply = 10
+		}
+	}
+	
+	color = gondorian
+}
+
+language_westron_south = {
+	type = language
+	is_shown = {
+		OR = {
+			language_is_shown_trigger = {
+				LANGUAGE = language_westron_south
+			}
+			# Elessar note: Can switch dialects when diverging
+			has_cultural_pillar = language_hobbitish
+			has_cultural_pillar = language_westron
+			has_cultural_pillar = language_westron_orc
+		}
+	}
+	parameters = {
+		language_group_westron = yes
+		language_family_taliska = yes 
+		language_union_harnen = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_westron_south }
+			multiply = 10
+		}
+	}
+	
+	color = { 43 97 89 }
+}
+
+language_westron_orc = {
+	type = language
+	is_shown = {
+		OR = {
+			language_is_shown_trigger = {
+				LANGUAGE = language_westron_orc
+			}
+			# Elessar note: Can switch dialects when diverging
+			AND = {
+				is_orc_culture = yes
+				OR = {
+					has_cultural_pillar = language_hobbitish
+					has_cultural_pillar = language_westron
+					has_cultural_pillar = language_westron_south
+				}
+			}
+		}
+	}
+	parameters = {
+		language_group_westron = yes
+		language_family_taliska = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_westron_orc }
+			multiply = 10
+		}
+		if = {
+			limit = {
+				is_orc_culture = no
+				is_nazgul_culture = no
+			}
+			multiply = 0
+		}
+	}
+	
+	color = { 31 21 19 }
+}
+
+language_hobbitish = {
+	type = language
+	is_shown = {
+		OR = {
+			language_is_shown_trigger = {
+				LANGUAGE = language_hobbitish
+			}
+			# Elessar note: Can switch dialects when diverging
+			AND = {
+				OR = {
+					is_hobbit_culture = yes
+					has_cultural_pillar = heritage_eriadorim
+				}
+				OR = {
+					has_cultural_pillar = language_westron
+					has_cultural_pillar = language_westron_south
+				}
+			}
+		}
+	}
+	parameters = {
+		language_group_westron = yes
+		language_family_taliska = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_hobbitish }
+			multiply = 10
+		}
+	}
+	
+	color = { 100 220 0 }
+}
+
+language_dalish = {
+	type = language
+	is_shown = {
+		OR = {
+			language_is_shown_trigger = {
+				LANGUAGE = language_dalish
+			}
+		}
+	}
+	parameters = {
+		language_group_rhovanic = yes
+		language_family_taliska = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_dalish }
+			multiply = 10
+		}
+	}
+	
+	color = { 200 100 0 }
+}
+
+language_dorwinic = {
+	type = language
+	is_shown = {
+		OR = {
+			language_is_shown_trigger = {
+				LANGUAGE = language_dorwinic
+			}
+		}
+	}
+	parameters = {
+		language_group_rhovanic = yes
+		language_family_taliska = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_dorwinic }
+			multiply = 10
+		}
+	}
+	
+	color = { 115 0 25 }
+}
+
+language_black_speech = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_black_speech
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_black_speech }
+			multiply = 10
+		}
+	}
+	
+	color = { 0 0 0 }
+}
+
+language_taliska = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_taliska
+		}
+	}
+	parameters = {
+		language_family_taliska = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_taliska }
+			multiply = 10
+		}
+	}
+	
+	color = { 95 71 102 }
+}
+
+language_adunaic = {
+	type = language
+	is_shown = {
+		OR = {
+			language_is_shown_trigger = {
+				LANGUAGE = language_adunaic
+			}
+			# Elessar note: Can switch dialects when diverging
+			has_cultural_pillar = language_adunaic_bellakar
+			has_cultural_pillar = language_kharadunaic
+			has_cultural_pillar = language_adunaic_umbar
+		}
+	}
+	parameters = {
+		language_group_adunaic = yes
+		language_family_taliska = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_adunaic }
+			multiply = 10
+		}
+	}
+	
+	color = { 33 46 46 }
+}
+
+language_adunaic_bellakar = {
+	type = language
+	is_shown = {
+		OR = {
+			language_is_shown_trigger = {
+				LANGUAGE = language_adunaic_bellakar
+			}
+			# Elessar note: Can switch dialects when diverging
+			has_cultural_pillar = language_adunaic
+			has_cultural_pillar = language_kharadunaic
+			has_cultural_pillar = language_adunaic_umbar
+		}
+	}
+	parameters = {
+		language_group_adunaic = yes
+		language_family_taliska = yes 
+		language_union_narudic = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_adunaic_bellakar }
+			multiply = 10
+		}
+	}
+	
+	color = { 120 0 60 }
+}
+
+language_kharadunaic = {
+	type = language
+	is_shown = {
+		OR = {
+			language_is_shown_trigger = {
+				LANGUAGE = language_kharadunaic
+			}
+			# Elessar note: Can switch dialects when diverging
+			has_cultural_pillar = language_tanturaki
+			has_cultural_pillar = language_adunaic
+			has_cultural_pillar = language_adunaic_bellakar
+			has_cultural_pillar = language_adunaic_umbar
+		}
+	}
+	parameters = {
+		language_group_adunaic = yes
+		language_family_taliska = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_kharadunaic }
+			multiply = 10
+		}
+	}
+	
+	color = { 29 31 84 }
+}
+
+language_tanturaki = {
+	type = language
+	is_shown = {
+		OR = {
+			language_is_shown_trigger = {
+				LANGUAGE = language_tanturaki
+			}
+			# Elessar note: Can switch dialects when diverging
+			has_cultural_pillar = language_kharadunaic
+			has_cultural_pillar = language_adunaic
+			has_cultural_pillar = language_adunaic_bellakar
+			has_cultural_pillar = language_adunaic_umbar
+		}
+	}
+	parameters = {
+		language_group_adunaic = yes
+		language_family_taliska = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_tanturaki }
+			multiply = 10
+		}
+	}
+	
+	color = { 10 10 15 }
+}
+language_adunaic_umbar = {
+	type = language
+	is_shown = {
+		OR = {
+			language_is_shown_trigger = {
+				LANGUAGE = language_adunaic_umbar
+			}
+			# Elessar note: Can switch dialects when diverging
+			has_cultural_pillar = language_adunaic
+			has_cultural_pillar = language_kharadunaic
+			has_cultural_pillar = language_adunaic_bellakar
+			#Elessar note: Allowing WotR Umbareans to pick this when diverging
+			AND = {
+				has_cultural_pillar = heritage_northern_adunaic
+				has_cultural_pillar = language_westron_south
+			}
+		}
+	}
+	parameters = {
+		language_group_adunaic = yes
+		language_family_taliska = yes 
+		language_union_harnen = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_adunaic_umbar }
+			multiply = 10
+		}
+	}
+	
+	color = { 33 59 40 }
+}
+
+language_azulunaic = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_azulunaic
+		}
+	}
+	parameters = {
+		language_group_adunaic = yes
+		language_family_taliska = yes 
+		language_union_ormalan = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_azulunaic }
+			multiply = 10
+		}
+	}
+	
+	color = { 145 99 15 }
+}
+language_anarikean = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_anarikean
+		}
+	}
+	parameters = {
+		language_group_south_khailuza = yes
+		language_family_khailuzan = yes 
+		language_union_ormalan = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_anarikean }
+			multiply = 10
+		}
+	}
+	
+	color = { 200 90 140 }
+}
+language_halethian = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_halethian
+		}
+	}
+	parameters = {
+		language_family_haladin = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_halethian }
+			multiply = 10
+		}
+	}
+	
+	color = { 95 71 102 }
+}
+
+language_daenael = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_daenael
+		}
+	}
+	parameters = {
+		language_group_daenael = yes
+		language_family_haladin = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_daenael }
+			multiply = 10
+		}
+	}
+	
+	color = { 112 87 84}
+}
+
+language_gwathuirim = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_gwathuirim
+		}
+	}
+	parameters = {
+		language_group_gwathuilach = yes
+		language_family_haladin = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_gwathuirim }
+			multiply = 10
+		}
+	}
+	
+	color = { 107 91 77 }
+}
+
+language_dunlendish = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_dunlendish
+		}
+	}
+	parameters = {
+		language_group_gwathuilach = yes
+		language_family_haladin = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_dunlendish }
+			multiply = 10
+		}
+	}
+	
+	color = { 85 18 17 } 
+}
+
+language_drug = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_drug
+		}
+	}
+	parameters = {
+		language_group_drughic = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_drug }
+			multiply = 10
+		}
+	}
+	
+	color = { 226 204 108 }
+}
+
+language_beffraen = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_beffraen
+		}
+	}
+	parameters = {
+		language_group_drughic = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_beffraen }
+			multiply = 10
+		}
+	}
+	
+	color = { 171 169 147 }
+}
+
+language_honnin = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_honnin
+		}
+	}
+	parameters = {
+		language_group_drughic = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_honnin }
+			multiply = 10
+		}
+	}
+	
+	color = { 204 204 108 }
+}
+
+language_chaialla = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_chaialla
+		}
+	}
+	parameters = {
+		language_group_drughic = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_chaialla }
+			multiply = 10
+		}
+	}
+	
+	color = { 195 252 112 }
+}
+
+language_yatali_gan = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_yatali_gan
+		}
+	}
+	parameters = {
+		language_group_drughic = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_yatali_gan }
+			multiply = 10
+		}
+	}
+	
+	color = { 114 179 151 }
+}
+
+language_rohirric = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_rohirric
+		}
+	}
+	parameters = {
+		language_group_rhovanic = yes
+		language_family_taliska = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_rohirric }
+			multiply = 10
+		}
+	}
+	
+	color = { 67 115 44 }
+}
+
+language_rhovanic = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_rhovanic
+		}
+	}
+	parameters = {
+		language_group_rhovanic = yes
+		language_family_taliska = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_rhovanic }
+			multiply = 10
+		}
+	}
+	
+	color = { 220 120 40 }
+}
+
+language_eriadoric = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_eriadoric
+		}
+	}
+	parameters = {
+		language_family_taliska = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_eriadoric }
+			multiply = 10
+		}
+	}
+	
+	color = { 95 71 102 }
+}
+
+language_northern_apysaic = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_northern_apysaic
+		}
+	}
+	parameters = {
+		language_group_fariyian = yes
+		language_family_apysaic = yes 
+		language_union_harnen = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_northern_apysaic }
+			multiply = 10
+		}
+	}
+	
+	color = { 209 105 0 }
+}
+
+language_karrani = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_karrani
+		}
+	}
+	parameters = {
+		language_group_fariyian = yes
+		language_family_apysaic = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_karrani }
+			multiply = 10
+		}
+	}
+	
+	color = { 204 169 29 }
+}
+
+language_jelut = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_jelut
+		}
+	}
+	parameters = {
+		language_group_fariyian = yes
+		language_family_apysaic = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_jelut }
+			multiply = 10
+		}
+	}
+	
+	color = { 240 120 10 }
+}
+
+language_arysan = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_arysan
+		}
+	}
+	parameters = {
+		language_group_fariyian = yes
+		language_family_apysaic = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_arysan }
+			multiply = 10
+		}
+	}
+	
+	color = { 219 92 57 }
+}
+
+language_pust = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_pust
+		}
+	}
+	parameters = {
+		language_group_fariyian = yes
+		language_family_apysaic = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_pust }
+			multiply = 10
+		}
+	}
+	
+	color = { 252 189 86 }
+}
+
+language_ioradya = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_ioradya
+		}
+	}
+	parameters = {
+		language_group_ioradya = yes
+		language_family_talathrim = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_ioradya }
+			multiply = 10
+		}
+	}
+	
+	color = { 100 25 25 }
+}
+
+language_tedjin = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_tedjin
+		}
+	}
+	parameters = {
+		language_group_ioradya = yes
+		language_family_talathrim = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_tedjin }
+			multiply = 10
+		}
+	}
+	
+	color = { 130 120 90 }
+}
+
+language_ulgathig = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_ulgathig
+		}
+	}
+	parameters = {
+		language_group_ulgathig = yes
+		language_family_talathrim = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_ulgathig }
+			multiply = 10
+		}
+	}
+	
+	color = { 130 150 0 }
+}
+
+language_varadia = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_varadia
+		}
+	}
+	parameters = {
+		language_group_ioradya = yes
+		language_family_talathrim = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_varadia }
+			multiply = 10
+		}
+	}
+	
+	color = { 60 20 20 }
+}
+
+language_southern_apysaic = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_southern_apysaic
+		}
+	}
+	parameters = {
+		language_group_new_apysan = yes
+		language_family_apysaic = yes 
+		language_union_narudic = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_southern_apysaic }
+			multiply = 10
+		}
+	}
+	
+	color = { 255 219 130 }
+}
+
+language_gai = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_gai
+		}
+	}
+	parameters = {
+		language_group_new_apysan = yes
+		language_family_apysaic = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_gai }
+			multiply = 10
+		}
+	}
+	
+	color = { 177 162 100 }
+}
+
+language_ansith = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_ansith
+		}
+	}
+	parameters = {
+		language_group_new_apysan = yes
+		language_family_apysaic = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_ansith }
+			multiply = 10
+		}
+	}
+	
+	color = { 50 60 0 }
+}
+
+language_middle_apysaic = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_middle_apysaic
+		}
+	}
+	parameters = {
+		language_group_fariyian = yes
+		language_family_apysaic = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_middle_apysaic }
+			multiply = 10
+		}
+	}
+	
+	color = { 232 152 94 }
+}
+
+language_amutani = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_amutani
+		}
+	}
+	parameters = {
+		language_group_new_apysan = yes
+		language_family_apysaic = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_amutani }
+			multiply = 10
+		}
+	}
+	
+	color = { 190 152 142 }
+}
+
+### Muranian + New Sirayn
+
+language_new_sirayni = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_new_sirayni
+		}
+	}
+	parameters = {
+		language_group_fariyian = yes
+		language_family_apysaic = yes 
+		language_union_siresha = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_new_sirayni }
+			multiply = 10
+		}
+	}
+	
+	color = { 150 60 30 }
+}
+
+language_muranian = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_muranian
+		}
+	}
+	parameters = {
+		language_family_muranian = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_muranian }
+			multiply = 10
+		}
+	}
+	
+	color = { 157 165 167 }
+}
+
+language_old_sirayni = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_old_sirayni
+		}
+	}
+	parameters = {
+		language_family_muranian = yes 
+		language_union_siresha = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_old_sirayni }
+			multiply = 10
+		}
+	}
+	
+	color = { 150 120 30 }
+}
+
+### Akanali
+
+language_akanali = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_akanali
+		}
+	}
+	parameters = {
+		language_group_mumakani = yes
+		language_family_akanali = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_akanali }
+			multiply = 10
+		}
+	}
+	
+	color = akanali
+}
+
+language_mumakani = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_mumakani
+		}
+	}
+	parameters = {
+		language_group_mumakani = yes
+		language_family_akanali = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_mumakani }
+			multiply = 10
+		}
+	}
+	
+	color = mumakanil
+}
+
+language_inkamaki = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_inkamaki
+		}
+	}
+	parameters = {
+		language_group_mumakani = yes
+		language_family_akanali = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_inkamaki }
+			multiply = 10
+		}
+	}
+	
+	color = inkamakil
+}
+
+language_nafarati = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_nafarati
+		}
+	}
+	parameters = {
+		language_group_mumakani = yes
+		language_family_akanali = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_nafarati }
+			multiply = 10
+		}
+	}
+	
+	color = nafarati_green
+}
+
+language_batamai = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_batamai
+		}
+	}
+	parameters = {
+
+		language_group_mumakani = yes
+		language_family_akanali = yes 
+		language_union_koros = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_batamai }
+			multiply = 10
+		}
+	}
+	
+	color = mulamburil
+}
+
+language_kirani = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_kirani
+		}
+	}
+	parameters = {
+		language_group_kirani = yes
+		language_family_akanali = yes
+		language_union_koros = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_kirani }
+			multiply = 10
+		}
+	}
+	
+	color = koronandi
+}
+
+language_hathori = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_hathori
+		}
+	}
+	parameters = {
+		language_group_kirani = yes
+		language_family_akanali = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_hathori }
+			multiply = 10
+		}
+	}
+	
+	color = hathorim
+}
+
+
+language_usakani = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_usakani
+		}
+	}
+	parameters = {
+		language_group_magri = yes
+		language_family_akanali = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_usakani }
+			multiply = 10
+		}
+	}
+	
+	color = usakani
+}
+
+
+language_magri = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_magri
+		}
+	}
+	parameters = {
+		language_group_magri = yes
+		language_family_akanali = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_magri }
+			multiply = 10
+		}
+	}
+	
+	color = mag_green
+}
+
+language_geshanin = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_geshanin
+		}
+	}
+	parameters = {
+		language_group_geshanin = yes
+		language_family_akanali = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_geshanin }
+			multiply = 10
+		}
+	}
+	
+	color = geshani
+}
+
+language_tuktanin = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_tuktanin
+		}
+	}
+	parameters = {
+		language_group_geshanin = yes
+		language_family_akanali = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_tuktanin }
+			multiply = 10
+		}
+	}
+	
+	color = tuktani
+}
+
+language_dusheraen = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_dusheraen
+		}
+	}
+	parameters = {
+		language_group_geshanin = yes
+		language_family_akanali = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_dusheraen }
+			multiply = 10
+		}
+	}
+	
+	color = dusherae
+}
+
+language_drenin = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_drenin
+		}
+	}
+	parameters = {
+		language_group_shayni = yes
+		language_family_akanali = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_drenin }
+			multiply = 10
+		}
+	}
+	
+	color = drenim
+}
+
+language_ganin = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_ganin
+		}
+	}
+	parameters = {
+		language_group_shayni = yes
+		language_family_akanali = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_ganin }
+			multiply = 10
+		}
+	}
+	
+	color = ganim
+}
+
+language_ahavan = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_ahavan
+		}
+	}
+	parameters = {
+		language_group_shayni = yes
+		language_family_akanali = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_ahavan }
+			multiply = 10
+		}
+	}
+	
+	color = ahava
+}
+
+language_lyneri = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_lyneri
+		}
+	}
+	parameters = {
+		language_group_shayni = yes
+		language_family_akanali = yes 
+		language_union_ormalan = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_lyneri }
+			multiply = 10
+		}
+	}
+	
+	color = lynerian
+}
+
+language_senga = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_senga
+		}
+	}
+	parameters = {
+		language_group_sare = yes
+		language_family_akanali = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_senga }
+			multiply = 10
+		}
+	}
+	
+	color = sengani
+}
+
+
+### Elinse ###
+
+language_elinse = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_elinse
+		}
+	}
+	parameters = {
+		language_group_elinse = yes
+		language_family_apysaic = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_elinse }
+			multiply = 10
+		}
+	}
+	
+	color = { 197 195 107 }
+}
+
+#### Khuzdul
+
+language_khuzdul = { # Debateable if should be used. Khuzdul became a language of learning and lore, not of the cradle. Dwarvish Hebrew. But could perhaps be given to the dwarves for the same reason the Noldor have Quenya
+	type = language
+	is_shown = {
+		OR = {
+			language_is_shown_trigger = {
+				LANGUAGE = language_khuzdul
+			}
+			# Juke note: let dwarf players use it when diverging, for fun
+			#has_cultural_pillar = heritage_khazad
+			has_cultural_pillar = heritage_longbeard
+			has_cultural_pillar = heritage_firebeard
+			has_cultural_pillar = heritage_broadbeam
+			has_cultural_pillar = heritage_ironfist
+			has_cultural_pillar = heritage_stiffbeard
+			has_cultural_pillar = heritage_blacklock
+			has_cultural_pillar = heritage_stonefoot
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_khuzdul }
+			multiply = 10
+		}
+		if = { #AI Dwarves should not do
+			limit = {
+				OR = {
+					#has_cultural_pillar = heritage_khazad
+					has_cultural_pillar = heritage_longbeard
+					has_cultural_pillar = heritage_firebeard
+					has_cultural_pillar = heritage_broadbeam
+					has_cultural_pillar = heritage_ironfist
+					has_cultural_pillar = heritage_stiffbeard
+					has_cultural_pillar = heritage_blacklock
+					has_cultural_pillar = heritage_stonefoot
+				}
+				NOT = { has_cultural_pillar = language_khuzdul }
+			}
+			multiply = 0
+		}
+	}
+	
+	color = { 0 33 55 }
+}
+
+language_hillmen = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_hillmen
+		}
+	}
+	parameters = {
+		language_group_gwathuilach = yes
+		language_family_haladin = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_hillmen }
+			multiply = 10
+		}
+	}
+	
+	color = { 128 87 68 }
+}
+
+language_arhuneri = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_arhuneri
+		}
+	}
+	parameters = {
+		language_group_arhuneri = yes
+		language_family_arhuneri = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_arhuneri }
+			multiply = 10
+		}
+	}
+	
+	color = { 11 32 38 }
+}
+
+language_khyan = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_khyan
+		}
+	}
+	parameters = {
+		language_group_south_khailuza = yes
+		language_family_khailuzan = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_khyan }
+			multiply = 10
+		}
+	}
+	
+	color = { 210 100 180 }
+}
+
+# Tazinain is a Kailuzan language spoken in Sirayn
+language_tazinain = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_tazinain
+		}
+	}
+	parameters = {
+		language_group_south_khailuza = yes
+		language_family_khailuzan = yes 
+		language_union_ormalan = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_tazinain }
+			multiply = 10
+		}
+	}
+	
+	color = { 108 175 175 }
+}
+
+# Soelâsi, Womarin - Drake-speech
+language_drakespeech = { 
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_drakespeech
+		}
+	}
+	parameters = {
+		language_group_womaw = yes
+		language_family_soelasi = yes 
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_drakespeech }
+			multiply = 10
+		}
+	}
+	
+	color = { 37 20 153 }
+}
+
+language_orcish = { # Original Orc language, mostly unused
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_orcish
+		}
+	}
+	parameters = {
+		language_group_orcish = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_orcish }
+			multiply = 10
+		}
+	}
+	
+	color = { 37 48 29 }
+}
+
+language_kurr = { # Kúrr - Obscure Orc tongue, used by yellow mountain goblins
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_kurr
+		}
+	}
+	parameters = {
+		language_group_orcish = yes
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_kurr }
+			multiply = 10
+		}
+	}
+	
+	color = { 40 43 23 }
+}
+
+language_wastelands = {
+	type = language
+	is_shown = {
+		always = no
+	}
+
+	color = wastelands
+}

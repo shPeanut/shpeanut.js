@@ -1,0 +1,120 @@
+﻿# Root = New character after being made
+#
+# scope:ruler_designer - ruler type being designed. Possible values:
+#	flag:landed_title			Default landed ruler that overrides previous title holder
+#								They already have all titles transferred to them
+#	flag:landless_adventurer	landless adventurer
+#	flag:landless_noble_family	landless noble family inside administrative or other realm that allows landless vassals
+#
+lotr_on_ruler_designer_finished = {
+	effect = {
+		### Ruler designer elves get an event to age up
+		if = {
+			limit = {
+				is_elf = yes
+			}
+			trigger_event = {
+				id = elven_racial.0102
+				days = 1
+			}
+		}
+		if = {
+			limit = {
+				is_orc = yes
+				is_landed_or_landless_administrative = yes
+			}
+			trigger_event = orcs.9951
+		}
+
+		if = {
+			limit =  {
+				OR = {
+					culture = culture:istari
+					culture = culture:istari_evil
+				}
+				NOT = { has_trait = istari }
+			}
+			add_trait = istari
+		}
+		if = {
+			limit =  {
+				OR = {
+					culture = culture:maiar
+					culture = culture:maiar_fallen
+				}
+				NOT = { has_trait = maiar }
+			}
+			add_trait = maiar
+		}
+		if = {
+			limit =  {
+				has_culture = culture:ringwraith
+				NOT = { has_trait = nazgul }
+			}
+			add_trait = nazgul
+		}
+
+		if = {
+			limit = { is_dwarf = yes }
+			if = { # Dwarves learn Khuzdul
+				limit = { NOT = { knows_language = language_khuzdul } }
+				learn_language = language_khuzdul
+			}
+			# Dwarven Succession
+			if = {
+				limit = {
+					is_ruler = yes
+					is_landed = yes
+				}
+				if = {
+					limit = { NOT = { has_realm_law = dwarven_succession_law } }
+					add_realm_law = dwarven_succession_law
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_character_modifier = orcish_racial_hatred }
+				}
+				add_character_modifier = orcish_racial_hatred
+			}
+		}
+		# Setting up racial opinion modifiers
+		else_if = {
+			limit = {
+				OR = {
+					is_elf = yes
+					is_good_maiar = yes
+				}
+				NOT = { has_character_modifier = evil_racial_hatred }
+			}
+			add_character_modifier = evil_racial_hatred
+		}
+		else_if = {
+			limit = {
+				OR = {
+					is_orc = yes
+					is_maiar_fallen = yes
+					is_nazgul = yes
+					AND = {
+						culture = culture:mordorrim
+						faith_is_evil = yes
+					}
+				}
+				NOT = { has_character_modifier = good_racial_hatred }
+			}
+			add_character_modifier = good_racial_hatred
+		}
+
+		if = { # Noble Gondorians all know Sindarin
+			limit = {
+				culture = {
+					has_cultural_pillar = heritage_dunedain
+					NOT = { has_cultural_pillar = language_sindarin}
+				}
+				is_lowborn = no
+				NOT = { knows_language = language_sindarin }
+			}
+			learn_language = language_sindarin
+		}
+	}
+}

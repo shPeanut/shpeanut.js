@@ -1,0 +1,2574 @@
+﻿namespace = gondor
+
+# General Events
+#		gondor.3000 Pelargir / Umbar Trade Influx
+#		gondor.3001 Pelargir / Umbar Trade Recession
+#		gondor.4001 Recreate the Watch on Mordor
+#		gondor.4002 Abandon the Watch on Mordor
+#		gondor.5001 Rebuild the Royal Road
+#		gondor.6001 Retaking the Morannon
+#		gondor.6002 Fall of Minas Tirith
+#		gondor.6003 Reconquest of Minas Tirith
+#		gondor.6003 Conquest of Umbar
+#		gondor.6500 Restore Gondor CB events
+#		gondor.7000 Restore Gondor from Castamir Gondor
+
+#### General Gondor Events
+
+gondor.3000 = { # Pelargir / Umbar Trade Influx
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.3000.t
+	desc = gondor.3000.desc
+	theme = stewardship
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+
+	trigger = {
+		OR = {
+			has_title = title:c_pelargir
+			has_title = title:c_umbar
+		}
+		NOR = {
+			has_character_modifier = minor_trade_influx_modifier
+			has_character_modifier = average_trade_influx_modifier
+			has_character_modifier = large_trade_influx_modifier
+			has_character_modifier = massive_trade_influx_modifier
+			has_character_modifier = minor_trade_recession_modifier
+			has_character_modifier = average_trade_recession_modifier
+			has_character_modifier = large_trade_recession_modifier
+			has_character_modifier = massive_trade_recession_modifier
+		}
+	}
+
+	option = {
+		name = gondor.3000.a
+		random_list = {
+			30 = {
+				add_character_modifier = {
+					modifier = minor_trade_influx_modifier
+					years = 3
+				}
+				add_gold = 120
+			}
+			50 = {
+				add_character_modifier = {
+					modifier = average_trade_influx_modifier
+					years = 3
+				}
+				add_gold = 250
+			}
+			15 = {
+				add_character_modifier = {
+					modifier = large_trade_influx_modifier
+					years = 3
+				}
+				add_gold = 400
+			}
+			5 = {
+				add_character_modifier = {
+					modifier = massive_trade_influx_modifier
+					years = 3
+				}
+				add_gold = 750
+			}
+		}
+	}
+}
+
+gondor.3001 = { # Pelargir / Umbar Trade Shortage
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.3001.t
+	desc = gondor.3001.desc
+	theme = stewardship
+	left_portrait = {
+		character = root
+		animation = disbelief
+	}
+
+	trigger = {
+		OR = {
+			has_title = title:c_pelargir
+			has_title = title:c_umbar
+		}
+		NOR = {
+			has_character_modifier = minor_trade_influx_modifier
+			has_character_modifier = average_trade_influx_modifier
+			has_character_modifier = large_trade_influx_modifier
+			has_character_modifier = massive_trade_influx_modifier
+			has_character_modifier = minor_trade_recession_modifier
+			has_character_modifier = average_trade_recession_modifier
+			has_character_modifier = large_trade_recession_modifier
+			has_character_modifier = massive_trade_recession_modifier
+		}
+	}
+
+	immediate = {
+		cp:councillor_steward = {
+			save_scope_as = steward
+		}
+	}
+
+	option = {
+		name = gondor.3001.a
+		random_list = {
+			30 = {
+				add_character_modifier = {
+					modifier = minor_trade_recession_modifier
+					years = 3
+				}
+			}
+			50 = {
+				add_character_modifier = {
+					modifier = average_trade_recession_modifier
+					years = 3
+				}
+			}
+			15 = {
+				add_character_modifier = {
+					modifier = large_trade_recession_modifier
+					years = 3
+				}
+			}
+			5 = {
+				add_character_modifier = {
+					modifier = massive_trade_recession_modifier
+					years = 3
+				}
+			}
+		}
+	}
+}
+
+## Watch on Mordor events ##
+
+gondor.4001 = { # Recreate the Watch on Mordor
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.4001.t
+	theme = martial
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = wanted_new_watch_candidates }
+				}
+				desc = gondor.4001.desc.new
+			}
+			desc = gondor.4001.desc
+		}
+	}
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+	lower_left_portrait = { character = scope:candidate1 }
+	lower_center_portrait = { character = scope:candidate2 }
+	lower_right_portrait = { character = scope:candidate3 }
+
+	immediate = {
+		random_knight = {
+			limit = {
+				is_landed = no
+			}
+			save_scope_as = candidate1
+		}
+		random_close_family_member = {
+		    limit = {
+			    is_landed = no
+				is_in_valinor = no
+		    }
+		    save_scope_as = candidate2
+		}
+		random_courtier_or_guest = { save_scope_as = candidate3 }
+		if = {
+			limit =  {
+				exists = title:d_udun
+			}
+			destroy_title = title:d_udun
+		}
+		if = {
+			limit =  {
+				exists = title:d_ephel_duath
+			}
+			destroy_title = title:d_ephel_duath
+		}
+	}
+
+	option = { # A knight
+		name = gondor.4001.a
+		custom_tooltip = event_gondor_4001_a
+
+		hidden_effect = {
+			title:c_morannon = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_cirith_ungol = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_udun = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_durthang = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_lhingris = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_kam_lagurz = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:d_watch_on_mordor = {
+				set_de_jure_liege_title = title:k_ithilien
+			}
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = morannon_change
+				add_claim_on_loss = yes
+			}
+			title:c_morannon = {
+				change_title_holder = {
+					holder = scope:candidate1
+					change = scope:morannon_change
+					take_baronies = yes
+				}
+			}
+			resolve_title_and_vassal_change = scope:morannon_change
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = durthang_change
+				add_claim_on_loss = yes
+			}
+			title:c_durthang = {
+				change_title_holder = {
+					holder = scope:candidate1
+					change = scope:durthang_change
+					take_baronies = yes
+				}
+			}
+			resolve_title_and_vassal_change = scope:durthang_change
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = lhingris_change
+				add_claim_on_loss = yes
+			}
+			title:c_lhingris = {
+				change_title_holder = {
+					holder = scope:candidate1
+					change = scope:lhingris_change
+					take_baronies = yes
+				}
+			}
+			resolve_title_and_vassal_change = scope:lhingris_change
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = cirith_ungol_change
+				add_claim_on_loss = yes
+			}
+			title:c_cirith_ungol = {
+				change_title_holder = {
+					holder = scope:candidate1
+					change = scope:cirith_ungol_change
+					take_baronies = yes
+				}
+			}
+			resolve_title_and_vassal_change = scope:cirith_ungol_change
+
+		}
+
+		scope:candidate1 = {
+			get_title = title:d_watch_on_mordor
+			set_primary_title_to = title:d_watch_on_mordor
+		}
+	}
+
+	option = { # A relative
+		name = gondor.4001.b
+		custom_tooltip = event_gondor_4001_a
+
+		hidden_effect = {
+			title:c_morannon = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_cirith_ungol = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_udun = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_durthang = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_lhingris = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_kam_lagurz = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:d_watch_on_mordor = {
+				set_de_jure_liege_title = title:k_ithilien
+			}
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = morannon_change
+				add_claim_on_loss = yes
+			}
+			title:c_morannon = {
+				change_title_holder = {
+					holder = scope:candidate2
+					change = scope:morannon_change
+					take_baronies = yes
+				}
+			}
+			resolve_title_and_vassal_change = scope:morannon_change
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = durthang_change
+				add_claim_on_loss = yes
+			}
+			title:c_durthang = {
+				change_title_holder = {
+					holder = scope:candidate2
+					change = scope:durthang_change
+					take_baronies = yes
+				}
+			}
+			resolve_title_and_vassal_change = scope:durthang_change
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = lhingris_change
+				add_claim_on_loss = yes
+			}
+			title:c_lhingris = {
+				change_title_holder = {
+					holder = scope:candidate2
+					change = scope:lhingris_change
+					take_baronies = yes
+				}
+			}
+			resolve_title_and_vassal_change = scope:lhingris_change
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = cirith_ungol_change
+				add_claim_on_loss = yes
+			}
+			title:c_cirith_ungol = {
+				change_title_holder = {
+					holder = scope:candidate2
+					change = scope:cirith_ungol_change
+					take_baronies = yes
+				}
+			}
+			resolve_title_and_vassal_change = scope:cirith_ungol_change
+
+		}
+
+		scope:candidate2 = {
+			get_title = title:d_watch_on_mordor
+			set_primary_title_to = title:d_watch_on_mordor
+		}
+	}
+
+	option = { # A courtier
+		name = gondor.4001.c
+		custom_tooltip = event_gondor_4001_a
+
+		hidden_effect = {
+
+			title:c_morannon = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_cirith_ungol = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_udun = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_durthang = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_lhingris = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_kam_lagurz = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:d_watch_on_mordor = {
+				set_de_jure_liege_title = title:k_ithilien
+			}
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = morannon_change
+				add_claim_on_loss = yes
+			}
+			title:c_morannon = {
+				change_title_holder = {
+					holder = scope:candidate3
+					change = scope:morannon_change
+					take_baronies = yes
+				}
+			}
+			resolve_title_and_vassal_change = scope:morannon_change
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = durthang_change
+				add_claim_on_loss = yes
+			}
+			title:c_durthang = {
+				change_title_holder = {
+					holder = scope:candidate3
+					change = scope:durthang_change
+					take_baronies = yes
+				}
+			}
+			resolve_title_and_vassal_change = scope:durthang_change
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = lhingris_change
+				add_claim_on_loss = yes
+			}
+			title:c_lhingris = {
+				change_title_holder = {
+					holder = scope:candidate3
+					change = scope:lhingris_change
+					take_baronies = yes
+				}
+			}
+			resolve_title_and_vassal_change = scope:lhingris_change
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = cirith_ungol_change
+				add_claim_on_loss = yes
+			}
+			title:c_cirith_ungol = {
+				change_title_holder = {
+					holder = scope:candidate3
+					change = scope:cirith_ungol_change
+					take_baronies = yes
+				}
+			}
+			resolve_title_and_vassal_change = scope:cirith_ungol_change
+
+		}
+
+		scope:candidate3 = {
+			get_title = title:d_watch_on_mordor
+			set_primary_title_to = title:d_watch_on_mordor
+		}
+	}
+
+	option = { # I don't like any of these candidates
+		name = gondor.4001.d
+		custom_tooltip = event_gondor_4001_d
+		if = {
+			limit = {
+				NOT = {
+					has_character_flag = wanted_new_watch_candidates
+				}
+			}
+			add_character_flag = wanted_new_watch_candidates
+		}
+		trigger_event = {
+			id = gondor.4001
+			days = 1
+		}
+	}
+
+	option = { # I myself will command the Watch
+		name = gondor.4001.e
+		custom_tooltip = event_gondor_4001_a
+
+		hidden_effect = {
+			title:c_morannon = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_cirith_ungol = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_udun = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_durthang = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_lhingris = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:c_kam_lagurz = {
+				set_de_jure_liege_title = title:d_watch_on_mordor
+			}
+			title:d_watch_on_mordor = {
+				set_de_jure_liege_title = title:k_ithilien
+			}
+		}
+		get_title = title:d_watch_on_mordor
+	}
+
+	after = { #Give the new watch commander his chronicle
+		if = {
+			limit = {
+				exists = title:d_watch_on_mordor.holder
+			}
+			title:d_watch_on_mordor.holder = {
+				create_artifact_watch_chronicle_effect = { OWNER = title:d_watch_on_mordor.holder }
+			}
+		}
+	}
+}
+
+gondor.4002 = { # Abandon the Watch on Mordor
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.4002.t
+	desc = {
+		first_valid = {
+			# You are the watch's commander
+			triggered_desc = {
+				trigger = {
+					exists = scope:watch_commander
+					scope:watch_commander = { this = root }
+				}
+				desc = gondor.4002.desc.self
+			}
+			desc = gondor.4002.desc
+		}
+	}
+	theme = stewardship
+	left_portrait = {
+		character = root
+		animation = steward
+	}
+	right_portrait = {
+		character = scope:watch_commander
+		trigger = {
+			exists = scope:watch_commander
+			NOT = { this = root }
+		}
+		animation = marshal_shield
+	}
+
+	immediate = {
+		title:d_watch_on_mordor.holder = { save_scope_as = watch_commander }
+		title:d_watch_on_mordor = { save_scope_as = watch_duchy }
+
+		custom_tooltip = { # Turn the titles held by the watch into Wilderness
+			text = decision_abandon_watch_on_modor_effect
+			scope:watch_commander = {
+				every_realm_county = {
+					limit = {
+						title_province = {
+							geographical_region = middleearth_mordor
+						}
+					}
+					make_settlement_county_wilderness = { COUNTY = this }
+					ordered_county_province = { #add the mordor colonization blocker
+						add_building = shadow_of_mordor
+						add_building = ghosts
+					}
+				}
+			}
+		}
+
+		destroy_title = title:d_watch_on_mordor
+
+		title:c_morannon = {
+			set_de_jure_liege_title = title:d_udun
+		}
+		title:c_cirith_ungol = {
+			set_de_jure_liege_title = title:d_ephel_duath
+		}
+		title:c_lhingris = {
+			set_de_jure_liege_title = title:d_ephel_duath
+		}
+		title:c_kam_lagurz = {
+			set_de_jure_liege_title = title:d_ephel_duath
+		}
+		title:c_durthang = {
+			set_de_jure_liege_title = title:d_udun
+		}
+		title:c_udun = {
+			set_de_jure_liege_title = title:d_udun
+		}
+
+		spawn_army = { #Get the watchmen as special soldiers
+			uses_supply = no
+			inheritable = yes
+			name = mordor_watchmen
+			men_at_arms = {
+				type = gondorian_footmen
+				stacks = 6
+			}
+			men_at_arms = {
+				type = gondorian_bowmen
+				stacks = 3
+			}
+			location = root.location
+		}
+	}
+
+	option = { # I have a place at my court for you
+		name = gondor.4002.a
+		trigger = {
+			exists = scope:watch_commander
+			NOT = { this = root }
+		}
+		add_prestige = 50
+		add_courtier = scope:watch_commander
+	}
+
+	option = { # Your watch has ended. Go in peace.
+		name = gondor.4002.b
+		trigger = {
+			exists = scope:watch_commander
+			NOT = { this = root }
+		}
+		scope:watch_commander = {
+			add_prestige = 100
+			add_gold = 50
+		}
+	}
+
+	option = { # And now, my watch has ended
+		name = gondor.4002.c
+		trigger = {
+			exists = scope:watch_commander
+			scope:watch_commander = { this = root }
+		}
+		add_prestige = minor_prestige_gain
+		dynasty = {
+			add_dynasty_prestige = minor_dynasty_prestige_gain
+		}
+	}
+}
+
+### Rebuild the Royal Road ###
+
+gondor.5001 = { # Royal Road construction begun
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.5001.t
+	desc = gondor.5001.desc
+	theme = stewardship
+	left_portrait = {
+		character = root
+		animation = steward
+	}
+
+	option = { #A great effort, but greatly rewarded!
+		name = gondor.5001.a
+		#custom_tooltip = gondor.5001.a.tt
+		root.capital_county = { save_temporary_scope_as = capital }
+		custom_tooltip = rebuild_royal_road_tt1
+		custom_tooltip = rebuild_royal_road_tt2
+		trigger_event = {
+			id = gondor.5002
+			days = { 365 730 }
+		}
+	}
+}
+
+gondor.5002 = { # Royal Road is finished
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.5002.t
+	desc = gondor.5002.desc
+	theme = stewardship
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+
+	option = { #We did it!
+		name = gondor.5002.a
+
+		# JUKE NOTE: IF YOU CHANGE THE EFFECTS, UPDATE THESE TOOLTIPS: rebuild_royal_road_tt1 rebuild_royal_road_tt2
+		custom_tooltip = gondor.5002.a.tt
+		root.capital_county = {
+			add_county_modifier = {
+				modifier = royal_road_rebuilt_province_modifier
+			}
+		}
+		every_county_in_region = {
+			region = special_royal_road
+			add_county_modifier = {
+				modifier = royal_road_rebuilt_county_modifier
+			}
+		}
+
+
+	}
+}
+
+### Re-integrate the Shire ###
+gondor.5003 = { # The Hobbits acknowledge the King
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.5003.t
+	desc = gondor.5003.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = personality_compassionate
+	}
+	right_portrait = {
+		character = scope:shire_thain
+		animation = happiness
+	}
+	immediate = {
+		title:k_shire.holder = { save_scope_as = shire_thain }
+	}
+	option = { # The King is back
+		name = gondor.5003.a
+		title:k_shire.holder = {
+			create_title_and_vassal_change = {
+				type = swear_fealty
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			change_liege = {
+				liege = title:e_arnor.holder
+				change = scope:change
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+	}
+	option = { # Make them a protectorate
+		name = gondor.5003.b
+		custom_tooltip = gondor.5003.b.tt
+		hidden_effect = {
+			scope:shire_thain = {
+				start_tributary = {
+					contract_group = tributary_protectorate
+					suzerain = title:e_arnor.holder
+				}
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+### Enter Realm Events - Gondor ###
+
+gondor.6001 = { # Morannon reconquered
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.6001.t
+	desc = gondor.6001.desc
+	theme = war
+	trigger = { culture = { has_cultural_pillar = heritage_dunedain } } #Should only trigger for Dúnedain
+	cooldown = { days = 3 }
+	left_portrait = {
+		character = root
+		animation = marshal_shield
+	}
+
+	option = { #We did it!
+		name = gondor.6001.a
+		add_prestige = minor_prestige_gain
+	}
+}
+
+gondor.6002 = { # Fall of Minas Tirith
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.6002.t
+	desc = gondor.6002.desc
+	theme = battle
+	override_background = {
+		reference = grond
+	}
+	trigger = {
+		culture = { has_cultural_pillar = heritage_dunedain } #Should only trigger for Dúnedain
+		NOT = { has_character_flag = try_rotk }
+	}
+	cooldown = { days = 3 }
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+
+	option = { #This can't be happening...
+		name = gondor.6002.a
+		add_prestige = minor_prestige_loss
+	}
+}
+
+gondor.6003 = { # Minas Tirith reclaimed
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.6003.t
+	desc = gondor.6003.desc
+	theme = gondor
+	trigger = { culture = { has_cultural_pillar = heritage_dunedain } } #Should only trigger for Dúnedain
+	cooldown = { days = 3 }
+	override_background = {
+		reference = minas_tirith
+	}
+	left_portrait = {
+		character = root
+		animation = marshal_shield
+	}
+
+	option = { #We did it!
+		name = gondor.6003.a
+		add_prestige = medium_prestige_gain
+	}
+}
+
+gondor.6004 = { # Conquest of Umbar
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.6004.t
+	desc = gondor.6004.desc
+	theme = war
+	override_background = { reference = docks_adunai }
+	trigger = { culture = { has_cultural_pillar = heritage_dunedain } } #Should only trigger for Dúnedain
+	cooldown = { days = 3 }
+	left_portrait = {
+		character = root
+		animation = marshal_shield
+	}
+
+	option = { #We did it!
+		name = gondor.6004.a
+		add_prestige = medium_prestige_gain
+	}
+}
+
+gondor.6005 = { # Conquest of Isengard
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.6005.t
+	desc = gondor.6005.desc
+	theme = war
+	trigger = { culture = { has_cultural_pillar = heritage_dunedain } } #Should only trigger for Dúnedain
+	cooldown = { days = 3 }
+	left_portrait = {
+		character = root
+		animation = marshal_shield
+	}
+
+	option = { #We did it!
+		name = gondor.6005.a
+		add_prestige = medium_prestige_gain
+		custom_tooltip = gondor.6005.a.tt
+		trigger_event = { #Backup for Isengard switching
+			id = gondor.9998
+		}
+	}
+}
+
+### Restore Gondor CB events ###
+
+gondor.6500 = { # The War for Gondor begins
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.6500.t
+	desc = gondor.6500.desc
+	theme = war
+	override_background = { reference = minas_tirith }
+	left_portrait = {
+		character = root
+		animation = marshal_shield
+	}
+	right_portrait = {
+		character = scope:sauron
+		animation = menacing
+	}
+	immediate = {
+		character:lineofsauron = { save_scope_as = sauron }
+	}
+	option = { #We shall reclaim Gondor for the Dúnedain!
+		name = gondor.6500.a
+		add_prestige = minor_prestige_gain
+		custom_tooltip = gondor.6500.a.tt
+		title:c_minas_tirith.empire = { # Gondorian king-tier lords get a chance to join the war
+			every_de_jure_county_holder = {
+				limit = {
+					OR = { # Either still independent or vassalized by Sauron, in that case they rise in revolt
+						is_independent_ruler = yes
+						top_liege ?= scope:sauron
+					}
+					faith_is_good = yes
+					is_human = yes
+					OR = {
+						AND = { # Only dukes with an evil liege
+							highest_held_title_tier = tier_duchy
+							liege = { faith_is_evil = yes }
+						}
+						highest_held_title_tier = tier_kingdom
+					}
+					capital_county = { # If capital is in Gondor
+						title_province = { geographical_region = middleearth_west_gondor }
+					}
+				}
+				trigger_event = {
+					id = gondor.6505
+					days = 5
+				}
+			}
+		}
+		if = { # The holder of Arnor gets a chance to join
+			limit = {
+				exists = title:e_arnor.holder
+				title:e_arnor.holder ?= { faith_is_good = yes }
+			}
+			title:e_arnor.holder = {
+				trigger_event = {
+					id = gondor.6505
+					days = 5
+				}
+			}
+		}
+		if = { # The holder of Rohan gets a chance to join
+			limit = {
+				exists = title:k_rohan.holder
+				title:k_rohan.holder ?= { faith_is_good = yes }
+			}
+			title:k_rohan.holder = {
+				trigger_event = {
+					id = gondor.6505
+					days = 5
+				}
+			}
+		}
+		every_tributary = { # Your tributaries join you
+			limit = {
+				NOT = { has_title = title:k_rohan }
+				NOT = { has_title = title:e_arnor }
+				NOT = { faith_is_evil = yes }
+				is_at_war = no
+				suzerain = root
+			}
+			trigger_event = {
+				id = gondor.6505
+				days = 5
+			}
+		}
+		every_player = { # Any good faith player gets a chance to join
+			limit = {
+				NOT = { faith_is_evil = yes }
+				NOT = { is_ai = yes }
+			}
+			trigger_event = {
+				id = gondor.6505
+				days = 5
+			}
+		}
+	}
+}
+
+gondor.6501 = { # The War for Gondor begins - Sauron perspective
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.6501.t
+	desc = gondor.6501.desc
+	theme = war
+	override_background = { reference = minas_tirith }
+	left_portrait = {
+		character = root
+		animation = menacing
+	}
+	right_portrait = {
+		character = scope:attacker
+		animation = marshal_shield
+	}
+	option = { #The fools! I will scatter their armies like leaves in the wind.
+		name = gondor.6501.a
+		add_prestige = minor_prestige_gain
+		add_character_flag = attacked_in_gondor_liberation
+	}
+}
+
+scripted_effect set_gondor_ruler_to_chosen_candidate = {
+	$CANDIDATE$ = {
+		create_title_and_vassal_change = {
+			type = returned
+			save_scope_as = mt_change
+		}
+		title:c_minas_tirith = {
+			change_title_holder = {
+				holder = $CANDIDATE$
+				change = scope:mt_change
+				take_baronies = yes
+			}
+		}
+		resolve_title_and_vassal_change = scope:mt_change
+
+		get_title = title:c_minas_tirith.empire
+		get_title = title:k_anorien
+		get_title = title:k_ithilien
+		hidden_effect = {
+			get_title = title:c_osgiliath
+			get_title = title:c_malridh
+			get_title = title:d_minas_tirith
+		}
+		if = { # If the candidate is a tributary, free him
+			limit = {
+				is_tributary = yes
+			}
+			end_tributary = yes
+		}
+		if = { # If Sauron has a Hegemony, make the new ruler independent
+			limit = { is_independent_ruler = no }
+			create_title_and_vassal_change = {
+				type = independency
+				save_scope_as = indep_change
+				add_claim_on_loss = no
+			}
+			becomes_independent = { change = scope:indep_change }
+			resolve_title_and_vassal_change = scope:indep_change
+		}
+	}
+	hidden_effect = { #Transfering of de jure gondorian vassals
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+		}
+		title:c_minas_tirith.empire = {
+			every_dejure_vassal_title_holder = {
+				limit = {
+					NOT = { liege = $CANDIDATE$ }
+					capital_county.duchy ?= { #Parts of Ithilien remains under Sauron
+						NOR = {
+							this = title:d_minas_ithil
+							this = title:d_harithilien
+							this = title:d_cormalthen
+						}
+					}
+					OR = {
+						culture = culture:gondorian
+						culture = { any_parent_culture_or_above = { this = culture:gondorian } }
+						culture = culture:belfalathrim
+						culture = { any_parent_culture_or_above = { this = culture:belfalathrim } }
+						AND = {
+							has_title = title:k_pinnath_gelin
+							faith_is_good = yes
+						}
+						AND = {
+							has_title = title:k_andrast
+							faith_is_good = yes
+							OR = {
+								culture = culture:gondorian
+								culture = { any_parent_culture_or_above = { this = culture:gondorian } }
+							}
+						}
+					}
+				}
+				change_liege = {
+					liege = $CANDIDATE$
+					change = scope:change
+				}
+			}
+			every_in_de_jure_hierarchy = { # Transfer any vassals that Sauron may still have
+				limit = {
+					is_title_created = yes
+					holder.capital_county.duchy ?= { #Parts of Ithilien remains under Sauron
+						NOR = {
+							this = title:d_minas_ithil
+							this = title:d_harithilien
+							this = title:d_cormalthen
+						}
+					}
+					exists = holder
+					holder ?= {
+						faith_is_evil = no
+						is_human = yes
+						top_liege = { is_maiar_fallen = yes }
+					}
+				}
+				holder ?= {
+					change_liege = {
+						liege = $CANDIDATE$
+						change = scope:change
+					}
+				}
+			}
+		}
+		title:k_anorien = {
+			every_de_jure_county = {
+				holder = {
+					if = {
+						limit = {
+							faith_is_evil = yes
+						}
+						if = {
+							limit = {
+								is_human = yes
+							}
+							add_to_list = evil_human_vassals
+						}
+						else = {
+							add_to_list = evil_nonhuman_vassals
+						}
+					}
+				}
+				if = {
+					limit = {
+						culture = {
+							NOR = {
+								AND  = {
+									is_human = yes
+									this != culture:mordorrim
+								}
+								has_cultural_pillar = heritage_calaquendi
+								has_cultural_pillar = heritage_lomiquendi
+								has_cultural_pillar = heritage_moriquendi
+								has_cultural_pillar = heritage_wastelands
+							}
+						}
+					}
+					set_county_culture = culture:gondorian
+				}
+				if = {
+					limit = {
+						faith_is_evil = yes
+					}
+					set_county_faith = $CANDIDATE$.faith
+				}
+			}
+		}
+		title:k_lamedon = {
+			every_de_jure_county = {
+				holder = {
+					if = {
+						limit = {
+							faith_is_evil = yes
+						}
+						if = {
+							limit = {
+								is_human = yes
+							}
+							add_to_list = evil_human_vassals
+						}
+						else = {
+							add_to_list = evil_nonhuman_vassals
+						}
+					}
+				}
+				if = {
+					limit = {
+						culture = {
+							NOR = {
+								AND  = {
+									is_human = yes
+									this != culture:mordorrim
+								}
+								has_cultural_pillar = heritage_calaquendi
+								has_cultural_pillar = heritage_lomiquendi
+								has_cultural_pillar = heritage_moriquendi
+								has_cultural_pillar = heritage_wastelands
+							}
+						}
+					}
+					set_county_culture = culture:orodbedhrim
+				}
+				if = {
+					limit = {
+						faith_is_evil = yes
+					}
+					set_county_faith = $CANDIDATE$.faith
+				}
+			}
+		}
+		title:k_pinnath_gelin = {
+			every_de_jure_county = {
+				holder = {
+					if = {
+						limit = {
+							faith_is_evil = yes
+						}
+						if = {
+							limit = {
+								is_human = yes
+							}
+							add_to_list = evil_human_vassals
+						}
+						else = {
+							add_to_list = evil_nonhuman_vassals
+						}
+					}
+				}
+				if = {
+					limit = {
+						culture = {
+							NOR = {
+								AND  = {
+									is_human = yes
+									this != culture:mordorrim
+								}
+								has_cultural_pillar = heritage_calaquendi
+								has_cultural_pillar = heritage_lomiquendi
+								has_cultural_pillar = heritage_moriquendi
+								has_cultural_pillar = heritage_wastelands
+							}
+						}
+					}
+					set_county_culture = culture:gondorian
+				}
+				if = {
+					limit = {
+						faith_is_evil = yes
+					}
+					set_county_faith = $CANDIDATE$.faith
+				}
+			}
+		}
+		title:k_lebennin = {
+			every_de_jure_county = {
+				holder = {
+					if = {
+						limit = {
+							faith_is_evil = yes
+						}
+						if = {
+							limit = {
+								is_human = yes
+							}
+							add_to_list = evil_human_vassals
+						}
+						else = {
+							add_to_list = evil_nonhuman_vassals
+						}
+					}
+				}
+				if = {
+					limit = {
+						culture = {
+							NOR = {
+								AND  = {
+									is_human = yes
+									this != culture:mordorrim
+								}
+								has_cultural_pillar = heritage_calaquendi
+								has_cultural_pillar = heritage_lomiquendi
+								has_cultural_pillar = heritage_moriquendi
+								has_cultural_pillar = heritage_wastelands
+							}
+						}
+					}
+					set_county_culture = culture:gondorian
+				}
+				if = {
+					limit = {
+						faith_is_evil = yes
+					}
+					set_county_faith = $CANDIDATE$.faith
+				}
+			}
+		}
+		title:k_belfalas = {
+			every_de_jure_county = {
+				holder = {
+					if = {
+						limit = {
+							faith_is_evil = yes
+						}
+						if = {
+							limit = {
+								is_human = yes
+							}
+							add_to_list = evil_human_vassals
+						}
+						else = {
+							add_to_list = evil_nonhuman_vassals
+						}
+					}
+				}
+				if = {
+					limit = {
+						culture = {
+							NOR = {
+								AND  = {
+									is_human = yes
+									this != culture:mordorrim
+								}
+								has_cultural_pillar = heritage_calaquendi
+								has_cultural_pillar = heritage_lomiquendi
+								has_cultural_pillar = heritage_moriquendi
+								has_cultural_pillar = heritage_wastelands
+							}
+						}
+					}
+					set_county_culture = culture:belfalathrim
+				}
+				if = {
+					limit = {
+						faith_is_evil = yes
+					}
+					set_county_faith = $CANDIDATE$.faith
+				}
+			}
+		}
+		title:k_anfalas = {
+			every_de_jure_county = {
+				holder = {
+					if = {
+						limit = {
+							faith_is_evil = yes
+						}
+						if = {
+							limit = {
+								is_human = yes
+							}
+							add_to_list = evil_human_vassals
+						}
+						else = {
+							add_to_list = evil_nonhuman_vassals
+						}
+					}
+				}
+				if = {
+					limit = {
+						culture = {
+							NOR = {
+								AND  = {
+									is_human = yes
+									this != culture:mordorrim
+								}
+								has_cultural_pillar = heritage_calaquendi
+								has_cultural_pillar = heritage_lomiquendi
+								has_cultural_pillar = heritage_moriquendi
+								has_cultural_pillar = heritage_wastelands
+							}
+						}
+					}
+					set_county_culture = culture:gondorian
+				}
+				if = {
+					limit = {
+						faith_is_evil = yes
+					}
+					set_county_faith = $CANDIDATE$.faith
+				}
+			}
+		}
+		title:k_ithilien = {
+			every_de_jure_county = {
+				limit = { 
+					NOT = { this = title:c_minas_ithil }
+					$CANDIDATE$ = holder.top_liege
+				}
+				holder = {
+					if = {
+						limit = {
+							faith_is_evil = yes
+						}
+						if = {
+							limit = {
+								is_human = yes
+							}
+							add_to_list = evil_human_vassals
+						}
+						else = {
+							add_to_list = evil_nonhuman_vassals
+						}
+					}
+				}
+				if = {
+					limit = {
+						culture = {
+							NOR = {
+								AND  = {
+									is_human = yes
+									this != culture:mordorrim
+								}
+								has_cultural_pillar = heritage_calaquendi
+								has_cultural_pillar = heritage_lomiquendi
+								has_cultural_pillar = heritage_moriquendi
+								has_cultural_pillar = heritage_wastelands
+							}
+						}
+					}
+					set_county_culture = culture:gondorian
+				}
+				if = {
+					limit = {
+						faith_is_evil = yes
+					}
+					set_county_faith = $CANDIDATE$.faith
+				}
+			}
+		}
+
+		# Handle the conversion and replacement effects
+		$CANDIDATE$ = { save_scope_as = actor }
+		every_in_list = {
+			list = evil_human_vassals
+			save_scope_as = recipient
+			if = { #Cynics will always convert
+				limit = { has_trait = cynical }
+				demand_conversion_interaction_effect = yes
+			}
+			else_if = { #Zealots won't convert
+				limit = { has_trait = zealous }
+			}
+			else = { #Everyone else is very likely to covert
+				random = {
+					chance = 80
+					demand_conversion_interaction_effect = yes
+				}
+			}
+		}
+		every_in_list = {
+			list = evil_nonhuman_vassals
+			every_held_title = {
+				limit = {
+					tier >= tier_county
+					empire ?= {
+						this = title:c_minas_tirith.empire
+					}
+				}
+				change_title_holder = {
+					holder = $CANDIDATE$
+					change = scope:change
+					take_baronies = yes
+				}
+			}
+		}
+		#Give the AI an opinion boost to survive
+		$CANDIDATE$ = {
+			if = {
+				limit = { is_ai = yes }
+				add_character_modifier = {
+					modifier = restoration_of_gondor_modifier
+					years = 5
+				}
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+}
+
+gondor.6502 = { # After the War - choosing a new ruler for Gondor
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.6502.t
+	desc = gondor.6502.desc
+	theme = gondor
+	window = big_event_window
+	override_background = { reference = minas_tirith }
+	left_portrait = {
+		character = root
+		animation = celebrate_sword
+	}
+	right_portrait = {
+		character = scope:sauron
+		animation = rage
+	}
+	lower_center_portrait = {
+		trigger = { exists = scope:candidate1 }
+		character = scope:candidate1
+	}
+	lower_right_portrait = {
+		trigger = {
+			scope:candidate2 ?= {
+				NOT = { this = scope:candidate1 }
+			}
+		}
+		character = scope:candidate2
+	}
+	lower_left_portrait = {
+		trigger = {
+			scope:candidate3 ?= {
+				NOR = {
+					this = scope:candidate1
+					this = scope:candidate2
+				}
+			}
+		}
+		character = scope:candidate3
+	}
+	immediate = {
+		title:e_mordor.holder = { save_scope_as = sauron }
+		scope:sauron = { remove_character_flag = attacked_in_gondor_liberation }
+		if = {
+			limit = {
+				exists = title:e_gondor_steward.holder
+			}
+			title:e_gondor_steward.holder = { save_scope_as = gondorsteward }
+		}
+		random_courtier_or_guest = {
+			limit = {
+				faith_is_good = yes
+				is_human = yes
+				OR = {
+					culture = culture:dunedain_ranger
+					culture = culture:gondorian
+					culture = culture:belfalathrim
+					culture = culture:harondorim
+					culture = culture:arnorian
+					culture = culture:dunedain
+				}
+			}
+			save_scope_as = candidate1
+		}
+		hidden_effect = { # Arnorians
+			if = {
+				limit = {
+					character:lineisildur42 ?= { # Aragorn
+						is_alive = yes
+						NOT = { this = scope:candidate1 }
+					}
+				}
+				character:lineisildur42 = { save_scope_as = candidate2 }
+			}
+			else_if = {
+				limit = {
+					title:e_arnor.holder = { # Eldarion
+						has_character_flag = is_eldarion
+					}
+				}
+				title:e_arnor.holder = { save_scope_as = candidate2 }
+			}
+			else_if = {
+				limit = {
+					character:linehalbarad9 ?= { # Halbarad
+						is_alive = yes
+					}
+				}
+				character:linehalbarad9 = { save_scope_as = candidate2 }
+			}
+			else = { #Fetch a fallback character from Arnorian nobility
+				title:e_arnor = {
+					ordered_de_jure_county_holder ?= {
+						limit = {
+							OR = {
+								culture = culture:dunedain_ranger
+								culture = culture:arnorian
+							}
+							dynasty = { dynasty_prestige_level >= 5 } #Equal or more than Well-Known
+							is_independent_ruler = yes
+							faith_is_good = yes
+						}
+						alternative_limit = {
+							OR = {
+								culture = culture:dunedain_ranger
+								culture = culture:arnorian
+							}
+							faith_is_good = yes
+							dynasty = {
+								dynasty_prestige_level >= 5 #Equal or more than Well-Known
+								any_dynasty_member = {
+									is_independent_ruler = yes
+									save_temporary_scope_as = candidate2
+								}
+							}
+						}
+						order_by = highest_held_title_tier
+						if = {
+							limit = { NOT = { exists = scope:candidate2 } }
+							save_scope_as = candidate2
+						}
+					}
+				}
+				if = { #Ultimate fallback
+					limit = { NOT = { exists = scope:candidate2 } }
+					create_character = {
+						location = root.location
+						age = { 20 35 }
+						culture = culture:dunedain_ranger
+						faith = faith:faith_edain
+						dynasty = generate
+						gender_female_chance = 25
+						diplomacy = 10
+						martial = 12
+						stewardship = 9
+						intrigue = 7
+						learning = 5
+						prowess = 8
+						trait = legitimized_bastard
+						trait = blood_of_numenor_5
+						save_scope_as = candidate2
+					}
+				}
+				if = { # Make sure Sauron doesn't get chosen
+					limit = { scope:candidate2 = { faith_is_evil = yes } }
+					create_character = {
+						location = root.location
+						age = { 20 35 }
+						culture = culture:dunedain_ranger
+						faith = faith:faith_edain
+						dynasty = generate
+						gender_female_chance = 25
+						diplomacy = 10
+						martial = 12
+						stewardship = 9
+						intrigue = 7
+						learning = 5
+						prowess = 8
+						trait = legitimized_bastard
+						trait = blood_of_numenor_5
+						save_scope_as = candidate2
+					}
+				}
+			}
+		}
+		hidden_effect = { # Gondorians
+			if = {
+				limit = {
+					character:linesteward38 ?= { # Denethor
+						is_alive = yes
+					}
+				}
+				character:linesteward38 = { save_scope_as = candidate3 }
+			}
+			else_if = {
+				limit = {
+					character:linesteward39 ?= { # Boromir
+						is_alive = yes
+					}
+				}
+				character:linesteward39 = { save_scope_as = candidate3 }
+			}
+			else_if = {
+				limit = {
+					character:linesteward40 ?= { # Faramir
+						is_alive = yes
+					}
+				}
+				character:linesteward40 = { save_scope_as = candidate3 }
+			}
+			else_if = {
+				limit = {
+					exists = scope:gondorsteward
+					scope:gondorsteward ?= { faith_is_good = yes }
+					NOR = {
+						this = scope:candidate1
+						this = scope:candidate2
+					}
+				}
+				scope:gondorsteward = { save_scope_as = candidate3 }
+			}
+			else = { # Create a fallback character
+				title:c_minas_tirith.empire = { #First check for any existing title holders which are gondorian
+					ordered_de_jure_county_holder = {
+						limit = {
+							culture = culture:gondorian
+							faith_is_good = yes
+							# dynasty = { dynasty_prestige_level >= 1 } #Equal or more than Well-Known
+						}
+						alternative_limit = {
+							culture = culture:gondorian
+							faith_is_good = yes
+							dynasty = {
+								dynasty_prestige_level >= 1 #Equal or more than Well-Known
+								any_dynasty_member = {
+									save_temporary_scope_as = candidate3
+								}
+							}
+						}
+						order_by = highest_held_title_tier
+						if = {
+							limit = { NOT = { exists = scope:candidate3 } }
+							save_scope_as = candidate3
+						}
+					}
+				}
+				if = { #If no title holders existed, check for any PREVIOUS title holders
+					limit = { NOT = { exists = scope:candidate3 } }
+					title:c_minas_tirith.empire = {
+						ordered_de_jure_county = {
+							limit = {
+								previous_holder ?= {
+									culture = culture:gondorian
+									faith_is_good = yes
+									dynasty = { dynasty_prestige_level >= 1 } #Equal or more than Well-Known
+								}
+							}
+							alternative_limit = {
+								previous_holder ?= {
+									culture = culture:gondorian
+									faith_is_good = yes
+									dynasty = {
+										dynasty_prestige_level >= 1 #Equal or more than Well-Known
+										any_dynasty_member = {
+											save_temporary_scope_as = candidate3
+										}
+									}
+								}
+							}
+							order_by = highest_held_title_tier
+							if = {
+								limit = {
+									NOR = {
+										exists = scope:candidate3
+										this = scope:candidate1
+										this = scope:candidate2
+									}
+								}
+								save_scope_as = candidate3
+							}
+						}
+					}
+				}
+				if = {
+					limit = { NOT = { exists = scope:candidate3 } }
+					create_character = {
+						location = root.location
+						age = { 20 35 }
+						culture = culture:gondorian
+						faith = faith:faith_edain
+						dynasty = generate
+						gender_female_chance = 25
+						diplomacy = 10
+						martial = 12
+						stewardship = 9
+						intrigue = 7
+						learning = 5
+						prowess = 8
+						trait = legitimized_bastard
+						trait = blood_of_numenor_2
+						save_scope_as = candidate3
+					}
+				}
+				if = { # Make sure Sauron doesn't get chosen
+					limit = { scope:candidate3 = { faith_is_evil = yes } }
+					create_character = {
+						location = root.location
+						age = { 20 35 }
+						culture = culture:gondorian
+						faith = faith:faith_edain
+						dynasty = generate
+						gender_female_chance = 25
+						diplomacy = 10
+						martial = 12
+						stewardship = 9
+						intrigue = 7
+						learning = 5
+						prowess = 8
+						trait = legitimized_bastard
+						trait = blood_of_numenor_2
+						save_scope_as = candidate3
+					}
+				}
+			}
+		}
+		hidden_effect = { # Belfalathrim
+			if = {
+				limit = {
+					character:dolamroth27 ?= { # Imrahil
+						is_alive = yes
+					}
+				}
+				character:dolamroth27 = { save_scope_as = candidate4 }
+			}
+			else_if = {
+				limit = {
+					character:dolamroth28 ?= { # Elphir
+						is_alive = yes
+					}
+				}
+				character:dolamroth28 = { save_scope_as = candidate4 }
+			}
+			else_if = {
+				limit = {
+					character:dolamroth29 ?= { # Erchirion
+						is_alive = yes
+					}
+				}
+				character:dolamroth29 = { save_scope_as = candidate4 }
+			}
+			else = { # Create a fallback character
+				title:c_dol_amroth.kingdom = { #First check for any existing title holders which are belfalathrim
+					ordered_de_jure_county_holder = {
+						limit = {
+							culture = culture:belfalathrim
+							faith_is_good = yes
+							dynasty = { dynasty_prestige_level >= 5 } #Equal or more than Well-Known
+						}
+						alternative_limit = {
+							culture = culture:belfalathrim
+							faith_is_good = yes
+							dynasty = {
+								dynasty_prestige_level >= 5 #Equal or more than Well-Known
+								any_dynasty_member = {
+									save_temporary_scope_as = candidate4
+								}
+							}
+						}
+						order_by = highest_held_title_tier
+						if = {
+							limit = { NOT = { exists = scope:candidate4 } }
+							save_scope_as = candidate4
+						}
+					}
+				}
+				if = { #If no title holders existed, check for any PREVIOUS title holders
+					limit = { NOT = { exists = scope:candidate4 } }
+					title:c_dol_amroth.kingdom = {
+						ordered_de_jure_county = {
+							limit = {
+								previous_holder ?= {
+									culture = culture:belfalathrim
+									faith_is_good = yes
+									dynasty = { dynasty_prestige_level >= 5 } #Equal or more than Well-Known
+								}
+							}
+							alternative_limit = {
+								previous_holder ?= {
+									culture = culture:belfalathrim
+									faith_is_good = yes
+									dynasty = {
+										dynasty_prestige_level >= 5 #Equal or more than Well-Known
+										any_dynasty_member = {
+											save_temporary_scope_as = candidate4
+										}
+									}
+								}
+							}
+							order_by = highest_held_title_tier
+							if = {
+								limit = { NOT = { exists = scope:candidate4 } }
+								save_scope_as = candidate4
+							}
+						}
+					}
+				}
+				if = {
+					limit = { NOT = { exists = scope:candidate4 } }
+					create_character = {
+						location = root.location
+						age = { 20 35 }
+						culture = culture:belfalathrim
+						faith = faith:faith_edain
+						dynasty = generate
+						gender_female_chance = 25
+						diplomacy = 10
+						martial = 12
+						stewardship = 9
+						intrigue = 7
+						learning = 5
+						prowess = 8
+						trait = legitimized_bastard
+						trait = blood_of_numenor_2
+						save_scope_as = candidate4
+					}
+				}
+				if = { # Make sure Sauron doesn't get chosen
+					limit = { scope:candidate4 = { faith_is_evil = yes } }
+					create_character = {
+						location = root.location
+						age = { 20 35 }
+						culture = culture:belfalathrim
+						faith = faith:faith_edain
+						dynasty = generate
+						gender_female_chance = 25
+						diplomacy = 10
+						martial = 12
+						stewardship = 9
+						intrigue = 7
+						learning = 5
+						prowess = 8
+						trait = legitimized_bastard
+						trait = blood_of_numenor_2
+						save_scope_as = candidate4
+					}
+				}
+			}
+		}
+	}
+	option = { # I have the perfect candidate at my court
+		name = gondor.6502.a
+		trigger = { exists = scope:candidate1 }
+		custom_tooltip = gondor.6502.a.tt
+
+		hidden_effect = {
+			title:c_minas_tirith.empire = {
+				every_in_de_jure_hierarchy = {
+					limit = { tier = tier_kingdom }
+					set_de_jure_liege_title = title:e_gondor_steward
+				}
+			}
+		}
+
+		set_gondor_ruler_to_chosen_candidate = { CANDIDATE = scope:candidate1 }
+	}
+	option = { # Aragorn, or Halbarad, or a random ranger
+		name = gondor.6502.b
+		trigger = {
+			scope:candidate2 ?= {
+				NOT = { this = root }
+			}
+		}
+		add_prestige = minor_prestige_gain
+
+		if = { # Final safety check
+			limit = { scope:candidate2 = { faith_is_evil = yes } }
+			create_character = {
+				location = root.location
+				age = { 20 35 }
+				culture = culture:gondorian
+				faith = faith:faith_edain
+				dynasty = generate
+				gender_female_chance = 25
+				diplomacy = 10
+				martial = 12
+				stewardship = 9
+				intrigue = 7
+				learning = 5
+				prowess = 8
+				trait = legitimized_bastard
+				trait = blood_of_numenor_2
+				save_scope_as = candidate2
+			}
+		}
+
+		hidden_effect = {
+			title:c_minas_tirith.empire = {
+				every_in_de_jure_hierarchy = {
+					limit = { tier = tier_kingdom }
+					set_de_jure_liege_title = title:e_gondor
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				exists = scope:gondorsteward
+				scope:gondorsteward ?= { faith_is_good = yes }
+			}
+			scope:gondorsteward = {
+				get_title = title:k_gondor_steward
+				get_title = title:d_emyn_arnen
+				get_title = title:c_emyn_arnen
+				get_title = title:c_curedain
+				get_title = title:c_othnir
+				get_title = title:c_rian
+			}
+
+			destroy_title = title:e_gondor_steward
+
+			title:k_gondor_steward = {
+				copy_title_history = title:e_gondor_steward
+			}
+			create_title_and_vassal_change = {
+				type = swear_fealty
+				save_scope_as = title_change
+				add_claim_on_loss = no
+			}
+			title:k_gondor_steward.holder = {
+				change_liege = {
+					liege = title:e_gondor.holder
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+		}
+
+		set_gondor_ruler_to_chosen_candidate = { CANDIDATE = scope:candidate2 }
+
+		scope:candidate2 = {
+			add_character_flag = selected_to_rule_gondor
+			add_character_modifier = {	# To give him a fighting chance - for some time, the gondorian's fighting spirit is renewed
+				modifier = return_of_the_king_modifier
+				years = 20
+			}
+		}
+
+		if = {
+			limit = {
+				scope:candidate2 = { has_title = title:d_northern_dunedain }
+			}
+			destroy_title = title:d_northern_dunedain
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # This is Aragorn or Halbarad
+		name = gondor.6502.b_aragorn
+		trigger = {
+			scope:candidate2 ?= {
+				this = root
+			}
+		}
+		add_prestige = minor_prestige_gain
+
+		hidden_effect = {
+			title:c_minas_tirith.empire = {
+				every_in_de_jure_hierarchy = {
+					limit = { tier = tier_kingdom }
+					set_de_jure_liege_title = title:e_gondor
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				exists = scope:gondorsteward
+				scope:gondorsteward ?= { faith_is_good = yes }
+			}
+			scope:gondorsteward = {
+				get_title = title:k_gondor_steward
+				get_title = title:d_emyn_arnen
+				get_title = title:c_emyn_arnen
+				get_title = title:c_curedain
+				get_title = title:c_othnir
+				get_title = title:c_rian
+			}
+
+			destroy_title = title:e_gondor_steward
+
+			title:k_gondor_steward = {
+				copy_title_history = title:e_gondor_steward
+			}
+			create_title_and_vassal_change = {
+				type = swear_fealty
+				save_scope_as = title_change
+				add_claim_on_loss = no
+			}
+			title:k_gondor_steward.holder = {
+				change_liege = {
+					liege = title:e_gondor.holder
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+		}
+
+		set_gondor_ruler_to_chosen_candidate = { CANDIDATE = scope:candidate2 }
+
+		scope:candidate2 = {
+			add_character_flag = selected_to_rule_gondor
+			add_character_modifier = {	# To give him a fighting chance - for some time, the gondorian's fighting spirit is renewed
+				modifier = return_of_the_king_modifier
+				years = 20
+			}
+		}
+
+		if = {
+			limit = {
+				scope:candidate2 = { has_title = title:d_northern_dunedain }
+			}
+			destroy_title = title:d_northern_dunedain
+		}
+		scope:candidate2 = {
+			if = {
+				limit = { faith_is_evil = yes }
+				set_character_faith = faith:faith_edain
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # Denethor, Boromir, Faramir, or a random gondorian
+		trigger = {
+			scope:candidate3 ?= {
+				NOR = {
+					this = root
+					this = scope:candidate1
+					this = scope:candidate2
+				}
+			}
+		}
+		name = gondor.6502.c
+		add_prestige = minor_prestige_gain
+
+		hidden_effect = {
+			title:c_minas_tirith.empire = {
+				every_in_de_jure_hierarchy = {
+					limit = { tier = tier_kingdom }
+					set_de_jure_liege_title = title:e_gondor_steward
+				}
+			}
+		}
+
+		if = { # Final safety check
+			limit = { scope:candidate3 = { faith_is_evil = yes } }
+			create_character = {
+				location = root.location
+				age = { 20 35 }
+				culture = culture:gondorian
+				faith = faith:faith_edain
+				dynasty = generate
+				gender_female_chance = 25
+				diplomacy = 10
+				martial = 12
+				stewardship = 9
+				intrigue = 7
+				learning = 5
+				prowess = 8
+				trait = legitimized_bastard
+				trait = blood_of_numenor_2
+				save_scope_as = candidate3
+			}
+		}
+
+		set_gondor_ruler_to_chosen_candidate = { CANDIDATE = scope:candidate3 }
+		scope:candidate3 = {
+			if = {
+				limit = { faith_is_evil = yes }
+				set_character_faith = faith:faith_edain
+			}
+		}
+	}
+	option = { # Imrahil, his sons, or a random Belfalathrim
+		name = gondor.6502.d
+		trigger = {
+			scope:candidate4 ?= {
+				NOR = {
+					this = root
+					this = scope:candidate1
+					this = scope:candidate2
+					this = scope:candidate3
+				}
+			}
+		}
+		add_prestige = minor_prestige_gain
+
+		hidden_effect = {
+			title:c_minas_tirith.empire = {
+				every_in_de_jure_hierarchy = {
+					limit = { tier = tier_kingdom }
+					set_de_jure_liege_title = title:e_gondor_steward
+				}
+			}
+		}
+
+		if = { # Final safety check
+			limit = { scope:candidate4 = { faith_is_evil = yes } }
+			create_character = {
+				location = root.location
+				age = { 20 35 }
+				culture = culture:gondorian
+				faith = faith:faith_edain
+				dynasty = generate
+				gender_female_chance = 25
+				diplomacy = 10
+				martial = 12
+				stewardship = 9
+				intrigue = 7
+				learning = 5
+				prowess = 8
+				trait = legitimized_bastard
+				trait = blood_of_numenor_2
+				save_scope_as = candidate4
+			}
+		}
+
+		set_gondor_ruler_to_chosen_candidate = { CANDIDATE = scope:candidate4 }
+		scope:candidate4 = {
+			if = {
+				limit = { faith_is_evil = yes }
+				set_character_faith = faith:faith_edain
+			}
+		}
+	}
+	option = { # I claim Gondor for myself.
+		trigger = {
+			is_human = yes
+			faith_is_evil = no
+			NOT = { this = scope:candidate2 }
+		}
+		name = gondor.6502.e
+		add_prestige = minor_prestige_gain
+
+		hidden_effect = {
+			title:c_minas_tirith.empire = {
+				every_in_de_jure_hierarchy = {
+					limit = { tier = tier_kingdom }
+					set_de_jure_liege_title = title:e_gondor
+				}
+			}
+		}
+
+		set_gondor_ruler_to_chosen_candidate = { CANDIDATE = root }
+	}
+
+	after = {
+		if = {
+			limit = { # Major News
+				NOT = { has_game_rule = no_news }
+			}
+			every_player = { #Global News Announcement
+				trigger_event = news_event.0041
+			}
+		}
+		if = {
+			limit = { has_character_flag = liberating_gondor }
+			remove_character_flag = liberating_gondor
+		}
+
+		add_elven_hope_global_effect = { VALUE = massive_elven_hope_value HOPE_EFFECT = effect_elven_hope_return_of_the_king }
+
+		hidden_effect = {
+			title:c_minas_tirith.empire.holder = {
+				add_gold = 500
+				add_legitimacy = medium_legitimacy_gain
+				create_maa_regiment = {
+					type = guard_of_the_citadel
+					check_can_recruit = yes
+					size = 4
+				}
+				create_maa_regiment = {
+					type = rangers_of_ithilien
+					check_can_recruit = yes
+					size = 4
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				exists = scope:candidate2
+				scope:candidate2 = {
+					has_character_flag = is_aragorn
+					has_character_flag = selected_to_rule_gondor
+					NOT = { has_character_flag = aragorn_has_returned }
+				}
+			}
+			scope:candidate2 = {
+				get_title = title:e_arnor
+				trigger_event = {
+					id = gondor.0502 #Return of the King event, start of his chain
+					days = 1
+				}
+			}
+		}
+		else = {
+			hidden_effect = {
+				title:c_minas_tirith.empire.holder = {
+					spawn_army = {
+						name = white_city_garrison
+						levies = 800
+						men_at_arms = {
+							type = guard_of_the_citadel
+							stacks = 5
+						}
+						men_at_arms = {
+							type = gondorian_bowmen
+							stacks = 5
+						}
+						men_at_arms = {
+							type = gondorian_footmen
+							stacks = 5
+						}
+						location = title:c_minas_tirith.title_province
+						uses_supply = no
+						inheritable = yes
+					}
+				}
+			}
+		}
+		trigger_event = { #Choose if you want to get a nickname out of the whole thing or not
+			id = gondor.6503
+			days = 5
+		}
+	}
+}
+
+gondor.6503 = { # Choose if you want to get a nickname out of the whole thing or not
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.6503.t
+	desc = gondor.6503.desc
+	theme = gondor
+	override_background = { reference = minas_tirith }
+	trigger = {
+		NOR = {
+			has_title = title:e_gondor
+			has_title = title:e_gondor_steward
+		}
+	}
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	right_portrait = {
+		character = scope:gondorruler
+		animation = happiness
+	}
+	immediate = {
+		title:c_minas_tirith.holder.top_liege = { save_scope_as = gondorruler }
+		scope:gondorruler = {
+			add_truce_both_ways = {
+				character = title:e_mordor.holder
+				years = 5
+				name = TRUCE_GONDOR_MORDOR
+			}
+			spawn_army = {
+				uses_supply = no
+				inheritable = yes
+				name = resurgent_garrison
+				men_at_arms = {
+					type = gondorian_bowmen
+					stacks = 6
+				}
+				men_at_arms = {
+					type = gondorian_footmen
+					stacks = 6
+				}
+				men_at_arms = {
+					type = guard_of_the_citadel
+					stacks = 4
+				}
+				men_at_arms = {
+					type = rangers_of_ithilien
+					stacks = 4
+				}
+				men_at_arms = {
+					type = trebuchet
+					stacks = 4
+				}
+				location = scope:gondorruler.location
+			}
+		}
+	}
+	option = { # Give me the nickname
+		name = gondor.6503.a
+		give_nickname = nick_liberator_gondor
+		add_character_flag = had_nickname_event
+	}
+	option = { # Give me an alliance
+		name = gondor.6503.b
+		custom_tooltip = gondor.6503.b.tt
+		create_alliance = {
+			target = scope:gondorruler
+			allied_through_owner = root
+			allied_through_target = scope:gondorruler
+		}
+		scope:gondorruler = {
+			add_opinion = {
+				modifier = event_negotiated_alliance_opinion
+				target = root
+			}
+		}
+		hidden_effect = {
+			culture = {
+				add_innovation = innovation_formalized_emissaries
+			}
+			scope:gondorruler.culture = {
+				add_innovation = innovation_formalized_emissaries
+			}
+		}
+	}
+	option = { # I want both
+		name = gondor.6503.c
+		give_nickname = nick_liberator_gondor
+		add_character_flag = had_nickname_event
+		custom_tooltip = gondor.6503.b.tt
+		create_alliance = {
+			target = scope:gondorruler
+			allied_through_owner = root
+			allied_through_target = scope:gondorruler
+		}
+		scope:gondorruler = {
+			add_opinion = {
+				modifier = event_negotiated_alliance_opinion
+				target = root
+			}
+		}
+		hidden_effect = {
+			culture = {
+				add_innovation = innovation_formalized_emissaries
+			}
+			scope:gondorruler.culture = {
+				add_innovation = innovation_formalized_emissaries
+			}
+		}
+	}
+	option = { # I want neither
+		name = gondor.6503.d
+		add_prestige = major_prestige_gain
+	}
+}
+
+gondor.6504 = { # Get a small force of gondorian rebels to join you
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.6504.t
+	desc = gondor.6504.desc
+	theme = gondor
+	override_background = { reference = plains }
+	trigger = {
+		AND = {
+			has_character_flag = liberating_gondor
+			is_at_war = yes
+		}
+	}
+	left_portrait = {
+		character = root
+		animation = marshal_shield
+	}
+	immediate = {
+		every_character_war = {
+			limit = {
+				using_cb = restore_gondor_cb
+			}
+			save_scope_as = liberation_war
+		}
+		spawn_army = {
+			uses_supply = no
+			inheritable = no
+			name = gondorian_volunteers
+			levies = 500
+			men_at_arms = {
+				type = gondorian_bowmen
+				stacks = 3
+			}
+			men_at_arms = {
+				type = gondorian_footmen
+				stacks = 3
+			}
+			war = scope:liberation_war
+			location = capital_province
+		}
+	}
+	option = { #Great news!
+		name = gondor.6504.a
+		trigger_event = {
+			id = gondor.6504
+			months = { 10 14 }
+		}
+	}
+}
+
+gondor.6505 = { # Gondorian good faith rulers get an offer to join
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.6505.t
+	desc = gondor.6505.desc
+	theme = war
+	override_background = { reference = minas_tirith }
+	trigger = { NOT = { has_character_flag = liberating_gondor } }
+	left_portrait = {
+		character = root
+		animation = interested
+	}
+	right_portrait = {
+		character = scope:gondorian_liberator
+		animation = marshal
+	}
+	immediate = {
+		every_ruler = {
+			limit = {
+				is_at_war = yes
+				has_character_flag = liberating_gondor
+			}
+			save_scope_as = gondorian_liberator
+		}
+	}
+	option = { # I will join!
+		name = gondor.6505.a
+		scope:gondorian_liberator = {
+			every_character_war = {
+				limit = {
+					using_cb = restore_gondor_cb
+				}
+				add_attacker = root
+			}
+		}
+		add_prestige = medium_prestige_gain
+		add_legitimacy = minor_legitimacy_gain
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = { # I will not join
+		name = gondor.6505.b
+		trigger = { is_ai = no }
+		custom_tooltip = gondor.6505.b.tt # Unlocks a decision to join later
+		add_character_flag = can_join_gondor_liberation
+	}
+}
+
+gondor.7000 = {
+	content_source = realms_dlc
+	type = character_event
+	title = gondor.7000.t
+	desc = gondor.7000.desc
+	theme = gondor
+	override_background = { reference = minas_tirith }
+	cooldown = { days = 3 }
+	right_portrait = {
+		character = root
+		animation = interested
+	}
+
+	left_portrait = {
+		character = scope:eldacar
+		animation = interested
+	}
+
+	immediate = {
+		character:lineofanarion27 = { save_scope_as = eldacar }
+		character:lineofanarion25 = { save_scope_as = castamir }
+	}
+
+	option = {
+		name = gondor.7000.a
+		title:e_castamir = {
+			every_in_de_jure_hierarchy = {
+				limit = { tier = tier_kingdom }
+				set_de_jure_liege_title = title:e_gondor
+			}
+		}
+		create_title_and_vassal_change = {
+			type = returned
+			save_scope_as = change
+			add_claim_on_loss = yes
+		}
+		title:e_gondor = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+			set_variable = founded_mundburgian_eored #The Eored is transferred to the King once more
+		}
+		resolve_title_and_vassal_change = scope:change
+		set_primary_title_to = title:e_gondor
+		destroy_title = title:e_castamir
+	}
+
+	option = {
+		name = gondor.7000.b
+
+		add_character_flag = {
+			flag = accepted_castamir
+			years = 50
+		}
+	}
+}

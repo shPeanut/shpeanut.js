@@ -1,0 +1,1227 @@
+﻿################################
+#### Mountain Orc DYNASTIES ####
+################################
+
+dynasty_gundurub = { # 'Lord of Gund(abad)' formed by Skorg the first lord of Gundabad
+	name = "dynn_gundurub"
+	culture = "worauthai_madur"
+	motto = dynn_gundurub_motto
+}
+dynasty_urundur = { # Second Line of Gundabad
+	name = "dynn_urundur"
+	culture = "worauthai_madur"
+	motto = dynn_urundur_motto
+}
+dynasty_skorgrim = { # Third Line of Gundabad, Last Alliance
+	name = "dynn_skorgrim"
+	culture = "worauthai_madur"
+	motto = dynn_skorgrim_motto
+}
+dynasty_morgwar = { # Minor Lords of South Gundabad
+	name = "dynn_morgwar"
+	culture = "worauthai_madur"
+	motto = dynn_morgwar_motto
+}
+dynasty_ashmog = { # Ashmog (ash - one, the one, "He" (reverent term for Sauron), mog - voice, language, Gothmog - voice of the Master), Given to Azog when he visited the Necromancer before taking Gundabad (made up by Rémerod)
+	name = "dynn_ashmog"
+	culture = ghrazim
+	motto = dynn_ashmog_motto
+}
+dynasty_lokikrah = { # Lokikrah 'Dragon claw'
+	name = "dynn_lokikrah"
+	culture = "worauthai_madur"
+	motto = dynn_lokikrah_motto
+}
+dynasty_kargorokh = {
+	name = "dynn_kargorokh"
+	culture = "worauthai_madur"
+	motto = dynn_kargorokh_motto
+}
+dynasty_durbalag = { # Durbalag, one of the tribes of the [Uruk-Ongmair/Orcs of Angmar](https://notionclubarchives.fandom.com/wiki/Orcs_of_Angmar)
+	name = "dynn_durbalag"
+	culture = "worauthai_madur"
+	motto = dynn_durbalag_motto
+}
+dynasty_bolgdur = { # Bolgdur 'Wild, cruel - land'
+	name = "dynn_bolgdur"
+	culture = "worauthai_madur"
+	motto = dynn_bolgdur_motto
+}
+dynasty_bukrawarg = { # Bukrawarg 'Large claw "of" warges/wolfs?'
+	name = "dynn_bukrawarg"
+	culture = "worauthai_madur"
+	motto = dynn_bukrawarg_motto
+}
+dynasty_trokghaz = {
+	name = "dynn_trokghaz"
+	culture = worauthai_madur
+	motto = dynn_trokghaz_motto
+}
+dynasty_trupalog = { # Trupalog(-kai) one of the tribes of the [Uruk-Ongmair/Orcs of Angmar](https://notionclubarchives.fandom.com/wiki/Orcs_of_Angmar) 
+	name = "dynn_trupalog"
+	culture = uruk_ongmair
+	motto = dynn_trupalog_motto
+}
+dynasty_ugrog = { # Orcs deep in the southern Misties for the Angmar start date
+	name = "dynn_ugrog"
+	culture = worauthai_madur
+	motto = dynn_ugrog_motto
+}
+dynasty_kur_razhur = { # Orcs deep in the southern Misties for the Angmar start date
+	name = "dynn_kur_razhur"
+	culture = worauthai_madur
+	motto = dynn_kur_razhur_motto
+}
+dynasty_krulgash = { # Founded by the Hand of Azog, followers of Azog the Defiler
+	name = "dynn_krulgash"
+	culture = worauthai_madur
+	motto = dynn_bukrog_motto
+}
+dynasty_bukrog = { # Orcs that attempted to settle the Mountains of Rhûn
+	name = "dynn_bukrog"
+	culture = luftutaumhai
+	motto = dynn_bukrog_motto
+}
+
+# Juke note: Next two are unused, feel free to use for orcs somewhere!
+#dynasty_orkrak = { # Angmar Orcs
+#	name = "dynn_orkrak"
+#	culture = uruk_ongmair
+#	motto = dynn_orkrak_motto
+#}
+#dynasty_shekrag = { # Angmar Orcs
+#	name = "dynn_shekrag"
+#	culture = uruk_ongmair
+#	motto = dynn_shekrag_motto
+#}
+
+
+dynasty_thrakburzum = { # Thrakburzum where the ruling clan of Mount Gram 
+	name = "dynn_thrakburzum"
+	culture = "uruk_ongmair"
+	motto = dynn_thrakburzum_motto
+}
+dynasty_jukkai = { # juke vanity char
+	name = "dynn_jukkai"
+	culture = "ghrazim"
+	motto = dynn_jukkai_motto
+}
+dynasty_maghaz = {
+	name = "dynn_maghaz"
+	culture = "ghrazim"
+	motto = dynn_maghaz_motto
+}
+dynasty_morgdukh = {
+	name = "dynn_morgdukh"
+	culture = "ghrazim"
+	motto = dynn_morgdukh_motto
+}
+dynasty_ob_morgul = {
+	name = "dynn_ob_morgul"
+	culture = "ungurhai"
+	motto = dynn_ob_morgul_motto
+}
+
+dynasty_gorkil = {
+	name = "dynn_gorkil"
+	culture = generic_goblin
+	motto = dynn_gorkil_motto
+}
+
+dynasty_golfimbul = {
+	name = dynn_golfimbul
+	culture = worauthai_madur
+	motto = dynn_golfimbul_motto
+}
+
+dynasty_tharzog = {
+	name = dynn_tharzog
+	culture = worauthai_madur
+	motto = dynn_tharzog_motto
+}
+
+dynasty_greatgoblin = {
+	name = dynn_greatgoblin
+	culture = generic_goblin
+	motto = dynn_greatgoblin_motto
+}
+
+dynasty_deepwalker = {
+	name = dynn_deepwalker
+	culture = generic_goblin
+	motto = dynn_deepwalker_motto
+}
+
+dynasty_grogstealer = {
+	name = dynn_grogstealer
+	culture = generic_goblin
+	motto = dynn_grogstealer_motto
+}
+
+dynasty_hallroamer = {
+	name = dynn_hallroamer
+	culture = generic_goblin
+	motto = dynn_hallroamer_motto
+}
+
+dynasty_fangstealer = {
+	name = dynn_fangstealer
+	culture = generic_goblin
+	motto = dynn_fangstealer_motto
+}
+
+dynasty_bellbreaker = {
+	name = dynn_bellbreaker 
+	culture = generic_goblin
+	motto = dynn_bellbreaker_motto
+}
+
+dynasty_clawscorcher = {
+	name = dynn_clawscorcher
+	culture = generic_goblin
+	motto = dynn_clawscorcher_motto
+}
+
+dynasty_gloomdrinker = {
+	name = dynn_gloomdrinker
+	culture = generic_goblin
+	motto = dynn_gloomdrinker_motto
+}
+
+dynasty_shroombrewer = {
+	name = dynn_shroombrewer
+	culture = generic_goblin
+	motto = dynn_shroombrewer_motto
+}
+
+dynasty_ridgelurker = {
+	name = dynn_ridgelurker
+	culture = generic_goblin
+	motto = dynn_ridgelurker_motto
+}
+
+dynasty_hidesprouter = {
+	name = dynn_hidesprouter
+	culture = generic_goblin
+	motto = dynn_hidesprouter_motto
+}
+
+dynasty_napekindler = {
+	name = dynn_napekindler
+	culture = generic_goblin
+	motto = dynn_napekindler_motto
+}
+
+dynasty_roofsleeper = {
+	name = dynn_roofsleeper
+	culture = generic_goblin
+	motto = dynn_roofsleeper_motto
+}
+
+dynasty_darkseeker = {
+	name = dynn_darkseeker
+	culture = generic_goblin
+	motto = dynn_darkseeker_motto	
+}
+
+dynasty_flameflinger = {
+	name = dynn_flameflinger
+	culture = generic_goblin
+	motto = dynn_flameflinger_motto
+}
+
+dynasty_bulgrugoblin = {
+	name = dynn_bulgrugoblin
+	culture = generic_goblin
+	motto = dynn_bulgrugoblin_motto
+}
+
+dynasty_whisperingone = {
+	name = dynn_whisperingone
+	culture = generic_goblin
+	motto = dynn_whisperingone_motto
+}
+
+dynasty_skav = {
+	name = dynn_skav
+	culture = generic_goblin
+	motto = dynn_skav_motto
+}
+
+dynasty_grolfig = {
+	name = dynn_grolfig
+	culture = generic_goblin
+	motto = dynn_grolfig_motto
+}
+
+dynasty_kurolg = {
+	name = dynn_kurolg
+	culture = generic_goblin
+	motto = dynn_kurolg_motto
+}
+	
+dynasty_morgmol = {
+	name = dynn_morgmol
+	culture = generic_goblin
+	motto = dynn_morgmol_motto
+}
+
+dynasty_ghrazbul = {
+	name = dynn_ghrazbul
+	culture = generic_goblin
+	motto = dynn_ghrazbul_motto
+}
+
+dynasty_shakrog = {
+	name = dynn_shakrog
+	culture = generic_goblin
+	motto = dynn_shakrog_motto
+}
+
+dynasty_hrekker = {
+	name = dynn_hrekker
+	culture = generic_goblin
+	motto = dynn_hrekker_motto
+}
+
+dynasty_korgar = {
+	name = dynn_korgar
+	culture = generic_goblin
+	motto = dynn_korgar_motto
+}
+
+dynasty_tukra = {
+	name = dynn_tukra
+	culture = generic_goblin
+	motto = dynn_tukra_motto
+}
+
+dynasty_kasgrat = {
+	name = dynn_kasgrat
+	culture = generic_goblin
+	motto = dynn_kasgrat_motto
+}
+
+dynasty_shakrat = {
+	name = dynn_shakrat
+	culture = generic_goblin
+	motto = dynn_shakrat_motto
+}
+
+dynasty_karmakh = {
+	name = dynn_karmakh
+	culture = generic_goblin
+	motto = dynn_karmakh_motto
+}
+
+dynasty_ikk_rak = {
+	name = dynn_ikk_rak
+	culture = generic_goblin
+	motto = dynn_ikk_rak_motto
+}
+
+dynasty_gribnakh = {
+	name = dynn_gribnakh
+	culture = generic_goblin
+	motto = dynn_gribnakh_motto
+}
+
+dynasty_mekkr_ri = {
+	name = dynn_mekkr_ri
+	culture = generic_goblin
+	motto = dynn_mekkr_ri_motto
+}
+
+dynasty_orrkog = {
+	name = dynn_orrkog
+	culture = generic_goblin
+	motto = dynn_orrkog_motto
+}
+
+dynasty_kagrikk = {
+	name = dynn_kagrikk
+	culture = generic_goblin
+	motto = dynn_kagrikk_motto
+}
+
+dynasty_ukkri = {
+	name = dynn_ukkri
+	culture = generic_goblin
+	motto = dynn_ukkri_motto
+}
+
+dynasty_ilkrum = {
+	name = dynn_ilkrum
+	culture = echomaker_goblin
+	motto = dynn_ilkrum_motto
+}
+
+dynasty_lokkakai = {
+	name = dynn_lokkakai
+	culture = echomaker_goblin
+	motto = dynn_lokkakai_motto
+}
+
+dynasty_karikkag = {
+	name = dynn_karikkag
+	culture = echomaker_goblin
+	motto = dynn_karikkag_motto
+}
+
+dynasty_kirishak = {
+	name = dynn_kirishak
+	culture = echomaker_goblin
+	motto = dynn_kirishak_motto
+}
+
+dynasty_gatewarden = {
+	name = dynn_gatewarden
+	culture = generic_goblin
+	motto = dynn_gatewarden_motto
+}
+
+dynasty_bookkeeper = {
+	name = dynn_bookkeeper
+	culture = generic_goblin
+	motto = dynn_bookkeeper_motto
+}
+
+dynasty_scrapper = {
+	name = dynn_scrapper
+	culture = generic_goblin
+	motto = dynn_scrapper_motto
+}
+
+dynasty_speartosser = {
+	name = dynn_speartosser
+	culture = generic_goblin
+	motto = dynn_speartosser_motto
+}
+
+dynasty_handeater = {
+	name = dynn_handeater
+	culture = generic_goblin
+	motto = dynn_handeater_motto
+}
+
+dynasty_fishmonger = {
+	name = dynn_fishmonger
+	culture = generic_goblin
+	motto = dynn_fishmonger_motto
+}
+
+dynasty_tollcollector = {
+	name = dynn_tollcollector
+	culture = generic_goblin
+	motto = dynn_tollcollector_motto
+}
+
+dynasty_rugoth = {
+	name = dynn_rugoth
+	culture = generic_goblin
+	motto = dynn_rugoth_motto
+}
+
+dynasty_peakwatcher = {
+	name = dynn_peakwatcher
+	culture = generic_goblin
+	motto = dynn_peakwatcher_motto
+}
+
+dynasty_ponderer = {
+	name = dynn_ponderer
+	culture = generic_goblin
+	motto = dynn_ponderer_motto
+}
+
+dynasty_brolk = {
+	name = dynn_brolk
+	culture = generic_goblin
+	motto = dynn_brolk_motto
+}
+
+dynasty_greatgoblinlw = {
+	name = dynn_greatgoblinlw
+	culture = generic_goblin
+	motto = dynn_greatgoblinlw_motto
+}
+
+dynasty_gutsmasher = {
+	name = dynn_gutsmasher
+	culture = generic_goblin
+	motto = dynn_gutsmasher_motto
+}
+
+dynasty_snatcher = {
+	name = dynn_snatcher
+	culture = generic_goblin
+	motto = dynn_snatcher_motto
+}
+
+dynasty_fraluk = {
+	name = dynn_fraluk
+	culture = generic_goblin
+	motto = dynn_fraluk_motto
+}
+
+dynasty_gazdukh = {
+	name = dynn_gazdukh
+	culture = generic_goblin
+	motto = dynn_gazdukh_motto
+}
+
+dynasty_lakestalker = {
+	name = dynn_lakestalker
+	culture = generic_goblin
+	motto = dynn_lakestalker_motto
+}
+
+dynasty_survivor = {
+	name = dynn_survivor
+	culture = generic_goblin
+	motto = dynn_survivor_motto
+}
+
+dynasty_burrower = {
+	name = dynn_burrower
+	culture = generic_goblin
+	motto = dynn_burrower_motto
+}
+
+dynasty_guldurherald = { #Orc sent by Sauron to Goblin-town
+	name = dynn_guldurherald
+	culture = kazgumhoth
+	motto = dynn_guldurherald_motto
+}
+
+dynasty_vrasku = { #Ulukai cultists in the northern high pass for the long winter start date 
+	name = dynn_vrasku
+	culture = worauthai_madur
+	motto = dynn_vrasku_motto
+}
+
+dynasty_righazh = { #High Chieftains of Gunduz Mahab for Long Winter start date 
+	name = dynn_righazh
+	culture = worauthai_madur
+	motto = dynn_righazh_motto
+}
+
+dynasty_khur = { #Minor Pass of Gundabad Orcs ~ Long Winter
+	name = dynn_khur
+	culture = ghrazim
+	motto = dynn_khur_motto
+}
+
+dynasty_ulkhul = { #Minor Orc Chieftains of Ugulai ~ Long Winter
+	name = dynn_ulkhul
+	culture = ghrazim
+	motto = dynn_ulkhul_motto
+}
+
+dynasty_zalum = { #Orc High Chieftains of Foryagsh ~ Long Winter
+	name = dynn_zalum
+	culture = worauthai_madur
+	motto = dynn_zalum_motto
+}
+
+dynasty_borokh = { #Orc Vassals in Foryagsh ~ Long Winter
+	name = dynn_borokh
+	culture = worauthai_madur
+	motto = dynn_borokh_motto
+}
+
+dynasty_ulrakh = { #Minor Haryagsh Orcs ~ Long Winter
+	name = dynn_ulrakh
+	culture = worauthai_madur
+	motto = dynn_ulrakh_motto
+}
+
+dynasty_granakh = { #Minor High Pass Orcs ~ Long Winter
+	name = dynn_granakh
+	culture = worauthai_madur
+	motto = dynn_granakh_motto
+}
+
+dynasty_gornakh = { #Minor Pass of Gundabad Orcs ~ Long Winter
+	name = dynn_gornakh
+	culture = ghrazim
+	motto = dynn_gornakh_motto
+}
+
+dynasty_rukhu = { #Orc subjugators of fringe moria goblins for the long winter start date, followers of Azog
+	name = dynn_rukhu
+	culture = worauthai_madur
+	motto = dynn_rukhu_motto
+}
+
+dynasty_ghruzshul = { #Mt Gram Orcs during Angmar start date - wiped out in the Angmar-wars
+	name = dynn_ghruzshul
+	culture = worauthai_madur
+	motto = dynn_ghruzshul_motto
+}
+
+dynasty_rikkarr = { #Minor Mt Gram orcs
+	name = dynn_rikkarr 
+	culture = worauthai_madur
+	motto = dynn_rikkarr_motto
+}
+
+dynasty_muzdug = { #Minor Nan Angmar orcs
+	name = dynn_muzdug
+	culture = uruk_ongmair
+	motto = dynn_muzdug_motto
+}
+
+dynasty_krimpbar = { #Minor Nan angmar orcs
+	name = dynn_krimpbar
+	culture = uruk_ongmair
+	motto = dynn_krimpbar_motto
+}
+
+dynasty_yargrak = { # Lords of Foryagsh for Angmar start
+	name = dynn_yargrak
+	culture = uruk_ongmair
+	motto = dynn_yargrak_motto
+}
+
+dynasty_forthrokh = { # Minor Orcs in Foryagsh
+	name = dynn_forthrokh
+	culture = uruk_ongmair
+	motto = dynn_forthrokh_motto
+}
+
+dynasty_hizgur = { # Minor Orcs in Foryagsh
+	name = dynn_hizgur
+	culture = uruk_ongmair
+	motto = dynn_hizgur_motto
+}
+
+dynasty_zorgratak = { # Minor Orcs in Foryagsh
+	name = dynn_zorgratak
+	culture = uruk_ongmair
+	motto = dynn_zorgratak_motto
+}
+
+dynasty_burzlukh = { # Minor Way of Strength Orcs in Foryagsh
+	name = dynn_burzlukh
+	culture = worauthai_madur
+	motto = dynn_burzlukh_motto
+}
+
+dynasty_durzugh = { # Minor Orcs under Carn Dûm
+	name = dynn_durzugh
+	culture = uruk_ongmair
+	motto = dynn_durzugh_motto
+}
+
+dynasty_zogtakh = { # Minor Orcs under Carn Dûm
+	name = dynn_zogtakh
+	culture = uruk_ongmair
+	motto = dynn_zogtakh_motto
+}
+
+dynasty_oshrakazh = { # Minor Orcs under Carn Dûm
+	name = dynn_oshrakazh
+	culture = uruk_ongmair
+	motto = dynn_oshrakazh_motto
+}
+
+dynasty_korglub = { # Minor independent orcs in Gunduz Mahab
+	name = dynn_korglub
+	culture = worauthai_madur
+	motto = dynn_korglub_motto
+}
+
+dynasty_worgrakh = { # Minor independent orcs in Gunduz Mahab
+	name = dynn_worgrakh
+	culture = worauthai_madur
+	motto = dynn_worgrakh_motto
+}
+
+dynasty_tozrakh = { # Minor Orcs in Nan Angmar
+	name = dynn_tozrakh
+	culture = uruk_ongmair
+	motto = dynn_tozrakh_motto
+}
+
+dynasty_firrakh = { # Minor Orc Lords in the Gundabad pass
+	name = dynn_firrakh
+	culture = uruk_ongmair
+	motto = dynn_firrakh_motto
+}
+
+dynasty_rugdukh = { # Minor Orc chieftains in Gundalok
+	name = dynn_rugdukh
+	culture = uruk_ongmair
+	motto = dynn_rugdukh_motto
+}
+
+dynasty_pugrakh = { #Minor orc chiefs in Ugulai
+	name = dynn_pugrakh
+	culture = worauthai_madur
+	motto = dynn_pugrakh_motto
+}
+
+dynasty_balgrukh = { #Minor Orc Chieftains in Taurannon
+	name = dynn_balgrukh
+	culture = kazgumhoth
+	motto = dynn_balgrukh_motto
+}
+
+dynasty_ukorg = { #Minor Orc Chieftains in Taurannon, originally from Moria
+	name = dynn_ukorg
+	culture = ghrazim
+	motto = dynn_ukorg_motto
+}
+
+dynasty_grozablokh = { # Orc High Chieftains of Men-i-Naugrim
+	name = dynn_grozablokh
+	culture = kazgumhoth
+	motto = dynn_grozablokh_motto
+}
+
+dynasty_hugrakh = { # Orc chiefs under the Necromancer in Gorogrod
+	name = dynn_hugrakh
+	culture = kazgumhoth
+	motto = dynn_hugrakh_motto
+}
+
+dynasty_rothrukh = { # Orc chiefs under the Necromancer in Dimbar
+	name = dynn_rothrukh
+	culture = kazgumhoth
+	motto = dynn_rothrukh_motto
+}
+
+dynasty_borkagh = { # Orc chiefs under the Necromancer in Barad Angol
+	name = dynn_borkagh
+	culture = kazgumhoth
+	motto = dynn_borkagh_motto
+}
+
+dynasty_norbog = { # Orc chiefs under the Necromancer in Naerorn
+	name = dynn_norbog
+	culture = kazgumhoth
+	motto = dynn_norbog_motto
+}
+
+dynasty_grumlokh = { # Independent orcish High Chieftains in the Withered Heath
+	name = dynn_grumlokh
+	culture = worauthai_madur
+	motto = dynn_grumlokh_motto
+}
+
+dynasty_hakrog = { #Minor orc chiefs in the withered heath
+	name = dynn_hakrog
+	culture = worauthai_madur
+	motto = dynn_hakrog_motto
+}
+
+dynasty_rorak = { #Minor orc chiefs in Usmek
+	name = dynn_rorak
+	culture = worauthai_madur
+	motto = dynn_rorak_motto
+}
+
+dynasty_molug = { #Minor Orc chiefs in the Vale of Drakes
+	name = dynn_molug
+	culture = worauthai_madur
+	motto = dynn_molug_motto
+}
+
+dynasty_shirfik = { #Minor orcs in the northern Mirkwood
+	name = dynn_shirfik
+	culture = kazgumhoth
+	motto = dynn_shirfik_motto
+}
+
+dynasty_hornakh = { #Terror in the Woods, strong orc tribe in Men-i-Naugrim
+	name = dynn_hornakh
+	culture = kazgumhoth
+	motto = dynn_hornakh_motto
+}
+
+dynasty_greleb = { #Mirkwood orcs under the Necromancer in Gorogrod
+	name = dynn_greleb
+	culture = kazgumhoth
+	motto = dynn_greleb_motto
+}
+
+dynasty_grulukh = { #Mirkwood orcs under the Necromancer in Barad Angol
+	name = dynn_grulukh
+	culture = kazgumhoth
+	motto = dynn_grulukh_motto
+}
+
+dynasty_grohak = { #Minor Orcs near Sairtheod for Long winter
+	name = dynn_grohak
+	culture = kazgumhoth
+	motto = dynn_grohak_motto
+}
+
+dynasty_bruluk = { #High Chieftains of Taur-e-Ndaedelos 
+	name = dynn_bruluk
+	culture = kazgumhoth
+	motto = dynn_bruluk_motto
+}
+
+dynasty_marku = { #Usakan Orcs
+	name = dynn_marku
+	culture = rukhashai
+	motto = dynn_marku_motto
+}
+
+dynasty_rulum = { #Usakan Orcs
+	name = dynn_rulum
+	culture = rukhashai
+	motto = dynn_rulum_motto
+}
+
+dynasty_morakh = { #Usakan Orcs
+	name = dynn_morakh
+	culture = rukhashai
+	motto = dynn_morakh_motto
+}
+
+dynasty_raghash = { #Feuding Usakan Orcs LW
+	name = dynn_raghash
+	culture = rukhashai
+	motto = dynn_raghash_motto
+}
+
+dynasty_burzat = { #Grey Mountain Orcs LW
+	name = dynn_burzat
+	culture = worauthai_madur
+	motto = dynn_burzat_motto
+}
+
+dynasty_yagrash = {	#Grey Mountain Orcs LW
+	name = dynn_yagrash
+	culture = worauthai_madur
+	motto = dynn_yagrash_motto
+}
+
+dynasty_muzhur = {	#Grey Mountain Orcs LW
+	name = dynn_muzhur
+	culture = ghrazim
+	motto = dynn_muzhur_motto
+}
+
+dynasty_sark = {	#Grey Mountain Goblins LW
+	name = dynn_sark
+	culture = hidesprouter_goblin
+	motto = dynn_sark_motto
+}
+
+dynasty_daurukh = {
+	name = dynn_daurukh
+	culture = napekindler_goblin
+	motto = dynn_daurukh_motto
+}
+
+dynasty_burthrakh = {
+	name = dynn_burthrakh
+	culture = napekindler_goblin
+	motto = dynn_burthrakh_motto
+}
+
+### Yellow Mountain Orcs ###
+
+dynasty_kuruhai = {
+	name = dynn_kuruhai
+	culture = rukhashai
+	motto = dynn_kuruhai_motto
+}
+
+dynasty_kadash = {
+	name = dynn_kadash
+	culture = rukhashai
+	motto = dynn_kadash_motto
+}
+
+dynasty_cleaver = {
+	name = dynn_cleaver
+	culture = sootscraper_goblin
+	motto = dynn_cleaver_motto
+}
+
+dynasty_grakak = {
+	name = dynn_grakak
+	culture = peltripper_goblin
+	motto = dynn_grakak_motto
+}
+
+dynasty_gravayna = {
+	name = dynn_gravayna
+	culture = rukhashai
+	motto = dynn_gravayna_motto
+}
+
+dynasty_grishok = {
+	name = dynn_grishok
+	culture = marketcher_goblin
+	motto = dynn_grishok_motto
+}
+
+dynasty_guriz = {
+	name = dynn_guriz
+	culture = flintslinger_gobbo
+	motto = dynn_guriz_motto
+}
+
+dynasty_karkagg = {
+	name = dynn_karkagg
+	culture = marketcher_goblin
+	motto = dynn_karkagg_motto
+}
+
+dynasty_kiribash = {
+	name = dynn_kiribash
+	culture = peltripper_goblin
+	motto = dynn_kiribash_motto
+}
+
+dynasty_likrikki = {
+	name = dynn_likrikki
+	culture = peltripper_goblin
+	motto = dynn_likrikki_motto
+}
+
+dynasty_lughasya = {
+	name = dynn_lughasya
+	culture = rukhashai
+	motto = dynn_lughasya_motto
+}
+
+dynasty_ralukai = {
+	name = dynn_ralukai
+	culture = flintslinger_gobbo
+	motto = dynn_ralukai_motto
+}
+
+dynasty_rishikki = {
+	name = dynn_rishikki
+	culture = peltripper_goblin
+	motto = dynn_rishikki_motto
+}
+
+dynasty_shakrakk = {
+	name = dynn_shakrakk
+	culture = marketcher_goblin
+	motto = dynn_shakrakk_motto
+}
+
+dynasty_snagarya = {
+	name = dynn_snagarya
+	culture = sootscraper_goblin
+	motto = dynn_snagarya_motto
+}
+
+dynasty_zukarok = {
+	name = dynn_zukarok
+	culture = sootscraper_goblin
+	motto = dynn_zukarok_motto
+}
+
+dynasty_narosh = {
+	name = dynn_narosh
+	culture = sootscraper_goblin
+	motto = dynn_narosh_motto
+}
+
+dynasty_ulkhash = {
+	name = dynn_ulkhash
+	culture = rukhashai
+	motto = dynn_ulkhash_motto
+}
+
+dynasty_hargash = {
+	name = dynn_hargash
+	culture = rukhashai
+	motto = dynn_hargash_motto
+}
+
+dynasty_nagrak = {
+	name = dynn_nagrak
+	culture = peltripper_goblin
+	motto = dynn_nagrak_motto
+}
+
+dynasty_rakhas = {
+	name = dynn_rakhas
+	culture = peltripper_goblin
+	motto = dynn_rakhas_motto
+}
+
+dynasty_klakk = {
+	name = dynn_klakk
+	culture = peltripper_goblin
+	motto = dynn_klakk_motto
+}
+
+dynasty_tirag = {
+	name = dynn_tirag
+	culture = marketcher_goblin
+	motto = dynn_tirag_motto
+}
+
+dynasty_gortak = {
+	name = dynn_gortak
+	culture = marketcher_goblin
+	motto = dynn_gortak_motto
+}
+
+dynasty_soranog = {
+	name = dynn_soranog
+	culture = flintslinger_gobbo
+	motto = dynn_soranog_motto
+}
+
+dynasty_thukhhai = {
+	name = dynn_thukhhai
+	culture = flintslinger_gobbo
+	motto = dynn_thukhhai_motto
+}
+
+dynasty_hizhdogriz = {
+	name = dynn_hizhdogriz
+	culture = rukhashai
+	motto = dynn_hizhdogriz_motto
+}
+
+dynasty_gomurz = {
+	name = dynn_gomurz
+	culture = flintslinger_gobbo
+	motto = dynn_gomurz_motto
+}
+
+dynasty_morkhan = {
+	name = dynn_morkhan
+	culture = rukhashai
+	motto = dynn_morkhan_motto
+}
+
+dynasty_karakka = {
+	name = dynn_karakka
+	culture = echomaker_goblin
+	motto = dynn_karakka_motto	
+}
+
+dynasty_jikirik = {
+	name = dynn_jikirik
+	culture = echomaker_goblin
+	motto = dynn_jikirik_motto	
+}
+
+dynasty_tokkal = {
+	name = dynn_tokkal
+	culture = echomaker_goblin
+	motto = dynn_tokkal_motto	
+}
+
+dynasty_rukorak = {
+	name = dynn_rukorak
+	culture = echomaker_goblin
+	motto = dynn_rukorak_motto	
+}
+
+dynasty_grigak = {
+	name = dynn_grigak
+	culture = echomaker_goblin
+	motto = dynn_grigak_motto	
+}
+
+########################
+# MORDOR ORC DYNASTIES #
+########################
+
+dynasty_romukh = {
+	name = dynn_romukh
+	culture = ghashhai
+	motto = dynn_romukh_motto
+}
+dynasty_prakh = {
+	name = dynn_prakh
+	culture = ghashhai
+	motto = dynn_prakh_motto
+}
+dynasty_blorkh = {
+	name = dynn_blorkh
+	culture = morlughai
+	motto = dynn_blorkh_motto
+}
+dynasty_trikh = {
+	name = dynn_trikh
+	culture = morlughai
+	motto = dynn_trikh_motto
+}
+dynasty_andrukh = {
+	name = dynn_andrukh
+	culture = ungurhai
+	motto = dynn_andrukh_motto
+}
+dynasty_workar = {
+	name = dynn_workar
+	culture = ungurhai
+	motto = dynn_workar_motto
+}
+dynasty_krukh = {
+	name = dynn_krukh
+	culture = luftutaumhai
+	motto = dynn_krukh_motto
+}
+dynasty_snorkh = {
+	name = dynn_snorkh
+	culture = luftutaumhai
+	motto = dynn_snorkh_motto
+}
+dynasty_yarakh = {
+	name = dynn_yarakh
+	culture = murdurhai
+	motto = dynn_yarakh_motto
+}
+dynasty_zogh = {
+	name = dynn_zogh
+	culture = murdurhai
+	motto = dynn_zogh_motto
+}
+dynasty_brolokh = {
+	name = dynn_brolokh
+	culture = ruhai
+	motto = dynn_brolokh_motto
+}
+dynasty_goragur = {
+	name = dynn_goragur
+	culture = ruhai
+	motto = dynn_goragur_motto
+}
+dynasty_burlaga = {
+	name = dynn_burlaga
+	culture = murdurhai
+	motto = dynn_burlaga_motto
+}
+dynasty_lorshug = {
+	name = dynn_lorshug
+	culture = murdurhai
+	motto = dynn_lorshug_motto
+}
+dynasty_worulg = {
+	name = dynn_worulg
+	culture = burgulhai
+	motto = dynn_worulg_motto
+}
+dynasty_moruk = {
+	name = dynn_moruk
+	culture = maraudhai
+	motto = dynn_moruk_motto
+}
+dynasty_yaghurak = {
+	name = dynn_yaghurak
+	culture = maraudhai
+	motto = dynn_yaghurak_motto
+}
+dynasty_gralukh = {
+	name = dynn_gralukh
+	culture = maraudhai
+	motto = dynn_gralukh_motto
+}
+dynasty_roluku = {
+	name = dynn_roluku
+	culture = gurgurhai
+	motto = dynn_roluku_motto
+}
+dynasty_zarukh = {
+	name = dynn_zarukh
+	culture = gurgurhai
+	motto = dynn_zarukh_motto
+}
+dynasty_grasun = {
+	name = dynn_grasun
+	culture = burgulhai
+	motto = dynn_grasun_motto
+}
+dynasty_korag = {
+	name = dynn_korag
+	culture = ruhai
+	motto = dynn_korag_motto
+}
+dynasty_ninkai = {
+	name = dynn_ninkai
+	culture = murdurhai
+	motto = dynn_ninkai_motto
+}
+dynasty_morakur = {
+	name = dynn_morakur
+	culture = murdurhai
+	motto = dynn_morakur_motto
+}
+dynasty_kharnulgamb = {
+	name = dynn_kharnulgamb
+	culture = murdurhai
+	motto = dynn_kharnulgamb_motto
+}
+dynasty_filukh = {
+	name = dynn_filukh
+	culture = maraudhai
+	motto = dynn_filukh_motto
+}
+
+dynasty_nazgim = {
+	name = dynn_nazgim
+	culture = maraudhai
+	motto = dynn_nazgim_motto
+}
+
+dynasty_bazgrok = {
+	name = dynn_bazgrok
+	culture = maraudhai
+	motto = dynn_bazgrok_motto
+}
+
+### Moria QfE ###
+dynasty_morlug = {	#ToR Moria, QfE: Naglur the Sword of Mordor
+	name = dynn_morlug
+	culture = morlughai
+	motto = dynn_morlug_motto
+}
+
+dynasty_gorlabhai = {	#ToR Moria, QfE: Grimnar the Gaoler
+	name = dynn_gorlabhai
+	culture = gloomdrinker_goblin
+	motto = dynn_gorlabhai_motto
+}
+
+dynasty_yagshukh = {	#ToR Moria, QfE: Yagul the Snatcher
+	name = dynn_yagshukh
+	culture = bellbreaker_goblin
+	motto = dynn_yagshukh_motto
+}
+
+dynasty_garosh = {	#ToR Moria, QfE: Hagrot the Sneak and Granny Goblin
+	name = dynn_garosh
+	culture = hallroamer_goblin
+	motto = dynn_garosh_motto
+}
+
+dynasty_rotbag = {	#ToR Moria, QfE: Malech One-Eye
+	name = dynn_rotbag
+	culture = ghrazim
+	motto = dynn_rotbag_motto
+}
+
+dynasty_arghash = {	#ToR Moria, QfE: Thu "Firespeaker"
+	name = dynn_arghash
+	culture = deepwalker_goblin
+	motto = dynn_arghash_motto
+}
+
+dynasty_snagathrak = {	#ToR Moria, QfE: Shagram the Merry Fellow
+	name = dynn_snagathrak
+	culture = fangstealer_goblin
+	motto = dynn_snagathrak_motto
+}
+
+dynasty_bagronk = {	#ToR Moria, QfE: Gorlakh the Gate-warden
+	name = dynn_bagronk
+	culture = clawscorcher_goblin
+	motto = dynn_bagronk_motto
+}

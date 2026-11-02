@@ -1,0 +1,738 @@
+﻿namespace = race
+
+# Maintenance event for various races, converting culture, adding traits, etc.
+#	race.0001	conversion for chaplains
+
+race.0001 = {
+	hidden = yes
+
+	trigger = {
+		is_from_ruler_designer = no
+		OR = {
+			not_nazgul = yes
+			not_istari = yes
+			not_istari_evil = yes
+			not_maiar = yes
+			not_maiar_fallen = yes
+		}
+	}
+
+
+	immediate = {
+		if = {
+			limit = { is_landed = yes }
+			if = {
+				limit = {
+					any_courtier = {
+						culture = root.capital_province.culture
+						faith = root.faith
+						is_lotr_adult = yes
+						trigger_if = {
+							limit = {
+								root.liege.faith = {
+									has_doctrine = doctrine_gender_male_dominated
+								}
+							}
+							is_male = yes
+						}
+						trigger_if = {
+							limit = {
+								root.liege.faith = {
+									has_doctrine = doctrine_gender_female_dominated
+								}
+							}
+							is_female = yes
+						}
+					}
+				}
+				
+				random_courtier = {
+					limit = {
+						culture = root.capital_province.culture
+						faith = root.faith
+						is_lotr_adult = yes
+						trigger_if = {
+							limit = {
+								root.liege.faith = {
+									has_doctrine = doctrine_gender_male_dominated
+								}
+							}
+							is_male = yes
+						}
+						trigger_if = {
+							limit = {
+								root.liege.faith = {
+									has_doctrine = doctrine_gender_female_dominated
+								}
+							}
+							is_female = yes
+						}
+					}
+					save_scope_as = new_ruler
+				}
+			}
+			else_if = {
+				limit = {
+					any_pool_character = {
+						province = root.capital_province
+						culture = root.capital_province.culture
+						faith = root.faith
+						is_lotr_adult = yes
+						trigger_if = {
+							limit = {
+								root.liege.faith = {
+									has_doctrine = doctrine_gender_male_dominated
+								}
+							}
+							is_male = yes
+						}
+						trigger_if = {
+							limit = {
+								root.liege.faith = {
+									has_doctrine = doctrine_gender_female_dominated
+								}
+							}
+							is_female = yes
+						}
+					}
+				}
+				random_pool_character = {
+					province = root.capital_province
+					limit = {
+						culture = root.capital_province.culture
+						faith = root.faith
+						is_lotr_adult = yes
+						trigger_if = {
+							limit = {
+								root.liege.faith = {
+									has_doctrine = doctrine_gender_male_dominated
+								}
+							}
+							is_male = yes
+						}
+						trigger_if = {
+							limit = {
+								root.liege.faith = {
+									has_doctrine = doctrine_gender_female_dominated
+								}
+							}
+							is_female = yes
+						}
+					}
+					save_scope_as = new_ruler
+				}
+			}
+			else = {
+				create_character = {
+					location = root.capital_province
+					random_traits = yes
+					culture = root.capital_province.culture
+					faith = root.faith
+					age = { 40 65 }
+					gender_female_chance = root_soldier_female_chance
+					martial = {
+						min_template_decent_skill
+						max_template_decent_skill
+					}
+					save_scope_as = new_ruler
+					after_creation = {
+						lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+							MAX = middle_age
+							MIN = nubile_age
+						}
+					}
+				}
+			}
+
+			if = {
+				limit = { NOT = { exists = scope:new_ruler } }
+				create_character = {
+					location = root.capital_province
+					random_traits = yes
+					culture = root.capital_province.culture
+					faith = root.faith
+					age = { 40 65 }
+					gender_female_chance = root_soldier_female_chance
+					martial = {
+						min_template_decent_skill
+						max_template_decent_skill
+					}
+					save_scope_as = new_ruler
+					after_creation = {
+						lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+							MAX = middle_age
+							MIN = nubile_age
+						}
+					}					
+				}
+			}
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			scope:title ?= { 
+				change_title_holder = {
+					holder = scope:new_ruler
+					change = scope:change
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+			trigger_event = { id = race.9999 days = 1 }
+		}
+		else = {
+			if = {
+				limit = {
+					not_nazgul = yes
+					root.location = {
+						OR = {
+							geographical_region = middleearth_harad_far
+							geographical_region = middleearth_uttersouth
+							geographical_region = middleearth_harad_bayoformal
+							geographical_region = middleearth_mountains_yellow
+						}						
+					}
+#					liege.capital_county = {
+#						title_province = {
+#							OR = {
+#								geographical_region = middleearth_harad_far
+#								geographical_region = middleearth_uttersouth
+#								geographical_region = middleearth_harad_bayoformal
+#								geographical_region = middleearth_mountains_yellow
+#							}
+#						}
+#					}					
+				}
+				full_character_ethnicity_change = { CULTURE = culture:rukhashai }
+			}
+			else_if = {
+				limit = {
+					not_nazgul = yes
+					root.location = {
+						OR = {
+							geographical_region = middleearth_forodwaith
+							geographical_region = middleearth_west_arnor
+							geographical_region = middleearth_west_eregion
+							geographical_region = middleearth_mountains_blue
+							geographical_region = middleearth_west_beleriand
+						}						
+					}
+#					liege.capital_county = {
+#						title_province = {
+#							OR = {
+#								geographical_region = middleearth_forodwaith
+#								geographical_region = middleearth_west_arnor
+#								geographical_region = middleearth_west_eregion
+#								geographical_region = middleearth_mountains_blue
+#								geographical_region = middleearth_west_beleriand
+#							}
+#						}
+#					}					
+				}
+				full_character_ethnicity_change = { CULTURE = culture:uruk_ongmair }
+			}			
+			else_if = {
+				limit = {
+					not_nazgul = yes
+				}
+				full_character_ethnicity_change = { CULTURE = culture:ungurhai }
+			}
+			else_if = {
+				limit = {
+					not_istari = yes
+				}
+				if = {
+					limit = { is_landed = yes }
+					full_character_ethnicity_change = { CULTURE = root.capital_province.culture }
+					set_character_faith = root.capital_province.faith
+				}
+				else_if = {
+					limit = {
+						NOR = {
+							this = character:lineofsaruman
+							this = character:lineofradagast
+							this = character:lineofgandalf
+						}
+					}
+					full_character_ethnicity_change = { CULTURE = location.culture }
+					set_character_faith = location.faith
+				}
+			}
+			else_if = {
+				limit = {
+					not_istari_evil = yes
+				}
+				full_character_ethnicity_change = { CULTURE = culture:isengard_urukhai }
+			}
+			else_if = {
+				limit = {
+					not_maiar = yes
+				}
+				if = {
+					limit = { is_landed = yes }
+					full_character_ethnicity_change = { CULTURE = root.capital_province.culture }
+					set_character_faith = root.capital_province.faith
+				}
+				else_if = {
+					limit = {
+						NOR = {
+							this = character:lineofsaruman
+							this = character:lineofradagast
+							this = character:lineofgandalf
+						}
+					}
+					full_character_ethnicity_change = { CULTURE = location.culture }
+					set_character_faith = location.faith
+				}
+			}
+			else_if = {
+				limit = {
+					not_maiar_fallen = yes
+				}
+				full_character_ethnicity_change = { CULTURE = culture:morlughai }
+			}
+			if = {
+				limit = {
+					has_dynasty = yes
+				}
+				dynasty = { generate_coa = yes }
+			}
+		}
+	}
+}
+
+race.0002 = {
+	hidden = yes
+	
+	trigger = {
+		age >= 16
+		is_lotr_adult = no
+		NOT = { exists = father }
+		NOT = { exists = mother }
+		NOT = { exists = dynasty }
+	}
+
+	immediate = {
+		if = {
+			limit = { is_elf = no }
+			set_age = { nubile_age young_age }
+		}
+		else = { set_age = { 50 2000 } }
+	}
+}
+
+race.0004 = { #Triggering marriage for betrothed nubiles if AI doesn't manage it
+	hidden = yes
+	
+	trigger = {
+		is_betrothed = yes
+		OR = { #Checks that the custom betrothal has been used
+			nubile_age > 16
+			betrothed.nubile_age >16
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_ai = yes
+				is_nubile = yes
+				betrothed = { 
+					is_ai = yes
+					is_nubile = yes
+				}
+				NOT = { has_variable = promised_grand_wedding_marriage_countdown }
+			}
+			marry = root.betrothed
+		}
+	}
+}
+
+race.0005 = { #Removing courtiers from inappropriate courts
+	hidden = yes
+	
+	trigger = {
+		is_ruler = no
+		OR = {
+			AND = { # Elves will leave a Non-Elven court unless their host is a friend (elven healers excepted)
+				is_elf = yes
+				NOT = {
+					has_character_flag = is_arwen
+				}
+				is_imprisoned = no
+				scope:new_employer = { is_elf = no }
+				NOT = { has_character_flag = elven_healer }
+				NOT = { has_relation_friend = scope:new_employer }
+			}
+			AND = { # Non-Elves or Istari won't stay in Valinor
+				is_elf = no
+				is_istari = no
+				scope:new_employer = { is_in_valinor = yes }
+			}
+			AND = { #Elves in Valinor will stay there
+				is_elf = yes
+				scope:old_employer ?= { is_in_valinor = yes }
+			}
+			AND = { # Nâzgul don't go to just any court
+				is_nazgul = yes
+				scope:new_employer = { 
+					is_nazgul = no
+					is_sauron = no
+				}
+			}
+			AND = { # Orcs don't go to good faith courts
+				is_orc = yes
+				is_imprisoned = no
+				scope:new_employer = { faith_is_good = yes }
+			}
+		}
+	}
+	cooldown = { days = 1 }
+	
+	immediate = {
+	
+		# Elves will leave a Non-Elven court unless their host is a friend (elven healers excepted)
+		if = {
+			limit = {
+				is_elf = yes
+				NOT = {
+					has_character_flag = is_arwen
+				}
+				is_imprisoned = no
+				scope:new_employer = { is_elf = no }
+				NOT = { has_character_flag = elven_healer }
+				NOT = { has_relation_friend = scope:new_employer }
+			}
+			if = {
+				limit = {
+					any_extended_family_member = {
+						is_landed = yes
+						is_in_valinor = no
+					}
+				}
+				random_extended_family_member = {
+					limit = { 
+						is_landed = yes
+						is_in_valinor = no
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = {
+					any_ruler = {
+						culture = root.culture
+						is_in_valinor = no
+					}
+				}
+				random_ruler = {
+					limit = { 
+						culture = root.culture 
+						is_in_valinor = no
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = {
+					any_ruler = {
+						culture = { has_same_culture_heritage = root.culture }
+						is_in_valinor = no
+					}
+				}
+				random_ruler = {
+					limit = { 
+						culture = { has_same_culture_heritage = root.culture }
+						is_in_valinor = no
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = {
+					any_ruler = {
+						is_elf = yes
+						is_in_valinor = no
+					}
+				}
+				random_ruler = {
+					limit = { 
+						is_elf = yes
+						is_in_valinor = no
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else = {
+				random_ruler = {
+					limit = { 
+						is_elf = yes
+					}
+					save_scope_as = future_employer
+				}
+			}
+		}
+		
+		# Non-Elves or Istari won't stay in Valinor
+		else_if = {
+			limit = {
+				is_elf = no
+				is_istari = no
+				scope:new_employer = { is_in_valinor = yes }
+			}
+			if = {
+				limit = {
+					any_ruler = {
+						culture = root.culture
+					}
+				}
+				random_ruler = {
+					limit = { 
+						culture = root.culture 
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = {
+					any_ruler = {
+						culture = { has_same_culture_heritage = root.culture }
+					}
+				}
+				random_ruler = {
+					limit = { 
+						culture = { has_same_culture_heritage = root.culture }
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = {
+					any_ruler = {
+						same_race = { TARGET = root }
+					}
+				}
+				random_ruler = {
+					limit = { 
+						same_race = { TARGET = root }
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = {
+					any_ruler = {
+						same_alignment = { TARGET = root }
+					}
+				}
+				random_ruler = {
+					limit = { 
+						same_alignment = { TARGET = root }
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else = {
+				random_ruler = {
+					limit = { 
+						is_in_valinor = no
+					}
+					save_scope_as = future_employer
+				}
+			}
+			
+			move_to_pool_at = scope:future_employer.capital_province
+			set_employer = scope:future_employer
+		}
+		
+		else_if = { #Elves in Valinor will stay there
+			limit = {
+				is_elf = yes
+				scope:old_employer = { is_in_valinor = yes }
+				scope:new_employer = { is_in_valinor = no }
+			}
+			move_to_pool_at = scope:old_employer.capital_province
+			set_employer = scope:old_employer
+		}
+		
+		# Nâzgul go to Sauron's court
+		else_if = { 
+			limit = {
+				is_nazgul = yes
+				scope:new_employer = { 
+					is_nazgul = no
+					is_sauron = no
+				}
+			}
+			set_employer = character:lineofsauron
+		}
+		
+		# Orcs don't stay in good court
+		else_if = { # Orcs don't stay in good court
+			limit = {
+				is_orc = yes
+				scope:new_employer = { faith_is_good = yes }
+			}
+			if = {
+				limit = {
+					any_ruler = {
+						culture = root.culture
+					}
+				}
+				random_ruler = {
+					limit = { 
+						culture = root.culture 
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = {
+					any_ruler = {
+						culture = { has_same_culture_heritage = root.culture }
+					}
+				}
+				random_ruler = {
+					limit = { 
+						culture = { has_same_culture_heritage = root.culture }
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = {
+					any_ruler = {
+						is_orc = yes
+					}
+				}
+				random_ruler = {
+					limit = { 
+						is_orc = yes
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = { sauron_is_alive = yes }
+				random_ruler = {
+					limit = { 
+						is_nazgul = yes
+						is_sauron = yes
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = {
+					any_ruler = {
+						faith_is_evil = yes
+					}
+				}
+				random_ruler = {
+					limit = { 
+						faith_is_evil = yes
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else = {
+				random_ruler = {
+					limit = { 
+						faith_is_good = no
+					}
+					save_scope_as = future_employer
+				}
+			}
+			
+			move_to_pool_at = scope:future_employer.capital_province
+			set_employer = scope:future_employer
+		}
+	}
+}
+
+race.0006 = { #Deleting inappropriate MaA upon inheritance
+	hidden = yes
+	
+	immediate = {
+		every_maa_regiment = {
+			limit = { 
+				#Elven MaA
+				trigger_if = {
+					limit = { is_elven_maa_regiment = yes }
+					root = {
+						is_elf = no
+						NAND = {
+							is_maiar = yes
+							faith_is_good = yes
+						}
+					}
+				}	
+				#Dwarven MaA
+				trigger_else_if = {
+					limit = { is_dwarven_maa_regiment = yes }
+					root = { is_dwarf = no }
+				}
+				#Orcish MaA
+				trigger_else_if = {
+					limit = { is_orcish_maa_regiment = yes }
+					root = { lotr_orc_buildings = no }
+				}
+				#Undead MaA
+				trigger_else_if = {
+					limit = { is_undead_maa_regiment = yes }
+					root = { is_nazgul = no }
+				}
+				#Hobbit MaA
+				trigger_else_if = {
+					limit = { is_hobbit_maa_regiment = yes }
+					root = { 
+						is_hobbit = no 
+						is_human = no
+						is_druedain = no
+					}
+				}
+				#Everyone can keep vanilla siege weapons
+				trigger_else_if = {
+					limit = { is_unit_type = siege_weapon }
+					always = no
+				}
+				#Human and Druedain MaA
+				trigger_else = {
+					root = { 
+						NOR = {
+							is_human = yes
+							is_druedain = yes
+							cannot_be_killed = yes
+						}
+					}
+				}
+			}
+			destroy_maa_regiment = yes
+		}
+	}
+}
+
+# race.0007 = { #Adds Missing BoN to characters who do not have it
+	# hidden = yes
+	# orphan = yes
+	# trigger = {
+		# #   Fire only the very first time they get a court
+		# NOT = { has_character_flag = is_historical }
+		# NOT = { has_character_flag = age_traits_effect_applied }
+		# is_nubile = yes
+	# }
+
+	# immediate = {
+		# lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			# MAX = middle_age
+			# MIN = nubile_age
+		# }				
+	# }			
+# }
+
+race.9999 = {
+	hidden = yes
+	immediate = {
+		death = { death_reason = death_disappearance }
+	}
+}

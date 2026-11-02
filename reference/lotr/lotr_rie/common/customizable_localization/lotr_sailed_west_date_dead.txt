@@ -1,0 +1,16 @@
+﻿sailed_west_date_dead = {
+    type = character
+
+    text = {
+        trigger = {
+            is_sailed_west_historical_1 = yes
+        }
+        localization_key = date_1132
+    }
+    text = {
+        trigger = {
+            is_sailed_west_historical_2 = yes
+        }
+        localization_key = date_1150
+    }
+}

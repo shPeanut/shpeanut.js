@@ -1,0 +1,199 @@
+﻿# Seregul stuff
+
+pel_destabilized_modifier = {
+	icon = legitimacy_negative
+	legitimacy_gain_mult = -0.5
+}
+
+seregul_focusing_south_modifier = {
+	icon = intrigue_positive
+	owned_hostile_scheme_success_chance_add = 10
+	hostile_scheme_phase_duration_add = -30
+}
+
+seregul_focusing_east_modifier = {
+	icon = martial_positive
+	men_at_arms_recruitment_cost = -0.2
+	men_at_arms_maintenance = -0.2
+}
+
+seregul_focusing_west_modifier = {
+	icon = diplomacy_positive
+	direct_vassal_opinion = 20
+	vassal_tax_contribution_mult = 0.2
+}
+
+seregul_focusing_everywhere_modifier = {
+	icon = diplomacy_negative
+	owned_hostile_scheme_success_chance_add = 5
+	men_at_arms_recruitment_cost = -0.1
+	vassal_tax_contribution_mult = 0.1
+	vassal_opinion = -25
+	dread_decay_mult = 0.25
+}
+
+seregul_plotting_modifier = {
+	icon = intrigue_positive
+	max_hostile_schemes_add = 1
+}
+
+seregul_strangled_trade_modifier = {
+	icon = county_modifier_development_negative
+	tax_mult = -0.1
+	development_decline = -7.5
+	development_growth = -2.5 
+}
+
+seregul_against_the_west_modifier = {
+	icon = martial_positive
+	movement_speed = -0.33
+	siege_phase_time = -0.33
+}
+
+seregul_stabilized_pel_modifier = {
+	icon = legitimacy_positive
+	tax_mult = 0.25
+	development_growth_factor = 0.2
+	vassal_opinion = 20
+}
+
+seregul_anbalukkhori_advisers_modifier = {
+	icon = dread_positive
+	monthly_martial_lifestyle_xp_gain_mult = 0.15
+	dread_baseline_add = 30
+	mercenary_hire_cost_mult = -0.75
+}
+
+#Nothing happens in TH
+
+th_neh_peace_modifier = {
+    icon = health_positive
+    negate_health_penalty_add = 0.5
+    stress_gain_mult = -0.15
+    stress_loss_mult = 0.15
+}
+
+th_neh_harasser_modifier = {
+    icon = intrigue_positive
+    intrigue = 2
+    dread_baseline_add = 5
+    stress_gain_mult = 0.15
+    stress_loss_mult = -0.15
+}
+
+th_neh_harassed_modifier = {
+    icon = intrigue_negative
+    intrigue = -2
+    stress_gain_mult = 0.15
+    stress_loss_mult = -0.15
+}
+
+#8th Princedom
+
+fished_on_lake_ninakhas = {
+	icon = health_positive
+	negate_health_penalty_add = 1
+	stress_gain_mult = -0.25
+	stress_loss_mult = 0.25
+}
+
+blessed_by_the_lake = {
+	icon = health_positive
+	life_expectancy = 5
+	negate_health_penalty_add = 3
+	prowess = 3
+}
+
+reign_of_terror = {
+	icon = dread_positive
+	development_growth_factor = -0.3
+	tax_mult = 0.25
+	county_opinion_add = -20
+}
+
+festivals_encouraged = {
+	icon = stewardship_positive
+	development_growth_factor = 0.25
+	tax_mult = -0.2
+	county_opinion_add = 20
+}
+
+festivals_taxed = {
+	icon = stewardship_positive
+	development_growth_factor = -0.25
+	tax_mult = 0.2
+	county_opinion_add = -20
+}
+
+draconic_enforcement = {
+	icon = dread_negative
+	development_growth_factor = -0.5
+	tax_mult = -0.15
+	county_opinion_add = -100
+}
+
+draconic_taxing = {
+	icon = dread_positive
+	development_growth_factor = -2
+	tax_mult = 0.7
+	development_decline = -1
+	county_opinion_add = -50
+}
+
+successful_propaganda = {
+	icon = diplomacy_positive
+	county_opinion_add = 30
+	tax_mult = 0.2
+}
+
+surplus_of_labour = {
+	icon = stewardship_positive
+	build_gold_cost = -0.2
+	build_speed = -0.4
+}
+
+full_surveillance = {
+	icon = dread_positive
+	monthly_county_control_growth_add = 0.5
+	county_opinion_add = -30
+}
+
+population_armed = {
+	icon = martial_negative
+	monthly_county_control_growth_factor = -0.2
+	county_opinion_add = 10
+}
+
+reduced_economic_activity = {
+	icon = stewardship_negative
+	build_speed = 0.4
+	build_gold_cost = 0.2
+	county_opinion_add = 30
+}
+
+forced_work = {
+	icon = stewardship_mixed
+	build_speed = -0.25
+	build_gold_cost = -0.2
+	tax_mult = -0.2
+	county_opinion_add = -25
+}
+
+tyrannical_regime = {
+	icon = dread_negative
+	county_opinion_add = -50
+}
+
+corruption_incentivized = {
+	icon = economy_negative
+	build_gold_cost = 0.2
+	build_speed = 0.35
+	development_growth_factor = -0.2
+}
+
+increased_trade = {
+	icon = economy_positive
+	development_growth_factor = 0.2
+	development_growth = 0.05
+	tax_mult = 0.1
+}

@@ -1,0 +1,100 @@
+# ============================================================
+# События: призыв падаль-зверей, гибель зверя, дар Саурона.
+# namespace nazgul_fellbeast — не конфликтует ни с AGOT, ни с RIE.
+# Все эффекты автономны (не требуют AGOT).
+# ============================================================
+
+namespace = nazgul_fellbeast
+
+# --- 0001: обычный призыв (вызывается решением claim) ---
+nazgul_fellbeast.0001 = {
+        type = character_event
+        title = nazgul_fellbeast.0001.t
+        desc = nazgul_fellbeast.0001.d
+        theme = learning_learning_event
+
+        left_portrait = {
+                character = root
+                animation = anger
+        }
+
+        option = {
+                name = FLAVOR-nazgul_fell_beast_flavor.1
+                add_dread = 50
+                ai_chance = { base = 100 }
+        }
+}
+
+# --- 0002: Гибель ездового зверя на войне ---
+nazgul_fellbeast.0002 = {
+        type = character_event
+        title = nazgul_fellbeast.0002.t
+        desc = nazgul_fellbeast.0002.d
+        theme = warfare_conquest_event
+
+        left_portrait = {
+                character = root
+                animation = grief
+        }
+
+        trigger = {
+                is_alive = yes
+                OR = {
+                        has_trait = nazgul_fell_beast_rider
+                        has_trait = nazgul_fell_beast_master
+                }
+                exists = var:current_dragon
+                var:current_dragon = { is_alive = no }
+        }
+
+        immediate = {
+                # Гибель зверя: чистим привязку по конвенциям AGOT + снимаем усиления
+                nazgul_unbind_fell_beast_effect = yes
+                remove_trait = master_of_fell_beasts
+        }
+
+        option = {
+                name = nazgul_fell_beast_flavor.3
+                add_prestige = -100
+                add_dread = 25
+                ai_chance = { base = 100 }
+        }
+}
+
+# --- 0003: Дар Саурона (уникальный зверь для Лорда Назгул) ---
+nazgul_fellbeast.0003 = {
+        type = character_event
+        title = nazgul_fellbeast.0003.t
+        desc = nazgul_fellbeast.0003.d
+        theme = roleplay_darkmagic_event
+
+        left_portrait = {
+                character = root
+                animation = happiness
+        }
+
+        trigger = {
+                has_trait = lord_of_the_nazgul   # [RIE-кандидат] ключ Кхота — см. README REVERSE
+                NOT = { has_character_flag = got_lord_of_angermont }
+        }
+
+        immediate = {
+                add_character_flag = got_lord_of_angermont
+                nazgul_claim_lord_of_angermont_effect = yes
+        }
+
+        option = {
+                name = OK
+                ai_chance = { base = 100 }
+        }
+}
+
+# --- 0004: Редкий спавн Владыки Ангормаунта (из random_list claim-effect) ---
+nazgul_fellbeast.0004 = {
+        type = character_event
+        hidden = yes
+        trigger = { always = yes }
+        immediate = {
+                nazgul_claim_lord_of_angermont_effect = yes
+        }
+}

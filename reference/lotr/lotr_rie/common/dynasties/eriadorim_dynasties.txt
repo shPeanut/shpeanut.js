@@ -1,0 +1,78 @@
+﻿
+### Eriadorrim ###
+
+dynasty_reise_arnethor = {
+	name = "dynn_reise_arnethor"
+	culture = "eriadorim"
+	motto = dynn_reise_arnethor_motto
+}
+
+### Breemen ###
+
+dynasty_cropsow = {
+	name = "dynn_cropsow"
+	culture = "breemen"
+	motto = dynn_cropsow_motto
+}
+
+dynasty_appledore = {
+	name = "dynn_appledore"
+	culture = "breemen"
+	motto = dynn_appledore_motto
+}
+
+dynasty_butterbur = {
+	name = "dynn_butterbur"
+	culture = "breemen"
+	motto = dynn_butterbur_motto
+}
+
+dynasty_ferny = {
+	name = "dynn_ferny"
+	culture = "breemen"
+	motto = dynn_ferny_motto
+}
+
+dynasty_goatleaf = {
+	name = "dynn_goatleaf"
+	culture = "breemen"
+	motto = dynn_goatleaf_motto
+}
+
+dynasty_heathertoes = {
+	name = "dynn_heathertoes"
+	culture = "breemen"
+	motto = dynn_heathertoes_motto
+}
+
+dynasty_pickthorn = {
+	name = "dynn_pickthorn"
+	culture = "breemen"
+	motto = dynn_pickthorn_motto
+}
+
+dynasty_skunkwood = {
+	name = "dynn_skunkwood"
+	culture = "breemen"
+	motto = dynn_skunkwood_motto
+}
+
+dynasty_tenderlarch = {
+    name = "dynn_tenderlarch"
+	culture = "breemen"
+	motto = dynn_tenderlarch_motto
+}
+
+dynasty_wheatley = {
+	name = "dynn_wheatley"
+	culture = "breemen"
+	motto = dynn_wheatley_motto
+}
+
+# Tom Bombadil
+
+dynasty_bombadil = {
+	name = "dynn_bombadil"
+	culture = "wastelands"
+	motto = dynn_bombadil_motto
+}

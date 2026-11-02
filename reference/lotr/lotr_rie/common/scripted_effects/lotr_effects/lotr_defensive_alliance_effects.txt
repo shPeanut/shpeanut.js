@@ -1,0 +1,157 @@
+﻿lotr_create_defensive_alliance = {
+	save_scope_as = primary_defender
+	$DEFENSIVE_ALLY$ = { save_scope_as = secondary_defender }
+	add_character_flag = {
+		flag = $LOC_KEY$
+		days = 7
+	}
+	scope:primary_defender = {
+		add_character_flag = {
+			flag = lotr_new_defensive_alliance
+			days = 7
+		}
+	}
+	scope:secondary_defender = {
+		add_character_flag = {
+			flag = lotr_new_defensive_alliance
+			days = 7
+		}
+	}
+	create_confederation = {
+		name = DEFENSIVE_ALLIANCE_GENERIC_NAME
+		type = confederation_type:defensive_alliance
+	}
+	scope:new_confederation ?= {
+		set_variable = defensive_alliance
+		set_variable = lotr_can_not_elevate_confederation
+		add_confederation_member = scope:secondary_defender
+
+		set_variable = { #Save for localization reasons
+			name = primary_defender
+			value = scope:primary_defender
+		}
+		set_variable = {
+			name = secondary_defender
+			value = scope:secondary_defender
+		}
+	}
+	switch = {
+		trigger = has_character_flag
+		two_realm_name = {
+			scope:new_confederation ?= {
+				set_confederation_name = DEFENSIVE_ALLIANCE_DYNAMIC_TWO_REALM_NAME
+			}
+		}
+		balan_lai = {
+			scope:new_confederation ?= {
+				set_confederation_name = DEFENSIVE_ALLIANCE_BALAN_LAI_NAME
+				set_coa = d_balan_lai_leader
+				set_variable = balan_lai_confederation
+				set_variable = lotr_no_confederation_rename
+			}
+		}
+		faithful_league = {
+			scope:new_confederation ?= {
+				set_confederation_name = CONFEDERATION_NAME_BELLAKAR_GONDOR_ALLIANCE
+				set_variable = lotr_no_confederation_rename
+			}			
+		}
+		nazgul_alliance_black_host = {
+			scope:new_confederation ?= {
+				set_confederation_name = CONFEDERATION_NAME_NAZGUL_BLACK_HOST
+				set_variable = lotr_no_confederation_rename
+			}
+		}
+		nazgul_alliance_the_two = {
+			scope:new_confederation ?= {
+				set_confederation_name = CONFEDERATION_NAME_NAZGUL_THE_TWO
+				set_variable = lotr_no_confederation_rename
+			}
+		}
+		nazgul_alliance_direction_shadow_north = {
+			scope:new_confederation ?= {
+				set_confederation_name = CONFEDERATION_NAME_NAZGUL_DIRECTION_SHADOW_NORTH
+				set_variable = lotr_no_confederation_rename
+			}
+		}
+		nazgul_alliance_direction_shadow_south = {
+			scope:new_confederation ?= {
+				set_confederation_name = CONFEDERATION_NAME_NAZGUL_DIRECTION_SHADOW_SOUTH
+				set_variable = lotr_no_confederation_rename
+			}
+		}
+		nazgul_alliance_direction_shadow_east = {
+			scope:new_confederation ?= {
+				set_confederation_name = CONFEDERATION_NAME_NAZGUL_DIRECTION_SHADOW_EAST
+				set_variable = lotr_no_confederation_rename
+			}
+		}
+		nazgul_alliance_direction_shadow = {
+			scope:new_confederation ?= {
+				set_confederation_name = CONFEDERATION_NAME_NAZGUL_DIRECTION_SHADOW
+				set_variable = lotr_no_confederation_rename
+			}
+		}
+		nazgul_alliance_dark_pact = {
+			scope:new_confederation ?= {
+				set_confederation_name = CONFEDERATION_NAME_NAZGUL_DARK_PACT
+				set_variable = lotr_no_confederation_rename
+			}
+		}
+	}
+}
+
+lotr_disband_defensive_alliance = {
+	if = {
+		limit = { has_defensive_alliance = yes }
+		confederation ?= {
+			if = {
+				limit = { has_variable = defensive_alliance }
+				disband_confederation = yes
+			}
+		}
+	}
+}
+
+lotr_disband_defensive_alliance_character_check = {
+	if = {
+		limit = {
+			has_defensive_alliance = yes
+			$ALLY$ = { has_defensive_alliance = yes }
+		}
+		confederation ?= {
+			if = {
+				limit = {
+					has_variable = defensive_alliance
+					NOT = { has_variable = balan_lai_confederation }
+					any_confederation_member = { this = $ALLY$ }
+				}
+				disband_confederation = yes
+			}
+		}
+	}
+}
+
+lotr_refresh_defensive_alliance_name = {
+	save_scope_as = primary_defender
+	$DEFENSIVE_ALLY$ = { save_scope_as = secondary_defender }
+	add_character_flag = {
+		flag = $LOC_KEY$
+		days = 7
+	}
+	switch = {
+		trigger = has_character_flag
+		two_realm_name = {
+			confederation ?= {
+				set_confederation_name = DEFENSIVE_ALLIANCE_DYNAMIC_TWO_REALM_NAME
+			}
+		}
+		balan_lai = {
+			confederation ?= {
+				set_confederation_name = DEFENSIVE_ALLIANCE_BALAN_LAI_NAME
+				set_coa = d_balan_lai_leader
+				set_variable = balan_lai_confederation
+			}
+		}
+	}
+}

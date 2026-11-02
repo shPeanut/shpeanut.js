@@ -1,0 +1,400 @@
+﻿namespace = lotr_war_events
+
+lotr_war_events.0001 = {
+	content_source = realms_dlc
+	type = letter_event
+	opening = lotr_war_events.0001.t
+	desc = lotr_war_events.0001.desc
+	sender = scope:defender
+
+    trigger = {
+        exists = scope:defender
+    }
+
+    immediate = {
+        scope:defender = {
+            random_character_war = {
+                limit = { primary_attacker = scope:attacker }
+                save_scope_as = interested_war
+            }
+        }
+    }
+
+    option = { # Join the war on the side of the defender
+        name = {
+			text = {
+				first_valid = {
+					triggered_desc ={
+						trigger = { scope:interested_war ?= { using_cb = peasant_war } }
+						desc = lotr_war_events.0001.a.peasant_war
+					}
+					triggered_desc ={
+						trigger = {
+                            OR = {
+                                scope:interested_war ?= { using_cb = independence_faction_war }
+                                scope:interested_war ?= { using_cb = nation_fracturing_faction_war }
+                            }
+                        }
+						desc = lotr_war_events.0001.a.independence_faction_war
+					}
+					triggered_desc ={
+						trigger = {
+                            OR = {
+                                scope:interested_war ?= { using_cb = liberty_faction_war }
+                                scope:interested_war ?= { using_cb = depose_war }
+                                scope:interested_war ?= { using_cb = refused_liege_demand_war }
+                            }
+                        }
+						desc = lotr_war_events.0001.a.liberty_faction_war
+					}
+					triggered_desc ={
+						trigger = { scope:interested_war ?= { using_cb = populist_war } }
+						desc = lotr_war_events.0001.a.populist_war
+					}
+                    desc = lotr_war_events.0001.a
+                }
+            }
+        }
+        trigger = { exists = scope:interested_war }
+
+        scope:interested_war = {
+			hidden_effect = { set_called_to = root }
+            add_defender = root
+        }
+
+		ai_chance = {
+			base = 0
+            modifier = { # Willingness to join changes depending on the struggle phase
+                scope:defender = {
+                    any_character_struggle = { 
+                        is_struggle_type = thani_hazad_struggle 
+                        involvement = involved
+                        is_struggle_phase = struggle_thani_hazad_phase_unification
+                    } 
+                }
+                add = 90
+            }
+            modifier = { # Willingness to join changes depending on the struggle phase
+                scope:defender = {
+                    any_character_struggle = { 
+                        is_struggle_type = thani_hazad_struggle 
+                        involvement = involved
+                        is_struggle_phase = struggle_thani_hazad_phase_confederation
+                    } 
+                }
+                add = 70
+            }
+            modifier = { # Willingness to join changes depending on the struggle phase
+                scope:defender = {
+                    any_character_struggle = { 
+                        is_struggle_type = thani_hazad_struggle 
+                        involvement = involved
+                        is_struggle_phase = struggle_thani_hazad_phase_disintegration
+                    } 
+                }
+                add = 50
+            }
+            modifier = { # If you're allied with the attackers, don't join
+                OR = {
+                    is_allied_to = scope:attacker
+                    is_defensive_allied_to = { RECIPIENT = scope:attacker }
+                    scope:interested_war = { any_war_attacker = { this = root } }
+                    is_tributary_of = scope:attacker
+                }
+                factor = 0
+            }
+
+            modifier = { # If the defender is an involved ruler and their troops already outweigh the attacker
+                scope:interested_war = {
+                    war_attacker_total_strength_value < war_defender_total_strength_value
+                }
+                factor = 0.5
+            }
+
+            modifier = { # If the defender is an involved ruler and their troops already outweigh the attacker
+                scope:interested_war = {
+                    war_attacker_total_strength_value < war_defender_total_strength_value.mult2
+                }
+                factor = 0.5
+            }
+
+            modifier = { # Defender is my rival?
+                scope:defender ?= { has_relation_rival = root }
+                add = -20
+            }
+
+            modifier = { # Attacker is my rival?
+                scope:attacker ?= { has_relation_rival = root }
+                add = 20
+            }
+
+			opinion_modifier = { # -25 to +25 based on Opinion
+				opinion_target = scope:defender
+				multiplier = 0.25
+			}
+		}
+    }
+
+    option = { # Don't join the war of the defender
+        name = lotr_war_events.0001.b
+		reverse_add_opinion = {
+			target = scope:defender
+			modifier = upset_opinion
+			opinion = -20
+		}
+		ai_chance = { 
+            base = 10
+        }
+    }
+}
+
+# Hidden event to stop defensive allies from raiding each other
+lotr_war_events.0002 = { 
+	hidden = yes
+	scope = army
+
+    trigger = {
+		exists = scope:barony
+        scope:raider = { is_defensive_allied_to = { RECIPIENT = scope:county.holder } }
+    }
+
+    immediate = {
+		scope:raider = {
+			add_truce_both_ways = {
+				character = scope:county.holder.top_liege
+				years = 10
+				name = TRUCE_TRADE_DEAL
+			}
+		}
+    }
+}
+
+# Mispir pleads for aid from Balan-Lai rulers
+lotr_war_events.0003 = { 
+    type = letter_event
+	sender = scope:recipient
+
+	opening = {
+		desc = lotr_war_events.0003.opening
+	}
+
+	desc = lotr_war_events.0003.desc
+ 
+    immediate = {
+        scope:defender = {
+            random_character_war = {
+                limit = { primary_attacker = scope:attacker }
+                save_scope_as = interested_war
+            }
+        }
+    }
+
+	on_trigger_fail = { #Trigger invitation again if it was blocked because the character was handling another invitation
+		trigger_event = {
+			id = lotr_war_events.0003
+			days = 1
+		}
+	}
+
+	option = { # Join war as DEFENDER
+		name = lotr_war_events.0003.a
+
+        scope:interested_war = {
+			hidden_effect = { set_called_to = root }
+            add_defender = root
+        }
+        
+		ai_chance = { base = 100 }
+	}
+
+	option = { # Can't help, sorry
+		name = lotr_war_events.0003.b
+        
+		ai_chance = { base = 0 }
+	}
+}
+
+###############################
+### Valinor Invasion Events ###
+###############################
+
+# Hidden event spawning Valinorian invasion
+lotr_war_events.0004 = {
+    hidden = yes
+    trigger = {
+        trigger_if = {
+            limit = { has_game_rule = default_invasion_delay }
+            any_county_in_region = {
+                region = middleearth
+                lotr_holds_land_in_middle_earth_trigger = yes
+                percent >= 0.70
+            }
+        } 
+        trigger_else_if = {
+            limit = { has_game_rule = early_invasion_delay }
+            any_county_in_region = {
+                region = middleearth
+                lotr_holds_land_in_middle_earth_trigger = yes
+                percent >= 0.50
+            }
+        }
+        trigger_else_if = {
+            limit = { has_game_rule = late_invasion_delay }
+            any_county_in_region = {
+                region = middleearth
+                lotr_holds_land_in_middle_earth_trigger = yes
+                percent >= 0.90
+            }
+        }
+        trigger_else = { always = no }
+    }
+
+    immediate = {
+        switch = {
+            trigger = has_game_rule
+            valinor_intervention = {
+                if = {
+                    limit = { scope:largest_realm_ruler = { faith_is_evil = yes } }
+                    sunset_invasion_general_effect = {
+                        GEOGRAPHICAL_REGION = valinor_invasion_region
+                        GRAB_LANDING_COUNTY_EFFECT = valinor_invasion_grab_landing_county
+                        REVIVE_DEAD_CHARACTER_EFFECT = "#" #Do nothing
+                        INVASION_LANDING_EFFECT = valinor_invasion_landing_effect
+                        START_INVASION_WAR_EFFECT = valinor_invasion_start_invasion_war
+                    }
+                }
+            }
+            # second_return_of_the_noldor = { }
+            great_armament = {
+                if = {
+                    limit = { scope:largest_realm_ruler = { faith_is_good = yes } }
+                    sunset_invasion_general_effect = {
+                        GEOGRAPHICAL_REGION = pharazon_invasion_region
+                        GRAB_LANDING_COUNTY_EFFECT = pharazon_invasion_grab_landing_county
+                        REVIVE_DEAD_CHARACTER_EFFECT = pharazon_invasion_revive_pharazon
+                        INVASION_LANDING_EFFECT = pharazon_invasion_landing_effect
+                        START_INVASION_WAR_EFFECT = pharazon_invasion_start_invasion_war
+                    }
+                }
+            }
+            # fleet_of_ciryatur = { }
+            second_coming_of_amav = {
+                sunset_invasion_general_effect = {
+                    GEOGRAPHICAL_REGION = amav_invasion_region
+                    GRAB_LANDING_COUNTY_EFFECT = amav_invasion_grab_landing_county
+                    REVIVE_DEAD_CHARACTER_EFFECT = amav_invasion_revive_amav
+                    INVASION_LANDING_EFFECT = amav_invasion_landing_effect
+                    START_INVASION_WAR_EFFECT = amav_invasion_start_invasion_war
+                }
+            }
+            random_intervention = {
+                random_list = {
+                    1 = { #Eonwe
+                        trigger = { scope:largest_realm_ruler = { faith_is_evil = yes } }
+                        sunset_invasion_general_effect = {
+                            GEOGRAPHICAL_REGION = valinor_invasion_region
+                            GRAB_LANDING_COUNTY_EFFECT = valinor_invasion_grab_landing_county
+                            REVIVE_DEAD_CHARACTER_EFFECT = "#" #Do nothing
+                            INVASION_LANDING_EFFECT = valinor_invasion_landing_effect
+                            START_INVASION_WAR_EFFECT = valinor_invasion_start_invasion_war
+                        }
+                    }
+                    1 = { #Pharazon
+                        trigger = { scope:largest_realm_ruler = { faith_is_good = yes } }
+                        sunset_invasion_general_effect = {
+                            GEOGRAPHICAL_REGION = pharazon_invasion_region
+                            GRAB_LANDING_COUNTY_EFFECT = pharazon_invasion_grab_landing_county
+                            REVIVE_DEAD_CHARACTER_EFFECT = pharazon_invasion_revive_pharazon
+                            INVASION_LANDING_EFFECT = pharazon_invasion_landing_effect
+                            START_INVASION_WAR_EFFECT = pharazon_invasion_start_invasion_war
+                        }
+                    }
+                    1 = { #Amav
+                        sunset_invasion_general_effect = {
+                            GEOGRAPHICAL_REGION = amav_invasion_region
+                            GRAB_LANDING_COUNTY_EFFECT = amav_invasion_grab_landing_county
+                            REVIVE_DEAD_CHARACTER_EFFECT = amav_invasion_revive_amav
+                            INVASION_LANDING_EFFECT = amav_invasion_landing_effect
+                            START_INVASION_WAR_EFFECT = amav_invasion_start_invasion_war
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+lotr_war_events.0005 = {
+    hidden = yes
+    immediate = { set_global_variable = spawned_sunset_invasion }
+}
+
+lotr_war_events.0006 = {
+    hidden = yes
+
+    trigger = {
+        NOT = { exists = global_var:spawned_sunset_invasion }
+        NOT = { has_game_rule = no_intervention }
+    }
+
+    immediate = {
+        ordered_independent_ruler = {
+            limit = { is_wastelands = no }
+            order_by = {
+                value = 0
+                every_sub_realm_county = { add = 1 }
+                every_tributary = {
+                    every_sub_realm_county = { add = 1 }
+                    every_tributary = { every_sub_realm_county = { add = 1 } } #In the event a tributary _gets_ a tributary
+                }
+            }
+            max = 1
+            save_scope_as = largest_realm_ruler
+        }
+        scope:largest_realm_ruler = { trigger_event = lotr_war_events.0004 }
+    }
+}
+
+### Debug event for when triggering the SI via debug to stop error spam ###
+lotr_war_events.0007 = {
+    hidden = yes
+
+    immediate = {
+        if = { # Eonwe
+			limit = { scope:sunset_invasion_eonwe = yes }
+			scope:largest_realm_ruler = { 
+				sunset_invasion_general_effect = {
+					GEOGRAPHICAL_REGION = valinor_invasion_region
+					GRAB_LANDING_COUNTY_EFFECT = valinor_invasion_grab_landing_county
+					REVIVE_DEAD_CHARACTER_EFFECT = "#" #Do nothing
+					INVASION_LANDING_EFFECT = valinor_invasion_landing_effect
+					START_INVASION_WAR_EFFECT = valinor_invasion_start_invasion_war
+				}
+			}
+		}
+		else_if = { # Pharazôn
+			limit = { scope:sunset_invasion_pharazon = yes }
+			scope:largest_realm_ruler = { 
+				sunset_invasion_general_effect = {
+					GEOGRAPHICAL_REGION = pharazon_invasion_region
+					GRAB_LANDING_COUNTY_EFFECT = pharazon_invasion_grab_landing_county
+					REVIVE_DEAD_CHARACTER_EFFECT = pharazon_invasion_revive_pharazon
+					INVASION_LANDING_EFFECT = pharazon_invasion_landing_effect
+					START_INVASION_WAR_EFFECT = pharazon_invasion_start_invasion_war
+				}
+			}
+		}
+		else_if = { # Amav
+			limit = { scope:sunset_invasion_amav = yes }
+			scope:largest_realm_ruler = { 
+				sunset_invasion_general_effect = {
+					GEOGRAPHICAL_REGION = amav_invasion_region
+					GRAB_LANDING_COUNTY_EFFECT = amav_invasion_grab_landing_county
+					REVIVE_DEAD_CHARACTER_EFFECT = amav_invasion_revive_amav
+					INVASION_LANDING_EFFECT = amav_invasion_landing_effect
+					START_INVASION_WAR_EFFECT = amav_invasion_start_invasion_war
+				}
+			}
+		}
+    }
+}

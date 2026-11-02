@@ -1,0 +1,34 @@
+﻿story_cycle_apysan_carving = {
+    on_setup = {
+    }
+    on_end = {
+
+    }
+    on_owner_death = {
+		if = {
+			limit = {
+				exists = story_owner.player_heir
+			}
+			make_story_owner = story_owner.player_heir
+			story_owner.player_heir = { add_character_flag = had_flavorevent_0017 }
+		}
+		else = {
+			end_story = yes
+		}
+    }
+    visible = yes
+    icon = {
+        reference = "gfx/interface/icons/artifact/serpent_headdress.dds"
+    }
+    background = {
+        reference = "gfx/interface/illustrations/event_scenes/lotr_docks_adunai.dds"
+    }
+    visualization = {
+        # character_list = {
+            # variable_name = warriors_three
+            # #label = warriors_three_desc
+        # }
+
+        decisions = { decision_apysan_carving }
+    }
+}

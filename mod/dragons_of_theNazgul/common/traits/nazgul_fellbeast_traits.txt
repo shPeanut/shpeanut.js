@@ -1,0 +1,165 @@
+# ============================================================
+# Трейты НЕЗАВИСИМОГО сабмода «Dragons of the Nazgûl» (LoTR RIE)
+# Механика драконов позаимствована из AGOT: те же конвенции
+# (owned_dragon, var:current_rider/current_dragon, трейт наездника,
+#  «dragonless» после потери зверя), но все трейты — собственные,
+#  с префиксом nazgul_, чтобы ничего не переопределять и не требовать AGOT.
+# ============================================================
+
+# ---------- НАЕЗДНИКИ ----------
+
+# Маркер: умеет призывать и седлать падаль-зверей (даётся автоматически при привязке)
+nazgul_fell_beast_rider = {
+        cost = 0
+        self_inheritance = no
+        birth = 0
+        random_creation = 0.0
+        random_creation_weight = 0
+        shown_in_ruler_designer = no
+        category = fame
+
+        custom_tooltip = nazgul_fell_beast_rider_tt
+
+        modifier = {
+                movement_speed = 1.25
+                dread_gain_mult = 0.25
+                character_travel_speed = 150      # как в AGOT: dragon_flight_option
+                character_travel_safety = 200
+        }
+        # Интеграция с Ужасом: террор медленнее угасает у летящего назгула
+        terror_decay_multiplier = -0.2
+}
+
+# Всадник, потерявший зверя (аналог AGOT dragonless_dragonrider)
+nazgul_fell_beast_master = {
+        cost = 0
+        self_inheritance = no
+        birth = 0
+        random_creation = 0.0
+        random_creation_weight = 0
+        shown_in_ruler_designer = no
+        category = fame
+
+        modifier = {
+                dread_gain_mult = 0.15
+        }
+        # может снова седлать: scripted trigger nazgul_can_ride_fell_beast проверяет его
+}
+
+# Мастер Девяти (Кхот) — усиленная версия
+master_of_fell_beasts = {
+        cost = 0
+        self_inheritance = no
+        birth = 0
+        random_creation = 0.0
+        random_creation_weight = 0
+        shown_in_ruler_designer = no
+        category = fame
+
+        modifier = {
+                movement_speed = 1.5
+                dread_gain_mult = 0.5
+                host_damage_modifier = 0.15
+                knight_effectiveness_mult = 0.3
+        }
+}
+
+# ---------- ЗВЕРИ (аналог AGOT-трейта dragon, полностью автономный) ----------
+
+nazgul_dragon = {
+        # базовый трейт падаль-зверя = «дракон» этой системы
+        cost = 0
+        birth = 0
+        random_creation = 0.0
+        random_creation_weight = 0
+        shown_in_ruler_designer = no
+        can_have_children = no
+        category = health
+
+        trait_xp_per_tier = 0.75
+        opposite_opinion = -40
+        same_opinion = 10
+
+        custom_tooltip = nazgul_dragon_tt
+
+        combat_health = 5
+        combat_pick_lock_casualty_chance = 0.25
+        combat_allies_morale_effect = 1.5
+        combat_allies_effectiveness_add = 0.25
+        enemy_soldiers_kill_ratio_add_on_attack = 0.25
+        enemy_soldiers_kill_ratio_add_on_defend = 0.25
+
+        health = 5
+        life_expectancy = 150
+        fertility = 0
+
+        character_travel_speed = 150
+        character_travel_safety = 200
+
+        flag = can_not_marry
+        inheritance_blocker = all
+        claim_inheritance_blocker = all
+        disables_combat_leadership = yes
+        overrides_character_size = huge
+}
+
+# Свирепость (порт AGOT dragon_bloodthirsty)
+nazgul_dragon_bloodthirsty = {
+        cost = 0
+        birth = 0
+        random_creation = 0.0
+        random_creation_weight = 0
+        shown_in_ruler_designer = no
+        category = personality
+        good = no
+
+        combat_allies_morale_effect = 1
+        combat_allies_effectiveness_add = 0.1
+        dread_gain_mult = 0.2
+}
+
+# Размер (порт AGOT dragon_physique_good_3)
+nazgul_dragon_physique_good_3 = {
+        cost = 0
+        birth = 0
+        random_creation = 0.0
+        random_creation_weight = 0
+        shown_in_ruler_designer = no
+        category = health
+
+        add = { health = 2 }
+        overrides_character_size = large
+}
+
+# Быстрота (порт AGOT dragon_swift)
+nazgul_dragon_swift = {
+        cost = 0
+        birth = 0
+        random_creation = 0.0
+        random_creation_weight = 0
+        shown_in_ruler_designer = no
+        category = lifestyle
+
+        character_travel_speed = 25
+        combat_allies_effectiveness_add = 0.05
+}
+
+# Наш собственный маркер зверя (заменён nazgul_dragon; оставлен для совместимости старых сейвов)
+nazgul_fell_beast = {
+        copy_from = nazgul_dragon
+}
+
+# Уникальный маркер Владыки Ангормаунта
+nazgul_lord_of_angermont = {
+        cost = 0
+        birth = 0
+        random_creation = 0.0
+        random_creation_weight = 0
+        shown_in_ruler_designer = no
+        category = health
+
+        add = { health = 2 }
+        combat_allies_morale_effect = 1
+        character_travel_speed = 25
+        overrides_character_size = huge
+}

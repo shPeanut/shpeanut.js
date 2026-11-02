@@ -1,0 +1,355 @@
+﻿namespace = lotr_courtier_spawn
+
+##################################################
+#
+#
+##################################################
+
+# Corsair adventurer offers service to Wildmen court
+lotr_courtier_spawn.0001 = {
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_courtier_spawn.0001.t
+	desc = lotr_courtier_spawn.0001.desc
+	theme = realm
+	left_portrait = scope:lotr_spawned_courtier
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = -0.7
+			has_character_flag = lotr_courtier_spawn_happened_flag
+		}
+		modifier = {
+			add = -0.2
+			AND = {
+				is_ruler = yes
+				government_has_flag = government_is_tribal
+			}
+		}
+	}
+	trigger = {
+		NOR = {
+			culture = { has_cultural_pillar = heritage_northern_adunaic }
+			culture = { has_cultural_pillar = heritage_southern_adunaic }
+			culture = { has_cultural_pillar = heritage_northern_apysaic }
+			culture = culture:harondorim
+		}
+		basic_is_valid_for_yearly_events_trigger = yes
+		lotr_gwathuirim_heritage_trigger = yes
+		capital_county.title_province = { geographical_region = middleearth_west }
+	}
+	
+	immediate = {
+		capital_province = { save_scope_as = capital_province }
+		add_character_flag = lotr_courtier_spawn_happened_flag
+		create_character = {
+			template = lotr_corsair_traveler_template
+			location = root.location
+			save_scope_as = lotr_spawned_courtier
+		}
+	}
+	
+	# Yes
+	option = {
+		name = lotr_courtier_spawn.0001.a
+		pay_short_term_gold = {
+			target = scope:lotr_spawned_courtier
+			gold = minor_gold_value
+		}
+		add_courtier = scope:lotr_spawned_courtier
+		add_character_modifier = { modifier = lotr_connections_with_corsairs }
+		hidden_effect = {
+			random = {
+				chance = 40
+				lotr_generate_small_family = { CHARACTER = scope:lotr_spawned_courtier }
+			}
+		}
+	}
+
+	# No
+	option = {
+		name = lotr_courtier_spawn.0001.b
+		hidden_effect = {
+			random = {
+				chance = 75
+				scope:lotr_spawned_courtier = {
+					death = {
+						death_reason = death_disappearance
+					}
+				}
+			}
+		}
+	}
+}
+
+# Dúnedain adventurer offers service to Wildmen court
+lotr_courtier_spawn.0002 = {
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_courtier_spawn.0002.t
+	desc = lotr_courtier_spawn.0002.desc
+	theme = realm
+	left_portrait = scope:lotr_spawned_courtier
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = -0.7
+			has_character_flag = lotr_courtier_spawn_happened_flag
+		}
+		modifier = {
+			add = -0.2
+			AND = {
+				is_ruler = yes
+				government_has_flag = government_is_tribal
+			}
+		}
+	}
+	trigger = {
+		NOR = {
+			culture = { has_cultural_pillar = heritage_dunedain }
+			culture = { has_cultural_pillar = heritage_northern_adunaic }
+			culture = { has_cultural_pillar = heritage_southern_adunaic }
+			religion = { is_in_family = rf_forcesofevil }
+		}
+		basic_is_valid_for_yearly_events_trigger = yes
+		lotr_gwathuirim_heritage_trigger = yes
+		capital_county.title_province = { geographical_region = middleearth_west }
+	}
+	
+	immediate = {
+		capital_province = { save_scope_as = capital_province }
+		add_character_flag = lotr_courtier_spawn_happened_flag
+		create_character = {
+			template = lotr_dunedain_traveler_template
+			location = root.location
+			save_scope_as = lotr_spawned_courtier
+		}
+	}
+	
+	# Yes
+	option = {
+		name = lotr_courtier_spawn.0001.a
+		pay_short_term_gold = {
+			target = scope:lotr_spawned_courtier
+			gold = minor_gold_value
+		}
+		add_courtier = scope:lotr_spawned_courtier
+		add_character_modifier = { modifier = lotr_connections_with_dunedain }
+		hidden_effect = {
+			random = {
+				chance = 40
+				lotr_generate_small_family = { CHARACTER = scope:lotr_spawned_courtier }
+			}
+		}
+	}
+
+	# No
+	option = {
+		name = lotr_courtier_spawn.0001.b
+		hidden_effect = {
+			random = {
+				chance = 75
+				scope:lotr_spawned_courtier = {
+					death = {
+						death_reason = death_disappearance
+					}
+				}
+			}
+		}
+	}
+}
+
+# Haradrim adventurer offers service to Wildmen court
+lotr_courtier_spawn.0003 = {
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_courtier_spawn.0003.t
+	desc = lotr_courtier_spawn.0003.desc
+	theme = realm
+	left_portrait = scope:lotr_spawned_courtier
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = -0.7
+			has_character_flag = lotr_courtier_spawn_happened_flag
+		}
+		modifier = {
+			add = -0.2
+			AND = {
+				is_ruler = yes
+				government_has_flag = government_is_tribal
+			}
+		}
+	}
+	trigger = {
+		NOR = {
+			culture = { has_cultural_pillar = heritage_northern_apysaic }
+			culture = { has_cultural_pillar = heritage_middle_apysaic }
+			culture = { has_cultural_pillar = heritage_southern_apysaic }
+		}
+		basic_is_valid_for_yearly_events_trigger = yes
+		lotr_gwathuirim_heritage_trigger = yes
+		capital_county.title_province = { geographical_region = middleearth_west }
+	}
+	
+	immediate = {
+		capital_province = { save_scope_as = capital_province }
+		add_character_flag = lotr_courtier_spawn_happened_flag
+		create_character = {
+			template = lotr_haradrim_traveler_template
+			location = root.location
+			save_scope_as = lotr_spawned_courtier
+		}
+	}
+	
+	# Yes
+	option = {
+		name = lotr_courtier_spawn.0001.a
+		pay_short_term_gold = {
+			target = scope:lotr_spawned_courtier
+			gold = minor_gold_value
+		}
+		add_courtier = scope:lotr_spawned_courtier
+		add_character_modifier = { modifier = lotr_connections_with_haradrim }
+		hidden_effect = {
+			random = {
+				chance = 40
+				lotr_generate_small_family = { CHARACTER = scope:lotr_spawned_courtier }
+			}
+		}
+	}
+
+	# No
+	option = {
+		name = lotr_courtier_spawn.0001.b
+		hidden_effect = {
+			random = {
+				chance = 75
+				scope:lotr_spawned_courtier = {
+					death = {
+						death_reason = death_disappearance
+					}
+				}
+			}
+		}
+	}
+}
+
+# Horse Lord adventurer offers service to Wildmen court
+lotr_courtier_spawn.0004 = {
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_courtier_spawn.0004.t
+	desc = lotr_courtier_spawn.0004.desc
+	theme = realm
+	left_portrait = scope:lotr_spawned_courtier
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = -0.7
+			has_character_flag = lotr_courtier_spawn_happened_flag
+		}
+		modifier = {
+			add = -0.2
+			AND = {
+				is_ruler = yes
+				government_has_flag = government_is_tribal
+			}
+		}
+	}
+	trigger = {
+		NOR = {
+			culture = { has_cultural_pillar = heritage_eotheod }
+#			culture = { has_cultural_pillar = heritage_northron }
+			religion = { is_in_family = rf_forcesofevil }
+		}
+		basic_is_valid_for_yearly_events_trigger = yes
+		lotr_gwathuirim_heritage_trigger = yes
+		capital_county.title_province = { geographical_region = middleearth_west }
+	}
+	
+	immediate = {
+		capital_province = { save_scope_as = capital_province }
+		add_character_flag = lotr_courtier_spawn_happened_flag
+		create_character = {
+			template = lotr_horse_lord_traveler_template
+			random_traits = yes
+			location = root.location
+			save_scope_as = lotr_spawned_courtier
+		}
+	}
+	
+	# Duel!
+	option = {
+		name = lotr_courtier_spawn.0004.a
+		duel = {
+			skill = prowess
+			target = scope:lotr_spawned_courtier
+			10 = {
+				desc = lotr_courtier_spawn.0004.a.critical_success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 0.6
+					trigger = {
+						has_trait = cavalry_leader
+					}
+				}
+				send_interface_toast = {
+					title = lotr_courtier_spawn.0004.a.critical_success
+					left_icon = scope:lotr_spawned_courtier
+					lotr_courtier_add_horse_lord_traveler_effect = yes
+					# spawn_eotheod_raiding_troops_effect = yes
+				}
+			}
+			10 = {
+				desc = lotr_courtier_spawn.0004.a.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 0.5
+				}
+				send_interface_toast = {
+					title = lotr_courtier_spawn.0004.a.success
+					left_icon = scope:lotr_spawned_courtier
+					lotr_courtier_add_horse_lord_traveler_effect = yes
+				}
+			}
+			10 = {
+				desc = lotr_courtier_spawn.0004.a.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.6
+				}
+				send_interface_toast = {
+					title = lotr_courtier_spawn.0004.a.failure
+					left_icon = scope:lotr_spawned_courtier
+				}
+			}
+		}
+	}
+
+	# No
+	option = {
+		name = lotr_courtier_spawn.0001.b
+		hidden_effect = {
+			random = {
+				chance = 75
+				scope:lotr_spawned_courtier = {
+					death = {
+						death_reason = death_disappearance
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+

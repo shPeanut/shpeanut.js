@@ -1,0 +1,506 @@
+﻿############################
+############################
+########## VULMAW ##########
+############################
+############################
+
+#### Contents ####
+# Szôranh's Crew - "The Dragon at World's End" hidden raiders of Thani hazad 
+
+lineofszoranh0 = {
+	name = Khua_a_n
+	
+    religion = faith_nlkum_kadir
+    culture = vulmaw
+
+	sexuality = heterosexual
+	
+    trait = sadistic
+    trait = vengeful
+    trait = gregarious
+
+    trait = education_learning_1
+
+    diplomacy = 4
+    martial = 6
+    stewardship = 3
+    intrigue = 5
+    learning = 6
+
+    prowess = 4
+    
+	6971.1.1 = {
+        birth = yes
+    }
+
+    6995.1.1 = {
+		add_spouse = lineofszoranh0wife
+    }	
+
+    7023.9.20 = {
+        death = { death_reason = death_drowned } 
+    }
+}
+
+lineofszoranh0wife = {
+	name = Shuri_i_n
+    female = yes
+
+    religion = faith_nlkum_kadir
+    culture = vulmaw
+
+	sexuality = heterosexual
+	
+    trait = honest
+    trait = callous
+    trait = shy
+
+    trait = education_stewardship_2
+
+    diplomacy = 5
+    martial = 4
+    stewardship = 7
+    intrigue = 2
+    learning = 6
+
+    prowess = 4
+    
+	6974.1.1 = {
+        birth = yes
+    }
+
+    7023.9.20 = {
+        death = { death_reason = death_drowned } 
+    }
+}
+
+# Szôranh's Crew
+
+lineofszoranh1 = {
+	name = Szo_o_ranh
+	
+    dynasty = dynasty_kebtsiihta
+    religion = faith_nlkum_kadir
+    culture = vulmaw
+
+    father = lineofszoranh0
+    mother = lineofszoranh0wife
+
+	dna = szoranh_dna
+
+	sexuality = homosexual
+	
+    trait = honest
+    trait = ambitious
+    trait = callous
+
+    trait = education_stewardship_3
+
+    trait = overseer
+    trait = clubfooted
+    trait = peasant_leader
+    trait = lifestyle_mariner
+    trait = reaver
+
+    diplomacy = 8
+    martial = 4
+    stewardship = 8
+    intrigue = 4
+    learning = 10
+
+    prowess = 4
+    
+	7000.1.1 = {
+        birth = yes
+        add_trait_xp = {
+            trait = lifestyle_mariner
+            value = 65
+        }
+        give_nickname = nick_dragon_at_world_end
+        # add_character_flag = converted_culture_this_lifetime
+        add_character_flag = converted_culture_this_lifetime_ai
+        add_character_flag = do_not_generate_starting_family
+    }
+
+    7026.1.1 = {
+		add_spouse = lineofszoranh2
+    }	
+
+    7071.9.20 = {
+        death = { death_reason = death_strangled_with_own_intestines } 
+    }
+}
+
+lineofszoranh2 = {
+	name = Zhi_i_rl
+    female= yes
+	
+    religion = faith_nlkum_kadir
+    culture = vulmaw
+	
+
+	sexuality = asexual
+	
+    trait = diligent
+    trait = arbitrary
+    trait = callous
+
+    trait = education_diplomacy_2
+
+    trait = shrewd
+    trait = irritable 
+    trait = schemer
+    trait = lifestyle_mariner
+    trait = reaver
+
+    diplomacy = 8
+    martial = 5
+    stewardship = 3
+    intrigue = 6
+    learning = 4
+
+    prowess = 4
+    
+	6987.2.21 = {
+        birth = yes
+        add_trait_xp = {
+            trait = lifestyle_mariner
+            value = 65
+        }
+        add_character_flag = converted_culture_this_lifetime_ai
+        add_character_flag = do_not_generate_starting_family
+    }
+
+    7030.1.1 = {
+        effect = {
+            add_trait_xp = {
+                trait = reaver
+                value = 67
+            }
+        }
+    }
+
+    7071.9.20 = {
+        death = { death_reason = death_mysterious } 
+    }
+}
+
+lineofbhalrimscarletsword = { # Bhalrîm
+	name = Bhalri_i_m
+	dna = bhalrim_dna
+
+    religion = faith_nlkum_kadir
+    culture = vulmaw
+	
+	sexuality = homosexual
+	
+    trait = patient
+    trait = sadistic
+    trait = stubborn
+
+    trait = education_martial_4
+
+    trait = torturer
+    trait = physique_good_2
+    trait = viking
+    trait = lifestyle_blademaster
+    trait = aggressive_attacker
+    trait = deviant
+	trait = scarred
+
+    diplomacy = 5
+    martial = 14
+    stewardship = 2
+    intrigue = 6
+    learning = 14
+
+    prowess = 7
+    
+	7003.1.1 = {
+        birth = yes
+        add_trait_xp = {
+            trait = lifestyle_blademaster
+            value = 65
+        }
+        give_nickname = nick_scarlet_sword
+        add_character_flag = converted_culture_this_lifetime_ai
+        add_character_flag = do_not_generate_starting_family
+    }
+    7026.1.1 = {
+        effect = {
+			set_relation_soulmate = character:lineofszoranh1
+		}
+	}
+
+    7071.9.20 = {
+        death = { death_reason = death_vanished } 
+    }
+}
+
+### Line of Akvulmes ###
+lineofakvulmes0 = {
+    name = Dhara_a_m
+
+    religion = faith_nlkum_kadir
+    culture = vulmaw
+
+    sexuality = heterosexual
+
+    trait = brave
+    trait = gregarious
+    trait = stubborn
+
+    diplomacy = 4
+    martial = 7
+    stewardship = 5
+    intrigue = 5
+    learning = 5
+    prowess = 9
+
+    trait = education_martial_2
+
+    5300.1.19 = {
+        birth = yes
+    }
+
+    5328.8.27 = {
+        add_spouse = lineofakvulmes0wife
+    }
+
+    5384.9.18 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+lineofakvulmes0wife = {
+    name = Lho_o_adu_u_r
+    female = yes
+
+    religion = faith_nlkum_kadir
+    culture = vulmaw
+
+    sexuality = heterosexual
+
+    5306.5.21 = {
+        birth = yes
+    }
+
+    5373.9.18 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofakvulmes1 = { # Rise of Angmar start date ruler
+    name = Tha_a_nselo_o_
+
+    dynasty = dynasty_akvulmes
+    religion = faith_nlkum_kadir
+    culture = vulmaw
+	dna = lineofakvulmes1_dna
+
+    father = lineofakvulmes0
+    mother = lineofakvulmes0wife
+
+    sexuality = heterosexual
+
+    trait = diligent
+    trait = gregarious
+    trait = stubborn
+
+    diplomacy = 4
+    martial = 3
+    stewardship = 6
+    intrigue = 5
+    learning = 5
+    prowess = 8
+
+    trait = education_stewardship_2
+
+    5334.3.11 = {
+        birth = yes
+    }
+
+    5358.8.27 = {
+        add_spouse = lineofakvulmes2
+    }
+
+    5405.9.18 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofakvulmes2 = {
+    name = Lho_o_rante_e_
+    female = yes
+
+    religion = faith_nlkum_kadir
+    culture = vulmaw
+	dna = lineofakvulmes2_dna
+
+    sexuality = heterosexual
+
+    trait = just
+    trait = generous
+    trait = callous
+
+    diplomacy = 2
+    martial = 8
+    stewardship = 5
+    intrigue = 4
+    learning = 2
+    prowess = 5
+
+    trait = education_martial_2
+
+    5336.5.13 = {
+        birth = yes
+    }
+
+    5423.5.10 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofakvulmes3 = {
+    name = U_U_lmu_u_l
+
+    dynasty = dynasty_akvulmes
+    religion = faith_nlkum_kadir
+    culture = vulmaw
+
+    father = lineofakvulmes1
+    mother = lineofakvulmes2
+
+    sexuality = heterosexual
+
+    trait = deceitful
+    trait = compassionate
+    trait = generous
+
+    diplomacy = 6
+    martial = 6
+    stewardship = 5
+    intrigue = 11
+    learning = 3
+    prowess = 5
+
+    trait = education_intrigue_2
+
+    5360.7.2 = {
+        birth = yes
+    }
+
+    5390.1.6 = {
+        add_spouse = lineofakvulmes4
+    }
+
+    5457.6.14 = {
+        death = { death_reason = death_battle }
+    }
+}
+
+lineofakvulmes4 = {
+    name = Khirifi_i_
+    female = yes
+
+    religion = faith_nlkum_kadir
+    culture = vulmaw
+
+    sexuality = heterosexual
+
+    trait = generous
+    trait = deceitful
+    trait = trusting
+
+    diplomacy = 4
+    martial = 5
+    stewardship = 4
+    intrigue = 4
+    learning = 5
+    prowess = 5
+
+    trait = education_martial_3
+
+    5362.4.28 = {
+        birth = yes
+    }
+
+    5439.1.7 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofakvulmes5 = {
+    name = Vharta_a_n
+
+    dynasty = dynasty_akvulmes
+    religion = faith_nlkum_kadir
+    culture = vulmaw
+
+    father = lineofakvulmes1
+    mother = lineofakvulmes2
+
+    sexuality = heterosexual
+
+    trait = fickle
+    trait = lustful
+    trait = honest
+
+    diplomacy = 5
+    martial = 4
+    stewardship = 6
+    intrigue = 5
+    learning = 3
+    prowess = 6
+
+    trait = education_stewardship_3
+
+    5364.11.6 = {
+        birth = yes
+    }
+
+    5452.3.22 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofakvulmes6 = {
+    name = Thi_i_era_a_k
+    female = yes
+
+    dynasty = dynasty_akvulmes
+    religion = faith_nlkum_kadir
+    culture = vulmaw
+
+    father = lineofakvulmes1
+    mother = lineofakvulmes2
+
+    sexuality = heterosexual
+
+    trait = impatient
+    trait = honest
+
+    diplomacy = 4
+    martial = 6
+    stewardship = 5
+    intrigue = 5
+    learning = 7
+    prowess = 6
+
+    trait = education_learning_1
+
+    trait = curious
+
+    disallow_random_traits = yes
+
+    5371.3.26 = {
+        birth = yes
+    }
+
+    5387.3.26 = {
+        trait = ambitious
+    }
+
+    5451.3.8 = {
+        death = { death_reason = death_natural_causes }
+    }
+}

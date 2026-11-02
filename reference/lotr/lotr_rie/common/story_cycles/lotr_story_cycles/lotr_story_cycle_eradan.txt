@@ -1,0 +1,28 @@
+﻿story_cycle_eradan = {
+    on_setup = {
+        add_to_variable_list = { name = warriors_three target = character:lineofandriel }
+        add_to_variable_list = { name = warriors_three target = character:lineofnorin2 }
+        add_to_variable_list = { name = warriors_three target = character:linecalinyar8 }
+    }
+    on_end = {
+
+    }
+    on_owner_death = {
+        end_story = yes
+    }
+    visible = yes
+    icon = {
+        reference = "gfx/interface/icons/laws/camp_purpose_rangers.dds"
+    }
+    background = {
+        reference = "gfx/interface/illustrations/event_scenes/lotr_amon_sul.dds"
+    }
+    visualization = {
+        character_list = {
+            variable_name = warriors_three
+            #label = warriors_three_desc
+        }
+
+        decisions = { decision_eradan_bree decision_continue_adventure_eradan decision_avenge_nordinbad decision_talk_to_locals_sarnford decision_talk_to_locals_bree decision_talk_to_locals_imladris decision_talk_to_locals_nordinbad decision_talk_to_locals_rhosgobel decision_talk_to_locals_erebor  }
+    }
+}

@@ -1,0 +1,2318 @@
+﻿namespace = bloody_swan
+
+#######################################
+# THE AVENGING SWAN & THE BLOOD-SPEAR #
+########## ~~~ by Aerien ~~~ ##########
+
+###############
+#	bloody_swan.0001 - 0100 	~	Éira events
+#	bloody_swan.0101 - 0199 	~	Maratar events
+#	bloody_swan.0201 - 0299 ~ 	Glormagil events
+#	bloody_swan.0301 - 0399 ~	Rlain events
+###############
+
+### Éira Events ###
+bloody_swan.0001 = { # Poison's Sting
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0001.t
+	desc = bloody_swan.0001.desc
+	theme = martial
+	window = visit_settlement_window
+	right_portrait = {
+		character = root
+		animation = aggressive_spear
+	}
+	left_portrait = {
+		character = scope:gondorian_governor
+		animation = personality_callous
+	}
+	lower_right_portrait = {
+		character = scope:murdered_father
+	}
+	immediate = {
+		character:linemabon7 = { save_scope_as = murdered_father }
+		character:linearastil16 = { save_scope_as = gondorian_governor }
+	}
+	option = { # I must unite the tribes to end Gondor's oppression
+		name = bloody_swan.0001.a 
+		custom_tooltip = bloody_swan.0001.a.tt
+		add_prestige = minor_prestige_gain
+		add_character_flag = eira_first_steps_taken
+		trigger_event = {
+			id = bloody_swan.0036 # A Knight in the Woods
+			days = 60
+		}
+		## Unlocks "Investigate Glormagil"
+		## Unlocks "Visit Enedhwaithrim Chieftain"
+		## Unlocks "Call a Great Moot"
+	}
+}
+
+bloody_swan.0002 = { # Searching for Answers
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0002.t
+	desc = bloody_swan.0002.desc
+	theme = learning
+	window = visit_settlement_window
+	override_background = { reference = on_river }
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	lower_left_portrait = {
+		character = scope:gondorian_governor
+	}
+	lower_right_portrait = {
+		character = scope:murdered_father
+	}
+	immediate = {
+		character:linemabon7 = { save_scope_as = murdered_father }
+		character:linearastil16 = { save_scope_as = gondorian_governor }
+	}
+	option = { # The time for mourning is over.
+		name = bloody_swan.0002.a 
+		custom_tooltip = bloody_swan.0002.a.tt
+		set_variable = cannot_cancel_travel
+		add_intrigue_lifestyle_xp = 200 
+		start_travel_plan = { #Travel to Tharbad
+			destination = title:c_harabad.title_province
+			destination = title:c_tharbad.title_province
+			on_arrival_on_action = eira_tharbad_on_action
+			return_trip = no
+			players_use_planner = yes
+			on_arrival_destinations = all
+		}
+	}
+}
+
+bloody_swan.0003 = { # The Tharbad Trail
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0003.t
+	desc = bloody_swan.0003.desc
+	theme = intrigue
+	window = visit_settlement_window
+	override_background = { reference = market_dunedain }
+	right_portrait = {
+		character = root
+		animation = page_flipping
+	}
+	lower_left_portrait = {
+		character = scope:gondorian_governor
+	}
+	immediate = {
+		character:linearastil16 = { save_scope_as = gondorian_governor }
+	}
+	option = { # I will find the weakness in your plan
+		name = bloody_swan.0003.a 
+		custom_tooltip = bloody_swan.0003.a.tt
+		add_intrigue_lifestyle_xp = 200 
+		trigger_event = {
+			id = bloody_swan.0004 
+			days = { 15 30 }
+		}
+	}
+	after = {
+		hidden_effect = { current_travel_plan ?= { delay_travel_plan = { months = 4 } } }
+	}
+}
+
+bloody_swan.0004 = { # A Web of Lies
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0004.t
+	desc = bloody_swan.0004.desc
+	theme = intrigue_skulduggery_focus
+	window = visit_settlement_window
+	override_background = { reference = tavern }
+	right_portrait = {
+		character = root
+		animation = personality_callous
+	}
+	lower_left_portrait = {
+		character = scope:gondorian_governor
+	}
+	immediate = {
+		character:linearastil16 = { save_scope_as = gondorian_governor }
+	}
+	option = { # One by one your lies are revealed
+		name = bloody_swan.0004.a 
+		custom_tooltip = bloody_swan.0004.a.tt
+		add_intrigue_lifestyle_xp = 200 
+		trigger_event = {
+			id = bloody_swan.0005 
+			days = { 15 30 }
+		}
+	}
+}
+
+bloody_swan.0005 = { # The Proof Revealed
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0005.t
+	desc = bloody_swan.0005.desc
+	theme = diplomacy_family_focus
+	window = visit_settlement_window
+	override_background = { reference = market_tribal }
+	right_portrait = {
+		character = root
+		animation = happiness
+	}
+	lower_left_portrait = {
+		character = scope:gondorian_governor
+	}
+	immediate = {
+		character:linearastil16 = { save_scope_as = gondorian_governor }
+		hidden_effect = { current_travel_plan ?= { cancel_travel_plan = yes } }
+		custom_tooltip = {
+			text = bloody_swan.0005.tt # Proof has been found 
+			add_character_flag = eira_tharbad_proof_found 
+		}
+		remove_variable = cannot_cancel_travel
+	}
+	option = { # Now I have the proof that I need
+		name = bloody_swan.0005.a 
+		custom_tooltip = bloody_swan.0005.a.tt
+		add_intrigue_lifestyle_xp = 200 
+		start_travel_plan = { #Travel home
+			destination = root.capital_county.title_province
+			return_trip = no
+			players_use_planner = yes
+			on_arrival_destinations = all
+		}
+	}
+}
+
+bloody_swan.0010 = { # Convince the Chieftain of Galtrev
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0010.t
+	desc = bloody_swan.0010.desc
+	theme = diplomacy
+	window = visit_settlement_window
+	override_background = { reference = market_tribal }
+	right_portrait = {
+		character = root
+		animation = throne_room_conversation_1
+	}
+	left_portrait = {
+		character = scope:galtrevholder
+		animation = thinking
+	}
+	immediate = {
+		title:c_galtrev.holder = { save_scope_as = galtrevholder }
+	}
+	option = { # Convince 
+		name = bloody_swan.0010.a
+		duel = {
+			skill = diplomacy
+			target = scope:galtrevholder
+			30 = {
+				desc = bloody_swan.0010.a.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 0.5
+				}
+				send_interface_toast = {
+					title = bloody_swan.0010.t
+					type = event_toast_effect_good
+					left_icon = root
+					right_icon = scope:galtrevholder
+					custom_tooltip = bloody_swan.0010.a.success
+				}
+				add_character_flag = eira_galtrev_support
+			}
+			10 = {
+				desc = bloody_swan.0010.a.failure
+				scope:galtrevholder = {
+					add_opinion = {
+						modifier = insulted_opinion
+						target = root
+						opinion = -30
+					}
+				}
+				send_interface_toast = {
+					title = bloody_swan.0010.t
+					type = event_toast_effect_bad
+					left_icon = root
+					right_icon = scope:galtrevholder
+					custom_tooltip = bloody_swan.0010.a.failure
+				}
+			}
+		}
+	}
+	option = { # Bribe 
+		name = bloody_swan.0010.b
+		pay_short_term_gold = {	
+			target = scope:galtrevholder
+			gold = major_gold_value
+		}
+		add_character_flag = eira_galtrev_support
+	}
+	option = { # Force 
+		name = bloody_swan.0010.c
+		trigger = { has_strong_hook = scope:galtrevholder }
+		use_hook = scope:galtrevholder
+		add_character_flag = eira_galtrev_support
+	}
+}
+
+bloody_swan.0011 = { # Convince the Chieftess of Runnach
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0011.t
+	desc = bloody_swan.0011.desc
+	theme = diplomacy
+	window = visit_settlement_window
+	override_background = { reference = docks_tribal }
+	right_portrait = {
+		character = root
+		animation = throne_room_conversation_1
+	}
+	left_portrait = {
+		character = scope:runnachholder
+		animation = personality_compassionate
+	}
+	immediate = {
+		title:c_den_runnach.holder = { save_scope_as = runnachholder }
+	}
+	option = { # Convince 
+		name = bloody_swan.0011.a
+		duel = {
+			skill = diplomacy
+			target = scope:runnachholder
+			30 = {
+				desc = bloody_swan.0011.a.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 0.5
+				}
+				send_interface_toast = {
+					title = bloody_swan.0011.t
+					type = event_toast_effect_good
+					left_icon = root
+					right_icon = scope:runnachholder
+					custom_tooltip = bloody_swan.0011.a.success
+				}
+				add_character_flag = eira_runnach_support
+			}
+			10 = {
+				desc = bloody_swan.0011.a.failure
+				scope:runnachholder = {
+					add_opinion = {
+						modifier = insulted_opinion
+						target = root
+						opinion = -30
+					}
+				}
+				send_interface_toast = {
+					title = bloody_swan.0011.t
+					type = event_toast_effect_bad
+					left_icon = root
+					right_icon = scope:runnachholder
+					custom_tooltip = bloody_swan.0011.a.failure
+				}
+			}
+		}
+	}
+	option = { # Bribe 
+		name = bloody_swan.0010.b
+		pay_short_term_gold = {	
+			target = scope:runnachholder
+			gold = major_gold_value
+		}
+		add_character_flag = eira_runnach_support
+	}
+	option = { # Force 
+		name = bloody_swan.0010.c
+		trigger = { has_strong_hook = scope:runnachholder }
+		use_hook = scope:runnachholder
+		add_character_flag = eira_runnach_support
+	}
+}
+
+bloody_swan.0012 = { # Convince the Chieftain of Iarnburn
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0012.t
+	desc = bloody_swan.0012.desc
+	theme = diplomacy
+	window = visit_settlement_window
+	override_background = { reference = throne_room_tribal }
+	right_portrait = {
+		character = root
+		animation = throne_room_conversation_1
+	}
+	left_portrait = {
+		character = scope:iarnburnholder
+		animation = personality_rational
+	}
+	immediate = {
+		title:c_iarnburn.holder = { save_scope_as = iarnburnholder }
+	}
+	option = { # Convince 
+		name = bloody_swan.0012.a
+		duel = {
+			skill = diplomacy
+			target = scope:iarnburnholder
+			30 = {
+				desc = bloody_swan.0012.a.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 0.5
+				}
+				send_interface_toast = {
+					title = bloody_swan.0012.t
+					type = event_toast_effect_good
+					left_icon = root
+					right_icon = scope:iarnburnholder
+					custom_tooltip = bloody_swan.0012.a.success
+				}
+				add_character_flag = eira_iarnburn_support
+			}
+			10 = {
+				desc = bloody_swan.0012.a.failure
+				scope:iarnburnholder = {
+					add_opinion = {
+						modifier = insulted_opinion
+						target = root
+						opinion = -30
+					}
+				}
+				send_interface_toast = {
+					title = bloody_swan.0012.t
+					type = event_toast_effect_bad
+					left_icon = root
+					right_icon = scope:iarnburnholder
+					custom_tooltip = bloody_swan.0012.a.failure
+				}
+			}
+		}
+	}
+	option = { # Bribe 
+		name = bloody_swan.0012.b
+		pay_short_term_gold = {	
+			target = scope:iarnburnholder
+			gold = major_gold_value
+		}
+		add_character_flag = eira_iarnburn_support
+	}
+	option = { # Force 
+		name = bloody_swan.0012.c
+		trigger = { has_strong_hook = scope:iarnburnholder }
+		use_hook = scope:iarnburnholder
+		add_character_flag = eira_iarnburn_support
+	}
+}
+
+bloody_swan.0013 = { # Convince the Chieftain of Harnangren
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0013.t
+	desc = bloody_swan.0013.desc
+	theme = diplomacy
+	window = visit_settlement_window
+	override_background = { reference = activity_gruesome_festival }
+	right_portrait = {
+		character = root
+		animation = throne_room_conversation_1
+	}
+	left_portrait = {
+		character = scope:westmarchesholder
+		animation = war_defender
+	}
+	immediate = {
+		title:c_westmarches.holder = { save_scope_as = westmarchesholder }
+	}
+	option = { # Convince 
+		name = bloody_swan.0013.a
+		duel = {
+			skill = diplomacy
+			target = scope:westmarchesholder
+			30 = {
+				desc = bloody_swan.0013.a.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 0.5
+				}
+				send_interface_toast = {
+					title = bloody_swan.0013.t
+					type = event_toast_effect_good
+					left_icon = root
+					right_icon = scope:westmarchesholder
+					custom_tooltip = bloody_swan.0013.a.success
+				}
+				add_character_flag = eira_westmarches_support
+			}
+			10 = {
+				desc = bloody_swan.0013.a.failure
+				scope:westmarchesholder = {
+					add_opinion = {
+						modifier = insulted_opinion
+						target = root
+						opinion = -30
+					}
+				}
+				send_interface_toast = {
+					title = bloody_swan.0013.t
+					type = event_toast_effect_bad
+					left_icon = root
+					right_icon = scope:westmarchesholder
+					custom_tooltip = bloody_swan.0013.a.failure
+				}
+			}
+		}
+	}
+	option = { # Bribe 
+		name = bloody_swan.0013.b
+		pay_short_term_gold = {	
+			target = scope:westmarchesholder
+			gold = major_gold_value
+		}
+		add_character_flag = eira_westmarches_support
+	}
+	option = { # Force 
+		name = bloody_swan.0013.c
+		trigger = { has_strong_hook = scope:westmarchesholder }
+		use_hook = scope:westmarchesholder
+		add_character_flag = eira_westmarches_support
+	}
+}
+
+bloody_swan.0014 = { # Convince the Chieftain of Angrast (Rlain the Brazen Brigand)
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0014.t
+	desc = bloody_swan.0014.desc
+	theme = diplomacy
+	window = visit_settlement_window
+	override_background = { reference = army_camp }
+	right_portrait = {
+		character = root
+		animation = throne_room_conversation_1
+	}
+	left_portrait = {
+		character = scope:angrastholder
+		animation = personality_callous
+	}
+	immediate = {
+		title:d_angrast.holder = { save_scope_as = angrastholder }
+	}
+	option = { # Convince 
+		name = bloody_swan.0014.a
+		duel = {
+			skill = diplomacy
+			target = scope:angrastholder
+			30 = {
+				desc = bloody_swan.0014.a.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 0.5
+				}
+				send_interface_toast = {
+					title = bloody_swan.0014.t
+					type = event_toast_effect_good
+					left_icon = root
+					right_icon = scope:angrastholder
+					custom_tooltip = bloody_swan.0014.a.success
+				}
+				add_character_flag = eira_angrast_support
+			}
+			10 = {
+				desc = bloody_swan.0014.a.failure
+				scope:angrastholder = {
+					add_opinion = {
+						modifier = insulted_opinion
+						target = root
+						opinion = -30
+					}
+				}
+				send_interface_toast = {
+					title = bloody_swan.0014.t
+					type = event_toast_effect_bad
+					left_icon = root
+					right_icon = scope:angrastholder
+					custom_tooltip = bloody_swan.0014.a.failure
+				}
+			}
+		}
+	}
+	option = { # Bribe 
+		name = bloody_swan.0014.b
+		pay_short_term_gold = {	
+			target = scope:angrastholder
+			gold = major_gold_value
+		}
+		add_character_flag = eira_angrast_support
+	}
+	option = { # Force 
+		name = bloody_swan.0014.c
+		trigger = { has_strong_hook = scope:angrastholder }
+		use_hook = scope:angrastholder
+		add_character_flag = eira_angrast_support
+	}
+}
+
+bloody_swan.0020 = { # Buy armor from the Dwarves
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0020.t
+	desc = bloody_swan.0020.desc
+	theme = dwarven
+	window = visit_settlement_window
+	override_background = { reference = durins_door }
+	right_portrait = {
+		character = root
+		animation = throne_room_conversation_1
+	}
+	left_portrait = {
+		character = scope:moriaholder
+		animation = personality_callous
+	}
+	immediate = {
+		title:k_khazad_dum.holder = { save_scope_as = moriaholder }
+		hidden_effect = { root.culture = { add_innovation = innovation_armored_dunmen_warfare } }
+	}
+	option = { # Negotiate 
+		trigger = { 
+			scope:moriaholder = {
+				opinion = {
+					target = root
+					value >= very_high_positive_opinion
+				}
+			}
+		}
+		name = bloody_swan.0020.a
+		pay_short_term_gold = {	
+			target = scope:moriaholder
+			gold = 200
+		}
+	}
+	option = { # Purchase 
+		name = bloody_swan.0020.b
+		pay_short_term_gold = {	
+			target = scope:moriaholder
+			gold = 300
+		}
+	}
+	option = { # Force 
+		name = bloody_swan.0020.c
+		trigger = { has_strong_hook = scope:moriaholder }
+		use_hook = scope:moriaholder
+		pay_short_term_gold = {	
+			target = scope:moriaholder
+			gold = 100
+		}
+	}
+	after = {
+		send_interface_toast = {
+			title = bloody_swan.0020.tt
+			type = event_toast_effect_good
+			left_icon = root
+			right_icon = scope:moriaholder
+			show_as_tooltip = { root.culture = { add_innovation = innovation_armored_dunmen_warfare } }
+		}
+	}
+}
+
+bloody_swan.0021 = { # Form the Kingdom of High Meala
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0021.t
+	desc = bloody_swan.0021.desc
+	theme = crown
+	window = visit_settlement_window
+	override_background = { reference = throne_room }
+
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+	immediate = {
+		show_as_tooltip = { # Effects from the decision
+			convert_whole_realm_to_feudalism_effect = yes
+			get_title = title:k_dunlandfells
+			root.dynasty = { add_dynasty_prestige = 250 }
+		}
+	}
+	option = { # What's next?
+		name = bloody_swan.0021.a
+		trigger_event = {
+			id = bloody_swan.0022
+			days = 15
+		}
+		add_character_flag = eira_kingdom_formed
+	}		
+}
+
+bloody_swan.0022 = { # Decide how to deal with Glormagil
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0022.t
+	desc = bloody_swan.0022.desc
+	theme = intrigue_skulduggery_focus
+	window = visit_settlement_window
+	override_background = { reference = throne_room_tribal }
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	right_portrait = {
+		character = scope:glormagil
+		animation = personality_callous
+	}
+	immediate = {
+		character:linearastil16 = { save_scope_as = glormagil }
+	}
+	option = { # Sneak into Tharbad and assassinate him
+		name = bloody_swan.0022.a
+		custom_tooltip = bloody_swan.0022.a.tt
+		add_character_flag = eira_assassination_path
+	}	
+	option = { # Open war against Glormagil
+		name = bloody_swan.0022.b
+		custom_tooltip = bloody_swan.0022.b.tt
+		add_character_flag = eira_war_path
+	}
+	option = { # Appeal to the King of Gondor
+		name = bloody_swan.0022.c
+		custom_tooltip = bloody_swan.0022.c.tt
+		#add_character_flag = eira_diplomacy_path
+	}
+	option = { # No more vengeance 
+		name = bloody_swan.0022.d
+		custom_tooltip = bloody_swan.0022.d.tt
+		#add_character_flag = eira_peace_path
+	}	
+}
+
+bloody_swan.0025 = { # Travel to Harabad to assassinate Glormagil
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0025.t
+	desc = bloody_swan.0025.desc
+	theme = intrigue_skulduggery_focus
+	window = visit_settlement_window
+	override_background = { reference = ep3_campfire }
+	right_portrait = {
+		character = root
+		animation = worry
+		camera = camera_event_center_very_large
+	}
+	lower_left_portrait = {
+		character = scope:gondorian_governor
+	}
+	lower_right_portrait = {
+		character = scope:murdered_father
+	}
+	immediate = {
+		character:linemabon7 = { save_scope_as = murdered_father }
+		character:linearastil16 = { save_scope_as = gondorian_governor }
+	}
+	option = { # Soft and swift as shadows we must be
+		name = bloody_swan.0025.a 
+		custom_tooltip = bloody_swan.0025.a.tt
+		set_variable = cannot_cancel_travel
+		add_intrigue_lifestyle_xp = 200 
+		start_travel_plan = { #Travel to Tharbad
+			destination = title:c_harabad.title_province
+			destination = title:c_tharbad.title_province
+			on_arrival_on_action = eira_harabad_on_action
+			return_trip = no
+			players_use_planner = yes
+			on_arrival_destinations = all
+		}
+	}
+}
+
+bloody_swan.0026 = { # Sneaking through the streets
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0026.t
+	desc = bloody_swan.0026.desc
+	theme = intrigue
+	window = visit_settlement_window
+	override_background = { reference = alley_night }
+	right_portrait = {
+		character = root
+		animation = map_dismissal
+		camera = camera_body_right
+	}
+	lower_left_portrait = {
+		character = scope:gondorian_governor
+	}
+	immediate = {
+		character:linearastil16 = { save_scope_as = gondorian_governor }
+	}
+	option = { # Interrogate a guard
+		name = bloody_swan.0026.a
+		skill = intrigue
+		duel = {
+			skill = intrigue
+			value = 20
+			
+			80 = { # Success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}			
+				custom_tooltip = bloody_swan.0026.a.success
+				hidden_effect = { current_travel_plan ?= { delay_travel_plan = { months = 4 } } }
+				trigger_event = {
+					id = bloody_swan.0027
+					days = 1
+				}				
+			}
+
+			20 = { # Failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = bloody_swan.0026.a.failure.tt
+					left_icon = root
+					custom_tooltip = bloody_swan.0026.a.failure
+					add_stress = 50
+					hidden_effect = { 
+						current_travel_plan ?= { cancel_travel_plan = yes } 
+						start_travel_plan = { # retreat home
+							destination = root.capital_county.title_province
+							on_arrival_event = bloody_swan.0022
+							return_trip = no
+							players_use_planner = no
+							on_arrival_destinations = all
+						}
+					}
+					remove_character_flag = eira_assassination_path
+					remove_list_global_variable = {
+						name = unavailable_unique_decisions
+						target = flag:decision_eira_assassination
+					}
+				}
+			}	
+		}
+	}	
+	option = { # Use a local guide
+		name = bloody_swan.0026.b
+		skill = learning
+		duel = {
+			skill = learning
+			value = 20
+			
+			80 = { # Success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}			
+				custom_tooltip = bloody_swan.0026.b.success
+				hidden_effect = { current_travel_plan ?= { delay_travel_plan = { months = 4 } } }
+				trigger_event = {
+					id = bloody_swan.0027
+					days = 1
+				}				
+			}
+
+			20 = { # Failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = bloody_swan.0026.b.failure.tt
+					left_icon = root
+					custom_tooltip = bloody_swan.0026.b.failure
+					add_stress = 50
+					hidden_effect = { 
+						current_travel_plan ?= { cancel_travel_plan = yes } 
+						start_travel_plan = { # retreat home
+							destination = root.capital_county.title_province
+							on_arrival_event = bloody_swan.0022
+							return_trip = no
+							players_use_planner = no
+							on_arrival_destinations = all
+						}
+					}
+					remove_character_flag = eira_assassination_path
+					remove_list_global_variable = {
+						name = unavailable_unique_decisions
+						target = flag:decision_eira_assassination
+					}
+				}
+			}	
+		}
+	}
+}
+
+bloody_swan.0027 = { # Infiltrate the Governor's estate
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0027.t
+	desc = bloody_swan.0027.desc
+	theme = administrative
+	window = visit_settlement_window
+	override_background = { reference = corridor_dunedain }
+	right_portrait = {
+		character = root
+		animation = aggressive_dagger
+		camera = camera_combat_window
+	}
+	lower_left_portrait = {
+		character = scope:gondorian_governor
+	}
+	immediate = {
+		character:linearastil16 = { save_scope_as = gondorian_governor }
+	}
+	option = { # Overpower the guards
+		name = bloody_swan.0027.a
+		skill = prowess
+		duel = {
+			skill = prowess
+			value = 20
+			
+			80 = { # Success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}			
+				custom_tooltip = bloody_swan.0027.a.success
+				hidden_effect = { current_travel_plan ?= { delay_travel_plan = { months = 4 } } }
+				trigger_event = {
+					id = bloody_swan.0028
+					days = 1
+				}				
+			}
+
+			20 = { # Failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = bloody_swan.0027.a.failure.tt
+					left_icon = root
+					custom_tooltip = bloody_swan.0027.a.failure
+					add_stress = 70
+					scope:gondorian_governor = {
+						imprison = {
+							target = root
+							type = dungeon
+						}
+					}
+					remove_list_global_variable = {
+						name = unavailable_unique_decisions
+						target = flag:decision_eira_assassination
+					}
+				}
+			}	
+		}
+	}	
+	option = { # Climb through a window
+		name = bloody_swan.0027.b
+		skill = intrigue
+		duel = {
+			skill = intrigue
+			value = 20
+			
+			80 = { # Success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}			
+				custom_tooltip = bloody_swan.0027.b.success
+				hidden_effect = { current_travel_plan ?= { delay_travel_plan = { months = 4 } } }
+				trigger_event = {
+					id = bloody_swan.0028
+					days = 1
+				}				
+			}
+
+			20 = { # Failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = bloody_swan.0027.b.failure.tt
+					left_icon = root
+					custom_tooltip = bloody_swan.0027.b.failure
+					add_stress = 70
+					scope:gondorian_governor = {
+						imprison = {
+							target = root
+							type = dungeon
+						}
+					}
+					remove_list_global_variable = {
+						name = unavailable_unique_decisions
+						target = flag:decision_eira_assassination
+					}
+				}
+			}	
+		}
+	}
+}
+
+bloody_swan.0028 = { # Facing Glormagil
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0028.t
+	desc = bloody_swan.0028.desc
+	theme = martial
+	window = visit_settlement_window
+	override_background = { reference = bp1_relaxing_room_western }
+	left_portrait = {
+		character = root
+		animation = aggressive_spear
+	}
+	right_portrait = {
+		character = scope:gondorian_governor
+		animation = shock
+	}
+	immediate = {
+		character:linearastil16 = { save_scope_as = gondorian_governor }
+	}
+	option = { # This ends here
+		name = bloody_swan.0028.a
+		skill = prowess
+		custom_tooltip = bloody_swan.0028.a.tt
+        configure_start_single_combat_effect = {
+            SC_INITIATOR = root
+            SC_ATTACKER = root
+            SC_DEFENDER = scope:gondorian_governor
+            FATALITY = always
+            FIXED = no
+            LOCALE = wilderness_scope
+            OUTPUT_EVENT = bloody_swan.0029
+            INVALIDATION_EVENT = bloody_swan.0030
+        }
+	}
+}
+
+bloody_swan.0029 = { # Vengeance has come
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0029.t
+	desc = bloody_swan.0029.desc
+	theme = raid
+	window = visit_settlement_window
+	override_background = { reference = bp1_relaxing_room_western }
+	right_portrait = {
+		character = root
+		animation = celebrate_spear
+	}
+	lower_right_portrait = {
+		character = scope:gondorian_governor
+		animation = dead
+	}
+	immediate = {
+		character:linearastil16 = { save_scope_as = gondorian_governor }
+		add_pressed_claim = title:k_enedhwaith
+	}
+	option = { # I feel... empty
+		name = bloody_swan.0029.a
+		custom_tooltip = bloody_swan.0029.a.tt
+		add_stress = 20
+		hidden_effect = { 
+			current_travel_plan ?= { cancel_travel_plan = yes } 
+			start_travel_plan = { # retreat home
+				destination = root.capital_county.title_province
+				on_arrival_event = bloody_swan.0031
+				return_trip = no
+				players_use_planner = no
+				on_arrival_destinations = all
+			}
+		}
+	}
+}
+
+bloody_swan.0030 = { # Invalidation event 
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0030.t
+	desc = bloody_swan.0030.desc
+	theme = raid
+	window = visit_settlement_window
+	override_background = { reference = relaxing_room }
+	right_portrait = {
+		character = root
+		animation = celebrate_spear
+	}
+	lower_right_portrait = {
+		character = scope:gondorian_governor
+		animation = dead
+	}
+	immediate = {
+		character:linearastil16 = { save_scope_as = gondorian_governor }
+		add_pressed_claim = title:k_enedhwaith
+		imprison = {
+			target = scope:gondorian_governor
+			type = dungeon
+		}
+	}
+	option = { # Bind him, and let's get out of here
+		name = bloody_swan.0030.a
+		custom_tooltip = bloody_swan.0030.a.tt
+		add_stress = -50
+		hidden_effect = { 
+			current_travel_plan ?= { cancel_travel_plan = yes } 
+			start_travel_plan = { # retreat home
+				destination = root.capital_county.title_province
+				on_arrival_event = bloody_swan.0031
+				return_trip = no
+				players_use_planner = yes
+				on_arrival_destinations = all
+			}
+		}
+	}
+}
+
+bloody_swan.0031 = { # End event
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0031.t
+	desc = bloody_swan.0031.desc
+	theme = crown
+	window = visit_settlement_window
+	override_background = { reference = throne_room }
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	immediate = {
+		title:k_dunland = {
+			every_in_de_jure_hierarchy = { 
+				limit = {
+					holder = {
+						OR = {
+							AND = {
+								exists = suzerain
+								suzerain ?= { has_title = title:e_gondor }
+							}
+							is_independent_ruler = yes
+							NOT = { this = root }
+							NOT = { has_title = title:k_wastelands }
+						}
+					}
+				}
+				holder = {
+					end_tributary = yes
+					create_title_and_vassal_change = {
+						type = swear_fealty
+						save_scope_as = change
+						add_claim_on_loss = no
+					}
+					change_liege = {
+						liege = root
+						change = scope:change
+					}
+					resolve_title_and_vassal_change = scope:change
+				}
+			}
+		}
+	}
+	option = { # Many paths lead towards the future
+		name = bloody_swan.0031.a
+		add_prestige = 250
+	}
+}
+
+bloody_swan.0035 = { # Glormagil slanders me
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0035.t
+	desc = bloody_swan.0035.desc
+	theme = intrigue
+	window = visit_settlement_window
+	override_background = { reference = market_tribal }
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	right_portrait = {
+		character = scope:glormagil
+		animation = schadenfreude
+	}
+	immediate = {
+		character:linearastil16 = { save_scope_as = glormagil }
+	}
+	option = { # Your words are but poison!
+		name = bloody_swan.0035.a 
+		add_prestige = minor_prestige_gain
+	}
+	option = { # You will pay for this 
+		name = bloody_swan.0035.b
+		add_dread = minor_dread_gain
+	}
+}
+
+bloody_swan.0036 = { # A Knight in the Woods
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0036.t
+	desc = bloody_swan.0036.desc
+	theme = martial_chivalry_focus
+	window = visit_settlement_window
+	override_background = { reference = wilderness_forest_deep }
+	left_portrait = {
+		character = root
+		animation = throne_room_conversation_3
+	}
+	right_portrait = {
+		character = scope:romeo
+		animation = marshal_shield
+	}
+	lower_left_portrait = {
+		character = scope:maratar
+		animation = marshal
+	}
+	trigger = {
+		character:predolamroth183 = { is_alive = yes }
+	}
+	immediate = {
+		character:predolamroth183 = { 
+			save_scope_as = romeo 
+			add_character_flag = wear_armor
+		}
+		character:predolamroth181 = { 
+			save_scope_as = maratar 
+			add_character_flag = wear_armor
+		}
+	}
+	option = { # Send him back to his father
+		name = bloody_swan.0036.a 
+		add_prestige = minor_prestige_gain
+		scope:maratar = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 50
+			}
+			trigger_event = {	
+				id = bloody_swan.0105
+				days = 1
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = { # Keep him as a guest
+		name = bloody_swan.0036.b
+		add_prestige = minor_prestige_gain
+		every_powerful_vassal = {
+			add_opinion = {
+				target = root
+				modifier = suspicious_opinion
+				opinion = -20
+			}
+		}
+		add_courtier = scope:romeo
+		#scope:maratar = {
+			# trigger_event = {	
+				# id = bloody_swan.0106
+				# days = 1
+			# }
+		#}
+	}
+	option = { # Imprison him
+		name = bloody_swan.0036.c
+		add_dread = medium_dread_gain
+		every_powerful_vassal = {
+			add_opinion = {
+				target = root
+				modifier = pleased_opinion
+				opinion = 20
+			}
+		}
+		#scope:maratar = {
+			# trigger_event = {	
+				# id = bloody_swan.0107
+				# days = 1
+			# }
+		#}
+	}
+	after = {
+		scope:maratar = { remove_character_flag = wear_armor }
+		scope:romeo = { remove_character_flag = wear_armor }
+	}
+}
+
+### Maratar Events ###
+bloody_swan.0101 = { # The Stowaway
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0101.t
+	desc = bloody_swan.0101.desc
+	theme = family
+	window = visit_settlement_window
+	override_background = { reference = throne_room }
+
+	left_portrait = {
+		character = root
+		animation = stunned
+		camera = camera_event_group_talking_left_left
+	}
+	right_portrait = {
+		character = scope:mirime
+		animation = waki_gamae
+	}
+	lower_right_portrait = {
+		character = scope:dunloth 
+	}
+	immediate = {
+		character:predolamroth182 = { 
+			save_scope_as = mirime 
+			add_character_flag = wear_armor
+		}
+		title:k_belfalas.holder = { save_scope_as = dunloth }
+	}
+	option = { # Very well... she can stay
+		name = bloody_swan.0101.a
+		add_prestige = minor_prestige_loss
+	}
+	option = { # This is no place for a maiden
+		name = bloody_swan.0101.b
+		title:k_belfalas.holder = { add_courtier = scope:mirime }
+		add_prestige = medium_prestige_gain
+	}
+	after = {
+		scope:mirime = { remove_character_flag = wear_armor }
+		remove_character_flag = wear_armor
+	}
+}
+
+bloody_swan.0102 = { # Rlain has been captured
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0102.t
+	desc = bloody_swan.0102.desc
+	theme = raid
+	window = visit_settlement_window
+	override_background = { reference = army_camp }
+
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+	right_portrait = {
+		character = scope:rlain
+		animation = anger
+	}
+	immediate = {
+		add_character_flag = wear_armor
+		character:linedilwun10 = { 
+			save_scope_as = rlain 
+		}
+		title:d_coastal_sentinels.holder ?= { save_scope_as = coastal_guardian }
+	}
+	option = { # Death is justice
+		name = bloody_swan.0102.a
+		add_dread = medium_dread_gain
+		scope:rlain = {
+			death = {
+				death_reason = death_decapitated
+				killer = root
+			}
+		}
+	}
+	option = { # Let him rot
+		name = bloody_swan.0102.b
+		add_piety = major_piety_gain
+	}
+	option = { # Pardon him if he submits to the coastal guard 
+		name = bloody_swan.0102.c
+		trigger = { exists = title:d_coastal_sentinels.holder }
+		scope:rlain = {
+			release_from_prison = yes
+			every_held_title = {
+				limit = { tier >= tier_duchy }
+				scope:rlain = { destroy_title = prev }
+			}
+		}
+		scope:rlain = {
+			create_title_and_vassal_change = {
+				type = swear_fealty
+				save_scope_as = change
+				add_claim_on_loss = yes
+			}
+			change_liege = {
+				liege = scope:coastal_guardian
+				change = scope:change
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+	}		
+	after = {
+		trigger_event = {
+			id = bloody_swan.0103
+			days = 1 
+		}
+		remove_character_flag = wear_armor
+	}
+}
+
+bloody_swan.0103 = { # My mission complete
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0103.t
+	desc = bloody_swan.0103.desc
+	theme = martial_chivalry_focus
+	window = visit_settlement_window
+	#override_background = { reference = army_camp }
+
+	left_portrait = {
+		character = root
+		animation = personality_callous
+	}
+	lower_right_portrait = {
+		character = scope:rlain
+		animation = anger
+	}
+	lower_center_portrait = {
+		character = scope:dunloth
+	}
+	lower_left_portrait = {
+		character = scope:glormagil
+	}
+	immediate = {
+		add_character_flag = wear_armor
+		character:linedilwun10 = { 
+			save_scope_as = rlain 
+		}
+		title:k_belfalas.holder ?= { save_scope_as = dunloth }
+		title:k_enedhwaith.holder = { save_scope_as = glormagil }
+	}
+	option = { # I'll return to my lady wife in Linhir
+		name = bloody_swan.0103.a
+		trigger = { has_dlc_feature = roads_to_power } # Admin is still dlc locked
+		add_prestige = medium_prestige_gain
+		save_scope_as = actor
+		title:e_gondor.holder = { save_scope_as = recipient }
+		scope:actor = {
+			# Note our courtiers so that they don't escape.
+			every_courtier = { add_to_list = courtiers_list }
+			# Change liege
+			destroy_laamp_effect = { ADVENTURER = scope:actor }
+			hidden_effect  = {
+				scope:recipient.top_liege = {
+					add_courtier = scope:actor
+					return_to_court = yes
+				}
+			}
+			create_noble_family_effect = { GOVERNMENT_GIVER = this }
+			hidden_effect = {
+				# Return any escaped courtiers.
+				every_in_list = {
+					list = courtiers_list
+					scope:actor = { add_courtier = prev }
+				}
+				# And boot any new autogenned arrivals.
+				every_courtier = {
+					limit = {
+						is_lowborn = yes
+						NOR = {
+							is_in_list = courtiers_list
+							is_close_or_extended_family_of = scope:actor
+							is_consort_of = scope:actor
+							has_important_relationship_trigger = { CHARACTER = scope:actor }
+						}
+					}
+					silent_disappearance_effect = yes
+				}
+			}
+			create_title_and_vassal_change = {
+				type = swear_fealty
+				add_claim_on_loss = no
+				save_scope_as = title_change
+			}
+			change_liege = {
+				liege = scope:recipient.top_liege
+				change = scope:title_change
+			}
+			resolve_title_and_vassal_change = scope:title_change
+			change_government = administrative_government
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = {
+							domicile.domicile_location = {
+								this = title:c_linhir.title_province
+							}
+						}
+					}
+					domicile = {
+						move_domicile = title:c_linhir.title_province
+					}
+				}
+				domicile = {
+					add_domicile_building = guardhouse_01
+					add_domicile_building = estate_main_02
+					add_domicile_building = grain_field_01
+				}
+			}
+		}
+		scope:recipient.top_liege = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+				send_interface_message = {
+					type = msg_landless_adventurer_nearby
+					title = procure_estate_message_title
+					left_icon = scope:actor
+					right_icon = scope:recipient
+					custom_tooltip = procure_estate_message_tt
+				}
+			}
+			every_vassal_or_below = {
+				limit = {
+					is_ai = no
+				}
+				send_interface_message = {
+					type = msg_landless_adventurer_nearby
+					title = procure_estate_message_title
+					left_icon = scope:actor
+					right_icon = scope:recipient
+					custom_tooltip = procure_estate_message_tt
+				}
+			}
+		}
+		create_character_memory = {
+			type = procured_estate_memory
+			participants = { benefactor = scope:recipient }
+		}
+		if = {
+			limit = {
+				is_ai = no
+			}
+			add_achievement_global_variable_effect = {
+				VARIABLE = started_from_the_bottom_now_were_ere_procure
+				VALUE = yes
+			}
+		}
+	}
+	option = { # I'll return to my brother's service
+		name = bloody_swan.0103.b
+		set_player_character = scope:dunloth
+		destroy_laamp_effect = { ADVENTURER = root }
+		scope:dunloth = {
+			add_courtier = root 
+			return_to_court = yes
+		}
+	}
+	option = { # Enedhwaith still needs me as its governor
+		name = bloody_swan.0103.c
+		trigger = { prestige_level >= 2 }
+		show_as_unavailable = { prestige_level <= 1 }
+		add_prestige = -1000
+		get_title = title:k_enedhwaith
+		if = {
+			limit = { has_dlc_feature = roads_to_power }
+			change_government = administrative_government
+		}
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = change
+			add_claim_on_loss = yes
+		}
+		change_liege = {
+			liege = title:e_gondor.holder
+			change = scope:change
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+	option = { # My expedition continues
+		name = bloody_swan.0103.d
+		add_prestige = medium_prestige_gain
+	}
+	after = {
+		remove_character_flag = wear_armor
+		trigger_event = {
+			id = bloody_swan.0106
+			days = 10
+		}
+	}
+}
+
+bloody_swan.0105 = { # My Son returns 
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0105.t
+	desc = bloody_swan.0105.desc
+	theme = hunting
+	window = visit_settlement_window
+	override_background = { reference = army_camp }
+
+	left_portrait = {
+		character = root
+		animation = disapproval
+		#camera = camera_event_group_talking_left_left
+	}
+	right_portrait = {
+		character = scope:romeo
+		animation = storyteller
+	}
+	lower_right_portrait = {
+		character = scope:eira 
+	}
+	immediate = {
+		character:predolamroth183 = { 
+			save_scope_as = romeo 
+			add_character_flag = wear_armor
+		}
+		add_character_flag = wear_armor
+		character:linemabon9 = { save_scope_as = eira }
+	}
+	option = { # Send her our thanks
+		name = bloody_swan.0105.a
+		custom_tooltip = unlocks_eira_diplomacy_decision
+		add_character_flag = maratar_eira_friendliness
+		scope:romeo = {
+			add_opinion = {
+				target = root
+				modifier = pleased_opinion
+				opinion = 20
+			}
+		}
+	}
+	option = { # We cannot trust her
+		name = bloody_swan.0105.b
+		add_prestige = medium_prestige_gain
+		scope:romeo = {
+			add_opinion = {
+				target = root
+				modifier = disappointed_opinion
+				opinion = -50
+			}
+		}
+		scope:eira = { # This is how Gondor repays me my mercy?
+			add_opinion = {
+				target = root
+				modifier = audacity_opinion
+				opinion = -50
+			}
+		}
+	}
+	after = {
+		scope:romeo = { remove_character_flag = wear_armor }
+		remove_character_flag = wear_armor
+	}
+}
+
+bloody_swan.0106 = { # Bringing Justice for Éira
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0106.t
+	desc = bloody_swan.0106.desc
+	theme = diplomacy
+	window = visit_settlement_window
+	#override_background = { reference = army_camp }
+
+	left_portrait = {
+		character = root
+		animation = thinking
+		#camera = camera_event_group_talking_left_left
+	}
+	right_portrait = {
+		character = scope:romeo
+		animation = personality_cynical
+	}
+	lower_right_portrait = {
+		character = scope:eira 
+	}
+	immediate = {
+		character:predolamroth183 = { 
+			save_scope_as = romeo 
+			add_character_flag = wear_armor
+		}
+		add_character_flag = wear_armor
+		character:linemabon9 = { save_scope_as = eira }
+	}
+	option = { # I'll remain true to my word
+		name = bloody_swan.0106.a
+		custom_tooltip = unlocks_maratar_osigiliath_decision
+		add_character_flag = maratar_ready_for_osgiliath
+		scope:romeo = {
+			add_opinion = {
+				target = root
+				modifier = pleased_opinion
+				opinion = 30
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = { # I don't think so.
+		name = bloody_swan.0106.b
+		add_prestige = medium_prestige_loss
+		scope:romeo = {
+			add_opinion = {
+				target = root
+				modifier = disappointed_opinion
+				opinion = -80
+			}
+		}
+		scope:eira = { # This is how Gondor repays me my mercy?
+			add_opinion = {
+				target = root
+				modifier = audacity_opinion
+				opinion = -50
+			}
+			add_courtier = scope:romeo
+		}
+	}
+	after = {
+		scope:romeo = { remove_character_flag = wear_armor }
+		remove_character_flag = wear_armor
+	}
+}
+
+bloody_swan.0107 = { # Standing before the King
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0107.t
+	desc = bloody_swan.0107.desc
+	theme = gondor
+	window = visit_settlement_window
+	#override_background = { reference = army_camp }
+
+	left_portrait = {
+		character = scope:eira
+		animation = throne_room_conversation_3
+		#camera = camera_event_group_talking_left_left
+	}
+	center_portrait = {
+		character = root
+		animation = storyteller
+		camera = camera_event_group_talking_left_left
+	}
+	right_portrait = {
+		character = scope:romendacil
+		animation = personality_rational
+	}
+	lower_right_portrait = {
+		character = scope:romeo 
+		animation = marshal
+	}
+	immediate = {
+		character:predolamroth183 = { 
+			save_scope_as = romeo 
+			add_character_flag = wear_armor
+		}
+		add_character_flag = wear_armor
+		character:linemabon9 = { save_scope_as = eira }
+		title:e_gondor.holder = { save_scope_as = romendacil }
+	}
+	option = { # The King will decide
+		name = bloody_swan.0106.a
+		custom_tooltip = await_the_kings_justice
+	}
+	after = {
+		scope:romeo = { remove_character_flag = wear_armor }
+		remove_character_flag = wear_armor
+	}
+}
+
+bloody_swan.0110 = { # Forged an Alliance with Éira 
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0110.t
+	desc = bloody_swan.0110.desc
+	theme = alliance
+	window = visit_settlement_window
+	override_background = { reference = plains }
+
+	left_portrait = {
+		character = root
+		animation = personality_compassionate
+		#camera = camera_event_group_talking_left_left
+	}
+	right_portrait = {
+		character = scope:eira
+		animation = throne_room_conversation_4
+	}
+	center_portrait = {
+		character = scope:romeo
+		animation = happiness
+	}
+	lower_left_portrait = {
+		character = scope:glormagil
+		animation = spymaster
+	}
+	lower_center_portrait = {
+		character = scope:romendacil
+		animation = marshal
+	}
+	immediate = {
+		character:predolamroth183 = { 
+			save_scope_as = romeo 
+			add_character_flag = wear_armor
+		}
+		add_character_flag = wear_armor
+		character:linemabon9 = { save_scope_as = eira }
+		character:linearastil16 = { save_scope_as = glormagil }
+		title:e_gondor.holder = { save_scope_as = romendacil }
+		show_as_tooltip = {
+			custom_tooltip = {
+				text = alliance_with_eira_formed
+				character:linemabon9 = {
+					add_opinion = {
+						modifier = event_negotiated_alliance_opinion
+						target = root
+					}
+				}
+			}
+			character:linemabon9 = {
+				add_opinion = {
+					target = root
+					modifier = grateful_opinion
+					opinion = 50
+				}
+			}
+			if = {
+				limit = { 
+					character:linedilwun10 = { is_ruler = yes } 
+				}
+				start_war = {
+					casus_belli = capture_rlain_cb
+					target = character:linedilwun10
+				}
+			}
+		}
+	}
+	option = { # We can work together
+		name = bloody_swan.0110.a
+		# trigger_event = {
+			# id = bloody_swan.0111
+			# days = 90
+		# }
+		scope:romeo = { remove_character_flag = wear_armor }
+		remove_character_flag = wear_armor
+	}
+}
+
+### Glormagil Events ###
+
+bloody_swan.0201 = { # The Spark of Rebellion
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0201.t
+	desc = bloody_swan.0201.desc
+	theme = intrigue
+	window = visit_settlement_window
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	left_portrait = {
+		character = scope:eira
+		animation = war_attacker
+	}
+	lower_right_portrait = {
+		character = scope:murdered_father
+	}
+	immediate = {
+		character:linemabon7 = { save_scope_as = murdered_father }
+		character:linemabon9 = { save_scope_as = eira }
+	}
+	option = { # Sow dissent at her court
+		name = bloody_swan.0201.a 
+		custom_tooltip = bloody_swan.0201.a.tt
+		add_intrigue_lifestyle_xp = 200
+		trigger_event = {
+			id = bloody_swan.0202
+			days = { 30 60 }
+		}
+		## Unlocks "Call a Great Moot"
+		## Unlocks "Request Royal Assistance"
+		## Unlocks "Discredit Éira"
+	}
+}
+
+bloody_swan.0202 = { # News of Maratar's Arrival
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0202.t
+	desc = bloody_swan.0202.desc
+	theme = war
+	window = visit_settlement_window
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	center_portrait = {
+		character = scope:gondorian_messenger
+		animation = chancellor
+		camera = camera_event_scheme_vs_center_look_left
+		triggered_outfit = {
+			outfit_tags = { gondor_war_prince no_headgear }
+		}
+	}
+	right_portrait = {
+		character = scope:maratar 
+		animation = marshal_shield
+		triggered_outfit = {
+			outfit_tags = { gondor_war_prince }
+		}
+	}
+	lower_right_portrait = {
+		character = scope:brigand_leader 
+	}
+	immediate = {
+		character:predolamroth181 = { save_scope_as = maratar }
+		character:linedilwun10 = { save_scope_as = brigand_leader }
+	 	create_character = {
+	 		template = new_warrior_character
+			gender_female_chance = 20
+			culture = culture:belfalathrim
+			faith = faith:faith_edain
+	 		location = root.location
+	 		save_scope_as = gondorian_messenger
+	 	}
+	}
+	option = { # Send a welcoming message
+		name = bloody_swan.0202.a 
+		create_alliance = {
+			target = scope:maratar
+			allied_through_owner = root
+			allied_through_target = scope:maratar
+		}
+		scope:maratar = {
+			add_opinion = {
+				target = root
+				modifier = event_negotiated_alliance_opinion
+			}
+		}
+	}
+	option = { # Let him charge to his doom 
+		name = bloody_swan.0202.b 
+		if = { 
+			limit = { government_has_flag = government_is_administrative }
+			change_influence = medium_influence_gain
+		}
+		add_legitimacy = medium_legitimacy_gain
+	}
+}
+
+bloody_swan.0203 = { # Call the Great Moot
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0203.t
+	desc = bloody_swan.0203.desc
+	theme = diplomacy
+	window = visit_settlement_window
+	override_background = { reference = army_camp }
+	left_portrait = {
+		character = root
+		animation = reading
+	}
+	center_portrait = {
+		character = scope:vassal_1
+		animation = personality_callous
+		camera = camera_event_scheme_vs_center_look_left
+	}
+	right_portrait = {
+		character = scope:vassal_2 
+		animation = marshal
+	}
+	immediate = {
+		random_vassal = { 
+			limit = { has_government = tribal_government }
+			save_scope_as = vassal_1
+		}
+		random_vassal = {
+			limit = {
+				has_government = tribal_government
+				NOT = { this = scope:vassal_1 }
+			}
+			save_scope_as = vassal_2
+		}
+	}
+	option = { # Speak honeyed words
+		name = bloody_swan.0203.a 
+		add_prestige = medium_prestige_loss
+		every_vassal_or_below = {
+			limit = {
+				has_government = tribal_government
+				highest_held_title_tier >= tier_county
+			}
+			add_opinion = {
+				target = root
+				modifier = pleased_opinion
+				opinion = 50
+			}
+		}
+		spawn_army = {
+			levies = 500
+			men_at_arms = {
+				type = dunlending_axe_hunters
+				stacks = 4
+			}
+			men_at_arms = {
+				type = dunlending_huscarl
+				stacks = 3
+			}
+			men_at_arms = {
+				type = dunlending_outriders
+				stacks = 3
+			}
+			inheritable = yes
+			uses_supply = no
+			location = root.capital_province
+			name = glormagil_great_moot_troops
+		}
+	}
+	option = { # Intimidate them
+		name = bloody_swan.0203.b 
+		add_dread = medium_dread_gain
+		random_list = {
+			57 = { # Success
+				send_interface_toast = {
+					title = bloody_swan.0203.b.success
+					type = event_toast_effect_good
+					left_icon = root
+					add_prestige = medium_prestige_gain
+					spawn_army = {
+						levies = 800
+						men_at_arms = {
+							type = dunlending_axe_hunters
+							stacks = 5
+						}
+						men_at_arms = {
+							type = dunlending_huscarl
+							stacks = 4
+						}
+						men_at_arms = {
+							type = dunlending_outriders
+							stacks = 4
+						}
+						inheritable = yes
+						uses_supply = no
+						location = root.capital_province
+						name = glormagil_great_moot_troops
+					}
+				}
+			}
+			43 = { # They laugh at you
+				send_interface_toast = {
+					title = bloody_swan.0203.b.failure
+					type = event_toast_effect_good
+					left_icon = root
+					add_prestige = medium_prestige_loss
+					spawn_army = {
+						levies = 300
+						men_at_arms = {
+							type = dunlending_axe_hunters
+							stacks = 2
+						}
+						men_at_arms = {
+							type = dunlending_outriders
+							stacks = 2
+						}
+						inheritable = yes
+						uses_supply = no
+						location = root.capital_province
+						name = glormagil_great_moot_troops
+					}
+				}
+			}
+		}
+	}
+	option = { # A mixed approach
+		name = bloody_swan.0203.c
+		add_intrigue_lifestyle_xp = 500
+		remove_short_term_gold = 50
+		spawn_army = {
+			levies = 400
+			men_at_arms = {
+				type = dunlending_axe_hunters
+				stacks = 4
+			}
+			men_at_arms = {
+				type = dunlending_huscarl
+				stacks = 4
+			}
+			men_at_arms = {
+				type = dunlending_outriders
+				stacks = 4
+			}
+			inheritable = yes
+			uses_supply = no
+			location = root.capital_province
+			name = glormagil_great_moot_troops
+		}
+	}
+}
+
+bloody_swan.0204 = { # Discredit Éira - Set-up
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0204.t
+	desc = bloody_swan.0204.desc
+	theme = intrigue
+	window = visit_settlement_window
+	override_background = { reference = market_tribal }
+	right_portrait = {
+		character = root
+		animation = spymaster
+	}
+	left_portrait = {
+		character = scope:eira
+		animation = personality_callous
+	}
+	lower_right_portrait = {
+		character = scope:eira_vassal_1
+	}
+	lower_center_portrait = {
+		character = scope:eira_vassal_2
+	}
+	immediate = {
+		character:linemabon9 = { save_scope_as = eira }
+		character:linemabon9 = {
+			random_powerful_vassal = { save_scope_as = eira_vassal_1 }
+			random_powerful_vassal = {
+				limit = { NOT = { this = scope:eira_vassal_1 } }
+				save_scope_as = eira_vassal_2
+			}
+		}
+	}
+	option = { # She's unmarried and without heir
+		name = bloody_swan.0204.a 
+		trigger = { 
+			OR = {
+				scope:eira = { has_trait = cannot_marry } 
+				scope:eira = { is_married = no }
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				75 = {
+					trigger_event = bloody_swan.0205 # success 
+				}
+				25 = {
+					trigger_event = bloody_swan.0206 # failure
+				}
+			}
+		}
+	}
+	option = { # She'll bring unwanted trouble and war to these peaceful lands
+		name = bloody_swan.0204.b
+		hidden_effect = {
+			random_list = {
+				55 = {
+					trigger_event = bloody_swan.0205 # success 
+				}
+				45 = {
+					trigger_event = bloody_swan.0206 # failure
+				}
+			}
+		}
+	}
+	option = { # She's unfit to rule, her accusations are nothing but slander
+		name = bloody_swan.0204.c
+		hidden_effect = {
+			random_list = {
+				65 = {
+					trigger_event = bloody_swan.0205 # success 
+				}
+				35 = {
+					trigger_event = bloody_swan.0206 # failure
+				}
+			}
+		}
+	}
+}
+
+bloody_swan.0205 = {
+	hidden = yes 
+	immediate = {
+		if = {
+			limit = { character:linemabon9 = { is_ai = yes } }
+			trigger_event = {
+				id = bloody_swan.0207
+				days = 2 
+			}
+		}
+		else = {
+			character:linemabon9 = {
+				trigger_event = bloody_swan.0035
+			}
+		}
+	}
+}
+
+bloody_swan.0206 = {
+	hidden = yes 
+	immediate = {
+		if = {
+			limit = { character:linemabon9 = { is_ai = yes } }
+			trigger_event = {
+				id = bloody_swan.0208
+				days = 2 
+			}
+		}
+		else = {
+			character:linemabon9 = {
+				trigger_event = bloody_swan.0035
+			}
+		}
+	}
+}
+
+bloody_swan.0207 = { # Slander Eira - success
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0207.t
+	desc = bloody_swan.0207.desc
+	theme = diplomacy
+	window = visit_settlement_window
+	override_background = { reference = market_tribal }
+	left_portrait = {
+		character = root
+		animation = reading
+	}
+	right_portrait = {
+		character = scope:eira
+		animation = shock
+	}
+	immediate = {
+		character:linemabon9 = { save_scope_as = eira }
+	}
+	option = { # It is over for you.
+		name = bloody_swan.0207.a 
+		scope:eira = {
+			destroy_title = title:d_dunlandfells
+			add_prestige = -1000
+		}
+	}
+}
+
+bloody_swan.0208 = { # Slander Eira - success
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0208.t
+	desc = bloody_swan.0208.desc
+	theme = diplomacy
+	window = visit_settlement_window
+	override_background = { reference = market_tribal }
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	right_portrait = {
+		character = scope:eira
+		animation = aggressive_spear
+	}
+	immediate = {
+		character:linemabon9 = { save_scope_as = eira }
+	}
+	option = { # An embarrassing outcome!
+		name = bloody_swan.0207.a
+		add_stress = 70
+		add_prestige = major_prestige_loss
+		scope:eira = {
+			add_prestige = 100
+		}
+	}
+}
+
+### Rlain Events ###
+bloody_swan.0301 = { # The Clans Unite
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0301.t
+	desc = bloody_swan.0301.desc
+	theme = diplomacy
+	window = visit_settlement_window
+	override_background = { reference = barrow }
+	right_portrait = {
+		character = root
+		animation = war_over_win
+		camera = camera_body_right
+	}
+	lower_right_portrait = {
+		character = scope:glormagil
+	}
+	immediate = {
+		character:linearastil16 = { save_scope_as = glormagil }
+	}
+	option = { # I'm the boss here
+		name = bloody_swan.0301.a
+		add_prestige = medium_prestige_gain
+	}
+}
+
+bloody_swan.0302 = { # The Rise of Azira
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0302.t
+	desc = bloody_swan.0302.desc
+	theme = learning
+	window = visit_settlement_window
+	override_background = { reference = activity_gruesome_festival }
+	right_portrait = {
+		character = root
+		animation = personality_cynical
+		camera = camera_body_right
+	}
+	lower_right_portrait = {
+		character = scope:witchking
+	}
+	immediate = {
+		character:nazgul1 = { save_scope_as = witchking }
+		show_as_tooltip = { # Effects from the decision
+			convert_whole_realm_to_feudalism_effect = yes
+			set_character_faith = faith:faith_angmar_azira
+			add_piety = 500
+		}
+	}
+	option = { # May Azira guide us
+		name = bloody_swan.0302.a
+	}
+}
+
+bloody_swan.0303 = { # Claiming the Coasts
+	content_source = realms_dlc
+	type = character_event
+	title = bloody_swan.0303.t
+	desc = bloody_swan.0303.desc
+	theme = sailing_activity
+	window = visit_settlement_window
+	override_background = { reference = docks_tribal }
+	right_portrait = {
+		character = root
+		animation = celebrate_sword
+		camera = camera_body_right
+	}
+	lower_right_portrait = {
+		character = scope:maratar
+	}
+	immediate = {
+		character:predolamroth181 = { save_scope_as = maratar }
+		show_as_tooltip = { # Effects from the decision
+			add_gold = 650 # Plunder and Pillage
+			add_prestige = major_prestige_gain
+			dynasty = { add_dynasty_prestige = 250 }
+			if = {
+				limit = { NOT = { has_trait = reaver } }
+				add_trait = reaver
+			}
+			add_trait_xp = {
+				trait = reaver
+				value = 50
+			}
+		}
+	}
+	option = { # Good riddance.
+		name = bloody_swan.0303.a
+	}
+}

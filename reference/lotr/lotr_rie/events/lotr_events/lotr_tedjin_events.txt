@@ -1,0 +1,4218 @@
+﻿namespace = tedjin
+
+#### Contents: ######
+# Tedjin Civil War: .0000 to .0299
+# Decision Events: .0300 to .99
+# Death of Bor: .0400 to .0401
+# Tedjin Unification (Malador): .500 to .0599
+
+## Tedjin start-up events (Character intros)
+
+tedjin.0099 = { # Death of Ayal
+	hidden = yes
+	
+	immediate = { # Kill Ayal
+		if = { #If Ayal is still alive after countdown, kill
+			limit = {
+				character:lineofthezij42 = {
+					is_alive = yes
+				}
+			}
+			character:lineofthezij42 = {
+				death = natural
+			}			
+		}
+	}
+}
+
+## Tedjin Civil War Faction Demand Events
+
+tedjin.0001 = { # Faction Demand Notice
+	type = letter_event
+	sender = scope:faction_leader
+	opening = {
+		desc = "FACTION_DEMAND_TEDJIN_CIVIL_WAR_SEND_DEMAND_NOTIFICATION"
+	}
+	desc = "FACTION_DEMAND_TEDJIN_CIVIL_WAR_SEND_DEMAND_NOTIFICATION_DESC"
+
+	option = {
+		name = "FACTION_DEMAND_SEND_DEMAND_NOTIFICATION_OPT"	
+	}
+}
+
+tedjin.0002 = {
+	type = letter_event
+	sender = scope:faction_leader
+	opening = {
+		desc = "FACTION_DEMAND_TEDJIN_CIVIL_WAR"
+	}
+	desc = "FACTION_DEMAND_TEDJIN_CIVIL_WAR_DESC"
+	
+	trigger = {
+		exists = scope:faction # May have ceased to exist by the time this triggers
+	}
+
+	option = {
+		name = "FACTION_DEMAND_ACCEPT"
+
+		scope:faction = {
+			every_faction_member = {
+				trigger_event = tedjin.0003
+			}
+		}
+
+		create_title_and_vassal_change = {
+			type = faction_demand
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+
+		root = {
+			save_scope_as = faction_target
+			add_prestige = -500			
+			add_dread = -30
+			add_realm_law = crown_authority_0
+			every_held_title = {
+				limit = { tier >= tier_county }
+				change_title_holder = {
+					holder = scope:faction_leader
+					change = scope:change
+				}
+			}
+		}
+		
+		resolve_title_and_vassal_change = scope:change
+		
+		if = {
+			limit = {
+				character:lineofsauron = {
+					has_character_flag = promised_tedjin_tributary
+				}
+			}
+			scope:faction_leader = {
+				start_tributary = {
+					contract_group = tributary_subjugated
+					suzerain = character:lineofsauron
+				}
+			}
+			character:lineofsauron = {
+				remove_character_flag = promised_tedjin_tributary
+			}
+		}
+
+		hidden_effect = {
+			set_global_variable = {
+				name = tedjin_civil_war_over
+				value = yes
+			}
+			set_global_variable = {
+				name = tedjin_civil_war_result
+				value = 1 #Azumen Victory
+			}
+		}
+		
+		scope:attacker = {
+			trigger_event = {
+				id = tedjin.0200
+				days = 7
+			}
+		}
+		title:e_mordor.holder = {
+			trigger_event = {
+				id = tedjin.0201
+			}
+		}
+		title:k_haruzan.holder = {
+			trigger_event = {
+				id = tedjin.0201
+			}
+		}
+		title:k_umbar.holder = {
+			trigger_event = {
+				id = tedjin.0201
+			}
+		}
+		title:e_bellakar.holder = {
+			trigger_event = {
+				id = tedjin.0201
+			}
+		}
+		title:k_felaya.holder = {
+			trigger_event = {
+				id = tedjin.0201
+			}
+		}
+		title:d_nykkea.holder = {
+			trigger_event = {
+				id = tedjin.0201
+			}
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+
+	option = {
+		name = "FACTION_DEMAND_REFUSE"
+
+		show_as_tooltip = {
+			scope:faction = {
+				faction_start_war = {}
+			}
+		}
+		
+		root = {
+			save_scope_as = faction_target
+		}
+		
+		scope:faction_leader = {
+			trigger_event = tedjin.0004
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+tedjin.0003 = { #Acceptance notification
+	type = letter_event
+	sender = scope:faction_target
+	opening = {
+		desc = "FACTION_DEMAND_TEDJIN_CIVIL_WAR_ACCEPTED"
+	}
+	desc = "FACTION_DEMAND_TEDJIN_CIVIL_WAR_ACCEPTED_DESC"
+
+	option = {
+		name = "FACTION_DEMAND_ACCEPTED_OPT"
+		# custom_tooltip = faction_demand.0002.tt
+	}
+}
+
+tedjin.0004 = { #Refusal notification to leader
+	type = letter_event
+	sender = scope:faction_target
+	opening = {
+		desc = "FACTION_DEMAND_TEDJIN_CIVIL_WAR_REFUSED"
+	}
+	desc = "FACTION_DEMAND_TEDJIN_CIVIL_WAR_REFUSED_DESC"
+
+	option = {
+		name = "FACTION_DEMAND_REFUSED_OPT"
+		scope:faction = {
+			faction_start_war = {}
+			
+			every_faction_member = {
+				limit = { NOT = { this = scope:faction.faction_leader } }
+				trigger_event = tedjin.0005
+			}
+		}
+	}
+}
+
+tedjin.0005 = { #Refusal notification to members
+	type = letter_event
+	sender = scope:faction_target
+	opening = {
+		desc = "FACTION_DEMAND_TEDJIN_CIVIL_WAR_REFUSED"
+	}
+	desc = "FACTION_DEMAND_TEDJIN_CIVIL_WAR_REFUSED_DESC"
+
+	option = {
+		name = "FACTION_DEMAND_REFUSED_OPT"	
+	}
+}
+
+## Tedjin Civil War Build Up Events
+
+tedjin.0101 = { # HIDDEN - handling of the death of Ayal - check who is is successor
+	hidden = yes
+	trigger = {
+		character:lineofthezij42 = root
+	}
+	immediate = {
+		if = { # Bor - full reforms and civil war path
+			limit = {
+				root.primary_heir = character:lineofthezij51
+			}
+			root.primary_heir = {
+				trigger_event = {
+					id = tedjin.0102
+					days = 1
+				}
+			}
+		}
+		
+		else_if = { # Borlach - civil war likely averted 
+			limit = {
+				root.primary_heir = character:lineofthezij52
+			}
+			root.primary_heir = {
+				trigger_event = {
+					id = tedjin.0103
+					days = 1
+				}
+			}
+		}
+	
+		else_if = { # Heathen young child of Bor or Borlach - title disolution
+			limit = {	
+				NOT = { root.primary_heir = character:lineofthezij52 }
+				NOT = { root.primary_heir = character:lineofthezij50 }
+				OR = {
+					AND = {
+						root.primary_heir.father = root
+						NOT = { root.primary_heir.faith = faith:faith_easterling_war }
+					}
+					AND = {
+						root.primary_heir.father = character:lineofthezij51
+						NOT = { root.primary_heir.faith = faith:faith_easterling_war }
+					}
+					AND = {
+						root.primary_heir.father = character:lineofthezij52
+						NOT = { root.primary_heir.faith = faith:faith_easterling_war }
+					}
+				}
+			}
+			root.primary_heir = {
+				trigger_event = {
+					id = tedjin.0106
+					days = 1
+				}
+			}
+		}
+		
+		else_if = { # Tarika - last of the house of Thezij - diffused
+			limit = {
+				root.primary_heir = character:lineofthezij50
+			}
+			root.primary_heir = {
+				trigger_event = {
+					id = tedjin.0107
+					days = 1
+				}
+			}
+		}
+		
+		else = { # Anyone else - diffused
+			root.primary_heir = {
+				trigger_event = {
+					id = tedjin.0108
+					days = 1
+				}
+			}
+		}
+	}
+}
+
+tedjin.0102 = { # Death of Ayal - Bor rules the Confederacy - things could get ugly
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0102.t
+	desc = tedjin.0102.desc
+	theme = death
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = character:lineofthezij42
+		animation = pain
+	}
+	
+	option = { # Things are about to get messy...
+		name = tedjin.0102.a
+		if = { #If Gyuruchill II is still alive, cue countdown of death
+			limit = {
+				character:lineofazumenakhad79 = {
+					is_alive = yes
+				}
+			}
+			trigger_event = {
+				id = tedjin.0110
+				days = { 30 60 }
+			}			
+		}
+		else = { #If Gyuruchill II is dead, then cue Bulga's appeal
+			trigger_event = {
+				id = tedjin.0111
+				days = { 30 90 }
+			}
+		}
+		if = { # On the off chance that Bor was forcefully converted by his father
+			limit = {
+				NOT = { has_faith = faith:faith_path_of_wisdom }
+			}
+			set_character_faith = faith:faith_path_of_wisdom
+		}
+	}
+}
+
+tedjin.0103 = { # Death of Ayal - Borlach rules the Confederacy - how should I rule?
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0103.t
+	desc = tedjin.0103.desc
+	theme = death
+	override_background = { reference = wilderness_savanna }
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = character:lineofthezij42
+		animation = pain
+	}	
+	
+	option = { # Moderate - A conventional ruler, trying to find the balance
+		name = tedjin.0103.a
+		stress_impact = {
+			stubborn = medium_stress_impact_gain
+		}
+		if = {
+			limit = { has_realm_law = crown_authority_1 }
+			add_realm_law = crown_authority_0
+		}
+		else_if = {
+			limit = { has_realm_law = crown_authority_2 }
+			add_realm_law = crown_authority_1
+		}
+		else_if = {
+			limit = { has_realm_law = crown_authority_3 }
+			add_realm_law = crown_authority_2
+		} 
+		add_character_modifier = {
+			modifier = tedjin_moderate_modifier
+		}
+	}
+	
+	option = { # Conservative - Reconvert and give vassals their traditional freedoms
+		name = tedjin.0103.b
+		stress_impact = {
+			stubborn = medium_stress_impact_gain
+			zealous = major_stress_impact_gain
+		}
+		set_character_faith = faith:faith_easterling_war
+		add_piety_level = -1
+		add_character_modifier = {
+			modifier = reconverted_tedjin_modifier
+			years = 25
+		}
+		every_vassal = {
+			limit = {
+				AND = {
+					government_has_flag = government_is_feudal
+					has_faith = faith:faith_easterling_war
+				}
+			}
+			vassal_contract_set_obligation_level = {
+				type = war_declaration_rights
+				level = 1
+			}
+		}
+		every_vassal = {
+			limit = {
+				dynasty = dynasty:dynasty_azumenakhad
+			}
+			vassal_contract_set_obligation_level = {
+				type = council_rights
+				level = 1
+			}			
+		}
+		every_vassal = {
+			limit = {
+				NOT = { faith = faith:faith_easterling_war } 
+			}
+			add_character_modifier = {
+				modifier = reconverted_tedjin_liege_modifier
+			}			
+		}
+	}
+	
+	option = { # Secession - Split the realm along faith lines
+		name = tedjin.0103.c
+		
+		stress_impact = {
+			stubborn = major_stress_impact_gain
+		}
+		
+		create_title_and_vassal_change = {
+			type = faction_demand
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		
+		title:k_tedjin = {
+			change_title_holder = {
+				holder = dynasty:dynasty_azumenakhad.dynast
+				change = scope:change
+			}
+		}
+
+		every_vassal = {
+			limit = {
+				faith_is_good = no
+			}
+			
+			change_liege = {
+				liege = dynasty:dynasty_azumenakhad.dynast
+				change = scope:change
+			}		
+		}
+			
+		resolve_title_and_vassal_change = scope:change
+
+		get_title = title:k_soriya
+
+		set_culture = culture:soriyan
+		
+		every_child = {
+			set_culture = culture:soriyan
+		}
+
+		dynasty:dynasty_azumenakhad.dynast = { #Notify new ruler of the Tedjin Confederacy, transfer faithful vassals to Soriya
+			trigger_event = tedjin.0104
+		}
+		remove_character_flag = is_temujin # Immunity to Factions
+	}
+}
+
+tedjin.0104 = { # Secession resolution
+	hidden = yes
+	
+	immediate = { # transfer faithful vassals to Soriya
+		create_title_and_vassal_change = {
+			type = faction_demand
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		every_vassal = {
+			limit = {
+				faith_is_good = yes
+			}
+			change_liege = {
+				liege = title:k_soriya.holder
+				change = scope:change
+			}		
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		every_tributary = { # All non-Good tributaries transfer to k_tedjin
+			limit = { faith_is_good = no }
+			add_to_list = tributaries_to_transfer
+		}
+		every_in_list = { 
+			list = tributaries_to_transfer
+			start_tributary = {
+				contract_group = tributary_subjugated
+				suzerain = title:k_tedjin.holder
+			}
+		}
+
+		title:k_soriya.holder = {
+			trigger_event = tedjin.0105
+		}
+		title:k_tedjin.holder = {
+			trigger_event = tedjin.0105
+		}
+	}
+}
+
+tedjin.0105 = { # Secession sign off event - a new dawn for Soriya and the confederacy (shared event)
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0105.t
+	desc = tedjin.0105.desc
+	theme = rival_relation
+	override_background = { reference = temple_mosque }
+	left_portrait = {
+		character = title:k_soriya.holder
+		animation = war_defender
+	}
+	right_portrait = {
+		character = title:k_tedjin.holder
+		animation = war_attacker
+	}
+	
+	option = { # Soriya rises
+		name = tedjin.0105.a
+		trigger = { has_title = title:k_soriya } 
+	}
+	option = { # A new dawn for the Confederacy
+		name = tedjin.0105.b
+		trigger = { has_title = title:k_tedjin } 
+	}
+}
+
+tedjin.0106 = { # Death of Ayal - Heathen child rules the Confederacy - the Confederacy dissolves
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0106.t
+	desc = tedjin.0106.desc
+	theme = death
+	override_background = { reference = wilderness_savanna }
+	left_portrait = {
+		character = root
+		animation = angry
+	}
+	
+	option = { # Yeh, so! Do I get a toy yet?
+		name = tedjin.0106.a
+		create_title_and_vassal_change = {
+			type = independency
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		every_vassal = {
+			limit = {
+				NOR = { 
+					has_title = title:c_abrazayan
+					has_title = title:c_agathmardru
+					has_title = title:c_kaneja
+					has_title = title:c_zimrenzil
+					has_title = title:d_kes_ebb
+				}
+			}			
+			becomes_independent = {
+				change = scope:change
+			}			
+		}
+		every_vassal = {
+			limit = {
+				has_title = title:d_kes_ebb
+			}			
+			change_liege = {
+				liege = title:k_felaya.holder
+				change = scope:change
+			}			
+		}
+		resolve_title_and_vassal_change = scope:change
+		destroy_title = title:k_tedjin
+	}
+}
+
+tedjin.0107 = { # Death of Ayal - Tarika rules the Confederacy - Last of the Thezij?
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0107.t
+	desc = tedjin.0107.desc
+	theme = death
+	override_background = { reference = wilderness_savanna }
+	left_portrait = {
+		character = root
+		animation = angry
+	}
+	
+	option = { # My line has ended!
+		name = tedjin.0107.a
+		create_title_and_vassal_change = {
+			type = independency
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		every_vassal = {
+			limit = {
+				has_title = title:d_kes_ebb
+			}			
+			change_liege = {
+				liege = title:k_felaya.holder
+				change = scope:change
+			}			
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+}
+
+tedjin.0108 = { # Death of Ayal - Someone else rules the Confederacy - an uncertain future
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0108.t
+	desc = tedjin.0108.desc
+	theme = death
+	override_background = { reference = wilderness_savanna }
+	left_portrait = {
+		character = root
+		animation = angry
+	}
+	
+	option = { # An uncertain future
+		name = tedjin.0108.a
+		create_title_and_vassal_change = {
+			type = independency
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		every_vassal = {
+			limit = {
+				has_title = title:d_kes_ebb
+			}			
+			change_liege = {
+				liege = title:k_felaya.holder
+				change = scope:change
+			}			
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+}
+
+tedjin.0109 = { # Death of Gyuruchill - Notification for heir
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0109.t
+	desc = tedjin.0109.desc
+	theme = death
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = character:lineofazumenakhad79
+		animation = pain
+	}
+	
+	option = { # Things are about to get messy...
+		name = tedjin.0102.a
+	}
+}
+
+tedjin.0110 = { # Death of Gyuruchill II
+	hidden = yes
+	
+	immediate = { # Kill Gyuruchill II
+		if = { #If Gyuruchill II is still alive after countdown, kill
+			limit = {
+				character:lineofazumenakhad79 = {
+					is_alive = yes
+				}
+			}
+			character:lineofazumenakhad79 = {
+				death = natural
+			}			
+		}
+		character:lineofthezij51 = {		
+			trigger_event = { #Cue Bulga's appeal
+				id = tedjin.0111
+				days = 30
+			}
+		}
+		character:lineofazumenakhad81 = {		
+			trigger_event = { #Cue Azumen's tribute to father
+				id = tedjin.0109
+				days = 1
+			}
+		}
+	}
+}
+
+tedjin.0111 = { # Bor's perspective - send out for Bulga's appeal
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0111.t
+	desc = tedjin.0111.desc
+	theme = diplomacy
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
+	right_portrait = {
+		character = character:lineofazumenakhad87
+		animation = beg
+	}
+	
+	option = {
+		name = tedjin.0111.a
+		custom_tooltip = tedjin.0111.a.tt
+		character:lineofazumenakhad81 = {
+			trigger_event = { # Bulga goes on her way
+				id = tedjin.0112
+				days = { 30 60 }
+			}
+		}
+	}
+}
+
+tedjin.0112 = { # Bulga's appeal
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0112.t
+	desc = tedjin.0112.desc
+	theme = diplomacy
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+	right_portrait = {
+		character = character:lineofazumenakhad87
+		animation = beg
+	}
+	
+	option = { # Ignore her pleas
+		name = tedjin.0112.a
+		custom_tooltip = tedjin.0112.a.tt
+		custom_tooltip = tedjin.0114.a.tt2
+		add_piety = 150
+		character:lineofthezij51 = {		
+			trigger_event = { #Bulga retuns and Bor decides his path
+				id = tedjin.0114
+				days = { 30 60 }
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	
+	option = { # Relent and convert
+		name = tedjin.0112.b
+		stress_impact = {
+			zealous = major_stress_impact_gain
+		}
+		set_character_faith_with_conversion = faith:faith_path_of_wisdom
+		add_piety_level = -1
+		add_character_modifier = {
+			modifier = reconverted_tedjin_modifier
+			years = 25
+		}
+		remove_trait = zealous
+		add_trait_force_tooltip = fickle
+		if = {
+			limit = {
+				character:lineofthezij51 = { is_alive = yes }
+			}
+			remove_relation_rival = character:lineofthezij51
+			set_relation_friend = character:lineofthezij51
+		}
+		title:k_tedjin.holder = {
+			trigger_event = tedjin.0113
+			every_vassal = {
+				trigger_event = tedjin.0113				
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+tedjin.0113 = { # Notification that Azumen has relented and converted
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0113.t
+	desc = tedjin.0113.desc
+	theme = diplomacy
+	left_portrait = {
+		character = character:lineofthezij51
+		animation = happiness
+	}
+	right_portrait = {
+		character = character:lineofazumenakhad81
+		animation = personality_content
+	}
+
+	option = { #Bor is happy
+		name = tedjin.0113.a
+		trigger = { root = character:lineofthezij51 }
+		remove_character_flag = is_temujin # Immunity to Factions
+	}
+	option = { #Azumen did what he had to do
+		name = tedjin.0113.b
+		trigger = { root = character:lineofazumenakhad81 }
+	}
+	option = { #A relief for non-Maladumite lords
+		name = tedjin.0113.c
+		trigger = { 
+			NOR = { 
+				faith = faith:faith_easterling_war
+				root = character:lineofthezij51
+				root = character:lineofazumenakhad81
+			}
+		}
+	}
+	option = { #Maladumite lord - option to stay true to their principles
+		name = tedjin.0113.d
+		trigger = { 
+			faith = faith:faith_easterling_war
+			NOR = {
+				root = character:lineofthezij51
+				root = character:lineofazumenakhad81			
+			}
+		}
+		add_piety = 150
+		ai_chance = {
+			base = 33
+		}
+	}
+	option = { #Maladumite lord - option to relent and convert
+		name = tedjin.0113.e
+		trigger = { 
+			faith = faith:faith_easterling_war
+			NOR = {
+				root = character:lineofthezij51
+				root = character:lineofazumenakhad81			
+			}			
+		}
+		stress_impact = {
+			zealous = major_stress_impact_gain
+		}
+		set_character_faith_with_conversion = faith:faith_path_of_wisdom
+		add_piety_level = -1
+		add_character_modifier = {
+			modifier = reconverted_tedjin_modifier
+			years = 25
+		}
+		ai_chance = {
+			base = 66
+		}
+	}
+}
+
+tedjin.0114 = { # Bor decides how he should reign
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0114.t
+	desc = tedjin.0114.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	right_portrait = {
+		character = character:lineofazumenakhad87
+		animation = sadness
+	}
+
+	immediate = {
+		remove_character_flag = is_temujin # Immunity to Factions
+	}
+	
+	option = { # Reformist - A campaign of rigourous centralisation, conversion and modernisation
+		name = tedjin.0114.a
+		custom_tooltip = tedjin.0114.a.tt
+		custom_tooltip = tedjin.0114.a.tt2
+		set_global_variable = {
+			name = tedjin_reactionaries_triggered
+			value = yes
+		}
+		every_close_family_member = {
+			set_culture = culture:soriyan
+		}
+		if = {
+			limit = { has_realm_law = crown_authority_2 }
+			add_realm_law = crown_authority_3
+		}
+		else_if = {
+			limit = { has_realm_law = crown_authority_1 }
+			add_realm_law = crown_authority_2
+		}
+		else_if = {
+			limit = { has_realm_law = crown_authority_0 }
+			add_realm_law = crown_authority_1
+		} 
+		add_character_modifier = {
+			modifier = tedjin_reformer_modifier
+		}
+		set_culture = culture:soriyan
+		character:lineofazumenakhad81 = {
+			create_faction = {
+				type = tedjin_civil_war_faction  #tedjin_civil_war_faction
+				target = root
+			}
+			trigger_event = tedjin.0156
+		}
+		#Cue external support
+		title:e_bellakar.holder ?= {
+			trigger_event = tedjin.0115	
+		}
+		title:k_felaya.holder ?= {
+			trigger_event = tedjin.0115			
+		}
+		title:d_nykkea.holder ?= {
+			trigger_event = tedjin.0115			
+		}
+		title:e_mordor.holder ?= {
+			trigger_event = tedjin.0115			
+		}
+		title:k_umbar.holder ?= {
+			trigger_event = tedjin.0115			
+		}
+		title:k_haruzan.holder ?= {
+			trigger_event = tedjin.0115			
+		}
+		title:k_abrakhan.holder ?= {
+			trigger_event = tedjin.0115			
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 85
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 60
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+	
+	option = { # Moderate - A conventional ruler, trying to find the balance
+		name = tedjin.0114.b
+		custom_tooltip = tedjin.0114.b.tt
+		stress_impact = {
+			stubborn = medium_stress_impact_gain
+		}
+		if = {
+			limit = { has_realm_law = crown_authority_1 }
+			add_realm_law = crown_authority_0
+		}
+		else_if = {
+			limit = { has_realm_law = crown_authority_2 }
+			add_realm_law = crown_authority_1
+		}
+		else_if = {
+			limit = { has_realm_law = crown_authority_3 }
+			add_realm_law = crown_authority_2
+		}
+		remove_character_flag = is_temujin # Immunity to Factions
+		add_character_modifier = {
+			modifier = tedjin_moderate_modifier
+		}
+		character:lineofazumenakhad81 = {
+			trigger_event = tedjin.0157
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 5
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+	
+	option = { # Conservative - Reconvert and give vassals their traditional freedoms
+		name = tedjin.0114.c
+		custom_tooltip = tedjin.0114.c.tt
+		stress_impact = {
+			stubborn = medium_stress_impact_gain
+			zealous = major_stress_impact_gain
+		}
+		remove_trait = zealous
+		remove_trait = stubborn
+		add_trait_force_tooltip = fickle
+		add_trait_force_tooltip = craven 
+		set_character_faith = faith:faith_easterling_war
+		add_piety_level = -1
+		add_character_modifier = {
+			modifier = reconverted_tedjin_modifier
+			years = 25
+		}
+		character:lineofazumenakhad81 = {
+			trigger_event = tedjin.0158
+		}
+		if = {
+			limit = {
+				character:lineofazumenakhad81 = { is_alive = yes }
+			}
+			remove_relation_rival = character:lineofazumenakhad81
+			set_relation_friend = character:lineofazumenakhad81
+		}
+		every_vassal = {
+			limit = {
+				OR = {
+					government_has_flag = government_is_feudal
+				}
+			}
+			vassal_contract_set_obligation_level = {
+				type = war_declaration_rights
+				level = 1
+			}
+		}
+		every_vassal = {
+			limit = {
+				dynasty = dynasty:dynasty_azumenakhad
+			}
+			vassal_contract_set_obligation_level = {
+				type = council_rights
+				level = 1
+			}			
+		}
+		every_vassal = {
+			limit = {
+				NOT = { faith = faith:faith_easterling_war } 
+			}
+			add_character_modifier = {
+				modifier = reconverted_tedjin_liege_modifier
+			}			
+		}
+		remove_character_flag = is_temujin # Immunity to Factions
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 5
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 15
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+	
+	option = { # Secession - Split the realm along faith lines
+		name = tedjin.0114.d
+		custom_tooltip = tedjin.0114.d.tt		
+		stress_impact = {
+			stubborn = major_stress_impact_gain
+		}		
+		if = {
+			limit = {
+				character:lineofazumenakhad81 = { is_alive = yes }
+			}
+			remove_relation_rival = character:lineofazumenakhad81
+		}		
+		create_title_and_vassal_change = {
+			type = faction_demand
+			save_scope_as = change
+			add_claim_on_loss = no
+		}		
+		title:k_tedjin = {
+			change_title_holder = {
+				holder = character:lineofazumenakhad81
+				change = scope:change
+			}
+		}
+		every_vassal = {
+			limit = {
+				has_faith = faith:faith_easterling_war
+				highest_held_title_tier < character:lineofazumenakhad81.highest_held_title_tier
+			}
+			
+			change_liege = {
+				liege = character:lineofazumenakhad81
+				change = scope:change
+			}		
+		}			
+		resolve_title_and_vassal_change = scope:change
+		get_title = title:k_soriya
+		set_culture = culture:soriyan		
+		every_child = {
+			set_culture = culture:soriyan
+		}
+		character:lineofazumenakhad81 = { #Notify and resolve for Azumen, transfer faithful vassals to Soriya
+			trigger_event = tedjin.0104
+		}
+		hidden_effect = {
+			every_sub_realm_title = {
+				limit = { tier >= tier_county }
+				title:k_tedjin.holder = {
+					add_pressed_claim = prev
+				}
+			}
+		}
+		remove_character_flag = is_temujin # Immunity to Factions
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 10
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 20
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}		
+	}
+}
+
+## Tedjin Civil War - Foreign Proxy War Decision Events - NEEDS REASSESSMENT AFTER MAA REBLANCE!
+
+tedjin.0115 = { # Proxy war decision notification
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0115.t
+	desc = tedjin.0115.desc
+	theme = unfriendly
+	override_background = { reference = wilderness_savanna }
+	left_portrait = {
+		character = character:lineofthezij51
+		animation = anger
+	}
+	right_portrait = {
+		character = character:lineofazumenakhad81
+		animation = anger
+	}
+	
+	option = {
+		name = tedjin.0115.a
+		custom_tooltip = tedjin.0115.tt
+		trigger = {
+			OR = {
+				has_title = title:e_bellakar
+				has_title = title:k_felaya
+				has_title = title:d_nykkea
+			}
+		}
+	}
+	option = {
+		name = tedjin.0115.b
+		custom_tooltip = tedjin.0115.tt
+		trigger = {
+			OR = {
+				has_title = title:e_mordor
+				has_title = title:k_haruzan
+				has_title = title:k_umbar
+			}
+		}
+	}
+}
+
+tedjin.0116 = { # Sauron's decision event - what to send?
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0116.t
+	desc = tedjin.0116.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
+	right_portrait = {
+		character = character:lineofazumenakhad81
+		animation = personality_bold
+	}
+	
+	option = { # Small Army
+		name = tedjin.0116.a
+		remove_short_term_gold = 200
+		character:lineofazumenakhad81 = { #Spawn a few troops for reactionaries
+			trigger_event = tedjin.0117
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 65
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # Large Army
+		name = tedjin.0116.b
+		remove_short_term_gold = 500
+		custom_tooltip = tedjin.0116.tt
+		character:lineofazumenakhad81 = { #Spawn many troops for reactionaries
+			trigger_event = tedjin.0118
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 35
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # Nothing
+		name = tedjin.0116.c
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+tedjin.0117 = { # Sauron sends small army
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0117.t
+	desc = tedjin.0117.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = title:e_mordor.holder
+		animation = personality_callous
+	}
+	
+	option = {
+		name = tedjin.0117.a
+		spawn_army = {
+			name = tedjin_civil_war_mordor_troops
+			levies = 100
+			men_at_arms = {
+				type = orc_warriors
+				stacks = 1
+			}
+			men_at_arms = {
+				type = orc_archers
+				stacks = 1
+			}	
+			men_at_arms = {
+				type = orc_rabble
+				stacks = 5
+			}			
+			location = capital_province
+			uses_supply = no
+			#origin = 			
+		}
+		title:e_mordor.holder = {
+			add_hook = {
+				target = root
+				type = favor_hook
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 90
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 75
+			}
+		}
+	}
+	
+	option = {
+		name = tedjin.0117.b
+		hidden_effect = {
+			title:e_mordor.holder = {
+				add_gold = 200
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 10
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 25
+			}
+		}
+	}
+}
+
+tedjin.0118 = { # Sauron sends large army
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0118.t
+	desc = tedjin.0118.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = title:e_mordor.holder
+		animation = personality_callous
+	}
+	
+	option = {
+		name = tedjin.0118.a
+		custom_tooltip = tedjin.0118.tt
+		spawn_army = {
+			name = tedjin_civil_war_mordor_troops
+			levies = 200
+			men_at_arms = {
+				type = mountainorc_warriors
+				stacks = 1
+			}
+			men_at_arms = {
+				type = orc_archers
+				stacks = 2
+			}
+			men_at_arms = {
+				type = orc_warriors
+				stacks = 1
+			}			
+			men_at_arms = {
+				type = orc_rabble
+				stacks = 7
+			}			
+			location = capital_province
+			uses_supply = no
+			#origin = 			
+		}
+		title:e_mordor.holder = {
+			add_hook = {
+				target = root
+				type = favor_hook
+			}
+			add_character_flag = {
+				flag = promised_tedjin_tributary
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 80
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 60
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	
+	option = {
+		name = tedjin.0118.b
+		hidden_effect = {
+			title:e_mordor.holder = {
+				add_gold = 500
+			}
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 20
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 40
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+tedjin.0119 = { # Haruzan's decision event - what to send?
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0119.t
+	desc = tedjin.0119.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
+	right_portrait = {
+		character = character:lineofazumenakhad81
+		animation = personality_bold
+	}
+	
+	option = { # Small Army
+		name = tedjin.0119.a
+		remove_short_term_gold = 175
+		character:lineofazumenakhad81 = { #Spawn a few troops for reactionaries
+			trigger_event = tedjin.0120
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 60
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # Large Army
+		name = tedjin.0119.b
+		remove_short_term_gold = 400
+		character:lineofazumenakhad81 = { #Spawn many troops for reactionaries
+			trigger_event = tedjin.0121
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 40
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # Nothing
+		name = tedjin.0119.c
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+tedjin.0120 = { # Haruzan sends small army
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0120.t
+	desc = tedjin.0120.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = title:k_haruzan.holder
+		animation = personality_compassionate
+	}
+	
+	option = {
+		name = tedjin.0120.a
+		spawn_army = {
+			name = tedjin_civil_war_haruzan_troops
+			levies = 100
+			men_at_arms = {
+				type = desert_spearmen
+				stacks = 1
+			}
+			men_at_arms = {
+				type = desert_javelineers
+				stacks = 1
+			}				
+			location = capital_province
+			uses_supply = no
+			#origin = 			
+		}
+		title:k_haruzan.holder = {
+			add_hook = {
+				target = root
+				type = favor_hook
+			}
+		}
+	}
+	option = { # Nothing
+		name = tedjin.0120.b
+		hidden_effect = {
+			title:k_haruzan.holder = {
+				add_gold = 175
+			}
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+tedjin.0121 = { # Haruzan sends large army
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0121.t
+	desc = tedjin.0121.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = title:k_haruzan.holder
+		animation = personality_compassionate
+	}
+	
+	option = {
+		name = tedjin.0121.a
+		spawn_army = {
+			name = tedjin_civil_war_haruzan_troops
+			levies = 200
+			men_at_arms = {
+				type = desert_spearmen
+				stacks = 2
+			}
+			men_at_arms = {
+				type = desert_javelineers
+				stacks = 2
+			}	
+			men_at_arms = {
+				type = serpent_guard
+				stacks = 1
+			}			
+			location = capital_province
+			uses_supply = no
+			#origin = 			
+		}
+		title:k_haruzan.holder = {
+			add_hook = {
+				target = root
+				type = favor_hook
+			}
+		}
+	}
+	option = { # Nothing
+		name = tedjin.0121.b
+		hidden_effect = {
+			title:k_haruzan.holder = {
+				add_gold = 400
+			}
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+tedjin.0122 = { # Umbar's decision event - what to send?
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0122.t
+	desc = tedjin.0122.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
+	right_portrait = {
+		character = character:lineofazumenakhad81
+		animation = personality_bold
+	}
+	
+	option = { # Small Army
+		name = tedjin.0122.a
+		remove_short_term_gold = 200
+		character:lineofazumenakhad81 = { #Spawn a few troops for reactionaries
+			trigger_event = tedjin.0123
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 20
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 35
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+		custom_tooltip = tedjin.0122.tt
+	}
+	option = { # Large Army
+		name = tedjin.0122.b
+		remove_short_term_gold = 450
+		character:lineofazumenakhad81 = { #Spawn many troops for reactionaries
+			trigger_event = tedjin.0124
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 80
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 65
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+		custom_tooltip = tedjin.0122.tt
+	}
+	option = { # Nothing
+		name = tedjin.0122.c
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+tedjin.0123 = { # Umbar sends small army
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0123.t
+	desc = tedjin.0123.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = title:k_umbar.holder
+		animation = personality_rational
+	}
+	
+	option = {
+		name = tedjin.0123.a
+		spawn_army = {
+			name = tedjin_civil_war_umbar_troops
+			levies = 100
+			men_at_arms = {
+				type = adunakhori
+				stacks = 1
+			}				
+			location = capital_province
+			uses_supply = no
+			#origin = 			
+		}
+		title:k_umbar.holder = {
+			add_hook = {
+				target = root
+				type = favor_hook
+			}
+		}
+		add_character_flag = umbar_sent_aid
+		custom_tooltip = tedjin.0123.tt
+	}
+	option = { # Nothing
+		name = tedjin.0123.b
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+tedjin.0124 = { # Umbar sends large army
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0123.t
+	desc = tedjin.0123.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = title:k_umbar.holder
+		animation = personality_rational
+	}
+	
+	option = {
+		name = tedjin.0123.a
+		spawn_army = {
+			name = tedjin_civil_war_umbar_troops
+			levies = 200
+			men_at_arms = {
+				type = abrazanim_legion
+				stacks = 2
+			}	
+			men_at_arms = {
+				type = light_footmen
+				stacks = 1
+			}			
+			location = capital_province
+			uses_supply = no
+			#origin = 			
+		}
+		title:k_umbar.holder = {
+			add_hook = {
+				target = root
+				type = favor_hook
+			}
+		}
+		add_character_flag = umbar_sent_aid
+		custom_tooltip = tedjin.0123.tt
+	}
+	option = { # Nothing
+		name = tedjin.0123.b
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+tedjin.0125 = { # Bellakar's decision event - what to send?
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0125.t
+	desc = tedjin.0125.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
+	right_portrait = {
+		character = character:lineofthezij51
+		animation = personality_bold
+	}
+	
+	option = { # Small Army
+		name = tedjin.0125.a
+		remove_short_term_gold = 200
+		character:lineofthezij51 = { #Spawn a few troops for reformists
+			trigger_event = tedjin.0126
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 10
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # Large Army
+		name = tedjin.0125.b
+		remove_short_term_gold = 500
+		character:lineofthezij51 = { #Spawn many troops for reformists
+			trigger_event = tedjin.0127
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 90
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = { # Nothing
+		name = tedjin.0125.c
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+tedjin.0126 = { # Bellakar sends small army
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0126.t
+	desc = tedjin.0126.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = title:e_bellakar.holder
+		animation = personality_compassionate
+	}
+	
+	option = {
+		name = tedjin.0126.a
+		spawn_army = {
+			name = tedjin_civil_war_bellakar_troops
+			levies = 100
+			men_at_arms = {
+				type = pikemen_unit
+				stacks = 2
+			}	
+			men_at_arms = {
+				type = light_footmen
+				stacks = 1
+			}					
+			location = capital_province
+			uses_supply = no
+			#origin = 			
+		}
+		title:e_bellakar.holder = {
+			add_hook = {
+				target = root
+				type = favor_hook
+			}
+		}
+	}
+	option = { # Nothing
+		name = tedjin.0126.b
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+tedjin.0127 = { # Bellakar sends large army
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0126.t
+	desc = tedjin.0126.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = title:e_bellakar.holder
+		animation = personality_compassionate
+	}
+	
+	option = {
+		name = tedjin.0126.a
+		spawn_army = {
+			name = tedjin_civil_war_bellakar_troops
+			levies = 200
+			men_at_arms = {
+				type = pikemen_unit
+				stacks = 4
+			}	
+			men_at_arms = {
+				type = light_footmen
+				stacks = 2
+			}
+			men_at_arms = {
+				type = bowmen
+				stacks = 2
+			}			
+			location = capital_province
+			uses_supply = no
+			#origin = 			
+		}
+		title:e_bellakar.holder = {
+			add_hook = {
+				target = root
+				type = favor_hook
+			}
+		}
+	}
+	option = { # Nothing
+		name = tedjin.0126.b
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+tedjin.0128 = { # Felaya's decision event - what to send?
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0128.t
+	desc = tedjin.0128.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	right_portrait = {
+		character = character:lineofthezij51
+		animation = personality_bold
+	}
+	
+	option = { # Small Army
+		name = tedjin.0128.a
+		remove_short_term_gold = 100
+		character:lineofthezij51 = { #Spawn a few troops for reformists
+			trigger_event = tedjin.0129
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 10
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 20
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+	option = { # Medium Army
+		name = tedjin.0128.b
+		remove_short_term_gold = 300
+		character:lineofthezij51 = { #Spawn many troops for reformists
+			trigger_event = tedjin.0130
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 70
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 50
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+	option = { # Large Army for Kes Ebb
+		name = tedjin.0128.c
+		trigger = {
+			title:d_kes_ebb.holder.liege = character:lineofthezij51
+		}
+		remove_short_term_gold = 400
+		character:lineofthezij51 = { #Spawn a lot of troops for reformists in exchange for Kes Ebb
+			trigger_event = tedjin.0131
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 20
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 30
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+	option = { # Nothing
+		name = tedjin.0128.d
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+tedjin.0129 = { # Felaya sends small army
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0129.t
+	desc = tedjin.0129.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = title:k_felaya.holder
+		animation = personality_compassionate
+	}
+	
+	option = {
+		name = tedjin.0129.a
+		spawn_army = {
+			name = tedjin_civil_war_felayan_troops
+			levies = 100	
+			men_at_arms = {
+				type = light_footmen
+				stacks = 2
+			}					
+			location = capital_province
+			uses_supply = no
+			#origin = 			
+		}
+		title:k_felaya.holder = {
+			add_hook = {
+				target = root
+				type = favor_hook
+			}
+		}
+	}
+	option = { # Nothing
+		name = tedjin.0129.b
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+tedjin.0130 = { # Felaya sends middling army
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0129.t
+	desc = tedjin.0129.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = title:k_felaya.holder
+		animation = personality_compassionate
+	}
+	
+	option = {
+		name = tedjin.0129.a
+		spawn_army = {
+			name = tedjin_civil_war_felayan_troops
+			levies = 200
+			men_at_arms = {
+				type = pikemen_unit
+				stacks = 2
+			}	
+			men_at_arms = {
+				type = light_footmen
+				stacks = 3
+			}			
+			location = capital_province
+			uses_supply = no
+			#origin = 			
+		}
+		title:k_felaya.holder = {
+			add_hook = {
+				target = root
+				type = favor_hook
+			}
+		}
+	}
+	option = { # Nothing
+		name = tedjin.0129.b
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+tedjin.0131 = { # Felaya sends large army in exchange for Kes Ebb
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0131.t
+	desc = tedjin.0131.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = disapproval
+	}
+	right_portrait = {
+		character = title:k_felaya.holder
+		animation = personality_callous
+	}
+	
+	option = {
+		name = tedjin.0131.a
+		custom_tooltip = tedjin.0131.a.tt
+		create_alliance = title:k_felaya.holder
+		title:k_felaya.holder = {
+			add_opinion = {
+				target = root
+				modifier = event_negotiated_alliance_opinion
+			}
+		}
+		create_title_and_vassal_change = {
+			type = faction_demand
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:d_kes_ebb.holder = {			
+			change_liege = {
+				liege = title:k_felaya.holder
+				change = scope:change
+			}			
+		}
+		resolve_title_and_vassal_change = scope:change	
+		spawn_army = {
+			name = tedjin_civil_war_felayan_troops
+			levies = 300
+			men_at_arms = {
+				type = pikemen_unit
+				stacks = 2
+			}	
+			men_at_arms = {
+				type = light_footmen
+				stacks = 4
+			}
+			men_at_arms = {
+				type = light_horsemen
+				stacks = 1
+			}	
+			location = capital_province
+			uses_supply = no
+			#origin = 			
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 40
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 45
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	option = {
+		name = tedjin.0131.b
+		title:k_felaya.holder = { #Reject
+			trigger_event = tedjin.0132
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 60
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 55
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+tedjin.0132 = { # Felaya's offer is refused - what to do now?
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0132.t
+	desc = tedjin.0132.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = disapproval
+	}
+	right_portrait = {
+		character = character:lineofthezij51
+		animation = dismissal
+	}
+	
+	option = { # Small Army
+		name = tedjin.0132.a
+		add_gold = 400
+		remove_short_term_gold = 100
+		character:lineofthezij51 = { #Spawn a few troops for reformists
+			trigger_event = tedjin.0129
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 30
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 35
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+	option = { # Medium Army
+		name = tedjin.0132.b
+		add_gold = 400
+		remove_short_term_gold = 300
+		character:lineofthezij51 = { #Spawn many troops for reformists
+			trigger_event = tedjin.0130
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 50
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 40
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+	option = { # Thoughts and prayers
+		name = tedjin.0132.c
+		add_gold = 400
+		character:lineofthezij51 = { #Spawn a lot of troops for reformists in exchange for Kes Ebb
+			trigger_event = tedjin.0133
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 20
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 33
+			}
+		}
+	}
+}
+
+tedjin.0133 = { # Felaya sends thoughts and prayers
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0133.t
+	desc = tedjin.0133.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+	right_portrait = {
+		character = title:k_felaya.holder
+		animation = personality_vengeful
+	}
+	
+	option = { # Bastards...
+		name = tedjin.0133.a
+	}
+}
+
+tedjin.0134 = { # Nykkea's decision event - an opportunity?
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0134.t
+	desc = tedjin.0134.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = schadenfreude
+	}
+	right_portrait = {
+		character = character:lineofthezij51
+		animation = personality_bold
+	}
+	
+	option = { # Corsairs for some coastline
+		name = tedjin.0134.a
+		trigger = {
+			OR = {
+				title:c_agathmardru.holder = title:k_tedjin.holder
+				title:c_agathmardru.holder.liege = title:k_tedjin.holder
+			}
+		}
+		remove_short_term_gold = 200
+		character:lineofthezij51 = { #Spawn a few troops for reformists
+			trigger_event = tedjin.0135
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 66
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 60
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+
+	option = { # Corsairs for lots of coastline
+		name = tedjin.0134.b
+		trigger = {
+			OR = {
+				title:c_kaneja.holder = title:k_tedjin.holder
+				title:c_kaneja.holder.liege = title:k_tedjin.holder
+				title:c_abrazayan.holder = title:k_tedjin.holder
+				title:c_abrazayan.holder.liege = title:k_tedjin.holder
+			}
+		}
+		remove_short_term_gold = 500
+		character:lineofthezij51 = { #Spawn many troops for reformists
+			trigger_event = tedjin.0136
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 33
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 40
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	
+	option = { # Nothing
+		name = tedjin.0134.c
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+tedjin.0135 = { # Nykkea offers troops for Agathmardru
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0136.t
+	desc = tedjin.0136.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = disapproval
+	}
+	right_portrait = {
+		character = title:d_nykkea.holder
+		animation = schadenfreude
+	}
+	
+	option = { #I guess...
+		name = tedjin.0136.a
+		create_title_and_vassal_change = {
+			type = faction_demand
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		if = {
+			limit = {
+				title:c_agathmardru.holder = title:k_tedjin.holder
+			}
+			title:c_agathmardru = {
+				change_title_holder = {
+					holder = title:d_nykkea.holder
+					change = scope:change
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				title:c_agathmardru.holder.liege = title:k_tedjin.holder
+			}
+			title:c_agathmardru.holder = {			
+				change_liege = {
+					liege = title:d_nykkea.holder
+					change = scope:change
+				}			
+			}
+		}
+		resolve_title_and_vassal_change = scope:change	
+		spawn_army = {
+			name = tedjin_civil_war_corsair_troops
+			levies = 200	
+			men_at_arms = {
+				type = light_footmen
+				stacks = 4
+			}
+			location = capital_province
+			uses_supply = no
+			#origin = 			
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 80
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 66
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	
+	option = { #Thanks but no thanks!
+		name = tedjin.0136.b
+		title:d_nykkea.holder = {
+			hidden_effect = { add_gold = 200 }
+			trigger_event = tedjin.0137
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 20
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 33
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+tedjin.0136 = { # Nykkea offers troops for coastline
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0136.t
+	desc = tedjin.0136.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	right_portrait = {
+		character = title:d_nykkea.holder
+		animation = schadenfreude
+	}
+	
+	option = { #I guess...
+		name = tedjin.0136.a
+		create_title_and_vassal_change = {
+			type = faction_demand
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		if = {
+			limit = {
+				title:c_agathmardru.holder = title:k_tedjin.holder
+			}
+			title:c_agathmardru = {
+				change_title_holder = {
+					holder = title:d_nykkea.holder
+					change = scope:change
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				title:c_agathmardru.holder.liege = title:k_tedjin.holder
+			}
+			title:c_agathmardru.holder = {			
+				change_liege = {
+					liege = title:d_nykkea.holder
+					change = scope:change
+				}			
+			}
+		}
+		if = {
+			limit = {
+				title:c_abrazayan.holder = title:k_tedjin.holder
+			}
+			title:c_abrazayan = {
+				change_title_holder = {
+					holder = title:d_nykkea.holder
+					change = scope:change
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				title:c_abrazayan.holder.liege = title:k_tedjin.holder
+			}
+			title:c_abrazayan.holder = {			
+				change_liege = {
+					liege = title:d_nykkea.holder
+					change = scope:change
+				}			
+			}
+		}
+		if = {
+			limit = {
+				title:c_kaneja.holder = title:k_tedjin.holder
+			}
+			title:c_kaneja = {
+				change_title_holder = {
+					holder = title:d_nykkea.holder
+					change = scope:change
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				title:c_kaneja.holder.liege = title:k_tedjin.holder
+			}
+			title:c_kaneja.holder = {			
+				change_liege = {
+					liege = title:d_nykkea.holder
+					change = scope:change
+				}			
+			}
+		}
+		resolve_title_and_vassal_change = scope:change	
+		spawn_army = {
+			name = tedjin_civil_war_corsair_troops
+			levies = 400	
+			men_at_arms = {
+				type = light_footmen
+				stacks = 10
+			}
+			location = capital_province
+			uses_supply = no
+			#origin = 			
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 33
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	
+	option = { #Thanks but no thanks!
+		name = tedjin.0136.b
+		title:d_nykkea.holder = {
+			hidden_effect = { add_gold = 500 }
+			trigger_event = tedjin.0137
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 66
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+tedjin.0137 = { # Nykkea's offer is refused
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0137.t
+	desc = tedjin.0137.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = personality_callous
+	}
+	right_portrait = {
+		character = character:lineofthezij51
+		animation = anger
+	}
+	
+	option = { # Bastards...
+		name = tedjin.0137.a
+	}
+}
+
+tedjin.0150 = { # War Started - Proxy nations
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0150.t
+	desc = tedjin.0150.desc
+	theme = war
+	left_portrait = {
+		character = character:lineofthezij51
+		animation = war_defender
+	}
+	right_portrait = {
+		character = character:lineofazumenakhad81
+		animation = war_attacker
+	}
+	
+	option = { # Here we go!
+		name = tedjin.0150.a
+	}
+}
+
+tedjin.0153 = { # War Started - Izindubeth has option to intervene for Bor
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0153.t
+	desc = tedjin.0153.desc
+	theme = war
+	left_portrait = {
+		character = character:lineofthezij51
+		animation = war_defender
+	}
+	right_portrait = {
+		character = character:lineofazumenakhad81
+		animation = war_attacker
+	}
+	
+	option = { # I'll aid a brother in faith
+		name = tedjin.0153.a
+		scope:war = {
+			add_defender = prev
+		}
+		title:k_tedjin.holder = {
+			trigger_event = tedjin.0154
+		}
+		scope:attacker = {
+			trigger_event = tedjin.0155
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 75
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	
+	option = { # Aw hell no!
+		name = tedjin.0153.b
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 25
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+tedjin.0154 = { # The Izindubeth rides to our aid
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0154.t
+	desc = tedjin.0154.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = title:k_izindizanda_eruhinim.holder
+		animation = personality_zealous
+	}
+	
+	option = { # To victory!
+		name = tedjin.0154.a
+	}
+}
+
+tedjin.0155 = { # The Izindubeth rides to our enemy's aid
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0155.t
+	desc = tedjin.0155.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	right_portrait = {
+		character = title:k_izindizanda_eruhinim.holder
+		animation = personality_zealous
+	}
+	
+	option = { # They too shall fall in time
+		name = tedjin.0155.a
+		
+		title:k_izindizanda_eruhinim.holder = {
+			every_held_title = {
+				limit = { 
+					NOT = { this = title:k_izindizanda_eruhinim }
+					tier > tier_barony
+				}
+				root = {
+					add_pressed_claim = prev
+				}
+			}
+		}
+	}
+}
+
+tedjin.0156 = { # Bor will not relent - war path
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0156.t
+	desc = tedjin.0156.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	right_portrait = {
+		character = title:k_tedjin.holder
+		animation = anger
+	}
+	
+	option = { # It begins
+		name = tedjin.0156.a
+		custom_tooltip = tedjin.0156.a.tt
+	}
+}
+
+tedjin.0157 = { # Bor will not relent - bide his time
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0157.t
+	desc = tedjin.0157.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = disapproval
+	}
+	right_portrait = {
+		character = title:k_tedjin.holder
+		animation = personality_zealous
+	}
+	
+	option = { # We're watching
+		name = tedjin.0157.a
+		custom_tooltip = tedjin.0157.a.tt
+	}
+}
+
+tedjin.0158 = { # Bor converts
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0158.t
+	desc = tedjin.0158.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = title:k_tedjin.holder
+		animation = shame
+	}
+	
+	option = { # We're watching
+		name = tedjin.0158.a
+		custom_tooltip = tedjin.0158.a.tt
+	}
+}
+
+tedjin.0200 = { # Civil War Ends - Reactionary Victory - Victor
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0200.t
+	desc = tedjin.0200.desc
+	theme = vassal
+	right_portrait = {
+		character = character:lineofthezij51
+		animation = prisonhouse
+	}
+	left_portrait = {
+		character = character:lineofazumenakhad81
+		animation = happiness
+	}
+	
+	option = { # Qadjajar shall be restored!
+		name = tedjin.0200.a 		
+		if = {
+			limit = {
+				has_character_flag = umbar_sent_aid
+			}
+			create_alliance = title:k_umbar.holder
+			title:k_umbar.holder = {
+				add_opinion = {
+					target = root
+					modifier = event_negotiated_alliance_opinion
+				}
+			}
+		}
+		custom_tooltip = tedjin.0200.tt
+		if = {
+			limit = {
+				character:lineofsauron = {
+					has_character_flag = promised_tedjin_tributary
+				}
+			}
+			custom_tooltip = tedjin.0200.tt2
+		}
+		title:c_zimrenzil = {
+			set_county_culture = culture:tedjin
+			set_county_faith = faith:faith_easterling_war
+		}
+		title:c_zakousa = {
+			set_county_culture = culture:tedjin
+			set_county_faith = faith:faith_easterling_war
+		}
+		title:c_ovonid = {
+			set_county_culture = culture:tedjin
+			set_county_faith = faith:faith_easterling_war
+		}
+	}
+}
+
+tedjin.0201 = { # Civil War Ends - Reactionary Victory - Others
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0201.t
+	desc = tedjin.0201.desc
+	theme = vassal
+	right_portrait = {
+		character = character:lineofthezij51
+		animation = prisonhouse
+	}
+	left_portrait = {
+		character = character:lineofazumenakhad81
+		animation = happiness
+	}
+	
+	option = { # A tragedy!
+		name = tedjin.0201.a
+		trigger = {
+			OR = {
+				has_title = title:e_bellakar
+				has_title = title:k_felaya
+			}
+		}
+	}
+
+	option = { # A great victory for us!
+		name = tedjin.0201.b 
+		trigger = {
+			NOR = {
+				has_title = title:e_bellakar
+				has_title = title:k_felaya
+			}
+		}
+	}
+	
+}
+
+tedjin.0202 = { # Civil War Ends - Reformist Victory - Victor
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0202.t
+	desc = tedjin.0202.desc
+	theme = vassal
+	left_portrait = {
+		character = character:lineofthezij51
+		animation = happiness
+	}
+	right_portrait = {
+		character = character:lineofazumenakhad81
+		animation = prisonhouse
+	}
+	
+	option = { # By Faith and Truth, we shall prosper
+		name = tedjin.0202.a 
+		custom_tooltip = tedjin.0202.tt
+	}
+}
+
+# tedjin.0203 = { # Civil War Ends - Reformist Victory - Others
+# 	title = tedjin.0203.t
+# 	desc = tedjin.0203.desc
+# 	theme = vassal
+# 	left_portrait = {
+# 		character = character:lineofthezij51
+# 		animation = happiness
+# 	}
+# 	right_portrait = {
+# 		character = character:lineofazumenakhad81
+# 		animation = prisonhouse
+# 	}
+	
+# 	option = { # Our aid was not wasted
+# 		name = tedjin.0203.a 
+# 	}
+
+# 	option = { # How can you lose with such a number advantage!
+# 		name = tedjin.0203.b 
+# 	}
+	
+# }
+
+# tedjin.0300 = { #Qadjajar formed
+# 	title = tedjin.0300.t
+# 	desc = tedjin.0300.desc
+# 	theme = realm
+# 	left_portrait = {
+# 		character = scope:tedjinfounder
+# 		animation = personality_bold
+# 	}
+	
+# 	option = {
+# 		name = tedjin.0300.a
+# 	}
+# }
+
+# tedjin.0301 = { #Tedyathani formed
+# 	title = tedjin.0301.t
+# 	desc = tedjin.0301.desc
+# 	theme = realm
+# 	left_portrait = {
+# 		character = scope:tedjinfounder
+# 		animation = personality_bold
+# 	}
+	
+# 	option = {
+# 		name = tedjin.0301.a 
+# 	}
+# }
+
+# tedjin.0302 = { #Greater Qadjajar formed
+# 	title = tedjin.0302.t
+# 	desc = tedjin.0302.desc
+# 	theme = realm
+# 	left_portrait = {
+# 		character = scope:tedjinfounder
+# 		animation = personality_bold
+# 	}
+	
+# 	option = {
+# 		name = tedjin.0302.a
+# 	}
+# }
+
+# tedjin.0303 = { #Greater Tedyathani formed
+# 	title = tedjin.0303.t
+# 	desc = tedjin.0303.desc
+# 	theme = realm
+# 	left_portrait = {
+# 		character = scope:tedjinfounder
+# 		animation = personality_bold
+# 	}
+	
+# 	option = {
+# 		name = tedjin.0303.a 
+# 	}
+# }
+
+tedjin.0400 = { # Death of Bôr - Check whether to make him a Saint
+	hidden = yes
+	
+	trigger = {
+		this = character:lineofthezij51
+		OR = {
+			global_var:tedjin_civil_war_result = 2
+			global_var:tedjin_civil_war_result = 4
+		}
+		faith = faith:faith_path_of_wisdom
+		is_landed = yes
+	}
+	
+	immediate = { 
+		set_global_variable = {
+				name = bor_saint	#makes bor a patron saint for tedjin
+				value = yes
+		}
+		every_player = {
+			trigger_event = {
+				id = tedjin.0401
+			}
+		}
+		character:lineofthezij51 = {
+			add_trait = saint
+			give_nickname = nick_the_reformer_tedjin
+			save_scope_as = saint_reformer
+		}
+	}
+}
+
+tedjin.0401 = { #Bôr is declared a saint by the Izindubêth
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0401.t
+	desc = tedjin.0401.desc
+	theme = faith
+	override_background = { reference = temple_mosque }
+	left_portrait = {
+		character = title:k_izindizanda_eruhinim.holder
+		animation = chaplain
+	}
+	right_portrait = {
+		character = character:lineofthezij51
+		animation = personality_honorable
+	}
+	
+	trigger = {
+		faith = faith:faith_path_of_wisdom
+	}
+	option = {
+		trigger = {
+			NOT = { culture = { has_cultural_pillar = heritage_tedjin } }
+		}
+		name = tedjin.0401.a 
+	}
+	option = {
+		trigger = {
+			culture = { has_cultural_pillar = heritage_tedjin }
+		}
+		name = tedjin.0401.b
+		add_piety = 150
+	}
+}
+
+########## Malador Unification events ################
+
+tedjin.0500 = { #The path forwards
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0500.t
+	desc = tedjin.0500.desc
+	theme = realm
+	override_background = { reference = wilderness_savanna }
+	
+	right_portrait = {
+		character = character:lineofthezij31
+		animation = personality_rational
+	}
+	immediate = {
+		trigger_event = {
+			id = tedjin.0503 # Marriage 
+			days = 120
+		}
+		trigger_event = {
+			id = tedjin.0507 # Struggle to the West
+			days = 180
+		}
+		trigger_event = {
+			id = tedjin.0508 # Local issues
+			days = 240
+		}
+	}
+	trigger = {
+		faith = faith:faith_easterling_war
+		culture = culture:tedjin
+	}
+	option = { # By the sword of faith!
+		name = tedjin.0500.a 
+		add_unpressed_claim = title:d_dhajran
+		add_unpressed_claim = title:d_kref_nilja
+		add_unpressed_claim = title:d_dusalan
+		add_unpressed_claim = title:d_kref_urt
+		add_unpressed_claim = title:d_kref_tuvvaj
+		add_piety = 150
+		trigger_event = {
+			id = tedjin.0501
+			days = 30
+		}
+	}
+	option = { # Words must succeed
+		name = tedjin.0500.b
+		add_prestige = 200
+		add_character_modifier = {
+			modifier = malador_diplomatic_character_modifier
+		}
+		trigger_event = {
+			id = tedjin.0502
+			days = 30
+		}
+	}
+	
+}
+
+tedjin.0501 = { #The Host of Maladûm
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0501.t
+	desc = tedjin.0501.desc
+	theme = martial_strategy_focus
+	override_background = { reference = wilderness_savanna}
+	right_portrait = {
+		character = character:lineofthezij31
+		animation = personality_bold
+	}
+	trigger = {
+		faith = faith:faith_easterling_war
+		culture = culture:tedjin
+	}
+	option = {
+		name = tedjin.0501.a 
+		spawn_army = {
+			levies = 2000
+			men_at_arms = {
+				type = horse_archers
+				stacks = 2
+			}
+			men_at_arms = {
+				type = tedjin_camel_archers
+				stacks = 2
+			}
+			men_at_arms = {
+				type = tedjin_khatajani
+				stacks = 4
+			}
+			location = capital_province
+			inheritable = no
+			uses_supply = no
+			name = host_of_maladum		
+		}
+		create_artifact_shield_malador_effect = { OWNER = root }
+		random_character_artifact = {
+			limit = { has_variable = shield_malador }
+			equip_artifact_to_owner_replace = yes
+		}
+	}
+}
+
+tedjin.0502 = { #Clan ties
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0502.t
+	desc = tedjin.0502.desc
+	theme = diplomacy_foreign_affairs_focus
+	override_background = { reference = wilderness_savanna }
+	left_portrait = {
+		character = character:lineofseramij23
+		animation = personality_rational
+	}
+	center_portrait = {
+		character = character:lineofidrikhad15
+		animation = personality_brave
+	}
+	right_portrait = {
+		character = character:lineofazumenakhad65
+		animation = personality_honorable
+	}
+	lower_center_portrait = {
+		character = character:lineofigath9
+	}
+	trigger = {
+		faith = faith:faith_easterling_war
+		culture = culture:tedjin
+		NAND = {
+			any_ally = {
+				has_title = title:d_dhajran
+			}
+			any_ally = {
+				has_title = title:d_kref_urt
+			}
+			any_ally = {
+				has_title = title:d_kref_nilja
+			}
+		}
+		NAND = {
+			any_war_enemy = {
+				has_title = title:d_dhajran
+			} 
+			any_war_enemy = {
+				has_title = title:d_kref_nilja
+			} 
+			any_war_enemy = {
+				has_title = title:d_kref_urt
+			} 
+		}
+	}
+	option = { # Approach Kref Nilja for marriage
+		trigger = {
+			NOR = {
+				is_allied_to = title:d_kref_nilja.holder
+				any_war_enemy = {
+					has_title = title:d_kref_nilja
+				} 
+			}
+			is_married = no
+			is_betrothed = no
+		}
+		show_as_unavailable = {
+			OR = {
+				is_allied_to = title:d_kref_nilja.holder
+				any_war_enemy = {
+					has_title = title:d_kref_nilja
+				} 
+				is_married = yes
+				is_betrothed = yes
+			}
+		}
+		name = tedjin.0502.a
+		add_opinion = {
+			target = character:lineofazumenakhad65
+			modifier = tedjin_overtures_opinion
+		}
+		custom_tooltip = {
+			text = ally_with_kref_nilja
+		}
+		trigger_event = {
+			id = tedjin.0503 
+			days = 1
+		}
+	}
+	option = { # Approach Kref Urt
+		trigger = {
+			NOR = {
+				is_allied_to = title:d_kref_urt.holder
+				any_war_enemy = {
+					has_title = title:d_kref_urt
+				} 
+			}
+		}
+		show_as_unavailable = {
+			OR = {
+				is_allied_to = title:d_kref_urt.holder
+				any_war_enemy = {
+					has_title = title:d_kref_urt
+				} 
+			}
+		}
+		name = tedjin.0502.b
+		add_opinion = {
+			target = character:lineofseramij23
+			modifier = tedjin_overtures_opinion
+		}
+		custom_tooltip = {
+			text = ally_with_kref_urt
+			create_alliance = {			
+				target = character:lineofseramij23
+				allied_through_owner = root	
+				allied_through_target = character:lineofseramij23		
+			}
+		}
+	}
+	option = { # Approach Dhajran for marriage
+		trigger = {
+			NOR = {
+				is_allied_to = title:d_dhajran.holder
+				any_war_enemy = {
+					has_title = title:d_dhajran
+				} 
+			}
+		}
+		show_as_unavailable = {
+			OR = {
+				is_allied_to = title:d_dhajran.holder
+				any_war_enemy = {
+					this = title:d_dhajran.holder
+				} 
+			}
+		}
+		name = tedjin.0502.c 
+		reverse_add_opinion = {
+			target = character:lineofigath9
+			modifier = tedjin_overtures_opinion
+		}
+		custom_tooltip = {
+			text = ally_with_dhajran
+			character:lineofigath9a1b = {
+				set_employer = character:lineofigath9
+			}
+			trigger_event = {
+				id = tedjin.0512
+				days = 1
+			}
+		}
+		
+	}
+}
+
+tedjin.0503 = { #The question of marriage - Vakhia
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0503.t
+	desc = tedjin.0503.desc
+	theme = marriage
+	override_background = { reference = wilderness_savanna }
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	right_portrait = {
+		character = character:lineofthezij32
+		animation = personality_content
+	}
+	lower_right_portrait = {
+		character = character:lineofazumenakhad65
+	}
+
+	trigger = {
+		faith = faith:faith_easterling_war
+		culture = culture:tedjin
+		is_married = no
+		has_trait = cannot_marry
+		NOT = {
+			has_character_flag = malador_chosen_marriage
+			has_character_flag = malador_azia_marriage
+		}
+	}
+
+	immediate = {
+		add_character_flag = malador_chosen_marriage
+	}
+
+	option = { # Canonical
+		name = tedjin.0500.a 
+		trigger = {
+			character:lineofthezij32 = {
+				is_married = no
+			}
+		}
+		character:lineofazumenakhad65 = {
+			trigger_event = {
+				id = tedjin.0504
+				days = 14
+			}
+		}
+	}
+	option = { # Someone else
+		name = tedjin.0503.b
+		remove_trait = cannot_marry
+		character:lineofthezij32 = {
+			remove_trait = cannot_marry
+		}
+	}
+	option = { # Celibacy
+		name = tedjin.0503.c
+		add_piety = 500
+		add_trait = celibate
+		custom_tooltip = malador_celibate_tt
+	}
+}
+
+tedjin.0504 = { #Vakhia's hand - Oldur's perpective
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0504.t
+	desc = tedjin.0504.desc
+	theme = marriage
+	override_background = { reference = wilderness_savanna }
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	right_portrait = {
+		character = character:lineofthezij31
+		animation = personality_honorable
+	}
+	lower_right_portrait = {
+		character = character:lineofthezij32
+	}
+
+	option = { # Yes
+		name = tedjin.0504.a 
+		character:lineofthezij31 = {
+			trigger_event = {
+				id = tedjin.0505
+				days = 14
+			}
+		}
+		custom_tooltip = malador_marry_vakhia_tt
+	}
+	option = { # No
+		name = tedjin.0500.b
+		add_prestige = 100
+		character:lineofthezij31 = {
+			trigger_event = {
+				id = tedjin.0506
+				days = 14
+			}
+		}
+		custom_tooltip = malador_no_marry_vakhia_tt
+	}
+}
+
+tedjin.0505 = { #Vakhia's hand - Alliance forged 
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0505.t
+	desc = tedjin.0505.desc
+	theme = marriage
+	override_background = { reference = temple_mosque }
+	left_portrait = {
+		character = character:lineofthezij32
+		animation = flirtation
+	}
+	right_portrait = {
+		character = root
+		animation = flirtation_left
+	}
+	lower_right_portrait = {
+		character = character:lineofazumenakhad65
+	}
+	artifact = {
+		target = scope:bones
+		position = lower_left_portrait
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				character:lineofazumenakhad65 = {
+					any_character_artifact = {
+						has_variable = bones_batou_joche
+					}
+				}
+			}
+			character:lineofazumenakhad65 = {
+				every_character_artifact = {
+					limit = {
+						has_variable = bones_batou_joche
+					}
+					save_scope_as = bones
+				}
+			}
+		}
+	}
+	option = {
+		name = tedjin.0505.a 
+		marry = character:lineofthezij32
+		hidden_effect = {
+			character:lineofthezij31 = {
+				remove_trait = cannot_marry
+			}
+			character:lineofthezij32 = {
+				remove_trait = cannot_marry
+			}
+		}
+		if = {
+			limit = {
+				character:lineofazumenakhad65 = {
+					any_character_artifact = {
+						has_variable = bones_batou_joche
+					}
+				}
+			}
+			character:lineofazumenakhad65 = {
+				every_character_artifact = {
+					limit = {
+						has_variable = bones_batou_joche
+					}
+					set_owner = {
+						target = root
+						history = {
+							type = given
+							recipient = root
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+tedjin.0506 = { #Vakhia's hand - Alliance rejected
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0506.t
+	desc = tedjin.0506.desc
+	theme = war
+	override_background = { reference = wilderness_savanna }
+	left_portrait = {
+		character = character:lineofazumenakhad65
+		animation = dismissal
+	}
+	right_portrait = {
+		character = root
+		animation = anger
+	}
+
+	option = { # I will remember this 
+		name = tedjin.0506.a 
+		add_pressed_claim = title:d_kref_nilja
+		hidden_effect = {
+			character:lineofthezij31 = {
+				remove_trait = cannot_marry
+			}
+			character:lineofthezij32 = {
+				remove_trait = cannot_marry
+			}
+		}
+	}
+	option = { # This will not be endured!
+		name = tedjin.0506.b 
+		add_prestige = 250
+		start_war = {
+			casus_belli = duchy_conquest_cb 
+			target = character:lineofazumenakhad65
+			target_title = title:d_kref_nilja
+		}
+		hidden_effect = {
+			character:lineofthezij31 = {
+				remove_trait = cannot_marry
+			}
+			character:lineofthezij32 = {
+				remove_trait = cannot_marry
+			}
+		}
+	}
+}
+
+tedjin.0507 = { #Strife in the west
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0507.t
+	desc = tedjin.0507.desc
+	theme = war
+	override_background = { reference = wilderness_savanna }
+	left_portrait = {
+		character = character:lineofigath9
+		animation = personality_coward
+	}
+	right_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+	lower_right_portrait = {
+		character = character:lineofigath11
+	}
+
+	trigger = {
+		AND = {
+			faith = faith:faith_easterling_war
+			culture = culture:tedjin
+			OR = {
+				character:lineofigath11 = {
+					is_alive = yes
+				}
+				character:lineofigath12 = {
+					is_alive = yes
+				}
+			}
+			NOT = {
+				is_allied_to = title:d_dhajran.holder
+				any_war_enemy = {
+					this = title:d_dhajran.holder
+				} 
+			}
+			title:d_dhajran.holder.dynasty = dynasty:dynasty_igath
+		}
+	}
+	option = { # Support his claim 
+		name = tedjin.0507.a 
+		trigger = {
+			character:lineofigath9 = {
+				is_alive = yes
+				has_title = title:d_dhajran
+			}
+		}
+		character:lineofigath11 = {
+			set_employer = root
+		}
+		start_war = {
+			cb = claim_cb
+			target = title:d_dhajran.holder
+			claimant = character:lineofigath11
+			target_title = title:d_dhajran
+		}
+		add_prestige = 200
+	}
+	option = { # Now is not the time
+		name = tedjin.0507.b
+		trigger = {
+			character:lineofigath9 = {
+				is_alive = yes
+				has_title = title:d_dhajran
+			}
+		}
+		add_prestige = -50
+		character:lineofigath11 = {
+			set_employer = root
+		}
+		add_hook = {
+			type = favor_hook
+			target = character:lineofigath11
+		}
+	}
+	option = { # Ally with him if ruler
+		name = tedjin.0507.c
+		trigger = {
+			character:lineofigath11 = {
+				is_alive = yes
+				has_title = title:d_dhajran
+			}
+		}
+		add_prestige = 100
+		custom_tooltip = {
+			text = ally_with_dhajran
+			create_alliance = {			
+				target = character:lineofigath11
+				allied_through_owner = root	
+				allied_through_target = character:lineofigath11	
+			}
+		}
+		
+	}
+}
+
+tedjin.0508 = { #Local Affairs
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0508.t
+	desc = tedjin.0508.desc
+	theme = realm
+	override_background = { reference = temple_mosque }
+	right_portrait = {
+		character = character:lineofthezij31
+		animation = stress
+	}
+	trigger = {
+		capital_county = {
+			OR = {
+				faith = faith:faith_path_of_wisdom
+				culture = culture:soriyan
+			}
+		}
+		faith = faith:faith_easterling_war
+		culture = culture:tedjin
+	}
+	immediate = {
+		trigger_event = {
+			id = tedjin.0510
+			days = 180
+		}
+	}
+	option = { #Change faith 
+		name = tedjin.0508.a
+		trigger = {
+			capital_county = {
+				faith = faith:faith_path_of_wisdom
+			} 
+		}
+		capital_county = {
+			set_county_faith = root.faith
+			change_county_control = -40
+		}
+		add_piety = 50
+		faith:faith_path_of_wisdom = {
+			change_fervor = {
+				value = 20
+				desc = brutal_suppression_faith
+			}
+		}
+		add_legitimacy = -50
+	}
+	option = { # Change culture
+		name = tedjin.0508.b
+		trigger = {
+			capital_county = {
+				culture = culture:soriyan
+			} 
+		}
+		capital_county = {
+			set_county_culture = root.culture
+			change_county_control = -60
+		}
+		add_prestige = 50
+		culture:soriyan = {
+			change_cultural_acceptance = {
+				target = root.culture
+				value = -50
+				desc = brutal_suppression_culture
+			}
+		}
+		add_legitimacy = -50
+	}
+	option = { # Full conversion 
+		name = tedjin.0508.c
+		trigger = {
+			capital_county = {
+				OR = {
+				faith = faith:faith_path_of_wisdom
+				culture = culture:soriyan
+				}
+			}
+		}
+		capital_county = {
+			set_county_culture = root.culture
+			set_county_faith = root.faith
+			change_county_control = -90
+		}
+		culture:soriyan = {
+			change_cultural_acceptance = {
+				target = root.culture
+				value = -60
+				desc = brutal_suppression_culture
+			}
+		}
+		faith:faith_path_of_wisdom = {
+			change_fervor = {
+				value = 30
+				desc = brutal_suppression_faith
+			}
+		}
+		add_legitimacy = -70
+	}
+	option = { # Accept them
+		name = tedjin.0508.d
+		add_prestige = -150
+		add_piety = -250
+		add_legitimacy = 100
+	}
+}
+
+# tedjin.0509 = { # Maintenance event 
+# 	hidden = yes
+# 	option = {
+# 		if = {
+# 			limit = {
+# 				capital_county = {
+# 					county_control = 100 # Jaco Help! 
+# 				}
+# 			}
+# 			trigger_event = {
+# 				id = tedjin.0510
+# 			}
+# 		}
+# 		else = {
+# 			trigger_event = {
+# 				id = tedjin.0509 
+# 				days = 7
+# 			}
+# 		}
+# 	}
+# }
+
+tedjin.0510 = { #Soriyans to the South
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0510.t
+	desc = tedjin.0510.desc
+	theme = war
+	override_background = { reference = wilderness_savanna }
+	left_portrait = {
+		character = culture:soriyan.culture_head
+		animation = worry
+	}
+	right_portrait = {
+		character = root
+		animation = anger
+	}
+	lower_right_portrait = {
+		character = title:k_izindizanda_eruhinim.holder
+	}
+	lower_left_portrait = {
+		character = scope:mazareki
+	}
+	immediate = {
+		# Scope Mazareki
+		random_county_in_region = {
+			region = custom_reform_tedjin_confederacy
+			limit = {
+				exists = holder
+				holder = { is_independent_ruler = yes }
+				holder.culture = culture:soriyan
+				holder.dynasty = dynasty:dynasty_mazareki
+				NOT = { holder = root }
+			}
+			holder = {
+				save_scope_as = mazareki
+			}
+		}
+	}
+	trigger = {
+		any_county_in_region = {
+			region = custom_reform_tedjin_confederacy
+			exists = holder
+			holder = {
+				is_independent_ruler = yes
+			}
+			holder.culture = culture:soriyan
+			NOT = {
+				holder = root
+			}
+		}
+		faith = faith:faith_easterling_war
+		culture = culture:tedjin
+	}
+	option = { # Attack the Mazareki
+		trigger = {
+			exists = scope:mazareki
+			NOT = {
+				any_ally = {
+					this = scope:mazareki
+				}
+			}
+		}
+		name = tedjin.0510.a 
+		add_pressed_claim = scope:mazareki.primary_title
+	}
+	option = { # Attack the cultural head
+		trigger = {
+			NOT = {
+				any_ally = {
+					this = culture:soriyan.culture_head
+				}
+			}
+		}
+		name = tedjin.0510.b
+		add_pressed_claim = culture:soriyan.culture_head.primary_title	
+		add_prestige = 75
+	}
+	option = { # Strike at the heart
+		name = tedjin.0510.c
+		trigger = {
+			OR = {
+				completely_controls = title:c_naraj
+				completely_controls = title:c_nomuzad
+				completely_controls = title:c_itashtun
+			}
+			title:d_hulja.holder = title:k_izindizanda_eruhinim.holder 
+		}
+		add_pressed_claim = title:d_hulja
+		add_piety = 200
+		reverse_add_opinion = {
+			target = title:k_izindizanda_eruhinim.holder
+			modifier = hate_opinion
+			opinion = -50
+		}
+	}
+	option = { #Perhaps reconcilation is enough?
+		name = tedjin.0510.d
+		add_piety = -50
+		reverse_add_opinion = {
+			target = title:k_izindizanda_eruhinim.holder
+			modifier = grateful_opinion
+			opinion = 50
+		}
+		culture:soriyan = {
+			change_cultural_acceptance = {
+				target = root.culture
+				value = 10
+				desc = brutal_suppression_culture
+			}
+		}
+		set_relation_friend = {
+			reason = friend_found_common_ground
+			target = culture:soriyan.culture_head
+		}
+	}
+}
+
+tedjin.0511 = { #United at Last
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0511.t
+	desc = tedjin.0511.desc
+	theme = realm
+	override_background = { reference = wilderness_savanna }
+	left_portrait = {
+		character = root
+		animation = wrestling_victory
+	}
+	immediate = {
+		if = {
+			limit = {
+				has_trait = cannot_marry
+			}
+			remove_trait = cannot_marry
+		}
+		if = {
+			limit = {
+				has_trait = celibate
+			}
+			remove_trait = celibate
+		}
+		show_as_tooltip = {
+			get_title = title:k_tedjin
+			set_primary_title_to = title:k_tedjin
+			custom_tooltip = {
+				text = found_tedjin_confederacy.effect1
+			}
+			give_nickname = nick_high_marshal_of_maladum
+			add_prestige_level = 1
+			add_piety_level = 1
+			dynasty = {
+				add_dynasty_prestige = 750
+			}
+			faith:faith_easterling_war = {
+				change_fervor = {
+					value = 20
+					desc = fervor_nationalist_unity
+				}
+			}
+		}
+	}
+	option = { # My work here is done
+		name = tedjin.0511.a 
+		add_character_modifier = {
+			modifier = tedjin_united_modifier
+			years = 20
+		}
+	}
+	option = { # This is only the beginning
+		trigger = {
+			NOT = {
+				any_ally = {
+					this = culture:soriyan.culture_head
+				}
+			}
+		}
+		name = tedjin.0511.b
+		add_unpressed_claim = title:k_mardruak
+		add_unpressed_claim = title:d_narik_zadan
+		add_unpressed_claim = title:d_dusalan
+		add_unpressed_claim = title:d_nykkea
+		add_unpressed_claim = title:d_khibilkadar
+		# add_unpressed_claim = title:d_
+
+		add_prestige = 100
+	}
+	
+}
+
+tedjin.0512 = { #The question of marriage - Azia
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0512.t
+	desc = tedjin.0512.desc
+	theme = marriage
+	override_background = { reference = wilderness_savanna }
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	right_portrait = {
+		character = character:lineofigath9a1b
+		animation = personality_content
+	}
+	lower_right_portrait = {
+		character = character:lineofigath9
+	}
+
+	trigger = {
+		faith = faith:faith_easterling_war
+		culture = culture:tedjin
+		is_married = no
+		has_trait = cannot_marry
+		NOT = {
+			has_character_flag = malador_chosen_marriage
+		}
+	}
+
+	immediate = {
+		add_character_flag = malador_azia_marriage
+	}
+
+	option = { # Non-canonical
+		name = tedjin.0512.a 
+		trigger = {
+			character:lineofigath9a1b = {
+				is_married = no
+			}
+		}
+		character:lineofigath9 = {
+			trigger_event = {
+				id = tedjin.0513
+				days = 14
+			}
+		}
+	}
+	option = { # Someone else
+		name = tedjin.0512.b
+		remove_trait = cannot_marry
+		character:lineofigath9a1b = {
+			remove_trait = cannot_marry
+		}
+	}
+	option = { # Celibacy
+		name = tedjin.0503.c
+		add_piety = 500
+		add_trait = celibate
+		custom_tooltip = malador_celibate_tt
+	}
+}
+
+tedjin.0513 = { #Azia's hand - Gorovod's perpective
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0513.t
+	desc = tedjin.0513.desc
+	theme = marriage
+	override_background = { reference = wilderness_savanna }
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	right_portrait = {
+		character = character:lineofthezij31
+		animation = personality_honorable
+	}
+	lower_right_portrait = {
+		character = character:lineofigath9a1b
+	}
+
+	option = { # Yes
+		name = tedjin.0513.a 
+		character:lineofthezij31 = {
+			trigger_event = {
+				id = tedjin.0514
+				days = 14
+			}
+		}
+		custom_tooltip = malador_marry_azia_tt
+	}
+	option = { # No
+		name = tedjin.0500.b
+		add_prestige = 100
+		character:lineofthezij31 = {
+			trigger_event = {
+				id = tedjin.0515
+				days = 14
+			}
+		}
+		custom_tooltip = malador_no_marry_azia_tt
+	}
+}
+
+tedjin.0514 = { #Azia's hand - Alliance forged 
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0514.t
+	desc = tedjin.0514.desc
+	theme = marriage
+	override_background = { reference = temple_mosque }
+	left_portrait = {
+		character = character:lineofigath9a1b
+		animation = flirtation
+	}
+	right_portrait = {
+		character = root
+		animation = flirtation_left
+	}
+	lower_right_portrait = {
+		character = character:lineofigath9
+	}
+
+	option = {
+		name = tedjin.0514.a 
+		marry = character:lineofigath9a1b
+		create_alliance = {			
+			target = character:lineofigath9
+			allied_through_owner = root	
+			allied_through_target = character:lineofigath9a1b		
+		}
+		hidden_effect = {
+			character:lineofthezij31 = {
+				remove_trait = cannot_marry
+			}
+			character:lineofigath9a1b = {
+				remove_trait = cannot_marry
+			}
+		}
+	}
+}
+
+tedjin.0515 = { #Azia's hand - Alliance rejected
+	content_source = realms_dlc
+	type = character_event
+	title = tedjin.0515.t
+	desc = tedjin.0515.desc
+	theme = war
+	override_background = { reference = wilderness_savanna }
+	left_portrait = {
+		character = character:lineofigath9
+		animation = dismissal
+	}
+	right_portrait = {
+		character = root
+		animation = anger
+	}
+
+	option = { # I will remember this 
+		name = tedjin.0515.a 
+		add_pressed_claim = title:d_dhajran
+		hidden_effect = {
+			character:lineofthezij31 = {
+				remove_trait = cannot_marry
+			}
+			character:lineofigath9a1b = {
+				remove_trait = cannot_marry
+			}
+		}
+	}
+	option = { # This will not be endured!
+		name = tedjin.0515.b 
+		add_prestige = 250
+		start_war = {
+			casus_belli = duchy_conquest_cb 
+			target = character:lineofigath9
+			target_title = title:d_dhajran
+		}
+		hidden_effect = {
+			character:lineofthezij31 = {
+				remove_trait = cannot_marry
+			}
+			character:lineofigath9a1b = {
+				remove_trait = cannot_marry
+			}
+		}
+	}
+}

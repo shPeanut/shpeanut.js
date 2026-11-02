@@ -1,0 +1,330 @@
+﻿namespace = angmar
+
+### ANGMAR START DATE ###
+## angmar.0500 - 0999 => The Witch-king
+## angmar.1000 - 1500 => Decision Events
+## angmar.3000 - 3100 => The Heart-ripper
+
+
+## The Witch-king of Angmar ##
+
+angmar.0501 = { # Reaction event: Hwaldar swears fealty to Argeleb
+	content_source = realms_dlc
+	type = character_event
+	title = angmar.0501.t
+	desc = angmar.0501.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	right_portrait = {
+		character = scope:hwaldar
+		animation = dismissal
+	}
+	immediate = {
+		character:linebroccach = { save_scope_as = hwaldar }
+	}
+	option = { # I will make an example out of him!
+		name = angmar.0501.a
+		custom_tooltip = event_angmar_0501_a
+		add_pressed_claim = title:k_rhudaur
+		start_war = {
+			cb = invasion_war
+			target = scope:hwaldar
+			target_title = title:k_rhudaur
+			}
+		add_prestige = 500
+	}
+	option = { # He may yet be persuaded...
+		name = angmar.0501.b
+		custom_tooltip = event_angmar_0501_b
+		trigger_event = { #Get angry at Hwaldar, demand submission
+			id = rhudaur.2002
+			days = 10
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+angmar.0502 = { #Hwaldar refuses vassalization
+	content_source = realms_dlc
+	type = character_event
+	title = angmar.0502.t
+	desc = angmar.0502.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+	right_portrait = {
+		character = scope:hwaldar
+		animation = anger
+	}
+	immediate = {
+		character:linebroccach = { save_scope_as = hwaldar }
+	}
+	option = { # I will make an example out of him!
+		name = angmar.0502.a
+		custom_tooltip = event_angmar_0501_a
+		add_pressed_claim = title:k_rhudaur
+		spawn_army = {
+			uses_supply = yes
+			inheritable = yes
+			name = host_of_angmar
+			men_at_arms = {
+				type = orc_warriors
+				stacks = 7
+			}
+			men_at_arms = {
+				type = hill_troll
+				stacks = 3
+			}
+			location = root.location
+		}	
+	}
+}
+
+angmar.0503 = { #Hwaldar accepts vassalization
+	content_source = realms_dlc
+	type = character_event
+	title = angmar.0503.t
+	desc = angmar.0503.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = dismissal
+	}
+	right_portrait = {
+		character = scope:hwaldar
+		animation = worry
+	}
+	immediate = {
+		character:linebroccach = { save_scope_as = hwaldar }
+	}
+	option = { #I will watch him closely.
+		name = angmar.0503.a
+	}
+}
+
+angmar.0504 = { # Witch-king decides if he wants to get Hwaldar as tributary
+	content_source = realms_dlc
+	type = character_event
+	title = angmar.0504.t
+	desc = angmar.0504.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = dismissal
+	}
+	right_portrait = {
+		character = scope:hwaldar
+		animation = marshal
+	}
+	immediate = {
+		character:linebroccach = { save_scope_as = hwaldar }
+	}
+	option = { #He will pay tribute.
+		name = angmar.0504.a
+		custom_tooltip = event_angmar_0504_a
+		ai_chance = { # Canon route
+			base = 100
+		}
+		scope:hwaldar = {
+			trigger_event = rhudaur.2003 # Hwaldar gets a chance to respond
+		}
+	}
+	option = { # He is of more use to me independent
+		name = angmar.0504.b	
+	}
+}
+
+angmar.0505 = { # Hwaldar becomes your tributary
+	content_source = realms_dlc
+	type = character_event
+	title = angmar.0505.t
+	desc = angmar.0505.desc
+	theme = alliance
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+	right_portrait = {
+		character = scope:hwaldar
+		animation = idle
+	}
+	immediate = {
+		character:linebroccach = { save_scope_as = hwaldar }
+	}
+	option = { # I claim the Iron Crown!
+		name = angmar.0505.a
+		custom_tooltip = event_angmar_0505_a
+	}
+}
+
+angmar.0506 = { # Hwaldar refuses to become your tributary
+	content_source = realms_dlc
+	type = character_event
+	title = angmar.0506.t
+	desc = angmar.0506.desc
+	theme = alliance
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+	right_portrait = {
+		character = scope:hwaldar
+		animation = dismissal
+	}
+	immediate = {
+		character:linebroccach = { save_scope_as = hwaldar }
+	}
+	option = { # He'll pay for this!
+		name = angmar.0506.a
+		custom_tooltip = event_angmar_0506_a
+	}
+}
+
+angmar.0507 = { #Hwaldar loses his war against Mellondir 
+	content_source = realms_dlc 
+	type = character_event
+	title = angmar.0507.t
+	desc = angmar.0507.desc
+	theme = alliance 
+	left_portrait = {
+		character = root 
+		animation = dismissal
+	}
+	right_portrait = {
+		character = scope:hwaldar 
+		animation = worry
+	}
+	immediate = {
+		character:linebroccach = { save_scope_as = hwaldar }
+	}
+	option = { # His failure cannot be tolerated
+		name = angmar.0507.a
+		custom_tooltip = event_angmar_0507_a
+	}
+}
+
+## Decision events ##
+
+angmar.1001 = { # East Forodwaith Annexed
+	content_source = realms_dlc
+	type = character_event
+	title = angmar.1001.t
+	desc = angmar.1001.desc
+	theme = war
+	override_background = { reference = wilderness_mountains }
+	
+	right_portrait = {
+		character = root
+		animation = celebrate_sword
+	}
+	
+	immediate = { # Effects from the decision 
+		show_as_tooltip = {
+			title:d_jokiranta = { set_de_jure_liege_title = title:k_angmar }
+			title:d_korkein_ma = { set_de_jure_liege_title = title:k_angmar }
+		}
+	}
+
+	option = { #It is now West Angmar!
+		name = angmar.1001.a
+	}
+}
+
+angmar.1002 = { # Barad Gúlaran built
+	content_source = realms_dlc
+	type = character_event
+	title = angmar.1002.t
+	desc = angmar.1002.desc
+	theme = dread
+	override_background = { reference = throne_room }
+	
+	right_portrait = {
+		character = root
+		animation = personality_callous
+	}
+	
+	immediate = { # Effects from the decision 
+		show_as_tooltip = {
+			add_piety = massive_piety_gain
+			root.dynasty = { add_dynasty_prestige = 100 }
+			title:c_carn_dum.title_province = {
+				add_great_building = wonder_barad_gularan
+			}
+		}
+	}
+
+	option = { # Nice!
+		name = angmar.1002.a
+	}
+}
+
+
+## Angmar Orc events ##
+
+angmar.3050 = { # Chief Tull wants an alliance
+	content_source = realms_dlc
+	type = character_event
+	title = angmar.3050.t
+	desc = angmar.3050.desc
+	theme = alliance
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+	right_portrait = {
+		character = scope:tull
+		animation = personality_rational
+	}
+	immediate = {
+		character:linebraighir33 = { save_scope_as = tull }
+	}
+	option = { # Fine, he'll have his alliance
+		name = angmar.3050.a
+		add_prestige = 50
+		scope:tull = {
+			trigger_event = rhudaur.3005
+		}
+		ai_chance = {
+			base = 75
+		}
+	}
+	
+	option = { # NO! Jog right off!
+		name = angmar.3050.b
+		add_legitimacy = 50
+		add_prestige = 100
+		scope:tull = {
+			add_opinion = {
+				modifier = angry_opinion
+				opinion = -50
+				target = root
+			}
+		}
+		trigger_event = {
+			id = rhudaur.3003
+			days = 1
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	
+	option = { # I'll rip out your heart!
+		name = angmar.3050.c
+		add_pressed_claim = title:d_dol_tiriamon
+		trigger_event = {
+			id = rhudaur.3004
+			days = 1
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+}

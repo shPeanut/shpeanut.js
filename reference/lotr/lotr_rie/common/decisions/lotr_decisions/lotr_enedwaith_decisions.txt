@@ -1,0 +1,1871 @@
+﻿#############################
+#############################
+#### Enedhwaith Decisions ###
+#############################
+#############################
+
+decision_start_migration = {
+	title = decision_start_migration
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_enedhwaith_01.dds"
+	}
+	selection_tooltip = decision_start_migration_tooltip
+	desc = decision_start_migration_desc
+	confirm_text = decision_start_migration_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 5
+		kingdom = 5
+		empire = 0
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		has_culture = culture:enedhwaithrim 
+		game_start_date < 5382.5.2
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_start_migration
+			}
+		}
+		NOT = {
+			root = character:linedilwun10
+		}
+	}
+	
+	is_valid = {
+		culture = culture:enedhwaithrim
+		any_sub_realm_county = {
+			development_level >= 1
+		}
+		realm_size >= 4
+		is_independent_ruler = yes
+		capital_province = {
+			geographical_region = middleearth_west_enedhwaith
+		}
+    }
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+        is_at_war = no
+    }
+	
+	effect = {
+		custom_tooltip = {
+			text = decision_start_migration_effect
+			trigger_event = enedwaith.1000
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_start_migration
+			}
+		}
+	}
+}
+
+decision_launch_migration = {
+	title = decision_launch_migration
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_enedhwaith_01.dds"
+	}
+	selection_tooltip = decision_launch_migration_tooltip
+	desc = decision_launch_migration_desc
+	confirm_text = decision_launch_migration_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 6
+		kingdom = 6
+		empire = 0
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		has_culture = culture:enedhwaithrim 
+		game_start_date < 5382.5.2
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_launch_migration
+			}
+		}
+		NOT = {
+			root = character:linedilwun10
+		}
+		has_character_flag = migration_leader
+		
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_start_migration
+		}
+		
+	}
+	
+	is_valid = {
+		culture = culture:enedhwaithrim
+		
+		is_independent_ruler = yes
+		capital_province = {
+			geographical_region = middleearth_west_enedhwaith
+		}
+    }
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+        is_at_war = no
+    }
+	
+	widget = {
+		gui = "decision_view_widget_option_list_generic"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "SELECT_ACTION"
+		show_from_start = yes
+
+		item = { # cardolan
+			value = migrate_cardolan
+			current_description = migrate_cardolan_desc
+			localization = migrate_cardolan
+			icon = "gfx/interface/icons/regimenttypes/arnorian_soldiers.dds"
+			ai_chance = { value = 100 }
+		}
+		item = { # gondor
+			value = migrate_gondor
+			current_description = migrate_gondor_desc
+			localization = migrate_gondor
+			icon = "gfx/interface/icons/regimenttypes/gondor_infantry.dds"
+			ai_chance = { value = 10 }
+		}
+		
+	}
+	
+	effect = {
+		
+		save_scope_as = adventurer
+		if = {
+			limit = {
+				is_landed = yes
+			}
+		if = {
+			limit = {
+				player_heir ?= {
+					NOT = { this = root }
+					is_adult = yes
+				}
+			}
+			player_heir = {
+				save_scope_as = laamp_heir
+				save_scope_as = laamp_inheritor
+				
+			}
+		}
+		else_if = {
+			limit = { is_independent_ruler = no }
+			liege = {
+				save_scope_as = laamp_liege
+				save_scope_as = laamp_inheritor
+				
+			}
+		}
+		else = {
+			
+			if = {
+				limit = {
+					NOT = { exists = scope:laamp_inheritor }
+				}
+				hidden_effect_new_object = {
+					create_character = {
+						template = laamp_inheritor_template
+						culture = root.capital_county.culture
+						faith = root.capital_county.faith
+						dynasty = generate
+						location = root.capital_province
+						after_creation = {
+							save_scope_as = laamp_inheritor
+							add_character_flag = new_laamp_inheritor
+						}
+					}
+				}
+			}
+		}
+		
+		# Save scopes for loc
+		primary_title = { save_scope_as = old_primary_title }
+		capital_province = { save_scope_as = old_capital_province }
+		if = {
+			limit = { is_independent_ruler = no }
+			liege = { save_scope_as = old_liege }
+		}
+		# Transfer landed titles
+		every_held_title = {
+			limit = {
+				is_landless_type_title = no
+				tier > tier_barony
+			}
+			add_to_list = target_titles
+		}
+		create_title_and_vassal_change = {
+			type = conquest
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		hidden_effect = {
+			every_in_list = {
+				list = target_titles
+				change_title_holder_include_vassals = {
+					holder = scope:laamp_inheritor
+					change = scope:change
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+		# Create Adventurer
+		create_landless_adventurer_title_effect = {
+			REASON = flag:voluntary
+			FLAVOR_CHAR = scope:laamp_inheritor
+		}
+		scope:laamp_inheritor = {
+			# Tooltip for player
+			custom_tooltip = become_landless_adventurer_decision_title_scope_tt
+			# Create a loving family so inheritance isn't so borked
+			if = {
+				limit = { has_character_flag = new_laamp_inheritor }
+				trigger_event = game_rule.1001
+				remove_character_flag = new_laamp_inheritor
+			}
+		}
+		scope:old_liege ?= { trigger_event = ep3_laamps.0032 }
+		
+		
+		
+		every_ruler = {
+			limit = {
+				has_character_flag = migration_participant
+			}
+			trigger_event = {
+				id = enedwaith.1005
+				days = {1 20}
+			}
+		}
+		
+		
+		
+		trigger_event = enedwaith.1004
+		
+		
+		if = {		# Fallback
+			limit = { scope:migrate_cardolan = yes }
+			custom_tooltip = migrate_cardolan_effect
+			start_travel_plan = {
+				destination = title:k_cardolan.title_province
+				on_arrival_event  = enedwaith.1100
+				return_trip = no
+				players_use_planner = no
+				on_arrival_destinations = all
+			}
+		}
+		
+		if = {		# Fallback
+			limit = { scope:migrate_gondor = yes }
+			custom_tooltip = migrate_gondor_effect
+			start_travel_plan = {
+				destination = title:c_isengard.title_province
+				on_arrival_event  = enedwaith.1200
+				return_trip = no
+				players_use_planner = no
+				on_arrival_destinations = all
+			}
+		}
+		
+	
+		
+		
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_launch_migration
+			}
+			
+		}
+		}
+	}
+	
+	cost = {
+		
+	}
+
+}
+
+####################
+## Éira Decisions ##
+####################
+
+### Investigate Brant's Murder ###
+decision_investigate_brants_murder = {
+	title = decision_investigate_brants_murder
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_eira_investigate_tharbad.dds"
+	}
+	selection_tooltip = decision_investigate_brants_murder_tooltip
+	desc = decision_investigate_brants_murder_desc
+	confirm_text = decision_investigate_brants_murder_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval = 6
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		has_character_flag = eira_first_steps_taken
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_investigate_brants_murder
+			}
+		}
+	}
+	
+	is_valid = {
+		is_at_war = no
+    }
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+    }
+	
+	cost = {
+		prestige = 200
+	}
+	
+	effect = {
+		custom_tooltip = {
+			text = decision_investigate_brants_murder_tt
+			trigger_event = bloody_swan.0002
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_investigate_brants_murder
+			}
+		}
+	}
+}
+
+### Convice the Dunmen to unite ###
+decision_convince_dunmen_chieftain = {
+	title = decision_convince_dunmen_chieftain
+	selection_tooltip = decision_convince_dunmen_chieftain_tooltip
+	desc = decision_convince_dunmen_chieftain_desc
+	confirm_text = decision_convince_dunmen_chieftain_confirm
+	decision_group_type = realms_in_exile_major
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_eira_convince_chieftains.dds"
+	}
+
+	cooldown = { months = 6 }
+	
+	#AI
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 5
+		kingdom = 5
+		empire = 5
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 10000
+	}
+	
+	is_shown = {
+		has_character_flag = eira_first_steps_taken
+		NAND = {
+			has_character_flag = eira_angrast_support
+			has_character_flag = eira_galtrev_support
+			has_character_flag = eira_iarnburn_support
+			has_character_flag = eira_runnach_support
+			has_character_flag = eira_westmarches_support
+		}
+	}
+	
+	is_valid = {
+		is_travelling = no
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_lotr_adult = yes
+		is_available = yes
+	}
+	
+	widget = {
+		gui = decision_view_widget_option_list_generic
+		controller = decision_option_list_controller
+		decision_to_second_step_button = decision_convince_dunmen_chieftain_confirm_selection
+
+		item = { # Galtrev
+			value = dunmen_chieftain_galtrev
+			current_description = dunmen_chieftain_galtrev_desc
+			localization = dunmen_chieftain_galtrev_loc
+			icon =gfx/interface/icons/message_feed/a_catch_all_councillor_icon.dds
+			is_shown = { NOT = { has_character_flag = eira_galtrev_support } }
+		}
+		item = { # Runnach
+			value = dunmen_chieftain_runnach
+			current_description = dunmen_chieftain_runnach_desc
+			localization = dunmen_chieftain_runnach_loc
+			icon =gfx/interface/icons/message_feed/mercenary.dds
+			is_shown = { NOT = { has_character_flag = eira_runnach_support } }
+		}
+		item = { # Iarnburn
+			value = dunmen_chieftain_iarnburn
+			current_description = dunmen_chieftain_iarnburn_desc
+			localization = dunmen_chieftain_iarnburn_loc
+			icon =gfx/interface/icons/message_feed/barter.dds
+			is_shown = { NOT = { has_character_flag = eira_iarnburn_support } }
+		}
+		item = { # Angrast (Rlain)
+			value = dunmen_chieftain_angrast
+			current_description = dunmen_chieftain_angrast_desc
+			localization = dunmen_chieftain_angrast_loc
+			icon =gfx/interface/icons/message_feed/county_corruption.dds
+			is_shown = { NOT = { has_character_flag = eira_angrast_support } }
+		}
+		item = { # Harnangren
+			value = dunmen_chieftain_harnangren
+			current_description = dunmen_chieftain_harnangren_desc
+			localization = dunmen_chieftain_harnangren_loc
+			icon =gfx/interface/icons/message_feed/confederation.dds
+			is_shown = { NOT = { has_character_flag = eira_westmarches_support } }
+		}
+	}
+
+	# EFFECT
+	effect = {
+		custom_tooltip = decision_convince_dunmen_chieftain_tt
+		if = {
+			limit = { scope:dunmen_chieftain_galtrev = yes }
+			start_travel_plan = {
+				destination = title:c_galtrev.title_province
+				return_trip = yes
+				players_use_planner = no
+				on_arrival_event = bloody_swan.0010
+				on_arrival_destinations = all_but_last
+			}
+		}
+		else_if = {
+			limit = { scope:dunmen_chieftain_runnach = yes }
+			start_travel_plan = {
+				destination = title:c_den_runnach.title_province
+				return_trip = yes
+				players_use_planner = no
+				on_arrival_event = bloody_swan.0011
+				on_arrival_destinations = all_but_last
+			}
+		}
+		else_if = {
+			limit = { scope:dunmen_chieftain_iarnburn = yes }
+			start_travel_plan = {
+				destination = title:c_iarnburn.title_province
+				return_trip = yes
+				players_use_planner = no
+				on_arrival_event = bloody_swan.0012
+				on_arrival_destinations = all_but_last
+			}
+		}
+		else_if = {
+			limit = { scope:dunmen_chieftain_harnangren = yes }
+			start_travel_plan = {
+				destination = title:c_westmarches.title_province
+				return_trip = yes
+				players_use_planner = no
+				on_arrival_event = bloody_swan.0013
+				on_arrival_destinations = all_but_last
+			}
+		}
+		else_if = {
+			limit = { scope:dunmen_chieftain_angrast = yes }
+			start_travel_plan = {
+				destination = title:c_caithris.title_province
+				return_trip = yes
+				players_use_planner = no
+				on_arrival_event = bloody_swan.0014
+				on_arrival_destinations = all_but_last
+			}
+		}
+		else = {
+			add_prestige = minor_prestige_gain # Placeholder
+		}
+	}
+}
+
+### Negotiate with the Dwarves of Moria ###
+decision_eira_dwarven_armor = {
+	title = decision_eira_dwarven_armor
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_durins_door.dds"
+	}
+	selection_tooltip = decision_eira_dwarven_armor_tooltip
+	desc = decision_eira_dwarven_armor_desc
+	confirm_text = decision_eira_dwarven_armor_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval = 6
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 0
+	}
+
+	is_shown = {
+		has_character_flag = eira_first_steps_taken
+		exists = title:k_khazad_dum.holder
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_eira_dwarven_armor
+			}
+		}
+	}
+	
+	is_valid = {
+		title:k_khazad_dum.holder = { is_dwarf = yes }
+		OR = {
+			title:k_khazad_dum.holder ?= {						
+				opinion = {
+					target = root
+					value >= very_high_positive_opinion
+				}
+			}
+			has_strong_hook = title:k_khazad_dum.holder
+		}
+		is_at_war = no
+	}
+	
+	# minimum_cost = {
+		# gold = 300
+    # }
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+    }
+	
+	cost = {
+		prestige = 500
+	}
+	
+	effect = {
+		custom_tooltip = {
+			text = decision_eira_dwarven_armor_tt
+			start_travel_plan = {
+				destination = province:4361
+				return_trip = yes
+				players_use_planner = no
+				on_arrival_event = bloody_swan.0020
+				on_arrival_destinations = all_but_last
+			}
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_eira_dwarven_armor
+			}
+		}
+	}
+}
+
+### Formable Dunmen Kingdom ###
+decision_eira_kingdom = {
+	title = decision_eira_kingdom
+	selection_tooltip = decision_eira_kingdom_tooltip
+	desc = decision_eira_kingdom_desc
+	confirm_text = decision_eira_kingdom_confirm
+	decision_group_type = realms_in_exile_major
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_eira_crown.dds"
+	}
+
+	cooldown = { months = 6 }
+	
+	#AI
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 10
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	
+	is_shown = {
+		AND = { #Need to have convinced all chieftains 
+			has_character_flag = eira_iarnburn_support
+			has_character_flag = eira_galtrev_support
+			has_character_flag = eira_runnach_support
+			has_character_flag = eira_westmarches_support
+			has_character_flag = eira_angrast_support
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_eira_kingdom
+			}
+		}
+	}
+	
+	is_valid = {
+		prestige_level >= 3
+		custom_tooltip = {
+			text = decision_eira_kingdom_tt
+			AND = { #Need to have convinced all chieftains 
+				has_character_flag = eira_iarnburn_support
+				has_character_flag = eira_galtrev_support
+				has_character_flag = eira_runnach_support
+				has_character_flag = eira_westmarches_support
+				has_character_flag = eira_angrast_support
+			}
+		}
+		custom_tooltip = {
+			text = has_found_tharbad_proof
+			has_character_flag = eira_tharbad_proof_found
+		}
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_lotr_adult = yes
+		is_available = yes
+	}
+
+	cost = {
+		gold = 1000
+	}
+
+	# EFFECT
+	effect = {
+		convert_whole_realm_to_feudalism_effect = yes
+		get_title = title:k_dunlandfells
+		root.dynasty = { add_dynasty_prestige = 250 }
+		trigger_event = {
+			id = bloody_swan.0021
+			days = 1
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_eira_kingdom
+			}
+		}
+	}
+}
+
+### Eira - Open War ###
+decision_eira_open_war = {
+	title = decision_eira_open_war
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_eira_open_war.dds"
+	}
+	selection_tooltip = decision_eira_open_war_tooltip
+	desc = decision_eira_open_war_desc
+	confirm_text = decision_eira_open_war_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval = 6
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		has_character_flag = eira_war_path
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:eira_war_path
+			}
+		}
+		title:c_harabad.holder = character:linearastil16
+	}
+	
+	is_valid = {
+		is_at_war = no
+    }
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+    }
+	
+	cost = {
+		prestige = 350
+	}
+	
+	effect = {
+		start_war = {
+			casus_belli = eradicate_house_cb
+			target = title:c_harabad.holder
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:eira_war_path
+			}
+		}
+	}
+}
+
+### Eira - Assassination ###
+decision_eira_assassination = {
+	title = decision_eira_assassination
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_eira_assassination.dds"
+	}
+	selection_tooltip = decision_eira_assassination_tooltip
+	desc = decision_eira_assassination_desc
+	confirm_text = decision_eira_assassination_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval = 6
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		has_character_flag = eira_assassination_path
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_eira_assassination
+			}
+		}
+		title:c_harabad.holder = character:linearastil16
+	}
+	
+	is_valid = {
+		is_at_war = no
+    }
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+    }
+	
+	cost = {
+		prestige = 350
+	}
+	
+	effect = {
+		custom_tooltip = {
+			text = decision_eira_assassination_tt
+			trigger_event = bloody_swan.0025
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_eira_assassination
+			}
+		}
+	}
+}
+
+### Call Great Moot ###
+decision_eira_call_moot = {
+	title = decision_eira_call_moot
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_northmen_01.dds"
+	}
+	selection_tooltip = decision_eira_call_moot_tooltip
+	desc = decision_eira_call_moot_desc
+	confirm_text = decision_eira_call_moot_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval = 15
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		has_character_flag = eira_kingdom_formed
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_eira_call_moot
+			}
+		}
+	}
+	
+	is_valid = {
+		prestige_level >= 3
+		legitimacy_level >= 4
+		highest_held_title_tier >= tier_kingdom
+		OR = {
+			character:linearastil16 = { is_alive = no }
+			character:linearastil16 = { is_imprisoned_by = root }
+		}
+	}
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+		is_at_war = no
+    }
+	
+	cost = {
+		gold = 200
+		prestige = 1000
+	}
+	
+	effect = {
+		custom_tooltip = {
+			text = enedhwaith_rulers_may_join_you
+			title:e_enedhwaith = {
+				every_in_de_jure_hierarchy = {
+					limit = {
+						OR = {
+							tier = tier_duchy
+							tier = tier_county
+						}
+						NOT = { this = title:c_galtrev }
+						this.holder ?= {
+							NOT = { this = root }
+							NOT = { top_liege = root }
+							OR = {
+								culture = culture:dunmen
+								culture = culture:enedhwaithrim
+							}
+						}
+					}
+					holder = { 
+						random = {
+							chance = 60
+							add_to_list = rulers_to_vassalize 
+						}
+					}
+				}
+
+			}
+			title:c_galtrev.holder = { add_to_list = rulers_to_vassalize }
+			
+			every_in_list = {
+				list = rulers_to_vassalize
+				create_title_and_vassal_change = {
+					type = swear_fealty
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				change_liege = {
+					liege = root
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
+		}
+		#trigger_event = bloody_swan.0203
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_eira_call_moot
+			}
+		}
+	}
+}
+
+#####################
+## Rlain Decisions ##
+#####################
+
+# Create anti-Gondor confederation
+decision_rlain_confederation = {
+	title = decision_rlain_confederation
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_angmar_04.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_rlain_confederation_tooltip
+	desc = decision_rlain_confederation_desc
+	confirm_text = decision_rlain_confederation_confirm
+	decision_group_type = realms_in_exile_major
+	
+	sort_order = 700
+
+	is_shown = {
+		has_character_flag = rlain_intro_flag
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_rlain_confederation
+			}
+		}
+	}
+
+	is_valid = {
+		prestige_level >= 2
+		legitimacy_level >= 3
+		is_independent_ruler = yes
+		highest_held_title_tier = tier_duchy
+		any_powerful_vassal = {
+			count = all
+			opinion = {
+				target = root
+				value >= 70
+			}
+		}
+		OR = {
+			any_vassal = {
+				highest_held_title_tier = tier_county
+				count >= 6 
+			}
+			custom_tooltip = {
+				text = all_indep_rulers_in_enedhwaith_influenced
+				title:k_enedhwaith = {
+					any_in_de_jure_hierarchy = {
+						tier > tier_barony
+						exists = holder
+						holder ?= {
+							AND = {
+								NOT = { this = root }
+								is_human = yes
+								OR = {
+									is_independent_ruler = yes 
+									suzerain ?= { has_title = title:e_gondor }
+								}
+								OR = {
+									opinion = {
+										target = root
+										value >= 60
+									}
+									root = { has_hook = prev }
+									root = { has_relation_friend = prev }
+									root = { has_relation_lover = prev }
+									root = { is_allied_to = prev }
+								}
+							}
+						}
+						count >= 4
+					}
+				}
+			}
+		}
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		prestige = 500
+	}
+
+	effect = {
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_rlain_confederation
+		}
+		title:k_enedhwaith = {
+			every_in_de_jure_hierarchy = {
+				limit = {
+					tier > tier_barony
+					holder ?= {
+						NOT = { this = root }
+						is_human = yes
+						OR = {
+							is_independent_ruler = yes
+							suzerain ?= { has_title = title:e_gondor }
+							liege ?= root 
+						}
+						OR = {
+							opinion = {
+								target = root
+								value >= 60
+							}
+							root = { has_hook = prev }
+							is_allied_to = root 
+							has_relation_friend = root
+							has_relation_lover = root
+							liege ?= root
+						}
+					}
+				}
+				holder = { add_to_list = rlain_confederation_members }
+			}
+		}
+		root.dynasty = {
+			add_dynasty_prestige = 250
+		}
+		custom_tooltip = {
+			text = decision_dorwinion_confederation_tt
+			create_confederation = {
+				name = BRAZEN_BFRIGANDS
+			}
+		}
+		every_in_list = {
+			list = rlain_confederation_members
+			if = {
+				limit = { 
+					exists = suzerain 
+					is_independent_ruler = yes
+				}
+				end_tributary = yes
+			}
+			scope:new_confederation ?= {
+				add_confederation_member = prev
+			}
+		}
+		trigger_event = { 
+			id = bloody_swan.0301
+			days = 1
+		}
+	}
+}
+
+### Rlain - Open War ###
+decision_rlain_open_war = {
+	title = decision_rlain_open_war
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_wildmen_04.dds"
+	}
+	selection_tooltip = decision_rlain_open_war_tooltip
+	desc = decision_rlain_open_war_desc
+	confirm_text = decision_rlain_open_war_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval = 6
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		has_character_flag = rlain_intro_flag
+		exists = title:k_enedhwaith.holder
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_rlain_open_war
+			}
+		}
+	}
+	
+	is_valid = {
+		is_at_war = no
+		custom_tooltip = {
+			text = has_formed_brigand_confed
+			exists = confederation
+		}
+    }
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+    }
+	
+	cost = {
+		prestige = 350
+	}
+	
+	effect = {
+		add_pressed_claim = title:k_enedhwaith
+		start_war = {
+			casus_belli = claim_cb
+			claimant = root
+			target = title:k_enedhwaith.holder
+			target_title = title:k_enedhwaith
+		}
+		random_character_war = {
+			limit = { 
+				using_cb = claim_cb 
+				is_defender = title:k_enedhwaith.holder
+			}
+			save_scope_as = enedhwaith_invasion
+		}
+		custom_tooltip = {
+			text = confederates_join_war
+			every_confederation = {
+				limit = { any_confederation_member = { this = root } }
+				every_confederation_member = {
+					limit = { NOT = { this = root } }
+					scope:enedhwaith_invasion ?= {
+						add_attacker = prev
+					}
+				}
+			}
+		}
+			
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_rlain_open_war
+			}
+		}
+	}
+}
+
+### Rlain - The Witch-King's Offer ###
+decision_rlain_convert_faith = {
+	title = decision_rlain_convert_faith
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_angmar_02.dds"
+	}
+	selection_tooltip = decision_rlain_convert_faith_tooltip
+	desc = decision_rlain_convert_faith_desc
+	confirm_text = decision_rlain_convert_faith_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval = 6
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		has_character_flag = rlain_intro_flag
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_rlain_convert_faith
+			}
+		}
+	}
+	
+	is_valid = {
+		has_title = title:k_enedhwaith
+		prestige_level >= 3
+		legitimacy_level >= 5
+		any_powerful_vassal = { # Your vassals either like you or are scared of you
+			count = all
+			OR ?= {
+				opinion = {
+					target = root
+					value >= 80
+				}
+				custom_tooltip = {
+					text = is_terrified_of_you_tt
+					has_dread_level_towards = {
+						target = root
+						level >= 1
+					}
+				}
+			}
+		}
+    }
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+		is_at_war = no
+    }
+	
+	cost = {
+		piety = 1000
+		prestige = 1000
+	}
+	
+	effect = {
+		## Become part of Angmar wars - add once branch is merged 
+		convert_whole_realm_to_feudalism_effect = yes
+		set_character_faith = faith:faith_angmar_azira
+		add_piety = 500
+		every_close_family_member = { set_character_faith = faith:faith_angmar_azira }
+		every_powerful_vassal = { 
+			random = {
+				chance = 50
+				set_character_faith = faith:faith_angmar_azira
+			}
+		}
+		capital_county = {
+			set_county_faith = faith:faith_angmar_azira
+		}
+		every_directly_owned_province = {
+			random = {
+				chance = 50
+				this.county = { set_county_faith = faith:faith_angmar_azira }
+			}
+		}
+		trigger_event = {
+			id = bloody_swan.0302
+			days = 1
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_rlain_convert_faith
+			}
+		}
+	}
+}
+
+### Rlain - Throw the Gondorians back into the sea ###
+decision_rlain_claim_coasts = {
+	title = decision_rlain_claim_coasts
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_mithlond_03.dds"
+	}
+	selection_tooltip = decision_rlain_claim_coasts_tooltip
+	desc = decision_rlain_claim_coasts_desc
+	confirm_text = decision_rlain_claim_coasts_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval = 6
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	
+	sort_order = 250
+
+	is_shown = {
+		has_character_flag = rlain_intro_flag
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_rlain_claim_coasts
+			}
+		}
+	}
+	
+	is_valid = {
+		completely_controls = title:c_lond_daer
+		completely_controls = title:c_angrast
+		OR = {
+			character:predolamroth181 = { is_alive = no }
+			character:predolamroth181 = { is_imprisoned_by = root }
+		}
+		
+    }
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+		is_at_war = no
+    }
+	
+	cost = {
+	}
+	
+	effect = {
+		add_gold = 650 # Plunder and Pillage
+		add_prestige = major_prestige_gain
+		dynasty = { add_dynasty_prestige = 250 }
+		if = {
+			limit = { NOT = { has_trait = reaver } }
+			add_trait = reaver
+		}
+		add_trait_xp = {
+			trait = reaver
+			value = 50
+		}
+		custom_tooltip = unlocks_claim_andrast_decision
+		trigger_event = {
+			id = bloody_swan.0303
+			days = 1
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_rlain_claim_coasts
+			}
+		}
+	}
+}
+
+### Rlain - Lay Claim to Andrast ###
+decision_rlain_claim_andrast = {
+	title = decision_rlain_claim_andrast
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_corsair_02.dds"
+	}
+	selection_tooltip = decision_rlain_claim_andrast_tooltip
+	desc = decision_rlain_claim_andrast_desc
+	confirm_text = decision_rlain_claim_andrast_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval = 6
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	
+	sort_order = 250
+
+	is_shown = {
+		has_character_flag = rlain_intro_flag
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_rlain_claim_coasts
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_rlain_claim_andrast
+			}
+		}
+	}
+	
+	is_valid = {
+		highest_held_title_tier >= tier_kingdom
+		prestige_level >= 3
+    }
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+		is_at_war = no
+    }
+	
+	cost = {
+		prestige = 750
+	}
+	
+	effect = {
+		send_interface_toast = {
+			type = event_toast_effect_good
+			title = decision_rlain_claim_andrast
+			left_icon = root
+			right_icon = title:k_andrast
+			add_pressed_claim = title:k_andrast
+			dynasty = { add_dynasty_prestige = 150 }
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_rlain_claim_andrast
+			}
+		}
+	}
+}
+
+#########################
+## Glormagil Decisions ##
+#########################
+
+### Purchase Tharbad ###
+decision_purchase_tharbad = {
+	title = decision_purchase_tharbad
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_gondor_02.dds"
+	}
+	selection_tooltip = decision_purchase_tharbad_tooltip
+	desc = decision_purchase_tharbad_desc
+	confirm_text = decision_purchase_tharbad_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval = 6
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		has_character_flag = glormagil_intro_flag
+		title:c_tharbad.holder = { is_human = yes }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_purchase_tharbad
+			}
+		}
+		NOT = { completely_controls = title:c_tharbad }
+	}
+	
+	is_valid = {
+		has_strong_hook = title:c_tharbad.holder.top_liege
+		trigger_if = {
+			limit = { has_government = administrative_government }
+			influence >= massive_influence_value
+		}
+		trigger_else = {
+			legitimacy_level >= 5
+		}
+    }
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+		is_at_war = no
+    }
+	
+	cost = {
+		treasury_or_gold = 1000
+	}
+	
+	effect = {
+		## Add to Angmar Wars once the branch is merged 
+		send_interface_toast = {
+			type = event_toast_effect_good
+			title = decision_purchase_tharbad
+			left_icon = root
+			title:c_tharbad.holder = {
+				create_title_and_vassal_change = {
+					type = swear_fealty
+					save_scope_as = change
+					add_claim_on_loss = yes
+				}
+				change_liege = {
+					liege = root
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_purchase_tharbad
+			}
+		}
+	}
+}
+
+### Call Great Moot ###
+decision_glormagil_call_moot = {
+	title = decision_glormagil_call_moot
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_northmen_01.dds"
+	}
+	selection_tooltip = decision_glormagil_call_moot_tooltip
+	desc = decision_glormagil_call_moot_desc
+	confirm_text = decision_glormagil_call_moot_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval = 15
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		has_character_flag = glormagil_intro_flag
+		#title:c_tharbad.holder = { is_human = yes }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_glormagil_call_moot
+			}
+		}
+	}
+	
+	is_valid = {
+		prestige_level >= 3
+		trigger_if = {
+			limit = { has_government = administrative_government }
+			influence >= massive_influence_value
+		}
+		trigger_else = {
+			legitimacy_level >= 5
+		}
+    }
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+		is_at_war = no
+    }
+	
+	cost = {
+		treasury_or_gold = 500
+		prestige = 1000
+	}
+	
+	effect = {
+		custom_tooltip = decision_glormagil_call_moot_tt
+		trigger_event = bloody_swan.0203
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_glormagil_call_moot
+			}
+		}
+	}
+}
+
+decision_glormagil_discredit_eira = {
+	title = decision_glormagil_discredit_eira
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_glormagil_discredit_eira.dds"
+	}
+	selection_tooltip = decision_glormagil_discredit_eira_tooltip
+	desc = decision_glormagil_discredit_eira_desc
+	confirm_text = decision_glormagil_discredit_eira_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval = 15
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		has_character_flag = glormagil_intro_flag
+		character:linemabon9 = { is_alive = yes }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_glormagil_discredit_eira
+			}
+		}
+	}
+	
+	is_valid = {
+		character:linemabon9 = { is_alive = yes }
+		prestige_level >= 2
+		intrigue >= 15
+		#legitimacy_level >= 3
+    }
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+		is_at_war = no
+    }
+	
+	cost = {
+		treasury_or_gold = 300
+		influence = 500
+	}
+	
+	effect = {
+		custom_tooltip = decision_glormagil_discredit_eira_tt
+		show_as_tooltip = {
+			title:d_dunlandfells.holder = {
+				destroy_title = title:d_dunlandfells
+				add_prestige = -1000
+			}
+		}
+		trigger_event = {
+			id = bloody_swan.0204
+			days = 1
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_glormagil_discredit_eira
+			}
+		}
+	}
+}
+
+#######################
+## Maratar Decisions ##
+#######################
+
+### Deal with the Brazen Brigand ###
+decision_maratar_defeat_rlain = {
+	title = decision_maratar_defeat_rlain
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_northmen_01.dds"
+	}
+	selection_tooltip = decision_maratar_defeat_rlain_tooltip
+	desc = decision_maratar_defeat_rlain_desc
+	confirm_text = decision_maratar_defeat_rlain_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval = 15
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		has_character_flag = maratar_intro_flag
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_maratar_defeat_rlain
+			}
+		}
+	}
+	
+	is_valid = {
+		OR = {
+			character:linedilwun10 = { is_alive = no }
+			character:linedilwun10 = { is_imprisoned_by = root }
+		}
+    }
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+		is_at_war = no
+    }
+	
+	cost = {
+		piety = 250
+	}
+	
+	effect = {
+		add_prestige = 150
+		dynasty = { add_dynasty_prestige = 50 }
+		custom_tooltip = decision_maratar_defeat_rlain_tt
+		if = {
+			limit = { character:linedilwun10 = { is_alive = no } }
+			trigger_event = {
+				id = bloody_swan.0103
+				days = 1 
+			}
+		}
+		else = {
+			trigger_event = {
+				id = bloody_swan.0102
+				days = 1
+			}
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_maratar_defeat_rlain
+			}
+		}
+	}
+}
+
+### Negotiate with Éira ###
+decision_maratar_eira_alliance = {
+	title = decision_maratar_eira_alliance
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_dol_amroth_02.dds"
+	}
+	selection_tooltip = decision_maratar_eira_alliance_tooltip
+	desc = decision_maratar_eira_alliance_desc
+	confirm_text = decision_maratar_eira_alliance_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval = 15
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		has_character_flag = maratar_eira_friendliness
+		is_ai = no
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_maratar_eira_alliance
+			}
+		}
+	}
+	
+	is_valid = {
+		character:linemabon9 = { is_alive = yes }
+		prestige_level >= 2
+    }
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+		is_at_war = no
+    }
+	
+	cost = {
+		prestige = 600
+	}
+	
+	effect = {
+        create_alliance = {
+            target = character:linemabon9
+            allied_through_owner = root
+            allied_through_target = character:linemabon9
+        }
+		custom_tooltip = {
+			text = alliance_with_eira_formed
+			character:linemabon9 = {
+				add_opinion = {
+					modifier = event_negotiated_alliance_opinion
+					target = root
+				}
+			}
+		}
+		character:linemabon9 = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 50
+			}
+		}
+		if = {
+			limit = { 
+				character:linedilwun10 = { is_ruler = yes } 
+				NOT = { character:linedilwun10 = { is_at_war_with = root } }
+			}
+			start_war = {
+				casus_belli = capture_rlain_cb
+				target = character:linedilwun10
+			}
+		}
+		trigger_event = {
+			id = bloody_swan.0110
+			days = 1
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_maratar_eira_alliance
+			}
+		}
+	}
+}
+
+### Justice for Éira ###
+decision_maratar_eira_justice = {
+	title = decision_maratar_eira_justice
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_eira_investigate_tharbad.dds"
+	}
+	selection_tooltip = decision_maratar_eira_justice_tooltip
+	desc = decision_maratar_eira_justice_desc
+	confirm_text = decision_maratar_eira_justice_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval = 15
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		has_character_flag = maratar_ready_for_osgiliath
+		is_ai = no
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_maratar_eira_justice
+			}
+		}
+	}
+	
+	is_valid = {
+		character:linemabon9 = { is_alive = yes }
+		#prestige_level >= 3
+		trigger_if = {
+			limit = { has_government = administrative_government }
+			influence >= massive_influence_value
+		}
+		trigger_else = {
+			prestige_level >= 3
+		}
+    }
+	
+    is_valid_showing_failures_only = { 
+        is_imprisoned = no
+        is_available_adult = yes
+		is_at_war = no
+    }
+	
+	cost = {
+		prestige = 1000
+	}
+	
+	effect = {
+        custom_tooltip = {
+			text = maratar_travel_to_osgiliath
+			start_travel_plan = {
+				destination = title:c_osgiliath.title_province
+				on_arrival_event = bloody_swan.0107
+				return_trip = yes
+				players_use_planner = no
+				#on_arrival_destinations = all
+			}
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_maratar_eira_justice
+			}
+		}
+	}
+}

@@ -1,0 +1,486 @@
+﻿namespace = istari
+
+#######################################
+# Istari.0001 Istari guest management #
+#######################################
+
+istari.0001 = { # If the host isn't of a good faith, move to one. Otherwise move after 5 years
+	hidden = yes
+	trigger = {
+		is_istari = yes
+		faith_is_good = yes
+		is_playable_character = no
+		scope:new_employer ?= { is_istari = no }
+	}
+	immediate = {
+		if = { # Istari won't stay in an evil court
+			limit = { scope:new_employer ?= { faith_is_evil = yes } }
+			if = {
+				limit = { title:k_imladris.holder ?= { is_elf = yes } }
+				title:k_imladris.holder = { save_scope_as = future_employer }
+			}
+			else_if = {
+				limit = { title:k_shire.holder ?= { is_hobbit = yes } }
+				title:k_shire.holder = { save_scope_as = future_employer }
+			}
+			else_if = {
+				limit = { title:k_lothlorien.holder ?= { is_elf = yes } }
+				title:k_lothlorien.holder = { save_scope_as = future_employer }
+			}
+			else_if = {
+				limit = { title:e_gondor_steward.holder ?= { faith_is_good = yes } }
+				title:e_gondor_steward.holder = { save_scope_as = future_employer }
+			}
+			else_if = {
+				limit = { title:e_gondor.holder ?= { faith_is_good = yes } }
+				title:e_gondor.holder = { save_scope_as = future_employer }
+			}
+			else_if = {
+				limit = { title:k_rohan.holder ?= { faith_is_good = yes } }
+				title:k_rohan.holder = { save_scope_as = future_employer }
+			}
+			else_if = {
+				limit = {
+					any_independent_ruler = {
+						faith_is_good = yes
+						in_diplomatic_range = root
+					}
+				}
+				random_independent_ruler = {
+					limit = {
+						faith_is_good = yes
+						in_diplomatic_range = root
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = {
+					any_ruler = {
+						faith_is_good = yes
+						in_diplomatic_range = root
+					}
+				}
+				random_ruler = {
+					limit = {
+						faith_is_good = yes
+						in_diplomatic_range = root
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = {
+					any_independent_ruler = {
+						faith_is_good = yes
+						is_in_valinor = no
+					}
+				}
+				random_independent_ruler = {
+					limit = {
+						faith_is_good = yes
+						is_in_valinor = no
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = {
+					any_ruler = {
+						faith_is_good = yes
+						is_in_valinor = no
+					}
+				}
+				random_ruler = {
+					limit = {
+						faith_is_good = yes
+						is_in_valinor = no
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = {
+					any_independent_ruler = {
+						faith_is_evil = no
+						in_diplomatic_range = root
+					}
+				}
+				random_independent_ruler = {
+					limit = {
+						faith_is_evil = no
+						in_diplomatic_range = root
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = {
+					any_ruler = {
+						faith_is_evil = no
+						in_diplomatic_range = root
+					}
+				}
+				random_ruler = {
+					limit = {
+						faith_is_evil = no
+						in_diplomatic_range = root
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = {
+					any_independent_ruler = {
+						faith_is_evil = no
+						is_in_valinor = no
+					}
+				}
+				random_independent_ruler = {
+					limit = {
+						faith_is_evil = no
+						is_in_valinor = no
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else_if = {
+				limit = {
+					any_ruler = {
+						faith_is_evil = no
+						is_in_valinor = no
+					}
+				}
+				random_ruler = {
+					limit = {
+						faith_is_evil = no
+						is_in_valinor = no
+					}
+					save_scope_as = future_employer
+				}
+			}
+			else = {
+				title:k_tirion.holder = { save_scope_as = future_employer }
+			}
+			set_employer = scope:future_employer
+		}
+		else = {
+			trigger_event = {
+				id = istari.0002
+				years = 5
+			}
+		}
+	}
+}
+
+istari.0002 = { # Find the appropriate target for istari.0003
+	hidden = yes
+
+	trigger = {
+		is_istari = yes
+		faith_is_good = yes
+	}
+
+	immediate = {
+		root = { save_scope_as = departing_istar }
+		if = {
+			limit = { exists = root.employer }
+			root.employer = {
+				trigger_event = {
+					id = istari.0003
+					days = 1
+				}
+			}
+		}
+		else_if = { 
+			limit = { exists = root.host }
+			root.host = {
+				trigger_event = {
+					id = istari.0003
+					days = 1
+				}
+			}
+		}
+		else_if = { 
+			limit = { exists = root.liege }
+			root.liege = {
+				trigger_event = {
+					id = istari.0003
+					days = 1
+				}
+			}
+		} 
+	}
+}
+
+## Istar moves to another court
+
+istari.0003 = {
+	content_source = realms_dlc
+	type = character_event
+	title = istari.0003.t
+	desc = istari.0003.desc
+	theme = travel
+	override_background = { reference = throne_room }
+	left_portrait = {
+		character = root
+		animation = beg
+	}
+	right_portrait = {
+		character = scope:departing_istar
+		animation = dismissal
+	}
+	
+	# immediate = {
+	# 	if = {
+	# 		limit = {
+	# 			any_independent_ruler = {
+	# 				faith_is_good = yes
+	# 				highest_held_title_tier >= tier_duchy
+	# 				in_diplomatic_range = root
+	# 			}
+	# 		}
+	# 		random_independent_ruler = {
+	# 			limit = {
+	# 				faith_is_good = yes
+	# 				highest_held_title_tier >= tier_duchy
+	# 				in_diplomatic_range = root
+	# 			}
+	# 			save_scope_as = future_employer
+	# 		}
+	# 	}
+	# 	else_if = {
+	# 		limit = {
+	# 			any_independent_ruler = {
+	# 				faith_is_good = yes
+	# 				highest_held_title_tier >= tier_duchy
+	# 				is_in_valinor = no
+	# 			}
+	# 		}
+	# 		random_independent_ruler = {
+	# 			limit = {
+	# 				faith_is_good = yes
+	# 				highest_held_title_tier >= tier_duchy
+	# 				is_in_valinor = no
+	# 			}
+	# 			save_scope_as = future_employer
+	# 		}
+	# 	}
+	# 	else_if = {
+	# 		limit = {
+	# 			any_independent_ruler = {
+	# 				faith_is_good = yes
+	# 				in_diplomatic_range = root
+	# 			}
+	# 		}
+	# 		random_independent_ruler = {
+	# 			limit = {
+	# 				faith_is_good = yes
+	# 				in_diplomatic_range = root
+	# 			}
+	# 			save_scope_as = future_employer
+	# 		}
+	# 	}
+	# 	else_if = {
+	# 		limit = {
+	# 			any_independent_ruler = {
+	# 				faith_is_good = yes
+	# 				is_in_valinor = no
+	# 			}
+	# 		}
+	# 		random_independent_ruler = {
+	# 			limit = {
+	# 				faith_is_good = yes
+	# 				is_in_valinor = no
+	# 			}
+	# 			save_scope_as = future_employer
+	# 		}
+	# 	}
+	# 	else_if = {
+	# 		limit = {
+	# 			any_ruler = {
+	# 				faith_is_good = yes
+	# 				in_diplomatic_range = root
+	# 			}
+	# 		}
+	# 		random_ruler = {
+	# 			limit = {
+	# 				faith_is_good = yes
+	# 				in_diplomatic_range = root
+	# 			}
+	# 			save_scope_as = future_employer
+	# 		}
+	# 	}
+	# 	else_if = {
+	# 		limit = {
+	# 			any_ruler = {
+	# 				faith_is_good = yes
+	# 				is_in_valinor = no
+	# 			}
+	# 		}
+	# 		random_ruler = {
+	# 			limit = {
+	# 				faith_is_good = yes
+	# 				is_in_valinor = no
+	# 			}
+	# 			save_scope_as = future_employer
+	# 		}
+	# 	}
+	# 	else_if = {
+	# 		limit = {
+	# 			any_ruler = {
+	# 				faith_is_evil = no
+	# 				in_diplomatic_range = root
+	# 			}
+	# 		}
+	# 		random_ruler = {
+	# 			limit = {
+	# 				faith_is_evil = no
+	# 				in_diplomatic_range = root
+	# 			}
+	# 			save_scope_as = future_employer
+	# 		}
+	# 	}
+	# 	else_if = {
+	# 		limit = {
+	# 			any_ruler = {
+	# 				faith_is_evil = no
+	# 				is_in_valinor = no
+	# 			}
+	# 		}
+	# 		random_ruler = {
+	# 			limit = {
+	# 				faith_is_evil = no
+	# 				is_in_valinor = no
+	# 			}
+	# 			save_scope_as = future_employer
+	# 		}
+	# 	}
+	# }
+	
+	option = {
+		name = istari.0003.a
+		scope:departing_istar = {
+			if = {
+				limit = {
+					is_landed = yes
+				}
+				hidden_effect = {
+					create_title_and_vassal_change = {
+						type = returned
+						save_scope_as = change
+						add_claim_on_loss = no
+					}
+					every_held_title = {
+						limit = { tier >= tier_county }
+						change_title_holder = {
+							holder = root
+							change = scope:change
+						}
+					}
+					resolve_title_and_vassal_change = scope:change
+					move_to_pool = yes
+				}
+				trigger_event = {
+					id = ep3_laamps.0030
+					days = 1
+				}
+			}
+			#move_to_pool_at = scope:future_employer.capital_province
+			#set_employer = scope:future_employer
+		}
+	}
+}
+
+### Blue Wizards Events ###
+# .0100-.0109 - Utility events
+# .0110-0.149 - ROA Steppe Path
+# .0150-0.179 - ROA Sirayn Path
+# .0180-0.199 - ROA Khy Path
+
+istari.0100 = { # Choose who to play as
+	content_source = realms_dlc
+	type = character_event
+	title = istari.0100.t
+	desc = istari.0100.desc
+	theme = travel
+	left_portrait = {
+		character = character:lineofpallando
+		animation = personality_rational
+	}
+	right_portrait = {
+		character = character:lineofalatar
+		animation = personality_zealous
+	}
+
+	trigger = {
+		character:lineofalatar = {
+			is_alive = yes
+		}
+		character:lineofpallando = {
+			is_alive = yes
+		}
+	}
+
+	immediate = {
+		title:d_laamp_blues.holder = {
+			save_scope_as = current_leader
+		}
+		if = {
+			limit = {
+				scope:current_leader = character:lineofpallando
+			}
+			character:lineofalatar = {
+				save_scope_as = other_wizard
+			}
+		}
+		else = {
+			character:lineofpallando = {
+				save_scope_as = other_wizard
+			}
+		}
+	}
+
+	option = { # I'll stay with Pallando
+		name = istari.0100.a
+		scope:current_leader = {
+			set_designated_heir_unsafe = scope:other_wizard
+		}
+		ai_chance = { 
+			base = 75
+		}
+	}
+
+	option = { # Swap to Alatar
+		name = istari.0100.b
+		scope:current_leader = {
+			set_designated_heir_unsafe = scope:other_wizard
+			depose = yes
+			add_prestige = minor_prestige_gain
+		}
+		ai_chance = { 
+			base = 25
+		}
+	}
+
+	after = {
+		if = {
+			limit = { 
+				scope:current_leader != title:d_laamp_blues.holder
+			}
+		}
+		scope:current_leader = {
+			set_employer = title:d_laamp_blues.holder
+		}
+		title:d_laamp_blues.holder = {
+			try_start_diarchy = lord_blue_wizards_diarchy
+			set_diarch = this.player_heir
+		}
+	}
+}
+
+# istari.0110 = { } # Travels in the Steppe
+
+# istari.0150 = { } # Arrival at the Docks of Tul Harar
+
+# istari.0180 = { } # Petition the Emperor of Khy

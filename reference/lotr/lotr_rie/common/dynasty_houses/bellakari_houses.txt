@@ -1,0 +1,81 @@
+﻿#######################################
+############## Bellakar ###############
+#######################################
+
+house_vatrathor = {
+	name = "dynn_vatrathor"
+	dynasty = dynasty_tumakveh
+	motto = dynn_vatrathor_motto
+}
+
+house_tumakveh1 = {
+	name = "dynn_tumakveh1"
+	dynasty = dynasty_tumakveh
+	motto = "dynn_tumakveh1_motto"
+}
+
+house_tumakveh2 = {
+	name = "dynn_tumakveh2"
+	dynasty = dynasty_tumakveh
+	motto = "dynn_tumakveh2_motto"
+}
+
+house_mulphazgan = {
+	name = "dynn_mulphazgan"
+	dynasty = dynasty_tumakveh
+	motto = dynn_mulphazgan_motto
+}
+
+house_azriya = {
+	name = "dynn_azriya"
+	dynasty = dynasty_urezayan
+	motto = dynn_azriya_motto
+}
+
+house_nardunalu = { # nardû
+	name = "dynn_nardunalu"
+	dynasty = dynasty_arbatan
+	motto = dynn_nardunalu_motto
+}
+
+house_urithorcadet = {
+	name = "dynn_urithor"
+	dynasty = dynasty_ciryandur
+	motto = dynn_urithor_motto
+}
+
+house_minalbeni = {
+	name = "dynn_minalbeni"
+	dynasty = dynasty_kolir
+	motto = dynn_minalbeni_motto
+}
+
+house_borodiriathcadet = {
+	name = "dynn_borodiriathcadet"
+	dynasty = dynasty_borodiriath
+	motto = "dynn_borodiriathcadet_motto"
+}
+
+house_telemniriathcadet = {
+	name = "dynn_telemniriathcadet"
+	dynasty = dynasty_telemniriath
+	motto = "dynn_telemniriathcadet_motto"	
+}
+
+house_agathorcadet = {
+	name = "dynn_agathorcadet"
+	dynasty = dynasty_agathor
+	motto = "dynn_agathorcadet_motto"		
+}
+
+house_ostirohincadet = {
+	name = "dynn_ostirohincadet"
+	dynasty = dynasty_ostirohin
+	motto = "dynn_ostirohincadet_motto"			
+}
+
+# house_gimiltirohincadet = {
+# 	name = "dynn_gimiltirohincadet"
+# 	dynasty = dynasty_elentirohin
+# 	motto = "dynn_gimiltirohincadet_motto"			
+# }

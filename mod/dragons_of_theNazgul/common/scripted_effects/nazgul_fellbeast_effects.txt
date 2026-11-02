@@ -1,0 +1,113 @@
+# ============================================================
+# Scripted effects — Fell Beasts (НЕЗАВИСИМЫЙ сабмод LoTR RIE)
+# Механика драконов ПОЗАИМСТВОВАНА из AGOT (конвенции, а не код):
+#   базовый трейт зверя      -> nazgul_dragon (наш аналог dragon)
+#   трейт наездника          -> nazgul_fell_beast_rider (аналог dragonrider)
+#   флаг «привязан»         -> owned_dragon (как в AGOT)
+#   var:current_rider / var:current_dragon (как в AGOT)
+#   после гибели зверя       -> аналог dragonless_dragonrider
+# Ни один вызов не требует установленного AGOT.
+# ============================================================
+
+# Кто может летать (scripted trigger — см. scripted_triggers)
+
+# --- Привязать заспавненного зверя к назгулу (ядро механики AGOT) ---
+nazgul_bind_fell_beast_effect = {
+        # root = назгул-всадник; event_target:fell_beast = зверь
+        event_target:fell_beast = {
+                add_character_flag = owned_dragon
+                set_variable = { name = current_rider value = root }
+                change_relation_category = relation_vassal   # зверь числится «под властью» всадника
+        }
+        root = {
+            if = {
+                limit = NOT = { has_trait = nazgul_fell_beast_rider }
+                add_trait = nazgul_fell_beast_rider
+            }
+                set_variable = { name = current_dragon value = event_target:fell_beast }
+                add_character_flag = nazgul_fell_beast_ridden
+        }
+}
+
+# --- Разрыв связи (зверь погиб / освобождён) — AGOT-подобное поведение ---
+nazgul_unbind_fell_beast_effect = {
+        if = {
+                limit = { exists = var:current_dragon }
+                var:current_dragon = {
+                        if = {
+                                limit = { var:current_rider = prev }
+                                remove_variable = current_rider
+                        }
+                        remove_character_flag = owned_dragon
+                }
+                remove_variable = current_dragon
+        }
+        if = {
+                limit = { has_trait = nazgul_fell_beast_rider }
+                remove_trait = nazgul_fell_beast_rider
+                add_trait = nazgul_fell_beast_master     # «помнит» тёмную магию седлания
+        }
+}
+
+# --- Приручить падаль-зверя: спавн + привязка (автономно) ---
+nazgul_claim_fell_beast_effect = {
+        save_event_target_as = fell_beast_claimant
+
+        # 1. Спавн зверя по шаблону (без create_dragon — он из AGOT)
+        create_character = {
+                location = root.capital_province
+                template = nazgul_fell_beast_template
+                age = 60
+                faith = root.faith
+                culture = root.culture
+                save_event_target_as = fell_beast
+        }
+
+        # 2. Привязка по конвенциям, позаимствованным из AGOT
+        nazgul_bind_fell_beast_effect = yes
+
+        # 3. Усиление для Мастера Девяти
+        if = {
+                limit = { has_trait = lord_of_the_nazgul }
+                add_trait = master_of_fell_beasts
+        }
+
+        # редкий шанс получить уникального Владыку Ангормаунта
+        random_list = {
+                90 = { }
+                10 = { trigger_event = { id = nazgul_fellbeast.0004 days = 30 random = 20 } }
+        }
+
+        # 4. Интеграция с Ужасом: dread (ванильный CK3) + terror-аура трейтов
+        add_dread = 50
+        add_prestige_level = 1
+
+        custom_tooltip = nazgul_fell_beast_log_claims
+}
+
+# --- Особый экземпляр для Лорда Назгул (Кхота) ---
+nazgul_claim_lord_of_angermont_effect = {
+        save_event_target_as = fell_beast_claimant
+        create_character = {
+                location = root.capital_province
+                template = nazgul_lord_angermont_template
+                age = 200
+                faith = root.faith
+                culture = root.culture
+                save_event_target_as = fell_beast
+        }
+        nazgul_bind_fell_beast_effect = yes
+        add_trait = master_of_fell_beasts
+        add_character_flag = got_lord_of_angermont
+        add_dread = 100
+        custom_tooltip = nazgul_fell_beast_log_claims
+}
+
+# --- Полёт: travel-модификаторы (значения синхронизированы с AGOT) ---
+nazgul_fell_beast_flight_effect = {
+        custom_tooltip = nazgul_fell_beast_flight_tt
+        add_character_modifier = {
+                modifier = nazgul_fell_beast_flight_modifier
+                years = 1
+        }
+}

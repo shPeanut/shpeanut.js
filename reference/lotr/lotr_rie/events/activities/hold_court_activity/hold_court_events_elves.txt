@@ -1,0 +1,2519 @@
+﻿namespace = hold_court_lotr
+
+# Differences in namespace range down to the on-going CD civil war between whether a range starts at 0 or 1.
+# It starts at 001 and goes to 000, damn it, and anyone who says otherwise is a knave and a cur.
+
+###################################################
+# # RANGES
+# 0001 - 0999		Elven Events by Brice Underhill
+# 
+###################################################
+
+# hold_court_lotr.0001  A Drunken Butler
+# hold_court_lotr.0002  Tight-Lipped Adventurer (a.k.a Thorin&Co)
+# hold_court_lotr.0003  An Unfamiliar Face (Time Flies!)
+# hold_court_lotr.0004  A Lost Friend
+# hold_court_lotr.0005  When I get that feeling (I need Elven Healing)
+# hold_court_lotr.0006  A Brigand in the Rough
+# hold_court_lotr.0007  Insistent suitor
+# hold_court_lotr.0008  Scholarly Emulation
+
+
+############################
+# A Drunken Butler 0001 #
+############################
+
+scripted_trigger hold_court_lotr_0001_valid_butler = {
+	is_available_ai_adult = yes
+	has_court_event_flag = no
+	can_be_employed_as = butler_court_position
+	NOR = { 
+		has_trait = temperate
+		has_trait = inappetetic
+	}
+}
+
+hold_court_lotr.0001 = {
+	type = court_event
+	title = hold_court_lotr.0001.t
+	desc = hold_court_lotr.0001.desc
+	theme = court
+
+	court_scene = {
+		button_position_character = scope:guard
+		court_event_force_open = yes
+		show_timeout_info = no
+		should_pause_time = yes
+		roles = {
+			scope:guard = {
+				group = petitioners_group
+				animation = disapproval
+			}
+			scope:butler = {
+				group = petitioners_group
+				animation = worry
+			}
+		}
+	}
+	widget = {
+		gui = "event_window_widget_event_chain_progress"
+		container = "custom_widgets_container"
+		controller = event_chain_progress
+	}
+	# Portrait left in order to apply outfit tags.
+	right_portrait = {
+		character = scope:guard
+		#outfit_tags = { military_outfit } #LotR, this outfit tag is completely broken in vanilla
+		hide_info = yes
+	}
+	
+	trigger = {
+		is_elf = yes
+		NOT = { has_character_flag = had_event_hold_court_lotr_0001 }
+		any_courtier_or_guest = { 
+			hold_court_lotr_0001_valid_butler = yes
+		}
+		exists = title:k_dorwinion.holder
+		title:k_dorwinion.holder = {
+			is_within_diplo_range = { CHARACTER = root }
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+	}
+	
+	immediate = {
+		add_character_flag = {
+			flag = had_event_hold_court_lotr_0001
+			years = 10
+		}
+
+		random_courtier_or_guest = {
+			limit = { hold_court_lotr_0001_valid_butler = yes }
+
+			weight = {
+				base = 0.5
+				compare_modifier = {
+					value = ai_greed
+					multiplier = 0.01 # At 100 greed, x3 as likely to be picked. At -50 greed, 0% chance of being picked.
+				}
+				compare_modifier = {
+					value = ai_honor
+					multiplier = -0.01 # At 50 honor, 0% chance to be picked. At -100 honor, x3 as likely to be picked.
+				}
+			}
+			save_scope_as = butler
+			court_event_character_flag_effect = yes
+		}
+		
+		if = {
+			limit = {
+				employs_court_position = cupbearer_court_position
+				any_court_position_holder = {
+					type = cupbearer_court_position
+				}
+			}
+			random_court_position_holder = {
+				type = cupbearer_court_position
+				save_scope_as = current_cupbearer
+			}
+		}
+		
+		if = {
+			limit = {
+				employs_court_position = court_jester_court_position
+				any_court_position_holder = {
+					type = court_jester_court_position
+		            has_court_event_flag = no		
+					is_landed = no
+					is_available_ai_adult = yes
+				}
+			}
+			random_court_position_holder = {
+				type = court_jester_court_position
+				limit = {
+		            has_court_event_flag = no
+		            is_landed = no	
+					is_available_ai_adult = yes
+				}
+				save_scope_as = current_jester
+			}
+		}
+
+		hidden_effect = {
+			create_character = {
+				template = new_warrior_character
+				dynasty = none
+				location = root.capital_province
+				culture = root.capital_county.culture
+				faith = root.capital_county.faith
+				gender_female_chance = root_soldier_female_chance
+				save_scope_as = guard
+			}
+		}
+		# Trigger next event in chain.
+		hold_court_queue_next_event_effect = yes
+	}
+
+	# Court events, as with all events, require at least one option to display.
+	option = {
+		name = hold_court_lotr.0001.a
+		trigger = {
+			can_employ_court_position_type = cupbearer_court_position
+		}
+		
+		if = {
+			limit = {
+				exists = scope:current_cupbearer
+			}
+			revoke_court_position = {
+				recipient = scope:current_cupbearer
+				court_position = cupbearer_court_position
+			}
+		}
+		appoint_court_position = {
+			recipient = scope:butler
+			court_position = cupbearer_court_position
+		}
+		revoke_court_position = {
+			recipient = scope:butler
+			court_position = butler_court_position
+		}
+		scope:butler = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 50
+			}
+		}
+		stress_impact = {
+			sadistic = major_stress_gain
+			wrathful = medium_stress_gain
+			paranoid = medium_stress_gain
+		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_compassion = 0.5
+				ai_rationality = 0.5
+			}
+		}
+	}
+	
+	option = {
+		name = hold_court_lotr.0001.b
+		
+		if = {
+			limit = { exists = scope:current_jester }
+			replace_court_position = {
+				recipient = scope:butler
+				holder = scope:current_jester
+				court_position = court_jester_court_position
+			}
+		}
+		else = {
+			appoint_court_position = {
+				recipient = scope:butler
+				court_position = court_jester_court_position
+			}
+		}
+		
+		stress_impact = {
+ 			compassionate = medium_stress_impact_gain
+ 			humble = medium_stress_impact_gain
+ 		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_boldness = 0.5
+				ai_compassion = 0.25
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = compassionate
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = humble
+			}
+		}
+	}
+	
+	option = {
+		name = hold_court_lotr.0001.c
+	
+		remove_courtier_or_guest = {
+			character = scope:butler
+		}
+		stress_impact = {
+ 			compassionate = medium_stress_impact_gain
+ 			just = medium_stress_impact_gain
+ 		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_boldness = 0.5
+				ai_compassion = -0.25
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = compassionate
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = just
+			}
+		}
+	}
+	
+	option = {
+		name = hold_court_lotr.0001.d
+	
+		imprison = {
+			target = scope:butler
+			type = dungeon
+		}
+		stress_impact = {
+ 			compassionate = medium_stress_impact_gain
+ 			just = medium_stress_impact_gain
+ 		}
+		
+		ai_chance = {
+			base = 50
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = compassionate
+			}
+		}
+	}
+	
+	after = {
+		scope:butler = {
+			clear_court_event_participation = yes
+		}
+		scope:guard = {
+			clear_court_event_participation = yes
+		}
+		# Finish up the chain if relevant.
+		hold_court_queue_post_event_effect = yes
+	}
+}
+
+##################################################
+# Tight-Lipped Adventurer (a.k.a Thorin&Co) 0002 #
+##################################################
+
+hold_court_lotr.0002 = {
+	type = court_event
+	title = hold_court_lotr.0002.t
+	desc = hold_court_lotr.0002.desc
+	theme = court
+
+	court_scene = {
+		button_position_character = scope:guard
+		court_event_force_open = yes
+		show_timeout_info = no
+		should_pause_time = yes
+		roles = {
+			scope:guard = {
+				group = petitioners_group
+				animation = disapproval
+			}
+			scope:adventurer = {
+				group = petitioners_group
+				animation = prisonhouse
+			}
+		}
+	}
+	widget = {
+		gui = "event_window_widget_event_chain_progress"
+		container = "custom_widgets_container"
+		controller = event_chain_progress
+	}
+	# Portrait left in in order to apply outfit tags.
+	right_portrait = {
+		character = scope:guard
+		#outfit_tags = { military_outfit } #LotR, this outfit tag is completely broken in vanilla
+		hide_info = yes
+	}
+	
+	trigger = {
+		is_elf = yes
+		NOT = { has_character_flag = had_event_hold_court_lotr_0002 }
+	}
+
+	weight_multiplier = {
+		base = 1
+	}
+	
+	immediate = {
+		add_character_flag = {
+			flag = had_event_hold_court_lotr_0002
+			years = 10
+		}
+		
+		if = { #pick a human neighbour for adventurer's culture and faith
+			limit = {
+				any_neighboring_and_across_water_top_liege_realm_owner = {
+					is_human = yes
+					faith_is_evil = no
+				}
+			}
+			random_neighboring_and_across_water_top_liege_realm_owner = {
+				limit = {
+					is_human = yes
+					faith_is_evil = no
+				}
+				save_scope_as = adventurer_template
+			}
+		}
+		else = { #If all your neighbours are evil, or non-humans, just pick a random one
+			random_ruler = {
+				limit = {
+					is_human = yes
+					faith_is_evil = no
+					capital_province = {
+						squared_distance = {
+							target = root.capital_province
+							value <= squared_distance_medium #250 map-pixels. Roughly one Ireland away (top to bottom).
+						}
+					}
+				}
+				save_scope_as = adventurer_template
+			}
+		}
+
+		if = { #Dynamic Dwarf, according to region
+			limit = { 
+				capital_county = {
+					any_province = {
+						geographical_region = middleearth_west_beleriand 
+					}
+				}
+			}
+			culture:firebeards = { save_scope_as = dwarf_culture }
+			faith:faith_firebeards = { save_scope_as = dwarf_faith }
+		}
+		else_if = {
+			limit = { 
+				capital_county = {
+					any_province = {
+						OR = {
+							geographical_region = middleearth_west
+							geographical_region = middleearth_harad_near
+						}
+					}
+				}
+			}
+			culture:longbeards = { save_scope_as = dwarf_culture }
+			faith:faith_khazad = { save_scope_as = dwarf_faith }
+		}
+		else_if = {
+			limit = { 
+				capital_county = {
+					any_province = {
+						OR = {
+							geographical_region = middleearth_rhun
+							geographical_region = middleearth_mordor
+						}
+					}
+				}
+			}
+			culture:ironfists = { save_scope_as = dwarf_culture }
+			faith:faith_ironfists = { save_scope_as = dwarf_faith }
+		}
+		else = {
+			culture:blacklocks = { save_scope_as = dwarf_culture }
+			faith:faith_eastern_khazad = { save_scope_as = dwarf_faith }
+		}
+
+		hidden_effect = {
+			create_character = {
+				template = new_warrior_character
+				dynasty = none
+				location = root.capital_province
+				culture = root.capital_county.culture
+				faith = root.capital_county.faith
+				gender_female_chance = root_soldier_female_chance
+				save_scope_as = guard
+			}
+			random_list = {
+				50 = {
+					create_character = {
+						template = new_warrior_character
+						dynasty = none
+						location = root.capital_province
+						culture = scope:adventurer_template.culture
+						faith = scope:adventurer_template.faith
+						trait = adventurer
+						gender_female_chance = root_soldier_female_chance
+						save_scope_as = adventurer
+					}
+				}
+				50 = {
+					trigger = { NOT = { capital_county.title_province = { geographical_region = middleearth_harad } } }
+					create_character = {
+						template = new_warrior_character
+						dynasty = none
+						location = root.capital_province
+						culture = scope:dwarf_culture
+						faith = scope:dwarf_faith
+						trait = adventurer
+						gender_female_chance = 50
+						save_scope_as = adventurer
+					}
+				}
+			}
+		}
+		
+		hold_court_queue_next_event_effect = yes
+	}
+
+	option = { #To the dungeons !
+		name = hold_court_lotr.0002.a
+		imprison = {
+			target = scope:adventurer
+			type = dungeon
+		}
+		
+		stress_impact = {
+ 			compassionate = medium_stress_impact_gain
+ 			trusting = medium_stress_impact_gain
+			patient = medium_stress_impact_loss
+ 		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_compassion = -0.5
+				ai_rationality = -0.25
+				ai_vengefulness = 0.5
+				ai_greed = 0.5
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = compassionate
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = trusting
+			}
+		}
+	}
+	
+	option = { #Work for me !
+		name = hold_court_lotr.0002.b
+		
+		add_courtier = scope:adventurer
+		scope:adventurer = { create_inspiration = adventure_inspiration }
+		pay_short_term_gold = {
+			target = scope:adventurer
+			gold = minor_gold_value
+		}
+		
+		change_current_court_grandeur = minor_court_grandeur_gain
+		
+		stress_impact = {
+ 			paranoid = medium_stress_impact_gain
+ 			greedy = medium_stress_impact_gain
+ 		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_boldness = 0.5
+				ai_compassion = 0.25
+				ai_greed = -0.5
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = paranoid
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = greedy
+			}
+			
+		}
+	}
+	
+	option = { #Out of my sight !
+		name = hold_court_lotr.0002.c
+		
+		scope:adventurer = {
+			silent_disappearance_effect = yes
+		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_boldness = -0.5
+				ai_energy = -0.5
+			}
+			modifier = {	#Weight down for stress.
+				add = 15
+				has_trait = lazy
+			}
+		}
+	}
+	
+	after = {
+		scope:adventurer = {
+			clear_court_event_participation = yes
+		}
+		scope:guard = {
+			clear_court_event_participation = yes
+		}
+		# Finish up the chain if relevant.
+		hold_court_queue_post_event_effect = yes
+	}
+}
+
+#########################################
+# An Unfamiliar Face (Time Flies!) 0003 #
+#########################################
+
+scripted_trigger hold_court_lotr_0003_valid_vassal = {
+	is_human = yes
+	primary_title.previous_holder = {
+		is_parent_of = root 
+		is_alive = no
+		time_since_death = { years >= 10 }
+	}
+}
+
+hold_court_lotr.0003 = {
+	type = court_event
+	title = hold_court_lotr.0003.t
+	desc = hold_court_lotr.0003.desc
+	theme = court
+	lower_left_portrait = scope:human_vassal_parent
+
+	court_scene = {
+		button_position_character = scope:human_vassal
+		court_event_force_open = yes
+		show_timeout_info = no
+		should_pause_time = yes
+		roles = {
+			scope:human_vassal = {
+				group = petitioners_group
+				animation = worry
+			}
+		}
+	}
+	widget = {
+		gui = "event_window_widget_event_chain_progress"
+		container = "custom_widgets_container"
+		controller = event_chain_progress
+	}
+	
+	trigger = {
+		is_elf = yes
+		NOT = { has_character_flag = had_event_hold_court_lotr_0003 }
+		any_vassal_or_below = { hold_court_lotr_0003_valid_vassal = yes }
+	}
+
+	weight_multiplier = {
+		base = 1
+	}
+	
+	immediate = {
+		add_character_flag = {
+			flag = had_event_hold_court_lotr_0003
+			years = 10
+		}
+
+		random_vassal_or_below = {
+			limit = { hold_court_lotr_0003_valid_vassal = yes }
+			save_scope_as = human_vassal
+			primary_title.previous_holder = { save_scope_as = human_vassal_parent }
+		}
+
+		scope:human_vassal.primary_title = {
+			save_scope_as = human_vassal_title
+		}
+
+		scope:human_vassal = {
+			if = {
+				limit = { 
+					any_child = { 
+						is_lotr_adult = no
+					} 
+				}
+				random_child = {
+					limit = { 
+						is_lotr_adult = no
+					}
+					save_scope_as = human_vassal_child
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				employs_court_position = seneschal_court_position
+				any_court_position_holder = {
+					type = seneschal_court_position
+				}
+			}
+			random_court_position_holder = {
+				type = seneschal_court_position
+				save_scope_as = current_seneschal
+			}
+		}
+		
+		hold_court_queue_next_event_effect = yes
+	}
+
+	option = {
+		name = hold_court_lotr.0003.a
+		scope:human_vassal = {
+			add_hook = {
+				target = root
+				type = favor_hook
+			}
+			add_opinion = {
+				modifier = grateful_opinion
+				target = root
+				opinion = 20
+			}
+		}
+		
+		stress_impact = {
+ 			callous = medium_stress_impact_gain
+			arrogant = medium_stress_impact_gain
+ 		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_compassion = 0.5
+				ai_greed = -0.5
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = arrogant
+			}
+			modifier = {	#Weight down for stress.
+				add = -30
+				has_trait = callous
+			}
+		}
+	}
+	
+	option = {
+		name = hold_court_lotr.0003.b
+		
+		trigger = {
+			num_of_relation_ward < 2
+			exists = scope:human_vassal_child
+		}
+		
+		highlight_portrait = root
+		scope:human_vassal_child = {
+			set_relation_guardian = root
+			add_opinion = {
+				modifier = grateful_opinion
+				target = root
+				opinion = 20
+			}
+		}
+		scope:human_vassal = {
+			add_opinion = {
+				modifier = respect_opinion
+				target = root
+				opinion = 10
+			}
+		}
+		random = {
+			chance = 30
+			add_elven_hope_effect = { VALUE = minor_elven_hope_gain HOPE_EFFECT = effect_elven_hope_held_court }
+		}
+		
+		
+		change_current_court_grandeur = medium_court_grandeur_gain
+		
+		stress_impact = {
+			callous = medium_stress_impact_gain
+			arrogant = medium_stress_impact_gain
+ 		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_boldness = 0.5
+				ai_compassion = 0.25
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = paranoid
+			}
+		}
+	}
+	
+	option = {
+		name = hold_court_lotr.0003.c
+		
+		trigger = {
+			can_employ_court_position_type = seneschal_court_position
+			scope:human_vassal = { is_vassal_of = root}
+		}
+		if = {
+			limit = {
+				exists = scope:current_seneschal
+			}
+			revoke_court_position = {
+				recipient = scope:current_seneschal
+				court_position = seneschal_court_position
+			}
+		}
+		appoint_court_position = {
+			recipient = scope:human_vassal
+			court_position = seneschal_court_position
+		}
+		scope:human_vassal = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 50
+			}
+		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_boldness = 0.5
+			}
+		}
+	}
+	
+	option = {
+		name = hold_court_lotr.0003.d
+		
+		scope:human_vassal = {
+			add_opinion = {
+				modifier = disappointed_opinion
+				target = root
+				opinion = -15
+			}
+		}
+		
+		change_current_court_grandeur = minor_court_grandeur_loss
+		if = {
+			limit = { is_elf = yes }
+			random = {
+				chance = 30
+				add_elven_hope_effect = { VALUE = minor_elven_hope_loss HOPE_EFFECT = effect_elven_hope_held_court }
+			}
+		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_greed = 0.5
+				ai_compassion = -0.5
+			}
+		}
+	}
+	
+	after = {
+		scope:human_vassal = {
+			clear_court_event_participation = yes
+		}
+		# Finish up the chain if relevant.
+		hold_court_queue_post_event_effect = yes
+	}
+}
+
+######################
+# A Lost Friend 0004 #
+######################
+
+scripted_trigger hold_court_lotr_0004_grieving_elf = {
+	basic_is_available_ai = yes
+	age >= young_age
+	is_elf = yes
+	any_memory = {
+		has_memory_type = friend_died
+		exists = memory_participant:dead_relation
+		memory_participant:dead_relation = { is_human = yes }
+	}
+}
+
+hold_court_lotr.0004 = {
+	type = court_event
+	title = hold_court_lotr.0004.t
+	desc = hold_court_lotr.0004.desc
+	theme = court
+	lower_left_portrait = scope:dead_friend
+
+	court_scene = {
+		button_position_character = scope:grieving_elf
+		court_event_force_open = yes
+		show_timeout_info = no
+		should_pause_time = yes
+		roles = {
+			scope:grieving_elf = {
+				group = petitioners_group
+				animation = grief
+			}
+		}
+	}
+	widget = {
+		gui = "event_window_widget_event_chain_progress"
+		container = "custom_widgets_container"
+		controller = event_chain_progress
+	}
+	
+	trigger = {
+		is_elf = yes
+		NOT = { has_character_flag = had_event_hold_court_lotr_0004 }
+	}
+
+	weight_multiplier = {
+		base = 1
+	}
+	
+	immediate = {
+		add_character_flag = {
+			flag = had_event_hold_court_lotr_0004
+			years = 10
+		}
+
+		if = {
+			limit = {
+				any_vassal_or_below = { hold_court_lotr_0004_grieving_elf = yes }
+			}
+			random_vassal_or_below = {
+				limit = { hold_court_lotr_0004_grieving_elf = yes }
+				save_scope_as = grieving_elf
+				random_memory = {
+					limit = {
+						has_memory_type = friend_died
+						exists = memory_participant:dead_relation
+						memory_participant:dead_relation = { is_human = yes }
+					}
+					save_scope_as = dead_friend_memory
+					memory_participant:dead_relation = { save_scope_as = dead_friend }
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				any_courtier_or_guest = { hold_court_lotr_0004_grieving_elf = yes }
+			}
+			random_courtier_or_guest = {
+				limit = { hold_court_lotr_0004_grieving_elf = yes }
+				save_scope_as = grieving_elf
+				random_memory = {
+					limit = {
+						has_memory_type = friend_died
+						exists = memory_participant:dead_relation
+						memory_participant:dead_relation = { is_human = yes }
+					}
+					save_scope_as = dead_friend_memory
+					memory_participant:dead_relation = { save_scope_as = dead_friend }
+				}
+			}
+		}
+		else = { # If no_one has lost a friend, give them one and kill them
+			if = { #Pick a human vassal for friend's culture and faith
+				limit = { 
+					any_vassal_or_below = {
+						is_human = yes
+						faith_is_good = yes
+					}
+				}
+				random_vassal_or_below = {
+					limit = {
+						is_human = yes
+						faith_is_good = yes
+					}
+					save_scope_as = dead_friend_template
+				}
+			}
+			else_if = { #If none, pick a human neighbour for friend's culture and faith
+				limit = {
+					any_neighboring_and_across_water_top_liege_realm_owner = {
+						is_human = yes
+						faith_is_good = yes
+					}
+				}
+				random_neighboring_and_across_water_top_liege_realm_owner = {
+					limit = {
+						is_human = yes
+						faith_is_good = yes
+					}
+					save_scope_as = dead_friend_template
+				}
+			}
+			else = { #If all your neighbours are evil, or non-humans, just pick a random one
+				random_ruler = {
+					limit = {
+						is_human = yes
+						faith_is_good = yes
+					}
+					save_scope_as = dead_friend_template
+				}
+			}
+			
+			create_character = {
+				template = new_warrior_character
+				dynasty = none
+				location = root.capital_province
+				culture = scope:dead_friend_template.culture
+				faith = scope:dead_friend_template.faith
+				age = 65
+				gender_female_chance = 50
+				save_scope_as = dead_friend
+			}
+				
+			random_courtier_or_guest = {
+				limit = { 
+					basic_is_available_ai = yes
+					age >= young_age
+					is_elf = yes
+					NOR = { 
+						is_close_or_extended_family_of = root
+						is_consort_of = root
+					}
+				}
+				set_relation_friend = scope:dead_friend
+				save_scope_as = grieving_elf
+			}
+			
+			scope:dead_friend = {
+				death = { death_reason = death_old_age }	
+			}
+		}
+		
+		scope:grieving_elf = { add_trait = depressed_1 }
+		
+		hold_court_queue_next_event_effect = yes
+	}
+
+	option = { #Let's stay away from humans
+		name = hold_court_lotr.0004.a
+		
+		if = {
+			limit = {
+				any_vassal = {
+					is_human = yes
+				}
+			}
+			every_vassal = {
+				custom = custom.every_human_vassal
+				limit = {
+					is_human = yes
+				}
+				reverse_add_opinion = {
+					modifier = disappointed_opinion
+					target = root
+					opinion = -25
+				}
+			}
+		}
+		
+		change_current_court_grandeur = minor_court_grandeur_loss
+		
+		
+		stress_impact = {
+ 			gregarious = medium_stress_impact_gain
+			compassionate = medium_stress_impact_gain
+			shy = medium_stress_impact_loss
+			reclusive = medium_stress_impact_loss
+			irritable = medium_stress_impact_loss
+			arrogant = medium_stress_impact_loss
+			callous = medium_stress_impact_loss
+ 		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_compassion = -0.5
+				ai_energy = -0.5
+			}
+			modifier = {	#Weight down for stress.
+				add = -35
+				has_trait = compassionate
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = gregarious
+			}
+			modifier = {	#Weight down for stress.
+				add = 15
+				has_trait = shy
+			}
+			modifier = {	#Weight down for stress.
+				add = 15
+				has_trait = reclusive
+			}
+			modifier = {	#Weight down for stress.
+				add = 15
+				has_trait = irritable
+			}
+			modifier = {	#Weight down for stress.
+				add = 15
+				has_trait = arrogant
+			}
+			modifier = {	#Weight down for stress.
+				add = 30
+				has_trait = callous
+			}
+		}
+	}
+	
+	option = { #We have to live with the loss of our friends
+		name = hold_court_lotr.0004.b
+		
+		duel = {
+			skill = diplomacy
+			target = scope:grieving_elf
+			40 = {
+				desc = hold_court_lotr.0004.b.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 0.2
+				}
+				send_interface_toast = {
+					title = hold_court_lotr.0004.b.success
+					left_icon = scope:grieving_elf
+					scope:grieving_elf = { remove_trait = depressed_1 }
+					root = {
+						if = {
+							limit = { is_elf = yes}
+							add_elven_hope_effect = { VALUE = minor_elven_hope_gain HOPE_EFFECT = effect_elven_hope_held_court }
+						}
+					}
+				}
+			}
+			20 = {
+				desc = hold_court_lotr.0004.b.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.2
+				}
+				send_interface_toast = {
+					title = hold_court_lotr.0004.b.failure
+					left_icon = scope:grieving_elf
+				}
+				
+				root = {
+					if = {
+						limit = { is_elf = yes}
+						add_elven_hope_effect = { VALUE = minor_elven_hope_loss HOPE_EFFECT = effect_elven_hope_held_court }
+					}
+				}
+			}
+		}
+	
+	
+		change_current_court_grandeur = minor_court_grandeur_gain
+		
+		stress_impact = {
+ 			gregarious = medium_stress_impact_loss
+			compassionate = medium_stress_impact_loss
+			shy = medium_stress_impact_gain
+			reclusive = medium_stress_impact_gain
+			irritable = medium_stress_impact_gain
+			arrogant = medium_stress_impact_gain
+			callous = medium_stress_impact_gain
+ 		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_compassion = 0.5
+				ai_energy = 0.5
+			}
+			modifier = {	#Weight down for stress.
+				add = 35
+				has_trait = compassionate
+			}
+			modifier = {	#Weight down for stress.
+				add = 15
+				has_trait = gregarious
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = shy
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = reclusive
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = irritable
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = arrogant
+			}
+			modifier = {	#Weight down for stress.
+				add = -30
+				has_trait = callous
+			}
+		}
+	}
+	
+	option = { #Go to Valinor
+		name = hold_court_lotr.0004.c
+		custom_tooltip =  hold_court_lotr.0004.c.tooltip
+		
+		trigger = {
+			is_ai = no
+			scope:grieving_elf = { is_independent_ruler = no }
+		}
+		
+		scope:grieving_elf = {
+			depose = yes
+			every_claim = {
+				root = { remove_claim = prev }
+			}
+			add_trait = sailed_west
+        	set_variable = {
+				name = sailed_west_date
+				value = current_year
+			}
+			create_character_memory = {
+				type = sailed_west_memory
+			}			
+			custom_tooltip = {
+				text = sail_to_valinor
+				set_employer = title:k_tirion.holder
+			}
+		}
+	}
+	
+	after = {
+		scope:grieving_elf = {
+			clear_court_event_participation = yes
+		}
+		# Finish up the chain if relevant.
+		hold_court_queue_post_event_effect = yes
+	}
+}
+
+#######################################################
+# When I get that feeling (I need Elven Healing) 0005 #
+#######################################################
+
+scripted_trigger hold_court_lotr_0005_worried_vassal = {
+	basic_is_available_ai = yes
+	is_human = yes
+	OR = {
+		has_trait = cancer
+		has_trait = bubonic_plague
+		has_trait = black_breath
+		any_spouse = {
+			OR = {
+				has_trait = cancer
+				has_trait = bubonic_plague
+				has_trait = black_breath
+			}
+		}
+		any_child = {
+			OR = {
+				has_trait = cancer
+				has_trait = bubonic_plague
+				has_trait = black_breath
+			}
+		}
+	}
+}
+
+hold_court_lotr.0005 = {
+	type = court_event
+	title = hold_court_lotr.0005.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:sick_human = scope:worried_vassal
+				}
+				desc = hold_court_lotr.0005.desc.self
+			}
+			desc = hold_court_lotr.0005.desc.family
+		}
+	}
+	theme = court
+	lower_left_portrait = scope:sick_human
+
+	court_scene = {
+		button_position_character = scope:worried_vassal
+		court_event_force_open = yes
+		show_timeout_info = no
+		should_pause_time = yes
+		roles = {
+			scope:worried_vassal = {
+				group = petitioners_group
+				animation = worry
+			}
+		}
+	}
+	widget = {
+		gui = "event_window_widget_event_chain_progress"
+		container = "custom_widgets_container"
+		controller = event_chain_progress
+	}
+	
+	trigger = {
+		is_elf = yes
+		NOT = { has_character_flag = had_event_hold_court_lotr_0005 }
+		any_vassal_or_below = { 
+			is_human = yes
+			basic_is_available_ai = yes
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+	}
+	
+	immediate = {
+		add_character_flag = {
+			flag = had_event_hold_court_lotr_0005
+			years = 10
+		}
+
+		if = {
+			limit = { 
+				any_vassal_or_below = { hold_court_lotr_0005_worried_vassal = yes }
+			}
+			random_vassal_or_below = {
+				limit = { hold_court_lotr_0005_worried_vassal = yes }
+				save_scope_as = worried_vassal
+				if = {
+					limit = {
+						or = {
+							has_trait = cancer
+							has_trait = bubonic_plague
+							has_trait = black_breath
+						}
+					}
+					save_scope_as = sick_human
+				}
+				else_if = {
+					limit = {
+						any_spouse = {
+							OR = {
+								has_trait = cancer
+								has_trait = bubonic_plague
+								has_trait = black_breath
+							}
+						}
+					}
+					random_spouse = {
+						limit = {
+							or = {
+								has_trait = cancer
+								has_trait = bubonic_plague
+								has_trait = black_breath
+							}
+						}
+						save_scope_as = sick_human
+					}
+				}
+				else_if = {
+					limit = {
+						any_child = {
+							OR = {
+								has_trait = cancer
+								has_trait = bubonic_plague
+								has_trait = black_breath
+							}
+						}
+					}
+					random_child = {
+						limit = {
+							or = {
+								has_trait = cancer
+								has_trait = bubonic_plague
+								has_trait = black_breath
+							}
+						}
+						save_scope_as = sick_human
+					}
+				}
+			}
+		}
+		else = {
+			random_vassal_or_below = {
+				limit = { 
+					is_human = yes
+					basic_is_available_ai = yes
+				}
+				save_scope_as = worried_vassal
+				save_scope_as = sick_human
+				add_trait = cancer
+			}
+		}
+		
+		if = {
+			limit = {
+				employs_court_position = court_physician_court_position
+				any_court_position_holder = {
+					type = court_physician_court_position
+				}
+			}
+			random_court_position_holder = {
+				type = court_physician_court_position
+				save_scope_as = elven_physician
+			}
+		}
+		
+		scope:worried_vassal = {
+			if = {
+				limit = {
+					employs_court_position = court_physician_court_position
+					any_court_position_holder = {
+						type = court_physician_court_position
+					}
+				}
+				random_court_position_holder = {
+					type = court_physician_court_position
+					save_scope_as = human_physician
+				}
+			}
+		}
+		
+		hold_court_queue_next_event_effect = yes
+	}
+
+	option = { #My physician will attend your family
+		name = hold_court_lotr.0005.a.family
+		trigger = { 
+			exists = scope:elven_physician
+			not = { scope:sick_human = scope:worried_vassal }
+		}
+		
+		scope:worried_vassal = {
+			add_opinion = {
+				modifier = grateful_opinion
+				target = root
+				opinion = 50
+			}
+		}
+		
+		scope:elven_physician = {
+			add_character_modifier = {
+				modifier = hold_court_physician_attending_vassal_modifier
+				years = 5
+			}
+		}
+		
+		change_current_court_grandeur = medium_court_grandeur_gain
+		if = {
+			limit = { is_elf = yes}
+			random = {
+				chance = 33
+				add_elven_hope_effect = { VALUE = minor_elven_hope_gain HOPE_EFFECT = effect_elven_hope_held_court }
+			}
+		}
+		
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			generous = medium_stress_impact_loss
+			irritable = minor_stress_impact_gain
+			arrogant = minor_stress_impact_gain
+			callous = medium_stress_impact_gain
+ 		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_compassion = 0.5
+				ai_greed = -0.5
+			}
+			modifier = {	#Weight down for stress.
+				add = 35
+				has_trait = compassionate
+			}
+			modifier = {	#Weight down for stress.
+				add = 15
+				has_trait = generous
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = irritable
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = arrogant
+			}
+			modifier = {	#Weight down for stress.
+				add = -30
+				has_trait = callous
+			}
+		}
+	}
+	
+	option = { #My physician will attend you
+		name = hold_court_lotr.0005.a.self
+		trigger = { 
+			exists = scope:elven_physician
+			scope:sick_human = scope:worried_vassal
+		}
+		
+		scope:worried_vassal = {
+			add_opinion = {
+				modifier = grateful_opinion
+				target = root
+				opinion = 50
+			}
+		}
+		
+		scope:elven_physician = {
+			add_character_modifier = {
+				modifier = hold_court_physician_attending_vassal_modifier
+				years = 5
+			}
+		}
+		
+		change_current_court_grandeur = medium_court_grandeur_gain
+		if = {
+			limit = { is_elf = yes}
+			random = {
+				chance = 33
+				add_elven_hope_effect = { VALUE = minor_elven_hope_gain HOPE_EFFECT = effect_elven_hope_held_court }
+			}
+		}
+		
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			generous = medium_stress_impact_loss
+			irritable = minor_stress_impact_gain
+			arrogant = minor_stress_impact_gain
+			callous = medium_stress_impact_gain
+ 		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_compassion = 0.5
+				ai_greed = -0.5
+			}
+			modifier = {	#Weight down for stress.
+				add = 35
+				has_trait = compassionate
+			}
+			modifier = {	#Weight down for stress.
+				add = 15
+				has_trait = generous
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = irritable
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = arrogant
+			}
+			modifier = {	#Weight down for stress.
+				add = -30
+				has_trait = callous
+			}
+		}
+	}
+	
+	option = { #Send your physician over for a training session
+		name = hold_court_lotr.0005.b
+		trigger = { 
+			exists = scope:human_physician
+			scope:worried_vassal = { gold > minor_gold_value }
+		}
+		
+		scope:human_physician = {
+			mystic_level_up_chance_effect = { CHANCE = 75 }
+		}
+		scope:elven_physician = {
+			add_character_modifier = {
+				modifier = hold_court_physician_teaching_modifier
+				years = 2
+			}
+		}
+		scope:worried_vassal = {
+			pay_short_term_gold = {
+				target = root
+				gold = minor_gold_value
+			}
+		}
+		
+		change_current_court_grandeur = minor_court_grandeur_gain
+		
+		stress_impact = {
+ 			greedy = medium_stress_impact_loss
+			generous = medium_stress_impact_gain
+ 		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_greed = 0.5
+			}
+		}
+	}
+	
+	option = { #We should not meddle with the Gift of Men
+		name = hold_court_lotr.0005.c
+		
+		scope:worried_vassal = {
+			add_opinion = {
+				target = root
+				modifier = disappointed_opinion
+				opinion = -50
+			}
+		}
+		
+		stress_impact = {
+			compassionate = medium_stress_impact_gain
+			generous = medium_stress_impact_gain
+			irritable = medium_stress_impact_loss
+			arrogant = medium_stress_impact_loss
+			callous = medium_stress_impact_loss
+		}
+		
+		change_current_court_grandeur = medium_court_grandeur_loss
+		if = {
+			limit = { is_elf = yes}
+			random = {
+				chance = 33
+				add_elven_hope_effect = { VALUE = minor_elven_hope_loss HOPE_EFFECT = effect_elven_hope_held_court }
+			}
+		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_compassion = 0.5
+				ai_greed = -0.5
+			}
+			modifier = {	#Weight down for stress.
+				add = 35
+				has_trait = compassionate
+			}
+			modifier = {	#Weight down for stress.
+				add = 15
+				has_trait = generous
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = irritable
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = arrogant
+			}
+			modifier = {	#Weight down for stress.
+				add = -30
+				has_trait = callous
+			}
+		}
+	}
+	
+	after = {
+		scope:worried_vassal = {
+			clear_court_event_participation = yes
+		}
+		# Finish up the chain if relevant.
+		hold_court_queue_post_event_effect = yes
+	}
+}
+
+###############################
+# A Brigand in the Rough 0006 #
+###############################
+
+
+hold_court_lotr.0006 = {
+	type = court_event
+	title = hold_court_lotr.0006.t
+	desc = hold_court_lotr.0006.desc
+	theme = court
+
+	court_scene = {
+		button_position_character = scope:marshal
+		court_event_force_open = yes
+		show_timeout_info = no
+		should_pause_time = yes
+		roles = {
+			scope:marshal = {
+				group = petitioners_group
+				animation = disapproval
+			}
+			scope:orc_brigand = {
+				group = petitioners_group
+				animation = prisonhouse
+			}
+		}
+	}
+	widget = {
+		gui = "event_window_widget_event_chain_progress"
+		container = "custom_widgets_container"
+		controller = event_chain_progress
+	}
+	
+	trigger = {
+		is_elf = yes
+		NOT = { has_character_flag = had_event_hold_court_lotr_0006 }
+		any_sub_realm_county = {
+			has_county_modifier = marauding_orc_dregs_modifier
+		}
+		any_ruler = { is_orc = yes }
+		exists = cp:councillor_marshal
+	}
+
+	weight_multiplier = {
+		base = 1
+	}
+	
+	immediate = {
+		add_character_flag = {
+			flag = had_event_hold_court_lotr_0006
+			years = 10
+		}
+
+		if = { #pick a orc neighbour for brigand's culture and faith
+			limit = {
+				any_neighboring_and_across_water_top_liege_realm_owner = {
+					is_orc = yes
+				}
+			}
+			random_neighboring_and_across_water_top_liege_realm_owner = {
+				limit = {
+					is_orc = yes
+				}
+				save_scope_as = orc_template
+			}
+		}
+		else_if = { #pick a orc within diplo range
+			limit = {
+				any_ruler = {
+					is_orc = yes
+					in_diplomatic_range = root 
+				}
+			}
+			random_ruler = {
+				limit = {
+					is_orc = yes
+					in_diplomatic_range = root 
+				}
+				save_scope_as = orc_template
+			}
+		}
+		else = { #If none of your neighbours is Orc, just pick a random one
+			random_ruler = {
+				limit = {
+					is_orc = yes
+				}
+				save_scope_as = orc_template
+			}
+		}
+		
+		random_sub_realm_county = {
+			limit = { has_county_modifier = marauding_orc_dregs_modifier }
+			save_scope_as = harassed_county
+		}
+		
+		cp:councillor_marshal = { save_scope_as = marshal }
+
+
+		hidden_effect = {
+			create_character = {
+				template = new_warrior_character
+				dynasty = none
+				location = root.capital_province
+				culture = scope:orc_template.culture
+				faith = scope:orc_template.faith
+				gender_female_chance = 0
+				save_scope_as = orc_brigand
+			}
+		}
+		# Trigger next event in chain.
+		hold_court_queue_next_event_effect = yes
+	}
+
+	option = { # Agree to his terms
+		name = hold_court_lotr.0006.a
+		custom_tooltip =  hold_court_lotr.0006.a.tt
+		
+		scope:harassed_county = {
+			remove_county_modifier = marauding_orc_dregs_modifier
+		}
+		scope:orc_brigand = {
+			silent_disappearance_effect = yes
+		}
+		
+		change_current_court_grandeur = minor_court_grandeur_gain
+		
+		stress_impact = {
+			compassionate = medium_stress_loss
+			honest = medium_stress_loss
+			deceitful = medium_stress_gain
+			sadistic = major_stress_gain
+			wrathful = medium_stress_gain
+			paranoid = medium_stress_gain
+		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_compassion = 0.5
+				ai_honor = 0.5
+				ai_boldness = -0.5
+			}
+		}
+	}
+	
+	option = { # Trick and behead hims
+		name = hold_court_lotr.0006.b
+		custom_tooltip =  hold_court_lotr.0006.b.tt
+		
+		add_prestige = minor_prestige_loss
+		
+		scope:harassed_county = {
+			remove_county_modifier = marauding_orc_dregs_modifier
+		}
+		scope:orc_brigand = {
+			death = {
+				death_reason = death_execution
+				killer = root
+			}
+		}
+		
+		change_current_court_grandeur = medium_court_grandeur_loss
+		
+		stress_impact = {
+			compassionate = medium_stress_gain
+			honest = major_stress_gain
+			deceitful = medium_stress_loss
+			sadistic = major_stress_loss
+			wrathful = medium_stress_loss
+			paranoid = medium_stress_loss
+		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_compassion = -0.5
+				ai_honor = -0.5
+				ai_boldness = 0.5
+			}
+		}
+	}
+	
+	option = { #To the dungeons !
+		name = hold_court_lotr.0006.c
+	
+		imprison = {
+			target = scope:orc_brigand
+			type = dungeon
+		}
+		
+		ai_chance = {
+			base = 50
+		}
+	}
+	
+	after = {
+		scope:marshal = {
+			clear_court_event_participation = yes
+		}
+		scope:orc_brigand = {
+			clear_court_event_participation = yes
+		}
+		# Finish up the chain if relevant.
+		hold_court_queue_post_event_effect = yes
+	}
+}
+
+#########################
+# Insistent suitor 0007 #
+#########################
+
+hold_court_lotr.0007 = {
+	type = court_event
+	title = hold_court_lotr.0007.t
+	desc = hold_court_lotr.0007.desc
+	theme = court
+
+	court_scene = {
+		button_position_character = scope:suitor
+		court_event_force_open = yes
+		show_timeout_info = no
+		should_pause_time = yes
+		roles = {
+			scope:suitor = {
+				group = petitioners_group
+				animation = beg
+			}
+			scope:available_child = {
+				group = petitioners_group
+				animation = stress
+			}
+		}
+	}
+	widget = {
+		gui = "event_window_widget_event_chain_progress"
+		container = "custom_widgets_container"
+		controller = event_chain_progress
+	}
+	
+	trigger = {
+		is_elf = yes
+		NOT = { has_character_flag = had_event_hold_court_lotr_0007 }
+		is_available_adult = yes
+		any_child = {
+			is_available_ai_adult = yes
+			can_marry_trigger = yes
+			is_concubine = no
+			OR = {
+				has_sexuality = heterosexual
+				has_sexuality = bisexual
+			}
+			has_court_event_flag = no
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+	}
+	
+	immediate = {
+		add_character_flag = {
+			flag = had_event_hold_court_lotr_0007
+			years = 10
+		}
+		
+		random_child = {
+			limit = {
+				is_available_ai_adult = yes
+				allowed_more_spouses = yes
+				is_concubine = no
+				OR = { #They need to be attracted to the Prince
+					has_sexuality = heterosexual
+					has_sexuality = bisexual
+				}
+			}
+			save_scope_as = available_child
+		}
+		
+		if = { #Pick a human vassal for suitor's culture and faith
+			limit = { 
+				any_vassal_or_below = {
+					is_human = yes
+					faith_is_good = yes
+				}
+			}
+			random_vassal_or_below = {
+				limit = {
+					is_human = yes
+					faith_is_good = yes
+				}
+				save_scope_as = suitor_template
+			}
+		}
+		else_if = { #If none, pick a human neighbour for suitor's culture and faith
+			limit = {
+				any_neighboring_and_across_water_top_liege_realm_owner = {
+					is_human = yes
+					faith_is_good = yes
+				}
+			}
+			random_neighboring_and_across_water_top_liege_realm_owner = {
+				limit = {
+					is_human = yes
+					faith_is_good = yes
+				}
+				save_scope_as = suitor_template
+			}
+		}
+		else = { #If all your neighbours are evil, or non-humans, just pick a random one
+			random_ruler = {
+				limit = {
+					is_human = yes
+					faith_is_good = yes
+				}
+				save_scope_as = suitor_template
+			}
+		}
+
+		scope:available_child = {
+			if = {
+				limit = { is_female = no }
+				create_character = {
+					location = root.capital_province
+					template = prince_ali_template
+					gender = female
+					culture = scope:suitor_template.culture
+					faith = scope:suitor_template.faith
+					save_scope_as = suitor
+				}
+			}
+			else = {
+				create_character = {
+					location = root.capital_province
+					template = prince_ali_template
+					gender = male
+					culture = scope:suitor_template.culture
+					faith = scope:suitor_template.faith
+					save_scope_as = suitor
+				}
+			}
+		}
+		
+		cp:councillor_spymaster = { save_scope_as = spymaster }
+		# Trigger next event in chain.
+		hold_court_queue_next_event_effect = yes
+	}
+
+	option = { # Ring from Barad-dûr
+		name = hold_court_lotr.0007.a
+		
+		add_prestige = minor_prestige_loss
+		
+		scope:suitor = {
+			silent_disappearance_effect = yes
+		}
+		
+		
+		stress_impact = {
+			brave = medium_stress_gain
+			honest = medium_stress_gain
+			deceitful = medium_stress_loss
+			craven = medium_stress_loss
+		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_honor = -0.5
+				ai_boldness = -0.5
+			}
+		}
+	}
+	
+	option = { # Unite the Realms of Men
+		name = hold_court_lotr.0007.b
+		
+		add_prestige = minor_prestige_loss
+		
+		scope:suitor = {
+			silent_disappearance_effect = yes
+		}
+		
+		
+		stress_impact = {
+			brave = medium_stress_gain
+			honest = medium_stress_gain
+			deceitful = medium_stress_loss
+			craven = medium_stress_loss
+		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_honor = -0.5
+				ai_boldness = -0.5
+			}
+		}
+	}
+	
+	option = { # Bring Manwë's blessing
+		name = hold_court_lotr.0007.c
+	
+		add_prestige = minor_prestige_loss
+		
+		scope:suitor = {
+			silent_disappearance_effect = yes
+		}
+		
+		
+		stress_impact = {
+			brave = medium_stress_gain
+			honest = medium_stress_gain
+			deceitful = medium_stress_loss
+			craven = medium_stress_loss
+		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_honor = -0.5
+				ai_boldness = -0.5
+			}
+		}
+	}
+	
+	option = { #Please fuck off
+		name = hold_court_lotr.0007.d
+	
+		add_prestige = minor_prestige_gain
+		change_current_court_grandeur = medium_court_grandeur_loss
+		
+		if = {
+			limit = {
+				any_vassal = {
+					is_human = yes
+				}
+			}
+			every_vassal = {
+				custom = custom.every_human_vassal
+				limit = {
+					is_human = yes
+				}
+				reverse_add_opinion = {
+					modifier = disappointed_opinion
+					target = root
+					opinion = -15
+				}
+			}
+		}
+		
+		scope:suitor = {
+			silent_disappearance_effect = yes
+		}
+		
+		
+		stress_impact = {
+			brave = medium_stress_loss
+			honest = medium_stress_loss
+			deceitful = medium_stress_gain
+			craven = medium_stress_gain
+		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_honor = 0.5
+				ai_boldness = 0.5
+			}
+		}
+	}
+	
+	after = {
+		scope:available_child = {
+			clear_court_event_participation = yes
+		}
+		# Finish up the chain if relevant.
+		hold_court_queue_post_event_effect = yes
+	}
+}
+
+############################
+# Scholarly Emulation 0008 #
+############################
+
+scripted_trigger hold_court_lotr_0008_valid_scholar = {
+	is_available_ai_adult = yes
+	has_court_event_flag = no
+	is_elf = yes
+	or = {
+		has_court_position = antiquarian_court_position
+		has_court_position = high_almoner_court_position
+		has_court_position = court_poet_court_position
+		has_court_position = court_musician_court_position
+		has_court_position = court_physician_court_position
+		has_court_position = court_artificer_court_position
+		learning >= 10
+	}
+}
+
+hold_court_lotr.0008 = {
+	type = court_event
+	title = hold_court_lotr.0008.t
+	desc = hold_court_lotr.0008.desc
+	theme = court
+
+	court_scene = {
+		button_position_character = scope:scholar_1
+		court_event_force_open = yes
+		show_timeout_info = no
+		should_pause_time = yes
+		roles = {
+			scope:scholar_1 = {
+				group = petitioners_group
+				animation = disapproval
+			}
+			scope:scholar_2 = {
+				group = petitioners_group
+				animation = dismissal
+			}
+		}
+	}
+	widget = {
+		gui = "event_window_widget_event_chain_progress"
+		container = "custom_widgets_container"
+		controller = event_chain_progress
+	}
+	
+	trigger = {
+		is_elf = yes
+		NOT = { has_character_flag = had_event_hold_court_lotr_0008 }
+		any_courtier_or_guest = { 
+			count > 1
+			hold_court_lotr_0008_valid_scholar = yes
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		
+		ep1_weight_up_for_court_type_modifier = { COURT_TYPE = court_scholarly}
+		
+		modifier = { 
+			add = 10
+			culture = culture:noldor
+		}
+	}
+	
+	immediate = {
+		add_character_flag = {
+			flag = had_event_hold_court_lotr_0008
+			years = 10
+		}
+
+		random_courtier_or_guest = {
+			limit = { hold_court_lotr_0008_valid_scholar = yes }
+
+			weight = {
+				base = 1
+				modifier = {
+					add = 20
+					or = {
+						has_court_position = antiquarian_court_position
+						has_court_position = high_almoner_court_position
+						has_court_position = court_artificer_court_position
+					}
+				}
+				modifier = {
+					add = 10
+					or = {
+						has_court_position = court_poet_court_position
+						has_court_position = court_musician_court_position
+						has_court_position = court_physician_court_position
+					}
+				}
+				compare_modifier = {
+					value = learning
+					multiplier = 0.2
+				}
+			}
+			save_scope_as = scholar_1
+			court_event_character_flag_effect = yes
+		}
+		
+		random_courtier_or_guest = {
+			limit = { 
+				hold_court_lotr_0008_valid_scholar = yes 
+				not = { this = scope:scholar_1 }
+			}
+
+			weight = {
+				base = 1
+				modifier = {
+					add = 20
+					or = {
+						has_court_position = antiquarian_court_position
+						has_court_position = high_almoner_court_position
+						has_court_position = court_artificer_court_position
+					}
+				}
+				modifier = {
+					add = 10
+					or = {
+						has_court_position = court_poet_court_position
+						has_court_position = court_musician_court_position
+						has_court_position = court_physician_court_position
+					}
+				}
+				compare_modifier = {
+					value = learning
+					multiplier = 0.2
+				}
+			}
+			save_scope_as = scholar_2
+			court_event_character_flag_effect = yes
+		}
+		
+		cp:councillor_court_chaplain = { save_scope_as = chaplain }
+		# Trigger next event in chain.
+		hold_court_queue_next_event_effect = yes
+	}
+
+	# Court events, as with all events, require at least one option to display.
+	option = { # Cut it out !
+		name = hold_court_lotr.0008.a
+
+		
+		scope:scholar_1 = {
+			add_opinion = {
+				target = root
+				modifier = disappointed_opinion
+				opinion = -50
+			}
+		}
+		scope:scholar_2 = {
+			add_opinion = {
+				target = root
+				modifier = disappointed_opinion
+				opinion = -50
+			}
+		}
+		every_courtier_or_guest = {
+			limit =  {
+				nor = {
+					this = scope:scholar_1
+					this = scope:scholar_2
+				}
+			}
+			custom = custom.every_courtier_and_guest
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 40
+			}
+		}
+		
+		stress_impact = {
+			scholar = major_stress_gain
+			wrathful = medium_stress_loss
+			impatient = medium_stress_loss
+		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_sociability = -0.5
+				ai_rationality = -0.5
+			}
+		}
+	}
+	
+	option = { # Separate them
+		name = hold_court_lotr.0008.b
+		
+		remove_short_term_gold = minor_gold_value
+		
+		scope:scholar_1 = {
+			add_opinion = {
+				target = root
+				modifier = disappointed_opinion
+				opinion = -25
+			}
+		}
+		scope:scholar_2 = {
+			add_opinion = {
+				target = root
+				modifier = disappointed_opinion
+				opinion = -25
+			}
+		}
+		every_courtier_or_guest = {
+			limit =  {
+				nor = {
+					this = scope:scholar_1
+					this = scope:scholar_2
+				}
+			}
+			custom = custom.every_courtier_and_guest
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 20
+			}
+		}
+		
+		stress_impact = {
+ 			compassionate = medium_stress_impact_gain
+ 			humble = medium_stress_impact_gain
+ 		}
+		
+		stress_impact = {
+			scholar = major_stress_gain
+			wrathful = medium_stress_loss
+			impatient = medium_stress_loss
+		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_sociability = -0.25
+				ai_rationality = -0.25
+				ai_compassion = 0.25
+			}
+		}
+	}
+	
+	option = { #Hello, fellow scholars
+		name = hold_court_lotr.0008.c
+		
+		duel = {
+			skill = learning
+			value = 15
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+				}
+				desc = hold_court_lotr.0008.c.success
+				scope:scholar_1 = {
+					add_opinion = {
+						modifier = pleased_opinion
+						target = root
+						opinion = 20
+					}
+				}
+				scope:scholar_2 = {
+					add_opinion = {
+						modifier = pleased_opinion
+						target = root
+						opinion = 20
+					}
+				}
+				send_interface_toast = {
+					title = hold_court_lotr.0008.c.success
+					left_icon = scope:scholar_1
+					right_icon = scope:scholar_2
+					add_learning_lifestyle_xp = major_lifestyle_xp
+					root = {
+						if = {
+							limit = { is_elf = yes}
+							add_elven_hope_effect = { VALUE = minor_elven_hope_gain HOPE_EFFECT = effect_elven_hope_held_court }
+						}
+					}
+				}
+			}
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+				}
+				desc = hold_court_lotr.0008.c.failure
+				scope:scholar_1 = {
+					add_opinion = {
+						modifier = disappointed_opinion
+						target = root
+						opinion = -20
+					}
+				}
+				scope:scholar_2 = {
+					add_opinion = {
+						modifier = disappointed_opinion
+						target = root
+						opinion = -20
+					}
+				}
+				send_interface_toast = {
+					title = hold_court_lotr.0008.c.failure
+					left_icon = scope:scholar_1
+					right_icon = scope:scholar_2
+					root = {
+						if = {
+							limit = { is_elf = yes}
+							add_elven_hope_effect = { VALUE = minor_elven_hope_loss HOPE_EFFECT = effect_elven_hope_held_court }
+						}
+					}
+				}
+			}
+		}
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_rationality = 0.5
+			}
+		}
+	}
+	
+	option = { # Let's talk this through
+		name = hold_court_lotr.0008.d
+		
+		duel = {
+			skill = diplomacy
+			value = 15
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+				}
+				desc = hold_court_lotr.0008.d.success
+				scope:scholar_1 = {
+					add_opinion = {
+						modifier = pleased_opinion
+						target = root
+						opinion = 20
+					}
+				}
+				scope:scholar_2 = {
+					add_opinion = {
+						modifier = pleased_opinion
+						target = root
+						opinion = 20
+					}
+				}
+				send_interface_toast = {
+					title = hold_court_lotr.0008.d.success
+					left_icon = scope:scholar_1
+					right_icon = scope:scholar_2
+					add_diplomacy_lifestyle_xp = major_lifestyle_xp
+					root = {
+						if = {
+							limit = { is_elf = yes}
+							add_elven_hope_effect = { VALUE = minor_elven_hope_gain HOPE_EFFECT = effect_elven_hope_held_court }
+						}
+					}
+				}
+			}
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+				}
+				desc = hold_court_lotr.0008.d.failure
+				scope:scholar_1 = {
+					add_opinion = {
+						modifier = angry_opinion
+						target = root
+						opinion = -20
+					}
+				}
+				scope:scholar_2 = {
+					add_opinion = {
+						modifier = angry_opinion
+						target = root
+						opinion = -20
+					}
+				}
+				send_interface_toast = {
+					title = hold_court_lotr.0008.d.success
+					left_icon = scope:scholar_1
+					right_icon = scope:scholar_2
+					root = {
+						if = {
+							limit = { is_elf = yes}
+							add_elven_hope_effect = { VALUE = minor_elven_hope_loss HOPE_EFFECT = effect_elven_hope_held_court }
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	after = {
+		scope:scholar_1 = {
+			clear_court_event_participation = yes
+		}
+		scope:scholar_2 = {
+			clear_court_event_participation = yes
+		}
+		# Finish up the chain if relevant.
+		hold_court_queue_post_event_effect = yes
+	}
+}

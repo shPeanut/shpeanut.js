@@ -1,0 +1,5 @@
+﻿rf_darkness = {
+	piety_icon_group = "pagan"
+	hostility_doctrine = darkness_hostility_doctrine
+	doctrine_background_icon = core_tenet_banner_blank.dds
+}

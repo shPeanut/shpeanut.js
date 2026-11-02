@@ -1,0 +1,274 @@
+﻿effect_decision_industialise_isengard_1 = {
+	global = EFFECT_DECISION_INDUSTRIALISE_ISENGARD_1
+	first = EFFECT_DECISION_INDUSTRIALISE_ISENGARD_1
+}
+
+effect_decision_bending_the_dunlendings = {
+	global = EFFECT_DECISION_BENDING_THE_DUNLENDINGS
+	first = EFFECT_DECISION_BENDING_THE_DUNLENDINGS
+}
+
+effect_decision_creation_of_the_uruk_hai = {
+	global = EFFECT_DECISION_CREATION_OF_THE_URUK_HAI
+	first = EFFECT_DECISION_CREATION_OF_THE_URUK_HAI
+}
+
+effect_decision_influence_the_king = {
+	global = EFFECT_DECISION_INFLUENCE_THE_KING
+	first = EFFECT_DECISION_INFLUENCE_THE_KING
+}
+
+effect_decision_isengard_puppet_rohan = {
+	global = EFFECT_DECISION_ISENGARD_PUPPET_ROHAN
+	first = EFFECT_DECISION_ISENGARD_PUPPET_ROHAN
+}
+
+tayee_special_requirement_to_mantle_deity_tt = {
+	global = tayee_special_requirement_to_mantle_deity_tt
+	first = tayee_special_requirement_to_mantle_deity_tt
+}
+
+story_cycle_avatar_of_faith_warn_tt = {
+	global = story_cycle_avatar_of_faith_warn_tt
+	first = story_cycle_avatar_of_faith_warn_tt
+}
+
+effect_remove_variag_succession = {
+	global = EFFECT_REMOVE_VARIAG_SUCCESSION
+	first = EFFECT_REMOVE_VARIAG_SUCCESSION
+}
+
+effect_dread_challenge = {
+	global = EFFECT_DREAD_CHALLENGE
+	first = EFFECT_DREAD_CHALLENGE
+}
+
+effect_aptitude_challenge = {
+	global = EFFECT_APTITUDE_CHALLENGE
+	first = EFFECT_APTITUDE_CHALLENGE
+}
+
+no_materials_available = {
+	global = CRAFTING_NO_MATERIALS
+	first = CRAFTING_NO_MATERIALS
+}
+
+increase_enhancement_modifier = {
+	global = increase_modifier_tt
+}
+
+lotr_khazad_legacy_1_effect = {
+	global = lotr_khazad_legacy_1_effect_desc
+	first = lotr_khazad_legacy_1_effect_desc
+	third = lotr_khazad_legacy_1_effect_desc
+}
+
+lotr_khazad_legacy_4_effect = {
+	global = lotr_khazad_legacy_4_effect_desc
+	first = lotr_khazad_legacy_4_effect_desc
+	third = lotr_khazad_legacy_4_effect_desc
+}
+
+lotr_elven_legacy_5_effect_1 = {
+	global = lotr_elven_legacy_5_effect_1_desc
+	first = lotr_elven_legacy_5_effect_1_desc
+	third = lotr_elven_legacy_5_effect_1_desc
+}
+
+lotr_elven_legacy_5_effect_2 = {
+	global = lotr_elven_legacy_5_effect_2_desc
+	first = lotr_elven_legacy_5_effect_2_desc
+	third = lotr_elven_legacy_5_effect_2_desc
+}
+
+lotr_haradrim_legacy_1_effect_1 = {
+	global = lotr_haradrim_legacy_1_effect_1
+	first = lotr_haradrim_legacy_1_effect_1
+	third = lotr_haradrim_legacy_1_effect_1
+}
+lotr_haradrim_legacy_1_effect_2 = {
+	global = lotr_haradrim_legacy_1_effect_2
+	first = lotr_haradrim_legacy_1_effect_2
+	third = lotr_haradrim_legacy_1_effect_2
+}
+lotr_haradrim_legacy_2_effect_1 = {
+	global = lotr_haradrim_legacy_2_effect_1
+	first = lotr_haradrim_legacy_2_effect_1
+	third = lotr_haradrim_legacy_2_effect_1
+}
+lotr_haradrim_legacy_2_effect_2 = {
+	global = lotr_haradrim_legacy_2_effect_2
+	first = lotr_haradrim_legacy_2_effect_2
+	third = lotr_haradrim_legacy_2_effect_2
+}
+lotr_haradrim_legacy_3_effect_1 = {
+	global = lotr_haradrim_legacy_3_effect_1
+	first = lotr_haradrim_legacy_3_effect_1
+	third = lotr_haradrim_legacy_3_effect_1
+}
+lotr_haradrim_legacy_3_effect_2 = {
+	global = lotr_haradrim_legacy_3_effect_2
+	first = lotr_haradrim_legacy_3_effect_2
+	third = lotr_haradrim_legacy_3_effect_2
+}
+lotr_haradrim_legacy_4_effect_1 = {
+	global = lotr_haradrim_legacy_4_effect_1
+	first = lotr_haradrim_legacy_4_effect_1
+	third = lotr_haradrim_legacy_4_effect_1
+}
+lotr_haradrim_legacy_4_effect_2 = {
+	global = lotr_haradrim_legacy_4_effect_2
+	first = lotr_haradrim_legacy_4_effect_2
+	third = lotr_haradrim_legacy_4_effect_2
+}
+lotr_haradrim_legacy_5_effect_1 = {
+	global = lotr_haradrim_legacy_5_effect_1
+	first = lotr_haradrim_legacy_5_effect_1
+	third = lotr_haradrim_legacy_5_effect_1
+}
+
+lotr_crafting_legacy_1_effect = {
+	global = lotr_crafting_legacy_1_effect_desc
+	first = lotr_crafting_legacy_1_effect_desc
+	third = lotr_crafting_legacy_1_effect_desc
+}
+lotr_crafting_legacy_2_effect = {
+	global = lotr_crafting_legacy_2_effect_desc
+	first = lotr_crafting_legacy_2_effect_desc
+	third = lotr_crafting_legacy_2_effect_desc
+}
+lotr_crafting_legacy_3_effect = {
+	global = lotr_crafting_legacy_3_effect_desc
+	first = lotr_crafting_legacy_3_effect_desc
+	third = lotr_crafting_legacy_3_effect_desc
+}
+lotr_crafting_legacy_3_forge_unlock = {
+	global = lotr_crafting_legacy_3_forge_unlock_desc
+	first = lotr_crafting_legacy_3_forge_unlock_desc
+	third = lotr_crafting_legacy_3_forge_unlock_desc
+}
+lotr_crafting_legacy_4_effect = {
+	global = lotr_crafting_legacy_4_effect_desc
+	first = lotr_crafting_legacy_4_effect_desc
+	third = lotr_crafting_legacy_4_effect_desc
+}
+lotr_crafting_legacy_5_effect = {
+	global = lotr_crafting_legacy_5_effect_desc
+	first = lotr_crafting_legacy_5_effect_desc
+	third = lotr_crafting_legacy_5_effect_desc
+}
+
+
+activity_ancestor_veneration_cheaper_effect = {
+	global = activity_ancestor_veneration_cheaper_desc
+	first = activity_ancestor_veneration_cheaper_desc
+	third = activity_ancestor_veneration_cheaper_desc
+}
+
+harad_merchant_tongue_easier_haggling = {
+	global = harad_merchant_tongue_easier_haggling
+	first = harad_merchant_tongue_easier_haggling
+	third = harad_merchant_tongue_easier_haggling
+}
+
+lotr_adunaic_birthright = {
+	global = INCOMPATIBLE_TENET_ADUNAIC_BIRTHRIGHT_TRIGGER
+	first = INCOMPATIBLE_TENET_ADUNAIC_BIRTHRIGHT_TRIGGER
+	third = INCOMPATIBLE_TENET_ADUNAIC_BIRTHRIGHT_TRIGGER
+}
+
+lotr_memory_of_akallabeth = {
+	global = INCOMPATIBLE_TENET_MEMORY_OF_AKALLABETH_TRIGGER
+	first = INCOMPATIBLE_TENET_MEMORY_OF_AKALLABETH_TRIGGER
+	third = INCOMPATIBLE_TENET_MEMORY_OF_AKALLABETH_TRIGGER
+}
+
+lotr_adunaic_mandate = {
+	global = INCOMPATIBLE_TENET_ADUNAIC_MANDATE_TRIGGER
+	first = INCOMPATIBLE_TENET_ADUNAIC_MANDATE_TRIGGER
+	third = INCOMPATIBLE_TENET_ADUNAIC_MANDATE_TRIGGER
+}
+
+lotr_melkor_worship = {
+	global = INCOMPATIBLE_TENET_MELKOR_WORSHIP_TRIGGER
+	first = INCOMPATIBLE_TENET_MELKOR_WORSHIP_TRIGGER
+	third = INCOMPATIBLE_TENET_MELKOR_WORSHIP_TRIGGER
+}
+
+lotr_break_defensive_alliance = {
+	global = BREAK_DEFENSIVE_ALLIANCE_TRIGGER
+	first = BREAK_DEFENSIVE_ALLIANCE_TRIGGER
+	third = BREAK_DEFENSIVE_ALLIANCE_TRIGGER
+}
+
+lotr_transfer_all_maa_regiments = {
+	global = LOTR_TRANSFER_ALL_MAA_REGIMENTS
+	first = LOTR_TRANSFER_ALL_MAA_REGIMENTS_FIRST
+	third = LOTR_TRANSFER_ALL_MAA_REGIMENTS_THIRD
+}
+
+activity_firstfruits_because_of_alms_type_small = {
+	global = activity_firstfruits_because_of_alms_type_small
+	first = activity_firstfruits_because_of_alms_type_small
+	third = activity_firstfruits_because_of_alms_type_small
+	global_past = activity_firstfruits_because_of_alms_type_small
+	first_past = activity_firstfruits_because_of_alms_type_small
+	third_past = activity_firstfruits_because_of_alms_type_small
+}
+activity_firstfruits_because_of_alms_type_medium = {
+	global = activity_firstfruits_because_of_alms_type_medium
+	first = activity_firstfruits_because_of_alms_type_medium
+	third = activity_firstfruits_because_of_alms_type_medium
+	global_past = activity_firstfruits_because_of_alms_type_medium
+	first_past = activity_firstfruits_because_of_alms_type_medium
+	third_past = activity_firstfruits_because_of_alms_type_medium
+}
+activity_firstfruits_because_of_alms_type_large = {
+	global = activity_firstfruits_because_of_alms_type_large
+	first = activity_firstfruits_because_of_alms_type_large
+	third = activity_firstfruits_because_of_alms_type_large
+	global_past = activity_firstfruits_because_of_alms_type_large
+	first_past = activity_firstfruits_because_of_alms_type_large
+	third_past = activity_firstfruits_because_of_alms_type_large
+}
+activity_firstfruits_because_of_alms_type_huge = {
+	global = activity_firstfruits_because_of_alms_type_huge
+	first = activity_firstfruits_because_of_alms_type_huge
+	third = activity_firstfruits_because_of_alms_type_huge
+	global_past = activity_firstfruits_because_of_alms_type_huge
+	first_past = activity_firstfruits_because_of_alms_type_huge
+	third_past = activity_firstfruits_because_of_alms_type_huge
+}
+activity_firstfruits_because_of_artifact_urenanvale = {
+	global = activity_firstfruits_because_of_artifact_urenanvale
+	first = activity_firstfruits_because_of_artifact_urenanvale
+	third = activity_firstfruits_because_of_artifact_urenanvale
+}
+activity_firstfruits_because_of_artifact_missingmountain = {
+	global = activity_firstfruits_because_of_artifact_missingmountain
+	first = activity_firstfruits_because_of_artifact_missingmountain
+	third = activity_firstfruits_because_of_artifact_missingmountain
+}
+activity_firstfruits_because_of_artifact_gatarazay = {
+	global = activity_firstfruits_because_of_artifact_gatarazay
+	first = activity_firstfruits_because_of_artifact_gatarazay
+	third = activity_firstfruits_because_of_artifact_gatarazay
+}
+activity_firstfruits_because_of_artifact_emissariesinnature = {
+	global = activity_firstfruits_because_of_artifact_emissariesinnature
+	first = activity_firstfruits_because_of_artifact_emissariesinnature
+	third = activity_firstfruits_because_of_artifact_emissariesinnature
+}
+activity_firstfruits_because_of_artifact_scoldingtheflames = {
+	global = activity_firstfruits_because_of_artifact_scoldingtheflames
+	first = activity_firstfruits_because_of_artifact_scoldingtheflames
+	third = activity_firstfruits_because_of_artifact_scoldingtheflames
+}
+
+WAC_INCREASE_GOLD_EFFECT = {
+	global = WASTELANDS_AUTOMATION_SETTINGS_INREASE_GOLD_LIMIT_TT
+}
+
+WAC_DECREASE_GOLD_EFFECT = {
+	global = WASTELANDS_AUTOMATION_SETTINGS_DECREASE_GOLD_LIMIT_TT
+}

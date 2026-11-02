@@ -1,0 +1,1249 @@
+﻿namespace = yellow_mountain_orc
+#Spider Duchy Taming Decision
+#naugrim04
+yellow_mountain_orc.001 = {				
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.001.t
+	desc = yellow_mountain_orc.001.desc
+	theme = realm
+	override_background = {
+		reference = mining_activity
+	}
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+		
+	option = {
+		name = yellow_mountain_orc.001.a
+	}
+}
+#Rukhas-hai Lowland Migration Decision
+#naugrim04
+yellow_mountain_orc.002 = {				
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.002.t
+	desc = yellow_mountain_orc.002.desc
+	theme = realm
+	override_background = {
+		reference = wilderness_forest
+	}
+	left_portrait = {
+		character = root
+		animation = toast_goblet
+	}
+		
+	option = {
+		name = yellow_mountain_orc.002.a
+		#hidden_effect = {
+			every_sub_realm_county = {
+				limit = {
+					OR = {
+						kingdom = title:k_tanturak
+						kingdom = title:k_dushera
+						kingdom = title:k_tuktan
+					}
+					tier = tier_county
+					is_wastelands = no
+				}
+				if = {
+					limit = {
+						holder = { 
+							is_ai = yes
+							NOT = { is_orc = yes }
+						}
+					}
+					create_title_and_vassal_change = {
+						type = revoked
+						save_scope_as = title_change
+						add_claim_on_loss = no
+					}
+					change_title_holder = {
+						holder = root
+						change = scope:title_change
+					}
+					resolve_title_and_vassal_change = scope:title_change
+				}
+				if = {
+					limit = {
+						NOT = { culture = root.culture }
+					}
+					add_county_modifier = {
+						modifier = orc_enslavement_free_folk_county_modifier
+						years = 10
+					}
+					random = {
+						chance = 33
+						set_county_culture = root.culture
+						set_county_faith = root.faith
+						change_development_level = 3
+					}
+				}
+			}
+		#}
+	}
+}
+#Western Yellow Mountain Volcano Forge Decision
+#naugrim04
+yellow_mountain_orc.003 = {				
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.003.t
+	desc = yellow_mountain_orc.003.desc
+	theme = realm
+	override_background = {
+		reference = throne_room_evil
+	}
+	left_portrait = {
+		character = root
+		animation = celebrate_axe  
+	}
+		
+	option = {
+		name = yellow_mountain_orc.003.a
+	
+	}
+}
+#Snagazat choose event
+#naugrim04
+yellow_mountain_orc.004 = {			
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.004.t
+	desc = yellow_mountain_orc.004.desc
+	theme = dread
+	override_background = {
+		reference = dungeon
+	}
+	left_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = { scope:lotr_snagazat_martial = yes }
+			animation = aggressive_mace
+		}
+		triggered_animation = {
+			trigger = { scope:lotr_snagazat_economic = yes }
+			animation = bribing
+		}
+		triggered_animation = {
+			trigger = { scope:lotr_snagazat_dread = yes }
+			animation = spymaster
+		}
+		animation = aggressive_mace 
+	}
+
+	option = {
+		name = yellow_mountain_orc.004.a
+	}
+}
+#Yellow Mountain Goblin Unification
+#naugrim04
+yellow_mountain_orc.005 = {				
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.005.t
+	desc = yellow_mountain_orc.005.desc
+	theme = dread
+	override_background = {
+		reference = market_goblin
+	}
+	left_portrait = {
+		character = root
+		animation = celebrate_axe  
+	}
+		
+	option = {	#If you are Enanagosni (Echo-Maker)
+		name = yellow_mountain_orc.005.a
+		trigger = {
+			faith = faith:orc_spider_cult
+		}
+		title:b_lembar_dum.title_province = {
+			add_special_building_slot = wonder_echomaker_reward
+		}	
+	}
+	option = {	#If you are Dayanushu (Mark-Etcher)
+		name = yellow_mountain_orc.005.b
+		title:b_gablamanar.title_province = {
+			add_special_building_slot = wonder_marketcher_reward
+		}
+		trigger = {
+			faith = faith:faith_marketcher
+		}		
+	}
+	option = { #If you are Praukib-kai/anything else (Pelt-Rippers and others)
+		name = yellow_mountain_orc.005.c
+		title:b_makhmukhuzd_zabad.title_province = {
+			add_special_building_slot = wonder_peltripper_reward
+		}
+		trigger = {
+			NOR = {
+				faith = faith:faith_marketcher
+				faith = faith:orc_spider_cult
+			}
+		}
+	}
+}
+
+### Yellow Mountain Goblin Rebellion Outcomes ###
+#naugrim04
+yellow_mountain_orc.006 = {				#Yellow Mountain Goblin Rebellion: Bruka Victory
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.006.t
+	desc = yellow_mountain_orc.006.desc
+	theme = dread
+	override_background = {
+		reference = battlefield
+	}
+	immediate = {
+		character:lineoflughasya23 = { save_scope_as = bludbag }
+		character:lineofzukarok10 = { save_scope_as = ozag }
+		character:lineofgrishok79 = { save_scope_as = bruka }
+		rightfully_imprison_character_effect = {
+			TARGET = scope:bludbag
+			IMPRISONER = root
+		}
+		rightfully_imprison_character_effect = {
+			TARGET = scope:ozag
+			IMPRISONER = root
+		}
+		scope:ozag = {
+			every_sub_realm_county = {
+				limit = {
+					tier = tier_county
+					is_wastelands = no
+				}
+				create_title_and_vassal_change = {
+					type = revoked
+					save_scope_as = title_change
+					add_claim_on_loss = no
+				}
+				change_title_holder = {
+					holder = scope:bruka
+					change = scope:title_change
+				}
+				resolve_title_and_vassal_change = scope:title_change		
+			}
+		}
+		scope:bludbag = {
+			every_sub_realm_county = {
+				limit = {
+					tier = tier_county
+					is_wastelands = no
+				}
+				create_title_and_vassal_change = {
+					type = revoked
+					save_scope_as = title_change
+					add_claim_on_loss = no
+				}
+				change_title_holder = {
+					holder = scope:bruka
+					change = scope:title_change
+				}
+				resolve_title_and_vassal_change = scope:title_change		
+			}
+		}
+	}
+	left_portrait = {
+		character = scope:bruka
+		animation = celebrate_axe  
+	}
+	right_portrait = {
+		character = scope:bludbag
+		animation = beg
+	}
+	lower_right_portrait = {
+		character = scope:ozag
+		animation = beg
+	}
+		
+	option = {
+		name = yellow_mountain_orc.006.a
+		add_gold = massive_gold_value
+		add_prestige = massive_prestige_gain
+		add_dread = 50
+	}
+}
+
+yellow_mountain_orc.007 = {				#Yellow Mountain Goblin Rebellion: Ozag Victory
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.007.t
+	desc = yellow_mountain_orc.007.desc
+	theme = dread
+	override_background = {
+		reference = battlefield
+	}
+	immediate = {
+		character:lineoflughasya23 = { save_scope_as = bludbag }
+		character:lineofzukarok10 = { save_scope_as = ozag }
+		character:lineofgrishok79 = { save_scope_as = bruka }
+		rightfully_imprison_character_effect = {
+			TARGET = scope:bludbag
+			IMPRISONER = root
+		}
+		rightfully_imprison_character_effect = {
+			TARGET = scope:bruka
+			IMPRISONER = root
+		}
+		scope:bruka = {
+			every_sub_realm_county = {
+				limit = {
+					tier = tier_county
+					is_wastelands = no
+				}
+				create_title_and_vassal_change = {
+					type = revoked
+					save_scope_as = title_change
+					add_claim_on_loss = no
+				}
+				change_title_holder = {
+					holder = scope:ozag
+					change = scope:title_change
+				}
+				resolve_title_and_vassal_change = scope:title_change		
+			}
+		}
+		scope:bludbag = {
+			every_sub_realm_county = {
+				limit = {
+					tier = tier_county
+					is_wastelands = no
+				}
+				create_title_and_vassal_change = {
+					type = revoked
+					save_scope_as = title_change
+					add_claim_on_loss = no
+				}
+				change_title_holder = {
+					holder = scope:ozag
+					change = scope:title_change
+				}
+				resolve_title_and_vassal_change = scope:title_change		
+			}
+		}
+	}
+	left_portrait = {
+		character = scope:ozag
+		animation = celebrate_axe  
+	}
+	right_portrait = {
+		character = scope:bludbag
+		animation = beg
+	}
+	lower_right_portrait = {
+		character = scope:bruka
+		animation = beg
+	}
+		
+	option = {
+		name = yellow_mountain_orc.007.a
+		add_gold = massive_gold_value
+		add_prestige = massive_prestige_gain
+		add_dread = 50
+	}
+}
+
+yellow_mountain_orc.008 = {				#Yellow Mountain Goblin Rebellion: Bludbag Beats Bruka
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.008.t
+	desc = yellow_mountain_orc.008.desc
+	theme = dread
+	override_background = {
+		reference = battlefield
+	}
+	immediate = {
+		character:lineoflughasya23 = { save_scope_as = bludbag }
+		character:lineofzukarok10 = { save_scope_as = ozag }
+		character:lineofgrishok79 = { save_scope_as = bruka }
+		rightfully_imprison_character_effect = {
+			TARGET = scope:bruka
+			IMPRISONER = root
+		}
+		scope:bruka = {
+			every_sub_realm_county = {
+				limit = {
+					tier = tier_county
+					is_wastelands = no
+				}
+				create_title_and_vassal_change = {
+					type = revoked
+					save_scope_as = title_change
+					add_claim_on_loss = no
+				}
+				change_title_holder = {
+					holder = scope:bludbag
+					change = scope:title_change
+				}
+				resolve_title_and_vassal_change = scope:title_change		
+			}
+		}	
+	}
+	left_portrait = {
+		character = scope:bludbag
+		animation = celebrate_axe  
+	}
+	right_portrait = {
+		character = scope:bruka
+		animation = beg
+	}	
+	option = {
+		name = yellow_mountain_orc.008.a
+		add_gold = major_gold_value
+		add_prestige = major_prestige_gain
+		add_dread = 30
+	}
+}
+
+yellow_mountain_orc.009 = {				#Yellow Mountain Goblin Rebellion: Bludbag Beats Ozag
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.009.t
+	desc = yellow_mountain_orc.009.desc
+	theme = dread
+	override_background = {
+		reference = battlefield
+	}
+	immediate = {
+		character:lineoflughasya23 = { save_scope_as = bludbag }
+		character:lineofzukarok10 = { save_scope_as = ozag }
+		character:lineofgrishok79 = { save_scope_as = bruka }
+		rightfully_imprison_character_effect = {
+			TARGET = scope:ozag
+			IMPRISONER = root
+		}
+		scope:ozag = {
+			every_sub_realm_county = {
+				limit = {
+					tier = tier_county
+					is_wastelands = no
+				}
+				create_title_and_vassal_change = {
+					type = revoked
+					save_scope_as = title_change
+					add_claim_on_loss = no
+				}
+				change_title_holder = {
+					holder = scope:bludbag
+					change = scope:title_change
+				}
+				resolve_title_and_vassal_change = scope:title_change		
+			}
+		}
+	}
+	left_portrait = {
+		character = scope:bludbag
+		animation = celebrate_axe  
+	}
+	right_portrait = {
+		character = scope:ozag
+		animation = beg
+	}	
+	option = {
+		name = yellow_mountain_orc.009.a
+		add_gold = major_gold_value
+		add_prestige = major_prestige_gain
+		add_dread = 30
+	}
+}
+
+scripted_trigger igal_zaram_event_check = {
+	current_travel_plan.travel_plan_owner = root
+	is_playable_character = yes #Landed, house head in an administrative realm, or an adventurer camp owner.
+	is_location_valid_for_travel_event_on_land = yes #Should not be needed...
+	location.county.holder != root #If I own it then it does not make sense to visit it.
+	trigger_if = {
+		limit = { has_domicile = yes }
+		location != domicile.domicile_location
+	} #If I live here then it does not make sense to visit it.
+	NOR = {
+		location = current_travel_plan.final_destination_province
+		location = current_travel_plan.departure_location
+	}
+	NOT = {
+		any_memory = { #Did I come here before?
+			memory_type = memory_big_city_visited
+			has_variable = city_location
+			var:city_location = root.location
+		}
+	}
+	trigger_if = {
+		limit = {
+			exists = involved_activity
+		}
+		location != involved_activity.activity_location
+	}
+}
+#Igal Zaram Events
+yellow_mountain_orc.021 = {				#Arrive in Igal Zaram - the Water Speaks
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.021.t
+	desc = yellow_mountain_orc.021.desc
+	theme = travel
+	override_background = {
+		reference = market_goblin
+	}
+	
+	trigger = {
+		location = province:5978 #Igal Zaram
+		igal_zaram_event_check = yes
+		is_orc = yes
+		title:b_zaramgathol.title_province = {
+			has_building = wonder_igal_zaram
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:yellow_mountains_igal_zaram_warrens
+			}
+		}
+	}
+	
+	immediate = {
+		
+	}
+	left_portrait = {
+		character = root
+		animation = bold
+	}	
+	option = {	#Heed the Call
+		name = yellow_mountain_orc.021.a
+		trigger_event = {
+			id = yellow_mountain_orc.022
+		}			
+		add_piety = major_piety_gain
+		custom_tooltip = yellow_mountain_orc.021.tt
+		stress_impact = {
+			humble = minor_stress_impact_gain
+			content = minor_stress_impact_gain
+			shy = minor_stress_impact_gain
+			craven = medium_stress_impact_gain
+			brave = major_stress_impact_loss
+			ambitious = medium_stress_impact_loss
+			arrogant = medium_stress_impact_loss
+			gregarious = medium_stress_impact_loss
+		}
+		duel = {
+			skill = learning
+			value = 20
+			
+			20 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}
+			}
+
+			20 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+				random_list = {
+					50 = {
+						add_trait = possessed_1
+					}
+					50 = {
+						add_trait = lunatic_1
+					}
+				}
+			}	
+		}
+	}
+	option = {	#Hell no!
+		name = yellow_mountain_orc.021.b
+		add_piety = medium_piety_loss
+		add_prestige = medium_prestige_loss
+		stress_impact = {
+			humble = minor_stress_impact_loss
+			content = minor_stress_impact_loss
+			shy = minor_stress_impact_loss
+			craven = medium_stress_impact_loss
+			brave = major_stress_impact_gain
+			ambitious = medium_stress_impact_gain
+			arrogant = medium_stress_impact_gain
+			gregarious = medium_stress_impact_gain
+		}
+	}
+}
+
+yellow_mountain_orc.022 = {				#Igal Zaram - Given a Task
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.022.t
+	desc = yellow_mountain_orc.022.desc
+	theme = travel
+	override_background = {
+		reference = market_goblin
+	}
+	
+	immediate = {
+		
+	}
+	left_portrait = {
+		character = root
+		animation = bold
+	}	
+	option = {	#I will do your bidding
+		name = yellow_mountain_orc.022.a
+		add_character_flag = igal_zaram_warrens_task_accepted
+	}
+	option = {	#I'm not doing this!
+		name = yellow_mountain_orc.022.b
+
+	}
+}
+
+yellow_mountain_orc.023 = {	#Igal Zaram - Complete the Building
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.023.t
+	desc = yellow_mountain_orc.023.desc
+	theme = travel
+	override_background = {
+		reference = market_goblin
+	}
+	
+	immediate = {
+		
+	}
+	left_portrait = {
+		character = root
+		animation = bold
+	}	
+	option = {	#Build in the Igal Zaram
+		name = yellow_mountain_orc.023.a
+
+		title:c_zaramgathol = {
+			save_scope_as = new_colony
+		}
+		
+		create_title_and_vassal_change = {
+			type = returned
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+
+		scope:new_colony = {
+			set_county_culture = root.culture
+			set_county_faith = root.faith
+			generate_coa = yes
+			change_development_level = 3
+		}
+		scope:new_colony = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		scope:new_colony = { generate_coa = yes }		
+		
+		province:5978 = {
+			set_holding_type = dwarven_holding
+			set_great_building = wonder_igal_zaram_warrens
+		}
+		trigger_event = {
+			id = yellow_mountain_orc.024
+		}
+	}
+	option = {	#Double Cross - Build in my Capital
+		name = yellow_mountain_orc.023.b
+		root.capital_province = { set_great_building = wonder_igal_zaram_warrens }
+		add_piety = major_piety_loss
+		add_prestige = medium_prestige_gain
+		trigger = {
+			root.capital_province = {
+				geographical_region = middleearth_mountains_yellow_west
+			}
+			NOT = {
+				root.capital_province = {
+					this = province:5978	
+				}				
+			}
+
+		}
+		stress_impact = {
+			just = minor_stress_impact_gain
+			loyal = minor_stress_impact_gain
+			honest = medium_stress_impact_gain
+			possessed_1 = major_stress_impact_gain
+			deceitful = medium_stress_impact_loss
+			ambitious = medium_stress_impact_loss
+			fickle = minor_stress_impact_loss
+			arbitrary = minor_stress_impact_loss			
+		}
+		trigger_event = {
+			id = yellow_mountain_orc.025
+		}		
+	}
+}
+
+yellow_mountain_orc.024 = {	#Igal Zaram - Resolution Loyal
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.024.t
+	desc = yellow_mountain_orc.024.desc
+	theme = travel
+	override_background = {
+		reference = market_goblin
+	}
+	
+	immediate = {
+		
+	}
+	left_portrait = {
+		character = root
+		animation = bold
+	}	
+	option = {	#Due reward
+		name = yellow_mountain_orc.024.a
+		add_piety = major_piety_gain
+		add_martial_skill = 2
+		add_diplomacy_skill = 2
+		add_stewardship_skill = 2
+		add_learning_skill = 2
+		add_intrigue_skill = 2
+		add_prowess_skill = 2
+	}
+}
+
+yellow_mountain_orc.025 = {	#Igal Zaram - Resolution Traitor
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.025.t
+	desc = yellow_mountain_orc.025.desc
+	theme = travel
+	override_background = {
+		reference = market_goblin
+	}
+	
+	immediate = {
+		
+	}
+	left_portrait = {
+		character = root
+		animation = bold
+	}	
+	option = {	#Don't come back!
+		name = yellow_mountain_orc.025.a
+		title:c_zaramgathol = {
+			add_county_modifier = foundations_of_stone_county_modifier
+		}
+	}
+}
+### Delve Ny Cennacatt Events ###
+#naugrim04
+yellow_mountain_orc.101 = {			#Initial Excavation
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.101.t
+	desc = yellow_mountain_orc.101.desc
+	theme = realm
+	override_background = {
+		reference = mining_activity
+	}
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	
+	immediate = {
+
+	}
+	option = { #Where there's a whip, there's a way!
+		name = yellow_mountain_orc.101.a
+		add_prestige = medium_prestige_loss
+		trigger_event = {
+			id = yellow_mountain_orc.102
+			days = { 7 28 }
+		}
+	}
+	option = { #They need new tools, and more of them
+		name = yellow_mountain_orc.101.b
+		remove_short_term_gold = medium_gold_value	
+		trigger_event = {
+			id = yellow_mountain_orc.102
+			days = { 7 28 }
+		}
+	}
+	
+	option = { #I'll organize the project myself
+		name = yellow_mountain_orc.101.c
+		duel = {
+			skill = stewardship
+			value = 20
+			
+			20 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}
+				add_prestige = minor_prestige_gain	
+			}
+
+			20 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+				remove_short_term_gold = minor_gold_value
+				add_prestige = minor_prestige_loss
+			}	
+		}
+		trigger_event = {
+			id = yellow_mountain_orc.102
+			days = { 7 28 }
+		}
+	}
+}
+
+yellow_mountain_orc.102 = {			#Monster Attack!
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.102.t
+	desc = yellow_mountain_orc.102.desc
+	theme = battle
+	override_background = {
+		reference = throne_room_evil
+	}
+	left_portrait = {
+		character = root
+		animation = aggressive_mace 
+	}
+	
+	immediate = {
+
+	}
+	option = { #Halt! I am your master!
+		name = yellow_mountain_orc.102.a
+		duel = {
+			skill = diplomacy
+			value = 25
+			
+			20 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}
+				create_maa_regiment = { type = unburied_wights check_can_recruit = no size = 1 }
+			}
+
+			20 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+				add_prestige = minor_prestige_loss
+				increase_wounds_effect = { REASON = fight }
+				add_character_modifier = {modifier = cursed_from_beyond_the_grave years = 20}
+			}	
+		}
+		trigger_event = {
+			id = yellow_mountain_orc.103
+			days = { 7 28 }
+		}
+	}
+	option = { #Organize your troops to fight
+		name = yellow_mountain_orc.102.b
+		duel = {
+			skill = martial
+			value = 20
+			
+			20 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}
+				add_prestige = minor_prestige_gain	
+			}
+
+			20 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+				increase_wounds_effect = { REASON = fight }
+				add_character_modifier = {modifier = cursed_from_beyond_the_grave years = 20}
+			}	
+		}	
+		trigger_event = {
+			id = yellow_mountain_orc.103
+			days = { 7 28 }
+		}
+	}
+	
+	option = { #Slay it yourself
+		name = yellow_mountain_orc.102.c
+		duel = {
+			skill = prowess
+			value = 25
+			
+			20 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}
+				add_prestige = major_prestige_gain	
+			}
+
+			20 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+				increase_wounds_effect = { REASON = fight }
+				add_character_modifier = {modifier = cursed_from_beyond_the_grave years = 20}
+			}	
+		}
+		trigger_event = {
+			id = yellow_mountain_orc.103
+			days = { 7 28 }
+		}
+	}
+}
+
+yellow_mountain_orc.103 = {			#Shadows of the Past
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.103.t
+	desc = yellow_mountain_orc.103.desc
+	theme = secret
+	override_background = {
+		reference = throne_room_orc
+	}
+	left_portrait = {
+		character = root
+		animation = reading
+	}
+	
+	immediate = {
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_delve_ny_cennacatt
+		}
+	}
+	option = { #Secrets of Sorcery
+		name = yellow_mountain_orc.103.a
+		trigger_event = {
+			id = yellow_mountain_orc.104
+			days = { 7 28 }
+		}
+	}
+	option = { #Secrets of War
+		name = yellow_mountain_orc.103.b
+		trigger_event = {
+			id = yellow_mountain_orc.105
+			days = { 7 28 }
+		}
+	}	
+	option = { #Secrets of the Assassins
+		name = yellow_mountain_orc.103.c
+		trigger_event = {
+			id = yellow_mountain_orc.106
+			days = { 7 28 }
+		}		
+	}
+	option = { #Plunder it all
+		name = yellow_mountain_orc.103.d
+		add_gold = major_gold_value
+	}
+}
+
+yellow_mountain_orc.104 = {			#Secrets of Sorcery
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.104.t
+	desc = yellow_mountain_orc.104.desc
+	theme = learning
+	override_background = {
+		reference = throne_room_orc
+	}
+	left_portrait = {
+		character = root
+		animation = reading
+	}
+	
+	immediate = {
+
+	}
+	option = { #Convert
+		name = yellow_mountain_orc.104.a
+		set_character_faith_with_conversion = faith:faith_yom
+		create_artifact_ny_cennacatt_tome_sorcery_effect = { OWNER = root }
+	}
+	option = { #Don't Convert
+		name = yellow_mountain_orc.104.b
+		create_artifact_ny_cennacatt_tome_sorcery_effect = { OWNER = root }
+	}
+	option = { #Convert to Khorahil Orc Faith
+		name = yellow_mountain_orc.104.c
+		trigger = {
+			is_orc = yes
+		}
+		set_character_faith_with_conversion = faith:faith_murghuri
+		create_artifact_ny_cennacatt_tome_sorcery_effect = { OWNER = root }
+		ai_chance = {	#If you have this option, you're an orc, so you should take it
+			base = 100
+		}
+	}	
+}
+
+yellow_mountain_orc.105 = {			#Secrets of War
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.105.t
+	desc = yellow_mountain_orc.105.desc
+	theme = learning
+	override_background = {
+		reference = throne_room_orc
+	}
+	left_portrait = {
+		character = root
+		animation = reading
+	}
+	
+	immediate = {
+
+	}
+	option = { #Convert
+		name = yellow_mountain_orc.105.a
+		set_character_faith_with_conversion = faith:faith_shyra
+		create_artifact_ny_cennacatt_tome_warfare_effect = { OWNER = root }
+	}
+	option = { #Don't Convert
+		name = yellow_mountain_orc.105.b
+		create_artifact_ny_cennacatt_tome_warfare_effect = { OWNER = root }
+	}
+	option = { #Convert to Khorahil Orc Faith
+		name = yellow_mountain_orc.105.c
+		trigger = {
+			is_orc = yes
+		}
+		set_character_faith_with_conversion = faith:faith_murghuri
+		create_artifact_ny_cennacatt_tome_warfare_effect = { OWNER = root }
+		ai_chance = {	#If you have this option, you're an orc, so you should take it
+			base = 100
+		}
+	}	
+}
+
+yellow_mountain_orc.106 = {			#Secrets of the Assassins
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.106.t
+	desc = yellow_mountain_orc.106.desc
+	theme = learning
+	override_background = {
+		reference = throne_room_orc
+	}
+	left_portrait = {
+		character = root
+		animation = reading
+	}
+	
+	immediate = {
+
+	}
+	option = { #Convert
+		name = yellow_mountain_orc.106.a
+		set_character_faith_with_conversion = faith:faith_taimaraud
+		create_artifact_ny_cennacatt_tome_assassin_effect = { OWNER = root }
+	}
+	option = { #Don't Convert
+		name = yellow_mountain_orc.106.b
+		create_artifact_ny_cennacatt_tome_assassin_effect = { OWNER = root }
+	}
+	option = { #Convert to Khorahil Orc Faith
+		name = yellow_mountain_orc.106.c
+		trigger = {
+			is_orc = yes
+		}
+		set_character_faith_with_conversion = faith:faith_murghuri
+		create_artifact_ny_cennacatt_tome_assassin_effect = { OWNER = root }
+		ai_chance = {	#If you have this option, you're an orc, so you should take it
+			base = 100
+		}
+	}	
+}
+
+#### RoA Story Events ####
+#naugrim04
+yellow_mountain_orc.200 = {			#RoA Ulzog and Khorahil
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.200.t
+	desc = yellow_mountain_orc.200.desc
+	theme = learning
+	override_background = {
+		reference = throne_room_evil
+	}
+	left_portrait = {
+		character = root
+		animation = reading
+	}
+	
+	immediate = {
+
+	}
+	
+	option = { #Convert
+		name = yellow_mountain_orc.200.a
+		set_character_faith_with_conversion = faith:faith_murghuri
+		start_tributary = {
+			contract_group = tributary_subjugated
+            suzerain = character:nazgul5
+		}
+		tributary_contract_set_obligation_level = { type = default_tributary_taxes level = 1 }
+		tributary_contract_set_obligation_level = { type = default_tributary_prestige level = 2 }
+		remove_trait = content
+		add_trait = diligent
+		add_character_modifier = {
+			modifier = orcs_settling_mablad_dum
+			years = 5
+		}
+		add_character_modifier = {
+			modifier = orcs_infrastructure_support
+			years = 5
+		}
+		ai_chance = {
+			base = 100
+			modifier = { # If player is Indur, they don't submit	
+				character:nazgul4 = { is_ai = no } 
+				add = -100
+			}
+			modifier = { # If player is Khorahil, they don't submit	
+				add = -100
+				character:nazgul5 = { is_ai = no } 
+			}				
+		}
+	}
+	option = { #Don't Convert
+		name = yellow_mountain_orc.200.b
+		add_prestige = major_prestige_gain
+		set_relation_rival = {
+            target = character:nazgul5
+            reason = rival_grave_insult
+            involved_character = character:lineofulkhash6
+        }		
+	}	
+}
+
+yellow_mountain_orc.201 = {			#Petition Nazgul Decision event
+	content_source = realms_dlc
+	type = character_event
+	title = yellow_mountain_orc.201.t
+	desc = yellow_mountain_orc.201.desc
+	theme = tributary
+	override_background = {
+		reference = throne_room_evil
+	}
+	left_portrait = {
+		character = root
+		animation = beg
+	}
+	
+	immediate = {		
+		save_scope_as = orc_petitioner
+		scope:petitioned_nazgul = { 
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = yellow_mountain_orc.201.a.tt
+				left_icon = scope:petitioned_nazgul
+				right_icon = scope:orc_petitioner
+				add_piety = {
+					value = 25
+					multiply = scope:orc_petitioner.primary_title.tier
+				}			
+				add_hook = {
+					target = scope:orc_petitioner
+					type = favor_hook
+				}			
+			}
+		}		
+	}
+	option = { #Development Aid
+		name = yellow_mountain_orc.201.a
+		add_character_modifier = {
+			modifier = orcs_settling_mablad_dum
+			years = 5
+		}
+	}
+	option = { #Armies
+		name = yellow_mountain_orc.201.b
+		random_list = {
+			25 = {
+				spawn_army = {
+					uses_supply = yes
+					inheritable = no
+					name = dark_reinforcements
+					men_at_arms = {
+						type = orc_trackers
+						stacks = {
+							value = 2
+							multiply = scope:orc_petitioner.primary_title.tier
+						}
+					}
+					location = capital_province
+				}				
+			}
+			25 = {
+				spawn_army = {
+					uses_supply = yes
+					inheritable = no
+					name = dark_reinforcements
+					men_at_arms = {
+						type = orc_archers
+						stacks = {
+							value = 2
+							multiply = scope:orc_petitioner.primary_title.tier
+						}
+					}
+					location = capital_province
+				}				
+			}
+			25 = {
+				spawn_army = {
+					uses_supply = yes
+					inheritable = no
+					name = dark_reinforcements
+					men_at_arms = {
+						type = orc_warriors
+						stacks = {
+							value = 2
+							multiply = scope:orc_petitioner.primary_title.tier
+						}
+					}
+					location = capital_province
+				}				
+			}
+			25 = {
+				spawn_army = {
+					uses_supply = yes
+					inheritable = no
+					name = dark_reinforcements
+					men_at_arms = {
+						type = orc_pikemen
+						stacks = {
+							value = 2
+							multiply = scope:orc_petitioner.primary_title.tier
+						}
+					}
+					location = capital_province
+				}				
+			}
+		}		
+	}
+	option = { #Infrastructure Support
+		name = yellow_mountain_orc.201.c
+		add_character_modifier = {
+			modifier = orcs_infrastructure_support
+			years = 5
+		}		
+	}	
+}

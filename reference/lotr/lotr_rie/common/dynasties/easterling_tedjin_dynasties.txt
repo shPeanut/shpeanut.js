@@ -1,0 +1,102 @@
+﻿####################
+## Tedjin/Soriyan ##
+####################
+
+### Tejdin ###
+dynasty_joche = {
+	name = "dynn_joche"
+	culture = "tedjin"
+	motto = dynn_joche_motto
+}
+dynasty_joam_tuv = {
+	name = "dynn_joam_tuv"
+	culture = "tedjin"
+	motto = dynn_joam_tuv_motto
+}
+dynasty_thezij = {
+	name = "dynn_thezij"
+	culture = "tedjin"
+	motto = dynn_thezij_motto
+}
+dynasty_idrikhad = {
+	name = "dynn_idrikhad"
+	culture = "tedjin"
+	motto = dynn_idrikhad_motto
+}
+dynasty_igath = {
+	name = "dynn_igath"
+	culture = "tedjin"
+	motto = dynn_igath_motto
+}
+dynasty_azumenakhad = {
+	name = "dynn_azumenakhad"
+	culture = "tedjin"
+	motto = dynn_azumenakhad_motto
+}
+dynasty_driond = {
+	name = "dynn_driond"
+	culture = "tedjin"
+	motto = dynn_driond_motto
+}
+dynasty_crazkhad = {
+	name = "dynn_crazkhad"
+	culture = "tedjin"
+	motto = dynn_crazkhad_motto
+}
+dynasty_seramij = {
+	name = "dynn_seramij"
+	culture = "tedjin"
+	motto = dynn_seramij_motto
+}
+dynasty_jotaenukhad = {
+	name = "dynn_jotaenukhad"
+	culture = "tedjin"
+	motto = dynn_jotaenukhad_motto
+}
+dynasty_khureshid = {
+	name = "dynn_khureshid"
+	culture = "tedjin"
+	motto = dynn_khureshid_motto
+}
+dynasty_yavvadid = {
+	name = "dynn_yavvadid"
+	culture = "tedjin"
+	motto = dynn_yavvadid_motto
+}
+dynasty_vrazalid = {
+	name = "dynn_vrazalid"
+	culture = "tedjin"
+	motto = dynn_vrazalid_motto
+}
+
+### Soriyans ###
+dynasty_tedkazir = {
+	name = "dynn_tedkazir"
+	culture = "soriyan"
+	motto = dynn_tedkazir_motto
+}
+dynasty_mazareki = {
+	name = "dynn_mazareki"
+	culture = "soriyan"
+	motto = dynn_mazareki_motto
+}
+dynasty_surakari = {
+	name = "dynn_surakari"
+	culture = "soriyan"
+	motto = dynn_surakari_motto
+}
+dynasty_tajdor = {
+	name = "dynn_tajdor"
+	culture = "soriyan"
+	motto = dynn_tajdor_motto
+}
+dynasty_ortash = {
+	name = "dynn_ortash"
+	culture = "soriyan"
+	motto = dynn_ortash_motto	
+}
+dynasty_tarkhad = {
+	name = "dynn_tarkhad"
+	culture = "soriyan"
+	motto = dynn_tarkhad_motto
+}

@@ -1,0 +1,653 @@
+﻿beorning_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_beorning.dds"
+	}
+
+	cost = {
+		prestige = skinchange_prestige_cost
+	}
+
+	cooldown = { days = standard_skinchange_cooldown_time }
+
+	desc = beorning_decision_desc
+	selection_tooltip = beorning_decision_tooltip
+
+	decision_group_type = realms_in_exile_minor
+	
+	is_shown = {
+		is_landed = yes
+		lotr_beorning_trigger = yes
+	}
+
+	is_valid = {
+		has_trait = skinchanger
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		custom_tooltip = beorning_decision_desc_activity
+		custom_tooltip = beorning_decision_desc_benefits
+		hidden_effect = { #LotR - TODO - Commented out for ToTo compatching
+			root = {
+				if = {
+					limit = {
+						any_courtier_or_guest = {
+							is_available_healthy_ai_adult = yes
+						}
+					}
+					random_courtier = { #To make it more likely that the list EXISTS so that no errors are generated when checking for the size
+						limit = {
+							is_available_healthy_ai_adult = yes
+						}
+						root = {
+							add_to_variable_list = {
+								name = potential_beorning_participants
+								target = prev
+							}
+						}
+					}
+					every_courtier_or_guest = {
+						limit = {
+							is_available_healthy_ai_adult = yes
+							OR = {
+								is_heir_of = root
+								has_relation_rival = root
+								has_relation_lover = root
+								has_relation_friend = root
+							}
+							root = {
+								NOT = {
+									is_target_in_variable_list = {
+										name = potential_beorning_participants
+										target = prev
+									}
+								}
+							}
+						}
+						root = {
+							add_to_variable_list = {
+								name = potential_beorning_participants
+								target = prev
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						any_vassal = {
+							is_available_healthy_ai_adult = yes
+							is_of_major_interest_trigger = {
+								CHARACTER = root
+							}
+							root = {
+								NOT = {
+									is_target_in_variable_list = {
+										name = potential_beorning_participants
+										target = prev
+									}
+								}
+							}
+						}
+					}
+					every_vassal = {
+						limit = {
+							is_available_healthy_ai_adult = yes
+							is_of_major_interest_trigger = {
+								CHARACTER = root
+							}
+							root = {
+								NOT = {
+									is_target_in_variable_list = {
+										name = potential_beorning_participants
+										target = prev
+									}
+								}
+							}
+						}
+						root = {
+							add_to_variable_list = {
+								name = potential_beorning_participants
+								target = prev
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = {
+							OR = {
+								NOT = {
+									any_in_list = {
+										variable = potential_beorning_participants
+										exists = this
+									}
+								}
+								variable_list_size = {
+									name = potential_beorning_participants
+									value <= beorning_participants
+								}
+							}
+						}
+						any_vassal = {
+							is_available_healthy_ai_adult = yes
+							root = {
+								NOT = {
+									is_target_in_variable_list = {
+										name = potential_beorning_participants
+										target = prev
+									}
+								}
+							}
+						}
+					}
+					every_vassal = {
+						limit = {
+							is_available_healthy_ai_adult = yes
+							is_of_minor_interest_trigger = {
+								CHARACTER = root
+							}
+							root = {
+								NOT = {
+									is_target_in_variable_list = {
+										name = potential_beorning_participants
+										target = prev
+									}
+								}
+							}
+						}
+						alternative_limit = {
+							is_available_healthy_ai_adult = yes
+							root = {
+								NOT = {
+									is_target_in_variable_list = {
+										name = potential_beorning_participants
+										target = prev
+									}
+								}
+							}
+						}
+						root = {
+							add_to_variable_list = {
+								name = potential_beorning_participants
+								target = prev
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = {
+							OR = {
+								NOT = {
+									any_in_list = {
+										variable = potential_beorning_participants
+										exists = this
+									}
+								}
+								variable_list_size = {
+									name = potential_beorning_participants
+									value <= beorning_participants
+								}
+							}
+						}
+						any_courtier = {
+							is_available_healthy_ai_adult = yes
+							root = {
+								NOT = {
+									is_target_in_variable_list = {
+										name = potential_beorning_participants
+										target = prev
+									}
+								}
+							}
+						}
+					}
+					while = {
+						limit = {
+							root = {
+								variable_list_size = {
+									name = potential_beorning_participants
+									value <= beorning_participants
+								}
+							}
+							any_courtier = {
+								is_available_healthy_ai_adult = yes
+								root = {
+									NOT = {
+										is_target_in_variable_list = {
+											name = potential_beorning_participants
+											target = prev
+										}
+									}
+								}
+							}
+						}
+						random_courtier = {
+							limit = {
+								is_available_healthy_ai_adult = yes
+								root = {
+									NOT = {
+										is_target_in_variable_list = {
+											name = potential_beorning_participants
+											target = prev
+										}
+									}
+								}
+							}
+							root = {
+								add_to_variable_list = {
+									name = potential_beorning_participants
+									target = prev
+								}
+							}
+						}
+					}
+				}
+			}
+			trigger_event = {
+				on_action = beorning_starting_events
+			}
+		}
+	}
+
+	ai_potential = {		
+		lotr_beorning_trigger = yes
+		NOT = {
+			has_trait = lazy
+		}
+	}
+
+	ai_will_do = {
+		base = 35
+
+		ai_value_modifier = {
+			ai_boldness = 1
+			ai_greed = 0.5
+			ai_energy = 0.25
+		}
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 60
+		duchy = 60
+		kingdom = 60
+		empire = 60
+		hegemony = 60
+	}
+}
+
+decision_palantir = {
+	title = decision_palantir
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_palantir_amon_sul.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 50
+		duchy = 50
+		kingdom = 50
+		empire = 50
+		hegemony = 50
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	
+	sort_order = 10 
+	
+	cooldown = { days = 1825 }
+	
+	selection_tooltip = decision_palantir_tooltip
+	desc = decision_palantir_desc
+	confirm_text = decision_palantir_confirm
+	
+	decision_group_type = realms_in_exile_minor
+	
+	is_shown = {
+		any_character_artifact = {
+			has_variable = palantir
+		}
+		is_sauron = no
+		OR = {
+			NOT = { 
+				this = character:lineofsaruman
+			}
+			years_from_game_start > 0
+		}
+		is_in_valinor = no
+	}
+	
+	is_valid = {
+		is_imprisoned = no
+		custom_tooltip = {
+			text = decision_palantir_tt
+			any_character_artifact = {
+				has_variable = palantir
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+	
+	effect = {
+		custom_tooltip = decision_palantir_effect
+		trigger_event = {
+			id = palantir.0001
+			days = 3
+		}
+	}
+}
+
+decision_rhudaur_troll_orc_hunting = {
+	title = decision_rhudaur_troll_orc_hunting.t
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_orc_troll_hunting.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 50
+		duchy = 50
+		kingdom = 50
+		empire = 50
+		hegemony = 50
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	
+	cooldown = { days = 1750 }
+
+	desc = decision_rhudaur_troll_orc_hunting.desc
+	confirm_text = decision_rhudaur_troll_orc_hunting.a
+	
+	decision_group_type = realms_in_exile_minor
+	
+	is_shown = {
+		root = {
+			any_directly_owned_province = {
+				OR = {
+					kingdom = title:k_rhudaur
+					kingdom = title:k_imladris
+				}		
+			}
+			OR = {
+				#AND = {
+				#	is_elf = yes
+				#	is_in_valinor = no
+				#}
+				culture = { has_cultural_pillar = heritage_dunedain }
+			}
+		}
+		current_year >= 6008 # Fall of Arnor
+	}
+
+	cost = {
+		#gold = medium_gold_value
+		#piety = medium_piety_value
+	}
+
+	is_valid = {
+		is_imprisoned = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		if = {
+			limit = {
+				any_courtier_or_guest = {
+					is_available_healthy_ai_adult = yes
+					OR = {
+						is_elf = yes
+						culture = { has_cultural_pillar = heritage_dunedain }
+					}
+				}
+			}
+			every_courtier_or_guest = {
+				limit = {
+					is_available_healthy_ai_adult = yes
+					OR = {
+						is_elf = yes
+						culture = { has_cultural_pillar = heritage_dunedain }
+					}
+					OR = {
+						is_heir_of = root
+						has_relation_lover = root
+						has_relation_friend = root
+						
+					}
+					root = {
+						NOT = {
+							is_target_in_variable_list = {
+								name = potential_rhudaur_troll_orc_hunting_participants
+								target = prev
+							}
+						}
+					}
+				}
+				root = {
+					add_to_variable_list = {
+						name = potential_rhudaur_troll_orc_hunting_participants
+						target = prev
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_vassal = {
+					is_available_healthy_ai_adult = yes
+					is_of_major_interest_trigger = {
+						CHARACTER = root
+					}
+					OR = {
+						is_elf = yes
+						culture = { has_cultural_pillar = heritage_dunedain }
+					}
+					root = {
+						NOT = {
+							is_target_in_variable_list = {
+								name = potential_rhudaur_troll_orc_hunting_participants
+								target = prev
+							}
+						}
+					}
+				}
+			}
+			every_vassal = {
+				limit = {
+					is_available_healthy_ai_adult = yes
+					is_of_major_interest_trigger = {
+						CHARACTER = root
+					}
+					OR = {
+						is_elf = yes
+						culture = { has_cultural_pillar = heritage_dunedain }
+					}
+					root = {
+						NOT = {
+							is_target_in_variable_list = {
+								name = potential_rhudaur_troll_orc_hunting_participants
+								target = prev
+							}
+						}
+					}
+				}
+				root = {
+					add_to_variable_list = {
+						name = potential_rhudaur_troll_orc_hunting_participants
+						target = prev
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				root = {
+					OR = {
+						NOT = {
+							any_in_list = {
+								variable = potential_rhudaur_troll_orc_hunting_participants
+								exists = this
+							}
+						}
+						variable_list_size = {
+							name = potential_rhudaur_troll_orc_hunting_participants
+							value <= 2
+						}
+					}
+				}
+				any_vassal = {
+					is_available_healthy_ai_adult = yes
+					OR = {
+						is_elf = yes
+						culture = { has_cultural_pillar = heritage_dunedain }
+					}
+					root = {
+						NOT = {
+							is_target_in_variable_list = {
+								name = potential_rhudaur_troll_orc_hunting_participants
+								target = prev
+							}
+						}
+					}
+				}
+			}
+			every_vassal = {
+				limit = {
+					is_available_healthy_ai_adult = yes
+					OR = {
+						is_elf = yes
+						culture = { has_cultural_pillar = heritage_dunedain }
+					}
+					is_of_minor_interest_trigger = {
+						CHARACTER = root
+					}
+					root = {
+						NOT = {
+							is_target_in_variable_list = {
+								name = potential_rhudaur_troll_orc_hunting_participants
+								target = prev
+							}
+						}
+					}
+				}
+				alternative_limit = {
+					is_available_healthy_ai_adult = yes
+					OR = {
+						is_elf = yes
+						culture = { has_cultural_pillar = heritage_dunedain }
+					}
+					root = {
+						NOT = {
+							is_target_in_variable_list = {
+								name = potential_rhudaur_troll_orc_hunting_participants
+								target = prev
+							}
+						}
+					}
+				}
+				root = {
+					add_to_variable_list = {
+						name = potential_rhudaur_troll_orc_hunting_participants
+						target = prev
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				root = {
+					OR = {
+						NOT = {
+							any_in_list = {
+								variable = potential_rhudaur_troll_orc_hunting_participants
+								exists = this
+							}
+						}
+						variable_list_size = {
+							name = potential_rhudaur_troll_orc_hunting_participants
+							value <= 2
+						}
+					}
+				}
+				any_courtier = {
+					is_available_healthy_ai_adult = yes						
+					OR = {
+						is_elf = yes
+						culture = { has_cultural_pillar = heritage_dunedain }
+					}
+					root = {
+						NOT = {
+							is_target_in_variable_list = {
+								name = potential_rhudaur_troll_orc_hunting_participants
+								target = prev
+							}
+						}
+					}
+				}
+			}
+			while = {
+				limit = {
+					root = {
+						variable_list_size = {
+							name = potential_rhudaur_troll_orc_hunting_participants
+							value <= 3
+						}
+					}
+					any_courtier = {
+						is_available_healthy_ai_adult = yes
+						root = {
+							NOT = {
+								is_target_in_variable_list = {
+									name = potential_rhudaur_troll_orc_hunting_participants
+									target = prev
+								}
+							}
+						}
+					}
+				}
+				random_courtier = {
+					limit = {
+						is_available_healthy_ai_adult = yes
+						root = {
+							NOT = {
+								is_target_in_variable_list = {
+									name = potential_rhudaur_troll_orc_hunting_participants
+									target = prev
+								}
+							}
+						}
+					}
+					root = {
+						add_to_variable_list = {
+							name = potential_rhudaur_troll_orc_hunting_participants
+							target = prev
+						}
+					}
+				}
+			}
+		}
+			
+		trigger_event = {
+			id = rhudaur.1000
+			days = 20
+		}
+	}
+}

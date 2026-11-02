@@ -1,0 +1,1864 @@
+﻿### Thâni-Hazâd Decisions ###
+
+decision_anbalkumagan_empire = {
+	title = decision_anbalkumagan_empire
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_adunai_01.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_anbalkumagan_empire_tooltip
+	desc = decision_anbalkumagan_empire_desc
+	confirm_text = decision_anbalkumagan_empire_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	is_shown = {
+		culture ?= { has_cultural_pillar = heritage_southern_adunaic }
+		is_landed = yes
+		NOT = { has_title = title:e_thon_an_kharlokh }
+		OR = {
+			has_title = title:k_an_balkumagan
+			has_title = title:d_aruzayan
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:anbalkumagan_empire
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		highest_held_title_tier < tier_empire
+		prestige_level >= very_high_prestige_level
+		has_title = title:k_an_balkumagan
+		has_title = title:k_tulwang
+		has_title = title:k_kharadune
+		completely_controls = title:k_an_balkumagan
+		completely_controls = title:k_tulwang
+		completely_controls = title:k_kharadune
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_at_war = no
+		is_available_adult = yes
+	}
+
+	cost = { gold = { value = 200 } }
+
+	effect = {
+		#Create the title and make it primary
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = title_change
+			add_claim_on_loss = yes
+		}
+		title:e_anbalkumagan = {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		set_primary_title_to = title:e_anbalkumagan
+		title:k_an_balkumagan = {
+			set_de_jure_liege_title = title:e_anbalkumagan
+		}
+		title:k_tulwang = {
+			set_de_jure_liege_title = title:e_anbalkumagan
+		}
+		title:k_kharadune = {
+			set_de_jure_liege_title = title:e_anbalkumagan
+		}
+		root.capital_county = {
+			change_development_level = 3
+		}
+		title:e_thani_hazad = {
+			set_title_name = e_thani_hazad_southern_province
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:anbalkumagan_empire
+		}
+	}
+}
+
+decision_anbalkumagan_west_sirayn = {
+	title = decision_anbalkumagan_west_sirayn
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_adunai_02.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_anbalkumagan_west_sirayn_tooltip
+	desc = decision_anbalkumagan_west_sirayn_desc
+	confirm_text = decision_anbalkumagan_west_sirayn_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	is_shown = {
+		lotr_has_numenorean_culture_trigger = yes
+		is_landed = yes
+		has_title = title:e_anbalkumagan
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:anbalkumagan_west_sirayn
+			}
+		}
+	}
+
+	is_valid = {
+		prestige_level >= 5
+		completely_controls = title:k_raishoul
+		completely_controls = title:k_zajantak
+		completely_controls = title:k_poa
+		completely_controls = title:k_chennacatt
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_at_war = no
+		is_available_adult = yes
+	}
+
+	cost = { 
+		gold = 200
+		prestige = 1500
+		piety = 500
+	}
+
+	effect = {
+		title:k_raishoul = {
+			set_de_jure_liege_title = title:e_anbalkumagan
+		}
+		title:k_zajantak = {
+			set_de_jure_liege_title = title:e_anbalkumagan
+		}
+		title:k_poa = {
+			set_de_jure_liege_title = title:e_anbalkumagan
+		}
+		title:k_chennacatt = {
+			set_de_jure_liege_title = title:e_anbalkumagan
+		}
+		custom_tooltip = { # Everyone is mad - Temp efect until someone ones to make it more complicated
+			text = decision_sakal_an_khar_effect.tt
+			every_vassal_or_below = {
+				limit = {
+					NOR = {
+						culture = { has_cultural_pillar = heritage_southern_adunaic }
+						faith.religion = root.religion
+					}
+				}
+				add_opinion = {
+					modifier = angry_opinion
+					target = root
+					opinion = -100
+				}
+			}
+		}
+		custom_tooltip = { # This will be fun
+			text = all_counties_loose_control_tt
+			every_realm_county = {
+				limit = {
+					OR = {
+						this.kingdom = title:k_raishoul
+						this.kingdom = title:k_zajantak
+						this.kingdom = title:k_poa
+						this.kingdom = title:k_chennacatt
+					}
+				}
+				change_county_control = -100
+			}
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:anbalkumagan_west_sirayn
+		}
+	}
+}
+
+decision_anbalkumagan_east_sirayn = {
+	title = decision_anbalkumagan_east_sirayn
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_adunai_01.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_anbalkumagan_east_sirayn_tooltip
+	desc = decision_anbalkumagan_east_sirayn_desc
+	confirm_text = decision_anbalkumagan_east_sirayn_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	is_shown = {
+		lotr_has_numenorean_culture_trigger = yes
+		is_landed = yes
+		has_title = title:e_anbalkumagan
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:anbalkumagan_east_sirayn
+			}
+		}
+	}
+
+	is_valid = {
+		prestige_level >= 5
+		completely_controls_region = custom_anbalkumagan_sirayn
+		custom_tooltip = {
+			text = has_completed_descision_anbalkumagan_west_sirayn
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:anbalkumagan_west_sirayn
+			}
+		}
+		custom_tooltip = {
+			text = sirayn_is_pacified
+			any_county_in_region = {
+				region = custom_anbalkumagan_sirayn
+				percent >= 0.50
+				holder.top_liege = root.top_liege
+				county_control >= full_county_control
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_at_war = no
+		is_available_adult = yes
+	}
+
+	cost = { 
+		gold = 100
+		prestige = 1000
+		piety = 200
+	}
+
+	effect = {
+		title:k_kirmlesra = {
+			set_de_jure_liege_title = title:e_anbalkumagan
+		}
+		title:k_isra = {
+			set_de_jure_liege_title = title:e_anbalkumagan
+		}
+
+		give_nickname = nick_the_great_anbalkumagan
+
+		add_legitimacy = {
+			value = massive_legitimacy_gain
+			multiply = 2
+		}
+
+		dynasty ?= {
+			add_dynasty_prestige = 2500
+		}
+
+		gain_legitimizing_legend_seed_tooltip_effect = yes
+		hidden_effect = { legend_seed_great_deed_dynasty_effect = yes }
+
+		save_scope_as = root_scope
+		custom_tooltip = {
+			text = decision_anbalkumagan_east_sirayn.opinion_effect
+				every_vassal = {
+				limit = { 
+					culture = root.culture
+					faith = root.faith
+				}
+				add_opinion = {
+					target = scope:root_scope
+					modifier = admiration_opinion
+					opinion = 20
+				}
+			}
+		}
+
+		hidden_effect = {
+			if = {
+				limit = {
+					title:k_harshandatt.empire = title:e_sirayn
+				}
+				title:k_harshandatt = {
+					set_de_jure_liege_title = title:e_harshandatt
+				}
+			}
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:anbalkumagan_east_sirayn
+		}
+	}
+}
+
+decision_integrate_tulwang = {
+	title = decision_integrate_tulwang_title
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_adunai_02.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	
+	selection_tooltip = decision_integrate_tulwang_tooltip
+	desc = decision_integrate_tulwang_desc
+	confirm_text = decision_integrate_tulwang_confirm
+	
+	decision_group_type = realms_in_exile_major
+	
+	is_shown = {
+		is_landed = yes
+		OR = {
+			has_title = title:e_thani_hazad
+			# has_title = title:h_pharazain # Pharazain gets Tulwang by default.
+			has_title = title:h_numenor_in_exile
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:integrate_tulwang_decision
+			}
+		}
+	}
+	
+	is_valid = {
+		trigger_if = {
+			limit = {
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:anbalkumagan_empire
+				}
+			}
+			custom_tooltip = {
+				text = decision_integrate_tulwang_an_balkumagan_priamry_title
+				OR = {
+					primary_title = title:e_anbalkumagan
+					primary_title = title:h_pharazain
+				}
+			}
+		}
+		OR = {
+			has_title = title:e_thani_hazad
+			has_title = title:h_pharazain
+			has_title = title:h_numenor_in_exile
+		}
+		is_independent_ruler = yes
+		completely_controls = title:k_tulwang
+		prestige_level >= medium_prestige_level
+	}
+	
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+	
+	cost = { gold = { value = 200 } }
+	
+	effect = {
+		if = {
+			limit = { primary_title = title:e_anbalkumagan }
+			title:k_tulwang = { set_de_jure_liege_title = title:e_anbalkumagan }
+		}
+		else_if = {
+			#limit = { primary_title = title:e_thani_hazad }
+			title:k_tulwang = { set_de_jure_liege_title = title:e_thani_hazad }
+		} 
+#		else_if = {
+#			limit = { primary_title = title:h_pharazain }
+#			title:k_tulwang = { set_de_jure_liege_title = title:h_pharazain }
+#		}
+#		else_if = {
+#			limit = { primary_title = title:h_numenor_in_exile }
+#			title:k_tulwang = { set_de_jure_liege_title = title:h_numenor_in_exile }
+#		}
+		title:c_khorsaj = {
+			change_development_level = 2
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:integrate_tulwang_decision
+		}
+	}
+}
+
+decision_form_sea_dragon_host = {
+	title = decision_form_sea_dragon_host
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_mardruak_01.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_form_sea_dragon_host_tooltip
+	desc = decision_form_sea_dragon_host_desc
+	confirm_text = decision_form_sea_dragon_host_confirm
+	decision_group_type = realms_in_exile_major
+	
+	is_shown = {
+		faith = faith:faith_nlkum_kadir
+		highest_held_title_tier < tier_kingdom
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_form_sea_dragon_host
+			}
+		}
+	}
+	is_valid = { # rule a small realm only on the coasts and be an aclaimed and wealthy pirate
+		highest_held_title_tier < tier_kingdom
+		custom_tooltip = {
+			text = realm_size_below_15_sea_dragon_decision
+			realm_size <= 15
+		}
+		custom_tooltip = {
+			text = have_only_sea_counties_sea_dragon_decision
+			NOT = {
+				any_sub_realm_county = { is_coastal_county = no }
+			}
+		}
+		prestige_level >= high_prestige_level
+	}			
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	cost = {
+		gold = 10000
+		piety = 1000
+	}
+	effect = {
+		if = {
+			limit = {
+				is_alive = yes
+				is_landed = yes
+			}
+			house = {
+				add_house_modifier = {
+					modifier = legacy_of_sea_drakes
+				}
+			}
+			#Create the title and make it primary
+			create_title_and_vassal_change = {
+				type = created
+				save_scope_as = title_change
+				add_claim_on_loss = yes
+			}
+			title:e_sea_dragon_host = {
+				change_title_holder = {
+					holder = root
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+			set_primary_title_to = title:e_sea_dragon_host
+			root.dynasty = {
+				add_dynasty_prestige = 2000
+			}
+
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_form_sea_dragon_host
+			}
+
+			custom_tooltip = {
+				text = decision_sea_dragon_host_formation
+			}
+			add_short_term_gold = 10000
+		}
+	}
+}
+
+#######################
+## Seregul Decisions ##
+#######################
+
+decision_beat_barasi = {	
+	title = decision_beat_barasi
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_adunai_01.dds"
+	}
+	selection_tooltip = decision_beat_barasi_tooltip
+	desc = decision_beat_barasi_desc
+	confirm_text = decision_beat_barasi_confirm
+	decision_group_type = realms_in_exile_major
+
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		is_independent_ruler = yes
+		has_title = title:k_pel
+		global_var:pel_destabilized = yes
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_beat_barasi
+			}
+		}
+	}
+
+	is_valid = {
+		NOT = { 
+			character:lineofzuberi7 = {
+				has_title = title:d_barasi
+				is_independent_ruler = yes
+			}
+		}
+		OR = {
+			custom_tooltip = {
+				text = barasi_development
+				title:c_shalala.development_level <= 7
+			}
+			completely_controls = title:c_shalala
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+	}
+
+	cost = {
+		prestige = 100
+		gold = 50 
+	}
+
+	effect = {
+		custom_tooltip = beat_barasi_effect
+		if = {
+			limit = { title:c_shalala.holder = root }
+			add_prestige = 300
+			title:c_shalala.title_province = { set_holding_type = castle_holding }
+		}
+		else = {
+			title:d_barasi = {
+				create_title_and_vassal_change = {
+					type = usurped
+					save_scope_as = title_change
+					add_claim_on_loss = no
+				}
+				change_title_holder_include_vassals = {
+					holder = root
+					change = scope:title_change
+				}
+				resolve_title_and_vassal_change = scope:title_change
+			}
+		}
+		trigger_event = seregul.0005
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_beat_barasi
+		}
+	}
+}
+
+decision_beat_bandits = {	
+	title = decision_beat_bandits
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_wildmen_04.dds"
+	}
+	selection_tooltip = decision_beat_bandits_tooltip
+	desc = decision_beat_bandits_desc
+	confirm_text = decision_beat_bandits_confirm
+	decision_group_type = realms_in_exile_major
+
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		is_independent_ruler = yes
+		has_title = title:k_pel
+		global_var:pel_destabilized = yes
+		title:c_obishamba.holder = { is_independent_ruler = yes }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_beat_bandits
+			}
+			completely_controls = title:d_shanwo
+		}
+	}
+
+	is_valid = {
+		trigger_if = {
+			limit = { root = character:lineofagathohin173 }
+			OR = {
+				AND = {
+					custom_tooltip = {
+						text = focused_south
+						has_character_flag = seregul_focusing_south
+					}
+					completely_controls = title:d_barasi
+				}
+				AND = {
+					custom_tooltip = {
+						text = focused_west
+						has_character_flag = seregul_focusing_west
+					}
+					completely_controls = title:d_pel
+				}
+				AND = {
+					custom_tooltip = {
+						text = focused_east
+						has_character_flag = seregul_focusing_east
+					}
+					custom_tooltip = {
+						text = seregul_had_event
+						has_character_flag = east_event
+					}
+				}
+				AND = {
+					custom_tooltip = {
+						text = focused_everywhere
+						has_character_flag = seregul_focusing_everywhere
+					}
+					custom_tooltip = {
+						text = seregul_had_event
+						has_character_flag = east_event
+					}
+				}
+			}
+			NOT = { has_truce = title:c_obishamba.holder }
+		}
+		trigger_if = {
+			limit = { root != character:lineofagathohin173 }
+			NOT = { has_truce = title:c_obishamba.holder }
+		}
+	}
+	
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		prestige = 100
+		gold = 50 
+	}
+
+	effect = {
+		custom_tooltip = beat_bandits_effect
+		trigger_event = seregul.0102
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_beat_bandits
+		}
+	}
+}
+
+decision_beat_mag = {	
+	title = decision_beat_mag
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_yellow_mountains.dds"
+	}
+	selection_tooltip = decision_beat_mag_tooltip
+	desc = decision_beat_mag_desc
+	confirm_text = decision_beat_mag_confirm
+	decision_group_type = realms_in_exile_major
+
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		is_independent_ruler = yes
+		has_title = title:k_pel
+		global_var:pel_destabilized = yes
+		title:k_pel ?= {
+			any_de_jure_county_holder = {
+				is_independent_ruler = yes
+				culture = {
+					OR = {
+						this = culture:mag
+						any_parent_culture_or_above = { this = culture:mag }
+					}
+				}
+			}
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_beat_mag
+			}
+			completely_controls = title:d_shanwo
+		}
+	}
+
+	is_valid = {
+		trigger_if = {
+			limit = {
+				OR = {
+					title:c_obishamba.holder = {  
+						is_vassal_of = title:d_bukumagen.holder
+					}
+					title:c_obishamba.holder = title:d_bukumagen.holder
+				}
+			}
+			NOT = { has_truce = title:d_bukumagen.holder }
+		}
+		trigger_else = {
+			completely_controls = title:c_obishamba
+			NOT = { has_truce = title:d_bukumagen.holder }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		prestige = 100
+		gold = 50 
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = beat_mag_effect
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_beat_mag
+			}
+			trigger_event = seregul.0103
+		}
+	}
+}
+
+decision_beat_elves = {
+	title = decision_beat_elves
+	picture = { reference ="gfx/interface/illustrations/decisions/decision_dunland_04.dds" }
+	selection_tooltip = decision_beat_elves_tooltip
+	desc = decision_beat_elves_desc
+	confirm_text = decision_beat_elves_confirm
+	decision_group_type = realms_in_exile_major
+
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		is_independent_ruler = yes
+		has_title = title:k_pel
+		global_var:pel_destabilized = yes
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_beat_elves
+			}
+			completely_controls = title:d_pel
+		}
+	}
+
+	is_valid = {
+		trigger_if = {
+			limit = { root = character:lineofagathohin173 }
+			OR = {
+				AND = {
+					custom_tooltip = {
+						text = focused_south
+						has_character_flag = seregul_focusing_south
+					}
+					completely_controls = title:d_barasi
+				}
+				AND = {
+					custom_tooltip = {
+						text = focused_east
+						has_character_flag = seregul_focusing_east
+					}
+					completely_controls = title:d_shanwo
+				}
+				AND = {
+					custom_tooltip = {
+						text = focused_west
+						has_character_flag = seregul_focusing_west
+					}
+					custom_tooltip = {
+						text = seregul_had_event
+						has_character_flag = west_event
+					}
+				}
+				AND = {
+					custom_tooltip = {
+						text = focused_everywhere
+						has_character_flag = seregul_focusing_everywhere
+					}
+					custom_tooltip = {
+						text = seregul_had_event
+						has_character_flag = west_event
+					}
+				}
+			}
+			NOT = { has_truce = title:c_mokuba.holder }
+		}
+		trigger_if = {
+			limit = { root != character:lineofagathohin173 }
+			NOT = { has_truce = title:c_mokuba.holder }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		prestige = 100
+		gold = 50 
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = beat_elves_effect
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_beat_elves
+			}
+			trigger_event = seregul.0202
+		}
+	}
+}
+
+decision_stabilize_pel = {	# Make your vassals like you
+	title = decision_stabilize_pel
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_castle.dds"
+	}
+	selection_tooltip = decision_stabilize_pel_tooltip
+	desc = decision_stabilize_pel_desc
+	confirm_text = decision_stabilize_pel_confirm
+	decision_group_type = realms_in_exile_major
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 4
+		empire = 0
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 0
+		modifier = {
+			current_year >= 7038 
+			add = 10
+		}
+		modifier = {
+			current_year >= 7039 
+			add = 10
+		}
+		modifier = {
+			current_year >= 7040
+			add = 40
+		}
+		modifier = {
+			current_year >= 7041
+			add = 20
+		}
+		modifier = {
+			current_year >= 7042
+			add = 20
+		}
+	}
+
+	is_shown = {
+		is_independent_ruler = yes
+		has_title = title:k_pel
+		global_var:pel_destabilized = yes
+	}
+
+	is_valid = {
+	 	trigger_if = {
+	 		limit = { is_ai = yes }
+			dread >= 30
+	 	}
+	 	trigger_if = {
+	 		limit = { is_ai = no }
+			custom_tooltip = {
+				text = stabilize_pel
+				title:k_pel = {
+					any_de_jure_county_holder = {
+						count = all
+						trigger_if = {
+							limit = { is_vassal_of = root }
+							OR = {
+								opinion = {
+									target = root
+									value >= 50
+								}
+								has_dread_level_towards = {
+									target = root
+									level = 2
+								}
+							}
+						}
+					}
+				}
+			}
+			completely_controls = title:k_pel
+			prestige_level >= medium_prestige_level
+	 	}
+	}
+
+	cost = {
+		prestige = {
+			value = 0
+			if = {
+				limit = { is_ai = no }
+				add = 750
+			}
+		}
+		gold = {
+			value = 0
+			if = {
+				limit = { is_ai = no }
+				add = 100
+			}
+		}
+	}
+
+	effect = {
+		show_as_tooltip = {
+			add_character_modifier = {
+				modifier = seregul_stabilized_pel_modifier
+				years = 10
+			}
+			add_legitimacy = 1000
+			root.dynasty = { add_dynasty_prestige = 250 }
+		}
+		trigger_event = seregul.0250
+		set_global_variable = {
+			name = pel_destabilized
+			value = no
+		}
+		remove_character_modifier = pel_destabilized_modifier
+		remove_character_flag = seregul_focusing_south
+		remove_character_flag = seregul_focusing_west
+		remove_character_flag = seregul_focusing_east
+		remove_character_flag = seregul_focusing_everywhere
+		if = { 
+			limit = { is_ai = yes }
+			create_title_and_vassal_change = {
+				type = swear_fealty
+				save_scope_as = change
+			}
+			title:k_pel = {
+				every_de_jure_county_holder = {
+					limit = {
+						is_ai = yes
+						is_independent_ruler = yes
+						this != root
+					}
+					change_liege ?= {
+						liege = root
+						change = scope:change
+					}
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+			trigger_event = seregul.0256
+		}
+	}
+}
+
+decision_invade_balan_lai = {	# Seregul's folly
+	title = decision_invade_balan_lai
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/struggle_thani_hazad_dissolution.dds"
+	}
+	selection_tooltip = decision_invade_balan_lai_tooltip
+	desc = decision_invade_balan_lai_desc
+	confirm_text = decision_invade_balan_lai_confirm
+	decision_group_type = realms_in_exile_major
+
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		is_independent_ruler = yes
+		has_title = title:k_pel
+		OR = {
+			has_character_flag = accepted_stormhost
+			has_character_flag = end_of_gifts
+		}
+		NOR = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_invade_balan_lai
+			}
+			exists = global_var:seregul_exposed
+			has_title = title:d_balan_lai_leader
+		}
+	}
+	is_valid = {
+		custom_tooltip = {
+			text = invade_balan_lai.tt.a
+			has_character_flag = end_of_gifts
+		}
+		custom_tooltip = {
+			text = invade_balan_lai.tt.b
+			global_var:pel_destabilized = no
+		}
+		prestige_level >= high_prestige_level
+	}
+	cost = {
+		prestige = 2500
+	}
+	effect = {
+		random_confederation = {
+			limit = { has_variable = balan_lai_confederation }
+			remove_confederation_member = character:lineofagathohin173
+		}
+		custom_tooltip = {
+			text = start_seregul_invasion
+			trigger_event = seregul.0412
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_invade_balan_lai
+		}
+	}
+}
+
+###############################################
+## Storm Host invasion of Bellakar Decisions ##
+########### By Arnuzir ########################
+
+decision_murder_bellakar = {
+	title = decision_murder_bellakar
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_castle.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 0
+		modifier = { # If you've got the order, time to go if you're stronger
+			military_power >= title:e_bellakar.holder.military_power
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+               target = flag:recieved_murder_bellakar_order
+           }
+			add = 10
+		}
+		modifier = { # It's 12 years in (canonical in 3014)
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+                target = flag:recieved_murder_bellakar_order
+            }
+			add = 5
+		}
+		modifier = {
+			current_year >= 7050 # If it's 3017, get going already
+			add = 2
+		}
+		modifier = { # If you're way stronger, you can go early
+			military_power >= title:e_bellakar.holder.military_power.mult3
+			add = 1 # = 10 with game rule mult
+		}
+		# Game rules
+		modifier = { # Game Rule
+			has_game_rule = default_ai_behavior
+			factor = 10
+		}
+		modifier = { # Game Rule
+			has_game_rule = weighted_ai_behavior
+			factor = 8
+		}
+		modifier = { # Game Rule
+			has_game_rule = random_ai_behavior
+			factor = 5
+		}
+	}
+
+	decision_group_type = realms_in_exile_major
+	
+	is_shown = {
+		has_title = title:e_thon_an_kharlokh
+		current_year >= 6400 # Not for Khorahil Stormhost
+		top_liege = this
+		NOT = { has_title = title:e_bellakar }
+		exists = title:e_bellakar.holder
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_murder_bellakar
+			}
+		}
+	}
+
+	is_valid = {
+		NOT = { has_truce = title:e_bellakar.holder }
+		NOT = { is_allied_to = title:e_bellakar.holder }
+	}
+	
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_in_debt = no
+	}
+
+	cost = {
+		prestige = {
+			if = {
+				limit = { is_ai = no }
+				value = 1000
+			}
+			else = {
+				value = 0
+			}
+		}
+		piety = {
+			if = {
+				limit = { is_ai = no }
+				value = 500
+			}
+			else = {
+				value = 0
+			}
+		}
+		gold = {
+			if = {
+				limit = { is_ai = no }
+				value = 250
+			}
+			else = {
+				value = 0
+			}
+		}
+	}
+
+	effect = {
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_murder_bellakar
+		}
+		start_war = {
+			casus_belli = invade_bellakar_cb
+			target = title:e_bellakar.holder
+			target_title = title:e_bellakar
+		}
+		root = { trigger_event = { id = lotr_thani_hazad.2010 days = { 210 365 }  } }
+	}
+}
+
+## Imrazôr event chain capstone decision ##
+decision_summon_princes_imrazor = {	
+	title = decision_summon_princes_imrazor
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_call_meeting_of_the_balan_lai.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	selection_tooltip = decision_summon_princes_imrazor_tooltip
+	desc = decision_summon_princes_imrazor_desc
+	confirm_text = decision_summon_princes_imrazor_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	is_shown = {
+		has_trait = balan_lai_member
+		has_character_flag = abduct_seregul
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_summon_princes_imrazor
+			}
+		}
+	}
+
+	is_valid = {
+		is_imprisoned = no
+	}
+
+	effect = {
+		custom_tooltip = decision_summon_princes_imrazor.tt
+		custom_tooltip = imrazor_vote_in_favour
+		custom_tooltip = imrazor_vote_against
+		trigger_event = lotr_thani_hazad.3022 # The Great Council
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_summon_princes_imrazor
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+## Derei decisions ##
+decision_seek_the_princes = {
+	title = decision_seek_the_princes
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_ask_to_join_balan_lai.dds"
+	}
+
+	selection_tooltip = decision_seek_the_princes_tooltip
+	desc = decision_seek_the_princes_desc
+	confirm_text = decision_seek_the_princes_confirm
+	decision_group_type = realms_in_exile_major
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 1
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		is_confederation_member = yes # Temp fix while exiting the confed doesn't remove the Balan Lai trait
+		has_trait = balan_lai_member
+		has_title = title:d_gimileth
+		has_character_flag = derei_riddle
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		custom_tooltip = decision_seek_the_princes_tt
+		if = {
+			limit = { has_character_flag = met_daroc }
+			set_variable = cannot_cancel_travel
+			start_travel_plan = { # Last Journey
+				destination = title:c_arpel.title_province
+				destination = title:c_mispir.title_province
+				players_use_planner = no
+				on_arrival_on_action = derei_lasttrip_on_action
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = met_imrazor }
+			set_variable = cannot_cancel_travel
+			start_travel_plan = { # Journey to the North
+				destination = title:c_azarideth.title_province
+				destination = title:c_inzilloni.title_province
+				destination = title:c_holzoreth.title_province
+				players_use_planner = no
+				on_arrival_on_action = derei_north_on_action
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = met_phorakon }
+			set_variable = cannot_cancel_travel
+			start_travel_plan = { # Zimrathani journey
+				destination = title:c_karasalas.title_province
+				destination = title:c_alsarias.title_province
+				players_use_planner = no
+				on_arrival_on_action = derei_zimrathani_on_action
+			}
+		}
+		else = {
+			set_variable = cannot_cancel_travel
+			start_travel_plan = { # Meet Phorakon
+				destination = title:c_uruloni.title_province
+				players_use_planner = no
+				on_arrival_event = derei.1002
+			}
+		}
+	}
+	cooldown = { months = 6 }
+}
+
+decision_convince_the_princes = {
+	title = decision_convince_the_princes
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_ask_to_join_balan_lai.dds"
+	}
+
+	selection_tooltip = decision_convince_the_princes_tooltip
+	desc = decision_convince_the_princes_desc
+	confirm_text = decision_convince_the_princes_confirm
+	decision_group_type = realms_in_exile_major
+	
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 75
+	}
+	cost = {
+		prestige = 500
+		piety = 1000
+	}
+	is_shown = {
+		is_confederation_member = yes # Temp fix while exiting the confed doesn't remove the Balan Lai trait
+		has_trait = balan_lai_member
+		has_faith = faith:faith_gimileth
+		has_character_flag = derei_plans
+	}
+	is_valid = {
+		custom_tooltip = {
+			text = convince_is_valid
+			confederation = {
+				any_confederation_member = {
+					NOR = {
+						this = root
+        	            has_faith = faith:faith_gimileth
+						is_adult = no
+					    has_character_flag = refused_conversion
+					}
+				}
+			}
+		}
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+	effect = {
+		custom_tooltip = decision_convince_the_princes_tt
+		trigger_event = derei.1021
+	}
+	cooldown = { months = 6 }
+}
+
+decision_reform_kharadunai = {
+	title = decision_reform_kharadunai
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_ask_to_join_balan_lai.dds"
+	}
+
+	selection_tooltip = decision_reform_kharadunai_tooltip
+	desc = decision_reform_kharadunai_desc
+	confirm_text = decision_reform_kharadunai_confirm
+	decision_group_type = realms_in_exile_major
+	
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	cost = {
+		prestige = 5000
+	}
+	should_create_alert = {
+		has_title = title:d_balan_lai_leader
+	}
+	is_shown = {
+		is_confederation_member = yes # Temp fix while exiting the confed doesn't remove the Balan Lai trait
+		culture = { has_cultural_tradition = tradition_kharadunai }
+		has_trait = balan_lai_member
+		has_faith = faith:faith_gimileth
+		has_character_flag = derei_plans
+	}
+	is_valid = {
+		has_title = title:d_balan_lai_leader
+		custom_tooltip = {
+			text = balan_lai_reform_princes_percentage
+			confederation = {
+				any_confederation_member = {
+					percent >= 0.75
+					has_faith = faith:faith_gimileth
+				}
+			}
+		}
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+	effect = {
+		show_as_tooltip = {
+			root.dynasty = { add_dynasty_prestige = 500 }
+        	culture = {
+				remove_culture_tradition = tradition_kharadunai
+				add_culture_tradition = tradition_reformed_kharadunai
+			}
+		}
+		trigger_event = derei.1026
+	}
+}
+
+###########################
+# 8th Princedom Decisions #
+###########################
+
+decision_tame_the_land = {
+	title = decision_tame_the_land
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_castle_02.dds"
+	}
+
+	selection_tooltip = decision_tame_the_land_tooltip
+	desc = decision_tame_the_land_desc
+	confirm_text = decision_tame_the_land_confirm
+	decision_group_type = realms_in_exile_major
+	
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	is_shown = {
+		any_owned_story ?= { type = story_cycle_azrathani_expedition }
+	}
+	is_valid = {
+		custom_tooltip = {
+			text = full_native_acceptance
+			any_owned_story = {
+				type = story_cycle_azrathani_expedition
+				this.var:native_acceptance = 10
+			}
+		}
+		custom_tooltip = {
+			text = no_debts
+			title:c_gidwama = {
+				this.var:debt_karasalas <= 0
+				this.var:debt_alsarias <= 0
+				this.var:debt_gimileth <= 0
+				this.var:debt_gimilthani <= 0
+				this.var:debt_pel <= 0
+				this.var:debt_inzilloni <= 0
+			}
+		}
+		completely_controls = title:d_metkharan
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_at_war = no
+	}
+	cost = {
+		prestige = 5000
+	}
+	effect = {
+		show_as_tooltip = {
+			add_prestige = 1000
+			root.dynasty = { add_dynasty_prestige = 250 }
+			remove_trait = expeditionary
+			custom_tooltip = {
+				text = ends_azrathani_story
+				random_owned_story = {
+					type = story_cycle_azrathani_expedition
+					end_story = yes
+				}
+			}
+		}
+		trigger_event = azrathani.011
+	}
+}
+
+decision_explore_azrathani = {
+	title = decision_explore_azrathani
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dol_guldur_subjugate_mount_gundabad.dds"
+	}
+
+	selection_tooltip = decision_explore_azrathani_tooltip
+	desc = decision_explore_azrathani_desc
+	confirm_text = decision_explore_azrathani_confirm
+	decision_group_type = realms_in_exile_minor
+	
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		has_trait = expeditionary
+		OR = {
+			AND = {
+				root = character:lineofziranihin3
+				has_character_flag = surveyed_the_land
+			}
+			root = character:lineofziranihin4
+		}
+	}
+	is_valid = { always = yes }
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	effect = {
+		trigger_event = azrathani.201
+	}
+	cooldown = { months = 6 }
+}
+
+decision_seek_debt = {
+	title = decision_seek_debt
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_adunai_01.dds"
+	}
+
+	selection_tooltip = decision_seek_debt_tooltip
+	desc = decision_seek_debt_desc
+	confirm_text = decision_seek_debt_confirm
+	decision_group_type = realms_in_exile_minor
+	
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 10
+		modifier = {
+			add = 10
+			gold <= 250
+		}
+		modifier = {
+			add = 20
+			gold <= 150
+		}
+		modifier = {
+			add = 20
+			gold <= 100
+		}
+		modifier = {
+			add = 20
+			gold <=50
+		}
+		modifier = {
+			add = 20
+			gold <= 0
+		}
+		modifier = {
+			add = -30
+			yearly_character_income <= total_yearly_interest
+		}
+		modifier = {
+			add = -70
+			yearly_character_income <= { value = total_yearly_interest divide = 2 }
+		}
+	}
+
+	is_shown = {
+		any_owned_story = { type = story_cycle_azrathani_expedition }
+		has_character_flag = can_loan
+	}
+	is_valid = { always = yes }
+	is_valid_showing_failures_only = { is_imprisoned = no }
+	effect = {
+		custom_tooltip = interest_breakdown
+		custom_tooltip = bankruptcy_alert
+		trigger_event = azrathani.308
+	}
+	cooldown = { months = 12 }
+}
+
+decision_repay_debt = {
+	title = decision_repay_debt
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_adunai_01.dds"
+	}
+
+	selection_tooltip = decision_repay_debt_tooltip
+	desc = decision_repay_debt_desc
+	confirm_text = decision_repay_debt_confirm
+	decision_group_type = realms_in_exile_minor
+	
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 50
+		modifier = {
+			add = -10
+			gold <= 250
+		}
+		modifier = {
+			add = -20
+			gold <= 150
+		}
+		modifier = {
+			add = -20
+			gold <= 100
+		}
+		modifier = {
+			add = -20
+			gold <=50
+		}
+		modifier = {
+			add = -20
+			gold <= 0
+		}
+		modifier = {
+			add = 50
+			yearly_character_income <= total_yearly_interest
+		}
+		modifier = {
+			add = 50
+			yearly_character_income <= { value = total_yearly_interest divide = 2 }
+		}
+	}
+
+	is_shown = { any_owned_story = { type = story_cycle_azrathani_expedition } }
+
+	is_valid = {
+		trigger_if = {
+			limit = { title:c_gidwama.var:debt_karasalas > 0 }
+			custom_tooltip = debt_karasalas
+		}
+		trigger_if = {
+			limit = { title:c_gidwama.var:debt_alsarias > 0 }
+			custom_tooltip = debt_alsarias
+		}
+		trigger_if = {
+			limit = { title:c_gidwama.var:debt_gimileth > 0 }
+			custom_tooltip = debt_gimileth
+		}
+		trigger_if = {
+			limit = { title:c_gidwama.var:debt_gimilthani > 0 }
+			custom_tooltip = debt_gimilthani
+		}
+		trigger_if = {
+			limit = { title:c_gidwama.var:debt_pel > 0 }
+			custom_tooltip = debt_pel
+		}
+		trigger_if = {
+			limit = { title:c_gidwama.var:debt_inzilloni > 0 }
+			custom_tooltip = debt_inzilloni
+		}
+	}
+	is_valid_showing_failures_only = { is_imprisoned = no }
+	effect = {
+		custom_tooltip = bankruptcy_alert
+		trigger_event = azrathani.301
+	}
+}
+
+### Balan-lai decisions ###
+decision_ask_to_join_balan_lai = {	
+	title = decision_ask_to_join_balan_lai
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_ask_to_join_balan_lai.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	selection_tooltip = decision_ask_to_join_balan_lai_tooltip
+	desc = decision_ask_to_join_balan_lai_desc
+	confirm_text = decision_ask_to_join_balan_lai_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	is_shown = {
+		capital_province ?= { geographical_region = middleearth_thani_hazad_struggle_region }
+		OR = { # Kharadunaim or Kharadunaim-descendant
+			culture = culture:kharadunaim
+			culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
+		}
+		NOT = { has_trait = balan_lai_member }
+		is_landless_adventurer = no
+		any_confederation = { has_variable = balan_lai_confederation }
+	}
+
+	is_valid = {
+		capital_province ?= { geographical_region = middleearth_thani_hazad_struggle_region }
+		OR = { # Kharadunaim or Kharadunaim-descendant
+			culture = culture:kharadunaim
+			custom_tooltip = {
+				text = decision_ask_to_join_balan_lai_culture_derived_from_kharadunaim
+				culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
+			}
+		}
+		is_independent_ruler = yes
+		is_confederation_member = no
+		custom_tooltip = {
+			text = decision_ask_to_join_balan_lai_mispir_not_in_realm
+			NOT = { any_realm_county = { this = title:c_mispir } }
+		}
+		any_confederation = {
+			custom_tooltip = {
+				text = decision_ask_to_join_balan_lai_confederation_exists
+				has_variable = balan_lai_confederation
+			}
+			any_confederation_member = {
+				percent > 0.5
+				opinion = {
+					target = root
+					value > 50
+				}
+			}
+		}
+	}
+	is_valid_showing_failures_only = {
+		NOT = { has_trait = expeditionary } # 8th Princedom content
+	}
+	cost = {
+		gold = {
+			value = 150
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+		prestige = {
+			value = 300
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_ask_to_join_balan_lai_effect
+		custom_tooltip = decision_ask_to_join_balan_lai_effect2
+		save_scope_as = potential_joiner
+		random_confederation = {
+			limit = { has_variable = balan_lai_confederation }
+			random_confederation_member = { trigger_event = lotr_thani_hazad.9010 }
+		}
+	}
+
+	cooldown = { years = 10 }
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}

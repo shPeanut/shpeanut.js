@@ -1,0 +1,6865 @@
+﻿####################################
+####################################
+########## EASTERN ADUNAI ##########
+####################################
+####################################
+
+# Azul Ephalaim
+# The Númenóreans of the Far East and anarikean
+
+lineofbalakhorin0 = {
+	name = Sakulba_a_r
+	dynasty = dynasty_balakhorin
+	religion = faith_kings_men_numenorean
+	culture = east_adunai_colonial
+	sexuality = heterosexual
+
+	diplomacy = 14
+	martial = 14
+	stewardship = 3
+	intrigue = 2
+	learning = 4
+	prowess = 15
+
+	trait = blood_of_numenor_6
+	trait = cynical
+	trait = just
+	trait = diligent
+	trait = lifestyle_mariner
+	trait = born_on_numenor
+
+	3849.2.23 = {
+		birth = yes
+	}
+	3911.1.1 = {
+		give_nickname = nick_the_last_lord_admiral
+		effect = {
+			add_character_flag = had_nickname_event
+		}
+	}
+	3896.7.1 = {
+		add_spouse = lineofbalakhorin0wife
+	}
+	3913.1.1 = {
+		culture = anarikean
+		religion = faith_iarandel
+	}
+	4055.7.4 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+lineofbalakhorin0wife = {
+	name = Nardu_u_phe_e_l
+	female = yes
+	religion = faith_kings_men_numenorean
+	culture = east_adunai_colonial
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_6
+	trait = born_on_numenor
+
+	3846.10.18 = {
+		birth = yes
+	}
+	3913.1.1 = {
+		culture = anarikean
+		religion = faith_iarandel
+	}
+	4052.7.4 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+
+lineofbalakhorinold3 = {
+	name = Ni_i_llu_u_hin
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorin0
+	mother = lineofbalakhorin0wife
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_6
+
+	trait = brave
+	trait = gregarious
+	trait = honest
+
+	diplomacy = 7
+	martial = 5
+	stewardship = 10
+	intrigue = 1
+	learning = 3
+	prowess = 5
+
+	trait = education_stewardship_4
+	3958.7.18 = {
+		birth = yes
+	}
+
+	3959.12.26 = {
+		give_nickname = nick_the_affable # temp will replace
+		effect = {
+			add_character_flag = had_nickname_event
+		}
+	}
+
+	4012.2.4 = {
+		add_spouse = lineofbalakhorinold4
+	}
+
+	4155.3.12 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold4 = {
+	name = Dinbanu
+	female = yes
+
+	religion = faith_iarandel
+	culture = khyan
+
+	sexuality = heterosexual
+
+
+	trait = shy
+	trait = calm
+	trait = temperate
+
+	trait = beauty_good_3
+
+	diplomacy = 3
+	martial = 3
+	stewardship = 10
+	intrigue = 4
+	learning = 3
+	prowess = 8
+
+	trait = education_stewardship_4
+
+	3958.5.2 = {
+		birth = yes
+	}
+
+	4155.1.17 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold5 = {
+	name = Ni_i_llu_u_phe_e_l
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold3
+	mother = lineofbalakhorinold4
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_6
+
+	trait = wrathful
+	trait = arrogant
+	trait = stubborn
+
+	diplomacy = 4
+	martial = 8
+	stewardship = 3
+	intrigue = 6
+	learning = 3
+	prowess = 3
+
+	trait = education_martial_3
+
+	4018.4.25 = {
+		birth = yes
+	}
+
+	4212.10.22 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold6 = {
+	name = Minrabet
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold3
+	mother = lineofbalakhorinold4
+
+	sexuality = homosexual
+
+	trait = blood_of_numenor_6
+
+	trait = content
+	trait = impatient
+	trait = fickle
+
+	diplomacy = 3
+	martial = 9
+	stewardship = 5
+	intrigue = 6
+	learning = 4
+	prowess = 3
+
+	trait = education_martial_3
+
+	4015.1.2 = {
+		birth = yes
+	}
+
+	4208.11.20 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold7 = {
+	name = Imrakor
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold3
+	mother = lineofbalakhorinold4
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_6
+
+	trait = brave
+	trait = gregarious
+	trait = zealous
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 4
+	intrigue = 5
+	learning = 3
+	prowess = 5
+
+	trait = education_martial_2
+
+	4012.2.12 = {
+		birth = yes
+	}
+
+	4068.11.10 = {
+		add_spouse = lineofbalakhorinold8
+	}
+
+	4215.6.26 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold8 = {
+	name = Nardru_u_zorea
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = bisexual
+
+	trait = blood_of_numenor_6
+
+	trait = brave
+	trait = stubborn
+	trait = generous
+
+	diplomacy = 2
+	martial = 6
+	stewardship = 3
+	intrigue = 6
+	learning = 4
+	prowess = 3
+
+	trait = education_martial_4
+
+	4012.10.25 = {
+		birth = yes
+	}
+
+	4203.6.20 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold9 = {
+	name = Aduanasi
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold7
+	mother = lineofbalakhorinold8
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_6
+
+	trait = calm
+	trait = impatient
+	trait = vengeful
+
+	diplomacy = 5
+	martial = 8
+	stewardship = 1
+	intrigue = 4
+	learning = 2
+	prowess = 3
+
+	trait = education_martial_2
+
+	4068.10.16 = {
+		birth = yes
+	}
+
+	4118.6.14 = {
+		add_spouse = lineofbalakhorinold10
+	}
+
+	4267.7.11 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold10 = {
+	name = Mu_u_raphe_e_l
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_6
+
+	trait = gregarious
+	trait = gluttonous
+	trait = brave
+
+	diplomacy = 3
+	martial = 7
+	stewardship = 4
+	intrigue = 4
+	learning = 2
+	prowess = 6
+
+	trait = education_martial_4
+
+	4066.9.5 = {
+		birth = yes
+	}
+
+	4238.5.21 = {
+		death = { death_reason = death_consumption }
+	}
+}
+
+lineofbalakhorinold11 = {
+	name = Nargusi
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold9
+	mother = lineofbalakhorinold10
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_6
+
+	trait = vengeful
+	trait = generous
+	trait = chaste
+
+	diplomacy = 2
+	martial = 7
+	stewardship = 2
+	intrigue = 8
+	learning = 2
+	prowess = 5
+
+	trait = education_intrigue_2
+
+	4119.12.24 = {
+		birth = yes
+	}
+
+	4165.10.11 = {
+		add_spouse = lineofbalakhorinold12
+	}
+
+	4250.9.25 = {
+		death = { death_reason = death_beaten }
+	}
+}
+
+lineofbalakhorinold12 = {
+	name = Gimilkkalea
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_6
+
+	trait = arrogant
+	trait = content
+	trait = craven
+
+	diplomacy = 1
+	martial = 5
+	stewardship = 6
+	intrigue = 4
+	learning = 3
+	prowess = 5
+
+	trait = education_stewardship_2
+
+	4119.1.1 = {
+		birth = yes
+	}
+
+	4323.7.4 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold13 = {
+	name = Gimilinzea
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold9
+	mother = lineofbalakhorinold10
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_6
+
+	trait = trusting
+	trait = honest
+	trait = patient
+
+	diplomacy = 7
+	martial = 6
+	stewardship = 4
+	intrigue = 2
+	learning = 5
+	prowess = 5
+
+	trait = education_diplomacy_4
+
+	4120.9.18 = {
+		birth = yes
+	}
+
+	4228.8.4 = {
+		death = { death_reason = death_consumption }
+	}
+}
+
+lineofbalakhorinold14 = {
+	name = Karahil
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold7
+	mother = lineofbalakhorinold8
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_6
+
+	trait = lazy
+	trait = wrathful
+	trait = vengeful
+
+	diplomacy = 3
+	martial = 12
+	stewardship = 2
+	intrigue = 1
+	learning = 3
+	prowess = 5
+
+	trait = education_martial_4
+
+	4069.11.20 = {
+		birth = yes
+	}
+
+	4265.8.23 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold15 = {
+	name = Nimruzi_i_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold7
+	mother = lineofbalakhorinold8
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_6
+
+	trait = gluttonous
+	trait = arrogant
+	trait = just
+
+	diplomacy = 3
+	martial = 6
+	stewardship = 4
+	intrigue = 6
+	learning = 2
+	prowess = 5
+
+	trait = education_martial_3
+
+	4070.8.16 = {
+		birth = yes
+	}
+
+	4115.3.20 = {
+		add_spouse = lineofbalakhorinold16
+	}
+
+	4276.8.24 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold16 = {
+	name = Azrubreya
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_6
+
+	trait = generous
+	trait = lustful
+	trait = deceitful
+
+	diplomacy = 4
+	martial = 7
+	stewardship = 7
+	intrigue = 4
+	learning = 3
+	prowess = 4
+
+	trait = education_martial_1
+
+	4070.7.25 = {
+		birth = yes
+	}
+
+	4276.1.2 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold17 = {
+	name = Minulzor
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold15
+	mother = lineofbalakhorinold16
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_6
+
+	trait = paranoid
+	trait = vengeful
+	trait = chaste
+
+	diplomacy = 5
+	martial = 7
+	stewardship = 6
+	intrigue = 3
+	learning = 6
+	prowess = 3
+
+	trait = education_martial_4
+
+	4118.12.9 = {
+		birth = yes
+	}
+
+	4166.2.22 = {
+		add_spouse = lineofbalakhorinold18
+	}
+
+	4247.11.12 = {
+		death = { death_reason = death_horse_riding_accident  }
+	}
+}
+
+lineofbalakhorinold18 = {
+	name = Do_o_lguphe_e_l
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_6
+
+	trait = vengeful
+	trait = calm
+	trait = brave
+
+	diplomacy = 5
+	martial = 7
+	stewardship = 4
+	intrigue = 4
+	learning = 4
+	prowess = 6
+
+	trait = education_martial_3
+
+	4118.7.1 = {
+		birth = yes
+	}
+
+	4241.1.16 = {
+		death = { death_reason = death_torture  }
+	}
+}
+
+lineofbalakhorinold19 = {
+	name = Bawabe_e_th
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold15
+	mother = lineofbalakhorinold16
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_6
+
+	trait = craven
+	trait = humble
+	trait = just
+
+	diplomacy = 1
+	martial = 6
+	stewardship = 4
+	intrigue = 4
+	learning = 9
+	prowess = 7
+
+	trait = education_learning_3
+
+	4121.9.14 = {
+		birth = yes
+	}
+
+	4325.6.7 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold20 = {
+	name = Adabet
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold15
+	mother = lineofbalakhorinold16
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_6
+
+	trait = fickle
+	trait = compassionate
+	trait = calm
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 2
+	intrigue = 3
+	learning = 2
+	prowess = 5
+
+	trait = education_martial_4
+
+	4122.11.28 = {
+		birth = yes
+	}
+
+	4312.2.7 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+
+lineofbalakhorinold22 = {
+	name = Go_o_dratho_o_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold15
+	mother = lineofbalakhorinold16
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = content
+	trait = just
+	trait = honest
+
+	diplomacy = 7
+	martial = 5
+	stewardship = 5
+	intrigue = 10
+	learning = 3
+	prowess = 5
+
+	trait = education_diplomacy_2
+
+	4163.2.27 = {
+		birth = yes
+	}
+
+	4164.6.10 = {
+		give_nickname = nick_the_honest
+		effect = {
+			add_character_flag = had_nickname_event
+		}
+	}
+
+	4206.3.16 = {
+		add_spouse = lineofbalakhorinold23
+	}
+
+	4351.5.27 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold23 = {
+	name = Balde_e_ri_i_
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = shy
+	trait = calm
+	trait = temperate
+
+	diplomacy = 3
+	martial = 3
+	stewardship = 3
+	intrigue = 4
+	learning = 3
+	prowess = 8
+
+	trait = education_intrigue_4
+
+	4161.10.16 = {
+		birth = yes
+	}
+
+	4331.12.20 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold24 = {
+	name = Va_a_trazami_i_n
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold22
+	mother = lineofbalakhorinold23
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = wrathful
+	trait = arrogant
+	trait = stubborn
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 5
+	intrigue = 3
+	learning = 3
+	prowess = 5
+
+	trait = education_martial_1
+
+	4208.7.21 = {
+		birth = yes
+	}
+
+	4249.9.2 = {
+		add_spouse = lineofbalakhorinold25
+	}
+
+	4383.7.8 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold25 = {
+	name = I_I_shtrazimbel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = impatient
+	trait = fickle
+	trait = ambitious
+
+	diplomacy = 7
+	martial = 7
+	stewardship = 5
+	intrigue = 5
+	learning = 2
+	prowess = 5
+
+	trait = education_diplomacy_3
+
+	4207.6.12 = {
+		birth = yes
+	}
+
+	4384.7.17 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold26 = {
+	name = Abrazu_u_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold24
+	mother = lineofbalakhorinold25
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = gregarious
+	trait = zealous
+	trait = stubborn
+
+	diplomacy = 4
+	martial = 7
+	stewardship = 4
+	intrigue = 4
+	learning = 4
+	prowess = 4
+
+	trait = education_martial_1
+
+	4249.4.13 = {
+		birth = yes
+	}
+
+	4297.1.23 = {
+		add_spouse = lineofbalakhorinold27
+	}
+
+	4433.2.26 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold27 = {
+	name = Sinrihil
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = stubborn
+	trait = generous
+	trait = wrathful
+
+	diplomacy = 4
+	martial = 5
+	stewardship = 5
+	intrigue = 5
+	learning = 2
+	prowess = 8
+
+	trait = education_martial_3
+
+	4247.8.2 = {
+		birth = yes
+	}
+
+	4433.9.23 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold28 = {
+	name = Urduzi_i_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold26
+	mother = lineofbalakhorinold27
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = impatient
+	trait = vengeful
+	trait = honest
+
+	diplomacy = 1
+	martial = 5
+	stewardship = 2
+	intrigue = 3
+	learning = 3
+	prowess = 3
+
+	trait = education_martial_1
+
+	4297.7.20 = {
+		birth = yes
+	}
+
+	4346.6.16 = {
+		add_spouse = lineofbalakhorinold29
+	}
+
+	4485.8.14 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold29 = {
+	name = Izindahil
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = gluttonous
+	trait = brave
+	trait = chaste
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 3
+	intrigue = 3
+	learning = 5
+	prowess = 8
+
+	trait = education_martial_3
+
+	4296.8.26 = {
+		birth = yes
+	}
+
+	4483.3.13 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold30 = {
+	name = Ni_i_llu_u_phe_e_l
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold28
+	mother = lineofbalakhorinold29
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = vengeful
+	trait = generous
+	trait = chaste
+
+	diplomacy = 3
+	martial = 3
+	stewardship = 5
+	intrigue = 3
+	learning = 7
+	prowess = 3
+
+	trait = education_learning_2
+
+	4346.4.2 = {
+		birth = yes
+	}
+
+	4525.6.22 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold31 = {
+	name = Azruphe_e_l
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold28
+	mother = lineofbalakhorinold29
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = content
+	trait = arrogant
+	trait = craven
+
+	diplomacy = 1
+	martial = 5
+	stewardship = 6
+	intrigue = 4
+	learning = 3
+	prowess = 5
+
+	trait = education_stewardship_2
+
+	4347.7.12 = {
+		birth = yes
+	}
+
+	4517.7.2 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold32 = {
+	name = Go_o_rdahil
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold28
+	mother = lineofbalakhorinold29
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = trusting
+	trait = honest
+	trait = patient
+
+	diplomacy = 7
+	martial = 6
+	stewardship = 4
+	intrigue = 2
+	learning = 5
+	prowess = 5
+
+	trait = education_diplomacy_4
+
+	4348.9.14 = {
+		birth = yes
+	}
+
+	4472.8.6 = {
+		death = { death_reason = death_consumption }
+	}
+}
+
+lineofbalakhorinold33 = {
+	name = I_I_rpa_a_n
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold28
+	mother = lineofbalakhorinold29
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = lazy
+	trait = wrathful
+	trait = vengeful
+
+	diplomacy = 10
+	martial = 4
+	stewardship = 1
+	intrigue = 4
+	learning = 4
+	prowess = 8
+
+	trait = education_diplomacy_3
+
+	4343.7.19 = {
+		birth = yes
+	}
+
+	4393.2.27 = {
+		add_spouse = lineofbalakhorinold34
+	}
+
+	4520.12.25 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold34 = {
+	name = Aduanafel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = arrogant
+	trait = just
+	trait = sadistic
+
+	diplomacy = 3
+	martial = 6
+	stewardship = 4
+	intrigue = 6
+	learning = 2
+	prowess = 5
+
+	trait = education_martial_3
+
+	4348.12.22 = {
+		birth = yes
+	}
+
+	4528.11.25 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold35 = {
+	name = Narduzi_i_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold33
+	mother = lineofbalakhorinold34
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = generous
+	trait = lustful
+	trait = deceitful
+
+	diplomacy = 5
+	martial = 8
+	stewardship = 3
+	intrigue = 4
+	learning = 3
+	prowess = 3
+
+	trait = education_martial_3
+
+	4395.4.27 = {
+		birth = yes
+	}
+
+	4443.10.6 = {
+		add_spouse = lineofbalakhorinold36
+	}
+
+	4582.8.25 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold36 = {
+	name = Muarafel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = paranoid
+	trait = vengeful
+	trait = chaste
+
+	diplomacy = 5
+	martial = 8
+	stewardship = 5
+	intrigue = 7
+	learning = 2
+	prowess = 7
+
+	trait = education_martial_2
+
+	4394.1.17 = {
+		birth = yes
+	}
+
+	4574.4.20 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold37 = {
+	name = Gimilzo
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold33
+	mother = lineofbalakhorinold34
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = stubborn
+	trait = vengeful
+	trait = calm
+
+	diplomacy = 2
+	martial = 3
+	stewardship = 5
+	intrigue = 5
+	learning = 4
+	prowess = 4
+
+	trait = education_stewardship_3
+
+	4396.7.12 = {
+		birth = yes
+	}
+
+	4444.12.20 = {
+		add_spouse = lineofbalakhorinold38
+	}
+
+	4512.1.3 = {
+		death = { death_reason = death_battle }
+	}
+}
+
+lineofbalakhorinold38 = {
+	name = Morbe_e_
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = zealous
+	trait = patient
+	trait = craven
+
+	diplomacy = 5
+	martial = 8
+	stewardship = 1
+	intrigue = 5
+	learning = 4
+	prowess = 4
+
+	trait = education_martial_4
+
+	4396.2.6 = {
+		birth = yes
+	}
+
+	4574.6.20 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold39 = {
+	name = Artaryg
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold26
+	mother = lineofbalakhorinold27
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = arbitrary
+	trait = content
+	trait = fickle
+
+	diplomacy = 7
+	martial = 4
+	stewardship = 5
+	intrigue = 4
+	learning = 2
+	prowess = 3
+
+	trait = education_diplomacy_1
+
+	4298.2.20 = {
+		birth = yes
+	}
+
+	4338.9.14 = {
+		add_spouse = lineofbalakhorinold40
+	}
+
+	4472.9.20 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold40 = {
+	name = Misindufel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = generous
+	trait = callous
+	trait = lustful
+
+	diplomacy = 4
+	martial = 6
+	stewardship = 3
+	intrigue = 5
+	learning = 2
+	prowess = 5
+
+	trait = education_martial_4
+
+	4296.2.16 = {
+		birth = yes
+	}
+
+	4474.11.6 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold41 = {
+	name = Bahlgumagan
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold39
+	mother = lineofbalakhorinold40
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = forgiving
+	trait = just
+	trait = brave
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 2
+	intrigue = 4
+	learning = 3
+	prowess = 7
+
+	trait = education_martial_1
+
+	4339.10.22 = {
+		birth = yes
+	}
+
+	4384.3.11 = {
+		add_spouse = lineofbalakhorinold42
+	}
+
+	4513.6.8 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold42 = {
+	name = Aduanafel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = diligent
+	trait = callous
+	trait = temperate
+
+	diplomacy = 5
+	martial = 9
+	stewardship = 6
+	intrigue = 5
+	learning = 2
+	prowess = 9
+
+	trait = education_martial_3
+
+	4337.8.21 = {
+		birth = yes
+	}
+
+	4523.10.26 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold43 = {
+	name = Za_a_yunzi_i_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold41
+	mother = lineofbalakhorinold42
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = wrathful
+	trait = generous
+	trait = stubborn
+
+	diplomacy = 3
+	martial = 7
+	stewardship = 6
+	intrigue = 5
+	learning = 3
+	prowess = 8
+
+	trait = education_martial_2
+
+	4385.9.3 = {
+		birth = yes
+	}
+
+	4433.12.6 = {
+		add_spouse = lineofbalakhorinold44
+	}
+
+	4558.1.20 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold44 = {
+	name = Morbehil
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = forgiving
+	trait = lustful
+	trait = paranoid
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 4
+	intrigue = 7
+	learning = 5
+	prowess = 8
+
+	trait = education_intrigue_3
+
+	4384.2.4 = {
+		birth = yes
+	}
+
+	4562.2.1 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold45 = {
+	name = Nimrufel
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold41
+	mother = lineofbalakhorinold42
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = content
+	trait = wrathful
+	trait = lazy
+
+	diplomacy = 1
+	martial = 8
+	stewardship = 6
+	intrigue = 4
+	learning = 5
+	prowess = 5
+
+	trait = education_martial_3
+
+	4386.11.19 = {
+		birth = yes
+	}
+
+	4571.12.28 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold46 = {
+	name = Aru_u_zi_i_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold41
+	mother = lineofbalakhorinold42
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = stubborn
+	trait = lazy
+	trait = just
+
+	diplomacy = 6
+	martial = 4
+	stewardship = 5
+	intrigue = 9
+	learning = 3
+	prowess = 8
+
+	trait = education_intrigue_1
+
+	4387.12.23 = {
+		birth = yes
+	}
+
+	4388.4.26 = {
+		give_nickname = nick_the_bloody
+		effect = {
+			add_character_flag = had_nickname_event
+		}
+	}
+
+	4428.12.16 = {
+		add_spouse = lineofbalakhorinold47
+	}
+
+	4567.8.25 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold47 = {
+	name = Marmephel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = zealous
+	trait = shy
+	trait = lustful
+
+	diplomacy = 6
+	martial = 3
+	stewardship = 4
+	intrigue = 6
+	learning = 3
+	prowess = 4
+
+	trait = education_diplomacy_2
+
+	4385.11.13 = {
+		birth = yes
+	}
+
+	4563.4.3 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold48 = {
+	name = Ishilithor
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold39
+	mother = lineofbalakhorinold40
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = chaste
+	trait = brave
+	trait = zealous
+
+	diplomacy = 5
+	martial = 9
+	stewardship = 3
+	intrigue = 8
+	learning = 6
+	prowess = 5
+
+	trait = education_martial_3
+
+	4340.2.21 = {
+		birth = yes
+	}
+
+	4390.1.13 = {
+		add_spouse = lineofbalakhorinold49
+	}
+
+	4529.3.7 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold49 = {
+	name = Ninrufel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_5
+
+	trait = chaste
+	trait = diligent
+	trait = stubborn
+
+	diplomacy = 2
+	martial = 7
+	stewardship = 2
+	intrigue = 3
+	learning = 5
+	prowess = 5
+
+	trait = education_martial_2
+
+	4338.5.20 = {
+		birth = yes
+	}
+
+	4526.11.4 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+
+lineofbalakhorinold50 = {
+	name = Zadunzi_i_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold35
+	mother = lineofbalakhorinold36
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = just
+	trait = brave
+	trait = honest
+
+	diplomacy = 7
+	martial = 5
+	stewardship = 5
+	intrigue = 10
+	learning = 3
+	prowess = 5
+
+	trait = education_martial_4
+
+	4476.12.12 = {
+		birth = yes
+	}
+
+	4477.8.26 = {
+		give_nickname = nick_the_brave
+		effect = {
+			add_character_flag = had_nickname_event
+		}
+	}
+
+	4514.10.16 = {
+		add_spouse = lineofbalakhorinold51
+	}
+
+	4626.6.8 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold51 = {
+	name = Imra_a_beth
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = shy
+	trait = calm
+	trait = temperate
+
+	diplomacy = 3
+	martial = 3
+	stewardship = 3
+	intrigue = 4
+	learning = 3
+	prowess = 8
+
+	trait = education_intrigue_4
+
+	4475.8.23 = {
+		birth = yes
+	}
+
+	4640.3.15 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold52 = {
+	name = Kibilun
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold50
+	mother = lineofbalakhorinold51
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = wrathful
+	trait = arrogant
+	trait = stubborn
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 5
+	intrigue = 3
+	learning = 3
+	prowess = 5
+
+	trait = education_martial_1
+
+	4516.3.10 = {
+		birth = yes
+	}
+
+	4557.4.19 = {
+		add_spouse = lineofbalakhorinold53
+	}
+
+	4668.8.12 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold53 = {
+	name = Avalephel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = impatient
+	trait = fickle
+	trait = ambitious
+
+	diplomacy = 7
+	martial = 7
+	stewardship = 5
+	intrigue = 5
+	learning = 2
+	prowess = 5
+
+	trait = education_diplomacy_3
+
+	4515.11.8 = {
+		birth = yes
+	}
+
+	4677.7.25 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold54 = {
+	name = Arta_a_ryk
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold52
+	mother = lineofbalakhorinold53
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = gregarious
+	trait = zealous
+	trait = stubborn
+
+	diplomacy = 4
+	martial = 7
+	stewardship = 4
+	intrigue = 4
+	learning = 4
+	prowess = 4
+
+	trait = education_martial_1
+
+	4558.12.27 = {
+		birth = yes
+	}
+
+	4599.8.2 = {
+		add_spouse = lineofbalakhorinold55
+	}
+
+	4715.3.1 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold55 = {
+	name = Khibile_e_th
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = stubborn
+	trait = generous
+	trait = wrathful
+
+	diplomacy = 4
+	martial = 5
+	stewardship = 5
+	intrigue = 5
+	learning = 2
+	prowess = 8
+
+	trait = education_martial_3
+
+	4557.12.28 = {
+		birth = yes
+	}
+
+	4717.8.14 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold56 = {
+	name = Abrusi
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold54
+	mother = lineofbalakhorinold55
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = impatient
+	trait = vengeful
+	trait = honest
+
+	diplomacy = 1
+	martial = 5
+	stewardship = 2
+	intrigue = 3
+	learning = 3
+	prowess = 3
+
+	trait = education_martial_1
+
+	4599.1.10 = {
+		birth = yes
+	}
+
+	4637.1.25 = {
+		add_spouse = lineofbalakhorinold57
+	}
+
+	4753.11.1 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold57 = {
+	name = Avale_e_yo_o_
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = gluttonous
+	trait = brave
+	trait = chaste
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 3
+	intrigue = 3
+	learning = 5
+	prowess = 8
+
+	trait = education_martial_3
+
+	4597.10.16 = {
+		birth = yes
+	}
+
+	4759.5.9 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold58 = {
+	name = Loemihil
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold56
+	mother = lineofbalakhorinold57
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = vengeful
+	trait = generous
+	trait = chaste
+
+	diplomacy = 3
+	martial = 3
+	stewardship = 5
+	intrigue = 3
+	learning = 7
+	prowess = 3
+
+	trait = education_learning_2
+
+	4637.1.15 = {
+		birth = yes
+	}
+
+	4799.11.11 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold59 = {
+	name = Argadet
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold56
+	mother = lineofbalakhorinold57
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = content
+	trait = arrogant
+	trait = craven
+
+	diplomacy = 1
+	martial = 5
+	stewardship = 6
+	intrigue = 4
+	learning = 3
+	prowess = 5
+
+	trait = education_stewardship_2
+
+	4638.1.23 = {
+		birth = yes
+	}
+
+	4801.10.2 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold60 = {
+	name = Aglarin
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold56
+	mother = lineofbalakhorinold57
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = trusting
+	trait = honest
+	trait = patient
+
+	diplomacy = 7
+	martial = 6
+	stewardship = 4
+	intrigue = 2
+	learning = 5
+	prowess = 5
+
+	trait = education_diplomacy_4
+
+	4639.3.23 = {
+		birth = yes
+	}
+
+	4767.6.20 = {
+		death = { death_reason = death_consumption }
+	}
+}
+
+lineofbalakhorinold61 = {
+	name = Za_a_yunzi_i_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold56
+	mother = lineofbalakhorinold57
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = lazy
+	trait = wrathful
+	trait = vengeful
+
+	diplomacy = 10
+	martial = 4
+	stewardship = 1
+	intrigue = 4
+	learning = 4
+	prowess = 8
+
+	trait = education_diplomacy_3
+
+	4640.7.24 = {
+		birth = yes
+	}
+
+	4681.12.2 = {
+		add_spouse = lineofbalakhorinold62
+	}
+
+	4790.7.7 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold62 = {
+	name = Nahlduaret
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = arrogant
+	trait = just
+	trait = sadistic
+
+	diplomacy = 3
+	martial = 6
+	stewardship = 4
+	intrigue = 6
+	learning = 2
+	prowess = 5
+
+	trait = education_martial_3
+
+	4639.9.9 = {
+		birth = yes
+	}
+
+	4802.12.19 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold63 = {
+	name = Aru_u_zi_i_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold61
+	mother = lineofbalakhorinold62
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = generous
+	trait = lustful
+	trait = deceitful
+
+	diplomacy = 5
+	martial = 8
+	stewardship = 3
+	intrigue = 4
+	learning = 3
+	prowess = 3
+
+	trait = education_martial_3
+
+	4682.9.4 = {
+		birth = yes
+	}
+
+	4723.6.1 = {
+		add_spouse = lineofbalakhorinold64
+	}
+
+	4842.6.21 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold64 = {
+	name = Inzilabeth
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = paranoid
+	trait = vengeful
+	trait = chaste
+
+	diplomacy = 5
+	martial = 8
+	stewardship = 5
+	intrigue = 7
+	learning = 2
+	prowess = 7
+
+	trait = education_martial_2
+
+	4681.7.24 = {
+		birth = yes
+	}
+
+	4836.10.23 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold65 = {
+	name = Gimilkha_a_d
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold61
+	mother = lineofbalakhorinold62
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = stubborn
+	trait = vengeful
+	trait = calm
+
+	diplomacy = 2
+	martial = 3
+	stewardship = 5
+	intrigue = 5
+	learning = 4
+	prowess = 4
+
+	trait = education_stewardship_3
+
+	4683.12.1 = {
+		birth = yes
+	}
+
+	4725.12.23 = {
+		add_spouse = lineofbalakhorinold66
+	}
+
+	4780.6.17 = {
+		death = { death_reason = death_battle }
+	}
+}
+
+lineofbalakhorinold66 = {
+	name = Zimrafel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = zealous
+	trait = patient
+	trait = craven
+
+	diplomacy = 5
+	martial = 8
+	stewardship = 1
+	intrigue = 5
+	learning = 4
+	prowess = 4
+
+	trait = education_martial_4
+
+	4683.10.16 = {
+		birth = yes
+	}
+
+	4846.2.13 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold67 = {
+	name = Adovo
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold61
+	mother = lineofbalakhorinold62
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = arbitrary
+	trait = content
+	trait = fickle
+
+	diplomacy = 7
+	martial = 4
+	stewardship = 5
+	intrigue = 4
+	learning = 2
+	prowess = 3
+
+	trait = education_diplomacy_1
+
+	4684.3.27 = {
+		birth = yes
+	}
+
+	4728.11.24 = {
+		add_spouse = lineofbalakhorinold68
+	}
+
+	4854.4.15 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold68 = {
+	name = Zimrube_e_l
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+	trait = physique_good_3
+
+	trait = generous
+	trait = callous
+	trait = lustful
+
+	diplomacy = 4
+	martial = 6
+	stewardship = 3
+	intrigue = 5
+	learning = 2
+	prowess = 5
+
+	trait = education_martial_4
+
+	4683.5.4 = {
+		birth = yes
+	}
+
+	4852.7.7 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold69 = {
+	name = Sinradun
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold54
+	mother = lineofbalakhorinold55
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = forgiving
+	trait = just
+	trait = brave
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 2
+	intrigue = 4
+	learning = 3
+	prowess = 7
+
+	trait = education_martial_1
+
+	4600.12.25 = {
+		birth = yes
+	}
+
+	4635.7.19 = {
+		add_spouse = lineofbalakhorinold70
+	}
+
+	4751.12.15 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold70 = {
+	name = Balde_e_ri_i_
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = diligent
+	trait = callous
+	trait = temperate
+
+	diplomacy = 5
+	martial = 9
+	stewardship = 6
+	intrigue = 5
+	learning = 2
+	prowess = 9
+
+	trait = education_martial_3
+
+	4600.2.20 = {
+		birth = yes
+	}
+
+	4754.8.9 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold71 = {
+	name = U_U_ri_i_zi_i_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold69
+	mother = lineofbalakhorinold70
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = wrathful
+	trait = generous
+	trait = stubborn
+
+	diplomacy = 3
+	martial = 7
+	stewardship = 6
+	intrigue = 5
+	learning = 3
+	prowess = 8
+
+	trait = education_martial_2
+
+	4640.2.15 = {
+		birth = yes
+	}
+
+	4677.4.18 = {
+		add_spouse = lineofbalakhorinold72
+	}
+
+	4800.10.26 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold72 = {
+	name = U_U_ri_i_phe_e_l
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = forgiving
+	trait = lustful
+	trait = paranoid
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 4
+	intrigue = 7
+	learning = 5
+	prowess = 8
+
+	trait = education_intrigue_3
+
+	4639.12.26 = {
+		birth = yes
+	}
+
+	4803.9.17 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold73 = {
+	name = Arde_e_ne_e_th
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold71
+	mother = lineofbalakhorinold72
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = content
+	trait = wrathful
+	trait = lazy
+
+	diplomacy = 1
+	martial = 8
+	stewardship = 6
+	intrigue = 4
+	learning = 5
+	prowess = 5
+
+	trait = education_martial_3
+
+	4678.12.12 = {
+		birth = yes
+	}
+
+	4828.3.7 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold74 = {
+	name = Atto_o_wo_o_
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold71
+	mother = lineofbalakhorinold72
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = stubborn
+	trait = lazy
+	trait = just
+
+	diplomacy = 6
+	martial = 4
+	stewardship = 5
+	intrigue = 9
+	learning = 3
+	prowess = 8
+
+	trait = education_intrigue_1
+
+	4679.4.6 = {
+		birth = yes
+	}
+
+	4680.1.23 = {
+		give_nickname = nick_the_bloody
+		effect = {
+			add_character_flag = had_nickname_event
+		}
+	}
+
+	4717.12.28 = {
+		add_spouse = lineofbalakhorinold75
+	}
+
+	4840.6.18 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold75 = {
+	name = Narduafel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = zealous
+	trait = shy
+	trait = lustful
+
+	diplomacy = 6
+	martial = 3
+	stewardship = 4
+	intrigue = 6
+	learning = 3
+	prowess = 4
+
+	trait = education_diplomacy_2
+
+	4677.8.8 = {
+		birth = yes
+	}
+
+	4831.4.27 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold76 = {
+	name = Adu_u_nakho_o_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold71
+	mother = lineofbalakhorinold72
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = chaste
+	trait = brave
+	trait = zealous
+
+	diplomacy = 5
+	martial = 9
+	stewardship = 3
+	intrigue = 8
+	learning = 6
+	prowess = 5
+
+	trait = education_martial_3
+
+	4681.11.11 = {
+		birth = yes
+	}
+
+	4717.7.17 = {
+		add_spouse = lineofbalakhorinold77
+	}
+
+	4833.4.14 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold77 = {
+	name = Misindufel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = chaste
+	trait = diligent
+	trait = stubborn
+
+	diplomacy = 2
+	martial = 7
+	stewardship = 2
+	intrigue = 3
+	learning = 5
+	prowess = 5
+
+	trait = education_martial_2
+
+	4679.5.20 = {
+		birth = yes
+	}
+
+	4829.2.12 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold78 = {
+	name = Minsiladuan
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold71
+	mother = lineofbalakhorinold72
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = stubborn
+	trait = ambitious
+	trait = patient
+
+	diplomacy = 6
+	martial = 4
+	stewardship = 2
+	intrigue = 1
+	learning = 2
+	prowess = 4
+
+	trait = education_diplomacy_2
+
+	4682.9.4 = {
+		birth = yes
+	}
+
+	4683.4.3 = {
+		give_nickname = nick_the_brute
+		effect = {
+			add_character_flag = had_nickname_event
+		}
+	}
+
+	4718.7.14 = {
+		add_spouse = lineofbalakhorinold79
+	}
+
+	4850.4.17 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold79 = {
+	name = Azrukhali_i_
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = arbitrary
+	trait = wrathful
+	trait = content
+
+	diplomacy = 1
+	martial = 8
+	stewardship = 6
+	intrigue = 7
+	learning = 3
+	prowess = 5
+
+	trait = education_martial_3
+
+	4680.1.24 = {
+		birth = yes
+	}
+
+	4832.9.17 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold80 = {
+	name = Aluakor
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold69
+	mother = lineofbalakhorinold70
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = chaste
+	trait = fickle
+	trait = shy
+
+	diplomacy = 4
+	martial = 6
+	stewardship = 4
+	intrigue = 2
+	learning = 4
+	prowess = 3
+
+	trait = education_martial_4
+
+	4642.1.7 = {
+		birth = yes
+	}
+
+	4687.3.7 = {
+		add_spouse = lineofbalakhorinold81
+	}
+
+	4794.10.2 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold81 = {
+	name = Sirazin
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = stubborn
+	trait = temperate
+	trait = sadistic
+
+	diplomacy = 3
+	martial = 4
+	stewardship = 5
+	intrigue = 1
+	learning = 3
+	prowess = 6
+
+	trait = education_stewardship_1
+
+	4641.10.24 = {
+		birth = yes
+	}
+
+	4792.9.10 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold82 = {
+	name = Do_o_lguphe_e_l
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold80
+	mother = lineofbalakhorinold81
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_4
+
+	trait = shy
+	trait = diligent
+	trait = ambitious
+
+	diplomacy = 6
+	martial = 5
+	stewardship = 4
+	intrigue = 5
+	learning = 6
+	prowess = 5
+
+	trait = education_diplomacy_3
+
+	4687.11.18 = {
+		birth = yes
+	}
+
+	4848.6.20 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold83 = {
+	name = Noloendu
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold80
+	mother = lineofbalakhorinold81
+
+	sexuality = bisexual
+
+	trait = blood_of_numenor_4
+
+	trait = humble
+	trait = greedy
+	trait = lustful
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 7
+	intrigue = 4
+	learning = 5
+	prowess = 8
+
+	trait = education_stewardship_2
+
+	4688.5.19 = {
+		birth = yes
+	}
+
+	4728.1.20 = {
+		add_spouse = lineofbalakhorinold83wife
+	}
+
+	4847.11.11 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold83wife = {
+	name = Nardu_u_phel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = asexual
+
+	trait = blood_of_numenor_4
+
+	trait = impatient
+	trait = honest
+	trait = content
+
+	diplomacy = 4
+	martial = 8
+	stewardship = 6
+	intrigue = 3
+	learning = 4
+	prowess = 5
+
+	trait = education_martial_1
+
+	4687.3.1 = {
+		birth = yes
+	}
+
+	4848.2.6 = {
+		death = { death_reason = death_typhus }
+	}
+}
+
+
+lineofbalakhorinold84 = {
+	name = Adu_u_nakkor
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold67
+	mother = lineofbalakhorinold68
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = wrathful
+	trait = brave
+	trait = lustful
+
+	trait = physique_good_3
+	trait = strong
+
+	diplomacy = 7
+	martial = 15
+	stewardship = 5
+	intrigue = 8
+	learning = 3
+	prowess = 15
+
+	trait = education_martial_4
+
+	4745.12.10 = {
+		birth = yes
+	}
+
+	4746.3.10 = {
+		give_nickname = nick_the_strong
+		effect = {
+			add_character_flag = had_nickname_event
+		}
+	}
+
+	4783.8.28 = {
+		add_spouse = lineofbalakhorinold85
+	}
+
+	4889.2.1 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold85 = {
+	name = Avaleth
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = shy
+	trait = calm
+	trait = temperate
+
+	diplomacy = 3
+	martial = 3
+	stewardship = 3
+	intrigue = 4
+	learning = 3
+	prowess = 8
+
+	trait = education_intrigue_4
+
+	4744.5.21 = {
+		birth = yes
+	}
+
+	4887.9.4 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold86 = {
+	name = Jadnazi_i_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold84
+	mother = lineofbalakhorinold85
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = wrathful
+	trait = just
+	trait = stubborn
+	trait = physique_good_3
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 5
+	intrigue = 3
+	learning = 3
+	prowess = 5
+
+	trait = education_martial_1
+
+	4783.2.10 = {
+		birth = yes
+	}
+
+	4820.12.21 = {
+		add_spouse = lineofbalakhorinold87
+	}
+
+	4932.11.9 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold87 = {
+	name = Gimilkaleya
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = impatient
+	trait = fickle
+	trait = ambitious
+
+	diplomacy = 7
+	martial = 7
+	stewardship = 5
+	intrigue = 5
+	learning = 2
+	prowess = 5
+
+	trait = education_diplomacy_3
+
+	4781.7.2 = {
+		birth = yes
+	}
+
+	4930.1.5 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold88 = {
+	name = Arzagar
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold86
+	mother = lineofbalakhorinold87
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+	trait = physique_good_2
+
+	trait = gregarious
+	trait = zealous
+	trait = stubborn
+
+	diplomacy = 4
+	martial = 7
+	stewardship = 4
+	intrigue = 4
+	learning = 4
+	prowess = 4
+
+	trait = education_martial_1
+
+	4820.4.23 = {
+		birth = yes
+	}
+
+	4858.12.21 = {
+		add_spouse = lineofbalakhorinold89
+	}
+
+	4968.1.15 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold89 = {
+	name = Nardru_u_zoreya
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = stubborn
+	trait = generous
+	trait = wrathful
+
+	diplomacy = 4
+	martial = 5
+	stewardship = 5
+	intrigue = 5
+	learning = 2
+	prowess = 8
+
+	trait = education_martial_3
+
+	4819.6.8 = {
+		birth = yes
+	}
+
+	4962.9.5 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold90 = {
+	name = Zimrikha_a_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold88
+	mother = lineofbalakhorinold89
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+	trait = physique_good_2
+
+	trait = impatient
+	trait = vengeful
+	trait = honest
+
+	diplomacy = 1
+	martial = 5
+	stewardship = 2
+	intrigue = 3
+	learning = 3
+	prowess = 3
+
+	trait = education_martial_1
+
+	4858.2.19 = {
+		birth = yes
+	}
+
+	4895.10.9 = {
+		add_spouse = lineofbalakhorinold91
+	}
+
+	4995.5.24 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold91 = {
+	name = Nardru_u_zoreya
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = gluttonous
+	trait = brave
+	trait = chaste
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 3
+	intrigue = 3
+	learning = 5
+	prowess = 8
+
+	trait = education_martial_3
+
+	4857.5.22 = {
+		birth = yes
+	}
+
+	4989.6.8 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold92 = {
+	name = Kara_a_dea
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold90
+	mother = lineofbalakhorinold91
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+	trait = physique_good_2
+
+	trait = vengeful
+	trait = generous
+	trait = chaste
+
+	diplomacy = 3
+	martial = 3
+	stewardship = 5
+	intrigue = 3
+	learning = 7
+	prowess = 3
+
+	trait = education_learning_2
+
+	4895.5.23 = {
+		birth = yes
+	}
+
+	5031.11.24 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold93 = {
+	name = Bala_a_kkorea
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold90
+	mother = lineofbalakhorinold91
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+	trait = physique_good_2
+
+	trait = content
+	trait = arrogant
+	trait = craven
+
+	diplomacy = 1
+	martial = 5
+	stewardship = 6
+	intrigue = 4
+	learning = 3
+	prowess = 5
+
+	trait = education_stewardship_2
+
+	4896.7.16 = {
+		birth = yes
+	}
+
+	5029.9.17 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold94 = {
+	name = Azrunet
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold90
+	mother = lineofbalakhorinold91
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+	trait = physique_good_2
+
+	trait = trusting
+	trait = honest
+	trait = patient
+
+	diplomacy = 7
+	martial = 6
+	stewardship = 4
+	intrigue = 2
+	learning = 5
+	prowess = 5
+
+	trait = education_diplomacy_4
+
+	4897.9.23 = {
+		birth = yes
+	}
+
+	5007.10.15 = {
+		death = { death_reason = death_consumption }
+	}
+}
+
+lineofbalakhorinold95 = {
+	name = Balkutho_o_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold90
+	mother = lineofbalakhorinold91
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+	trait = physique_good_1
+
+	trait = lazy
+	trait = wrathful
+	trait = vengeful
+
+	diplomacy = 10
+	martial = 4
+	stewardship = 1
+	intrigue = 4
+	learning = 4
+	prowess = 8
+
+	trait = education_diplomacy_3
+
+	4898.7.17 = {
+		birth = yes
+	}
+
+	4932.9.15 = {
+		add_spouse = lineofbalakhorinold96
+	}
+
+	5040.10.12 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold96 = {
+	name = Algarin
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = arrogant
+	trait = just
+	trait = sadistic
+
+	diplomacy = 3
+	martial = 6
+	stewardship = 4
+	intrigue = 6
+	learning = 2
+	prowess = 5
+
+	trait = education_martial_3
+
+	4897.8.20 = {
+		birth = yes
+	}
+
+	5039.8.4 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold97 = {
+	name = Be_e_lnardu_u_
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold95
+	mother = lineofbalakhorinold96
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+	trait = physique_good_1
+
+	trait = generous
+	trait = lustful
+	trait = deceitful
+
+	diplomacy = 5
+	martial = 8
+	stewardship = 3
+	intrigue = 4
+	learning = 3
+	prowess = 3
+
+	trait = education_martial_3
+
+	4934.5.11 = {
+		birth = yes
+	}
+
+	4969.6.14 = {
+		add_spouse = lineofbalakhorinold98
+	}
+
+	5073.10.3 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold98 = {
+	name = Mu_u_rabeth
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = paranoid
+	trait = vengeful
+	trait = chaste
+
+	diplomacy = 5
+	martial = 8
+	stewardship = 5
+	intrigue = 7
+	learning = 2
+	prowess = 7
+
+	trait = education_martial_2
+
+	4934.1.1 = {
+		birth = yes
+	}
+
+	5064.7.25 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold99 = {
+	name = Banathin
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold95
+	mother = lineofbalakhorinold96
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = stubborn
+	trait = vengeful
+	trait = calm
+
+	diplomacy = 2
+	martial = 3
+	stewardship = 5
+	intrigue = 5
+	learning = 4
+	prowess = 4
+
+	trait = education_stewardship_3
+
+	4936.9.4 = {
+		birth = yes
+	}
+
+	4971.3.21 = {
+		add_spouse = lineofbalakhorinold100
+	}
+
+	4981.9.24 = {
+		death = { death_reason = death_battle }
+	}
+}
+
+lineofbalakhorinold100 = {
+	name = Avale_e_phe_e_l
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = zealous
+	trait = patient
+	trait = craven
+
+	diplomacy = 5
+	martial = 8
+	stewardship = 1
+	intrigue = 5
+	learning = 4
+	prowess = 4
+
+	trait = education_martial_4
+
+	4936.8.9 = {
+		birth = yes
+	}
+
+	5076.7.13 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold101 = {
+	name = Bawbuthor
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold88
+	mother = lineofbalakhorinold89
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = arbitrary
+	trait = content
+	trait = fickle
+
+	diplomacy = 7
+	martial = 4
+	stewardship = 5
+	intrigue = 4
+	learning = 2
+	prowess = 3
+
+	trait = education_diplomacy_1
+
+	4859.5.26 = {
+		birth = yes
+	}
+
+	4892.1.7 = {
+		add_spouse = lineofbalakhorinold102
+	}
+
+	5003.1.20 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold102 = {
+	name = Ga_a_lare_e_th
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = generous
+	trait = callous
+	trait = lustful
+
+	diplomacy = 4
+	martial = 6
+	stewardship = 3
+	intrigue = 5
+	learning = 2
+	prowess = 5
+
+	trait = education_martial_4
+
+	4858.2.28 = {
+		birth = yes
+	}
+
+	4988.9.17 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold103 = {
+	name = U_U_ri_i_zi_i_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold101
+	mother = lineofbalakhorinold102
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = forgiving
+	trait = just
+	trait = brave
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 2
+	intrigue = 4
+	learning = 3
+	prowess = 7
+
+	trait = education_martial_1
+
+	4893.10.25 = {
+		birth = yes
+	}
+
+	4925.1.12 = {
+		add_spouse = lineofbalakhorinold104
+	}
+
+	5042.4.11 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold104 = {
+	name = Algarin
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = diligent
+	trait = callous
+	trait = temperate
+
+	diplomacy = 5
+	martial = 9
+	stewardship = 6
+	intrigue = 5
+	learning = 2
+	prowess = 9
+
+	trait = education_martial_3
+
+	4893.5.6 = {
+		birth = yes
+	}
+
+	5037.10.24 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold105 = {
+	name = Balkuzo_o_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold103
+	mother = lineofbalakhorinold104
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = wrathful
+	trait = generous
+	trait = stubborn
+
+	diplomacy = 3
+	martial = 7
+	stewardship = 6
+	intrigue = 5
+	learning = 3
+	prowess = 8
+
+	trait = education_martial_2
+
+	4927.2.17 = {
+		birth = yes
+	}
+
+	4960.4.22 = {
+		add_spouse = lineofbalakhorinold106
+	}
+
+	5068.10.26 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold106 = {
+	name = Bawabe_e_th
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = forgiving
+	trait = lustful
+	trait = paranoid
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 4
+	intrigue = 7
+	learning = 5
+	prowess = 8
+
+	trait = education_intrigue_3
+
+	4925.4.25 = {
+		birth = yes
+	}
+
+	5073.6.16 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold107 = {
+	name = Ladno_o_kali
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold103
+	mother = lineofbalakhorinold104
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = content
+	trait = wrathful
+	trait = lazy
+
+	diplomacy = 1
+	martial = 8
+	stewardship = 6
+	intrigue = 4
+	learning = 5
+	prowess = 5
+
+	trait = education_martial_3
+
+	4928.10.19 = {
+		birth = yes
+	}
+
+	5076.7.23 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold108 = {
+	name = Tarygmagan
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold101
+	mother = lineofbalakhorinold102
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = stubborn
+	trait = lazy
+	trait = just
+
+	diplomacy = 6
+	martial = 4
+	stewardship = 5
+	intrigue = 9
+	learning = 3
+	prowess = 8
+
+	trait = education_intrigue_1
+
+	4894.12.22 = {
+		birth = yes
+	}
+
+	4895.3.25 = {
+		give_nickname = nick_the_bloody
+		effect = {
+			add_character_flag = had_nickname_event
+		}
+	}
+
+	4933.11.17 = {
+		add_spouse = lineofbalakhorinold109
+	}
+
+	5040.9.5 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold109 = {
+	name = Avaleth
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_3
+
+	trait = zealous
+	trait = shy
+	trait = lustful
+
+	diplomacy = 6
+	martial = 3
+	stewardship = 4
+	intrigue = 6
+	learning = 3
+	prowess = 4
+
+	trait = education_diplomacy_2
+
+	4892.3.3 = {
+		birth = yes
+	}
+
+	5035.2.11 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+
+
+lineofbalakhorinold110 = {
+	name = Bavabathor
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold97
+	mother = lineofbalakhorinold98
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = content
+	trait = gluttonous
+	trait = honest
+
+	diplomacy = 7
+	martial = 5
+	stewardship = 5
+	intrigue = 10
+	learning = 3
+	prowess = 5
+
+	trait = education_intrigue_1
+
+	4986.11.1 = {
+		birth = yes
+	}
+
+	4987.7.15 = {
+		give_nickname = nick_the_dull
+		effect = {
+			add_character_flag = had_nickname_event
+		}
+	}
+
+	5014.9.1 = {
+		add_spouse = lineofbalakhorinold111
+	}
+
+	5107.5.7 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold111 = {
+	name = Adu_u_nafel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = shy
+	trait = calm
+	trait = temperate
+
+	diplomacy = 3
+	martial = 3
+	stewardship = 3
+	intrigue = 4
+	learning = 3
+	prowess = 8
+
+	trait = education_intrigue_4
+
+	4986.4.18 = {
+		birth = yes
+	}
+
+	5106.11.18 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold112 = {
+	name = Da_a_irukho_o_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold110
+	mother = lineofbalakhorinold111
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = wrathful
+	trait = arrogant
+	trait = stubborn
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 5
+	intrigue = 3
+	learning = 3
+	prowess = 5
+
+	trait = education_martial_1
+
+	5016.6.3 = {
+		birth = yes
+	}
+
+	5041.11.23 = {
+		add_spouse = lineofbalakhorinold113
+	}
+
+	5137.5.3 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold113 = {
+	name = Pharazaphel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = impatient
+	trait = fickle
+	trait = ambitious
+
+	diplomacy = 7
+	martial = 7
+	stewardship = 5
+	intrigue = 5
+	learning = 2
+	prowess = 5
+
+	trait = education_diplomacy_3
+
+	5016.6.11 = {
+		birth = yes
+	}
+
+	5139.5.1 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold114 = {
+	name = Adu_u_nakor
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold112
+	mother = lineofbalakhorinold113
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = gregarious
+	trait = zealous
+	trait = stubborn
+
+	diplomacy = 4
+	martial = 7
+	stewardship = 4
+	intrigue = 4
+	learning = 4
+	prowess = 4
+
+	trait = education_martial_1
+
+	5041.7.14 = {
+		birth = yes
+	}
+
+	5072.8.6 = {
+		add_spouse = lineofbalakhorinold115
+	}
+
+	5158.2.7 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold115 = {
+	name = Kastafel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = stubborn
+	trait = generous
+	trait = wrathful
+
+	diplomacy = 4
+	martial = 5
+	stewardship = 5
+	intrigue = 5
+	learning = 2
+	prowess = 8
+
+	trait = education_martial_3
+
+	5040.9.23 = {
+		birth = yes
+	}
+
+	5155.10.14 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold116 = {
+	name = Imruphazga_a_n
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold114
+	mother = lineofbalakhorinold115
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = impatient
+	trait = vengeful
+	trait = honest
+
+	diplomacy = 1
+	martial = 5
+	stewardship = 2
+	intrigue = 3
+	learning = 3
+	prowess = 3
+
+	trait = education_martial_1
+
+	5073.5.2 = {
+		birth = yes
+	}
+
+	5098.8.25 = {
+		add_spouse = lineofbalakhorinold117
+	}
+
+	5189.12.16 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold117 = {
+	name = Mu_u_rabeth
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = gluttonous
+	trait = brave
+	trait = chaste
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 3
+	intrigue = 3
+	learning = 5
+	prowess = 8
+
+	trait = education_martial_3
+
+	5072.6.16 = {
+		birth = yes
+	}
+
+	5193.12.2 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold118 = {
+	name = Mu_u_raphe_e_l
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold116
+	mother = lineofbalakhorinold117
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = vengeful
+	trait = generous
+	trait = chaste
+
+	diplomacy = 3
+	martial = 3
+	stewardship = 5
+	intrigue = 3
+	learning = 7
+	prowess = 3
+
+	trait = education_learning_2
+
+	5100.5.3 = {
+		birth = yes
+	}
+
+	5223.4.27 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold119 = {
+	name = Balkuzor
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold116
+	mother = lineofbalakhorinold117
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = content
+	trait = arrogant
+	trait = craven
+
+	diplomacy = 3
+	martial = 8
+	stewardship = 3
+	intrigue = 4
+	learning = 4
+	prowess = 4
+
+	trait = education_martial_2
+
+	5102.5.2 = {
+		birth = yes
+	}
+
+	5133.11.13 = {
+		add_spouse = lineofbalakhorinold120
+	}
+
+	5229.9.24 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold120 = {
+	name = Morbehil
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = trusting
+	trait = honest
+	trait = patient
+
+	diplomacy = 7
+	martial = 6
+	stewardship = 4
+	intrigue = 2
+	learning = 5
+	prowess = 5
+
+	trait = education_diplomacy_4
+
+	5101.1.14 = {
+		birth = yes
+	}
+
+	5231.6.19 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold121 = {
+	name = Bana_a_the_e_
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold119
+	mother = lineofbalakhorinold120
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = lazy
+	trait = wrathful
+	trait = vengeful
+
+	diplomacy = 3
+	martial = 12
+	stewardship = 2
+	intrigue = 1
+	learning = 3
+	prowess = 5
+
+	trait = education_martial_4
+
+	5134.8.20 = {
+		birth = yes
+	}
+
+	5258.11.3 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold122 = {
+	name = Kadarjagar
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold119
+	mother = lineofbalakhorinold120
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = gluttonous
+	trait = arrogant
+	trait = just
+
+	diplomacy = 3
+	martial = 6
+	stewardship = 4
+	intrigue = 6
+	learning = 2
+	prowess = 5
+
+	trait = education_martial_3
+
+	5135.1.16 = {
+		birth = yes
+	}
+
+	5166.7.23 = {
+		add_spouse = lineofbalakhorinold123
+	}
+
+	5259.9.4 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold123 = {
+	name = Zornihil
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = generous
+	trait = lustful
+	trait = deceitful
+
+	diplomacy = 4
+	martial = 7
+	stewardship = 7
+	intrigue = 4
+	learning = 3
+	prowess = 4
+
+	trait = education_martial_1
+
+	5133.5.17 = {
+		birth = yes
+	}
+
+	5247.5.12 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold124 = {
+	name = Marmedoen
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold122
+	mother = lineofbalakhorinold123
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = paranoid
+	trait = vengeful
+	trait = chaste
+
+	diplomacy = 5
+	martial = 7
+	stewardship = 6
+	intrigue = 3
+	learning = 6
+	prowess = 3
+
+	trait = education_martial_4
+
+	5166.3.9 = {
+		birth = yes
+	}
+
+	5196.3.4 = {
+		add_spouse = lineofbalakhorinold125
+	}
+
+	5206.7.1 = {
+		death = { death_reason = death_horse_riding_accident  }
+	}
+}
+
+lineofbalakhorinold125 = {
+	name = Mu_u_reth
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = vengeful
+	trait = calm
+	trait = brave
+
+	diplomacy = 5
+	martial = 7
+	stewardship = 4
+	intrigue = 4
+	learning = 4
+	prowess = 6
+
+	trait = education_martial_3
+
+	5166.6.10 = {
+		birth = yes
+	}
+
+	5206.2.2 = {
+		death = { death_reason = death_torture  }
+	}
+}
+
+# lineofbalakhorinold126 = {
+#	name = Avale_e_phe_e_l
+#	female = yes
+
+#	dynasty = dynasty_balakhorin
+#	religion = faith_iarandel
+#	culture = anarikean
+
+#	father = lineofbalakhorinold122
+#	mother = lineofbalakhorinold123
+
+#	sexuality = heterosexual
+
+#	trait = blood_of_numenor_2
+
+#	trait = craven
+#	trait = humble
+#	trait = just
+
+#	diplomacy = 1
+#	martial = 6
+#	stewardship = 4
+#	intrigue = 4
+#	learning = 9
+#	prowess = 7
+
+#	trait = education_learning_3
+
+#	5167.12.19 = {
+#		birth = yes
+#	}
+
+#	5283.10.18 = {
+#		death = { death_reason = death_natural_causes }
+#	}
+# }
+
+lineofbalakhorinold127 = {
+	name = Gordakareya
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold114
+	mother = lineofbalakhorinold115
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = fickle
+	trait = compassionate
+	trait = calm
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 2
+	intrigue = 3
+	learning = 2
+	prowess = 5
+
+	trait = education_martial_4
+
+	5074.1.8 = {
+		birth = yes
+	}
+
+	5192.8.27 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold128 = {
+	name = Afanuzua
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold114
+	mother = lineofbalakhorinold115
+
+	sexuality = bisexual
+
+	trait = blood_of_numenor_2
+
+	trait = lustful
+	trait = fickle
+	trait = ambitious
+
+	diplomacy = 2
+	martial = 7
+	stewardship = 8
+	intrigue = 5
+	learning = 7
+	prowess = 6
+
+	trait = education_stewardship_2
+
+	5075.2.25 = {
+		birth = yes
+	}
+
+	5102.7.26 = {
+		add_spouse = lineofbalakhorinold129
+	}
+
+	5205.11.7 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold129 = {
+	name = Morbehil
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = generous
+	trait = wrathful
+	trait = lustful
+
+	diplomacy = 3
+	martial = 8
+	stewardship = 1
+	intrigue = 5
+	learning = 5
+	prowess = 7
+
+	trait = education_martial_2
+
+	5075.4.25 = {
+		birth = yes
+	}
+
+	5187.10.26 = {
+		death = { death_reason = death_torture  }
+	}
+}
+
+lineofbalakhorinold130 = {
+	name = Mibahl
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold128
+	mother = lineofbalakhorinold129
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = zealous
+	trait = paranoid
+	trait = stubborn
+
+	diplomacy = 8
+	martial = 8
+	stewardship = 5
+	intrigue = 5
+	learning = 1
+	prowess = 3
+
+	trait = education_diplomacy_1
+
+	5103.10.15 = {
+		birth = yes
+	}
+
+	5131.10.15 = {
+		add_spouse = lineofbalakhorinold131
+	}
+
+	5231.2.11 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold131 = {
+	name = Gahlaret
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = content
+	trait = humble
+	trait = trusting
+
+	diplomacy = 4
+	martial = 4
+	stewardship = 7
+	intrigue = 4
+	learning = 3
+	prowess = 7
+
+	trait = education_stewardship_2
+
+	5102.7.18 = {
+		birth = yes
+	}
+
+	5226.12.16 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold132 = {
+	name = Aru_u_zi_i_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold130
+	mother = lineofbalakhorinold131
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = fickle
+	trait = trusting
+	trait = honest
+
+	diplomacy = 4
+	martial = 6
+	stewardship = 6
+	intrigue = 4
+	learning = 3
+	prowess = 3
+
+	trait = education_martial_2
+
+	5133.4.20 = {
+		birth = yes
+	}
+
+	5166.4.6 = {
+		add_spouse = lineofbalakhorinold133
+	}
+
+	5180.3.7 = {
+		death = { death_reason = death_drowned  }
+	}
+}
+
+lineofbalakhorinold133 = {
+	name = Arfaze_e_neth
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = content
+	trait = just
+	trait = stubborn
+
+	diplomacy = 6
+	martial = 8
+	stewardship = 4
+	intrigue = 2
+	learning = 4
+	prowess = 4
+
+	trait = education_martial_3
+
+	5133.4.25 = {
+		birth = yes
+	}
+
+	5254.12.20 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold134 = {
+	name = Tamruzi_i_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold122
+	mother = lineofbalakhorinold123
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = honest
+	trait = compassionate
+	trait = lustful
+
+	diplomacy = 2
+	martial = 11
+	stewardship = 5
+	intrigue = 6
+	learning = 7
+	prowess = 5
+
+	trait = education_martial_2
+
+	5167.7.2 = {
+		birth = yes
+	}
+
+	5196.11.25 = {
+		add_spouse = lineofbalakhorinold135
+	}
+
+	5273.1.9 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold135 = {
+	name = Marme_e_fel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = lustful
+	trait = fickle
+	trait = gregarious
+
+	diplomacy = 3
+	martial = 7
+	stewardship = 3
+	intrigue = 2
+	learning = 7
+	prowess = 3
+
+	trait = education_martial_3
+
+	5166.9.16 = {
+		birth = yes
+	}
+
+	5265.6.26 = {
+		death = { death_reason = death_script_cruelty   }
+	}
+}
+
+lineofbalakhorinold136 = {
+	name = Narduzi_i_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold128
+	mother = lineofbalakhorinold129
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = forgiving
+	trait = generous
+	trait = impatient
+
+	diplomacy = 4
+	martial = 4
+	stewardship = 3
+	intrigue = 5
+	learning = 2
+	prowess = 6
+
+	trait = education_intrigue_1
+
+	5106.3.14 = {
+		birth = yes
+	}
+
+	5141.3.16 = {
+		add_spouse = lineofbalakhorinold137
+	}
+
+	5173.8.19 = {
+		death = { death_reason = death_feast_accident  }
+	}
+}
+
+lineofbalakhorinold137 = {
+	name = Sinrihil
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = chaste
+	trait = sadistic
+	trait = vengeful
+
+	diplomacy = 1
+	martial = 6
+	stewardship = 3
+	intrigue = 6
+	learning = 7
+	prowess = 7
+
+	trait = education_learning_1
+
+	5106.9.7 = {
+		birth = yes
+	}
+
+	5219.1.16 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold138 = {
+	name = Azrune_e_th
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold136
+	mother = lineofbalakhorinold137
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = chaste
+	trait = callous
+	trait = trusting
+
+	diplomacy = 5
+	martial = 8
+	stewardship = 2
+	intrigue = 4
+	learning = 1
+	prowess = 7
+
+	trait = education_martial_3
+
+	5141.1.27 = {
+		birth = yes
+	}
+
+	5176.2.18 = {
+		death = { death_reason = death_smallpox }
+	}
+}
+
+lineofbalakhorinold139 = {
+	name = Arnakkor
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold136
+	mother = lineofbalakhorinold137
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = gregarious
+	trait = temperate
+	trait = chaste
+
+	diplomacy = 3
+	martial = 7
+	stewardship = 3
+	intrigue = 5
+	learning = 4
+	prowess = 5
+
+	trait = education_martial_1
+
+	5142.8.13 = {
+		birth = yes
+	}
+
+	5171.4.18 = {
+		add_spouse = lineofbalakhorinold140
+	}
+
+	5264.3.26 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold140 = {
+	name = Avalephel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = bisexual
+
+	trait = blood_of_numenor_2
+
+	trait = cynical
+	trait = sadistic
+	trait = gluttonous
+
+	diplomacy = 4
+	martial = 8
+	stewardship = 9
+	intrigue = 4
+	learning = 2
+	prowess = 6
+
+	trait = education_stewardship_1
+
+	5141.4.21 = {
+		birth = yes
+	}
+
+	5268.5.4 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold141 = {
+	name = Adabet
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold139
+	mother = lineofbalakhorinold140
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = calm
+	trait = ambitious
+	trait = stubborn
+
+	diplomacy = 4
+	martial = 5
+	stewardship = 3
+	intrigue = 7
+	learning = 3
+	prowess = 4
+
+	trait = education_intrigue_2
+
+	5172.9.6 = {
+		birth = yes
+	}
+
+	5284.1.8 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold142 = {
+	name = Gimilzor
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold139
+	mother = lineofbalakhorinold140
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = arrogant
+	trait = stubborn
+	trait = compassionate
+
+	diplomacy = 4
+	martial = 5
+	stewardship = 5
+	intrigue = 6
+	learning = 4
+	prowess = 8
+
+	trait = education_intrigue_2
+
+	5173.10.11 = {
+		birth = yes
+	}
+
+	5205.10.20 = {
+		add_spouse = lineofbalakhorinold143
+	}
+
+	5206.5.13 = {
+		death = { death_reason = death_accident }
+	}
+}
+
+lineofbalakhorinold143 = {
+	name = Arkka_a_deth
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = fickle
+	trait = brave
+	trait = ambitious
+
+	diplomacy = 9
+	martial = 8
+	stewardship = 5
+	intrigue = 6
+	learning = 3
+	prowess = 5
+
+	trait = education_diplomacy_3
+
+	5173.1.11 = {
+		birth = yes
+	}
+
+	5303.2.19 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold144 = {
+	name = U_U_rzarkho_o_r
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold139
+	mother = lineofbalakhorinold140
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = brave
+	trait = forgiving
+	trait = just
+
+	diplomacy = 4
+	martial = 9
+	stewardship = 9
+	intrigue = 6
+	learning = 4
+	prowess = 6
+
+	trait = education_martial_1
+
+	5174.11.27 = {
+		birth = yes
+	}
+
+	5206.10.20 = {
+		add_spouse = lineofbalakhorinold145
+	}
+
+	5239.12.17 = {
+		death = { death_reason = death_wounds }
+	}
+}
+
+lineofbalakhorinold145 = {
+	name = U_U_ri_i_fel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = wrathful
+	trait = stubborn
+	trait = gregarious
+
+	diplomacy = 4
+	martial = 8
+	stewardship = 1
+	intrigue = 5
+	learning = 1
+	prowess = 4
+
+	trait = education_martial_3
+
+	5172.2.20 = {
+		birth = yes
+	}
+
+	5294.9.11 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold146 = {
+	name = Adu_u_nabel
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold139
+	mother = lineofbalakhorinold140
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = zealous
+	trait = impatient
+	trait = honest
+
+	diplomacy = 5
+	martial = 4
+	stewardship = 1
+	intrigue = 4
+	learning = 5
+	prowess = 9
+
+	trait = education_diplomacy_2
+
+	5175.3.17 = {
+		birth = yes
+	}
+
+	5206.8.28 = {
+		add_spouse = lineofbalakhorinold147
+	}
+
+	5210.3.22 = {
+		death = { death_reason = death_cancer }
+	}
+}
+
+lineofbalakhorinold147 = {
+	name = Azruzihil
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = temperate
+	trait = vengeful
+	trait = chaste
+
+	diplomacy = 5
+	martial = 9
+	stewardship = 7
+	intrigue = 6
+	learning = 1
+	prowess = 6
+
+	trait = education_martial_4
+
+	5174.7.4 = {
+		birth = yes
+	}
+
+	5292.8.22 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold148 = {
+	name = Mu_u_rafel
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold136
+	mother = lineofbalakhorinold137
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = ambitious
+	trait = honest
+	trait = temperate
+
+	diplomacy = 1
+	martial = 3
+	stewardship = 4
+	intrigue = 4
+	learning = 4
+	prowess = 5
+
+	trait = education_stewardship_3
+
+	5143.6.17 = {
+		birth = yes
+	}
+
+	5272.6.26 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold149 = {
+	name = Alkarin
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold112
+	mother = lineofbalakhorinold113
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = stubborn
+	trait = shy
+	trait = impatient
+
+	diplomacy = 5
+	martial = 7
+	stewardship = 6
+	intrigue = 5
+	learning = 6
+	prowess = 6
+
+	trait = education_martial_3
+
+	5043.1.8 = {
+		birth = yes
+	}
+
+	5170.9.27 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold150 = {
+	name = Kathuphazga_a_n
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold112
+	mother = lineofbalakhorinold113
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = lustful
+	trait = compassionate
+	trait = temperate
+
+	diplomacy = 2
+	martial = 5
+	stewardship = 7
+	intrigue = 4
+	learning = 3
+	prowess = 6
+
+	trait = education_stewardship_3
+
+	5045.12.7 = {
+		birth = yes
+	}
+
+	5079.7.26 = {
+		add_spouse = lineofbalakhorinold151
+	}
+
+	5169.3.19 = {
+		death = { death_reason = death_leper }
+	}
+}
+
+lineofbalakhorinold151 = {
+	name = U_U_ri_i_phel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = temperate
+	trait = just
+	trait = zealous
+
+	diplomacy = 3
+	martial = 6
+	stewardship = 4
+	intrigue = 4
+	learning = 3
+	prowess = 5
+
+	trait = education_martial_3
+
+	5043.4.19 = {
+		birth = yes
+	}
+
+	5167.4.15 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorinold152 = {
+	name = Sarazileya
+	female = yes
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold150
+	mother = lineofbalakhorinold151
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = humble
+	trait = stubborn
+	trait = chaste
+
+	diplomacy = 4
+	martial = 10
+	stewardship = 6
+	intrigue = 4
+	learning = 4
+	prowess = 5
+
+	trait = education_martial_3
+
+	5079.2.22 = {
+		birth = yes
+	}
+
+	5121.6.9 = {
+		death = { death_reason = death_training_accident  }
+	}
+}
+
+lineofbalakhorinold153 = {
+	name = Adarbad
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofbalakhorinold134
+	mother = lineofbalakhorinold135
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = honest
+	trait = compassionate
+	trait = lustful
+
+	trait = cancer
+
+	diplomacy = 2
+	martial = 11
+	stewardship = 5
+	intrigue = 6
+	learning = 7
+	prowess = 5
+
+	trait = education_martial_2
+
+	5225.7.2 = {
+		birth = yes
+	}
+
+	5260.1.1 = {
+		add_spouse = lineofbalakhorinold154
+	}
+
+	5275.1.9 = {
+		death = { death_reason = death_cancer }
+	}
+}
+
+lineofbalakhorinold154 = {
+	name = Sarasileya
+	female = yes
+
+	dynasty = dynasty_inyaloni
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold3
+	mother = lineofinyaloniroaold4
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = honest
+	trait = compassionate
+	trait = lustful
+
+	trait = intellect_good_2
+
+	diplomacy = 2
+	martial = 11
+	stewardship = 5
+	intrigue = 6
+	learning = 7
+	prowess = 5
+
+	trait = education_martial_2
+
+	5229.7.2 = {
+		birth = yes
+	}
+
+	5323.1.9 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+
+lineofbalakhorin1 = { # Bâr ’nAphana, his reign has been very very long, and one of peace and serenity, no crisis seems to stay for long under his wisened eyes "I have lived a long and gracious life, one of loss and love and of peace, but now in the sunset days of my life, I know, that if die tomorow I shall die gladdened."
+	name = Abrazimi_i_r
+	dna = abrazimir_dna
+
+	father = lineofbalakhorinold153
+	mother = lineofbalakhorinold154
+
+	dynasty = dynasty_balakhorin
+	religion = faith_iarandel
+	culture = anarikean
+	sexuality = heterosexual
+
+	diplomacy = 10
+	martial = 4
+	stewardship = 7
+	intrigue = 3
+	learning = 8
+	prowess = 5
+
+	trait = blood_of_numenor_1
+	trait = calm
+	trait = just
+	trait = patient
+	trait = lifestyle_mariner
+	trait = education_diplomacy_4
+	trait = intellect_good_2
+
+	5270.7.3 = {
+		birth = yes
+	}
+	5301.1.1 = {
+		give_nickname = nick_the_serene_reign
+		effect = {
+			add_character_flag = had_nickname_event
+		}
+	}
+	5301.7.1 = {
+		add_spouse = lineofbalakhorin1wife
+	}
+	5340.1.1 = {
+		add_spouse = lineofbalakhorin1wife1
+	}
+	5382.7.24 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+lineofbalakhorin1wife = {
+	name = Imrabe_e_
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+	sexuality = heterosexual
+
+	diplomacy = 6
+	martial = 2
+	stewardship = 9
+	intrigue = 5
+	learning = 5
+	prowess = 4
+
+	trait = chaste
+	trait = honest
+	trait = compassionate
+	trait = education_stewardship_2
+	trait = blood_of_numenor_1
+
+	5280.10.18 = {
+		birth = yes
+	}
+	5326.5.3 = {
+		death = { death_reason = death_childbirth }
+	}
+}
+
+lineofbalakhorin1wife1 = {
+	name = Inzilbel
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+	sexuality = heterosexual
+
+	diplomacy = 5
+	martial = 9
+	stewardship = 5
+	intrigue = 3
+	learning = 4
+	prowess = 9
+
+	trait = impatient
+	trait = brave
+	trait = zealous
+	trait = blood_of_numenor_1
+
+	trait = education_martial_4
+	trait = physique_good_2
+
+	5322.10.18 = {
+		birth = yes
+	}
+	5420.7.4 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofbalakhorin2 = { #Pro-Codyan traditionalist son anarikean heritage "We preserve the ways of the fathers"
+	name = Isilitho_o_r
+	dynasty = dynasty_balakhorin
+
+	father = lineofbalakhorin1
+	mother = lineofbalakhorin1wife1
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = bisexual
+
+	trait = stubborn
+	trait = brave
+	trait = zealous
+
+	trait = education_stewardship_4
+	trait = physique_good_2
+	trait = blood_of_numenor_1
+
+	diplomacy = 5
+	martial = 10
+	stewardship = 9
+	intrigue = 1
+	learning = 7
+	prowess = 10
+
+	# traits go here if needed later
+
+	5350.8.11 = {
+		birth = yes
+	}
+
+	5403.1.5 = {
+		death = { death_reason = death_murder }
+	}
+}
+
+lineofbalakhorin3 = { # Pro-Khyan Reformist son anarikean future "We must not let the past dictate our future!"
+	name = Azadmard
+	dynasty = dynasty_balakhorin
+
+	father = lineofbalakhorin1
+	mother = lineofbalakhorin1wife1
+
+	religion = faith_arienism
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = gregarious
+	trait = diligent
+	trait = impatient
+
+	trait = education_diplomacy_4
+	trait = intellect_good_3
+
+	diplomacy = 12
+	martial = 5
+	stewardship = 5
+	intrigue = 6
+	learning = 8
+	prowess = 5
+
+	# traits go here if needed later
+
+	5352.2.29 = {
+		birth = yes
+	}
+	5403.1.5 = {
+		religion = faith_iarandel # converted due to pressure from the lords
+	}
+	5440.8.11 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+#########################
+### Dukes of Inyaloni ###
+#########################
+
+lineofinyaloniroaold1 = { # great-great-grandfather, the long-lived patriarch of the line
+	name = Tarygmagan
+	dynasty = dynasty_inyaloni
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_2
+
+	trait = patient
+	trait = calm
+	trait = humble
+
+	diplomacy = 9
+	martial = 5
+	stewardship = 7
+	intrigue = 3
+	learning = 11
+	prowess = 4
+
+	trait = education_learning_4
+	trait = intellect_good_2
+
+	5120.3.14 = {
+		birth = yes
+	}
+
+	5160.6.2 = {
+		add_spouse = lineofinyaloniroaold2
+	}
+
+	5248.9.21 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold2 = { # great-great-grandmother
+	name = Nahlduaret
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = compassionate
+	trait = chaste
+	trait = temperate
+
+	diplomacy = 6
+	martial = 3
+	stewardship = 8
+	intrigue = 4
+	learning = 5
+	prowess = 3
+
+	trait = education_stewardship_3
+
+	5142.7.30 = {
+		birth = yes
+	}
+
+	5238.2.11 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold3 = { # great-grandfather
+	name = Imruphazga_a_n
+	dynasty = dynasty_inyaloni
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold1
+	mother = lineofinyaloniroaold2
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = honest
+	trait = diligent
+	trait = stubborn
+
+	diplomacy = 7
+	martial = 6
+	stewardship = 8
+	intrigue = 3
+	learning = 8
+	prowess = 5
+
+	trait = education_learning_3
+
+	5168.5.9 = {
+		birth = yes
+	}
+
+	5212.4.18 = {
+		add_spouse = lineofinyaloniroaold4
+	}
+
+	5275.11.3 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold4 = { # great-grandmother
+	name = Izindahil
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+	trait = intellect_good_2
+
+	trait = trusting
+	trait = generous
+	trait = patient
+
+	diplomacy = 5
+	martial = 4
+	stewardship = 6
+	intrigue = 3
+	learning = 7
+	prowess = 4
+
+	trait = education_diplomacy_3
+
+	5192.1.27 = {
+		birth = yes
+	}
+
+	5288.10.6 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold5 = { # great-granduncle
+	name = Bahlgumagan
+	dynasty = dynasty_inyaloni
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold1
+	mother = lineofinyaloniroaold2
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = brave
+	trait = gregarious
+	trait = impatient
+
+	diplomacy = 5
+	martial = 9
+	stewardship = 3
+	intrigue = 5
+	learning = 4
+	prowess = 8
+
+	trait = education_martial_3
+
+	5172.8.22 = {
+		birth = yes
+	}
+
+	5278.6.14 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold6 = { # great-granduncle
+	name = Kadarjagar
+	dynasty = dynasty_inyaloni
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold1
+	mother = lineofinyaloniroaold2
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = ambitious
+	trait = arrogant
+	trait = zealous
+
+	diplomacy = 4
+	martial = 7
+	stewardship = 5
+	intrigue = 7
+	learning = 5
+	prowess = 6
+
+	trait = education_intrigue_3
+
+	5178.12.5 = {
+		birth = yes
+	}
+
+	5285.3.30 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold7 = { # grandfather
+	name = Minsiladuan
+	dynasty = dynasty_inyaloni
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold3
+	mother = lineofinyaloniroaold4
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+	trait = intellect_good_2	
+
+	trait = content
+	trait = honest
+	trait = calm
+
+	diplomacy = 8
+	martial = 5
+	stewardship = 7
+	intrigue = 3
+	learning = 7
+	prowess = 5
+
+	trait = education_stewardship_3
+
+	5232.2.19 = {
+		birth = yes
+	}
+
+	5270.5.11 = {
+		add_spouse = lineofinyaloniroaold8
+	}
+
+	5330.7.25 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold8 = { # grandmother
+	name = Loemihil
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = shy
+	trait = temperate
+	trait = compassionate
+
+	diplomacy = 6
+	martial = 3
+	stewardship = 7
+	intrigue = 4
+	learning = 6
+	prowess = 3
+
+	trait = education_stewardship_2
+
+	5250.9.3 = {
+		birth = yes
+	}
+
+	5345.4.17 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold9 = { # grandaunt
+	name = Sirazin
+	female = yes
+
+	dynasty = dynasty_inyaloni
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold3
+	mother = lineofinyaloniroaold4
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+	trait = intellect_good_1
+
+	trait = gregarious
+	trait = ambitious
+	trait = fickle
+
+	diplomacy = 7
+	martial = 4
+	stewardship = 6
+	intrigue = 6
+	learning = 5
+	prowess = 4
+
+	trait = education_diplomacy_3
+
+	5236.11.14 = {
+		birth = yes
+	}
+
+	5332.8.2 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold9a = {
+	name = Aluakor
+
+	dynasty = dynasty_inyaloni
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold3
+	mother = lineofinyaloniroaold4
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+	trait = intellect_good_1	
+
+	trait = chaste
+	trait = just
+	trait = shy
+
+	diplomacy = 6
+	martial = 6
+	stewardship = 8
+	intrigue = 8
+	learning = 4
+	prowess = 3
+
+	trait = education_stewardship_4
+
+	5238.11.14 = {
+		birth = yes
+	}
+
+	5334.8.2 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+
+
+lineofinyaloniroaold10 = { # father, dies in 5380
+	name = Va_a_trazami_i_n
+	dynasty = dynasty_inyaloni
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold7
+	mother = lineofinyaloniroaold8
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = patient
+	trait = just
+	trait = diligent
+
+	diplomacy = 9
+	martial = 5
+	stewardship = 6
+	intrigue = 3
+	learning = 9
+	prowess = 5
+
+	trait = education_learning_3
+	trait = intellect_good_2
+
+	5290.6.18 = {
+		birth = yes
+	}
+
+	5320.3.9 = {
+		add_spouse = lineofinyaloniroaold11
+	}
+
+	5380.10.27 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold11 = { # mother
+	name = Khibile_e_th
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = honest
+	trait = compassionate
+	trait = patient
+
+	diplomacy = 7
+	martial = 3
+	stewardship = 8
+	intrigue = 4
+	learning = 6
+	prowess = 3
+
+	trait = education_stewardship_3
+
+	5296.4.22 = {
+		birth = yes
+	}
+
+	5391.1.15 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold12 = { # uncle
+	name = Sinradun
+	dynasty = dynasty_inyaloni
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold9a
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = brave
+	trait = wrathful
+	trait = generous
+
+	diplomacy = 5
+	martial = 9
+	stewardship = 4
+	intrigue = 5
+	learning = 4
+	prowess = 8
+
+	trait = education_martial_3
+
+	5285.10.1 = {
+		birth = yes
+	}
+
+	5315.7.19 = {
+		add_spouse = lineofinyaloniroaold13
+	}
+
+	5378.5.6 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold13 = { # uncle's wife
+	name = Ladno_o_kali
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = stubborn
+	trait = brave
+	trait = zealous
+
+	diplomacy = 4
+	martial = 7
+	stewardship = 5
+	intrigue = 4
+	learning = 3
+	prowess = 6
+
+	trait = education_martial_2
+
+	5290.2.13 = {
+		birth = yes
+	}
+
+	5386.9.28 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold14 = { # uncle
+	name = Noloendu
+	dynasty = dynasty_inyaloni
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold7
+	mother = lineofinyaloniroaold8
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = gregarious
+	trait = lustful
+	trait = impatient
+
+	diplomacy = 8
+	martial = 6
+	stewardship = 5
+	intrigue = 6
+	learning = 4
+	prowess = 6
+
+	trait = education_diplomacy_3
+
+	5295.8.7 = {
+		birth = yes
+	}
+
+	5325.6.2 = {
+		add_spouse = lineofinyaloniroaold15
+	}
+
+	5390.12.11 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold15 = { # uncle's wife
+	name = Kara_a_dea
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = content
+	trait = trusting
+	trait = calm
+
+	diplomacy = 6
+	martial = 3
+	stewardship = 7
+	intrigue = 4
+	learning = 5
+	prowess = 3
+
+	trait = education_stewardship_2
+
+	5300.5.19 = {
+		birth = yes
+	}
+
+	5396.3.24 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold16 = { # cousin, child of uncle Sinradun
+	name = Banathin
+	dynasty = dynasty_inyaloni
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold12
+	mother = lineofinyaloniroaold13
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = brave
+	trait = ambitious
+	trait = vengeful
+
+	diplomacy = 5
+	martial = 8
+	stewardship = 4
+	intrigue = 6
+	learning = 5
+	prowess = 7
+
+	trait = education_martial_3
+
+	5322.1.16 = {
+		birth = yes
+	}
+
+	5418.11.9 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold17 = { # cousin, child of uncle Noloendu
+	name = Mibahl
+	dynasty = dynasty_inyaloni
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold14
+	mother = lineofinyaloniroaold15
+
+	sexuality = heterosexual
+
+	trait = diligent
+	trait = honest
+	trait = gregarious
+
+	diplomacy = 7
+	martial = 5
+	stewardship = 6
+	intrigue = 4
+	learning = 6
+	prowess = 5
+
+	trait = education_diplomacy_2
+
+	5332.7.28 = {
+		birth = yes
+	}
+
+	5408.4.3 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold18 = {
+	name = Imrakor
+
+	dynasty = dynasty_inyaloni
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold10
+	mother = lineofinyaloniroaold11
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+	trait = intellect_good_2	
+
+	trait = chaste
+	trait = just
+	trait = shy
+
+	diplomacy = 6
+	martial = 6
+	stewardship = 8
+	intrigue = 8
+	learning = 4
+	prowess = 3
+
+	trait = education_stewardship_4
+
+	5322.3.9 = {
+		birth = yes
+	}
+
+	5380.8.2 = {
+		death = { death_reason = death_drowned }
+	}
+}
+
+
+lineofinyaloniroaold19 = {
+	name = Gimilkkalea
+	female = yes
+
+	dynasty = dynasty_inyaloni
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold10
+	mother = lineofinyaloniroaold11
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = chaste
+	trait = just
+	trait = shy
+
+	diplomacy = 8
+	martial = 4
+	stewardship = 5
+	intrigue = 2
+	learning = 8
+	prowess = 5
+
+	trait = education_stewardship_1
+
+	5344.3.9 = {
+		birth = yes
+	}
+
+	5434.8.2 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold20 = {
+	name = Urduzi_i_r
+
+	dynasty = dynasty_inyaloni
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold10
+	mother = lineofinyaloniroaold11
+
+	sexuality = heterosexual
+	trait = blood_of_numenor_1
+	trait = intellect_good_2
+
+	trait = chaste
+	trait = wrathful
+	trait = brave
+
+	diplomacy = 8
+	martial = 8
+	stewardship = 10
+	intrigue = 5
+	learning = 8
+	prowess = 5
+
+	trait = education_martial_4
+
+	5337.3.9 = {
+		birth = yes
+	}
+
+	5434.8.2 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold21 = { 
+	name = Noloendu
+	dynasty = dynasty_inyaloni
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold16
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = brave
+	trait = ambitious
+	trait = vengeful
+
+	diplomacy = 5
+	martial = 10
+	stewardship = 9
+	intrigue = 4
+	learning = 8
+	prowess = 10
+
+	trait = education_martial_4
+
+	5355.1.16 = {
+		birth = yes
+	}
+
+	5468.11.9 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroaold22 = { 
+	name = Nahlduaret
+	female = yes
+
+	dynasty = dynasty_inyaloni
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroaold16
+
+	sexuality = heterosexual
+
+
+	trait = just
+	trait = content
+	trait = honest
+
+	diplomacy = 10
+	martial = 5
+	stewardship = 10
+	intrigue = 9
+	learning = 8
+	prowess = 4
+
+	trait = education_stewardship_4
+
+	5365.1.16 = {
+		birth = yes
+	}
+
+	5448.11.9 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroa1 = {
+	name = kathusaptha_a_n
+	dynasty = dynasty_inyaloni
+
+	father = lineofinyaloniroaold18
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	trait = stubborn
+	trait = content
+	trait = patient
+
+	trait = education_learning_3
+	trait = intellect_good_1
+
+	trait = blood_of_numenor_1
+
+	diplomacy = 8
+	martial = 4
+	stewardship = 5
+	intrigue = 4
+	learning = 10
+	prowess = 5
+
+	5360.1.9 = {
+		birth = yes
+	}
+
+	5396.6.15 = {
+		add_spouse = lineofinyaloniroa1wife
+	}
+
+	5460.8.11 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroa1wife = { # wife of Kathusapthân
+	name = Sinrihil
+	female = yes
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	trait = compassionate
+	trait = patient
+	trait = honest
+
+	diplomacy = 7
+	martial = 3
+	stewardship = 8
+	intrigue = 4
+	learning = 6
+	prowess = 4
+
+	trait = education_stewardship_3
+
+	5366.11.2 = {
+		birth = yes
+	}
+
+	5462.6.30 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroa2 = { # infant son
+	name = Kathuphazga_a_n
+	dynasty = dynasty_inyaloni
+
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroa1
+	mother = lineofinyaloniroa1wife
+
+	sexuality = heterosexual
+
+	trait = blood_of_numenor_1
+
+	5402.9.12 = {
+		birth = yes
+	}
+
+	5498.2.20 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofinyaloniroa3 = { # infant daughter
+	name = Azrukhali_i_
+	female = yes
+
+	dynasty = dynasty_inyaloni
+	religion = faith_iarandel
+	culture = anarikean
+
+	father = lineofinyaloniroa1
+	mother = lineofinyaloniroa1wife
+
+	sexuality = heterosexual
+
+
+	5404.4.5 = {
+		birth = yes
+	}
+
+	5484.8.14 = {
+		death = { death_reason = death_natural_causes }
+	}
+}

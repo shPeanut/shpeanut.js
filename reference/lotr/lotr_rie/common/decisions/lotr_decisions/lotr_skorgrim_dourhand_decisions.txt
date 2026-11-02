@@ -1,0 +1,418 @@
+﻿###################################################
+### Ways to get the Dwarven Rings - by J.Torada ###
+###################################################
+
+decision_skorgrim_dourhand_feast_broadbeams = { # Broadbeam Ring by Pen
+	title = decision_skorgrim_dourhand_feast_broadbeams
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_blue_mountains_01.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+
+	selection_tooltip = decision_skorgrim_dourhand_feast_broadbeams_tooltip
+	desc = decision_skorgrim_dourhand_feast_broadbeams_desc
+	confirm_text = decision_skorgrim_dourhand_feast_broadbeams_confirm
+
+	decision_group_type = skorgrim_dourhand_rings
+
+	is_shown = {
+		dynasty = dynasty:dynasty_dourhand
+		is_landed = yes
+		has_character_flag = skorgrim_dourhand_target_broadbeams
+		NOR = {
+			has_character_flag = skorgrim_dourhand_war_broadbeams
+			has_character_flag = skorgrim_stole_ring_of_broadbeams
+		}
+	}
+
+	is_valid = {
+		dynasty = dynasty:dynasty_dourhand
+		is_landed = yes
+		custom_tooltip = { # Has targeted the Broadbeams by War
+			text = pen_broadbeams
+			has_character_flag = skorgrim_dourhand_feast_broadbeams
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		custom_tooltip = decision_skorgrim_dourhand_feast_broadbeams_effect_tt
+		character:lineofdwalinV = {
+			trigger_event = {
+				id = skorgrim_dourhand.0109
+				days = 3
+			}
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+decision_skorgrim_dourhand_war_broadbeams = { # Broadbeam Ring by War
+	title = decision_skorgrim_dourhand_war_broadbeams
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_blue_mountains_01.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+
+	selection_tooltip = decision_skorgrim_dourhand_war_broadbeams_tooltip
+	desc = decision_skorgrim_dourhand_war_broadbeams_desc
+	confirm_text = decision_skorgrim_dourhand_war_broadbeams_confirm
+
+	decision_group_type = skorgrim_dourhand_rings
+
+	is_shown = {
+		dynasty = dynasty:dynasty_dourhand
+		is_landed = yes
+		has_character_flag = skorgrim_dourhand_target_broadbeams
+		NOR = {
+			has_character_flag = skorgrim_dourhand_feast_broadbeams
+			has_character_flag = skorgrim_stole_ring_of_broadbeams
+		}
+	}
+
+	is_valid = {
+		dynasty = dynasty:dynasty_dourhand
+		is_landed = yes
+		custom_tooltip = { # Has targeted the Broadbeams by War
+			text = war_broadbeams
+			has_character_flag = skorgrim_dourhand_war_broadbeams
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		start_war = {
+			casus_belli = skorgrim_war_for_dwarven_rings 
+			target = title:k_dwalins_folk.holder
+			target_title = title:k_dwalins_folk
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+decision_skorgrim_dourhand_feast_firebeards = { # Firebeard Ring by Pen
+	title = decision_skorgrim_dourhand_feast_firebeards
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_blue_mountains_01.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+
+	selection_tooltip = decision_skorgrim_dourhand_feast_firebeards_tooltip
+	desc = decision_skorgrim_dourhand_feast_firebeards_desc
+	confirm_text = decision_skorgrim_dourhand_feast_firebeards_confirm
+
+	decision_group_type = skorgrim_dourhand_rings
+
+	is_shown = {
+		dynasty = dynasty:dynasty_dourhand
+		is_landed = yes
+		has_character_flag = skorgrim_dourhand_target_firebeards
+		NOR = {
+			has_character_flag = skorgrim_dourhand_war_firebeards
+			has_character_flag = skorgrim_stole_ring_of_firebeards
+		}
+	}
+
+	is_valid = {
+		dynasty = dynasty:dynasty_dourhand
+		is_landed = yes
+		custom_tooltip = { # Has targeted the Firebeards by Pen
+			text = pen_firebeards
+			has_character_flag = skorgrim_dourhand_feast_firebeards
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		custom_tooltip = decision_skorgrim_dourhand_feast_firebeards_effect_tt
+		character:lineofuri67 = {
+			trigger_event = {
+				id = skorgrim_dourhand.0109
+				days = 3
+			}
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+decision_skorgrim_dourhand_war_firebeards = { # Firebeard Ring by War
+	title = decision_skorgrim_dourhand_war_firebeards
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_blue_mountains_01.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+
+	selection_tooltip = decision_skorgrim_dourhand_war_firebeards_tooltip
+	desc = decision_skorgrim_dourhand_war_firebeards_desc
+	confirm_text = decision_skorgrim_dourhand_war_firebeards_confirm
+
+	decision_group_type = skorgrim_dourhand_rings
+
+	is_shown = {
+		dynasty = dynasty:dynasty_dourhand
+		is_landed = yes
+		has_character_flag = skorgrim_dourhand_target_firebeards
+		NOR = {
+			has_character_flag = skorgrim_dourhand_feast_firebeards
+			has_character_flag = skorgrim_stole_ring_of_firebeards
+		}
+	}
+
+	is_valid = {
+		dynasty = dynasty:dynasty_dourhand
+		is_landed = yes
+		custom_tooltip = { # Has targeted the Firebeards by War
+			text = war_firebeards
+			has_character_flag = skorgrim_dourhand_war_firebeards
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		custom_tooltip = decision_skorgrim_dourhand_feast_firebeards_effect_tt
+		start_war = { 
+			casus_belli = skorgrim_war_for_dwarven_rings 
+			target = title:k_uris_folk.holder
+			target_title = title:k_uris_folk
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+
+#####################################################################
+### WK decisions for getting the Rings and handing them to Sauron ###
+#####################################################################
+
+decision_destroy_nogrod = { # Firebeard Ring by War
+	title = decision_destroy_nogrod
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_mordor_02.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+
+	selection_tooltip = decision_destroy_nogrod_tooltip
+	desc = decision_destroy_nogrod_desc
+	confirm_text = decision_destroy_nogrod_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_landed = yes
+		has_character_flag = wk_anger
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_wk_destroy_nogrod
+			}
+		}
+	}
+
+	is_valid = {
+		is_landed = yes
+		has_character_flag = wk_anger
+		exists = title:k_nogrod
+		title:k_nogrod.holder = {
+			any_character_artifact = {
+				has_variable = ring_of_dwarves
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		custom_tooltip = decision_skorgrim_dourhand_feast_firebeards_effect_tt
+		start_war = { 
+			casus_belli = wk_destroy_nogrod 
+			target = title:k_nogrod.holder
+			target_title = title:k_nogrod
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+decision_wk_return_rings_sauron = {
+	title = decision_wk_return_rings_sauron
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_mordor_02.dds"
+	}
+	selection_tooltip = decision_wk_return_rings_sauron_tooltip
+	desc = decision_wk_return_rings_sauron_desc
+	confirm_text = decision_wk_return_rings_sauron_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		dynasty = dynasty:dynasty_witchking
+		is_landed = yes
+		has_character_flag = wk_got_dwarven_rings
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_wk_return_rings_sauron
+			}
+		}
+	}
+
+	is_valid = {
+		dynasty = dynasty:dynasty_witchking
+		sauron_is_alive = yes
+		is_landed = yes
+		has_character_flag = wk_got_dwarven_rings
+		AND = {
+			title:k_angmar.holder = {
+				any_character_artifact = {
+					has_variable = ring_of_broadbeams 
+				}
+			}
+			title:k_angmar.holder = {
+				any_character_artifact = {
+					has_variable = ring_of_firebeards
+				}
+			}
+		}
+	}
+
+	cost = {
+		prestige = 1000
+	}
+
+	effect = {
+		add_piety = massive_piety_gain
+
+		title:c_amon_lanc.holder = {
+			save_scope_as = sauron_necromancer
+		}
+		title:k_angmar.holder = {
+			every_character_artifact = {
+				limit = { has_variable = ring_of_dwarves }
+				set_owner = {
+					target = scope:sauron_necromancer
+					history = {
+						type = given
+						actor = scope:root
+						recipient = scope:sauron_necromancer
+					}
+				}
+				if = {
+					limit = { has_variable = ring_of_broadbeams }
+					set_artifact_description =  ring_of_broadbeams_sauron_description
+				}
+				if = {
+					limit = { has_variable = ring_of_firebeards }
+					set_artifact_description =  ring_of_firebeards_sauron_description
+				}
+			}
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_wk_return_rings_sauron
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+	ai_check_interval = 40
+		
+	ai_will_do = {
+		base = 0
+	}
+}

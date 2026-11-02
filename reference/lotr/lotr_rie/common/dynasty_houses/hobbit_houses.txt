@@ -1,0 +1,51 @@
+﻿###################
+##### HOBBITS #####
+###################
+
+house_sackville_baggins = {
+	name = "dynn_sackville_baggins"
+	dynasty = dynasty_baggins
+	motto = dynn_sackville_baggins_motto
+}
+
+house_chubb_baggins = {
+	name = "dynn_chubb_baggins"
+	dynasty = dynasty_baggins
+	motto = dynn_chubb_baggins_motto
+}
+
+house_brandybuck = {
+	name = "dynn_brandybuck"
+	dynasty = dynasty_oldbuck
+	motto = dynn_brandybuck_motto
+}
+
+house_north_took = {
+	name = "dynn_north_took"
+	dynasty = dynasty_took
+	motto = dynn_north_took_motto
+}
+
+house_fairbairn = {
+	name = "dynn_fairbairn"
+	dynasty = dynasty_greenholm
+	motto = dynn_fairbairn_motto
+}
+
+house_gamgee = {
+	name = "dynn_gamgee"
+	dynasty = dynasty_gamwich
+	motto = dynn_gamgee_motto
+}
+
+house_gardner = {
+	name = "dynn_gardner"
+	dynasty = dynasty_gamwich
+	motto = dynn_gardner_motto
+}
+
+house_roper = {
+	name = "dynn_roper"
+	dynasty = dynasty_gamwich
+	motto = dynn_roper_motto
+}

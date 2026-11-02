@@ -1,0 +1,3942 @@
+﻿#########################
+# GENERIC ORC DECISIONS #
+#########################
+
+decision_challenge_the_orc_leader = {
+
+	title = decision_challenge_the_orc_leader
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_orc_pit_01.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_will_do = {
+		base = -300
+		opinion_modifier = {
+			opinion_target = root.liege
+			who = root
+			multiplier = -1
+		}
+		modifier = {
+			add = {
+				value = root.prowess
+				subtract = root.liege.prowess
+				multiply = 0
+			}
+		}
+		modifier = {
+			add = 20
+			AND = {
+				has_trait = ambitious
+				# root.prowess > root.liege.prowess
+			}
+		}
+		modifier = {
+			add = -30
+			root.prowess < root.liege.prowess
+		}
+		modifier = {
+			add = 0
+			has_trait = wrathful
+		}
+		modifier = {
+			add = -100
+			NOR = {
+				has_trait = content
+				has_trait = craven
+			}
+		}
+	}
+
+	selection_tooltip = decision_challenge_the_orc_leader_tooltip
+	desc = decision_challenge_the_orc_leader_desc
+	confirm_text = decision_challenge_the_orc_leader_confirm
+
+	cooldown = { years = 20 }
+
+	decision_group_type = realms_in_exile_minor
+	sort_order = 1000
+
+	is_shown = {
+		always = no #Not fully modified to work with the current orcish government. Needs to be reworked.
+		root = {
+			is_orc = yes
+		}
+		NOT = { root = root.liege }
+		OR = {
+			is_ai = no
+			liege = { NOT = { has_character_flag = recently_faced_orc_leadership_challenge } }
+		}
+	}
+
+	is_valid = {
+		prestige_level >= low_prestige_level
+		root.liege = {
+			is_adult = yes
+			is_orc = yes
+			NOR = {has_character_modifier = orc_challenge_win_modifier
+			has_character_modifier = orc_challenge_rejected_modifier}
+			is_imprisoned = no
+		}
+		root = {
+			NOT = {has_character_modifier = orc_challenge_retired_modifier}
+			is_imprisoned = no
+			is_orc = yes
+		}
+	}
+
+	cost = {
+		prestige = {
+			value = 500 #major_prestige_value
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_challenge_the_orc_leader_tooltip
+		trigger_event = {
+			id = orc_challenge.0001
+		}
+	}
+}
+
+decision_reject_sauron = {
+	title = decision_reject_sauron
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_erebor_evil.dds"
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	ai_will_do = {
+		base = 0
+	}
+	selection_tooltip = decision_reject_sauron_tooltip
+	desc = decision_reject_sauron_desc
+	confirm_text = decision_reject_sauron_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 1001
+
+	is_shown = {
+		is_orc = yes
+		is_landed = yes
+		religion = { is_in_family = rf_forcesofevil }
+		OR = {
+			faith = faith:lidless_eye
+			faith = faith:red_eye_cult
+			faith = faith:sons_of_sauron
+		}
+	}
+	is_valid = {
+		is_independent_ruler = yes
+		realm_size >= 10
+		NOT = { has_trait = zealous }
+		is_tributary = no
+	}
+	cost = {
+		piety = 350
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	effect = {
+		set_character_faith_with_conversion = faith:way_of_strength
+		trigger_event = orcs.6050
+	}
+}
+
+decision_unify_the_orcs = {
+	title = decision_unify_the_orcs
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_orcs_01.dds"
+	}
+
+	ai_potential = {
+		always = no
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	ai_will_do = {
+		base = 0
+	}
+	selection_tooltip = decision_unify_the_orcs_tooltip
+	desc = decision_unify_the_orcs_desc
+	confirm_text = decision_unify_the_orcs_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 5000
+
+	is_shown = {
+		highest_held_title_tier >= tier_duchy
+		highest_held_title_tier <= tier_empire
+		is_landed = yes
+		is_orc = yes
+		title:h_orc_horde = {
+			is_title_created = no
+		}
+		NOT = {
+			has_title = title:e_mordor
+		}
+	}
+
+	is_valid = {
+		prestige_level >= 4
+		is_independent_ruler = yes
+		realm_size >= 180
+		custom_description = {
+			text = found_hegemony_decision_three_empires_held
+			any_held_title = {
+				count >= 3
+				title_tier = empire
+			}
+		}
+
+		NOT = {
+			has_title = title:e_mordor
+		}
+		NOT = {
+			character:lineofsauron = {
+				has_title = title:h_dark_lord
+			}
+			character:lineofsauron = {
+				has_title = title:e_mordor
+			}
+			trigger_if = {
+				limit = { character:lineofsaruman.religion = { is_in_family = rf_forcesofevil }}
+				character:lineofsaruman = {
+					has_title = title:h_dark_lord
+				}
+			}
+			trigger_if = {
+				limit = { character:lineofsaruman.religion = { is_in_family = rf_forcesofevil }}
+				character:lineofsaruman = {
+					has_title = title:e_mordor
+				}
+			}
+			trigger_if = {
+				limit = { character:lineofsaruman.religion = { is_in_family = rf_forcesofevil }}
+				character:lineofsaruman = {
+					has_title = title:e_isengard_unleashed
+				}
+			}
+		}
+		OR = {
+			religion = religion:orcish_religion
+			religion = religion:southern_orcish_religion
+		}
+		trigger_if = {
+			limit = { is_ai = yes }
+			dread >= 50
+		}
+		trigger_else = {
+			dread >= 100
+		}
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	effect = {
+		custom_tooltip = orcs_access_to_hegemonys
+		#Create the title and make it primary
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = title_change
+			add_claim_on_loss = yes
+		}
+		title:h_orc_horde = {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		set_primary_title_to = title:h_orc_horde
+
+		give_nickname = nick_orc_unifier
+		add_character_modifier = orc_great_warchief_modifier
+		culture = {
+			# add_innovation = innovation_dark_servants
+			add_innovation = innovation_uruks
+			add_innovation = innovation_caragor
+			add_innovation = innovation_olog_hai
+		}
+		if = {
+			limit = { NOT = { has_trait = conqueror } }
+			trigger_event = conqueror.001
+		}
+		hidden_effect = {
+			trigger_event = orcs.0020
+			every_player = {
+				limit = { root != this }
+				trigger_event = orcs.0021
+			}
+		}
+	}
+}
+
+decision_goblin_duchy = { # Found a titular duchy underground, intended for Moria Goblins
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 60
+		duchy = 60
+		kingdom = 60
+		empire = 60
+		hegemony = 60
+	}
+	desc = found_kingdom_decision_desc
+
+	decision_group_type = realms_in_exile_minor
+	sort_order = 1000
+
+	is_shown = {
+		highest_held_title_tier = tier_county
+		is_ai = no
+
+		# Is Goblin
+		culture = { has_cultural_pillar = heritage_goblin }
+
+		# Must be underground
+		root.capital_province = {
+			terrain = halls
+		}
+
+		always = no # Juke Note: Iced for now
+	}
+
+	is_valid = {
+		prestige_level >= 2
+		is_independent_ruler = yes
+		sub_realm_size >= 3
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 100
+	}
+
+	effect = {
+		custom_tooltip = create_goblin_duchy
+
+		hidden_effect = {
+			save_scope_as = founder
+			primary_title = {
+				save_scope_as = old_title
+			}
+
+			create_dynamic_title = {
+				tier = duchy
+				name = NEW_GOBLIN_TITLE_NAME
+			}
+			create_title_and_vassal_change = {
+				type = created
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+
+			scope:new_title = {
+				change_title_holder = {
+					holder = root
+					change = scope:change
+				}
+			}
+
+			resolve_title_and_vassal_change = scope:change
+
+			scope:new_title = {
+				set_coa = scope:old_title
+				set_color_from_title = scope:old_title
+				set_capital_county = scope:old_title.title_capital_county
+			}
+			set_primary_title_to = scope:new_title
+
+			#trigger_event = major_decisions.1101
+
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+decision_infiltrate_whitemountains = {
+	title = decision_infiltrate_whitemountains
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_blue_mountains_01.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 24
+		empire = 24
+		hegemony = 24
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 15
+	}
+	selection_tooltip = decision_infiltrate_whitemountains_tooltip
+	desc = decision_infiltrate_whitemountains_desc
+	confirm_text = decision_infiltrate_whitemountains_confirm
+
+	decision_group_type = realms_in_exile_minor
+	sort_order = 100
+	cooldown = { years = 5 }
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		#is_landless_adventurer = yes
+		is_orc = yes
+		exists = capital_province
+		capital_province = {
+			OR = {
+				geographical_region = middleearth_west
+				geographical_region = middleearth_mordor
+				geographical_region = middleearth_mountains_misty
+				geographical_region = middleearth_mountains_iron
+			}
+		}
+		NOR = {
+			exists = title:k_eastern_white_mountains.holder
+			exists = title:k_western_white_mountains.holder
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_infiltrate_whitemountains
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		highest_held_title_tier >= tier_kingdom
+		prestige_level >= 4
+		is_orc = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_lotr_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		prestige = major_prestige_value
+		gold = 500
+	}
+
+	effect = {
+		custom_tooltip = decision_infiltrate_whitemountains_tt
+		trigger_event = orcs.6500
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_infiltrate_whitemountains
+		}
+	}
+}
+
+################################
+### Great Goblin Demand Food ###
+################################
+
+decision_gorge_on_food = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_feed_the_goblin_king.dds"
+	}
+	desc = decision_gorge_on_food_desc
+	selection_tooltip = decision_gorge_on_food_tooltip
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 60
+		duchy = 60
+		kingdom = 60
+		empire = 60
+		hegemony = 60
+	}
+
+	cooldown = { years = 5 }
+
+	sort_order = 999
+
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		culture = { has_cultural_pillar = heritage_goblin }
+		has_faith = faith:faith_goblin_town
+	}
+
+	is_valid_showing_failures_only = {
+		NOT = { exists = involved_activity }
+		is_imprisoned = no
+		is_commanding_army = no
+	}
+
+	cost = {
+		gold = 100
+	}
+
+	effect = {
+		if = {
+			limit = {
+				has_character_modifier = the_fat_one_well_fed_tier_5
+			}
+			hidden_effect = {
+				remove_character_modifier = the_fat_one_well_fed_tier_5
+			}
+			add_character_modifier = {
+				modifier = the_fat_one_well_fed_tier_5
+				years = 10
+			}
+		}
+		else_if = {
+			limit = {
+				has_character_modifier = the_fat_one_well_fed_tier_4
+			}
+			hidden_effect = {
+				remove_character_modifier = the_fat_one_well_fed_tier_4
+			}
+			add_character_modifier = {
+				modifier = the_fat_one_well_fed_tier_5
+				years = 10
+			}
+		}
+		else_if = {
+			limit = {
+				has_character_modifier = the_fat_one_well_fed_tier_3
+			}
+			hidden_effect = {
+				remove_character_modifier = the_fat_one_well_fed_tier_3
+			}
+			add_character_modifier = {
+				modifier = the_fat_one_well_fed_tier_4
+				years = 10
+			}
+		}
+		else_if = {
+			limit = {
+				has_character_modifier = the_fat_one_well_fed_tier_2
+			}
+			hidden_effect = {
+				remove_character_modifier = the_fat_one_well_fed_tier_2
+			}
+			add_character_modifier = {
+				modifier = the_fat_one_well_fed_tier_3
+				years = 10
+			}
+		}
+		else_if = {
+			limit = {
+				has_character_modifier = the_fat_one_well_fed_tier_1
+			}
+			hidden_effect = {
+				remove_character_modifier = the_fat_one_well_fed_tier_1
+			}
+			add_character_modifier = {
+				modifier = the_fat_one_well_fed_tier_2
+				years = 10
+			}
+		}
+		else = {
+			add_character_modifier = {
+				modifier = the_fat_one_well_fed_tier_1
+				years = 10
+			}
+		}
+		change_current_weight = 20
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_high_pass_west = {
+	title = decision_high_pass_west
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_burning_rivendell.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 50
+		hegemony = 50
+	}
+	ai_will_do = {
+		base = 50
+	}
+	selection_tooltip = decision_high_pass_west_tooltip
+	desc = decision_high_pass_west_desc
+	confirm_text = decision_high_pass_west_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 500
+
+	is_shown = {
+		culture = { has_cultural_pillar = heritage_goblin }
+		is_landed = yes
+		root.capital_province = {
+			terrain = halls
+		}
+		has_title = title:d_goblin_town
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_high_pass_west
+			}
+		}
+	}
+	is_valid = {
+		is_independent_ruler = yes
+		prestige_level >= 3
+		completely_controls_region = middleearth_west_eregion_imladris
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	effect = {
+		title:c_imladris = {
+			title_province = {
+				remove_building = wonder_house_of_elrond
+				add_special_building = wonder_imladris_ruined_01
+			}
+		}
+
+		custom_tooltip = {
+			text = decision_desecrate_aradhrynd.every_eldar_ruler_loses_piety
+			faith:faith_eldar = {
+				every_faith_ruler = {
+					send_interface_toast = {
+						title = decision_desecrate_aradhrynd
+						left_icon = root
+						add_piety = { value = massive_piety_loss }
+					}
+				}
+			}
+		}
+		add_elven_hope_global_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_important_site_lost }
+
+		create_artifact_goblin_crown_effect = { OWNER = root }
+		add_piety = massive_piety_gain
+		title:d_goblin_town = { change_development_level = 5 }
+
+		title:k_imladris = { change_development_level = -10 }
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_high_pass_west
+		}
+
+		trigger_event = {
+			id = orcs.4201 	# The Fall of the Hidden Valley
+		}
+	}
+}
+
+decision_high_pass_east = {
+	title = decision_high_pass_east
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_burning_beornings.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 50
+		hegemony = 50
+	}
+	ai_will_do = {
+		base = 50
+	}
+	selection_tooltip = decision_high_pass_east_tooltip
+	desc = decision_high_pass_east_desc
+	confirm_text = decision_high_pass_east_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 499
+
+	is_shown = {
+		culture = { has_cultural_pillar = heritage_goblin }
+		is_landed = yes
+		root.capital_province = {
+			terrain = halls
+		}
+		has_title = title:d_goblin_town
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_high_pass_east
+			}
+		}
+	}
+	is_valid = {
+		is_independent_ruler = yes
+		prestige_level >= 3
+		completely_controls = title:d_carrock_vale
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	effect = {
+		title:c_beornsele = {
+			title_province = {
+				remove_building = wonder_beorns_hall
+			}
+		}
+		# create_artifact_giant_bear_pelt_effect = { OWNER = root }
+		add_piety = massive_piety_gain
+
+		title:d_goblin_town = { change_development_level = 5 }
+
+		title:d_carrock_vale = { change_development_level = -10 }
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_high_pass_east
+		}
+
+		trigger_event = {
+			id = orcs.4200 	# The Carrock Burns
+		}
+	}
+}
+
+#############################################
+### Mount Gram - Subjugate the Ettenmoors ###
+#############################################
+
+decision_subjugate_the_ettenmoors = {
+	title = decision_subjugate_the_ettenmoors
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_subjugate_the_ettenmoors.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	selection_tooltip = decision_subjugate_the_ettenmoors_tooltip
+	desc = decision_subjugate_the_ettenmoors_desc
+	confirm_text = decision_subjugate_the_ettenmoors_tooltip_confirm
+
+	cost = {
+		piety = 350
+	}
+
+	cooldown = { years = 10 }
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 600
+
+	is_shown = {
+		# Only appears for Mt Gram holders if the Ettenmoors are a wilderness
+		has_title = title:c_baruk_zigil
+		completely_controls = title:c_baruk_zigil
+		custom_tooltip = {
+			text = "decision_subjugate_the_ettenmoors.b_cennmoin_is_a_wilderness"
+			title:b_cennmoin = {
+				is_wastelands = yes
+			}
+		}
+	}
+
+	is_valid = {
+		has_title = title:c_baruk_zigil
+		completely_controls = title:c_baruk_zigil
+		title:c_baruk_zigil.holder = {
+			faith_is_evil = yes
+		}
+		NOT = {
+			has_title = title:b_cennmoin
+		}
+		custom_tooltip = {
+			text = "decision_subjugate_the_ettenmoors.b_cennmoin_is_a_wilderness"
+			title:b_cennmoin = {
+				is_wastelands = yes
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_adult = yes
+		is_available = yes
+		is_independent_ruler = yes
+
+		custom_tooltip = {
+			text = "decision_subjugate_the_ettenmoors.not_ai_or_not_lore_friendly"
+			OR = {
+				is_ai = no
+				NOT = { has_game_rule = default_ai_behavior }
+			}
+		}
+	}
+
+	effect = {
+		trigger_event = {
+			id = orcs.0050
+		}
+		custom_tooltip = decision_subjugate_the_ettenmoors_effect_desc
+	}
+
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 10
+	}
+}
+
+###############################
+### Gundabad Decision Chain ###
+###############################
+
+decision_revive_gundabad = { # Re-establish your kingdom
+	title = decision_revive_gundabad
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_revive_gundabad.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 50
+		hegemony = 50
+	}
+
+	selection_tooltip = decision_revive_gundabad_tooltip
+	desc = decision_revive_gundabad_desc
+	confirm_text = decision_revive_gundabad_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 800
+
+	is_shown = {
+		game_start_date >= 6974 # After Battle of the Five Armies
+		is_landed = yes
+		is_orc = yes
+		faith_is_evil = yes
+		OR = {
+			has_title = title:d_gundabad
+			has_title = title:k_gundabad
+			dynasty = dynasty:dynasty_ashmog
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_revive_gundabad
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		has_title = title:k_gundabad
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+	effect = {
+		add_character_modifier = {
+			modifier = gundabad_rising_character_modifier
+			years = 10
+		}
+		add_prestige = 150
+		dynasty = { add_dynasty_prestige = 50 }
+		custom_tooltip = unlock_decision_gundabad_ignite_the_forges
+		custom_tooltip = unlock_decision_gundabad_angmar_mountains
+		custom_tooltip = unlock_decision_gundabad_dominion_over_langwell
+
+		#trigger_event = { #This event is for later in the chain
+		#	id = gundabad.0200
+		#}
+		if = {
+			limit = {
+				NOT = { any_artifact = { has_variable = ulukai } }
+			}
+			create_artifact_ulukai_effect = { OWNER = root }
+		}
+		else = {
+			random_artifact = {
+				limit = { has_variable = ulukai }
+				save_scope_as = ulukai_artifact
+			}
+			add_personal_artifact_claim = scope:ulukai_artifact
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_revive_gundabad
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_gundabad_ignite_the_forges = { # Fire up the war forges!
+	title = decision_gundabad_ignite_the_forges
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_gundabad_ignite_the_forges.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 50
+	}
+
+	selection_tooltip = decision_gundabad_ignite_the_forges_tooltip
+	desc = decision_gundabad_ignite_the_forges_desc
+	confirm_text = decision_gundabad_ignite_the_forges_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 799
+
+	is_shown = {
+		is_landed = yes
+		is_orc = yes
+		faith_is_evil = yes
+		has_title = title:k_gundabad
+		# is_target_in_global_variable_list = { # Just check for kingdom title
+		# 	name = unavailable_unique_decisions
+		# 	target = flag:decision_revive_gundabad
+		# }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_gundabad_ignite_the_forges
+			}
+		}
+	}
+
+	is_valid = {
+		# custom_tooltip = { # Just check for kingdom title
+		# 	text = completed_decision_revive_gundabad
+		# 	is_target_in_global_variable_list = {
+		# 		name = unavailable_unique_decisions
+		# 		target = flag:decision_revive_gundabad
+		# 	}
+		# }
+		is_independent_ruler = yes
+		has_title = title:k_gundabad
+		#government_has_flag = government_is_feudal
+		custom_tooltip = {
+			text = decision_gundabad_ignite_the_forges_requirement
+			OR = {
+				any_held_title = {
+					kingdom = title:k_gundabad
+					title_capital_county.title_province = { has_building_or_higher = furnaces_04 }
+				}
+				any_vassal_or_below = {
+					any_held_title = {
+						kingdom = title:k_gundabad
+						title_capital_county.title_province = { has_building_or_higher = furnaces_04 }
+					}
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+	effect = {
+		add_gold = 300
+		add_character_modifier = {
+			modifier = gundabad_war_forges_character_modifier
+			years = 10
+		}
+		custom_tooltip = decision_gundabad_ignite_the_forges_maa1
+		custom_tooltip = decision_gundabad_ignite_the_forges_maa2
+		custom_tooltip = unlock_decision_gundabad_unite_misties
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_gundabad_ignite_the_forges
+		}
+		trigger_event = {
+			id = gundabad.0202
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_gundabad_angmar_mountains = { # Expand Gundabad's de jure
+	title = decision_gundabad_angmar_mountains
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_gundabad_angmar_mountains.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 50
+	}
+
+	selection_tooltip = decision_gundabad_angmar_mountains_tooltip
+	desc = decision_gundabad_angmar_mountains_desc
+	confirm_text = decision_gundabad_angmar_mountains_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 798
+
+	is_shown = {
+		current_year >= 6700
+		is_landed = yes
+		is_orc = yes
+		faith_is_evil = yes
+		has_title = title:k_gundabad
+		# is_target_in_global_variable_list = { # Just check for kingdom title
+		# 	name = unavailable_unique_decisions
+		# 	target = flag:decision_revive_gundabad
+		# }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_gundabad_angmar_mountains
+			}
+		}
+	}
+
+	is_valid = {
+		# custom_tooltip = {  # Just check for kingdom title
+		# 	text = completed_decision_revive_gundabad
+		# 	is_target_in_global_variable_list = {
+		# 		name = unavailable_unique_decisions
+		# 		target = flag:decision_revive_gundabad
+		# 	}
+		# }
+		is_independent_ruler = yes
+		has_title = title:k_gundabad
+		completely_controls = title:d_haryagsh
+		completely_controls = title:d_foryagsh
+		prestige_level >= 3
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+	effect = {
+		add_prestige = 300
+		dynasty = { add_dynasty_prestige = 100 }
+		custom_tooltip = unlock_decision_gundabad_unite_misties
+
+		title:d_haryagsh = {
+			set_de_jure_liege_title = title:k_gundabad
+		}
+		title:d_foryagsh = {
+			set_de_jure_liege_title = title:k_gundabad
+		}
+
+		trigger_event = {
+			id = gundabad.0203
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_gundabad_angmar_mountains
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_gundabad_dominion_over_langwell = { # Stick it to the horselords
+	title = decision_gundabad_dominion_over_langwell
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_burning_framlings.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 50
+	}
+
+	selection_tooltip = decision_gundabad_dominion_over_langwell_tooltip
+	desc = decision_gundabad_dominion_over_langwell_desc
+	confirm_text = decision_gundabad_dominion_over_langwell_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 797
+
+	is_shown = {
+		is_landed = yes
+		is_orc = yes
+		faith_is_evil = yes
+		has_title = title:k_gundabad
+		# is_target_in_global_variable_list = { # Just check for kingdom title
+		# 	name = unavailable_unique_decisions
+		# 	target = flag:decision_revive_gundabad
+		# }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_gundabad_dominion_over_langwell
+			}
+		}
+	}
+
+	is_valid = {
+		# custom_tooltip = {  # Just check for kingdom title
+		# 	text = completed_decision_gundabad_ignite_the_forges
+		# 	is_target_in_global_variable_list = {
+		# 		name = unavailable_unique_decisions
+		# 		target = flag:decision_revive_gundabad
+		# 	}
+		# }
+		is_independent_ruler = yes
+		has_title = title:k_gundabad
+		completely_controls = title:k_langwell
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+	effect = {
+		add_prestige = 400
+		dynasty = { add_dynasty_prestige = 150 }
+		if = {
+			limit = {
+				NOT = { has_title = title:k_langwell }
+			}
+			#Create the title and make it primary
+			create_title_and_vassal_change = {
+				type = created
+				save_scope_as = title_change
+				add_claim_on_loss = yes
+			}
+			title:k_langwell = {
+				change_title_holder = {
+					holder = root
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+		}
+		custom_tooltip = decision_gundabad_dominion_over_langwell_effect
+		custom_tooltip = decision_gundabad_dominion_over_langwell_effect2
+		custom_tooltip = unlock_decision_drive_men_from_the_vale
+		custom_tooltip = unlock_decision_gundabad_grey_mountains
+
+		trigger_event = {
+			id = gundabad.1001
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_gundabad_dominion_over_langwell
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_drive_men_from_the_vale = { # Kick the men out!
+	title = decision_drive_men_from_the_vale
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_burning_beornings.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 50
+	}
+	ai_potential = {
+		always = yes
+	}
+
+	selection_tooltip = decision_drive_men_from_the_vale_tooltip
+	desc = decision_drive_men_from_the_vale_desc
+	confirm_text = decision_drive_men_from_the_vale_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 796
+
+	is_shown = {
+		is_landed = yes
+		is_orc = yes
+		has_title = title:k_gundabad
+		faith_is_evil = yes
+		# is_target_in_global_variable_list = {  # Just check for kingdom title
+		# 	name = unavailable_unique_decisions
+		# 	target = flag:decision_gundabad_dominion_over_langwell
+		# }
+		OR = {
+			completely_controls = title:k_langwell
+			title:k_langwell.holder.top_liege = root
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_drive_men_from_the_vale
+			}
+		}
+	}
+
+	is_valid = {
+		# custom_tooltip = { # Just check for kingdom title
+		# 	text = completed_decision_gundabad_dominion_over_langwell
+		# 	is_target_in_global_variable_list = {
+		# 		name = unavailable_unique_decisions
+		# 		target = flag:decision_gundabad_dominion_over_langwell
+		# 	}
+		# }
+		title:k_langwell.holder.top_liege ?= root
+		has_title = title:k_gundabad
+		completely_controls = title:d_carrock_vale
+		prestige_level >= 3
+		is_independent_ruler = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		add_prestige = 600
+		dynasty = { add_dynasty_prestige = 200 }
+
+		#Create the title and make it primary
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = title_change
+			add_claim_on_loss = yes
+		}
+		title:k_anduin_vale = {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+
+		title:c_beornsele = {
+			title_province = {
+				remove_building = wonder_beorns_hall
+			}
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_drive_men_from_the_vale
+		}
+
+		trigger_event = {
+			id = gundabad.0200
+		}
+
+		if = {
+			limit = { # Major News
+				NOT = { has_game_rule = no_news }
+			}
+			#every_player = { #Global News Announcement
+			#	trigger_event = news_event.0009
+			#}
+		}
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_gundabad_grey_mountains = { # Re-establish your kingdom
+	title = decision_gundabad_grey_mountains
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_gundabad_grey_mountains.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 50
+	}
+
+	selection_tooltip = decision_gundabad_grey_mountains_tooltip
+	desc = decision_gundabad_grey_mountains_desc
+	confirm_text = decision_gundabad_grey_mountains_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 795
+
+	is_shown = {
+		is_landed = yes
+		is_orc = yes
+		faith_is_evil = yes
+		has_title = title:k_gundabad
+		# is_target_in_global_variable_list = {  # Just check for kingdom title
+		# 	name = unavailable_unique_decisions
+		# 	target = flag:decision_gundabad_dominion_over_langwell
+		# }
+		OR = {
+			completely_controls = title:k_langwell
+			title:k_langwell.holder.top_liege ?= root
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_gundabad_grey_mountains
+			}
+		}
+	}
+
+	is_valid = {
+		# custom_tooltip = { # Just check for kingdom title
+		# 	text = completed_decision_gundabad_dominion_over_langwell
+		# 	is_target_in_global_variable_list = {
+		# 		name = unavailable_unique_decisions
+		# 		target = flag:decision_gundabad_dominion_over_langwell
+		# 	}
+		# }
+		title:k_langwell.holder.top_liege ?= root
+		has_title = title:k_gundabad
+		has_title = title:k_grey_mountains
+		any_independent_ruler = {
+			count < 1
+			custom_tooltip = {
+				text = decision_gundabad_grey_mountains_requirement
+				NOT = { has_culture = culture:wastelands }
+				is_orc = yes
+				any_held_title = {
+					kingdom ?= title:k_grey_mountains
+					title_province = { terrain = halls }
+				}
+				NOT = { this = root }
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+	effect = {
+		add_prestige = 600
+		dynasty = { add_dynasty_prestige = 200 }
+
+
+		spawn_army = {
+			name = "grey_mountains_troops"
+			men_at_arms = {
+				type = orc_warriors
+				stacks = 5
+			}
+			men_at_arms = {
+				type = orc_pikemen
+				stacks = 5
+			}
+			levies = 1500
+			location = capital_province
+			uses_supply = no
+		}
+		custom_tooltip = decision_gundabad_grey_mountains_effect1
+		custom_tooltip = decision_gundabad_grey_mountains_effect2
+
+		custom_tooltip = unlock_decision_revenge_for_five_armies
+
+		trigger_event = {
+			id = gundabad.1011
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_gundabad_grey_mountains
+		}
+
+
+		if = { # True Master of the North
+			limit = {
+				NOT = { exists = global_var:lotr_achievement_21 }
+				is_ai = no
+				realms_achievements_enabled = yes
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:decision_gundabad_ignite_the_forges
+				}
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:decision_gundabad_angmar_mountains
+				}
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:decision_gundabad_dominion_over_langwell
+				}
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:decision_drive_men_from_the_vale
+				}
+				trigger_if = {
+					limit = {
+						game_start_date >= 6974 # After Battle of the Five Armies
+					}
+					is_target_in_global_variable_list = {
+						name = unavailable_unique_decisions
+						target = flag:decision_revive_gundabad
+					}
+					is_target_in_global_variable_list = {
+						name = unavailable_unique_decisions
+						target = flag:decision_revenge_for_five_armies
+					}
+				}
+			}
+			set_global_variable = lotr_achievement_21
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_revenge_for_five_armies = { # Men suck!
+	title = decision_revenge_for_five_armies
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dol_guldur_desecrate.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 50
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_revenge_for_five_armies_tooltip
+	desc = decision_revenge_for_five_armies_desc
+	confirm_text = decision_revenge_for_five_armies_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 794
+
+	is_shown = {
+		game_start_date >= 6974 # After Battle of the Five Armies
+		is_landed = yes
+		is_orc = yes
+		has_title = title:k_gundabad
+		faith_is_evil = yes
+		# is_target_in_global_variable_list = {
+		# 	name = unavailable_unique_decisions
+		# 	target = flag:decision_gundabad_grey_mountains
+		# }
+		OR = {
+			title:k_grey_mountains.holder.top_liege ?= root
+			completely_controls = title:k_grey_mountains
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_revenge_for_five_armies
+			}
+		}
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = completed_decision_gundabad_grey_mountains
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_gundabad_grey_mountains
+			}
+		}
+		title:k_grey_mountains.holder.top_liege ?= root
+		has_title = title:k_gundabad
+		completely_controls = title:d_aradhrynd
+		completely_controls = title:d_taurduin
+		completely_controls = title:d_taur_nu_fuin
+		completely_controls = title:d_dalelands
+		completely_controls = title:d_drakkenvast
+		completely_controls = title:d_erebor
+		prestige_level >= 4
+		is_independent_ruler = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		add_prestige_level = 1
+		add_piety = 1000
+		add_prestige = 1000
+		give_nickname = nick_the_despoiler
+		trigger_event = {
+			id = gundabad.1016
+		}
+
+		destroy_title = title:k_lasgalen
+		destroy_title = title:k_dale
+		title:c_aradhrynd = {
+			title_province = {
+				remove_building = wonder_aradhrynd
+			}
+		}
+		title:c_dale = {
+			title_province = {
+				remove_building = wonder_market_of_dale
+			}
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_revenge_for_five_armies
+		}
+
+		if = {
+			limit = { # Major News
+				NOT = { has_game_rule = no_news }
+			}
+			#every_player = { #Global News Announcement
+			#	trigger_event = news_event.0009
+			#}
+		}
+
+		if = { # True Master of the North
+			limit = {
+				NOT = { exists = global_var:lotr_achievement_21 }
+				is_ai = no
+				realms_achievements_enabled = yes
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:decision_gundabad_ignite_the_forges
+				}
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:decision_gundabad_angmar_mountains
+				}
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:decision_gundabad_dominion_over_langwell
+				}
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:decision_drive_men_from_the_vale
+				}
+				trigger_if = {
+					limit = {
+						game_start_date >= 6974 # After Battle of the Five Armies
+					}
+					is_target_in_global_variable_list = {
+						name = unavailable_unique_decisions
+						target = flag:decision_revive_gundabad
+					}
+					is_target_in_global_variable_list = {
+						name = unavailable_unique_decisions
+						target = flag:decision_revenge_for_five_armies
+					}
+				}
+			}
+			set_global_variable = lotr_achievement_21
+		}
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_gundabad_unite_misties = { # Re-establish your kingdom
+	title = decision_gundabad_unite_misties
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_gundabad_unite_misties.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 50
+	}
+
+	selection_tooltip = decision_gundabad_unite_misties_tooltip
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					game_start_date >= 6974 # After Battle of the Five Armies
+				}
+				desc = decision_gundabad_unite_misties_desc
+			}
+			desc = decision_gundabad_unite_misties_desc.fallback
+		}
+	}
+	confirm_text = decision_gundabad_unite_misties_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 793
+
+	is_shown = {
+		is_landed = yes
+		is_orc = yes
+		faith_is_evil = yes
+		has_title = title:k_gundabad
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_gundabad_ignite_the_forges
+		}
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_gundabad_angmar_mountains
+		}
+		# is_target_in_global_variable_list = {
+		# 	name = unavailable_unique_decisions
+		# 	target = flag:decision_gundabad_dominion_over_langwell
+		# }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_gundabad_unite_misties
+			}
+		}
+	}
+
+	is_valid = {
+		# custom_tooltip = {
+		# 	text = completed_decision_gundabad_ignite_the_forges
+		# 	is_target_in_global_variable_list = {
+		# 		name = unavailable_unique_decisions
+		# 		target = flag:decision_gundabad_ignite_the_forges
+		# 	}
+		# }
+		# custom_tooltip = {
+		# 	text = completed_decision_gundabad_angmar_mountains
+		# 	is_target_in_global_variable_list = {
+		# 		name = unavailable_unique_decisions
+		# 		target = flag:decision_gundabad_angmar_mountains
+		# 	}
+		# }
+		# custom_tooltip = {
+		# 	text = completed_decision_gundabad_dominion_over_langwell
+		# 	is_target_in_global_variable_list = {
+		# 		name = unavailable_unique_decisions
+		# 		target = flag:decision_gundabad_dominion_over_langwell
+		# 	}
+		# }
+		completely_controls = title:k_gundabad
+		has_title = title:k_high_pass
+		has_title = title:k_khazad_dum
+		custom_tooltip = {
+			text = decision_gundabad_unite_misties_requirement
+			title:e_misty_mountains = {
+				NOT = {
+					any_in_de_jure_hierarchy = {
+						tier = tier_county
+						title_province = { terrain = halls }
+						NOT = {
+							holder = root
+							holder = title:k_wastelands.holder
+							holder = { is_vassal_or_below_of = root }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+	effect = {
+		add_prestige = 1500
+		dynasty = { add_dynasty_prestige_level = 1 }
+		if = {
+			limit = {
+				NOT = { has_title = title:e_misty_mountains }
+			}
+			#Create the title and make it primary
+			create_title_and_vassal_change = {
+				type = created
+				save_scope_as = title_change
+				add_claim_on_loss = yes
+			}
+			title:e_misty_mountains = {
+				change_title_holder = {
+					holder = root
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+			set_primary_title_to = title:e_misty_mountains
+		}
+
+
+		trigger_event = {
+			id = gundabad.1015
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_gundabad_unite_misties
+		}
+
+		if = { # True Master of the North
+			limit = {
+				NOT = { exists = global_var:lotr_achievement_21 }
+				realms_achievements_enabled = yes
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:decision_gundabad_ignite_the_forges
+				}
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:decision_gundabad_angmar_mountains
+				}
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:decision_gundabad_dominion_over_langwell
+				}
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:decision_drive_men_from_the_vale
+				}
+				trigger_if = {
+					limit = {
+						game_start_date >= 6974 # After Battle of the Five Armies
+					}
+					is_target_in_global_variable_list = {
+						name = unavailable_unique_decisions
+						target = flag:decision_revive_gundabad
+					}
+					is_target_in_global_variable_list = {
+						name = unavailable_unique_decisions
+						target = flag:decision_revenge_for_five_armies
+					}
+				}
+			}
+			set_global_variable = lotr_achievement_21
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+#####################################
+### Decisions in Yellow Mountains ###
+#####################################
+
+#By Naugrim04
+decision_yellow_mountains_spider_duchy = { #Develop Amazun duchy
+	title = decision_yellow_mountains_spider_duchy
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_spider_ruins_01.dds"
+	}
+	decision_group_type = realms_in_exile_major
+	selection_tooltip = decision_yellow_mountains_spider_duchy_tooltip
+	desc = decision_yellow_mountains_spider_duchy_desc
+	confirm_text = decision_yellow_mountains_spider_duchy_confirm
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	is_shown = {
+		faith = faith:orc_spider_cult
+		is_landed = yes
+		is_orc = yes
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:yellow_mountains_spider_duchy
+			}
+		}
+	}
+	is_valid = {
+		is_independent_ruler = yes
+		piety_level >= 3
+		completely_controls = title:d_amazun
+	}
+
+	cost = {
+		piety = {
+			value = 1500
+			if = {
+				limit = { is_ai = yes }
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+
+
+	effect = {
+		title:d_amazun = { change_development_level = 3 }
+		custom_tooltip = {
+			text = decision_yellow_mountains_spider_duchy_tt
+			province:6012 = {set_holding_type = dwarven_holding}
+			province:6013 = {set_holding_type = dwarven_holding}
+			province:6014 = {set_holding_type = dwarven_holding}
+			province:6015 = {set_holding_type = dwarven_holding}
+		}
+		#webs_tamed_county_modifier
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:yellow_mountains_spider_duchy
+		}
+
+		trigger_event = yellow_mountain_orc.001
+	}
+}
+
+#By Naugrim04
+decision_settle_lowlands = { #Migrate from the mountains into the jungles
+	title = decision_settle_lowlands
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_mouth_of_sauron_03.dds"
+	}
+	decision_group_type = realms_in_exile_major
+	selection_tooltip = decision_settle_lowlands_tooltip
+	desc = decision_settle_lowlands_desc
+	confirm_text = decision_settle_lowlands_confirm
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	is_shown = {
+		is_orc = yes
+		is_landed = yes
+		culture = { has_cultural_tradition = tradition_mountain_homes }
+		exists = capital_province
+		capital_province = {
+			OR = {
+				geographical_region = middleearth_uttersouth_usakan
+				geographical_region = middleearth_uttersouth_mumakan
+			}
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_settle_lowlands
+			}
+		}
+	}
+	is_valid = {
+		is_independent_ruler = yes
+		prestige_level >= 3
+		OR = {
+			has_title = title:k_tanturak
+			has_title = title:k_dushera
+			has_title = title:k_tuktan
+		}
+	}
+
+	cost = {
+		prestige = {
+			value = 2000
+			if = {
+				limit = { is_ai = yes }
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = decision_remove_rukhashai_tradition_1
+			culture = { remove_culture_tradition = tradition_mountain_homes }
+		}
+		custom_tooltip = {
+			text = decision_rukhashai_new_tradition_1
+			culture = { add_culture_tradition = tradition_jungle_dwellers }
+		}
+		custom_tooltip = {
+			text = decision_settle_lowlands_tt
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_settle_lowlands
+		}
+
+		trigger_event = yellow_mountain_orc.002
+	}
+}
+
+#By Naugrim04
+decision_volcano_forges = { #Elevate Mablad-dum
+	title = decision_volcano_forges
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_gundabad_ignite_the_forges.dds"
+	}
+	decision_group_type = realms_in_exile_major
+	selection_tooltip = decision_volcano_forges_tooltip
+	desc = decision_volcano_forges_desc
+	confirm_text = decision_volcano_forges_confirm
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	is_shown = {
+		faith = faith:volcano_cult
+		is_landed = yes
+		has_title = title:c_ursulbazari
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_volcano_forges
+			}
+		}
+	}
+	is_valid = {
+		is_independent_ruler = yes
+		prestige_level >= 4
+		has_title = title:k_mablad_dum
+		OR = {
+			has_title = title:k_barazimab_ul
+			any_vassal_or_below = {
+				has_title = title:k_barazimab_ul
+			}
+		}
+
+		completely_controls = title:d_markhu_khazad
+		culture = { has_innovation = innovation_castle_baileys }
+		culture = { has_innovation = innovation_hoardings }
+		custom_tooltip = {
+			text = decision_volcano_forges_tt_a
+			title:c_ursulbazari = {
+				development_level >= 20
+			}
+		}
+		province:7884 = { has_building_or_higher = wonder_mabladdum_orcish }
+		OR = {
+			province:5249 = { has_building_or_higher = wonder_snagazat_martial  }
+			province:5249 = { has_building_or_higher = wonder_snagazat_economic }
+			province:5249 = { has_building_or_higher = wonder_snagazat_dread }
+		}
+		province:7884 = { has_building_or_higher = furnaces_08  }
+	}
+
+	cost = {
+		gold = {
+			value = 1000
+			if = {
+				limit = { is_ai = yes }
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+
+	effect = {
+		title:d_kurud_ursel = { change_development_level = 5 }
+		title:c_ursulbazari = {
+			title_province = {
+				remove_building = wonder_mabladdum_orcish
+				add_special_building = wonder_mabladdum_orcish_special
+			}
+		}
+		custom_tooltip = {
+			text = decision_volcano_forges_tt_b #Give Obsidian Warriors Innovation
+		}
+		culture = { add_innovation = innovation_volcanic_metallurgy }
+		every_realm_county = {
+			limit = {
+				duchy = title:d_kurud_ursel
+				tier = tier_county
+			}
+			random_county_province = {
+				add_province_modifier = {
+					modifier = volcano_forges_province_modifier
+				}
+			}
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_volcano_forges
+		}
+		trigger_event = yellow_mountain_orc.003
+	}
+}
+
+#By Naugrim04
+decision_build_snagazat = { #Conquer Barazimabul and turn it into an evil fortress
+	title = decision_build_snagazat
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_prison.dds"}
+	decision_group_type = realms_in_exile_major
+	selection_tooltip = decision_build_snagazat_tooltip
+	desc = decision_build_snagazat_desc
+	confirm_text = decision_build_snagazat_confirm
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	is_shown = {
+		is_landed = yes
+		exists = capital_province
+		any_held_county = {
+			title_province = {
+				OR = {
+					geographical_region = middleearth_harad_bayoformal_sirayn
+					geographical_region = middleearth_harad_far
+					geographical_region = middleearth_uttersouth
+					geographical_region = middleearth_mountains_yellow
+				}
+			}
+		}
+		faith_is_evil = yes
+		
+		is_human = no
+		is_elf = no
+		is_dwarf = no
+		is_hobbit = no
+		
+		is_independent_ruler = yes
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_build_snagazat
+			}
+		}
+	}
+	is_valid = {
+		is_independent_ruler = yes
+		prestige_level >= 3
+		has_title = title:k_barazimab_ul
+		completely_controls = title:d_markhu_khazad
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	cost = {
+		gold = {
+			value = 1000
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+
+	widget = {
+		gui = "decision_view_widget_generic_multichoice_with_effects"
+		controller = decision_option_list_controller
+
+		decision_to_second_step_button = "decision_build_snagazat_confirm"
+
+		item = {
+			value = lotr_snagazat_martial
+			current_description = lotr_snagazat_martial_tooltip
+			localization = lotr_snagazat_martial_tooltip
+			icon = "gfx/interface/icons/scheme_countermeasure_types/redouble_guards_t1.dds"
+
+			ai_chance = { value = 10 }
+		}
+
+		item = {
+			value = lotr_snagazat_economic
+			current_description = lotr_snagazat_economic_tooltip
+			localization = lotr_snagazat_economic_tooltip
+			icon = "gfx/interface/icons/widgets/RICE_normandy_northmen_traders.dds"
+
+			ai_chance = { value = 10 }
+		}
+
+		item = {
+			value = lotr_snagazat_dread
+			current_description = lotr_snagazat_dread_tooltip
+			localization = lotr_snagazat_dread_tooltip
+			icon = "gfx/interface/icons/icon_dread.dds"
+
+			ai_chance = { value = 10 }
+		}
+	}
+
+	effect = {
+		province:5249 = { save_scope_as = desecrated_province }
+		hidden_effect = {
+			scope:desecrated_province = {
+				switch = {
+					trigger = has_building
+					wonder_nar_agathol = { remove_building = wonder_nar_agathol }
+					wonder_nar_agathol_2 = { remove_building = wonder_nar_agathol_2 }
+					wonder_nar_agathol_3 = { remove_building = wonder_nar_agathol_3 }
+				}
+			}
+		}
+		# Not sure why, but AI can't pick from the options
+		if = {
+			limit = { is_ai = yes }
+			random_list = {
+				10 = {
+					set_variable = lotr_snagazat_martial
+				}
+				10 = {
+					set_variable = lotr_snagazat_economic
+				}
+				10 = {
+					set_variable = lotr_snagazat_dread
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_variable = lotr_snagazat_martial
+					scope:lotr_snagazat_martial = yes
+				}
+			}
+			scope:desecrated_province = { add_special_building = wonder_snagazat_martial }
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_variable = lotr_snagazat_economic
+					scope:lotr_snagazat_economic = yes
+				}
+			}
+			scope:desecrated_province = { add_special_building = wonder_snagazat_economic }
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_variable = lotr_snagazat_dread
+					scope:lotr_snagazat_dread = yes
+				}
+			}
+			scope:desecrated_province = { add_special_building = wonder_snagazat_dread }
+		}
+		custom_tooltip = {
+			text = decision_build_snagazat.tt
+			trigger_event = yellow_mountain_orc.004
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_build_snagazat
+		}
+	}
+}
+
+#By Naugrim04
+decision_delve_ny_cennacatt = { #Explore spooky Nazgul ruins
+	title = decision_delve_ny_cennacatt
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_castle_03.dds"}
+	decision_group_type = realms_in_exile_major
+	ai_potential = {
+		always = no
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	ai_will_do = {
+		base = 0
+	}
+	selection_tooltip = decision_delve_ny_cennacatt_tooltip
+	desc = decision_delve_ny_cennacatt_desc
+	confirm_text = decision_delve_ny_cennacatt_confirm
+
+	cooldown = { days = 500 }
+
+	is_shown = {
+		faith_is_evil = yes
+		has_title = title:c_tul_askar
+		province:7050 = { has_building_or_higher = wonder_ny_chennacatt_02  }
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_delve_ny_cennacatt
+			}
+			culture = culture:ringwraith
+		}
+	}
+	is_valid = {
+		OR = {
+			has_trait = scholar
+			has_trait = greedy
+			has_trait = witch
+		}
+		OR = {
+			learning >= 20
+			intrigue >= 20
+		}
+		prestige_level >= 3
+	}
+
+	cost = {
+		prestige = {
+			value = 750
+		}
+	}
+
+effect = {
+	custom_tooltip = {
+			text = decision_delve_ny_cennacatt.tt
+			trigger_event = {
+				id = yellow_mountain_orc.101
+			}
+		}
+	}
+}
+
+#By Naugrim04
+decision_yellow_mountains_goblin_reclamation = { #Decision for Yellow Mountain "Native" goblins to reassert dominance in the Yellow Mountains
+	title = decision_yellow_mountains_goblin_reclamation
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misty_mountains_05.dds"
+	}
+	decision_group_type = realms_in_exile_major
+	selection_tooltip = decision_yellow_mountains_goblin_reclamation_tooltip
+	desc = decision_yellow_mountains_goblin_reclamation_desc
+	confirm_text = decision_yellow_mountains_goblin_reclamation_confirm
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+
+	is_shown = {
+		OR = {
+			culture = culture:echomaker_goblin
+			culture = { any_parent_culture_or_above = { this = culture:echomaker_goblin } }	#Of the line of the "Old" goblin cultures of the Yellow Mountains, before the Mordoric Rukhas-hai and Flint-Slingers
+		}
+		is_independent_ruler = yes
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:yellow_mountains_goblin_reclamation
+			}
+		}
+	}
+	is_valid = {
+		is_independent_ruler = yes
+		has_title = title:e_yellow_mountains
+		prestige_level >= 3
+		custom_tooltip = {
+			text = decision_yellow_mountains_goblin_reclamation_trigger_tt
+			title:e_yellow_mountains = {
+				any_de_jure_county_holder = { # There are no non-goblin rulers in the Yellow Mountains
+					OR ={
+						has_culture = culture:wastelands
+						culture = { has_cultural_pillar = heritage_goblin }
+					}
+					count = all
+				}
+			}
+		}
+		religion = religion:southern_orcish_religion
+		NOT = {
+			faith = faith:volcano_cult
+		}
+		NOT = {
+			faith = faith:faith_murghuri
+		}
+	}
+
+	cost = {
+		prestige = {
+			value = 2500
+			if = {
+				limit = { is_ai = yes }
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+
+
+	effect = {
+		root.dynasty = {
+			add_dynasty_prestige = 750
+			add_dynasty_modifier = {
+				modifier = yellow_mountain_goblin_uniter_modifier
+				years = 100
+			}
+		}
+		custom_tooltip = {
+			text = decision_yellow_mountains_goblin_reclamation.tt
+		}
+		custom_tooltip = {
+			text = decision_yellow_mountains_goblin_reclamation.tt_1
+		}
+		custom_tooltip = {
+			text = decision_yellow_mountains_goblin_reclamation.tt_2
+		}
+		custom_tooltip = {
+			text = decision_yellow_mountains_goblin_reclamation.tt_3
+		}
+		#add dynasty modifier for converting culture speed
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:yellow_mountains_goblin_reclamation
+		}
+
+		trigger_event = yellow_mountain_orc.005
+	}
+}
+
+#By Naugrim04
+decision_petition_nazgul = { #Murghuri Cultists petition local Nazgul
+	title = decision_petition_nazgul
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_nazgul_02.dds"
+	}
+	decision_group_type = realms_in_exile_minor
+	selection_tooltip = decision_petition_nazgul_tooltip
+	desc = decision_petition_nazgul_desc
+	confirm_text = decision_petition_nazgul_confirm
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		faith = {
+			has_doctrine_parameter = petition_nazgul_decision
+		}
+		is_landed = yes
+		NOT = {
+			has_trait = nazgul
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:yellow_mountains_spider_duchy
+			}
+		}
+	}
+	is_valid = {
+		piety_level >= 1
+		capital_county = {
+			title_province = {
+				geographical_region = custom_petition_murghuri_region
+			}
+		}
+		custom_tooltip = {	#There is a Nazgul in the region
+			text = decision_petition_nazgul.tt
+			any_ruler = {
+				AND = {
+					#in_diplomatic_range = root #Witch-King has unlimited diplo range? Yellow Mountain orcs can reach him in Angmar
+					capital_county = {
+						title_province = {
+							geographical_region = custom_petition_murghuri_region
+						}
+					}
+					has_trait = nazgul
+					is_independent_ruler = yes
+				}
+			}
+		}
+		custom_tooltip = {	#Your liege is not already a Nazgul
+			text = decision_petition_nazgul.tt3
+			root.top_liege = {
+				NOT = { has_trait = nazgul }
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		NOT = { exists = involved_activity }
+		is_imprisoned = no
+		is_travelling = no
+	}
+
+	cooldown = { years = 5 }
+
+	cost = {
+		piety = {
+			value = 150
+			if = {
+				limit = { is_ai = yes }
+				multiply = 0.5
+			}
+			multiply = 1
+		}
+	}
+
+
+	effect = {
+		custom_tooltip = {
+			text = decision_petition_nazgul.tt2
+			random_ruler = {
+				limit = {
+					AND = {
+						capital_county = {
+							title_province = {
+								geographical_region = custom_petition_murghuri_region
+							}
+						}
+						has_trait = nazgul
+						is_independent_ruler = yes
+					}
+				}
+				save_scope_as = petitioned_nazgul
+			}
+			scope:petitioned_nazgul.capital_county.title_province = { save_scope_as = nazgul_petitioner_destination }
+			start_travel_plan = {
+				destination = scope:nazgul_petitioner_destination
+				on_arrival_event = yellow_mountain_orc.201
+				return_trip = yes
+				players_use_planner = no
+				#on_arrival_destinations = all
+			}
+		}
+	}
+}
+
+decision_yellow_mountains_igal_zaram_warrens = { #Build a Great Warrens Great Building
+	title = decision_yellow_mountains_igal_zaram_warrens
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_mordor_02.dds"
+	}
+	decision_group_type = realms_in_exile_major
+	selection_tooltip = decision_yellow_mountains_igal_zaram_warrens_tooltip
+	desc = decision_yellow_mountains_igal_zaram_warrens_desc
+	confirm_text = decision_yellow_mountains_igal_zaram_warrens_confirm
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	is_shown = {
+		is_landed = yes
+		is_orc = yes
+		exists = capital_province
+		any_realm_county = {
+			title_province = {
+ 				geographical_region = middleearth_mountains_yellow_west
+ 			}
+ 		}
+		faith_is_evil = yes
+		has_character_flag = igal_zaram_warrens_task_accepted
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:yellow_mountains_igal_zaram_warrens
+			}
+		}
+	}
+	is_valid = {
+		is_independent_ruler = yes
+		OR = {
+			prestige_level >= 3
+			piety_level >=3
+		}
+		highest_held_title_tier >= tier_duchy
+	}
+
+	cost = {
+		gold = {
+			value = 1500
+			if = {
+				limit = { is_ai = yes }
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+
+
+	effect = {
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:yellow_mountains_igal_zaram_warrens
+		}
+		custom_tooltip = decision_yellow_mountains_igal_zaram_warrens.tt
+		trigger_event = yellow_mountain_orc.023
+	}
+}
+#############################
+# Misty Mountains Decisions #
+#############################
+
+decision_demand_orc_submission = { # Claim total rule over the Misty Mountains
+	title = decision_demand_orc_submission
+	picture = {
+		reference = "gfx/interface/illustrations/men_at_arms_big/mountainorc_warriors.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_demand_orc_submission_tooltip
+	desc = decision_demand_orc_submission_desc
+	confirm_text = decision_demand_orc_submission_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 999
+
+	is_shown = {
+		dynasty = dynasty:dynasty_ashmog
+		is_landed = yes
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_demand_orc_submission
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		highest_held_title_tier >= tier_kingdom
+		dynasty = dynasty:dynasty_ashmog
+		trigger_if = {
+			limit = {
+				has_character_modifier = rise_of_azog_modifier
+			}
+			prestige_level >= 4
+		}
+		trigger_else = {
+			prestige_level >= 5
+		}
+
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		prestige = 500
+	}
+
+	effect = {
+		dynasty = { add_dynasty_prestige = 150 }
+		custom_tooltip = decision_demand_orc_submission_tt
+		get_title = title:e_misty_mountains
+		trigger_event = {
+			id = orcs.6000
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_demand_orc_submission
+		}
+	}
+}
+
+# Azog Decisions
+decision_solidify_moria = { # Azog becomes King of Moria
+	title = decision_solidify_moria
+	picture = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_halls.dds"
+	}
+	sort_order = 1000
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_solidify_moria_tooltip
+	desc = decision_solidify_moria_desc
+	confirm_text = decision_solidify_moria_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_landed = yes
+		has_character_flag = azog_solidify_moria
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_solidify_moria
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		highest_held_title_tier <= tier_duchy
+
+		calc_true_if = { # Need at least three duchy titles in Moria
+			amount >= 3
+
+			has_title = title:d_zirakzigil
+			has_title = title:d_barazmekhem
+			has_title = title:d_barazinbar
+			has_title = title:d_bundushathur
+			has_title = title:d_fuhmdusha
+			has_title = title:d_foundations_of_stone
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		#is_at_war = no
+	}
+
+	cost = {
+		prestige = 300
+	}
+
+	effect = {
+		dynasty = { add_dynasty_prestige = 50 }
+		get_title = title:k_khazad_dum
+		custom_tooltip = decision_solidify_moria_tt
+		title:k_khazad_dum = {
+			every_de_jure_county_holder = {
+				limit = {
+					is_independent_ruler = yes
+					is_landed = yes
+					is_orc = yes
+					NOT = { has_title = title:k_khazad_dum }
+					NOT = { has_title = title:k_wastelands }
+					highest_held_title_tier = tier_county
+				}
+				create_title_and_vassal_change = {
+					type = swear_fealty
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				change_liege = {
+					liege = title:k_khazad_dum.holder
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
+		}
+		trigger_event = { id = orcs.7003 }
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_solidify_moria
+		}
+		remove_character_flag = azog_solidify_moria
+	}
+}
+
+decision_azog_raid_rhovanion = { # Azog sidequest: raid Rhovanion
+	title = decision_azog_raid_rhovanion
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_raiding.dds"
+	}
+	sort_order = 700
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 50
+	}
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_azog_raid_rhovanion_tooltip
+	desc = decision_azog_raid_rhovanion_desc
+	confirm_text = decision_azog_raid_rhovanion_confirm
+
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		is_landed = yes
+		has_character_flag = azog_sidequests_unlocked
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_azog_raid_rhovanion
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		has_title = title:k_khazad_dum
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 80
+	}
+
+	effect = {
+		add_dread = medium_dread_gain
+		custom_tooltip = decision_azog_raid_rhovanion_tt
+		trigger_event = { id = orcs.7055 }
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_azog_raid_rhovanion
+		}
+	}
+}
+
+decision_azog_raid_eriador = { # Azog sidequest: raid Eriador
+	title = decision_azog_raid_eriador
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_burning_framlings.dds"
+	}
+	sort_order = 700
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 50
+	}
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_azog_raid_eriador_tooltip
+	desc = decision_azog_raid_eriador_desc
+	confirm_text = decision_azog_raid_eriador_confirm
+
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		is_landed = yes
+		has_character_flag = azog_sidequests_unlocked
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_azog_raid_eriador
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		has_title = title:k_khazad_dum
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 80
+	}
+
+	effect = {
+		add_dread = medium_dread_gain
+		custom_tooltip = decision_azog_raid_eriador_tt
+		trigger_event = { id = orcs.7050 }
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_azog_raid_eriador
+		}
+	}
+}
+
+decision_azog_summoned_by_sauron = { # Azog sidequest: travel to Dol Guldur
+	title = decision_azog_summoned_by_sauron
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_mordor_02.dds"
+	}
+	sort_order = 701
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 50
+	}
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_azog_summoned_by_sauron_tooltip
+	desc = decision_azog_summoned_by_sauron_desc
+	confirm_text = decision_azog_summoned_by_sauron_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_landed = yes
+		has_character_flag = azog_summoned_by_sauron
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_azog_summoned_by_sauron
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		has_title = title:k_khazad_dum
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		#is_at_war = no
+	}
+
+	cost = {
+		gold = minor_gold_value
+	}
+
+	effect = {
+		custom_tooltip = decision_azog_summoned_by_sauron_tt
+		start_travel_plan = { #Travel to Dol Guldur
+			destination = title:c_amon_lanc.title_province
+			on_arrival_event = orcs.7006
+			return_trip = no
+			players_use_planner = yes
+			on_arrival_destinations = all
+		}
+		hidden_effect = { #give free caravan master
+			if = {
+				limit = { NOT = { employs_court_position = travel_leader_court_position } }
+				create_character = {
+					template = travel_leader_court_position_template
+					employer = root
+					save_scope_as = caravan_master
+				}
+				appoint_court_position = {
+					recipient = scope:caravan_master
+					court_position = travel_leader_court_position
+				}
+			}
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_azog_summoned_by_sauron
+		}
+	}
+}
+
+decision_azog_ulukai_search = { # Azog searches for the Ulúkai
+	title = decision_azog_ulukai_search
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_gundabad_grey_mountains.dds"
+	}
+	sort_order = 1000
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 50
+	}
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_azog_ulukai_search_tooltip
+	desc = decision_azog_ulukai_search_desc
+	confirm_text = decision_azog_ulukai_search_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_landed = yes
+		has_character_flag = azog_ulukai_search
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_azog_ulukai_search
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		has_title = title:k_khazad_dum
+		has_faith = faith:cult_of_the_ulukai
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		#is_at_war = no
+	}
+
+	effect = {
+		custom_tooltip = decision_azog_ulukai_search_tt
+		random_list = {
+			25 = {
+				custom_tooltip = decision_azog_ulukai_short_search
+				trigger_event = {
+					id = orcs.7013
+					months = 3
+				}
+			}
+			25 = {
+				custom_tooltip = decision_azog_ulukai_medium_search
+				trigger_event = {
+					id = orcs.7013
+					months = 6
+				}
+			}
+			25 = {
+				custom_tooltip = decision_azog_ulukai_long_search
+				trigger_event = {
+					id = orcs.7013
+					months = 12
+				}
+			}
+			25 = {
+				custom_tooltip = decision_azog_ulukai_verylong_search
+				trigger_event = {
+					id = orcs.7013
+					months = 18
+				}
+			}
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_azog_ulukai_search
+		}
+	}
+}
+
+decision_azog_claim_final_victory = { # Azog reaches his peak
+	title = decision_azog_claim_final_victory
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misty_mountains_03.dds"
+	}
+	sort_order = 1000
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 50
+	}
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_azog_claim_final_victory_tooltip
+	desc = decision_azog_claim_final_victory_desc
+	confirm_text = decision_azog_claim_final_victory_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_landed = yes
+		has_character_flag = azog_ulukai_found
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_azog_claim_final_victory
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		OR = {
+			has_title = title:k_gundabad
+			any_vassal_or_below = { has_title = title:k_gundabad }
+		}
+		has_title = title:e_misty_mountains
+		prestige_level >= 4
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		prestige = massive_prestige_value
+	}
+
+	effect = {
+		give_nickname = nick_tyrant_of_the_north
+		add_legitimacy = massive_legitimacy_gain
+		custom_tooltip = unlock_decision_gundabad_ignite_the_forges
+		create_maa_regiment = {
+			type = gundabad_blackshields
+			check_can_recruit = no
+			size = 5
+		}
+		trigger_event = orcs.7012
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_azog_claim_final_victory
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_revive_gundabad
+		}
+	}
+}
+
+##########################
+# Uldona Spine Decisions #
+##########################
+
+decision_uldona_spine_orc = { # Forge the one-duchy kingdom
+	title = decision_uldona_spine_orc
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_blue_mountains_01.dds"
+	}
+	sort_order = 600
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_uldona_spine_orc_tooltip
+	desc = decision_uldona_spine_orc_desc
+	confirm_text = decision_uldona_spine_orc_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_orc = yes
+		OR = {
+			has_title = title:c_falek_dim
+			has_title = title:c_gabil_dum
+			has_title = title:c_hathur_na_bunderok
+			has_title = title:c_danakh_nala
+			has_title = title:c_marzgur
+		}
+
+		NOR = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_uldona_spine_orc
+			}
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_uldona_spine_dwarf
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		is_orc = yes
+		prestige_level >= 3
+		has_title = title:d_nurunkizdin
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		prestige = 500
+	}
+
+	effect = {
+		dynasty = { add_dynasty_prestige = 50 }
+		get_title = title:k_nurunkizdin
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_uldona_spine_orc
+		}
+	}
+}
+
+###################
+### DRAGON CULT ###
+###################
+
+#By Naugrim04
+decision_drake_tribute = {
+	title = decision_drake_tribute
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_dragon_03.dds"}
+	desc = decision_drake_tribute_desc
+	selection_tooltip = decision_drake_tribute_tooltip
+	confirm_text = decision_drake_tribute_confirm
+
+	decision_group_type = realms_in_exile_minor
+	sort_order = 400
+
+	is_shown = {
+		is_ruler = yes
+		faith = faith:dragon_cult
+	}
+
+	cooldown = { days = 30 }
+
+	is_valid = {
+		any_realm_province = {has_building = dragon_attack}
+	}
+
+	cost = {
+		piety = {
+			value = 100
+
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			multiply = 1
+		}
+		gold = {
+			value = 100
+
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			multiply = 1
+		}
+
+	}
+
+	effect = {
+		trigger_event = orcs.6451
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+#By Naugrim04
+decision_desolation_kingdom = {
+	title = decision_desolation_kingdom
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_erebor_evil.dds"}
+	decision_group_type = realms_in_exile_major
+	selection_tooltip = decision_desolation_kingdom_tooltip
+	desc = decision_desolation_kingdom_desc
+	confirm_text = decision_desolation_kingdom_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 399
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	is_shown = {
+		faith = faith:dragon_cult
+		current_year >= 6975 # after Smaug takes Erebor
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_desolation_kingdom
+			}
+		}
+	}
+
+	is_valid = {
+		completely_controls = title:k_dale
+		completely_controls = title:k_erebor
+		prestige_level >= 3
+		piety_level >= 3
+	}
+
+	cost = {
+		prestige = 2500
+	}
+
+	effect = {
+		custom_tooltip = {
+  			text = desolation_modifier.tt
+			every_realm_county = {
+				limit = {
+						OR = {
+						kingdom = title:k_erebor
+						kingdom = title:k_dale
+						}
+						tier = tier_county
+				}
+				add_county_modifier = {
+					modifier = desolation_ravaged_lands_county_modifier
+					years = 20
+				}
+			}
+		}
+
+		get_title = title:k_desolation
+
+		custom_tooltip = {
+			text = desolation_dejure.tt
+			destroy_title = title:k_dale
+			destroy_title = title:k_erebor
+			title:d_drakkenvast = { set_de_jure_liege_title = title:k_desolation }
+			title:d_dalelands = { set_de_jure_liege_title = title:k_desolation }
+			title:d_vargfell = { set_de_jure_liege_title = title:k_desolation }
+			title:d_aldmyrr = { set_de_jure_liege_title = title:k_desolation }
+			title:d_gramavuld = { set_de_jure_liege_title = title:k_desolation }
+			title:d_sunnarinna = { set_de_jure_liege_title = title:k_desolation }
+			title:d_erebor = { set_de_jure_liege_title = title:k_desolation }
+			title:k_desolation = { set_de_jure_liege_title = title:e_iron_mountains }
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_desolation_kingdom
+		}
+	}
+
+}
+
+###########################
+### DEEP CULT DECISIONS ###
+###########################
+
+#By Naugrim04
+decision_deep_worship_nameless_things = {
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"}
+
+	desc = decision_deep_worship_nameless_things_desc
+	selection_tooltip = decision_deep_worship_nameless_things_tooltip
+	confirm_text = decision_deep_worship_nameless_things_confirm
+
+	decision_group_type = realms_in_exile_minor
+	sort_order = 200
+
+	cooldown = { years = 5 }
+
+	is_shown = {
+		faith = {
+			has_doctrine = tenet_deep_worship
+		}
+	}
+
+	is_valid = {
+		#NOT = { has_character_flag = flag_deep_worship_nameless_things }
+		custom_tooltip = {
+			text = decision_deep_worship_nameless_things.tt1
+			root.capital_province = { #must be IN the deep to WORSHIP the deep
+				terrain = halls
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_deep_worship_nameless_things.tt2
+		custom_tooltip = decision_deep_worship_nameless_things.tt3
+		trigger_event = orcs.6401
+		# add_character_flag = {
+			# flag = flag_deep_worship_nameless_things
+			# days = 1825
+		# }
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 60
+		duchy = 60
+		kingdom = 60
+		empire = 60
+		hegemony = 60
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 50
+
+		# 100% chance at 50 zeal, 0% chance at -50 zeal.
+		ai_value_modifier = {
+			ai_zeal = 1
+		}
+	}
+}
+
+
+#############################
+#### Desecrate Decisions ####
+#############################
+
+decision_desecrate_imladris_generic = { #Destroy Rivendell, generic version of the Goblin Town specific decision.
+	title = decision_desecrate_imladris
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_burning_rivendell.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_will_do = {
+		base = 50
+	}
+	selection_tooltip = decision_desecrate_imladris_tooltip
+	desc = decision_desecrate_imladris_desc
+	confirm_text = decision_desecrate_imladris_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 2
+
+	is_shown = {
+		is_landed = yes
+		exists = capital_province
+		any_realm_county = {
+			title_province = {
+ 				OR = {
+ 					# geographical_region = middleearth_forodwaith
+					geographical_region = middleearth_mountains_misty
+					geographical_region = middleearth_west_arnor
+					geographical_region = middleearth_west_eregion
+					geographical_region = middleearth_west_rhovanion_anduin
+				}
+ 			}
+ 		}
+		faith_is_evil = yes
+
+		is_human = no
+		is_elf = no
+		is_dwarf = no
+		is_hobbit = no
+
+		NOT = {
+			AND = {	#If they fulfill these requirements, they are eligible for the other decision, with better rewards.
+				has_title = title:d_goblin_town
+				culture = { has_cultural_pillar = heritage_goblin }
+				root.capital_province = {
+					terrain = halls
+				}
+			}
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_high_pass_west
+			}
+		}
+	}
+	is_valid = {
+		is_independent_ruler = yes
+		prestige_level >= 3
+		completely_controls = title:d_imladris
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	effect = {
+		title:c_imladris = {
+			title_province = {
+				remove_building = wonder_house_of_elrond
+				add_special_building = wonder_imladris_ruined_01
+			}
+		}
+
+		custom_tooltip = {
+			text = decision_desecrate_aradhrynd.every_eldar_ruler_loses_piety
+			faith:faith_eldar = {
+				every_faith_ruler = {
+					send_interface_toast = {
+						title = decision_desecrate_aradhrynd
+						left_icon = root
+						add_piety = { value = massive_piety_loss }
+					}
+				}
+			}
+		}
+
+		add_piety = massive_piety_gain
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_high_pass_west
+		}
+
+		trigger_event = {
+			id = orcs.4201 	# The Fall of the Hidden Valley
+		}
+	}
+}
+
+#By Naugrim04
+decision_desecrate_mithlond = { #Destroy Mithlond
+	title = decision_desecrate_mithlond
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_mithlond_03.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_will_do = {
+		base = 50
+	}
+	selection_tooltip = decision_desecrate_mithlond_tooltip
+	desc = decision_desecrate_mithlond_desc
+	confirm_text = decision_desecrate_mithlond_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 1
+
+	is_shown = {
+		is_landed = yes
+		exists = capital_province
+		any_realm_county = {
+			title_province = {
+ 				OR = {
+ 					# geographical_region = middleearth_forodwaith
+					geographical_region = middleearth_mountains_blue
+					geographical_region = middleearth_west_arnor
+					geographical_region = middleearth_west_beleriand
+				}
+ 			}
+ 		}
+		faith_is_evil = yes
+
+		is_human = no
+		is_elf = no
+		is_dwarf = no
+		is_hobbit = no
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:desecrate_mithlond
+			}
+		}
+	}
+	is_valid = {
+		is_independent_ruler = yes
+		prestige_level >= 3
+		completely_controls = title:d_mithlond
+		completely_controls = title:d_emyn_beraid
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	effect = {
+		title:c_mithannunlond = {
+			title_province = {
+				remove_building = wonder_mithlond_north_01
+				add_special_building = wonder_mithlond_north_ruined_01
+			}
+		}
+		title:c_mithrhulond = {
+			title_province = {
+				remove_building = wonder_mithlond_south_01
+				add_special_building = wonder_mithlond_south_ruined_01
+			}
+		}
+
+		custom_tooltip = {
+			text = decision_desecrate_aradhrynd.every_eldar_ruler_loses_piety
+			faith:faith_eldar = {
+				every_faith_ruler = {
+					send_interface_toast = {
+						title = decision_desecrate_aradhrynd
+						left_icon = root
+						add_piety = { value = massive_piety_loss }
+					}
+				}
+			}
+		}
+		add_elven_hope_global_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_important_site_lost }
+
+		add_piety = massive_piety_gain
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:desecrate_mithlond
+		}
+
+		trigger_event = {
+			id = orcs.4202
+		}
+	}
+}
+
+decision_dissolve_unified_durins_folk = {
+	title = decision_dissolve_unified_durins_folk
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_mithlond_03.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	ai_will_do = {
+		base = 50
+	}
+	selection_tooltip = decision_dissolve_unified_durins_folk_tooltip
+	desc = decision_dissolve_unified_durins_folk_desc
+	confirm_text = decision_dissolve_unified_durins_folk_confirm
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 1
+
+	is_shown = {
+		is_orc = yes
+		custom_tooltip = {
+			text = unify_durins_folk_requirement
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_unify_durins_folk
+			}
+		}
+	}
+
+	is_valid = {
+		completely_controls = title:e_durins_folk
+	}
+
+	effect = {
+		title:k_grey_mountains = { set_de_jure_liege_title = title:e_iron_mountains }
+		title:k_iron_hills = { set_de_jure_liege_title = title:e_iron_mountains }
+		title:k_erebor = { set_de_jure_liege_title = title:e_iron_mountains }
+		if = {
+			limit = { title:k_nurunkizdin.empire = title:e_durins_folk }
+			title:k_nurunkizdin = { set_de_jure_liege_title = title:e_iron_mountains }
+		}
+		remove_list_global_variable = {
+			name = unavailable_unique_decisions
+			target = flag:decision_unify_durins_folk
+		}
+	}
+}
+
+decision_desecrate_dwarven_capital = {
+	title = decision_desecrate_dwarven_capital
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misty_mountains_03.dds"
+	}
+	sort_order = 1000
+
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_desecrate_dwarven_capital_tooltip
+	desc = decision_desecrate_dwarven_capital_desc
+	confirm_text = decision_desecrate_dwarven_capital_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_orc = yes
+		any_held_county = {
+			OR = {
+				this = title:c_durins_hall
+				this = title:c_azelanduzur
+				this = title:c_zillinakhur
+				this = title:c_ursulbazari
+			}
+			title_province = {
+				NOT = { has_building_with_flag = desecrated_dwarven_capital }
+			}
+		}
+	}
+
+	is_valid = {
+		always = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		prestige = { value = major_prestige_value }
+		gold = { value = medium_gold_value }
+	}
+
+	widget = {
+		gui = "decision_view_widget_option_list_generic"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "decision_desecrate_dwarven_capital.second_step"
+
+		item = { # Moria
+			value = desecrate_moria
+			localization = decision_desecrate_dwarven_capital.tt.moria
+			is_shown = {
+				title:c_durins_hall = {
+					holder = root
+					title_province = {
+						NOT = { has_building_with_flag = desecrated_dwarven_capital }
+					}
+				}
+			}
+			ai_chance = {
+				value = 100
+			}
+		}
+		item = { # Belegost
+			value = desecrate_belegost
+			localization = decision_desecrate_dwarven_capital.tt.belegost
+			is_shown = {
+				title:c_azelanduzur = {
+					holder = root
+					title_province = {
+						NOT = { has_building_with_flag = desecrated_dwarven_capital }
+					}
+				}
+			}
+			ai_chance = {
+				value = 100
+			}
+		}
+		item = { # Nogrod
+			value = desecrate_nogrod
+			localization = decision_desecrate_dwarven_capital.tt.nogrod
+			is_shown = {
+				title:c_zillinakhur = {
+					holder = root
+					title_province = {
+						NOT = { has_building_with_flag = desecrated_dwarven_capital }
+					}
+				}
+			}
+			ai_chance = {
+				value = 100
+			}
+		}
+		item = { # Mablâd-dûm
+			value = desecrate_mabladdum
+			localization = decision_desecrate_dwarven_capital.tt.mabladdum
+			is_shown = {
+				title:c_ursulbazari = {
+					holder = root
+					title_province = {
+						NOT = { has_building_with_flag = desecrated_dwarven_capital }
+					}
+				}
+			}
+			ai_chance = {
+				value = 100
+			}
+		}
+	}
+
+	effect = {
+		switch = { #Build the appropriate Special Building
+			trigger = yes
+			scope:desecrate_moria = {
+				province:4909 = {
+					ruin_great_building = yes
+					destroy_legendary_special_building_effect = yes
+					add_special_building_slot = wonder_durin_throne_orcish
+					add_special_building = wonder_durin_throne_orcish
+				}
+			}
+			scope:desecrate_belegost = {
+				province:4841 = {
+					ruin_great_building = yes
+					destroy_legendary_special_building_effect = yes
+					add_special_building_slot = wonder_belegost_orcish
+					add_special_building = wonder_belegost_orcish
+				}
+			}
+			scope:desecrate_nogrod = {
+				province:4869 = {
+					ruin_great_building = yes
+					destroy_legendary_special_building_effect = yes
+					add_special_building_slot = wonder_nogrod_orcish
+					add_special_building = wonder_nogrod_orcish
+				}
+			}
+			scope:desecrate_mabladdum = {
+				province:7884 = {
+					ruin_great_building = yes
+					destroy_legendary_special_building_effect = yes
+					add_special_building_slot = wonder_mabladdum_orcish
+					add_special_building = wonder_mabladdum_orcish
+				}
+			}
+		}
+	}
+}

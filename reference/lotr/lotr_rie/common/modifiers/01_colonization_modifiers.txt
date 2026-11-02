@@ -1,0 +1,6 @@
+﻿colonisation_cooldown = {
+	icon = county_modifier_development_negative	
+	development_growth_factor = -0.25
+	monthly_prestige = 0.25
+	attraction_opinion = -10
+}

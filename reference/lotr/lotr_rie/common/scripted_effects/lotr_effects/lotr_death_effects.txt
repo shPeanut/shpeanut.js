@@ -1,0 +1,268 @@
+﻿lotr_apply_inactive_traits_on_death = {
+	lotr_visible_disfigurement_death_effect = yes
+
+	lotr_one_eyed_death_effect = yes
+
+	if = {
+		limit = {
+			any_equipped_character_artifact = {
+				artifact_slot_type = helmet
+			}
+		}
+		if = {
+			limit = {
+				lotr_has_artifact_equipped = { ARTIFACT_VARIABLE = crown_woodland_realm }
+			}
+			make_trait_inactive = equipped_crown_woodland_realm
+		}
+		else_if = {
+			limit = {
+				exists = this
+				is_alive = no
+				OR = {
+					# Queens of Arnor
+					this = character:wifeofelendil
+					this = character:wifeofisildur
+					this = character:lineofcaladir21b
+					this = character:lineoftarmea7sister
+					this = character:lineofeketya45sister
+					this = character:lineofgunion19sister
+					this = character:lineofhyarromenyar11sister
+					this = character:linemelosse15sister
+					this = character:lineofgirithlin43sister
+					this = character:lineofsilivnir11sister
+					# Queens of Arthedain (empire tier)
+					this = character:lineoftarmea31sister # Aerien vanity
+					this = character:lineofcaladir47
+					this = character:lineoferuthimar47sister
+					this = character:lineofeketya79sister
+					this = character:lineofgirithlin65sister
+					this = character:lineoftarmea41sister
+					this = character:lineoftarmacilin51sister
+					this = character:lineofcastamir8 # Fíriel of Gondor
+				}
+			}
+			make_trait_inactive = equipped_arnorian_circlet
+		}
+		else_if = {
+			limit = {
+				exists = this
+				is_alive = no
+				OR = {
+					this = character:lineofceleberyn12sister
+					this = character:lineoftarmacilin21sister
+					this = character:lineofcastamir3
+					this = character:linetaure3sister
+					this = character:lineofanarion56
+					this = character:lineoforro27sister
+					this = character:lineofhyarromenyar31sister
+					this = character:lineeldanar34
+					this = character:lineforo1131
+				}
+			}
+			make_trait_inactive = equipped_arthedain_circlet
+		}
+		else_if = {
+			limit = {
+				exists = this
+				is_alive = no
+				OR = {
+					this = character:lineofcaladir35sister
+					this = character:lineofgirithlin47sister
+					this = character:lineoferuthimar33sister
+					this = character:linearastil3sister
+					this = character:lineofcerentir33sister
+					this = character:lineedhellos43
+					this = character:lineofemeraya33sister
+					this = character:lineofgirithlin57sister
+				}
+			}
+			make_trait_inactive = equipped_cardolan_circlet
+		}
+		else_if = {
+			limit = {
+				exists = this
+				is_alive = no
+				OR = {
+					this = character:linehunen21sister
+					this = character:lineendril29sister
+					this = character:lineofsulmacil5sister
+					this = character:lineeldanar24sister
+					this = character:linemelosse29sister
+					this = character:lineendril35b
+					this = character:linehunen31brother
+				}
+			}
+			make_trait_inactive = equipped_rhudaur_circlet
+		}
+		else_if = {
+			limit = {
+				exists = this
+				is_alive = no
+				OR = {
+					this = character:lineofanarion53 # Castamir the Usurper
+					this = character:lineofcastamir2 # Castaher
+					this = character:lineofcastamir3 # Castamaitë
+					this = character:lineofanarion55 # Morlaen
+					this = character:lineofanarion56 # Caramir
+					this = character:lineofcastamir3 # Castamaitë
+					this = character:lineofcastamir4 # Angamaite
+					this = character:lineofcastamir5 # Sangahyando
+					this = character:lineofcastamir6 # Sangahyandion
+					this = character:lineofcastamir7 # Castamir II
+					this = character:lineofcastamir8 # Castamir III
+				}
+			}
+			make_trait_inactive = equipped_castamiri_winged_crown
+		}
+		else_if = {
+			limit = {
+				lotr_has_artifact_equipped = { ARTIFACT_VARIABLE = crown_of_gondor }
+			}
+			make_trait_inactive = equipped_crown_of_gondor
+		}
+		else_if = {
+			limit = {
+				lotr_has_artifact_equipped = { ARTIFACT_VARIABLE = swan_circlet }
+			}
+			make_trait_inactive = equipped_swan_circlet
+		}
+		else_if = {
+			limit = {
+				exists = this
+				is_alive = no
+				OR = {
+					# Kings of Khazad-dum
+					this = character:lineofdurinI # Durin I
+					this = character:lineofdurin2
+					this = character:lineofdurin3
+					this = character:lineofdurin4
+					this = character:lineofdurin5
+					this = character:lineofdurin6
+					this = character:lineofdurin7
+					this = character:lineofdurin8
+					this = character:lineofdurinII # Durin II
+					this = character:lineofdurin10
+					this = character:lineofdurin11
+					this = character:lineofdurin12
+					this = character:lineofdurin13
+					this = character:lineofdurin14
+					this = character:lineofdurin15
+					this = character:lineofdurin16
+					this = character:lineofdurin15b
+					this = character:lineofdurin17
+					this = character:lineofdurinIII # Durin III
+					this = character:lineofdurin18
+					this = character:lineofdurin20
+					this = character:lineofdurin22
+					this = character:lineofdurin24
+					this = character:lineofdurin24b
+					this = character:lineofdurin24c
+					this = character:lineofdurin26
+					this = character:lineofdurin28
+					this = character:lineofdurin30
+					this = character:lineofdurin32
+					this = character:lineofdurin34
+					this = character:lineofdurin36
+					this = character:lineofdurin38
+					this = character:lineofdurin40
+					this = character:lineofdurin40a
+					this = character:lineofdurin42
+					this = character:lineofdurin44
+					this = character:lineofdurinIV # Durin IV
+					this = character:lineofdurin46
+					this = character:lineofdurin48
+					this = character:lineofdurin50
+					this = character:lineofdurin52
+					this = character:lineofdurin54
+					this = character:lineofdurin56
+					this = character:lineofdurin54a
+					this = character:lineofdurin56a
+					this = character:lineofdurin58
+					this = character:lineofdurinV # Durin V
+					this = character:lineofdurin60
+					this = character:lineofdurin62
+					this = character:lineofdurin64
+					this = character:lineofdurin66
+					this = character:lineofdurin68
+					this = character:lineofdurin70
+					this = character:lineofdurin72
+					this = character:lineofdurinVI # Durin VI
+					this = character:lineofdurin73
+					# Queens of Khazad-dum
+					this = character:lineofdurinIwife
+					this = character:lineofdurin2wife
+					this = character:lineofuri5b
+					this = character:lineofdurin4wife
+					this = character:lineofdurin5wife
+					this = character:lineofdurin6wife
+					this = character:lineofdurin7wife
+					this = character:lineofdurin8wife
+					this = character:lineofdurinIIwife
+					this = character:lineofdurin10wife
+					this = character:lineofdurin11wife
+					this = character:lineofdurin12wife
+					this = character:lineofdurin13wife
+					this = character:lineofdurin14wife
+					this = character:lineofdurin15wife
+					this = character:lineofdurin16wife
+					this = character:lineofdurin15bwife
+					this = character:lineofdurin17wife
+					this = character:lineofdurinIIIwife
+					this = character:lineofdurin19
+					this = character:lineofdurin21
+					this = character:lineofdurin23
+					this = character:lineofdurin25
+					this = character:lineofdurin27
+					this = character:lineofdurin29
+					this = character:lineofdurin31
+					this = character:lineofdurin37
+					this = character:lineofdurin39
+					this = character:lineofdurin41
+					this = character:lineofdurin43
+					this = character:lineofdurin44wife
+					this = character:lineofdurin45
+					this = character:lineofdurin47
+					this = character:lineofdurin49
+					this = character:lineofdurin51
+					this = character:lineofdurin53
+					this = character:lineofdurin55
+					this = character:lineofdurin57
+					this = character:lineofdurin55b
+					this = character:lineofdurin57b
+					this = character:lineofdurin59
+					this = character:lineofdurinVwife
+					this = character:lineofdurin61
+					this = character:lineofdurin63
+					this = character:lineofdurin65
+					this = character:lineofdurin67
+					this = character:lineofdurin69
+					this = character:lineofdurin71
+					this = character:lineofdurin72wife
+					this = character:lineofdurinVIwife
+					this = character:lineofdurin73wife
+				}
+			}
+			make_trait_inactive = equipped_longbeard_crown
+		}
+
+		else_if = {
+			limit = {
+				exists = this
+				is_alive = no
+				OR = {
+					# Kings of Erebor
+					this = character:lineofdurin74 # Thrain I
+					this = character:lineofdurin75 # Thorin I
+					this = character:lineofdurin81 # Thror
+					this = character:lineofdurin83 # Thorin II
+					# Queens of Erebor
+					this = character:lineofdurin74wife
+					this = character:lineofdurin75wife
+					this = character:lineoftherrel67sister
+				}
+			}
+			make_trait_inactive = equipped_erebor_crown
+		}
+	}
+}

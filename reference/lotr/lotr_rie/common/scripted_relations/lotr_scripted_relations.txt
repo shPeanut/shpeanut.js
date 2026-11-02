@@ -1,0 +1,9 @@
+﻿tributary_protector = {
+	hidden = yes
+	corresponding = tributary_protectorate
+}
+
+tributary_protectorate = {
+	hidden = yes
+	corresponding = tributary_protector
+}

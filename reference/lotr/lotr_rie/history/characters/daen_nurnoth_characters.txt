@@ -1,0 +1,1569 @@
+﻿#############################
+#############################
+########## NURNOTH ##########
+#############################
+#############################
+
+# The Nurnoth - Daen descended slaves of Nurn, no rulers until After the War of the Ring
+
+# Table of Contents #
+
+### Pre-Emancipation Dynasties ###
+# Line of Haldor
+# Line of Tukrath
+# Line of Molwan
+# Line of Hearon
+# Line of Brynja
+# Line of Brand
+# Line of Ketil
+# Line of Skardi
+# The Silken Spider
+
+### Post-Emancipation Dynasties ###
+# Line of Kidjun
+
+####################################
+#### Pre-Emancipation Dynasties ####
+####################################
+
+### Line of Haldor ###
+lineofhaldor1 = {
+	name = Haldor
+
+	dynasty = dynasty_haldor
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	trait = patient
+	trait = craven
+	trait = diligent
+
+	diplomacy = 4
+	stewardship = 7
+	martial = 7
+	intrigue = 5
+	learning = 5
+	prowess = 6
+
+	trait = education_martial_3 # TEMP EDUCATION
+	trait = physique_good_2
+
+	5283.4.9 = {
+		birth = yes
+	}
+
+	5307.6.12 = {
+		add_spouse = lineofhaldor2
+	}
+
+	5348.8.20 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofhaldor2 = {
+	name = Tukrai
+	female = yes
+
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	trait = honest
+	trait = calm
+	trait = content
+
+	diplomacy = 7
+	stewardship = 7
+	martial = 5
+	intrigue = 4
+	learning = 6
+	prowess = 2
+
+	trait = education_learning_1 # TEMP EDUCATION
+
+	5287.7.17 = {
+		birth = yes
+	}
+
+	5356.3.2 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofhaldor3 = {
+	name = Haldor
+
+	dynasty = dynasty_haldor
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineofhaldor1
+	mother = lineofhaldor2
+
+	trait = patient
+	trait = diligent
+	trait = content
+
+	diplomacy = 5
+	stewardship = 10
+	martial = 6
+	intrigue = 6
+	learning = 5
+	prowess = 2
+
+	trait = education_stewardship_2
+	trait = physique_good_2
+
+	5309.2.7 = {
+		birth = yes
+	}
+
+	5328.5.16 = {
+		add_spouse = lineofhaldor4
+	}
+
+	5354.9.4 = {
+		death = { death_reason = death_script_cruelty }
+	}
+}
+
+lineofhaldor4 = {
+	name = Tukrai
+	female = yes
+
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	trait = brave
+	trait = patient
+	trait = diligent
+
+	diplomacy = 5
+	stewardship = 8
+	martial = 6
+	intrigue = 5
+	learning = 6
+	prowess = 6
+
+	trait = education_intrigue_2 # TEMP EDUCATION
+	trait = intellect_good_2
+
+	5312.8.12 = {
+		birth = yes
+	}
+
+	5369.2.18 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofhaldor5 = {
+	name = Alrik
+
+	dynasty = dynasty_haldor
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineofhaldor3
+	mother = lineofhaldor4
+
+	trait = brave
+	trait = ambitious
+	trait = gregarious
+
+	diplomacy = 10
+	stewardship = 6
+	martial = 9
+	intrigue = 8
+	learning = 5
+	prowess = 8
+
+	trait = education_diplomacy_4
+	trait = physique_good_2
+	trait = intellect_good_2
+	trait = populist_leader
+
+	5339.4.13 = {
+		birth = yes
+	}
+
+	5376.5.3 = {
+		add_spouse = lineoftukrath6
+	}
+
+	5381.3.15 = {
+		death = { death_reason = death_battle }
+	}
+}
+
+lineofhaldor6 = {
+	name = Sten
+
+	dynasty = dynasty_haldor
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineofhaldor3
+	mother = lineofhaldor4
+
+	trait = brave
+	trait = stubborn
+	trait = calm
+
+	diplomacy = 5
+	stewardship = 4
+	martial = 7
+	intrigue = 3
+	learning = 3
+	prowess = 2
+
+	trait = education_martial_2
+	trait = loyal
+
+	5343.2.9 = {
+		birth = yes
+	}
+
+	5367.5.17 = {
+		death = { death_reason = death_battle }
+	}
+}
+
+lineofhaldor7 = {
+	name = Alrik
+
+	dynasty = dynasty_haldor
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineofhaldor5
+	mother = lineoftukrath6
+
+	trait = rowdy
+
+	diplomacy = 3
+	stewardship = 2
+	martial = 3
+	intrigue = 2
+	learning = 2
+	prowess = 2
+
+	trait = education_martial_3
+	trait = physique_good_2
+
+	5378.3.2 = {
+		birth = yes
+	}
+
+	5400.3.2 = {
+		trait = trusting
+		trait = honest
+		trait = brave
+	}
+
+	5451.9.21 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofhaldor8 = {
+	name = Haldor
+
+	dynasty = dynasty_haldor
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineofhaldor5
+	mother = lineoftukrath6
+
+	diplomacy = 4
+	stewardship = 2
+	martial = 2
+	intrigue = 2
+	learning = 3
+	prowess = 1
+
+	trait = education_stewardship_4
+	trait = intellect_good_2
+
+	5379.10.11 = {
+		birth = yes
+	}
+
+	5400.3.2 = {
+		trait = diligent
+		trait = temperate
+		trait = humble
+	}
+
+	5456.4.7 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+### Line of Tukrath ###
+lineoftukrath1 = { # led a previous slave revolt
+	name = Tukrath
+
+	dynasty = dynasty_tukrath
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	trait = wrathful
+	trait = brave
+	trait = impatient
+
+	diplomacy = 6
+	stewardship = 5
+	martial = 6
+	intrigue = 4
+	learning = 2
+	prowess = 8
+
+	trait = education_martial_4
+	trait = reckless
+	trait = physique_good_3
+
+	5282.6.24 = {
+		birth = yes
+	}
+
+	5328.7.9 = {
+		death = { death_reason = death_battle }
+	}
+}
+
+lineoftukrath2 = {
+	name = Eirik
+
+	dynasty = dynasty_tukrath
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineoftukrath1
+
+	trait = brave
+	trait = diligent
+	trait = temperate
+
+	diplomacy = 5
+	stewardship = 4
+	martial = 7
+	intrigue = 4
+	learning = 3
+	prowess = 9
+
+	trait = education_martial_2
+	trait = physique_good_3
+
+	5312.1.18 = {
+		birth = yes
+	}
+
+	5333.8.14 = {
+		add_spouse = lineoftukrath3
+	}
+
+	5371.4.6 = {
+		death = { death_reason = death_battle }
+	}
+}
+
+lineoftukrath3 = {
+	name = Sigrid
+	female = yes
+
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	trait = calm
+	trait = diligent
+	trait = honest
+
+	diplomacy = 7
+	stewardship = 7
+	martial = 6
+	intrigue = 4
+	learning = 8
+	prowess = 6
+
+	trait = education_diplomacy_3 # TEMP EDUCATION
+
+	5317.7.1 = {
+		birth = yes
+	}
+
+	5391.1.1 = {
+		death = { death_reason = death_ill }
+	}
+}
+
+lineoftukrath4 = {
+	name = Ru_u_rik
+
+	dynasty = dynasty_tukrath
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineoftukrath2
+	mother = lineoftukrath3
+
+	trait = wrathful
+	trait = brave
+	trait = stubborn
+
+	diplomacy = 3
+	stewardship = 3
+	martial = 10
+	intrigue = 4
+	learning = 2
+	prowess = 10
+
+	trait = education_martial_4
+	trait = reckless
+	trait = physique_good_3
+	trait = strong
+	trait = lifestyle_blademaster
+
+	5342.6.24 = {
+		birth = yes
+	}
+
+	5368.7.9 = {
+		add_spouse = lineoftukrath5
+	}
+
+	5382.1.1 = {
+		set_primary_title_to = title:c_cirith_nargil
+
+		create_alliance = {
+			target = character:lineofakhubarikka10
+			allied_through_owner = character:lineoftukrath4
+			allied_through_target = character:lineofakhubarikka10
+		}
+	}
+
+	5421.1.1 = {
+		death = { death_reason = death_battle }
+	}
+}
+
+lineoftukrath5 = { # insane grandma (not a grandma or insane though?)
+	name = Freydis
+	female = yes
+
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	trait = brave
+	trait = stubborn
+	trait = ambitious
+
+	diplomacy = 3
+	stewardship = 6
+	martial = 8
+	intrigue = 4
+	learning = 5
+	prowess = 8
+
+	trait = education_martial_3
+	trait = physique_good_2
+
+	5347.12.5 = {
+		birth = yes
+	}
+
+	5421.1.1 = {
+		death = { death_reason = death_battle }
+	}
+}
+
+lineoftukrath6 = {
+	name = Astrid
+	female = yes
+
+	dynasty = dynasty_tukrath
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineoftukrath2
+	mother = lineoftukrath3
+
+	trait = patient
+	trait = brave
+	trait = compassionate
+
+	diplomacy = 8
+	stewardship = 5
+	martial = 5
+	intrigue = 4
+	learning = 7
+	prowess = 1
+
+	trait = education_martial_2 # TEMP EDUCATION
+	trait = intellect_good_2
+
+	5353.11.20 = {
+		birth = yes
+	}
+
+	5428.6.14 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineoftukrath7 = {
+	name = Runa
+	female = yes
+
+	dynasty = dynasty_tukrath
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineoftukrath4
+	mother = lineoftukrath5
+
+	5372.9.15 = {
+		birth = yes
+	}
+
+	5392.9.15 = {
+		trait = diligent
+		trait = brave
+		trait = just
+	}
+
+	5452.9.15 = {
+		death = { death_reason = death_battle }
+	}
+}
+
+### Line of Molwan ###
+lineofmolwan1 = { # is a forking collaborator
+	name = Molwan
+
+	dynasty = dynasty_molwan
+	religion = faith_nurn_slave
+	culture = nurnoth
+
+	trait = deceitful
+	trait = callous
+	trait = patient
+
+	diplomacy = 2
+	stewardship = 8
+	martial = 1
+	intrigue = 9
+	learning = 7
+	prowess = 4
+
+	trait = education_intrigue_2
+
+	5345.9.18 = {
+		birth = yes
+	}
+
+	5382.1.1 = {
+		effect = {
+			start_tributary = {
+				contract_group = tributary_subjugated
+				suzerain = character:linethaurband3
+			}
+			tributary_contract_set_obligation_level = { type = default_tributary_taxes level = 1 }
+			tributary_contract_set_obligation_level = { type = default_tributary_prestige level = 1 }
+			tributary_contract_set_obligation_level = { type = suzerain_war_participation_guarantee level = 1 }
+		}
+	}
+
+	5404.2.11 = {
+		death = { death_reason = death_duel killer = lineoftukrath4 }
+	}
+}
+
+### Line of Hearon ###
+lineofhearon1 = { #Selfish, also extremly pragmatic, out for himself, vows to never be a slave again
+	name = Hearon
+
+	dynasty = dynasty_hearon
+	religion = faith_nurniag
+	culture = nurnoth
+
+	trait = deceitful
+	trait = cynical
+	trait = ambitious
+
+	diplomacy = 5
+	stewardship = 4
+	martial = 8
+	intrigue = 10
+	learning = 5
+	prowess = 9
+
+	trait = education_martial_4
+	trait = lifestyle_blademaster
+
+	5359.2.16 = {
+		birth = yes
+	}
+
+	5392.10.4 = {
+		death = { death_reason = death_battle }
+	}
+}
+
+### Line of Brynja ###
+lineofbrynja1 = { # Mama Bear
+	name = Brynja
+	female = yes
+
+	dynasty = dynasty_brynja
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	trait = brave
+	trait = wrathful
+	trait = compassionate
+
+	diplomacy = 8
+	stewardship = 4
+	martial = 9
+	intrigue = 5
+	learning = 4
+	prowess = 9
+
+	trait = education_martial_4
+	trait = physique_good_2
+
+	5355.3.7 = {
+		birth = yes
+	}
+
+	5381.3.7 = {
+		add_matrilineal_spouse = lineofnurnbrand1
+	}
+
+	5397.8.23 = {
+		death = { death_reason = death_battle }
+	}
+}
+
+### Line of Brand ###
+lineofnurnbrand1 = { # An exceptional administrator, was the quarter master in Alrik's army, he however has lost everything and is listless and unwilling to fight.
+	name = Brand
+
+	dynasty = dynasty_nurnbrand
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	trait = diligent
+	trait = just
+	trait = shy # Shellshocked
+
+	diplomacy = 6
+	stewardship = 10
+	martial = 5
+	intrigue = 7
+	learning = 8
+	prowess = 4
+
+	trait = education_stewardship_4
+	trait = intellect_good_1
+	trait = depressed_1
+
+	5343.12.21 = {
+		birth = yes
+	}
+
+	5381.12.21 = {
+		effect = {
+			start_tributary = {
+				contract_group = tributary_subjugated
+				suzerain = character:lineofbrynja1
+			}
+			tributary_contract_set_obligation_level = { type = default_tributary_taxes level = 1 }
+			tributary_contract_set_obligation_level = { type = default_tributary_prestige level = 1 }
+			tributary_contract_set_obligation_level = { type = suzerain_war_participation_guarantee level = 1 }
+		}
+	}
+
+	5448.9.27 = {
+		death = { death_reason = death_ill }
+	}
+}
+
+### Line of Ketil ###
+lineofketil1 = { # A religious revolutionary although he follows quite the exotic faith
+	name = Ketil
+
+	dynasty = dynasty_ketil
+	religion = faith_chelkar
+	culture = nurnoth
+
+	trait = zealous
+	trait = brave
+	trait = arrogant
+
+	diplomacy = 9
+	stewardship = 3
+	martial = 9
+	intrigue = 4
+	learning = 5
+	prowess = 8
+
+	trait = education_diplomacy_4
+	trait = holy_warrior
+	trait = physique_good_1
+
+	5353.6.1 = {
+		birth = yes
+	}
+
+	5395.3.15 = {
+		death = { death_reason = death_battle }
+	}
+}
+
+### Line of Skardi ###
+lineofskardigrandmother = { # Possibly Related to someone, we shall see in time. The husband is unknown.
+	name = Balderea
+	female = yes
+
+	religion = faith_edain_ulmo
+	culture = gondorian
+
+	trait = diligent
+	trait = brave
+	trait = humble
+
+	diplomacy = 4
+	stewardship = 9
+	martial = 5
+	intrigue = 4
+	learning = 9
+	prowess = 4
+
+	trait = education_stewardship_2
+	trait = intellect_good_1
+	trait = depressed_1
+	trait = blood_of_numenor_4
+
+	5173.6.1 = {
+		birth = yes
+		effect = {
+			learn_language = language_sindarin
+			learn_language = language_westron
+		}
+	}
+
+	5301.1.1 = {
+		religion = faith_nurn_slave
+		effect = {
+			make_character_crypto_religionist_effect = {
+				CRYPTO_RELIGION = faith:faith_edain_ulmo
+			}
+		}
+	}
+
+	5379.10.15 = { # 40 years older than her blood average
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofskardimother = { # Possibly Related to someone, we shall see in time. The husband is unknown.
+	name = Eliane
+	female = yes
+
+	religion = faith_nurn_slave
+	culture = gondorian
+
+	mother = lineofskardigrandmother
+
+	trait = honest
+	trait = content
+	trait = humble
+
+	diplomacy = 8
+	stewardship = 7
+	martial = 4
+	intrigue = 1
+	learning = 4
+	prowess = 4
+
+	trait = education_diplomacy_2
+	trait = intellect_good_1
+	trait = depressed_1
+	trait = blood_of_numenor_4
+
+	5253.6.1 = {
+		birth = yes
+		effect = {
+			learn_language = language_sindarin
+			learn_language = language_westron
+		}
+	}
+
+	5301.1.1 = {
+		religion = faith_nurn_slave
+		culture = nurnoth
+		effect = {
+			make_character_crypto_religionist_effect = {
+				CRYPTO_RELIGION = faith:faith_edain_ulmo
+			}
+		}
+	}
+
+	5375.3.15 = {
+		add_trait = maimed
+		death = { death_reason = death_torture }
+	}
+}
+
+lineofskardi1 = { # A Captain under Alrik, He was forced to retreat after the battle with many freed slaves, they are awaiting their deaths in their stolen fortress but he has heard of his mother's land in all the songs she used to sing, of a green and warm land, before she was captured and sold into slavery. of the land that meets the sea. All they have to do is trek through the wastes of mordor to get there.
+	name = Skardi
+
+	dynasty = dynasty_skardi
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	mother = lineofskardimother
+
+	trait = brave
+	trait = stubborn
+	trait = humble
+
+	diplomacy = 6
+	stewardship = 7
+	martial = 9
+	intrigue = 4
+	learning = 5
+	prowess = 8
+
+	trait = education_martial_4
+	trait = physique_good_3
+	trait = intellect_good_1
+	trait = blood_of_numenor_3
+
+	5353.6.1 = {
+		birth = yes
+		effect = {
+			make_character_crypto_religionist_effect = {
+				CRYPTO_RELIGION = faith:faith_edain_ulmo
+			}
+			add_character_flag = { flag = do_not_generate_starting_family }
+			learn_language = language_sindarin
+			learn_language = language_westron
+		}
+
+	}
+
+	5400.6.23 = {
+		religion = faith_edain_ulmo
+	}
+
+	5405.1.13 = {
+		add_spouse = lineofelendir64
+	}
+
+	5555.3.15 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+### The Silken Spider ###
+lineofspider1 = { #Originally born a Nurnoth slave of mixed Dunadan-Easterling ancestry
+	name = Varchani
+	female = yes
+
+	religion = faith_nurn_slave
+	culture = nurnoth
+	dynasty = dynasty_spider
+
+	trait = patient
+	trait = ambitious
+	trait = deceitful
+	trait = education_intrigue_3
+	trait = beauty_good_3
+	trait = blood_of_numenor_1
+
+	diplomacy = 9
+	martial = 1
+	stewardship = 6
+	intrigue = 10
+	learning = 8
+	prowess = 2
+
+	dna = aerien_dna
+
+	6750.7.5 = {
+		birth = yes
+		effect = {
+			add_character_flag = do_not_generate_starting_family
+			learn_language = language_westron
+		}
+	}
+
+	6774.7.9 = { # Rise to power, adopts new name, culture, and faith
+		name = Azruphe_e_l
+		give_nickname = nick_silken_spider
+		religion = lidless_eye
+		culture = mordorrim
+		trait = sorcerer_1
+		effect = {
+			add_character_flag = {
+				flag = had_nickname_event
+			}
+		}
+	}
+
+	6868.6.8 = {
+		death = {
+			death_reason = death_vanished
+		}
+	}
+}
+
+#####################################
+#### Post-Emancipation Dynasties ####
+#####################################
+
+### Line of Kidjun ###
+lineofkidjun1 = {
+	name = Kidjun
+
+	religion = faith_nurn_slave
+	culture = nurnoth
+	dna = slaveleader_dna
+
+	sexuality = heterosexual
+
+	trait = brave
+	trait = just
+	trait = compassionate
+	trait = curious
+
+	disallow_random_traits = yes
+
+	diplomacy = 7
+	martial = 9
+	stewardship = 12
+	intrigue = 10
+	learning = 7
+	prowess = 11
+
+	trait = education_diplomacy_4
+	trait = scarred
+
+	7018.6.19 = {
+		birth = yes
+		employer = lineovon55
+		effect = {
+			make_character_crypto_religionist_effect = {
+				CRYPTO_RELIGION = faith:faith_nurn_good
+			}
+		}
+	}
+
+	7037.12.8 = {
+		add_spouse = lineofkidjun2
+	}
+
+	7052.4.4 = {
+		religion = faith_nurn_good
+		give_nickname = nick_the_liberator
+		dynasty = dynasty_kidjun
+		trait = peasant_leader
+	}
+
+	7076.6.20 = {
+		death = {
+			death_reason = death_ill
+		}
+	}
+}
+
+lineofkidjun2 = {
+	name = Abri
+	female = yes
+
+	religion = faith_nurn_slave
+	culture = nurnoth
+
+	sexuality = heterosexual
+
+	trait = diligent
+	trait = lustful
+	trait = just
+	trait = charming
+
+	disallow_random_traits = yes
+
+	diplomacy = 10
+	martial = 5
+	stewardship = 5
+	intrigue = 8
+	learning = 4
+	prowess = 6
+
+	trait = education_diplomacy_3
+
+	7018.12.23 = {
+		birth = yes
+		employer = lineovon55
+		effect = {
+			make_character_crypto_religionist_effect = {
+				CRYPTO_RELIGION = faith:faith_nurn_good
+			}
+		}
+	}
+
+	7052.4.4 = {
+		religion = faith_nurn_good
+		trait = peasant_leader
+	}
+
+	7084.2.3 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofkidjun3 = {
+	name = Bu_u_lan
+
+	dynasty = dynasty_kidjun
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineofkidjun1
+	mother = lineofkidjun2
+
+	sexuality = heterosexual
+
+	trait = wrathful
+	trait = vengeful
+	trait = trusting
+
+	diplomacy = 7
+	martial = 5
+	stewardship = 8
+	intrigue = 6
+	learning = 8
+	prowess = 4
+
+	trait = education_stewardship_3
+
+	7038.7.27 = {
+		birth = yes
+	}
+
+	7059.5.25 = {
+		add_spouse = lineofkidjun4
+	}
+
+	7110.5.22 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofkidjun4 = {
+	name = Koniz
+	female = yes
+
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	sexuality = heterosexual
+
+	trait = sadistic
+	trait = zealous
+	trait = honest
+
+	diplomacy = 7
+	martial = 6
+	stewardship = 4
+	intrigue = 7
+	learning = 7
+	prowess = 8
+
+	trait = education_diplomacy_2
+
+	7042.2.20 = {
+		birth = yes
+	}
+
+	7109.8.2 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofkidjun5 = {
+	name = Aloz
+
+	dynasty = dynasty_kidjun
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineofkidjun3
+	mother = lineofkidjun4
+
+	sexuality = heterosexual
+
+	trait = vengeful
+	trait = generous
+	trait = just
+
+	diplomacy = 2
+	martial = 7
+	stewardship = 7
+	intrigue = 6
+	learning = 2
+	prowess = 7
+
+	trait = education_martial_2
+
+	7075.11.26 = {
+		birth = yes
+	}
+
+	7104.11.21 = {
+		add_spouse = lineofkidjun6
+	}
+
+	7141.7.2 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofkidjun6 = {
+	name = Eren
+	female = yes
+
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	sexuality = heterosexual
+
+	trait = forgiving
+	trait = stubborn
+	trait = diligent
+
+	diplomacy = 6
+	martial = 7
+	stewardship = 5
+	intrigue = 6
+	learning = 6
+	prowess = 11
+
+	trait = education_martial_4
+
+	7077.3.3 = {
+		birth = yes
+	}
+
+	7159.11.23 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofkidjun7 = {
+	name = Ladjeyen
+
+	dynasty = dynasty_kidjun
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineofkidjun5
+	mother = lineofkidjun6
+
+	sexuality = heterosexual
+
+	trait = generous
+	trait = just
+	trait = shy
+
+	diplomacy = 4
+	martial = 10
+	stewardship = 4
+	intrigue = 6
+	learning = 7
+	prowess = 4
+
+	trait = education_martial_3
+
+	7106.5.27 = {
+		birth = yes
+	}
+
+	7124.4.18 = {
+		add_spouse = lineofkidjun8
+	}
+
+	7174.1.1 = {
+		effect = {
+			start_tributary = {
+				contract_group = tributary_protectorate
+				suzerain = character:lineisildur43
+			}
+		}
+	}
+
+	7178.10.25 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofkidjun8 = {
+	name = Shunnah
+	female = yes
+
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	sexuality = heterosexual
+
+	trait = greedy
+	trait = calm
+	trait = shy
+
+	diplomacy = 6
+	martial = 3
+	stewardship = 6
+	intrigue = 4
+	learning = 4
+	prowess = 5
+
+	trait = education_diplomacy_4
+
+	7107.8.20 = {
+		birth = yes
+	}
+
+	7178.4.8 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofkidjun9 = {
+	name = Helvi
+	female = yes
+
+	dynasty = dynasty_kidjun
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineofkidjun5
+	mother = lineofkidjun6
+
+	sexuality = heterosexual
+
+	trait = brave
+	trait = compassionate
+	trait = just
+
+	diplomacy = 10
+	martial = 10
+	stewardship = 3
+	intrigue = 6
+	learning = 6
+	prowess = 3
+
+	trait = education_learning_4
+
+	7110.5.24 = {
+		birth = yes
+	}
+
+	7190.5.2 = {
+		death = {
+			death_reason = death_natural_causes
+		}
+	}
+}
+
+lineofkidjun10 = {
+	name = Ma_a_ru_u_n
+	female = yes
+
+	dynasty = dynasty_kidjun
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineofkidjun5
+	mother = lineofkidjun6
+
+	sexuality = heterosexual
+
+	trait = vengeful
+	trait = stubborn
+	trait = brave
+
+	diplomacy = 3
+	martial = 7
+	stewardship = 6
+	intrigue = 9
+	learning = 2
+	prowess = 10
+
+	trait = education_martial_4
+
+	7113.6.3 = {
+		birth = yes
+	}
+
+	7189.4.2 = {
+		death = {
+			death_reason = death_natural_causes
+		}
+	}
+}
+
+lineofkidjun11 = {
+	name = Viz
+
+	dynasty = dynasty_kidjun
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineofkidjun7
+	mother = lineofkidjun8
+
+	sexuality = heterosexual
+
+	trait = gregarious
+	trait = calm
+	trait = compassionate
+
+	diplomacy = 5
+	martial = 4
+	stewardship = 6
+	intrigue = 5
+	learning = 6
+	prowess = 5
+
+	trait = education_stewardship_2
+
+	7128.4.16 = {
+		birth = yes
+	}
+
+	7155.2.2 = {
+		add_spouse = lineofkidjun12
+	}
+
+	7191.5.11 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofkidjun12 = {
+	name = Ebah
+	female = yes
+
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	sexuality = heterosexual
+
+	trait = deceitful
+	trait = zealous
+	trait = generous
+
+	diplomacy = 6
+	martial = 5
+	stewardship = 3
+	intrigue = 4
+	learning = 4
+	prowess = 4
+
+	trait = education_diplomacy_3
+
+	7128.10.25 = {
+		birth = yes
+	}
+
+	7195.3.18 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofkidjun13 = {
+	name = Baten
+
+	dynasty = dynasty_kidjun
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineofkidjun7
+	mother = lineofkidjun8
+
+	sexuality = heterosexual
+
+	trait = compassionate
+	trait = gregarious
+	trait = impatient
+
+	diplomacy = 5
+	martial = 7
+	stewardship = 6
+	intrigue = 6
+	learning = 7
+	prowess = 7
+
+	trait = education_martial_1
+
+	7132.8.10 = {
+		birth = yes
+	}
+
+	7154.6.7 = {
+		add_spouse = lineofkidjun14
+	}
+
+	7189.7.21 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofkidjun14 = {
+	name = Kuraz
+	female = yes
+
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	sexuality = heterosexual
+
+	trait = craven
+	trait = deceitful
+	trait = callous
+
+	diplomacy = 5
+	martial = 5
+	stewardship = 8
+	intrigue = 6
+	learning = 5
+	prowess = 8
+
+	trait = education_stewardship_1
+
+	7137.4.23 = {
+		birth = yes
+	}
+
+	7194.11.11 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofkidjun15 = {
+	name = Omonah
+	female = yes
+
+	dynasty = dynasty_kidjun
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineofkidjun11
+	mother = lineofkidjun12
+
+	sexuality = heterosexual
+
+	trait = paranoid
+	trait = honest
+	trait = generous
+	trait = pensive
+
+	disallow_random_traits = yes
+
+	diplomacy = 6
+	martial = 3
+	stewardship = 7
+	intrigue = 5
+	learning = 5
+	prowess = 7
+
+	trait = education_stewardship_3
+
+	7160.2.24 = {
+		birth = yes
+	}
+
+	7213.1.6 = {
+		death = { death_reason = death_accident }
+	}
+}
+
+lineofkidjun16 = {
+	name = Kadjon
+
+	dynasty = dynasty_kidjun
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineofkidjun11
+	mother = lineofkidjun12
+
+	sexuality = heterosexual
+
+	trait = lustful
+	trait = generous
+	trait = curious
+
+	diplomacy = 7
+	martial = 4
+	stewardship = 5
+	intrigue = 1
+	learning = 8
+	prowess = 9
+
+	trait = education_learning_2
+
+	7162.12.21 = {
+		birth = yes
+	}
+
+	7178.12.21 = {
+		trait = arrogant
+	}
+
+	7218.4.16 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+
+lineofkidjun17 = {
+	name = Alhen
+
+	dynasty = dynasty_kidjun
+	religion = faith_nurn_good
+	culture = nurnoth
+
+	father = lineofkidjun13
+	mother = lineofkidjun14
+
+	sexuality = heterosexual
+
+	trait = rowdy
+
+	diplomacy = 7
+	martial = 10
+	stewardship = 6
+	intrigue = 3
+	learning = 8
+	prowess = 4
+
+	trait = education_martial_2
+
+	7165.8.27 = {
+		birth = yes
+	}
+
+	7181.8.27 = {
+		trait = trusting
+		trait = callous
+		trait = diligent
+	}
+
+	7238.4.23 = {
+		death = { death_reason = death_natural_causes }
+	}
+}

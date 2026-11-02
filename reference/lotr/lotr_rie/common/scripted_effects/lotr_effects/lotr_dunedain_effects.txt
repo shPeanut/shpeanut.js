@@ -1,0 +1,1878 @@
+﻿### DUNEDAIN DECISION EFFECTS ###
+create_numenor_in_exile_effect = {
+	ROOT = { save_scope_as = founder }
+	primary_title = { save_scope_as = old_primary_title }
+	dynasty = { add_dynasty_prestige = 10000 }
+	if = { # Heirs of Westernesse | Achievement
+		limit = { 
+			NOT = { exists = global_var:lotr_achievement_62 }
+			is_ai = no
+			realms_achievements_enabled = yes
+		}
+		set_global_variable = lotr_achievement_62
+	}
+	# Copy previous Kings
+	title:h_numenor_in_exile = { copy_title_history = title:e_numenor }
+	#Create the title and make it primary
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = title_change
+		add_claim_on_loss = no
+	}
+	title:h_numenor_in_exile = {
+		change_title_holder = {
+			holder = root
+			change = scope:title_change
+		}
+		set_capital_county = ROOT.primary_title.title_capital_county
+	}
+	resolve_title_and_vassal_change = scope:title_change
+	set_primary_title_to = title:h_numenor_in_exile
+	title:h_numenor_in_exile = { save_scope_as = empire_nie } #For localisation
+	#If the Mundburgians exist, transfer them to NiE
+	if = {
+		limit = {
+			any_held_title = { has_variable = founded_mundburgian_eored	}
+		}
+		title:h_numenor_in_exile = { set_variable = founded_mundburgian_eored }
+	}
+	
+	# Juke note: rewrote the dejure code to be cleaner
+	# Add em all to a nice tidy list
+	title:e_numenor				= { add_to_list = nie_empires_list }
+	title:e_gondor				= { add_to_list = nie_empires_list }
+	title:e_gondor_steward		= { add_to_list = nie_empires_list }
+	title:e_castamir			= { add_to_list = nie_empires_list }
+	title:e_arnor				= { add_to_list = nie_empires_list }
+	#title:h_reunited_kingdom	= { add_to_list = nie_empires_list }
+	title:e_numenor_colonies	= { add_to_list = nie_empires_list }
+	title:e_adunaim				= { add_to_list = nie_empires_list } 
+	title:e_umbar				= { add_to_list = nie_empires_list }
+	title:e_bellakar			= { add_to_list = nie_empires_list }
+	#title:h_pharazain			= { add_to_list = nie_empires_list }
+	title:e_thon_an_kharlokh	= { add_to_list = nie_empires_list }
+	title:e_anbalkumagan		= { add_to_list = nie_empires_list }
+	title:e_thani_hazad			= { add_to_list = nie_empires_list }
+	title:e_sakal_an_khar    	= { add_to_list = nie_empires_list }
+	#scope:old_primary_title	= { # If player has a custom empire on the coast, it will also be accounted for. This isnt 100% safe but itll work
+	#	if = {
+	#		limit = {
+	#			NOT = { is_in_list = nie_empires_list }
+	#			title_capital_county.title_province = { geographical_region = special_nie }
+	#		}
+	#		add_to_list = nie_empires_list
+	#	}
+	#}
+	# Make the empires de jure
+	every_in_list = {
+		list = nie_empires_list
+		#limit = { exists = holder }
+		set_de_jure_liege_title = title:h_numenor_in_exile
+	}
+	
+	# Destroy existing hegemonies
+	if = {
+		limit = { has_title = title:h_reunited_kingdom }
+		title:h_reunited_kingdom = {
+			every_in_de_jure_hierarchy = {
+				limit = { tier = tier_empire }
+				set_de_jure_liege_title = title:h_numenor_in_exile 
+			}
+		}
+		destroy_title = title:h_reunited_kingdom
+	}
+	if = {
+		limit = { has_title = title:h_pharazain }
+		title:h_reunited_kingdom = {
+			every_in_de_jure_hierarchy = {
+				limit = { tier = tier_empire }
+				set_de_jure_liege_title = title:h_numenor_in_exile 
+			}
+		}
+		destroy_title = title:h_pharazain
+	}
+	
+	# And add a flavor desc
+	#title:h_numenor_in_exile = { custom_tooltip = numenor_in_exile_titles_tt } #Scope change for tooltip formatting.
+	
+	# Culture stuff
+	custom_tooltip = numenor_in_exile_acceptance_tt # Mutual acceptance between Num cultures in realm
+	custom_tooltip = numenor_in_exile_innovation_tt # Rediscover ancient architecture innovations
+
+	hidden_effect = {
+		#Add all Numenorean cultures in the realm in a list
+		every_realm_county = {
+			limit = {
+				culture = {
+					NOT = { is_in_list = numenorean_cultures }
+					has_cultural_parameter = heritage_group_numenorean
+				}
+			}
+			culture = {
+				add_to_list = numenorean_cultures
+			}
+		}
+		every_in_list = {
+			list = numenorean_cultures
+			save_scope_as = culture_getting_acceptance
+
+			# Every Numenorean culture gets +20 acceptance with eachother
+			every_in_list = {
+				list = numenorean_cultures
+				limit = {
+					NOT = { this = scope:culture_getting_acceptance }
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_getting_acceptance
+					value = 10 # Applied twice
+					desc = cultural_acceptance_gain_numenor_in_exile
+				}
+			}
+
+			# And architecture is rediscovered
+			if = {
+				limit = { NOT = { has_innovation = innovation_numenorean_architecture_01 } }
+				add_innovation = innovation_numenorean_architecture_01
+			}
+			if = {
+				limit = { NOT = { has_innovation = innovation_numenorean_architecture_02 } }
+				add_innovation = innovation_numenorean_architecture_02
+			}
+			if = {
+				limit = { NOT = { has_innovation = innovation_numenorean_architecture_03 } }
+				add_innovation = innovation_numenorean_architecture_03
+			}
+		}
+	}
+	# End Thani Struggle if ongoing
+	if = {
+		limit = {
+			exists = struggle:thani_hazad_struggle
+		}
+		custom_tooltip = numenor_in_exile_thani_struggle_tt
+		hidden_effect = {
+			struggle:thani_hazad_struggle ?= {
+				every_involved_ruler = {
+					send_interface_toast = {
+						type = event_toast_effect_neutral
+						title = numenor_in_exile_thani_struggle_toast
+						left_icon = scope:founder
+						custom_tooltip = numenor_in_exile_thani_struggle_toast_desc
+					}
+				}
+				every_interloper_ruler = {
+					send_interface_toast = {
+						type = event_toast_effect_neutral
+						title = numenor_in_exile_thani_struggle_toast
+						left_icon = scope:founder
+						custom_tooltip = numenor_in_exile_thani_struggle_toast_desc
+					}
+				}
+			}
+			struggle:thani_hazad_struggle ?= { end_struggle = yes }
+		}
+	} 
+
+	# Get Legend Seed
+	if = {
+		limit = { has_dlc_feature = legends }
+		custom_tooltip = numenor_in_exile_legend.tt
+		hidden_effect = {
+			create_legend_seed = {
+				type = legitimizing
+				quality = illustrious
+				chronicle = new_title
+				properties = {
+					title = root.primary_title
+					founder = root
+				}
+			}
+		}
+	}
+	add_to_global_variable_list = {
+		name = unavailable_unique_decisions
+		target = flag:decision_numenor_in_exile
+	}
+}
+
+gondorian_renaissance_scripted_effect = {
+	if = {
+		limit = {
+			has_realm_law = crown_authority_0
+		}
+		add_realm_law_skip_effects= crown_authority_1
+	}
+	else_if = {
+		limit = {
+			has_realm_law = crown_authority_1
+		}
+		add_realm_law_skip_effects = crown_authority_2
+	}
+	else_if = {
+		limit = {
+			has_realm_law = crown_authority_2
+		}
+		add_realm_law_skip_effects = crown_authority_3
+	}
+	custom_tooltip = { #sets gondorian culture ethos to Ceremonious/Courtly
+		text = gondorian_ethos_courtly_tt
+		culture:gondorian = {
+			save_temporary_scope_as = gondorian_culture
+			set_ethos_from = culture:numenorean
+		}
+	}
+
+	every_culture_global = { #all dunedain discover peerage
+		if = {
+			limit = {
+				NOT = { has_innovation = innovation_french_peerage }
+				has_cultural_pillar = heritage_dunedain
+				NOT = { this = culture:numenorean }
+			}
+			add_innovation = innovation_french_peerage
+		}
+	}
+	if = {
+		limit = {
+			this = { completely_controls = title:d_minas_tirith }
+		}
+		title:c_minas_tirith = {
+			title_province = {
+				add_province_modifier = {
+					modifier = flourishing_culture_modifier
+					years = 150
+				}
+			}
+		}
+		title:c_osgiliath = {
+			title_province = {
+				add_province_modifier = {
+					modifier = flourishing_culture_modifier
+					years = 150
+				}
+			}
+		}
+		title:b_east_osgiliath = {
+			title_province = {
+				add_province_modifier = {
+					modifier = flourishing_culture_modifier
+					years = 150
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			this = { completely_controls = title:d_emyn_arnen }
+		}
+		title:c_emyn_arnen = {
+			title_province = {
+				add_province_modifier = {
+					modifier = flourishing_culture_modifier
+					years = 150
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			this = { completely_controls = title:d_forithilien }
+		}
+		title:c_henneth_annun = {
+			title_province = {
+				add_province_modifier = {
+					modifier = flourishing_culture_modifier
+					years = 150
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			this = { completely_controls = title:d_harithilien }
+		}
+		title:c_alagdor = {
+			title_province = {
+				add_province_modifier = {
+					modifier = flourishing_culture_modifier
+					years = 150
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			this = { completely_controls = title:d_pelargir }
+		}
+		title:c_pelargir = {
+			title_province = {
+				add_province_modifier = {
+					modifier = flourishing_culture_modifier
+					years = 150
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			this = { completely_controls = title:d_lond_ernil }
+		}
+		title:c_dol_amroth = {
+			title_province = {
+				add_province_modifier = {
+					modifier = flourishing_culture_modifier
+					years = 150
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			this = { completely_controls = title:d_anfalas }
+		}
+		title:c_lond_galen = {
+			title_province = {
+				add_province_modifier = {
+					modifier = flourishing_culture_modifier
+					years = 150
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			this = { completely_controls = title:d_serelond }
+		}
+		title:c_serelond = {
+			title_province = {
+				add_province_modifier = {
+					modifier = flourishing_culture_modifier
+					years = 150
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			this = { completely_controls = title:d_lamedon }
+		}
+		title:c_calembel = {
+			title_province = {
+				add_province_modifier = {
+					modifier = flourishing_culture_modifier
+					years = 150
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			this = { completely_controls = title:d_lossarnach }
+		}
+		title:c_arthor = {
+			title_province = {
+				add_province_modifier = {
+					modifier = flourishing_culture_modifier
+					years = 150
+				}
+			}
+		}
+	}
+}
+
+stewards_claim_gondor_kingship_effect = { # Stewards crowned kings via decision
+	create_title_and_vassal_change = {
+		type = usurped
+		save_scope_as = change
+		add_claim_on_loss = no
+	}
+	title:e_gondor = {
+		change_title_holder = {
+			holder = root
+			change = scope:change
+		}
+		set_variable = founded_mundburgian_eored #The Eored is transferred to the King once more
+	}
+	if = { #The Mace of Anarion is returned to the King
+		limit = {
+			any_vassal_or_below = {
+				any_character_artifact = {
+					has_variable = mace_of_anarion
+				}
+			}
+		}
+		random_vassal_or_below = {
+			limit = {
+				any_character_artifact = {
+					has_variable = mace_of_anarion
+				}
+			}
+			trigger_event = {
+				id = gondor.0523
+				days = 1
+			}
+		}
+	}
+	hidden_effect = {
+		title:e_gondor_steward = {
+			every_in_de_jure_hierarchy = {
+				limit = { tier = tier_kingdom }
+				set_de_jure_liege_title = title:e_gondor
+			}
+		}
+	}
+	resolve_title_and_vassal_change = scope:change
+	custom_tooltip = claim_gondor_kingship_effect_absorb_dejure.tt
+	destroy_title = title:e_gondor_steward
+	
+	create_artifact_crown_of_gondor_effect = { OWNER = this }
+	if = {
+		limit = {
+			OR = {
+				has_realm_law = crown_authority_0
+				has_realm_law = crown_authority_1
+				has_realm_law = crown_authority_2
+			}
+		}
+		add_realm_law_skip_effects = crown_authority_3
+	}
+	if = {
+		limit = {
+			house = house:house_gondorstewards
+		}
+		add_piety_level = -2
+	}
+	else = {
+		add_piety_level = -1
+	}
+
+	set_primary_title_to = title:e_gondor
+
+	# decrease opinion with parochial and courtly vassals
+	every_vassal = {
+		limit = {
+			OR = {
+				has_vassal_stance = courtly
+				has_vassal_stance = parochial
+			}
+		}
+		custom =  custom.every_parochial_or_courtly_vassal
+		add_opinion = {
+			target = root
+			modifier = disappointed_opinion
+			opinion = -30
+		}
+	}
+	
+	hidden_effect = {
+		set_global_variable = gondor_has_a_king
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_claim_gondor_kingship
+		}
+		if = {
+			limit = {
+				is_ai = no
+				realms_achievements_enabled = yes
+				house = house:house_gondorstewards
+				NOT = { exists = global_var:lotr_achievement_46 }
+			}
+			set_global_variable = lotr_achievement_46
+		}
+	}
+}
+
+set_appropriate_de_jure_liege = {
+	#if = {
+	#	limit = { scope:new_ruler = { has_title = title:h_numenor_in_exile } }
+	#	set_de_jure_liege_title = title:h_numenor_in_exile
+	#}
+	#else_if = {
+	#	limit = {
+	#		is_target_in_global_variable_list = {
+	#			name = unavailable_unique_decisions
+	#			target = flag:decision_solidify_reunited_kingdom
+	#		}
+	#		scope:new_ruler = { has_title = title:h_reunited_kingdom }
+	#	}
+	#	set_de_jure_liege_title = title:h_reunited_kingdom
+	#
+	#}
+	if = {
+		limit = {
+			scope:new_ruler = { has_title = title:e_gondor }
+		}
+		set_de_jure_liege_title = title:e_gondor
+	}
+	else_if = {
+		limit = { scope:new_ruler = { has_title = title:e_gondor_steward } }
+		set_de_jure_liege_title = title:e_gondor_steward
+	}
+	else_if = {
+		limit = { scope:new_ruler = { has_title = title:e_castamir } }
+		set_de_jure_liege_title = title:e_castamir
+	}
+	else_if = {
+		limit = { scope:new_ruler = { has_title = title:e_umbar } }
+		set_de_jure_liege_title = title:e_umbar
+	}
+	else = { set_de_jure_liege_title = this.primary_title }	# Fallback
+}
+
+reclaim_royal_lineage_effect = {
+	dynasty = { # Ancestors
+		every_dynasty_member = {
+			even_if_dead = yes
+			limit = {
+				NOT = {
+					any_in_list = {
+						list = cadet_dynasty_members
+						this = prev
+					}
+				}
+			}
+			every_ancestor = {
+				even_if_dead = yes
+				limit = { dynasty = scope:cadet_dynasty }
+				add_to_list = cadet_dynasty_members
+				every_ancestor = {
+					even_if_dead = yes
+					limit = { dynasty = scope:cadet_dynasty }
+					add_to_list = cadet_dynasty_members
+					every_ancestor = {
+						even_if_dead = yes
+						limit = { dynasty = scope:cadet_dynasty }
+						add_to_list = cadet_dynasty_members
+						every_ancestor = {
+							even_if_dead = yes
+							limit = { dynasty = scope:cadet_dynasty }
+							add_to_list = cadet_dynasty_members
+							every_ancestor = {
+								even_if_dead = yes
+								limit = { dynasty = scope:cadet_dynasty }
+								add_to_list = cadet_dynasty_members
+								every_ancestor = {
+									even_if_dead = yes
+									limit = { dynasty = scope:cadet_dynasty }
+									add_to_list = cadet_dynasty_members
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	dynasty = { # Current alive members
+		every_dynasty_member = {
+			limit = {
+				NOT = {
+					any_in_list = {
+						list = cadet_dynasty_members
+						this = prev
+					}
+				}
+			}
+			add_to_list = cadet_dynasty_members
+		}
+	}
+	hidden_effect = {
+		every_in_list = {
+			list = cadet_dynasty_members
+			set_house = scope:royal_ancestor.house
+		}
+	}
+	set_house = scope:royal_ancestor.house
+	scope:royal_ancestor.house = {
+		if = {
+			limit = { NOT = { house_head = root } }
+			set_house_head = root
+		}
+	}
+}
+
+add_blood_of_numenor_effect = {
+	# Level 10
+	if = {
+		limit = {
+			current_year < 4894
+			culture ?= {
+				OR = {
+					this = culture:arnorian
+					this = culture:gondorian
+					this = culture:belfalathrim
+					this = culture:dunedain
+					this = culture:new_dunedain
+					any_parent_culture_or_above = { this = culture:arnorian }
+					AND = {
+						any_parent_culture_or_above = { this = culture:gondorian }
+						any_parent_culture_or_above = { this = culture:belfalathrim }
+						NOT = {
+							OR = {
+								this = culture:umbaredain
+								any_parent_culture_or_above = { this = culture:umbaredain }
+							}
+						}
+					}
+				}
+			}
+		}
+		random_list = {
+			10 = { add_trait = blood_of_numenor_10 }
+			15 = { add_trait = blood_of_numenor_9 }
+			30 = { add_trait = blood_of_numenor_8 }
+			25 = { add_trait = blood_of_numenor_7 }
+			10 = { add_trait = blood_of_numenor_6 }
+			5 = { add_trait = blood_of_numenor_5 }
+			2 = { add_trait = blood_of_numenor_4 }
+			1 = { add_trait = blood_of_numenor_3 }
+			1 = { add_trait = blood_of_numenor_2 }
+			1 = { add_trait = blood_of_numenor_1 }
+		}
+	} 
+	else_if = {
+		limit = {
+			OR = {
+				AND = {
+					current_year < 4894
+					culture ?= {
+						OR = {
+							this = culture:bellakarani
+							AND = {
+								any_parent_culture_or_above = { this = culture:bellakarani }
+								NOT = { 
+									OR = {									
+										any_parent_culture_or_above = { this = culture:bellakaze }
+										this = culture:bellakaze
+									}
+								}
+							}
+						}
+					}
+				}
+				AND = {
+					current_year < 5382
+					culture ?= {
+						OR = {
+							this = culture:gondorian
+							this = culture:belfalathrim
+							this = culture:dunedain
+							this = culture:new_dunedain
+							AND = {
+								any_parent_culture_or_above = { this = culture:gondorian }
+								any_parent_culture_or_above = { this = culture:belfalathrim }
+								NOT = {
+									OR = {
+										this = culture:umbaredain
+										any_parent_culture_or_above = { this = culture:umbaredain }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		random_list = {
+			15 = { add_trait = blood_of_numenor_8 }
+			30 = { add_trait = blood_of_numenor_7 }
+			25 = { add_trait = blood_of_numenor_6 }
+			15 = { add_trait = blood_of_numenor_5 }
+			5 = { add_trait = blood_of_numenor_4 }
+			3 = { add_trait = blood_of_numenor_3 }
+			1 = { add_trait = blood_of_numenor_2 }
+			1 = { add_trait = blood_of_numenor_1 }
+		}
+	} 
+	else_if = {
+		limit = {
+			OR = {
+				AND = {
+					current_year < 4900
+					culture ?= {
+						OR = {
+							this = culture:bellakaze
+							any_parent_culture_or_above = { this = culture:bellakaze }
+						}
+					}
+				}
+				AND = {
+					current_year < 5382
+					culture ?= {
+						OR = {
+							this = culture:bellakarani
+							this = culture:arnorian
+							any_parent_culture_or_above = { this = culture:arnorian }
+							AND = {
+								any_parent_culture_or_above = { this = culture:bellakarani }
+								NOT = { 
+									OR = {									
+										any_parent_culture_or_above = { this = culture:bellakaze }
+										this = culture:bellakaze
+									}
+								}
+							}
+						}
+					}
+				}
+				AND = {
+					current_year < 5667
+					culture ?= {
+						OR = {
+							this = culture:gondorian
+							this = culture:belfalathrim
+							this = culture:dunedain
+							this = culture:new_dunedain
+							AND = {
+								any_parent_culture_or_above = { this = culture:gondorian }
+								any_parent_culture_or_above = { this = culture:belfalathrim }
+								NOT = {
+									OR = {
+										this = culture:umbaredain
+										any_parent_culture_or_above = { this = culture:umbaredain }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		random_list = {
+			18 = { add_trait = blood_of_numenor_7 }
+			30 = { add_trait = blood_of_numenor_6 }
+			25 = { add_trait = blood_of_numenor_5 }
+			12 = { add_trait = blood_of_numenor_4 }
+			8 = { add_trait = blood_of_numenor_3 }
+			5 = { add_trait = blood_of_numenor_2 }
+			1 = { add_trait = blood_of_numenor_1 }
+		}
+	} 
+	else_if = {
+		limit = {
+			OR = {
+				AND = {
+					current_year < 4900
+					culture ?= {
+						OR = {
+							this = culture:anbalukkhori
+							this = culture:anarikean
+							this = culture:tanturaki
+							this = culture:old_umbarean
+							this = culture:black_numenorean
+							any_parent_culture_or_above = { this = culture:anbalukkhori }
+							any_parent_culture_or_above = { this = culture:anarikean }
+							any_parent_culture_or_above = { this = culture:tanturaki}
+							any_parent_culture_or_above = { this = culture:old_umbarean }
+						}
+					}
+				}
+				AND = {
+					current_year < 5382
+					culture ?= {
+						OR = {
+							this = culture:bellakaze
+							this = culture:kharadunaim
+							any_parent_culture_or_above = { this = culture:kharadunaim }
+							any_parent_culture_or_above = { this = culture:bellakaze }
+						}
+					}
+				}
+				AND = {
+					current_year < 5667
+					culture ?= {
+						OR = {
+							this = culture:umbaredain
+							any_parent_culture_or_above = { this = culture:umbaredain }
+						}
+					}
+				}
+				AND = {
+					current_year < 5977
+					culture ?= {
+						OR = {
+							this = culture:gondorian
+							this = culture:belfalathrim
+							this = culture:dunedain
+							this = culture:arnorian
+							this = culture:new_dunedain
+							AND = {
+								any_parent_culture_or_above = { this = culture:gondorian }
+								any_parent_culture_or_above = { this = culture:belfalathrim }
+								NOT = {
+									OR = {
+										this = culture:umbaredain
+										any_parent_culture_or_above = { this = culture:umbaredain }
+									}
+								}
+							}
+							any_parent_culture_or_above = { this = culture:arnorian }
+						}
+					}
+				}
+			}
+		}
+		random_list = {
+			18 = { add_trait = blood_of_numenor_6 }
+			30 = { add_trait = blood_of_numenor_5 }
+			25 = { add_trait = blood_of_numenor_4 }
+			15 = { add_trait = blood_of_numenor_3 }
+			5 = { add_trait = blood_of_numenor_2 }
+			2 = { add_trait = blood_of_numenor_1 }
+		}
+	} 
+	else_if = {
+		limit = {
+			OR = {
+				AND = {
+					current_year < 5382
+					culture ?= {
+						OR = {
+							this = culture:anbalukkhori
+							any_parent_culture_or_above = { this = culture:anbalukkhori }
+						}
+					}
+				}
+				AND = {
+					current_year < 5667
+					culture ?= {
+						OR = {
+							this = culture:bellakarani
+							this = culture:kharadunaim
+							this = culture:black_numenorean
+							any_parent_culture_or_above = { this = culture:kharadunaim }
+							AND = {
+								any_parent_culture_or_above = { this = culture:bellakarani }
+								NOT = { 
+									OR = {									
+										any_parent_culture_or_above = { this = culture:bellakaze }
+										this = culture:bellakaze
+									}
+								}
+							}
+						}
+					}
+				}
+				AND = {
+					current_year < 5977
+					culture ?= {					
+					OR = {
+						this = culture:umbaredain
+							any_parent_culture_or_above = { this = culture:umbaredain }
+						}
+					}
+				}
+				AND = {
+					current_year < 6543
+					culture ?= {
+						OR = {
+							this = culture:dunedain
+							this = culture:arnorian
+							this = culture:new_dunedain
+							any_parent_culture_or_above = { this = culture:arnorian }
+						}
+					}
+				}
+			}
+		}
+		random_list = {
+			18 = { add_trait = blood_of_numenor_5 }
+			32 = { add_trait = blood_of_numenor_4 }
+			25 = { add_trait = blood_of_numenor_3 }
+			15 = { add_trait = blood_of_numenor_2 }
+			10 = { add_trait = blood_of_numenor_1 }
+		}
+	} 
+	else_if = {
+		limit = {
+			OR = {
+				AND = {
+					current_year < 5382
+					culture ?= {
+						OR = {
+							this = culture:old_umbarean
+							this = culture:anarikean
+							this = culture:tanturaki
+							any_parent_culture_or_above = { this = culture:anarikean }
+							any_parent_culture_or_above = { this = culture:tanturaki}
+							AND = {
+								any_parent_culture_or_above = { this = culture:old_umbarean }
+								NOT = {
+									any_parent_culture_or_above = { this = culture:umbaredain }
+									this = culture:umbaredain
+								}
+							}
+						}
+					}
+				}
+				AND = {
+					current_year < 5667
+					culture ?= {
+						OR = {
+							this = culture:bellakaze
+							any_parent_culture_or_above = { this = culture:bellakaze }
+						}
+					}
+				}
+				AND = {
+					current_year < 5977
+					culture ?= {
+						OR = {
+							this = culture:bellakarani
+							this = culture:kharadunaim
+							AND = {
+								any_parent_culture_or_above = { this = culture:bellakarani }
+								NOT = { 
+									OR = {									
+										any_parent_culture_or_above = { this = culture:bellakaze }
+										this = culture:bellakaze
+									}
+								}
+							}
+							any_parent_culture_or_above = { this = culture:kharadunaim }
+						}
+					}
+				}
+				AND = {
+					current_year < 6543
+					culture ?= {
+						OR = {
+							this = culture:gondorian
+							this = culture:belfalathrim
+							AND = {
+								any_parent_culture_or_above = { this = culture:gondorian }
+								any_parent_culture_or_above = { this = culture:belfalathrim }
+								NOT = {
+									any_parent_culture_or_above = { this = culture:umbaredain }
+								}
+                    		}
+						}
+					}
+				}
+				AND = {
+					current_year >= 6543
+					culture ?= {
+						OR = {
+							this = culture:dunedain
+							this = culture:arnorian
+							this = culture:new_dunedain
+							any_parent_culture_or_above = { this = culture:arnorian }
+						}
+					}
+				}
+			}
+		}
+		random_list = {
+			20 = { add_trait = blood_of_numenor_4 }
+			35 = { add_trait = blood_of_numenor_3 }
+			25 = { add_trait = blood_of_numenor_2 }
+			15 = { add_trait = blood_of_numenor_1 }
+		}
+	} 
+	else_if = {
+		limit = {
+			OR = {
+				AND = {
+					current_year < 5977
+					culture ?= {
+						OR = {
+							this = culture:anbalukkhori
+							this = culture:black_numenorean
+							any_parent_culture_or_above = { this = culture:anbalukkhori }
+						}
+					}
+				}
+				AND = {
+					current_year < 6543
+					culture ?= {
+						OR = {
+							this = culture:bellakarani
+							this = culture:kharadunaim
+							any_parent_culture_or_above = { this = culture:umbaredain }
+							any_parent_culture_or_above = { this = culture:kharadunaim }
+							AND = {
+								any_parent_culture_or_above = { this = culture:bellakarani }
+								NOT = { 
+									OR = {									
+										any_parent_culture_or_above = { this = culture:bellakaze }
+										this = culture:bellakaze
+									}
+								}
+							}
+						}
+					}
+				}
+				AND = {
+					current_year < 6787
+					culture ?= {
+						OR = {
+							this = culture:gondorian
+							this = culture:belfalathrim
+							AND = {
+								any_parent_culture_or_above = { this = culture:gondorian }
+								any_parent_culture_or_above = { this = culture:belfalathrim }
+								NOT = {
+									any_parent_culture_or_above = { this = culture:umbaredain }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		random_list = {
+			20 = { add_trait = blood_of_numenor_3 }
+			35 = { add_trait = blood_of_numenor_2 }
+			40 = { add_trait = blood_of_numenor_1 }
+			15 = {}
+		}
+	} 
+	else_if = {
+		limit = {
+			OR = {
+				AND = {
+					current_year >= 6787
+					culture ?= {
+						OR = {
+							this = culture:gondorian
+							this = culture:belfalathrim
+							AND = {
+								any_parent_culture_or_above = { this = culture:gondorian }
+								any_parent_culture_or_above = { this = culture:belfalathrim }
+								NOT = {
+									any_parent_culture_or_above = { this = culture:umbaredain }
+								}
+							}
+						}
+					}
+				}
+				AND = {
+					current_year < 5667
+					culture ?= {
+						OR = {
+							this = culture:anarikean
+							this = culture:tanturaki
+							any_parent_culture_or_above = { this = culture:anarikean }
+							any_parent_culture_or_above = { this = culture:tanturaki}
+						}
+					}
+				}
+				AND = {
+					current_year < 5977
+					culture ?= {
+						OR = {
+							this = culture:bellakaze
+							any_parent_culture_or_above = { this = culture:bellakaze }
+						}
+					}
+				}
+				AND = {
+					current_year < 6543
+					culture ?= {
+						OR = {
+							this = culture:anbalukkhori
+							this = culture:black_numenorean
+							any_parent_culture_or_above = { this = culture:anbalukkhori }
+						}
+					}
+				}
+				AND = {
+					current_year < 6787
+					culture ?= {
+						OR = {
+							this = culture:bellakarani
+							this = culture:kharadunaim
+							any_parent_culture_or_above = { this = culture:umbaredain }
+							AND = {
+								any_parent_culture_or_above = { this = culture:bellakarani }
+								NOT = { 
+									OR = {									
+										any_parent_culture_or_above = { this = culture:bellakaze }
+										this = culture:bellakaze
+									}
+								}
+							}
+							any_parent_culture_or_above = { this = culture:kharadunaim }
+						}
+					}
+				}
+			}
+		}
+		random_list = {
+			15 = { add_trait = blood_of_numenor_2 }
+			50 = { add_trait = blood_of_numenor_1 }
+			35 = { }
+		}
+	} 
+	else_if = {
+		limit = {
+			OR = {
+				AND = {
+					current_year < 6543
+					culture ?= {
+						OR = {
+							this = culture:bellakaze
+							any_parent_culture_or_above = { this = culture:bellakaze }
+						}
+					}
+				}
+				AND = {
+					current_year < 7033
+					culture ?= {
+						OR = {
+							this = culture:bellakarani
+							this = culture:kharadunaim
+							any_parent_culture_or_above = { this = culture:umbaredain }
+							AND = {
+								any_parent_culture_or_above = { this = culture:bellakarani }
+								NOT = { 
+									OR = {									
+										any_parent_culture_or_above = { this = culture:bellakaze }
+										this = culture:bellakaze
+									}
+								}
+							}
+							any_parent_culture_or_above = { this = culture:kharadunaim }
+						}
+					}
+				}
+				AND = {
+					current_year < 6787
+					culture ?= {
+						OR = {
+							this = culture:anbalukkhori
+							this = culture:black_numenorean
+							any_parent_culture_or_above = { this = culture:anbalukkhori }
+						}
+					}
+				}
+				AND = {
+					current_year >= 7033
+					culture ?= {
+						OR = {
+							this = culture:gondorian
+							this = culture:belfalathrim
+							AND = {
+								any_parent_culture_or_above = { this = culture:gondorian }
+								any_parent_culture_or_above = { this = culture:belfalathrim }
+							}
+						}
+					}
+				}
+			}
+		}
+		random_list = {
+			5 = { add_trait = blood_of_numenor_2 }
+			25 = { add_trait = blood_of_numenor_1 }
+			65 = { } 
+		}
+	} 
+	else_if = {
+		limit = {
+			OR = {
+				AND = {
+					current_year < 5977
+					culture ?= {
+						OR = {
+							this = culture:anarikean
+							this = culture:tanturaki
+							any_parent_culture_or_above = { this = culture:anarikean }
+							any_parent_culture_or_above = { this = culture:tanturaki}
+						}
+					}
+				}
+				AND = {
+					current_year < 6787
+					OR = {
+						culture ?= {
+							this = culture:bellakaze
+							this = culture:anbalukkhori
+							any_parent_culture_or_above = { this = culture:anbalukkhori }
+							
+							any_parent_culture_or_above = { this = culture:bellakaze }
+						}
+					}
+				}
+				AND = {
+					current_year >= 7033
+					culture ?= {
+						OR = {
+							this = culture:bellakarani
+							this = culture:kharadunaim
+							any_parent_culture_or_above = { this = culture:umbaredain }
+							AND = {
+								any_parent_culture_or_above = { this = culture:bellakarani }
+								NOT = { 
+									OR = {									
+										any_parent_culture_or_above = { this = culture:bellakaze }
+										this = culture:bellakaze
+									}
+								}
+							}
+							any_parent_culture_or_above = { this = culture:kharadunaim }
+						}
+					}
+				}
+			}
+		}
+		random_list = {
+			15 = { add_trait = blood_of_numenor_1 }  
+			85 = { }                             
+		}
+	} 
+	else_if = {	
+		limit = { ## Fallback
+			OR = {
+				AND = {
+					current_year > 5977
+					culture ?= {
+						OR = {
+							this = culture:anarikean
+							this = culture:tanturaki
+							any_parent_culture_or_above = { this = culture:anarikean }
+							any_parent_culture_or_above = { this = culture:tanturaki}
+							AND = {
+								any_parent_culture_or_above = { this = culture:old_umbarean }
+								NOT = {
+									any_parent_culture_or_above = { this = culture:umbaredain }
+									this = culture:umbaredain
+								}
+							}
+						}
+					}
+				}
+				AND = {
+					current_year > 6787
+					OR = {
+						culture ?= {
+							this = culture:bellakaze
+							this = culture:anbalukkhori
+							this = culture:black_numenorean
+							any_parent_culture_or_above = { this = culture:anbalukkhori }
+							any_parent_culture_or_above = { this = culture:bellakaze }
+						}
+					}
+				}
+			}
+		}
+		random_list = {
+			1 = { 
+				add_trait = blood_of_numenor_1
+				remove_trait = blood_of_numenor_1
+			}  
+			99 = { }                             
+		}
+	} 
+	else = { ## Second Fallback
+
+	}	
+}
+
+
+### Northron Settlers Effects ###
+# Effects relating to minor decision to invite settlers from rhovanion as Mid TA Gondor
+
+lotr_invite_northrons_initial_setup_effect = {
+	capital_county = {
+		save_scope_as = capital
+	}
+	if = {
+		limit = {
+			var:lotr_northron_settler_type = flag:rulers
+		}
+		save_scope_as = granter
+	}
+	if = {
+		limit = {
+			var:lotr_northron_settler_type = flag:courtiers
+		}
+		remove_short_term_gold = lotr_northron_settlers_small_cost
+	}
+	else = {			
+		remove_short_term_gold = lotr_northron_settlers_large_cost
+	}
+}
+lotr_invite_northrons_main_effect = {	
+	#if = {
+	#	limit = {
+	#		var:lotr_northron_settler_type = flag:courtiers
+	#	}
+	#	#if = { #Potentially reflavor for Kin-Strife
+	#	#	limit = {
+	#	#		any_character_struggle = {
+	#	#			involvement = involved
+	#	#			is_struggle_type = RICE_normandy_struggle
+	#	#		}
+	#	#	}
+	#	#	struggle:RICE_normandy_struggle = {
+	#	#		activate_struggle_catalyst = {
+	#	#			catalyst = catalyst_RICE_normandy_invited_norse_courtiers
+	#	#			character = root
+	#	#		}
+	#	#	}
+	#	#}
+	#}
+	if = {
+		limit = {
+			var:lotr_northron_settler_type = flag:colonists
+		}
+		random_list = {
+			10 = {
+				# scope:capital = {
+				# 	change_development_progress_with_overflow = 50
+				# 	change_county_control = 15
+				# 	add_county_modifier = {
+				# 		modifier = northron_colonists_modifier
+				# 		years = 10
+				# 	}
+				# }
+				scope:capital = {
+					save_temporary_scope_as = current_title
+					duchy = {
+						every_in_de_jure_hierarchy = {
+							limit = {
+								tier = tier_county
+								holder = {
+									OR = {
+										this = scope:current_title.holder
+										is_vassal_or_below_of = scope:current_title.holder
+									}
+								}
+							}
+							custom = RICE_every_county_in_capital_duchy
+							custom_tooltip = mundburgian.3021.colonists_duchy_tt_10
+							change_development_progress_with_overflow = 50
+							change_county_control = 15
+							hidden_effect = {
+								add_county_modifier = {
+									modifier = northron_colonists_modifier
+									years = 10
+								}
+							}
+						}
+					}
+				}
+			}
+			10 = {
+				# scope:capital = {
+				# 	change_development_progress_with_overflow = 50
+				# 	change_county_control = 15
+				# 	add_county_modifier = {
+				# 		modifier = northron_colonists_modifier
+				# 		years = 15
+				# 	}
+				# }
+				scope:capital = {
+					save_temporary_scope_as = current_title
+					duchy = {
+						every_in_de_jure_hierarchy = {
+							limit = {
+								tier = tier_county
+								holder = {
+									OR = {
+										this = scope:current_title.holder
+										is_vassal_or_below_of = scope:current_title.holder
+									}
+								}
+							}
+							custom = RICE_every_county_in_capital_duchy
+							custom_tooltip = mundburgian.3021.colonists_duchy_tt_15
+							change_development_progress_with_overflow = 50
+							change_county_control = 15
+							hidden_effect = {
+								add_county_modifier = {
+									modifier = northron_colonists_modifier
+									years = 15
+								}
+							}
+						}
+					}
+				}
+			}
+			10 = {
+				# scope:capital = {
+				# 	change_development_progress_with_overflow = 50
+				# 	change_county_control = 15
+				# 	add_county_modifier = {
+				# 		modifier = northron_colonists_modifier
+				# 		years = 20
+				# 	}
+				# }
+				scope:capital = {
+					save_temporary_scope_as = current_title
+					duchy = {
+						every_in_de_jure_hierarchy = {
+							limit = {
+								tier = tier_county
+								holder = {
+									OR = {
+										this = scope:current_title.holder
+										is_vassal_or_below_of = scope:current_title.holder
+									}
+								}
+							}
+							custom = RICE_every_county_in_capital_duchy
+							custom_tooltip = mundburgian.3021.colonists_duchy_tt_20
+							change_development_progress_with_overflow = 50
+							change_county_control = 15
+							hidden_effect = {
+								add_county_modifier = {
+									modifier = northron_colonists_modifier
+									years = 20
+								}
+							}
+						}
+					}
+				}
+			}
+			10 = {
+				# scope:capital = {
+				# 	change_development_progress_with_overflow = 50
+				# 	change_county_control = 15
+				# 	add_county_modifier = {
+				# 		modifier = northron_colonists_modifier
+				# 		years = 25
+				# 	}
+				# }
+				scope:capital = {
+					save_temporary_scope_as = current_title
+					duchy = {
+						every_in_de_jure_hierarchy = {
+							limit = {
+								tier = tier_county
+								holder = {
+									OR = {
+										this = scope:current_title.holder
+										is_vassal_or_below_of = scope:current_title.holder
+									}
+								}
+							}
+							custom = RICE_every_county_in_capital_duchy
+							custom_tooltip = mundburgian.3021.colonists_duchy_tt_25
+							change_development_progress_with_overflow = 50
+							change_county_control = 15
+							hidden_effect = {
+								add_county_modifier = {
+									modifier = northron_colonists_modifier
+									years = 25
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		#if = { #Potentially reflavor for Kin-Strife
+		#	limit = {
+		#		any_character_struggle = {
+		#			involvement = involved
+		#			is_struggle_type = RICE_normandy_struggle
+		#		}
+		#	}
+		#	struggle:RICE_normandy_struggle = {
+		#		activate_struggle_catalyst = {
+		#			catalyst = catalyst_RICE_normandy_invited_norse_colonists
+		#			character = root
+		#		}
+		#	}
+		#}
+	}
+	else_if = {
+		limit = {
+			var:lotr_northron_settler_type = flag:mercenaries
+		}
+		custom_tooltip = northron_settlers_spawn_event_troops_tooltip
+		hidden_effect = {
+			lotr_northron_warriors_spawn_effect = yes
+		}
+		# So they wear armor
+		scope:courtier_1 = {
+			add_character_flag = single_combat_duel_armor
+		}
+		#if = { #Potentially reflavor for Kin-Strife
+		#	limit = {
+		#		any_character_struggle = {
+		#			involvement = involved
+		#			is_struggle_type = RICE_normandy_struggle
+		#		}
+		#	}
+		#	struggle:RICE_normandy_struggle = {
+		#		activate_struggle_catalyst = {
+		#			catalyst = catalyst_RICE_normandy_invited_norse_mercenaries
+		#			character = root
+		#		}
+		#	}
+		#}
+	}
+	else_if = {
+		limit = {
+			var:lotr_northron_settler_type = flag:traders
+		}
+		random_list = {
+			10 = {
+				add_character_modifier = {
+					modifier = northron_traders_modifier
+					years = 10
+				}
+			}
+			10 = {
+				add_character_modifier = {
+					modifier = northron_traders_modifier
+					years = 15
+				}
+			}
+			10 = {
+				add_character_modifier = {
+					modifier = northron_traders_modifier
+					years = 20
+				}
+			}
+			10 = {
+				add_character_modifier = {
+					modifier = northron_traders_modifier
+					years = 25
+				}
+			}
+		}
+		#if = { #Potentially reflavor for Kin-Strife
+		#	limit = {
+		#		any_character_struggle = {
+		#			involvement = involved
+		#			is_struggle_type = RICE_normandy_struggle
+		#		}
+		#	}
+		#	struggle:RICE_normandy_struggle = {
+		#		activate_struggle_catalyst = {
+		#			catalyst = catalyst_RICE_normandy_invited_norse_traders
+		#			character = root
+		#		}
+		#	}
+		#}
+	}
+	else_if = {
+		limit = {
+			var:lotr_northron_settler_type = flag:rulers
+		}
+		save_scope_as = granter
+
+		# Save a random county to be granted out
+		lotr_invite_northrons_pick_county_effect = yes
+
+		# Transfer the title
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		scope:award_county = {
+			change_title_holder = {
+				holder = scope:courtier_1
+				change = scope:change
+			}
+		}
+		if = {
+			limit = {
+				highest_held_title_tier > tier_county
+			}
+			scope:courtier_1 = {
+				change_liege = {
+					liege = root
+					change = scope:change
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				is_independent_ruler = no
+			}
+			scope:courtier_1 = {
+				change_liege = {
+					liege = scope:granter.liege
+					change = scope:change
+				}
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		add_truce_both_ways = {
+			character = scope:courtier_1
+			days = purchase_truce_interaction_truce_days_small_value
+			name = lotr_northron_settler_truce
+		}
+		random_list = {
+			10 = {
+				add_character_modifier = {
+					modifier = northron_reinforcements_modifier
+					years = 10
+				}
+			}
+			10 = {
+				add_character_modifier = {
+					modifier = northron_reinforcements_modifier
+					years = 15
+				}
+			}
+			10 = {
+				add_character_modifier = {
+					modifier = northron_reinforcements_modifier
+					years = 20
+				}
+			}
+		}
+		scope:courtier_1 = {			
+			custom_tooltip = lotr_northron_settler_convert_tooltip
+		}
+	}
+}
+lotr_invite_northrons_pick_county_effect = {
+	# Pick a county to grant out to the Northrons
+	random_held_title = {
+		limit = {
+			tier = tier_county
+			NOT = { this = root.capital_county }
+			NOT = { title_province = { has_holding_type = settlement_holding } }
+		}	
+		save_scope_as = award_county
+		weight = {
+			base = 10
+			# Less happy to give out duchy capitals
+			modifier = {
+				exists = duchy
+				this = duchy.title_capital_county
+				add = -6
+			}
+			# Less happy to give out capital duchy counties
+			modifier = {
+				exists = duchy
+				exists = scope:granter.capital_county.duchy
+				duchy = scope:granter.capital_county.duchy
+				add = -8
+			}
+		}
+	}
+}
+lotr_random_northron_char_template_effect = {
+	random_list = {
+		10 = {
+			create_character = {
+				location = root.capital_province
+				template = lotr_northron_settler_courtier_diplomat_template
+				save_scope_as = courtier_1
+			}
+		}
+		30 = {
+			create_character = {
+				location = root.capital_province
+				template = lotr_northron_settler_courtier_martial_template
+				save_scope_as = courtier_1
+			}
+		}
+		10 = {
+			create_character = {
+				location = root.capital_province
+				template = lotr_northron_settler_courtier_stewardship_template
+				save_scope_as = courtier_1
+			}
+		}
+		10 = {
+			create_character = {
+				location = root.capital_province
+				template = lotr_northron_settler_courtier_intrigue_template
+				save_scope_as = courtier_1
+			}
+		}
+		10 = {
+			create_character = {
+				location = root.capital_province
+				template = lotr_northron_settler_courtier_learning_template
+				save_scope_as = courtier_1
+			}
+		}
+		30 = {
+			create_character = {
+				location = root.capital_province
+				template = lotr_northron_settler_courtier_prowess_template
+				save_scope_as = courtier_1
+			}
+		}
+	}
+}
+lotr_northron_warriors_spawn_effect = {
+	random_list = {
+		# 200
+		20 = {
+			spawn_army = {
+				levies = 100
+				men_at_arms = {
+					type = rhovanion_heavy_cavalry
+					stacks = 1
+				}
+				location = root.capital_province
+				inheritable = no
+				name = lotr_northron_settlers_troops
+			}
+		}
+		# 400
+		20 = {
+			spawn_army = {
+				levies = 200
+				men_at_arms = {
+					type = rhovanion_heavy_cavalry
+					stacks = 1
+				}
+				men_at_arms = {
+					type = rhovanion_light_cavalry
+					stacks = 1
+				}
+				location = root.capital_province
+				inheritable = no
+				name = lotr_northron_settlers_troops
+			}
+		}
+		# 600
+		15 = {
+			spawn_army = {
+				levies = 300
+				men_at_arms = {
+					type = rhovanion_heavy_cavalry
+					stacks = 1
+				}
+				men_at_arms = {
+					type = rhovanion_light_cavalry
+					stacks = 1
+				}
+				men_at_arms = {
+					type = vigmen
+					stacks = 1
+				}
+				location = root.capital_province
+				inheritable = no
+				name = lotr_northron_settlers_troops
+			}
+		}
+		# 800
+		10 = {
+			spawn_army = {
+				levies = 400
+				men_at_arms = {
+					type = rhovanion_heavy_cavalry
+					stacks = 1
+				}
+				men_at_arms = {
+					type = rhovanion_light_cavalry
+					stacks = 1
+				}
+				men_at_arms = {
+					type = rhovanion_freemen
+					stacks = 2
+				}
+				location = root.capital_province
+				inheritable = no
+				name = lotr_northron_settlers_troops
+			}
+		}
+		# 1000
+		5 = {
+			spawn_army = {
+				levies = 500
+				men_at_arms = {
+					type = rhovanion_heavy_cavalry
+					stacks = 1
+				}
+				men_at_arms = {
+					type = rhovanion_light_cavalry
+					stacks = 2
+				}
+				men_at_arms = {
+					type = rhovanion_freemen
+					stacks = 2
+				}
+				location = root.capital_province
+				inheritable = no
+				name = lotr_northron_settlers_troops
+			}
+		}
+	}
+}
+
+reinstitute_grain_dole_decision_effect_anbalkumagan = {
+	every_county_in_region = {
+		region = custom_anbalkumagan
+		limit = {
+			any_county_province = {
+				has_building_or_higher = cereal_fields_05
+			}
+		}
+		add_county_modifier = {
+			modifier = grain_anbalkumagan_providers_county_modifier
+			years = 25
+		}
+	}
+	capital_county = {
+		add_county_modifier = {
+			modifier = bread_and_circuses_anbalkumagan_county_modifier
+			years = 25
+		}
+	}
+	add_legitimacy = medium_legitimacy_gain
+	if = {
+		limit = {
+			NOT = { capital_county = { has_variable = unlocked_grain_dole_anbalkumagan } }
+		}
+		add_prestige = {
+			value = 500
+			multiply = 3
+		}
+		change_influence = {
+			value = 500
+			multiply = 3
+		}
+		capital_county = { set_variable = unlocked_grain_dole_anbalkumagan }
+	}
+	else = {
+		add_prestige = 300
+		change_influence = 300
+	}
+}
+
+lotr_grant_gondor_strength_game_rule_buff = {
+	$CHARACTER$ ?= {
+		if = {
+			limit = {
+				is_alive = yes
+				is_landed = yes
+			}
+			switch = {
+				trigger = has_game_rule
+				weakened_good_strength = { add_character_modifier = gondor_weakened_modifier }
+				strong_good_strength = { add_character_modifier = gondor_strengthened_1_modifier }
+				very_strong_good_strength = { add_character_modifier = gondor_strengthened_2_modifier }
+				apocalyptic_good_strength = { add_character_modifier = gondor_strengthened_4_modifier }
+				apocalyptic_conqueror_good_strength = { add_character_modifier = gondor_strengthened_4_modifier }
+			}
+			if = {
+				limit = {
+					has_game_rule = apocalyptic_conqueror_good_strength
+					is_elf = yes
+				}
+				create_story = story_conqueror
+			}
+		}
+	}
+}
+
+gondor_strength_gamerule_buffs = {
+	every_independent_ruler = {
+		limit = {
+			is_gondor = yes
+			NOT = { has_character_modifier = gondor_strengthened_4_modifier }
+		}
+		switch = {
+			trigger = has_game_rule
+			weakened_gondor_strength = { add_character_modifier = gondor_weakened_modifier }
+			strong_gondor_strength = { add_character_modifier = gondor_strengthened_1_modifier }
+			very_strong_gondor_strength = { add_character_modifier = gondor_strengthened_2_modifier }
+			apocalyptic_gondor_strength = { add_character_modifier = gondor_strengthened_3_modifier }
+		}
+	}
+}

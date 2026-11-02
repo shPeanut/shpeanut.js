@@ -1,0 +1,163 @@
+﻿# Code on-action: character creates a faith
+# Root is the creator
+# scope:old_faith is the faith they used to have
+lotr_on_faith_created = {
+	effect = {
+		if = {
+			limit = {
+				scope:old_faith = { has_variable = historical_magrin_faith } #Old faith was part of Magrin religion
+				religion:magrin_religion = { #Magrin faith got created
+					any_faith = { NOT = { has_variable = historical_magrin_faith } }
+				}
+			}
+			religion:magrin_religion = {
+				every_faith = {
+					limit = { has_doctrine = tenet_tamska_main }
+					set_religious_head_title = title:d_tamska_main
+				}
+			}
+			religion:magrin_religion = {
+				random_faith = {
+					limit = {
+						NOT = { has_variable = historical_magrin_faith }
+						has_doctrine = tenet_tamska_main
+					}
+					hidden_effect = {
+						root = { 
+							destroy_title = title:d_tamska_main
+							set_character_faith = prev
+							get_title = title:d_tamska_main
+							if = {
+								limit = { title:d_tamska_main = { NOT = { has_title_law = tamska_succession_law } } }
+								title:d_tamska_main = { add_title_law = tamska_succession_law }
+							}
+							remove_trait = former_tamska
+							add_trait = tamska
+						}
+					}
+					set_variable = historical_magrin_faith
+				}
+			}
+		}
+		# Avatar of Deity Story Cycle
+		if = {
+			limit = {
+				any_owned_story = {
+					type = story_cycle_avatar_of_faith
+					has_variable_list = avatar_faiths
+				}
+			}
+			random_owned_story = {
+				type = story_cycle_avatar_of_faith
+				add_to_variable_list = {
+					name = avatar_faiths
+					target = ROOT.faith
+				}
+			}
+		}
+	}
+}
+
+# lotr_on_faith_conversion = { }
+
+lotr_on_character_faith_change = {
+	effect = {
+		# Remove Tayee-related special modifier if not tayee
+		if = {
+			limit = {
+				has_character_modifier = tayee_worthy_of_augar_prophet
+				faith = { NOT = { has_doctrine = tenet_sirayn_syncretism } }
+			}
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = tayee_augar_prophet_changed_faith.tt
+				left_icon = ROOT
+				remove_character_modifier = tayee_worthy_of_augar_prophet
+			}
+		}
+		# End Avatar of Deity Story Cycle
+		if = {
+			limit = {
+				any_owned_story = {
+					type = story_cycle_avatar_of_faith
+					has_variable_list = avatar_faiths
+					NOT = {
+						is_target_in_variable_list = {
+							name = avatar_faiths
+							target = ROOT.faith
+						}
+					}
+				}
+			}
+			save_scope_as = fake_avatar
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = lotr_avatar_changed_faith.tt
+				left_icon = scope:fake_avatar
+				add_piety_level = -1
+				remove_trait = avatar
+				custom_tooltip = {
+					text = lotr_avatar_changed_faith.tt2
+					scope:old_faith = {
+						every_faith_ruler = {
+							limit = {
+								this != scope:fake_avatar
+							}
+							add_opinion = {
+								modifier = upset_opinion
+								target = scope:fake_avatar
+								opinion = -30
+							}
+						}
+					}
+				}
+				stress_impact = {
+					base = medium_stress_impact_gain
+					zealous = minor_stress_impact_gain
+					arbitrary = minor_stress_impact_loss
+					cynical = minor_stress_impact_loss
+				}
+				random_owned_story = {
+					type = story_cycle_avatar_of_faith
+					end_story = yes
+				}
+			}
+			every_faith_ruler = {
+				limit = {
+					this != scope:fake_avatar
+					is_ai = no
+				}
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = lotr_avatar_changed_faith.tt3
+					left_icon = scope:fake_avatar
+					show_as_tooltip = {
+						scope:fake_avatar = {
+							add_piety_level = -1
+							remove_trait = avatar
+						}
+						custom_tooltip = lotr_avatar_changed_faith.tt4
+					}
+				}
+			}
+		}
+	}
+}
+
+# lotr_on_faith_monthly = { }
+
+# lotr_faith_holy_order_land_acquisition_pulse = { }
+
+# lotr_faith_heresy_events_pulse = { }
+
+# lotr_faith_fervor_events_pulse = { }
+
+# lotr_pagan_conversion_pulse = { }
+
+# lotr_on_great_holy_war_invalidation = { }
+
+# lotr_on_great_holy_war_invalidation = { }
+
+# lotr_on_great_holy_war_countdown_end = { }
+
+# lotr_on_great_holy_war_participant_replaced = { }

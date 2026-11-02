@@ -1,0 +1,205 @@
+﻿namespace = abdark
+
+### Abandon Darkness Events ###
+# Events for after Sauron has been destroyed
+# Primarily reconversion options for sauron influenced faiths to return to their old ones
+# Triggered by destroy sauron decision
+# In the future triggered by war of the ring events and possibly sarumans humble sauron decision
+# by Juke
+
+
+abdark.0001 = {	# Abandon Darkness Khäz-Gramaze
+	content_source = realms_dlc
+	type = character_event
+	title = abdark.0001.t
+	desc = abdark.0001.desc
+	theme = faith
+	override_background = throne_room
+	
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_abandon_darkness }
+		#global_var:sauron_destroyed = yes
+		sauron_is_alive = no
+		is_available_adult = yes
+		is_at_war = no
+		OR = {
+			faith = faith:faith_haruze
+			#faith = faith:faith_sanbaiz
+		}
+		is_landed = yes
+		is_independent_ruler = yes
+		trigger_if = {
+			limit = { exists = faith.religious_head }
+			NOT = { this = faith.religious_head }
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_abandon_darkness
+		}
+	}
+	
+	option = {
+		name = abdark.0001.a
+		custom_tooltip = abdark.0001.at
+		add_piety = medium_piety_loss
+		set_character_faith_with_conversion = faith:faith_chelkar
+		ai_chance = {
+			base = 60
+			modifier = {
+				add = 30
+				has_trait = cynical
+			}
+			modifier = {
+				add = 20
+				has_trait = fickle
+			}
+		}
+		stress_impact = {
+			base = minor_stress_impact_loss
+			cynical = medium_stress_impact_loss
+			zealous = medium_stress_impact_gain
+		}
+	}
+	option = {	# Stubbornly stay in old ways
+		name = abdark.0001.b
+		custom_tooltip = abdark.0001.bt
+		custom_tooltip = abdark.0001.btt
+		add_piety = 50
+		ai_chance = {
+			base = 40
+			modifier = {
+				add = 40
+				has_trait = zealous
+			}
+			modifier = {
+				add = 10
+				has_trait = stubborn
+			}
+		}
+		stress_impact = {
+			base = medium_stress_impact_gain
+		}
+	}
+	after = {
+		hidden_effect = {
+			every_realm_county = {
+				limit = {
+					OR = {
+						faith = faith:faith_haruze
+						faith = faith:faith_sanbaiz
+					}
+					holder = { 
+						OR ={
+							is_ai = yes
+							this = root
+						}						
+					}
+				}
+				random = {
+					chance = 15
+					set_county_faith = faith:faith_chelkar
+				}
+			}
+		}
+	}
+}
+
+abdark.0002 = {	# Abandon Darkness Kerkassk
+	content_source = realms_dlc
+	type = character_event
+	title = abdark.0002.t
+	desc = abdark.0002.desc
+	theme = faith
+	override_background = wilderness_desert_rhun
+	
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_abandon_darkness }
+		#global_var:sauron_destroyed = yes
+		sauron_is_alive = no
+		is_available_adult = yes
+		is_at_war = no
+		faith = faith:faith_kerkassk
+		is_landed = yes
+		is_independent_ruler = yes
+		
+		trigger_if = {
+			limit = { exists = faith.religious_head }
+			NOT = { this = faith.religious_head }
+		}
+		
+	}
+	
+	immediate = {
+		add_character_flag = {
+			flag = had_event_abandon_darkness
+		}
+	}
+
+	option = {
+		name = abdark.0002.a
+		custom_tooltip = abdark.0002.at
+		add_piety = medium_piety_loss
+		set_character_faith_with_conversion = faith:faith_rhun_pantheistic
+		ai_chance = {
+			base = 60
+			modifier = {
+				add = 35
+				has_trait = cynical
+			}
+			modifier = {
+				add = 15
+				has_trait = fickle
+			}
+		}
+		stress_impact = {
+			base = minor_stress_impact_loss
+			cynical = medium_stress_impact_loss
+			zealous = medium_stress_impact_gain
+		}
+	}
+	option = {	# Stubbornly stay in old ways
+		name = abdark.0002.b
+		custom_tooltip = abdark.0002.bt
+		custom_tooltip = abdark.0002.btt
+		add_piety = 50
+		ai_chance = {
+			base = 40
+			modifier = {
+				add = 40
+				has_trait = zealous
+			}
+			modifier = {
+				add = 20
+				has_trait = stubborn
+			}
+		}
+		stress_impact = {
+			base = medium_stress_impact_gain
+		}
+	}
+	after = {
+		hidden_effect = {
+			every_realm_county = {
+				limit = {
+					faith = faith:faith_kerkassk	
+				}
+				random = {
+					chance = 15
+					set_county_faith = faith:faith_rhun_pantheistic
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,1674 @@
+﻿namespace = flavourevent
+
+#Hears a Sound on the Wind - Positive
+flavourevent.0001 = {
+	content_source = realms_dlc
+	type = character_event
+	title = flavourevent.0001.t
+	desc = {
+		desc = flavourevent.0001.desc.start
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					faith_is_evil = yes
+				}
+				desc = flavourevent.0001.desc.end.evil
+			}
+			desc = flavourevent.0001.desc.end.good
+		}		
+	}
+	override_background = { reference = corridor_day }
+	theme = friendly
+	
+	left_portrait = {
+		character = root
+		animation = happiness
+	}	
+
+	trigger = {
+		NOT = { has_character_flag = flavourevent_sound_on_the_wind_event_happened }
+	}
+		
+	immediate = {
+		play_music_cue = mx_cue_touching_moment 
+	}
+	
+	option = { # Lovely...
+		name = flavourevent.0001.a
+		add_stress = -30
+		add_character_flag = flavourevent_sound_on_the_wind_event_happened
+		add_character_modifier = {
+			modifier = flavourevent_sound_on_the_wind_positive
+			years = 5
+		}
+	}
+}
+
+#Hears a Sound on the Wind - Negative
+flavourevent.0002 = {
+	content_source = realms_dlc
+	type = character_event
+	title = flavourevent.0002.t
+	desc = {
+		desc = flavourevent.0002.desc.start
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					faith_is_evil = yes
+				}
+				desc = flavourevent.0002.desc.end.evil
+			}
+			desc = flavourevent.0002.desc.end.good
+		}		
+	}
+	override_background = { reference = corridor_night }
+	theme = mental_health
+	
+	left_portrait = {
+		character = root
+		animation = shock
+	}	
+
+	trigger = {
+		NOR = { 
+			has_character_flag = flavourevent_sound_on_the_wind_event_happened 
+			has_government = landless_adventurer_government
+			has_government = nomad_government
+		}
+	}
+		
+	immediate = {
+		play_music_cue = mx_cue_touching_moment  #####!!!!!
+	}
+	
+	option = { # Make it stop!
+		name = flavourevent.0002.a
+		add_stress = 30
+		add_character_flag = flavourevent_sound_on_the_wind_event_happened
+		add_character_modifier = {
+			modifier = flavourevent_sound_on_the_wind_negative
+			years = 5
+		}
+	}
+}
+
+#Offered Honey Cakes
+flavourevent.0003 = {
+	content_source = realms_dlc
+	type = character_event
+	title = flavourevent.0003.t
+	desc = flavourevent.0003.desc
+	theme = friendly
+	
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+
+	trigger = {
+		NOT = { has_character_flag = flavourevent_offered_honeycakes_happened }
+		is_nazgul = no
+		is_sauron = no
+	}
+	
+	option = { # Tasty!
+		name = flavourevent.0003.a
+		remove_short_term_gold = 10
+		add_character_flag = {
+			flag = flavourevent_offered_honeycakes_happened
+			years = 15
+		}
+		add_character_modifier = {
+			modifier = flavourevent_ate_honey_cake
+			years = 1
+		}
+		stress_impact = {
+			base = miniscule_stress_impact_loss
+			comfort_eater = minor_stress_impact_loss
+		}			
+		if = {
+			limit = {
+				has_trait = temperate
+			}		
+			random = {
+				chance = 33
+
+				remove_trait = temperate
+				add_trait_force_tooltip = gluttonous	
+			}			
+		}
+	}
+
+	option = { # No thanks...
+		name = flavourevent.0003.b
+		add_character_flag = {
+			flag = flavourevent_offered_honeycakes_happened
+			years = 15
+		}
+		if = {
+			limit = {
+				has_trait = gluttonous
+			}		
+			random = {
+				chance = 33
+
+				remove_trait = gluttonous
+				add_trait_force_tooltip = temperate	
+			}			
+		}
+		stress_impact = {
+			gluttonous = minor_stress_impact_loss
+		}			
+	}
+}
+
+# Overhear Gossiping Servants
+flavourevent.0004 = {
+	content_source = realms_dlc
+	type = character_event
+	title = flavourevent.0004.t
+	desc = flavourevent.0004.desc
+	theme = friendly
+	override_background = { reference = corridor_day }
+	
+	right_portrait = {
+		character = root
+		animation = boredom
+	}
+	
+
+	trigger = {
+		NOT = { has_character_flag = flavourevent_overheard_gossiping_servants_happened }
+	}
+		
+	option = { # Do something else
+		name = flavourevent.0004.a
+		add_character_flag = {
+			flag = flavourevent_overheard_gossiping_servants_happened
+			years = 15
+		}
+		add_stress = -5
+		stress_impact = {
+			shy = minor_stress_impact_loss
+			gregarious = minor_stress_impact_gain
+		}	
+	}
+	
+	option = { # Keep listening
+		name = flavourevent.0004.b
+		add_character_flag = {
+			flag = flavourevent_overheard_gossiping_servants_happened
+			years = 15
+		}
+		add_character_modifier = {
+			modifier = flavourevent_overheard_gossiping_servants
+			years = 3
+		}
+		stress_impact = {
+			shy = minor_stress_impact_gain
+			gregarious = minor_stress_impact_loss
+		}
+	}
+	
+	option = { # Kill them
+		name = flavourevent.0004.c
+		add_character_flag = {
+			flag = flavourevent_overheard_gossiping_servants_happened
+			years = 15
+		}
+		add_dread = 10
+		stress_impact = {
+			just = medium_stress_impact_gain
+			compassionate = minor_stress_impact_gain
+			arbitrary = minor_stress_impact_loss
+			sadistic = minor_stress_impact_loss
+		}
+		if = {
+			limit = {
+				has_trait = just
+			}		
+			random = {
+				chance = 50
+
+				remove_trait = just
+				add_trait_force_tooltip = arbitrary	
+			}			
+		}
+	}
+}
+
+# Tried and failed to remember a dream
+flavourevent.0005 = {
+	content_source = realms_dlc
+	type = character_event
+	title = flavourevent.0005.t
+	desc = flavourevent.0005.desc
+
+	theme = friendly
+	override_background = {
+		reference = bedchamber
+	}
+	
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	
+	trigger = {
+		NOR = {
+			lotr_orc_buildings = yes #Evil characters shouldn't really worry about their dreams
+			has_character_flag = flavourevent_forgotten_dream_happened		
+		}
+	}
+	
+	option = { # Oh well
+		name = flavourevent.0005.a
+		add_character_flag = {
+			flag = flavourevent_forgotten_dream_happened
+			years = 10
+		}
+		stress_impact = {
+			content = miniscule_stress_impact_loss
+		}	
+	}	
+	option = { # Must remember!
+		name = flavourevent.0005.b
+		add_character_flag = {
+			flag = flavourevent_forgotten_dream_happened
+			years = 10
+		}
+		random_list = {
+			40 = {
+				desc = flavourevent.0005.a.a
+				send_interface_toast = {
+					left_icon = ROOT
+					title = flavourevent.0005.toast.a
+					add_prestige = 20
+				}
+			}
+			60 = {
+				desc = flavourevent.0005.a.b
+				send_interface_toast = {
+					left_icon = ROOT
+					title = flavourevent.0005.toast.b
+					stress_impact = {
+						base = miniscule_stress_impact_gain
+						stubborn = miniscule_stress_impact_gain
+					}
+				}
+			}
+		}
+	}
+}
+
+# Servant's child recently died
+flavourevent.0006 = {
+	content_source = realms_dlc
+	type = character_event
+	title = flavourevent.0006.t
+	desc = flavourevent.0006.desc
+	theme = family
+	
+	right_portrait = root
+	
+	option = { # Say generic words of condolence
+		name = flavourevent.0006.a
+		add_prestige = 20
+		add_piety = -10
+		stress_impact = {
+			callous = minor_stress_impact_gain
+			sadistic = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 30
+			ai_value_modifier = {
+				ai_compassion = 1
+			}
+		}
+	}	
+	option = { # Religious option
+		name = flavourevent.0006.b
+		add_piety = 20
+		add_prestige = -10
+		stress_impact = {
+			cynical = minor_stress_impact_gain
+			callous = minor_stress_impact_gain
+			sadistic = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 20
+			ai_value_modifier = {
+				ai_zeal = 1
+			}
+		}
+	}	
+	option = { # I don't care
+		name = flavourevent.0006.c
+		add_dread = 5
+		stress_impact = {
+			compassionate = medium_stress_impact_gain
+			humble = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 20
+			ai_value_modifier = {
+				ai_compassion = -1
+			}
+		}
+	}	
+	option = { # Give servant a couple weeks off
+		name = flavourevent.0006.d
+		trigger = {
+			has_trait = compassionate
+			NOT = { lotr_orc_buildings = yes }
+		}
+		trait = compassionate
+		add_piety = 20
+		add_prestige = 20
+		ai_chance = {
+			base = 30
+			ai_value_modifier = {
+				ai_compassion = 1
+			}
+		}
+	}
+}
+
+# Reading about an ancient empire
+flavourevent.0007 = {
+	content_source = realms_dlc
+	type = character_event
+	title = flavourevent.0007.t
+	desc = flavourevent.0007.desc
+	theme = crown
+	
+	left_portrait = { 	
+		character = root
+		animation = personality_cynical
+	}
+		
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = just
+		}
+		modifier = {
+			add = -0.2
+			has_trait = arbitrary
+		}
+		modifier = {
+			add = 0.2
+			has_trait = diligent
+		}
+		modifier = {
+			add = -0.2
+			has_trait = lazy
+		}
+		modifier = {
+			add = 0.2
+			has_trait = ambitious
+		}
+		modifier = {
+			add = -0.2
+			has_trait = content
+		}
+	}
+	
+	option = { # Bellakar
+		name = flavourevent.0007.a
+		random = {
+			chance = 33
+			add_diplomacy_skill = 1
+		}
+	}	
+	option = { # Angmar
+		name = flavourevent.0007.b
+		random = {
+			chance = 33
+			add_martial_skill = 1
+		}
+	}	
+	option = { # Khazad-dûm
+		name = flavourevent.0007.c
+		random = {
+			chance = 33
+			add_stewardship_skill = 1
+		}
+	}	
+	option = { # Bozisha-Miraz
+		name = flavourevent.0007.d
+		random = {
+			chance = 33
+			add_intrigue_skill = 1
+		}
+	}	
+	option = { # Imladris
+		name = flavourevent.0007.e
+		random = {
+			chance = 33
+			add_learning_skill = 1
+		}
+	}	
+	option = { # Wainriders
+		name = flavourevent.0007.f
+		random = {
+			chance = 33
+			add_prowess_skill = 1
+		}
+	}
+}
+
+# A difficult read
+flavourevent.0008 = {
+	content_source = realms_dlc
+	type = character_event
+	title = flavourevent.0008.t
+	desc = flavourevent.0008.desc
+	theme = learning
+	
+	left_portrait = { 	
+		character = root
+		animation = personality_cynical
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = stubborn
+		}
+		modifier = {
+			add = -0.2
+			has_trait = fickle
+		}
+		modifier = {
+			add = 0.2
+			has_trait = calm
+		}
+		modifier = {
+			add = -0.2
+			has_trait = wrathful
+		}
+		modifier = {
+			add = 0.2
+			has_trait = diligent
+		}
+		modifier = {
+			add = -0.2
+			has_trait = lazy
+		}
+	}
+	
+	option = { # It's not worth it
+		name = flavourevent.0008.a
+		stress_impact = {
+			base = miniscule_stress_impact_loss
+			stubborn = minor_stress_impact_gain
+		}
+	}	
+	
+	option = { # Try to understand
+		name = flavourevent.0008.b
+		stress_impact = {
+			base = minor_stress_impact_gain
+			lazy = minor_stress_impact_gain
+			stubborn = miniscule_stress_impact_gain
+			wrathful = miniscule_stress_impact_gain
+		}
+		random_list = {
+			70 = {
+				desc = flavourevent.0008.b.a
+				send_interface_toast = {
+					left_icon = ROOT
+					title = flavourevent.0008.toast.a
+					custom_tooltip = flavourevent.0008.toast.failure
+				}			
+			}
+			30 = {
+				desc = flavourevent.0008.b.b
+				send_interface_toast = {
+					left_icon = ROOT
+					title = flavourevent.0008.toast.b
+					custom_tooltip = flavourevent.0008.toast.success
+					random_list = {
+						10 = { add_diplomacy_skill = 1 }
+						10 = { add_martial_skill = 1 }
+						10 = { add_stewardship_skill = 1 }
+						10 = { add_intrigue_skill = 1 }
+						10 = { add_learning_skill = 1 }					
+					}
+				}
+			}
+		}
+	}
+}
+
+# A Forgotten Identity
+flavourevent.0009 = {
+	content_source = realms_dlc
+	type = character_event
+	title = flavourevent.0009.t
+	desc = flavourevent.0009.desc
+	theme = diplomacy
+	
+	right_portrait = { 	
+		character = root
+		animation = worry
+	}
+	
+	immediate = {
+		play_music_cue = mx_cue_stress  
+	}
+	
+	option = { # Try to guess the name
+		name = flavourevent.0009.a
+		random_list = {
+			66 = {
+				desc = flavourevent.0009.a.a
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					left_icon = ROOT
+					title = flavourevent.0009.toast.a
+					custom_tooltip = flavourevent.0009.toast.failure
+					add_stress = 20
+					add_prestige = -50
+				}			
+			}
+			33 = {
+				desc = flavourevent.0009.a.b
+				send_interface_toast = {
+					type = event_toast_effect_good
+					left_icon = ROOT
+					title = flavourevent.0009.toast.b
+					custom_tooltip = flavourevent.0009.toast.success
+					add_prestige = 30
+				}
+			}
+		}
+	}	
+	option = { # Skillfully avoid their name
+		name = flavourevent.0009.b
+		add_stress = 10
+		random = {
+			chance = 40
+			add_prestige = -30
+		}
+	}
+}
+
+# Rumors of illegitimate child with a peasant
+flavourevent.0010 = {
+	content_source = realms_dlc
+	type = character_event
+	title = flavourevent.0010.t
+	desc = {
+		desc = flavourevent.0010.desc.1
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_trait = widowed
+				}
+				desc = flavourevent.0010.desc.widowed
+			}
+			triggered_desc = {
+				trigger = {
+					OR = {
+						has_trait = chaste
+						has_trait = celibate
+						has_sexuality = asexual
+					}
+				}
+				desc = flavourevent.0010.desc.chaste
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait = lustful
+				}
+				desc = flavourevent.0010.desc.lustful
+			}
+			triggered_desc = {
+				trigger = {	has_trait = blood_of_numenor }
+				desc = flavourevent.0010.desc.numenorean
+			}
+			desc = flavourevent.0010.desc.normal
+		}
+		desc = flavourevent.0010.desc.2
+	}
+	theme = seduction
+
+	trigger = {
+		NOT = { is_elf = yes }
+		cannot_be_killed = no
+		is_lotr_adult = yes
+		is_nubile = yes
+		is_lowborn = no # Peasants wouldnt care
+		is_landed = yes
+	}
+	
+	right_portrait = {
+		character = root
+		animation = disapproval
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.3
+			OR = { # If its unknown or not seen as criminal, it wont matter
+				has_trait = rakish
+				has_trait = adulterer
+				has_trait = fornicator
+			}
+		}
+		modifier = {
+			add = 0.3
+			has_trait = lustful
+		}
+		modifier = {
+			add = -0.4
+			has_trait = chaste
+		}
+		modifier = {
+			add = 0.1
+			has_trait = gregarious
+		}
+		modifier = {
+			add = -0.1
+			has_trait = shy
+		}
+		modifier = {
+			add = 0.1
+			has_trait = arbitrary
+		}
+		modifier = {
+			add = -0.1
+			has_trait = just
+		}
+		modifier = { # Less likely for dwarves
+			add = -0.5
+			is_dwarf = yes
+		}
+	}
+	
+	option = { # Not much that can be done about it
+		name = flavourevent.0010.a
+		add_prestige = -30
+		stress_impact = {
+			base = 10
+			chaste = 10
+			widowed = 20
+		}
+		add_character_modifier = {
+			modifier = flavourevent_rumors_of_peasant_child
+			years = 6
+		}
+	}
+	
+	option = { # Convince others it's not true
+		name = flavourevent.0010.b
+		add_prestige = -50
+		add_stress = 20
+		add_character_modifier = {
+			modifier = flavourevent_rumors_of_peasant_child
+			years = 3
+		}
+	}
+				
+}
+
+### Durins Bane event
+
+flavourevent.0011 = {
+	content_source = realms_dlc
+	type = character_event
+	title = flavourevent.0011.t
+	desc = flavourevent.0011.desc
+	theme = martial
+	override_background = {
+		reference = durins_bane
+	}
+
+	right_portrait = {
+		character = root
+		animation = worry
+	}
+
+	override_background = { reference = corridor_day }
+	
+	trigger = {
+		any_held_county = {
+			any_county_province = { has_province_modifier = durins_bane_modifier }
+		}
+		is_wastelands = no
+		NOT = { is_orc = yes }
+		is_sauron = no
+		is_nazgul = no
+
+		trigger_if = {
+			limit = { root = character:lineofdurin95 }
+			current_date > 7043.1.1
+		}
+	}
+
+	immediate = {
+		play_music_cue = lotr_base_evil_02
+		
+		random_held_title = {
+			limit = {
+				tier = tier_county
+				title_province = { has_province_modifier = durins_bane_modifier }
+			}
+			save_scope_as = targeted_county
+		}
+	}
+
+	option = { # Stand and fight
+		name = flavourevent.0011.a
+		skill = prowess
+
+		random_list = {
+			# You survive.
+			0 = {
+				modifier = {
+					trigger = { prowess >= 10 }
+					add = 1
+				}
+				modifier = {
+					trigger = { prowess >= 20 }
+					add = 1
+				}
+				modifier = {
+					trigger = { prowess >= 30 }
+					add = 1
+				}
+				modifier = {
+					trigger = { prowess >= 40 }
+					add = 1
+				}
+				modifier = {
+					trigger = { prowess >= 50 }
+					add = 1
+				}
+				modifier = {
+					trigger = { prowess >= 60 }
+					add = 1
+				}
+				modifier = {
+					trigger = { prowess >= 70 }
+					add = 1
+				}
+				modifier = {
+					trigger = { prowess >= 80 }
+					add = 1
+				}
+				modifier = {
+					trigger = { prowess >= 90 }
+					add = 1
+				}
+				modifier = {
+					trigger = { prowess >= 100 }
+					add = 1
+				}
+				desc = flavourevent.0011.tt.success
+				add_prestige = 2500
+				dynasty = { add_dynasty_prestige = 1500 }
+				dynasty = { add_dynasty_prestige_level = 1 }
+
+				custom_tooltip = {
+					text = flavourevent.0011.tt.effect
+					title:k_khazad_dum = {
+						every_de_jure_county = {
+							limit = {
+								title_province = { has_province_modifier = durins_bane_modifier }
+							}
+							title_province = { remove_province_modifier = durins_bane_modifier }
+						}
+					}
+				}
+			}
+			# You perish.
+			100 = {
+				modifier = {
+					trigger = { prowess >= 10 }
+					add = -1
+				}
+				modifier = {
+					trigger = { prowess >= 20 }
+					add = -1
+				}
+				modifier = {
+					trigger = { prowess >= 30 }
+					add = -1
+				}
+				modifier = {
+					trigger = { prowess >= 40 }
+					add = -1
+				}
+				modifier = {
+					trigger = { prowess >= 50 }
+					add = -1
+				}
+				modifier = {
+					trigger = { prowess >= 60 }
+					add = -1
+				}
+				modifier = {
+					trigger = { prowess >= 70 }
+					add = -1
+				}
+				modifier = {
+					trigger = { prowess >= 80 }
+					add = -1
+				}
+				modifier = {
+					trigger = { prowess >= 90 }
+					add = -1
+				}
+				modifier = {
+					trigger = { prowess >= 100 }
+					add = -1
+				}
+				desc = flavourevent.0011.tt.failure
+				death = { death_reason = death_durins_bane }
+				make_settlement_county_wilderness = { COUNTY = scope:targeted_county }
+			}
+		}
+	}
+
+	option = { # Retreat
+		name = flavourevent.0011.b
+		
+		trigger = { # only available if more than one county that is NOT a settlement
+			trigger_if = {
+				limit = { scope:targeted_county = { title_province ?= { has_holding_type = dwarven_holding } } }
+				any_held_title = {
+					tier = tier_county
+					count > 1
+				}
+			} 
+			trigger_else = { always = yes }
+		}
+
+		if = {
+			limit = {
+				scope:targeted_county = {
+					title_province ?= { has_building_or_higher = dwarven_depths_02 }
+				}
+			}
+			scope:targeted_county = { title_province ?= { downgrade_tier_ten_holding = { HOLDING = dwarven_depths } } }
+			scope:targeted_county = { change_development_level = -3 }
+			
+		}
+		else = { make_settlement_county_wilderness = { COUNTY = scope:targeted_county } }
+		
+	}
+
+}
+
+# The Ivory Trader - Thani-Hazad area specific flavour event by sakkar
+flavourevent.0012 = { 
+    content_source = realms_dlc         
+    type = character_event
+    title = flavourevent.0012.t
+    desc = flavourevent.0012.desc
+    theme = stewardship
+
+    left_portrait = {
+		character = root
+		animation = steward
+	}
+
+    right_portrait = {
+		character = scope:trader
+		animation = personality_honorable
+	}
+
+    trigger = {
+		is_wastelands = no
+		any_held_county = { 
+			title_province = {
+				num_buildings > 1
+			}
+			title_province = { geographical_region = middleearth_thani_hazad_struggle_region }
+		}
+        any_held_title = {
+            tier >= tier_kingdom
+        }
+        NOT = { has_culture = culture:mag }
+        has_dlc_feature = royal_court
+		is_landless_ruler = no
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+    cooldown = { years = 20 }
+
+    immediate = {
+        create_character = {
+            age = { 20 40 }
+            location = root.capital_province
+            faith = faith:faith_tamska_veryana
+            culture = culture:mag
+            random_traits_list = {
+                count = 1
+                education_stewardship_1 = {}
+                education_stewardship_2 = {}
+                education_stewardship_3 = {}
+                education_stewardship_4 = {}
+            }
+            dynasty = none
+            random_traits = yes
+            gender_female_chance = 50
+            stewardship = {
+                min_template_decent_skill
+                max_template_decent_skill
+            }
+            prowess = { 2 10 }
+            martial = { 2 10 }
+            diplomacy = { 5 13 }
+            learning = { 5 13 }
+            save_scope_as = trader
+        }
+        random_held_county = { 
+			limit = { 
+                title_province = { 
+                    geographical_region = middleearth_thani_hazad_struggle_region 
+                } 
+            }
+            save_scope_as = event_county
+		}  
+    }
+
+    option = {  #A. Accept, pay for example 350 gold, get a modifier increasing prestige (if you really want I guess you could do a court artifact)
+        name = flavourevent.0012.a
+
+        stress_impact = {
+            greedy = medium_stress_gain
+        }
+
+        pay_short_term_gold = {
+            target = scope:trader
+            gold = {
+              value = major_gold_value
+            }
+        }
+
+        hidden_effect = {
+            random_list = {
+				20 = {
+					create_artifact_ivory_box_small_1_effect = {
+						OWNER = root
+						CARPENTER = scope:trader
+					}    
+				}
+				20 = {
+					create_artifact_ivory_box_small_2_effect = {
+						OWNER = root
+						CARPENTER = scope:trader
+					}    
+				}
+				20 = {
+					create_artifact_ivory_box_small_3_effect = {
+						OWNER = root
+						CARPENTER = scope:trader
+					}    
+				}
+				20 = {
+					create_artifact_ivory_box_medium_1_effect = {
+						OWNER = root
+						CARPENTER = scope:trader
+					}    
+				}
+				20 = {
+					create_artifact_ivory_box_medium_2_effect = {
+						OWNER = root
+						CARPENTER = scope:trader
+					}    
+				}
+			}
+        }        
+
+        custom_tooltip = flavourevent.0012.b.tt
+        
+        hidden_effect = {
+            scope:trader =  {
+                death = { death_reason = death_disappearance }
+            }
+        } 
+    }
+
+    option = {  #B. Try to haggle, stewardship challenge, either pay more or less, get the modifier (or artifact) and some prestige 
+        name = flavourevent.0012.b
+
+        duel = {
+			skill = stewardship
+			value = decent_skill_rating
+			50 = {
+				desc = flavourevent.0012.b.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3
+				}
+				stress_impact = {
+                    greedy = minor_stress_gain
+                }
+        
+                pay_short_term_gold = {
+                    target = scope:trader
+                    gold = {
+                      value = major_gold_value
+                      multiply = 0.8
+                    }
+                }
+
+                hidden_effect = {
+					random_list = {
+						20 = {
+							create_artifact_ivory_box_small_1_effect = {
+								OWNER = root
+								CARPENTER = scope:trader
+							}    
+						}
+						20 = {
+							create_artifact_ivory_box_small_2_effect = {
+								OWNER = root
+								CARPENTER = scope:trader
+							}    
+						}
+						20 = {
+							create_artifact_ivory_box_small_3_effect = {
+								OWNER = root
+								CARPENTER = scope:trader
+							}    
+						}
+						20 = {
+							create_artifact_ivory_box_medium_1_effect = {
+								OWNER = root
+								CARPENTER = scope:trader
+							}    
+						}
+						20 = {
+							create_artifact_ivory_box_medium_2_effect = {
+								OWNER = root
+								CARPENTER = scope:trader
+							}    
+						}
+					}
+				}    
+        
+                custom_tooltip = flavourevent.0012.b.tt
+			}
+			50 = {
+				desc = flavourevent.0012.b.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3
+				}
+				stress_impact = {
+                    greedy = major_stress_gain
+                }
+        
+                pay_short_term_gold = {
+                    target = scope:trader
+                    gold = {
+                      value = major_gold_value
+                      multiply = 1.2
+                    }
+                }
+
+                hidden_effect = {
+					random_list = {
+						20 = {
+							create_artifact_ivory_box_small_1_effect = {
+								OWNER = root
+								CARPENTER = scope:trader
+							}    
+						}
+						20 = {
+							create_artifact_ivory_box_small_2_effect = {
+								OWNER = root
+								CARPENTER = scope:trader
+							}    
+						}
+						20 = {
+							create_artifact_ivory_box_small_3_effect = {
+								OWNER = root
+								CARPENTER = scope:trader
+							}    
+						}
+						20 = {
+							create_artifact_ivory_box_medium_1_effect = {
+								OWNER = root
+								CARPENTER = scope:trader
+							}    
+						}
+						20 = {
+							create_artifact_ivory_box_medium_2_effect = {
+								OWNER = root
+								CARPENTER = scope:trader
+							}    
+						}
+					}
+				}    
+        
+                custom_tooltip = flavourevent.0012.b.tt
+			}
+        }
+        hidden_effect = {
+            scope:trader =  {
+                death = { death_reason = death_disappearance }
+            }
+        } 
+    }
+
+    option = {  #C. Join my court
+        name = flavourevent.0012.c
+
+        pay_short_term_gold = {
+            target = scope:trader
+            gold = {
+              value = minor_gold_value
+            }
+        }
+
+        scope:trader = {
+            if = {
+                limit = { 
+                    NOT = { liege = root }
+                }
+                root = { add_courtier = scope:trader }
+            }
+        }
+    }
+
+    option = {  #D. Refuse, nothing happens
+        name = flavourevent.0012.d
+
+        hidden_effect = {
+            scope:trader =  {
+                death = { death_reason = death_disappearance }
+            }
+        } 
+    }
+}
+
+flavourevent.0013 = { #Opportunity to find a Numenorean gold hoard in any county 
+	content_source = realms_dlc         
+    type = character_event
+    title = flavourevent.0013.t
+    desc = flavourevent.0013.desc
+    theme = stewardship
+
+    left_portrait = {
+		character = root
+		animation = steward
+	}
+
+    trigger = {
+        highest_held_title_tier > tier_barony
+		is_wastelands = no
+		NOT = { is_elf = yes }
+		NOT = { has_character_flag = flavourevent_numenorean_gold_hoard_flag }
+		any_held_county = { 
+			title_province = {
+				num_buildings > 1
+			}
+			title_province = { geographical_region = middleearth_thani_hazad_struggle_region }
+		}
+	}
+
+	immediate = {
+		random_held_title = {
+			limit = {
+				tier = tier_county
+			}
+			save_scope_as = numenorean_gold_hoard_county
+		}
+	}
+
+	option = { # It is mine!
+		name = flavourevent.0013.a 
+		add_gold = 350
+		scope:numenorean_gold_hoard_county = {
+ 			change_county_control = -30
+ 		}
+		add_piety = -450 
+		add_tyranny = 30
+
+		stress_impact = {
+            greedy = medium_stress_loss
+			callous = medium_stress_loss
+			generous = major_stress_gain
+			compassionate = major_stress_gain
+			content = major_stress_gain
+			ambitious = minor_stress_loss
+        }
+		ai_chance = {
+ 			base = 100
+ 			modifier = {
+ 				factor = 0.5
+ 				OR = {
+ 					has_trait = compassionate
+ 					has_trait = just
+ 					has_trait = forgiving
+ 					has_trait = generous
+ 				}
+ 			}
+ 		}
+	}
+
+	option = { #Perhaps I could convince you
+		name = flavourevent.0013.b 
+		duel = {
+			skill = diplomacy
+			value = decent_skill_rating
+			50 = {
+				desc = flavourevent.0013.b.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3
+				}
+				stress_impact = {
+                    greedy = minor_stress_gain
+                }   
+                send_interface_toast = {
+					left_icon = ROOT
+					add_gold = 450
+				}
+			}
+			50 = {
+				desc = flavourevent.0013.b.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3
+				}
+				stress_impact = {
+                    greedy = major_stress_gain
+					arrogant = major_stress_gain
+                }   
+                 send_interface_toast = {
+					left_icon = ROOT
+					title = flavourevent.0013.b.failure.toast
+					add_prestige = -350
+				}
+			}
+        }
+		stress_impact = {
+            greedy = medium_stress_loss
+			callous = medium_stress_gain
+			generous = minor_stress_gain
+			content = minor_stress_gain 
+			arrogant = minor_stress_gain
+        }
+		ai_chance = {
+ 			base = 100
+ 			modifier = {
+ 				factor = 0.5
+ 				OR = {
+ 					has_trait = arrogant
+ 					has_trait = generous
+ 					has_trait = callous
+ 					has_trait = content
+ 				}
+ 			}
+ 		}
+	}
+
+	option = { #Alright then, keep it
+		name = flavourevent.0013.c 
+		add_piety = 250 
+		stress_impact = {
+            greedy = major_stress_gain
+			callous = medium_stress_gain
+			generous = medium_stress_loss
+			content = minor_stress_loss
+			arrogant = medium_stress_gain
+			ambitious = minor_stress_gain
+        }
+		ai_chance = {
+ 			base = 100
+ 			modifier = {
+ 				factor = 2
+ 				OR = {
+ 					has_trait = compassionate
+ 					has_trait = just
+ 					has_trait = forgiving
+ 					has_trait = generous
+ 				}
+ 			}
+ 		}
+	}
+
+	after = { 
+		add_character_flag = {
+			flag = flavourevent_numenorean_gold_hoard_flag
+			years = 15
+		}
+	}
+}
+
+flavourevent.0014 = { #Second chance at Grand Wedding for Aragorn and Imrazôr/Arimîth 
+	content_source = realms_dlc         
+    type = character_event
+    title = flavourevent.0014.t
+    desc = flavourevent.0014.desc
+    theme = love
+
+    left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = scope:betrothed
+		animation = love
+	}
+	
+	immediate = {
+		betrothed = { save_scope_as = betrothed }
+	}
+	
+	option = { #Try a Grand Wedding at a later time
+		name = flavourevent.0014.a
+		trigger = { is_ai = no }
+		set_variable = promised_grand_wedding_marriage_countdown
+		scope:betrothed = {
+			set_variable = promised_grand_wedding_marriage_countdown
+		}
+	}
+	
+	option = { #Just get married normally
+		name = flavourevent.0014.b
+		if = {
+			limit = { betrothed = character:lineofelrond4 } #Arwen marriage handling
+			
+			#So Aragorn doesn't have multiple lovers/soulmates
+			every_relation = {
+				type = lover
+				remove_relation_lover = root
+			}
+			every_relation = {
+				type = soulmate
+				remove_relation_soulmate = root
+			}	
+			
+			set_relation_lover = character:lineofelrond4
+			set_relation_friend = character:lineofelrond4
+			set_relation_soulmate = character:lineofelrond4
+			
+			character:lineoffinarfin5 = { # Galadriel sends a royal gift
+				trigger_event = {
+					id = elven.0103
+					days = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_female = no
+			}
+			marry = scope:betrothed
+		}
+		else = {
+			marry_matrilineal = scope:betrothed
+		}
+		remove_character_flag = aragorn_gw
+		betrothed = { remove_character_flag = aragorn_gw }
+	}
+}
+
+flavourevent.0015 = { # Chennacatti Animal Sacrifice Event
+	content_source = realms_dlc         
+    type = character_event
+    title = flavourevent.0015.t
+    desc = flavourevent.0015.desc
+    theme = learning
+	override_background = { reference = plains }
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = { # Small sacrifice
+		name = flavourevent.0015.a 
+		remove_short_term_gold = 75
+		add_piety = 250
+		add_character_flag = lotr_chennacatti_animal_sacrifice_flag
+		stress_impact = {  
+ 			ambitious = miniscule_stress_impact_loss
+ 			arrogant = miniscule_stress_impact_loss
+ 			zealous = miniscule_stress_impact_loss
+ 			gregarious = miniscule_stress_impact_loss
+ 			august = miniscule_stress_impact_loss 
+ 			gallant = miniscule_stress_impact_loss
+ 			content = miniscule_stress_impact_gain
+ 			cynical = minor_stress_impact_gain	
+			generous = miniscule_stress_impact_gain
+ 			temperate = miniscule_stress_impact_gain
+			greedy = medium_stress_impact_gain
+			compassionate = medium_stress_impact_gain
+ 		}
+	}
+	
+	option = { # Medium sacrifice
+		name = flavourevent.0015.b
+		remove_short_term_gold = 150
+		add_piety = 550
+		add_character_flag = lotr_chennacatti_animal_sacrifice_flag
+		stress_impact = {  
+ 			ambitious = medium_stress_impact_loss
+ 			arrogant = medium_stress_impact_loss
+ 			zealous = medium_stress_impact_loss 
+ 			gregarious = medium_stress_impact_loss
+			generous = miniscule_stress_impact_loss
+ 			august = medium_stress_impact_loss 
+ 			gallant = medium_stress_impact_loss
+ 			content = miniscule_stress_impact_gain
+ 			cynical = medium_stress_impact_gain
+ 			temperate = miniscule_stress_impact_gain
+			greedy = medium_stress_impact_gain
+			compassionate = major_stress_impact_gain
+ 		}
+	}
+
+	option = { # Large sacrifice
+		name = flavourevent.0015.c 
+		remove_short_term_gold = 325
+		add_piety = 850
+		dynasty = { add_dynasty_prestige = medium_dynasty_prestige_value }
+		add_character_flag = lotr_chennacatti_animal_sacrifice_flag
+		stress_impact = {  
+ 			ambitious = medium_stress_impact_loss
+ 			arrogant = medium_stress_impact_loss
+			generous = major_stress_impact_loss
+ 			zealous = medium_stress_impact_loss 
+ 			gregarious = medium_stress_impact_loss
+ 			august = medium_stress_impact_loss 
+ 			gallant = medium_stress_impact_loss
+ 			content = miniscule_stress_impact_gain
+ 			cynical = major_stress_impact_gain
+ 			temperate = miniscule_stress_impact_gain
+			greedy = major_stress_impact_gain
+			compassionate = major_stress_impact_gain
+ 		}
+	}
+	
+	option = { # On second thought...
+		name = flavourevent.0015.d 
+		add_piety = major_piety_loss
+		ai_chance = {
+			base = 1
+		}
+		stress_impact = { #Wasteful or ambitious rulers loathe this more moderate option, but temperate and content rulers love it. 
+ 			ambitious = medium_stress_impact_loss
+ 			zealous = major_stress_impact_gain
+			generous = major_stress_impact_gain
+ 			august = minor_stress_impact_gain
+ 			gallant = miniscule_stress_impact_gain 
+ 			content = medium_stress_impact_loss
+ 			temperate = medium_stress_impact_loss	
+			cynical = medium_stress_impact_loss
+			compassionate = major_stress_impact_loss
+		}
+	}
+}
+
+# Haunted by the White Dread
+flavourevent.0016 = {
+	content_source = realms_dlc
+	type = character_event
+	title = flavourevent.0016.t
+	desc = flavourevent.0016.desc
+	theme = skull
+	override_effect_2d = {
+		reference = fog
+	}
+	override_background = { reference = relaxing_room }
+
+	trigger = {
+		has_character_modifier = the_white_beast_modifier
+	}
+	
+	right_portrait = {
+		character = root
+		animation = stress
+	}
+	
+	option = { # That darned whale. He's mocking me!
+		name = flavourevent.0016.a
+		stress_impact = {
+			base = 20
+			wrathful = 30
+			calm = 10
+		}
+	}
+	
+	option = { # I HAVE TO SAIL RIGHT FKN NOW
+		name = flavourevent.0016.b
+		if = {
+			limit = { has_variable = sailing_type_cooldown }
+			remove_variable = sailing_type_cooldown
+			custom_tooltip = flavourevent.0016.b.tt
+		}
+		if = {
+			limit = { is_ai = no }
+			open_view_data = {
+				view = activity_list_detail_host_window
+				data = activity_type:activity_sailing
+			}
+		}
+	}
+	
+	option = { # Ha ha, silly whale... You have no power here!
+		name = flavourevent.0016.c
+		add_stress = -50
+		random = {
+			chance = 25
+			add_trait = lunatic_1
+		}
+	}
+}
+
+# A Stranger Comes - find an ancient stone tablet in Harad/Khand
+flavourevent.0017 = {
+	content_source = realms_dlc
+	type = character_event
+	title = flavourevent.0017.t
+	desc = flavourevent.0017.desc
+	theme = migration
+
+	#override_background = { reference = relaxing_room }
+
+	trigger = {
+		NOT = { has_character_flag = had_flavorevent_0017 }
+		is_travelling = no
+		# NOT = {
+			# is_target_in_global_variable_list = {
+				# name = unavailable_unique_decisions
+				# target = flag:decision_khazad_dum_trade
+			# }
+		# }
+		OR = {
+			AND = {
+				exists = capital_province
+				capital_province = {
+					OR = {
+						geographical_region = middleearth_harad_dunesea_abrakhan
+						geographical_region = middleearth_harad_near_harnen
+						geographical_region = middleearth_rhun_khand
+						geographical_region = middleearth_rhun_usrievar
+						geographical_region = middleearth_mordor_nurn
+						geographical_region = middleearth_harad_dunesea_arysis
+						geographical_region = middleearth_harad_dunesea_mirroroffire
+					}
+				}
+			}
+			AND = {
+				is_landless_adventurer = yes
+				domicile ?= {
+					domicile_location = {
+						OR = {
+							geographical_region = middleearth_harad_dunesea_abrakhan
+							geographical_region = middleearth_harad_near_harnen
+							geographical_region = middleearth_rhun_khand
+							geographical_region = middleearth_rhun_usrievar
+							geographical_region = middleearth_mordor_nurn
+							geographical_region = middleearth_harad_dunesea_arysis
+							geographical_region = middleearth_harad_dunesea_mirroroffire
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	left_portrait = {
+		character = root
+		animation = interested
+	}
+	right_portrait = {
+		character = scope:wandering_stranger
+		animation = reading
+ 		outfit_tags = {
+ 			mena_stealth_hood
+			#travel_cloak
+			#beggar_rags
+		}
+	}
+	
+	immediate = {
+		add_character_flag = had_flavorevent_0017
+		create_character = {
+			location = root.location
+			gender_female_chance = 0
+			age = 70
+			faith = root.faith
+			culture = root.culture
+			save_scope_as = wandering_stranger
+		}
+	}
+	
+	option = { # Let him in
+		name = flavourevent.0017.a
+		custom_tooltip = flavourevent.0017.a.tt
+		remove_short_term_gold = 20
+		create_story = {
+			type = story_cycle_apysan_carving
+			save_scope_as = apysan_carving_story
+		}
+		trigger_event = {
+			id = harad.2701
+			years = { 2 3 }
+		}
+	}
+	
+	option = { # Turn him away
+		name = flavourevent.0017.b
+		add_prestige = minor_prestige_gain
+	}
+	
+	after = {
+		scope:wandering_stranger = { silent_disappearance_effect = yes } 
+	}
+}

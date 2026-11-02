@@ -1,0 +1,1545 @@
+###############
+### 3320 SA ###
+###############
+# 3912 - Realms In Exile
+
+d_laamp_gildor = { # Gildor Inglorion
+	700.1.1 = { # Started Wandering in the early SA, after the Fall of Beleriand (~200 SA)
+		liege = 0
+		holder = lineofgildor # Gildor Inglorion
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_dwarf_road_pedlars = { # Dwarf-road Pedlars
+	6974.1.4 = { # Dwarves who accompanied Bilbo to Rivendell
+		liege = 0
+		holder = lineofnarbilbo # Nar
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_iron_garrison = { # Iron Garrison, reference to LOTRO
+	7030.1.1 = { # Dwarven expedition to Moria, led by Bosi son of Bifur and Brogur son of Bofur
+		liege = 0
+		holder = lineofbifur2 # Bosi son of Bifur
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+#d_laamp_watchers_wardens = { # Watcher's Wardens # re-enable when new Firebeards Khathza-zul courtier family is in @AresOrion
+#	6882.9.6 = { # Khathza-zul adherent and protector of Khathza the Watcher's legacy
+#		liege = 0
+#		holder = lineofaugurtheoldtemp # replace with proper Augur the Old when new Firebeards Khathza-zul courtier family is in @AresOrion
+#		government = landless_adventurer_government
+#		succession_laws = { landless_adventurer_succession_law }
+#		effect = {
+#			if = {
+#				limit = {
+#					NOT = { has_dlc_feature = roads_to_power }
+#				}
+#				holder = { destroy_title = prev }
+#			}
+#			create_landless_adventurer_title_history_effect = yes
+#			set_variable = { name = adventurer_creation_reason value = flag:historical }
+#		}
+#	}
+#}
+
+d_laamp_sons_of_nain = { # Sons of Nain
+	7020.1.1 = { # Defenders of the Blue Mountains
+		liege = 0
+		holder = lineofnain44 # Grain son of Nain
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_exiles_of_nargubraz = { # Exiles of Nargubraz founded by Rôn the Exile
+	6473.5.29 = { # Exiles of Nargubraz initial band formation
+		liege = 0
+		holder = lineofbarukodlig1 # Ron the Exile
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6538.5.5 = {
+		holder = lineofbarukodlig3 # Rhanzi son of Ron the Exile
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6673.9.8 = {
+		holder = lineofbarukodlig4 # Rarn son of Rhanzi
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6792.3.12 = {
+		holder = 0
+	}
+}
+
+d_laamp_tanturak = {
+	3845.3.8 = {
+		liege = 0
+		holder = linearkinyarn2 # Ar-Kinyarn
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	3849.4.16 = {
+		holder = linearkinyarn4
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	3913.8.2 = {
+		holder = 0
+	}
+}
+
+
+###############
+### 1349 TA ###
+###############
+# 5382 - Arnor/Angmar Start
+
+d_laamp_gandalf = { # Gandalf
+	5033.1.1 = {
+		liege = 0
+		holder = lineofgandalf # Gandalf
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	7054.9.29 = { #Gone West
+		holder = 0
+	}
+}
+
+d_laamp_saruman = { # Saruman - Settled in TA 3000!
+	5033.1.1 = {
+		liege = 0
+		holder = lineofsaruman # Saruman
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6496.1.1 = {
+		effect = { #Returns to the Westlands
+			holder.domicile ?= { move_domicile = title:c_imladris.title_province }
+		}
+	}
+	6790.1.1 = {
+		effect = {
+			destroy_landless_title_no_dlc_effect = { DATE = 6790.1.1 }
+		}
+	}
+	6792.8.30 = { # Orthanc Granted by the Steward Beren of Gondor to the Wizard Saruman the White.
+		holder = 0
+	}
+}
+
+d_laamp_radagast = {
+	5033.1.1 = {
+		liege = 0
+		holder = lineofradagast # Radagast
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	5433.1.1 = { # Settles down near the Greenwood as it darkens c. 1400
+		holder = 0
+	}
+}
+
+d_laamp_blues = {
+	5033.1.1 = {
+		liege = 0
+		holder = lineofpallando
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6410.1.1 = { #TEMP death as they leave Khy
+		holder = 0
+	}
+}
+
+d_laamp_voice_upon_the_sands = { # Pakhir Adraias- Reference to Paul Atreides from Dune, Legitimist LAAMP
+	5380.4.6 = {
+		liege = 0
+		holder = lineofadrais3
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	5500.1.1 = {
+		holder = 0
+	}
+}
+
+d_laamp_belfalathrim_expedition = { # Punitive expedition of Maratar the Avenging Swan
+	5380.4.6 = {
+		liege = 0
+		holder = predolamroth181
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	5431.12.19 = { # Goes back to Dol Amroth after completing his expedition
+		holder = 0
+	}
+}
+
+d_laamp_dulgu = {
+	5381.6.18 = {
+		liege = 0
+		holder = lineofdulgu0 # Dulgu the Black
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	5441.11.27 = {
+		holder = lineofdulgu2
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	5544.11.27 = {
+		holder = 0
+	}
+}
+
+d_laamp_jackdaw = { # Crew of Edward Kenway
+	5370.4.6 = {
+		liege = 0
+		holder = linekenway1
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	5444.12.19 = { # 
+		holder = 0
+	}
+}
+
+###############
+### 1944 TA ###
+###############
+# 5977.1.1 Disaster of the Morannon
+
+d_laamp_romendilion = {
+	5863.3.13 = {
+		liege = 0
+		holder = lineofromendilion24 # mercantile landless
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	5912.9.2 = {
+		holder = lineofromendilion26 #Raion
+	}
+	5927.1.8 = {
+		holder = lineofromendilion29 #Sulmacil
+	}
+	5942.2.10 = {
+		holder = lineofromendilion31 #Virinar
+	}
+	6033.6.1 = {
+		holder = lineofromendilion35 #Eldarion
+	}
+	6066.5.14 = {
+		holder = lineofromendilion38 #Eldamir
+	}
+	6118.9.16 = {
+		holder = lineofromendilion41 #Meneldil
+	}
+	6155.4.2 = {
+		holder = lineofromendilion43 #Siriondil
+	}
+	6201.2.2 = {
+		holder = lineofromendilion45 #Vinyaher
+	}
+	6262.8.22 = {
+		holder = lineofromendilion47 #Earendil
+	}
+	6281.3.15 = {
+		holder = lineofromendilion49 #Derufin
+	}
+	6343.7.13 = {
+		holder = lineofromendilion52 #Baranor
+	}
+	6387.11.24 = {
+		holder = lineofromendilion56 #Vardil
+	}
+	6464.3.23 = {
+		holder = lineofromendilion71 #Baragund
+	}
+	6494.4.26 = {
+		holder = lineofromendilion73 #Amdir
+	}
+	6547.1.3 = {
+		holder = lineofromendilion76 #Gaeraglar
+	}
+	6577.3.7 = {
+		holder = lineofromendilion78 #Harathor
+	}
+	6618.3.10 = {
+		holder = lineofromendilion84 #Aphanuzu_u_r
+	}
+	6688.5.4 = {
+		holder = lineofromendilion86 #Tarygmagan
+	}
+	6728.4.10 = {
+		holder = lineofromendilion89 #Sinradun
+	}
+	6739.6.16 = {
+		holder = lineofromendilion91 #Imrakor
+	}
+	6770.4.24 = {
+		holder = lineofromendilion93 #A_A_ruaku_u_ra_a_n
+	}
+	6792.2.10 = {
+		holder = lineofromendilion95 #Avahlosi
+	}
+	6842.1.11 = {
+		holder = lineofromendilion99 #Zimruakhor
+	}
+	6867.11.24 = {
+		holder = lineofromendilion101 #Azrube_e_l
+	}
+	6906.6.23 = {
+		holder = lineofromendilion103 #Ni_i_lhuzo_o_r
+	}
+	6925.1.15 = {
+		holder = lineofromendilion105 #Balkuzo_o_r
+	}
+	6953.11.26 = {
+		holder = lineofromendilion109 #Muarazo
+	}
+	6988.7.2 = {
+		holder = lineofromendilion111 #Gimliben
+	}
+	7022.5.21 = {
+		holder = lineofromendilion113 #Go_o_dratho_o_r
+	}
+	7032.10.1 = {
+		holder = lineofromendilion135 #Minsilzua
+	}
+	7061.4.21 = {
+		holder = lineofromendilion137 #Tu_u_limizi_i_r
+	}
+}
+
+###############
+### 2754 TA ###
+###############
+# 6787 - War of the Rohirrim
+
+d_laamp_guardians_of_rhudaur = { # Thorondor - Warden of Weather Hills
+	6780.4.10 = {
+		liege = 0
+		holder = lineoforodhos65 # Thorondor - Warden of Weather Hills
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6790.1.1 = {
+		effect = {
+			destroy_landless_title_no_dlc_effect = { DATE = 6790.1.1 }
+		}
+	}
+	6820.3.12 = { # Camp gets raided by orcs and its destroyed
+		holder = 0
+	}
+}
+
+d_laamp_bountig = { # Bountig!
+	6787.1.1 = {
+		liege = 0
+		holder = bountigmedlokan # Bountig Medlokan
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6839.4.22 = {
+		holder = 0
+	}
+}
+
+d_laamp_sons_of_orcs = { # Long Winter - brother to a Honnin Lord, cast from his home
+	6771.2.12 = {
+		liege = 0
+		holder = lineofhonnighadbrother # Buroghor - it means Son of Orcs in the Drûghic tongue, for he killed his mother when he was born.
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6801.7.19 = {
+		holder = lineofhonnighadbrother1
+	}
+	6846.4.20 = {
+		holder = lineofhonnighadbrother2
+	}
+	6891.2.3 = {
+		holder = lineofhonnighadbrother3
+	}
+	6931.3.14 = {
+		holder = lineofhonnighadbrother4
+	}
+	6968.4.13 = {
+		holder = lineofhonnighadbrother5
+	}
+	7001.3.21 = {
+		holder = lineofhonnighadbrother6
+	}
+	7028.1.1 = {
+		holder = 0
+	}
+}
+
+d_laamp_heroes_in_exile = { # Long Winter - when the warrior dynasty claim failed, its members wandered around a little more before the line failed entirely
+	6800.1.1 = {
+		liege = 0
+		holder = warriordynasty4 # First of the exiled princes
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6842.1.1 = {
+		holder = warriordynasty5
+	}
+	6856.3.12 = {
+		holder = warriordynasty6
+	}
+	6878.3.12 = {
+		holder = 0
+	}
+}
+
+d_laamp_ephalrazanuri = { # Adûnuzîr has had enough of his vassals, and kills them! Maryukhor flees by warning from his elders
+	6805.1.1 = {
+		liege = 0
+		holder = lineofashaturpoint2b3 # First of the Rassukhêri outlaws
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6838.3.13 = {
+		holder = lineofashaturpoint2b4
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6862.12.12 = {
+		holder = lineofashaturpoint2b5
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6901.1.14 = {
+		holder = lineofashaturpoint2c1
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6959.1.14 = {
+		holder = lineofashaturpoint2c2
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	7000.10.14 = {
+		holder = lineofashaturpoint2c3
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	7032.1.1 = {
+		holder = lineofashaturpoint2c4
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	7101.3.14 = {
+		holder = 0
+	}
+}
+
+d_laamp_serpent_preachers = { # Unsuccessful Khäz-Gramaze Missionary
+	6781.6.21 = {
+		liege = 0
+		holder = lineofafalku28aSon
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6801.3.10 = { # Slain by Tedjin Leader
+		holder = 0
+	}
+}
+
+d_laamp_kindilar_swordclans = { # Kindilar Mercenary LAAMP in Long Winter
+	6720.5.4 = {
+		liege = 0
+		holder = lineunurani1
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6746.10.12 = {
+		holder = lineunurani3a
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6748.3.1 = {
+		holder = lineunurani3
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6791.5.3 = {
+		holder = lineunurani7
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6801.5.16 = {
+		holder = 0
+	}
+}
+
+d_laamp_scions_of_the_mountains = { # Ancestors of Beorn ~ the Skinchangers
+	6444.3.21 = {
+		liege = 0
+		holder = lineprebeorn1
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6548.4.20 = {
+		holder = lineprebeorn3 #Hakon
+	}
+	6557.8.26 = {
+		holder = lineprebeorn5 #Torbeorn
+	}
+	6598.6.2 = {
+		holder = lineprebeorn7 #Sigeric
+	}
+	6650.2.17 = {
+		holder = lineprebeorn9 #Hargast
+	}
+	6685.8.1 = {
+		holder = lineprebeorn11 #Stigand
+	}
+	6717.3.2 = {
+		holder = lineprebeorn13 #Sutheric
+	}
+	6731.9.12 = {
+		holder = lineprebeorn15 #Lorwini
+	}
+	6759.2.10 = {
+		holder = lineprebeorn17 #Eadweald
+	}
+	6782.1.28 = { # Long winter start date ruler
+		holder = lineprebeorn19 #Haed
+	}
+	6819.11.3 = {
+		holder = lineprebeorn23 #Olbeorn
+	}
+	6893.7.13 = {
+		holder = lineprebeorn25 #Jarbeorn
+	}
+	6949.10.12 = { # Orc raid kills all Haedings
+		holder = 0
+	}
+}
+
+#d_laamp_sindris_legion = { # Sindri's Legion
+#	6784.11.10 = {
+#		liege = 0
+#		holder = lineofsindriVI # Sindri VI
+#		government = landless_adventurer_government
+#		succession_laws = { landless_adventurer_succession_law }
+#		effect = {
+#			if = {
+#				limit = {
+#					NOT = { has_dlc_feature = roads_to_power }
+#				}
+#				holder = { destroy_title = prev }
+#			}
+#			create_landless_adventurer_title_history_effect = yes
+#			set_variable = { name = adventurer_creation_reason value = flag:historical }
+#		}
+#	}
+#	# 6787.1.1 = {
+#		effect = {
+#			destroy_landless_title_no_dlc_effect = { DATE = 6787.1.1 }
+#		}
+#	# }
+#	6889.10.15 = { # Sindri VI returns to rule Namagaluz
+#		holder = 0
+#	}
+#}
+
+d_laamp_argan = { # Axe That Walks - Before he stops walking #By Jauffre
+	6682.3.21 = { #Dad that Walks
+		liege = 0
+		holder = lineofargan1
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6865.12.21 = { #When the Dad dies
+		liege = 0
+		holder = lineofargan2
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6950.1.1 = {
+		holder = 0
+	}
+}
+
+d_laamp_jauffring = { # Jauffring Family - Before settling in Dorwinion #By Jauffre
+	6744.3.21 = {
+		liege = 0
+		holder = lineofjauffre3
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law equal_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6950.1.1 = {
+		holder = 0
+	}
+}
+
+d_laamp_kingly_path_legitimists = { # batân an ârû - Gimilthani bastard branch legitimists #By Jauffre
+	6744.3.21 = {
+		liege = 0
+		holder = linegimilthanibastard1
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6950.1.1 = {
+		holder = 0
+	}
+}
+
+d_laamp_seekers_of_azie = { # Seekers of Azie - Khyan Explorers in long winter Bellakar #By Jauffre
+	6730.2.3 = {
+		liege = 0
+		holder = lineofkhyanexplorersarosh3
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6770.12.6 = {
+		holder = lineofkhyanexplorersarosh1
+	}
+	6950.1.1 = {
+		holder = 0
+	}
+}
+
+d_laamp_serelond_snatchers = { # Serelond Snatchers- Eredrim Thieves in Gondor #By Jauffre
+	6744.3.21 = {
+		liege = 0
+		holder = linenorrinkaraklongwinteradventure
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6950.1.1 = {
+		holder = 0
+	}
+}
+
+d_laamp_blades_of_galadriel = { # Eltariel from SoW
+	6014.7.9 = {
+		holder = lineofeltariel # Eltariel
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_cuind_rangers = { # Calmiriel, Sister of Terilaen
+	3555.5.5 = {
+		holder = lineofmeglasul6 # Calmiriel
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_laerdan = { # Laerdan of Mirkwood
+	5255.2.5 = {
+		holder = lineoflaerdan3 # Laerdan
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_nelornieth = { # Deneroth of Nelornieth
+	4000.7.2 = {
+		holder = lineoflanthir5 # Deneroth
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_talilan = { # Alilêl, the Solitary Blade
+	3939.9.13 = {
+		holder = lineofalilel # Alilêl
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_enedwaith_rangers = { # Watchers of the Road
+	6673.2.27 = {
+		liege = 0
+		holder = trgeolineofgalathol1
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6721.7.26 = {
+		holder = trgeolineofgalathol3
+	}
+	6750.11.26 = {
+		holder = trgeolineofgalathol5
+	}
+	6752.5.9 = {
+		holder = trgeolineofgalathol7
+	}
+	6815.7.26 = {
+		holder = 0 #Fell from a High Cliff while travelling with a merchant
+	}
+}
+
+###############
+### 3000 TA ###
+###############
+# 7033 - War of the Ring
+
+d_laamp_gollum = { # Gollum himself
+	6976.1.1 = { #Gollum departs to search for Baggins
+		liege = 0
+		holder = lineofgollum3
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_rangers_host_of_morgul = {
+	7024.10.25 = {
+		liege = 0
+		holder = lieutenant_gothmog # Gothmog of those called Black Numenorean
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_rangers_of_ithilien = { # Mablung - Ranger of Ithilien
+	6900.1.1 = {
+		holder = lineofdrinbarfinal # Artamir of Drinbar
+	}
+	6937.5.2 = {
+		holder = 0 # Insert some more rangers here
+	}
+	7024.10.25 = {
+		liege = 0
+		holder = linearphenian24 # Mablung - Ranger of Ithilien
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_guardians_of_sarn_ford = { # Eradan - Ranger of the North (From War in the North)
+	7031.4.10 = {
+		liege = 0
+		holder = linecalinyar8 # Eradan - Ranger of the North
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_nafarati_raiders = { # Caran-lambar the Terror of Nafarat
+	7031.4.10 = {
+		liege = 0
+		holder = linecaranlambar # Caran-Llma
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_golden_shields = { # Valathmir -- Easterling Mercenaries
+	7031.4.10 = {
+		liege = 0
+		holder = lineofvalathmir1 # Valathmir -- Easterling Mercenary
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_arkhad_venture = { # Arkhâd, errant brother of the lord of sulaj-dar, disinherited adventurer far from home
+	7014.9.13 = {
+		liege = 0
+		holder = lineofsujanir_adventurer
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_grey_company = { # The Grey Company under Elegost
+	6989.4.10 = {
+		liege = 0
+		holder = linehalbarad10 # Elegost, Ranger of the Grey Company
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	7052.5.1 = {
+		holder = 0
+	}
+}
+
+d_laamp_dusk_breaker_horde = { # Tedjin mercenaries/raiders active on Bellakars northern frontier
+	6960.6.12 = {
+		liege = 0
+		holder = lineofdriond35
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	7006.4.18 = {
+		holder = lineofdriond37
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_kindilar_shrouded_tribes = { # Kindilar Brigand LAAMP in TA 3000
+	7028.8.27 = {
+		liege = 0
+		holder = linedavorka3
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+
+	7041.5.4 = {
+		holder = 0
+	}
+}
+
+d_laamp_goat = {
+	7032.12.1 = {
+		liege = 0
+		holder = lineofgoat
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+d_laamp_last_pirate = { # Jangi Ezbaro
+	7015.12.1 = {
+		liege = 0
+		holder = lineoflastpirate0
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	7051.4.26 = {
+		holder = 0
+	}
+}
+
+d_laamp_exiles_of_umbar = {
+	7031.5.1 = {
+		liege = 0
+		holder = lineofcalmacil15
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	7107.1.1 = {
+		holder = 0
+	}
+}
+
+d_laamp_caravan_born = {
+	7017.9.2 = {
+		liege = 0
+		holder = lineofhidar17
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	7063.2.12 = {
+		holder = 0
+	}
+}
+
+d_laamp_ring_collectors = {
+	6777.7.7 = {
+		liege = 0
+		holder = waroftherohirrim_orc_shank
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6792.1.17 = {
+		holder = 0
+	}
+}
+
+d_laamp_broken_claw = {
+	6777.7.7 = {
+		liege = 0
+		holder = lineborokhlaamp
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	6790.12.4 = {
+		holder = 0
+	}
+}
+
+d_laamp_azulzirs_travels = {
+	7033.1.1 = {
+		liege = 0
+		holder = mispirtraveler
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	7090.12.4 = {
+		holder = 0
+	}
+}
+
+d_laamp_azulzirs_travels_roa = {
+	5360.1.1 = {
+		liege = 0
+		holder = mispirtraveler
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = { destroy_title = prev }
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	5590.12.4 = {
+		holder = 0
+	}
+}

@@ -1,0 +1,2255 @@
+﻿namespace = goblin_yearly
+
+### Goblin Yearly Events ###
+#			goblin_yearly.0001 - Intruders!
+#			goblin_yearly.0002 - Fight for loot
+#			goblin_yearly.0003 - Bearded enemy
+#			goblin_yearly.0004 - Bearded enemy (dwarfs response)
+#			goblin_yearly.0005 - Goblin Halls
+
+### Orc Yearly Events ###
+#
+#			goblin_yearly.0100 - 0130 (Rivalry events)
+#			goblin_yearly.0131 - 0150 (Nemesis events)
+
+goblin_yearly.0001 = { # Intruders! by sakkar
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0001.t
+	desc = goblin_yearly.0001.desc
+	theme = martial_strategy_focus
+	override_background = {
+		reference = wilderness_underground
+	}    
+
+    left_portrait = {
+		character = root
+        animation = personality_bold
+    }
+
+    right_portrait = { 
+		character ?= scope:goblin_char 
+		animation = personality_coward
+	}
+
+    trigger = {
+		AND = {
+			is_goblin = yes
+			NOT = {
+				has_trait = craven
+			}
+		}
+		is_landed = yes
+		is_landless_ruler = no
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+    immediate = {
+		if = {
+			limit = {
+				any_vassal_or_below = { is_ai = yes is_goblin = yes }
+			}
+			every_vassal_or_below = {
+				limit = { is_ai = yes is_goblin = yes }
+				add_to_list = goblin_characters
+			}
+		}
+		random_in_list = {
+			list = goblin_characters
+			save_scope_as = goblin_char
+		}
+
+		if = {
+			limit = { NOT = { exists = scope:goblin_char } }
+			if = {
+				limit = {
+					any_courtier_or_guest = { is_ai = yes is_goblin = yes }
+				}
+				every_courtier_or_guest = {
+					limit = { is_ai = yes is_goblin = yes }
+					add_to_list = goblin_characters
+				}
+			}
+			random_in_list = {
+				list = goblin_characters
+				save_scope_as = goblin_char
+			}
+    	}
+	}	
+
+    option = {
+		name = goblin_yearly.0001.a
+
+		stress_impact = {
+			compassionate = medium_stress_gain
+			callous = minor_stress_loss
+		}
+
+		scope:goblin_char = {
+			add_opinion = {
+				modifier = disappointed_opinion
+				opinion = -40
+				target = root
+			}
+            add_prestige = -50
+            remove_short_term_gold = 20
+			
+		}
+	}
+
+    option = {
+		name = goblin_yearly.0001.b
+
+		stress_impact = {
+			honest = medium_stress_gain
+			deceitful = minor_stress_loss
+		}
+
+        duel = {
+			skill = intrigue
+			value = average_skill_rating
+			40 = {
+				desc = goblin_yearly.0001.b.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}
+				
+                add_dread = major_dread_gain
+                add_prestige = 100
+
+                scope:goblin_char = {
+                    add_opinion = {
+	    			    modifier = pleased_opinion
+		    		    opinion = 20
+			    	    target = root
+			        }
+                    add_prestige = 100
+                }    
+			}
+			60 = {
+				desc = goblin_yearly.0001.b.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -2
+				}
+				add_prestige = -50
+                remove_short_term_gold = 20        
+
+				scope:goblin_char = {
+                    add_opinion = {
+	    			    modifier = pleased_opinion
+		    		    opinion = 20
+			    	    target = root
+			        }
+                    add_prestige = -50
+                } 
+			}
+		}
+	}
+
+    option = {
+		name = goblin_yearly.0001.c
+
+		stress_impact = {
+			honest = medium_stress_gain
+			deceitful = minor_stress_loss
+		}
+
+        duel = {
+			skill = intrigue
+			value = average_skill_rating
+			60 = {
+				desc = goblin_yearly.0001.c.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}
+
+				add_character_modifier = {
+					modifier = watchful_modifier
+					days = watchful_modifier_duration
+				}                
+
+                scope:goblin_char = {
+                    add_opinion = {
+	    			    modifier = pleased_opinion
+		    		    opinion = 20
+			    	    target = root
+			        }
+                }    
+			}
+			40 = {
+				desc = goblin_yearly.0001.c.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -2
+				}
+				add_prestige = -50
+                remove_short_term_gold = 20
+
+				scope:goblin_char = {
+                    add_opinion = {
+	    			    modifier = pleased_opinion
+		    		    opinion = 20
+			    	    target = root
+			        }
+                    add_prestige = -50
+                } 
+			}
+		}
+	}
+}
+
+goblin_yearly.0002 = { # Fight for loot by sakkar
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0002.t
+	desc = goblin_yearly.0002.desc
+	theme = martial_strategy_focus
+	override_background = {
+		reference = wilderness_underground
+	}    
+
+    left_portrait = {
+		character = scope:goblin_char_1 
+        animation = rage
+    }
+
+    right_portrait = { 
+		character ?= scope:goblin_char_2
+		animation = anger
+	}
+
+	lower_center_portrait = {
+		character ?= root
+	}
+
+    trigger = {
+		AND = {
+			is_goblin = yes
+		}
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+    immediate = {
+		if = {
+			limit = {
+				any_vassal_or_below = { is_ai = yes is_goblin = yes }
+			}
+			every_vassal_or_below = {
+				limit = { is_ai = yes is_goblin = yes }
+				add_to_list = goblin_characters
+			}
+		}
+		random_in_list = {
+			list = goblin_characters
+			save_scope_as = goblin_char_1
+		}
+
+		if = {
+			limit = { NOT = { exists = scope:goblin_char_1 } }
+			if = {
+				limit = {
+					any_courtier_or_guest = { is_ai = yes is_goblin = yes }
+				}
+				every_courtier_or_guest = {
+					limit = { is_ai = yes is_goblin = yes }
+					add_to_list = goblin_characters
+				}
+			}
+			random_in_list = {
+				list = goblin_characters
+				save_scope_as = goblin_char_1
+			}
+    	}
+
+		if = {
+			limit = {
+				any_vassal_or_below = { is_ai = yes is_goblin = yes }
+			}
+			every_vassal_or_below = {
+				limit = { is_ai = yes is_goblin = yes }
+				add_to_list = goblin_characters
+			}
+		}
+		random_in_list = {
+			list = goblin_characters
+			save_scope_as = goblin_char_2
+		}
+
+		if = {
+			limit = { NOT = { exists = scope:goblin_char_2 } }
+			if = {
+				limit = {
+					any_courtier_or_guest = { is_ai = yes is_goblin = yes }
+				}
+				every_courtier_or_guest = {
+					limit = { is_ai = yes is_goblin = yes }
+					add_to_list = goblin_characters
+				}
+			}
+			random_in_list = {
+				list = goblin_characters
+				save_scope_as = goblin_char_2
+			}
+    	}		
+	}	
+
+    option = {	# watch them fight
+		name = goblin_yearly.0002.a
+
+		stress_impact = {
+			compassionate = medium_stress_gain
+			callous = minor_stress_loss
+			sadistic = minor_stress_loss
+			greedy = medium_stress_gain
+		}
+
+		random_list = {
+			50 = { # 1 lost
+				desc = goblin_yearly.0002.a.success
+
+				scope:goblin_char_1 = {
+					add_opinion = {
+						modifier = disappointed_opinion
+						opinion = -40
+						target = scope:goblin_char_2
+					}
+            		add_prestige = -100
+					increase_wounds_effect = { REASON = fight }
+				}
+
+				scope:goblin_char_2 = {
+					add_opinion = {
+						modifier = disappointed_opinion
+						opinion = -40
+						target = scope:goblin_char_1
+					}
+            		add_prestige = 100
+            		add_gold = 20
+				}
+			}
+
+			50 = { # 2 lost
+				desc = goblin_yearly.0002.a.loss
+
+				scope:goblin_char_2 = {
+					add_opinion = {
+						modifier = disappointed_opinion
+						opinion = -40
+						target = scope:goblin_char_1
+					}
+            		add_prestige = -100
+					increase_wounds_effect = { REASON = fight }
+				}
+
+				scope:goblin_char_1 = {
+					add_opinion = {
+						modifier = disappointed_opinion
+						opinion = -40
+						target = scope:goblin_char_2
+					}
+            		add_prestige = 100
+            		add_gold = 20
+				}
+			}
+		}
+	}
+
+    option = { # fight 1
+		name = goblin_yearly.0002.b
+
+		stress_impact = {
+			brave = minor_stress_loss
+			deceitful = minor_stress_loss
+			compassionate = medium_stress_gain
+			craven = medium_stress_gain
+			greedy = minor_stress_loss
+		}
+
+        duel = {
+			skill = prowess
+			value = average_skill_rating
+			60 = {
+				desc = goblin_yearly.0002.b.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}
+				
+                add_dread = minor_dread_gain
+                add_prestige = 100
+				add_gold = 10
+
+                scope:goblin_char_1 = {
+                    add_opinion = {
+	    			    modifier = disappointed_opinion
+		    		    opinion = -40
+			    	    target = root
+			        }
+                    add_prestige = -100
+					increase_wounds_effect = { REASON = fight }
+                }   
+
+                scope:goblin_char_2 = {
+                    add_opinion = {
+	    			    modifier = pleased_opinion
+		    		    opinion = 20
+			    	    target = root
+			        }
+                    add_gold = 10
+                }				 
+			}
+			40 = {
+				desc = goblin_yearly.0002.b.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -2
+				}
+				add_prestige = -100   
+				increase_wounds_effect = { REASON = fight }   
+
+				scope:goblin_char_1 = {
+                    add_opinion = {
+	    			    modifier = disappointed_opinion
+		    		    opinion = -40
+			    	    target = root
+			        }
+                    add_prestige = 100
+					add_gold = 10
+                } 
+
+                scope:goblin_char_2 = {
+                    add_opinion = {
+	    			    modifier = pleased_opinion
+		    		    opinion = 20
+			    	    target = root
+			        }
+                    add_gold = 10
+                }				
+			}
+		}
+	}
+
+    option = { # fight 2
+		name = goblin_yearly.0002.c
+
+		stress_impact = {
+			brave = minor_stress_loss
+			deceitful = minor_stress_loss
+			compassionate = medium_stress_gain
+			craven = medium_stress_gain
+			greedy = minor_stress_loss
+		}
+
+        duel = {
+			skill = prowess
+			value = average_skill_rating
+			60 = {
+				desc = goblin_yearly.0002.c.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}
+				
+                add_dread = minor_dread_gain
+                add_prestige = 100
+				add_gold = 10
+
+                scope:goblin_char_2 = {
+                    add_opinion = {
+	    			    modifier = disappointed_opinion
+		    		    opinion = -40
+			    	    target = root
+			        }
+                    add_prestige = -100
+					increase_wounds_effect = { REASON = fight }
+                }   
+
+                scope:goblin_char_1 = {
+                    add_opinion = {
+	    			    modifier = pleased_opinion
+		    		    opinion = 20
+			    	    target = root
+			        }
+                    add_gold = 10
+                }				 
+			}
+			40 = {
+				desc = goblin_yearly.0002.c.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -2
+				}
+				add_prestige = -100   
+				increase_wounds_effect = { REASON = fight }   
+
+				scope:goblin_char_2 = {
+                    add_opinion = {
+	    			    modifier = disappointed_opinion
+		    		    opinion = -40
+			    	    target = root
+			        }
+                    add_prestige = 100
+					add_gold = 10
+                } 
+
+                scope:goblin_char_1 = {
+                    add_opinion = {
+	    			    modifier = pleased_opinion
+		    		    opinion = 20
+			    	    target = root
+			        }
+                    add_gold = 10
+                }				
+			}
+		}
+	}
+
+    option = { # fight both
+		name = goblin_yearly.0002.d
+
+		stress_impact = {
+			brave = major_stress_loss
+			sadistic = medium_stress_loss
+			compassionate = major_stress_gain
+			craven = major_stress_gain
+			greedy = medium_stress_loss
+		}
+
+        duel = {
+			skill = prowess
+			value = average_skill_rating
+			30 = {
+				desc = goblin_yearly.0002.d.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}
+				
+                add_dread = major_dread_gain
+                add_prestige = 200
+				add_gold = 20
+
+                scope:goblin_char_2 = {
+                    add_opinion = {
+	    			    modifier = disappointed_opinion
+		    		    opinion = -40
+			    	    target = root
+			        }
+                    add_prestige = -100
+					increase_wounds_effect = { REASON = fight }
+                }   
+
+                scope:goblin_char_1 = {
+                    add_opinion = {
+	    			    modifier = disappointed_opinion
+		    		    opinion = -40
+			    	    target = root
+			        }
+                    add_prestige = -100
+					increase_wounds_effect = { REASON = fight }
+                }			 
+			}
+			70 = {
+				desc = goblin_yearly.0002.d.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -2
+				}
+				add_prestige = -50   
+				increase_wounds_effect = { REASON = fight }   
+
+				scope:goblin_char_1 = {
+                    add_opinion = {
+	    			    modifier = disappointed_opinion
+		    		    opinion = -40
+			    	    target = root
+			        }
+                    add_prestige = 100
+					add_gold = 10
+                } 
+
+				scope:goblin_char_2 = {
+                    add_opinion = {
+	    			    modifier = disappointed_opinion
+		    		    opinion = -40
+			    	    target = root
+			        }
+                    add_prestige = 100
+					add_gold = 10
+                } 				
+			}
+		}
+	}
+
+    option = { # diplomacy
+		name = goblin_yearly.0002.e
+
+		stress_impact = {
+			brave = minor_stress_gain
+			deceitful = minor_stress_loss
+			greedy = minor_stress_loss
+		}
+
+        duel = {
+			skill = diplomacy
+			value = average_skill_rating
+			60 = {
+				desc = goblin_yearly.0002.e.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}
+				
+                add_prestige = 50
+				add_gold = 10
+				add_diplomacy_lifestyle_xp = 150
+
+                scope:goblin_char_1 = {
+                    add_opinion = {
+	    			    modifier = pleased_opinion
+		    		    opinion = 20
+			    	    target = root
+			        }
+					add_gold = 5
+
+                }  				
+
+                scope:goblin_char_2 = {
+                    add_opinion = {
+	    			    modifier = pleased_opinion
+		    		    opinion = 20
+			    	    target = root
+			        }
+					add_gold = 5
+                }   			 
+			}
+			40 = {
+				desc = goblin_yearly.0002.e.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -2
+				}
+				add_prestige = -50  
+
+				random_list = {
+					50 = { # 1 lost
+						desc = goblin_yearly.0002.e.failure_1
+
+						scope:goblin_char_1 = {
+							add_opinion = {
+								modifier = disappointed_opinion
+								opinion = -40
+								target = scope:goblin_char_2
+							}
+            				add_prestige = -100
+							increase_wounds_effect = { REASON = fight }
+						}
+
+						scope:goblin_char_2 = {
+							add_opinion = {
+								modifier = disappointed_opinion
+								opinion = -40
+								target = scope:goblin_char_1
+							}
+            				add_prestige = 100
+            				add_gold = 20
+						}
+					}
+
+					50 = { # 2 lost
+						desc = goblin_yearly.0002.e.failure_2
+
+						scope:goblin_char_2 = {
+							add_opinion = {
+								modifier = disappointed_opinion
+								opinion = -40
+								target = scope:goblin_char_1
+							}
+            				add_prestige = -100
+							increase_wounds_effect = { REASON = fight }
+						}
+
+						scope:goblin_char_1 = {
+							add_opinion = {
+								modifier = disappointed_opinion
+								opinion = -40
+								target = scope:goblin_char_2
+							}
+            				add_prestige = 100
+            				add_gold = 20
+						}
+					}
+				}			
+			}
+		}
+	}
+}
+
+goblin_yearly.0003 = { # Bearded enemy by sakkar
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0003.t
+	desc = goblin_yearly.0003.desc
+	theme = martial_strategy_focus
+	override_background = {
+		reference = wilderness_underground
+	}    
+
+    left_portrait = {
+		character = root
+        animation = anger
+    }
+
+    right_portrait = { 
+		character ?= scope:dwarven_char 
+		triggered_animation = {
+			trigger = { 
+				has_trait = craven
+			}
+			animation = fear
+		}		
+		animation = personality_bold
+	}
+
+    trigger = {
+		AND = {
+			is_independent_ruler = yes
+			OR = {
+				is_goblin = yes
+				is_orc = yes
+			}
+			OR = {
+				has_trait = sadistic
+				has_trait = callous
+				has_trait = arrogant
+				has_trait = vengeful
+			}
+			NOT = {
+				has_trait = craven
+			}
+			NOT = { has_character_flag = had_event_goblin_yearly_0003 }
+			any_ruler = { is_dwarf = yes }
+			is_landed = yes
+			is_landless_ruler = no
+			is_imprisoned = no
+			is_available_adult = yes
+		}
+	}
+
+    immediate = {
+		save_scope_as = goblin_char
+		add_character_flag = {
+			flag = had_event_goblin_yearly_0003
+			years = 20
+		}
+
+		if = { #pick a dwarf neighbour
+			limit = {
+				any_neighboring_and_across_water_top_liege_realm_owner = {
+					is_dwarf = yes
+					NOT = {
+						has_relation_nemesis = root
+						has_relation_rival = root
+						has_relation_best_friend = root
+						has_relation_friend = root
+
+					}
+				}
+			}
+			random_neighboring_and_across_water_top_liege_realm_owner = {
+				limit = {
+					is_dwarf = yes
+					NOT = {
+						has_relation_nemesis = root
+						has_relation_rival = root
+						has_relation_best_friend = root
+						has_relation_friend = root
+					}
+				}
+				save_scope_as = dwarven_char 
+			}
+		}
+		else_if = { #pick a dwarf within diplo range
+			limit = {
+				any_ruler = {
+					is_dwarf = yes
+					in_diplomatic_range = root 
+					NOT = {
+						has_relation_nemesis = root
+						has_relation_rival = root
+						has_relation_best_friend = root
+						has_relation_friend = root
+					}
+				}
+			}
+			random_ruler = {
+				limit = {
+					is_dwarf = yes
+					in_diplomatic_range = root 
+					NOT = {
+						has_relation_nemesis = root
+						has_relation_rival = root
+						has_relation_best_friend = root
+						has_relation_friend = root
+					}
+				}
+				save_scope_as = dwarven_char 
+			}
+		}
+		else = { #If none of your neighbours is dwarf, just pick a random one
+			random_ruler = {
+				limit = {
+					is_dwarf = yes
+					NOT = {
+						has_relation_nemesis = root
+						has_relation_rival = root
+						has_relation_best_friend = root
+						has_relation_friend = root
+					}
+				}
+				save_scope_as = dwarven_char
+			}
+		}
+	}	
+
+    option = {
+		name = goblin_yearly.0003.a
+
+		stress_impact = {
+			compassionate = medium_stress_gain
+			callous = minor_stress_loss
+			sadistic = minor_stress_loss
+			arrogant = minor_stress_loss
+			vengeful = minor_stress_loss			
+		}
+
+		add_prestige = 50
+
+		set_relation_rival = {
+			target = scope:dwarven_char
+		}
+		hidden_effect = {
+			scope:dwarven_char = {
+				if = {
+					limit = {
+						is_ai = no
+					}
+					trigger_event = { # dwarfs response
+						id = goblin_yearly.0004
+						days = 1
+					}
+				}
+			}
+		}
+	}
+
+    option = {
+		name = goblin_yearly.0003.b
+
+		stress_impact = {
+			lazy = minor_stress_loss
+			callous = minor_stress_gain
+			sadistic = minor_stress_gain
+			arrogant = minor_stress_gain
+			vengeful = minor_stress_gain			
+		}
+	}
+}
+
+goblin_yearly.0004 = { # Dwarfs response by sakkar
+	content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0004.t
+	desc = goblin_yearly.0004.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = throne_room_dwarf }
+
+    right_portrait = {
+		character ?= scope:goblin_char
+        animation = anger
+    }
+
+    left_portrait = { 
+		character ?= scope:dwarven_char 
+		triggered_animation = {
+			trigger = { 
+				has_trait = craven
+			}
+			animation = fear
+		}		
+		animation = personality_bold
+	}	
+
+    immediate = {
+		scope:dwarven_char = {
+			if = {
+				limit = {
+					any_vassal_or_below = { is_ai = yes is_dwarf = yes }
+				}
+				every_vassal_or_below = {
+					limit = { is_ai = yes is_dwarf = yes }
+					add_to_list = dwarf_characters
+				}
+			}
+			random_in_list = {
+				list = dwarf_characters
+				save_scope_as = dwarf_courtier
+			}
+
+			if = {
+				limit = { NOT = { exists = scope:dwarf_courtier } }
+				if = {
+					limit = {
+						any_courtier_or_guest = { is_ai = yes is_dwarf = yes }
+					}
+					every_courtier_or_guest = {
+						limit = { is_ai = yes is_dwarf = yes }
+						add_to_list = dwarf_characters
+					}
+				}
+				random_in_list = {
+					list = dwarf_characters
+					save_scope_as = dwarf_courtier
+				}
+    		}
+		}
+	}			
+
+	option = {
+		name = goblin_yearly.0004.a
+
+		scope:dwarven_char = {
+			stress_impact = {
+				craven = medium_stress_gain
+				paranoid = medium_stress_gain
+			}
+		}	
+	}
+}
+
+goblin_yearly.0005 = { # Decorations by sakkar
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0005.t
+	desc = goblin_yearly.0005.desc
+	theme = martial_strategy_focus
+	override_background = {
+		reference = wilderness_underground
+	}    
+
+    left_portrait = {
+		character = root
+        animation = personality_bold
+    }
+
+    right_portrait = { 
+		character ?= scope:goblin_char 
+		animation = steward
+	}
+
+	lower_center_portrait = {
+		trigger = {
+			exists = scope:prisoner_char
+		}
+		character ?= scope:prisoner_char 
+		animation = fear
+	}
+
+    trigger = {
+		is_goblin = yes
+		is_landed = yes
+		is_landless_ruler = no
+		is_imprisoned = no
+	}
+
+    immediate = {
+		if = {
+			limit = {
+				any_prisoner = { is_ai = yes }
+			}
+			every_prisoner = {
+				limit = { is_ai = yes }
+				add_to_list = prisoner_characters
+			}
+		}
+		random_in_list = {
+			list = prisoner_characters
+			save_scope_as = prisoner_char
+		}
+
+		if = {
+			limit = {
+				any_vassal_or_below = { is_ai = yes is_goblin = yes }
+			}
+			every_vassal_or_below = {
+				limit = { is_ai = yes is_goblin = yes }
+				add_to_list = goblin_characters
+			}
+		}
+		random_in_list = {
+			list = goblin_characters
+			save_scope_as = goblin_char
+		}
+
+		if = {
+			limit = { NOT = { exists = scope:goblin_char } }
+			if = {
+				limit = {
+					any_courtier_or_guest = { is_ai = yes is_goblin = yes }
+				}
+				every_courtier_or_guest = {
+					limit = { is_ai = yes is_goblin = yes }
+					add_to_list = goblin_characters
+				}
+			}
+			random_in_list = {
+				list = goblin_characters
+				save_scope_as = goblin_char
+			}
+    	}
+	}	
+
+    option = {
+		name = goblin_yearly.0005.a
+
+		stress_impact = {
+			compassionate = medium_stress_gain
+			brave = minor_stress_gain
+			callous = minor_stress_loss
+			greedy = minor_stress_gain
+		}
+
+		remove_short_term_gold = 20
+
+		scope:goblin_char = {
+			add_opinion = {
+				modifier = disappointed_opinion
+				opinion = -40
+				target = root
+			}
+			add_gold = 20
+			stress_impact = {
+				craven = major_stress_gain
+			}
+		}
+
+		random_list = {
+			50 = {
+				desc = goblin_yearly.0005.a.success
+
+				add_prestige = 20
+
+				scope:goblin_char = {
+					add_prestige = 50
+				}	
+			}
+
+			50 = {
+				desc = goblin_yearly.0005.a.failure
+
+				scope:goblin_char = {
+					increase_wounds_effect = {REASON = wild_animal}
+					add_prestige = 20
+				}	
+			}
+		}
+	}
+
+    option = {
+		name = goblin_yearly.0005.b
+
+		stress_impact = {
+			brave = minor_stress_loss
+			craven = major_stress_gain
+		}
+
+        duel = {
+			skill = prowess
+			value = average_skill_rating
+			40 = {
+				desc = goblin_yearly.0005.b.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}
+				
+                add_dread = medium_dread_gain
+                add_prestige = 100
+				add_legitimacy = minor_legitimacy_gain
+			}
+			60 = {
+				desc = goblin_yearly.0005.b.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -2
+				}
+
+				add_prestige = 20 
+				
+				increase_wounds_effect = {REASON = wild_animal}
+			}
+		}
+	}
+
+    option = {
+		name = goblin_yearly.0005.c
+
+		stress_impact = {
+			compassionate = major_stress_gain
+			brave = minor_stress_loss
+			craven = major_stress_gain
+			callous = minor_stress_loss
+			sadistic = medium_stress_loss
+		}
+
+        duel = {
+			skill = prowess
+			value = average_skill_rating
+			70 = {
+				desc = goblin_yearly.0005.c.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}
+				
+                add_dread = major_dread_gain
+                add_prestige = 150
+				add_legitimacy = medium_legitimacy_gain
+
+				create_artifact = {
+					name = artifact_goblin_skull_trinket_name
+					description = artifact_goblin_skull_trinket_description
+					type = miscellaneous
+					visuals = bone
+					wealth = 40
+					quality = 40
+					modifier = artifact_monthly_prestige_gain_per_dread_add_3_modifier
+					modifier = artifact_dread_gain_mult_1_modifier
+					save_scope_as = newly_created_artifact
+				}
+
+				scope:goblin_char = {
+					death = { death_reason = death_battle killer = root }
+				}
+			}
+			30 = {
+				desc = goblin_yearly.0005.c.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -2
+				}
+				
+				death = {
+					death_reason = death_battle
+					killer = scope:goblin_char
+				} 
+			
+				scope:goblin_char = {
+					add_dread = major_dread_gain
+                	add_prestige = 150
+				}
+			}
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0005.d
+
+		trigger = {
+			exists = scope:prisoner_char
+		}
+
+		stress_impact = {
+			compassionate = major_stress_gain
+			callous = minor_stress_loss
+			sadistic = medium_stress_loss
+		}
+
+		add_dread = medium_dread_gain
+        add_prestige = 100
+
+		create_artifact = {
+			name = artifact_prisoner_skull_trinket_name
+			description = artifact_prisoner_skull_trinket_description
+			type = miscellaneous
+			visuals = bone
+			wealth = 40
+			quality = 40
+			modifier = artifact_monthly_prestige_gain_per_dread_add_3_modifier
+			modifier = artifact_dread_gain_mult_1_modifier
+			save_scope_as = newly_created_artifact
+		}
+
+		scope:prisoner_char = {
+			death = { death_reason = death_execution killer = root }
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0005.e
+	}
+}
+
+#################################
+### Orc Yearly (Rival) Events ###
+#################################
+
+goblin_yearly.0100 = { # Broken Spoils
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0100.t
+	desc = goblin_yearly.0100.desc
+	theme = raid
+
+    left_portrait = {
+		character = root
+        animation = manic
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_rival 
+		animation = anger
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		liege ?= { 
+			any_vassal_or_below = {
+				NOT = { this = root }
+				is_lotr_adult = yes
+				NOT = { has_relation_rival = root }
+			}
+		}
+	}
+
+	immediate = {
+		liege = { 
+			random_vassal_or_below = {
+				limit = { 
+					NOT = { this = root }
+					is_lotr_adult = yes
+					NOT = { has_relation_rival = root }
+				}
+				save_scope_as = orc_potential_rival
+			}
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0100.a
+		
+		if = {
+			limit = { can_set_relation_rival_trigger = { CHARACTER = scope:orc_potential_rival } }
+			set_relation_rival = scope:orc_potential_rival	
+		}
+	}
+	option = {
+		name = goblin_yearly.0100.b
+		remove_short_term_gold = minor_gold_value
+	}
+}
+
+goblin_yearly.0101 = { # Feast Insult
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0101.t
+	desc = goblin_yearly.0101.desc
+	theme = feast_activity
+
+    left_portrait = {
+		character = root
+        animation = rage
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_rival 
+		animation = laugh
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		is_independent_ruler = no
+		liege ?= { NOT = { has_relation_rival = root } }
+	}
+
+	immediate = {
+		liege ?= { save_scope_as = orc_potential_rival }
+	}
+
+	option = {
+		name = goblin_yearly.0101.a
+
+		if = {
+			limit = { can_set_relation_rival_trigger = { CHARACTER = scope:orc_potential_rival } }
+			set_relation_rival = scope:orc_potential_rival	
+		}
+	}
+	option = {
+		name = goblin_yearly.0101.b
+		add_prestige = medium_prestige_loss
+	}
+}
+
+goblin_yearly.0102 = { # Duel Turned Sour
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0102.t
+	desc = goblin_yearly.0102.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = pain
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_rival 
+		animation = aggressive_sword
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+
+		any_courtier = {
+			is_lotr_adult = yes
+			is_orc = yes
+			NOT = { has_relation_rival = root }
+		}
+	}
+
+	immediate = {
+		random_courtier = {
+			limit = {
+				is_lotr_adult = yes
+				is_orc = yes
+				NOT = { has_relation_rival = root }
+			}
+			save_scope_as = orc_potential_rival
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0102.a
+		if = {
+			limit = { can_set_relation_rival_trigger = { CHARACTER = scope:orc_potential_rival } }
+			set_relation_rival = scope:orc_potential_rival	
+		}
+	}
+	option = {
+		name = goblin_yearly.0102.b
+		remove_short_term_gold = minor_gold_value
+	}
+}
+
+goblin_yearly.0103 = { # Council Mockery
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0103.t
+	desc = goblin_yearly.0103.desc
+	theme = diplomacy
+
+    left_portrait = {
+		character = root
+        animation = rage
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_rival 
+		animation = laugh
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		exists = liege
+		liege = { 
+			any_vassal_or_below = {
+				NOT = { this = root }
+				is_councillor_of = prev
+				NOT = { has_relation_rival = root }
+			}
+		}
+	}
+
+	immediate = {
+		liege = {
+			random_vassal_or_below = { 
+				limit = {
+					NOT = { this = root }
+					is_councillor_of = prev
+					NOT = { has_relation_rival = root }
+				}
+				save_scope_as = orc_potential_rival
+			}
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0103.a
+
+		if = {
+			limit = { can_set_relation_rival_trigger = { CHARACTER = scope:orc_potential_rival } }
+			set_relation_rival = scope:orc_potential_rival	
+		}
+	}
+	option = {
+		name = goblin_yearly.0103.b
+		scope:orc_potential_rival = {
+			add_opinion = {
+				modifier = weak_opinion
+				target = root
+				opinion = -30
+			}
+		}
+		add_prestige = minor_prestige_loss
+	}
+}
+
+goblin_yearly.0104 = { # Beast Fight
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0104.t
+	desc = goblin_yearly.0104.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = personality_bold
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_rival 
+		animation = steward
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		any_courtier_or_guest = {
+			is_orc = yes
+			is_lotr_adult = yes
+			NOT = { has_relation_rival = root }
+		}
+	}
+
+	immediate = {
+		random_courtier_or_guest = {
+			limit = { 
+				is_orc = yes
+				is_lotr_adult = yes
+				NOT = { has_relation_rival = root }
+			}
+			save_scope_as = orc_potential_rival
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0104.a
+		if = {
+			limit = { can_set_relation_rival_trigger = { CHARACTER = scope:orc_potential_rival } }
+			set_relation_rival = scope:orc_potential_rival	
+		}
+	}
+	option = {
+		name = goblin_yearly.0104.b
+		remove_short_term_gold = medium_gold_value
+		scope:orc_potential_rival = {
+			add_opinion = {
+				modifier = disrespect_opinion
+				target = root
+				opinion = -40
+			}
+		}
+	}
+}
+
+goblin_yearly.0105 = { # Stolen Glory
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0105.t
+	desc = goblin_yearly.0105.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = personality_bold
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_rival 
+		animation = steward
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		liege ?= {
+			any_vassal_or_below = {
+				NOT = { this = root }
+				is_lotr_adult = yes
+				is_orc = yes
+				NOT = { has_relation_rival = root }
+			}
+		}
+	}
+
+	immediate = {
+		liege = {
+			random_vassal_or_below = {
+				limit = {
+					NOT = { this = root }
+					is_lotr_adult = yes
+					is_orc = yes
+					NOT = { has_relation_rival = root }
+				}
+				save_scope_as = orc_potential_rival
+			}
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0105.a
+
+		if = {
+			limit = { can_set_relation_rival_trigger = { CHARACTER = scope:orc_potential_rival } }
+			set_relation_rival = scope:orc_potential_rival	
+		}
+	}
+	option = {
+		name = goblin_yearly.0105.b
+		add_short_term_gold = minor_gold_value
+		add_prestige = minor_prestige_loss
+
+		scope:orc_potential_rival = {
+			add_opinion = {
+				modifier = weak_opinion
+				target = root
+				opinion = -15
+			}
+		}
+	}
+}
+
+goblin_yearly.0106 = { # Training Accident
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0106.t
+	desc = goblin_yearly.0106.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = aggressive_sword
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_rival 
+		animation = aggressive_axe
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		any_courtier_or_guest = {
+			is_orc = yes
+			is_lotr_adult = yes
+			NOT = { has_relation_rival = root }
+		}
+	}
+
+	immediate = {
+		random_courtier_or_guest = {
+			limit = {
+				is_orc = yes
+				is_lotr_adult = yes
+				NOT = { has_relation_rival = root }
+			}
+			save_scope_as = orc_potential_rival
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0106.a
+
+		if = {
+			limit = { can_set_relation_rival_trigger = { CHARACTER = scope:orc_potential_rival } }
+			set_relation_rival = scope:orc_potential_rival	
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0106.b
+
+		scope:orc_potential_rival = {
+			add_opinion = {
+				modifier = weak_opinion
+				target = root
+				opinion = -15
+			}
+		}
+
+		add_prestige = minor_prestige_loss
+		add_short_term_gold = minor_gold_value
+	}
+}
+
+goblin_yearly.0107 = { # Raid Sabotage
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0107.t
+	desc = goblin_yearly.0107.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = pain
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_rival 
+		animation = drink
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		liege ?= {
+			any_vassal_or_below = {
+				is_orc = yes
+				is_lotr_adult = yes
+				NOT = { this = root }
+				NOT = { has_relation_rival = root }
+			}
+		}
+	}
+
+	immediate = {
+		liege ?= {
+			random_vassal_or_below = {
+				limit = { 
+					is_orc = yes
+					is_lotr_adult = yes
+					NOT = { this = root }
+					NOT = { has_relation_rival = root }
+				}
+				save_scope_as = orc_potential_rival
+			}
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0107.a
+
+		if = {
+			limit = { can_set_relation_rival_trigger = { CHARACTER = scope:orc_potential_rival } }
+			set_relation_rival = scope:orc_potential_rival	
+		}
+	}
+	option = {
+		name = goblin_yearly.0107.b
+
+		remove_short_term_gold = minor_gold_value
+		add_prestige = minor_prestige_gain
+		scope:orc_potential_rival = {
+			add_opinion = {
+				modifier = weak_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+}
+
+goblin_yearly.0108 = { # Tribute Refusal
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0108.t
+	desc = goblin_yearly.0108.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = personality_bold
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_rival 
+		animation = rage
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		any_vassal_or_below = {
+			is_orc = yes
+			is_lotr_adult = yes
+			NOT = { has_relation_rival = root }
+		}
+	}
+
+	immediate = {
+		random_vassal_or_below = {
+			limit = {
+				is_orc = yes
+				is_lotr_adult = yes
+				NOT = { has_relation_rival = root }
+			}
+			save_scope_as = orc_potential_rival
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0108.a
+		if = {
+			limit = { can_set_relation_rival_trigger = { CHARACTER = scope:orc_potential_rival } }
+			set_relation_rival = scope:orc_potential_rival	
+		}
+	}
+	option = {
+		name = goblin_yearly.0108.b
+		remove_short_term_gold = minor_gold_value
+	}
+}
+
+goblin_yearly.0109 = { # Training Humiliation
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0109.t
+	desc = goblin_yearly.0109.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = sword_yield_start
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_rival 
+		animation = celebrate_longaxe
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		any_courtier_or_guest = {
+			is_orc = yes
+			is_lotr_adult = yes
+			NOT = { has_relation_rival = root }
+		}
+	}
+
+	immediate = {
+		random_courtier_or_guest = {
+			limit = {
+				is_orc = yes
+				is_lotr_adult = yes
+				NOT = { has_relation_rival = root }
+			}
+			save_scope_as = orc_potential_rival
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0109.a
+		if = {
+			limit = { can_set_relation_rival_trigger = { CHARACTER = scope:orc_potential_rival } }
+			set_relation_rival = scope:orc_potential_rival	
+		}
+	}
+	option = {
+		name = goblin_yearly.0109.b
+		add_prestige = minor_prestige_loss
+	}
+}
+
+###################################
+### Orc Yearly (Nemesis) Events ###
+###################################
+
+goblin_yearly.0131 = { # Bloodied Banner
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0131.t
+	desc = goblin_yearly.0131.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = idle
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_nemesis 
+		animation = idle
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		any_relation = { 
+			type = rival 
+			count > 0
+		}
+	}
+
+	immediate = {
+		random_relation = {
+			type = rival
+			save_scope_as = orc_potential_nemesis
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0109.a
+		if = {
+			limit = { can_set_relation_nemesis_trigger = { CHARACTER = scope:orc_potential_nemesis } }
+			set_relation_nemesis = scope:orc_potential_nemesis	
+		}
+	}
+	option = {
+		name = goblin_yearly.0109.b
+
+	}
+}
+
+goblin_yearly.0132 = { # Insult at the Feast
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0131.t
+	desc = goblin_yearly.0131.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = idle
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_nemesis 
+		animation = idle
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		any_relation = { 
+			type = rival 
+			count > 0
+		}
+	}
+
+	immediate = {
+		random_relation = {
+			type = rival
+			save_scope_as = orc_potential_nemesis
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0109.a
+		if = {
+			limit = { can_set_relation_nemesis_trigger = { CHARACTER = scope:orc_potential_nemesis } }
+			set_relation_nemesis = scope:orc_potential_nemesis	
+		}
+	}
+	option = {
+		name = goblin_yearly.0109.b
+
+	}
+}
+
+goblin_yearly.0133 = { # Desecrated Grave
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0131.t
+	desc = goblin_yearly.0131.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = idle
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_nemesis 
+		animation = idle
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		any_relation = { 
+			type = rival 
+			count > 0
+		}
+	}
+
+	immediate = {
+		random_relation = {
+			type = rival
+			save_scope_as = orc_potential_nemesis
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0109.a
+		if = {
+			limit = { can_set_relation_nemesis_trigger = { CHARACTER = scope:orc_potential_nemesis } }
+			set_relation_nemesis = scope:orc_potential_nemesis	
+		}
+	}
+	option = {
+		name = goblin_yearly.0109.b
+
+	}
+}
+
+goblin_yearly.0134 = { # The Broken Blade
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0131.t
+	desc = goblin_yearly.0131.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = idle
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_nemesis 
+		animation = idle
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		any_relation = { 
+			type = rival 
+			count > 0
+		}
+	}
+
+	immediate = {
+		random_relation = {
+			type = rival
+			save_scope_as = orc_potential_nemesis
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0109.a
+		if = {
+			limit = { can_set_relation_nemesis_trigger = { CHARACTER = scope:orc_potential_nemesis } }
+			set_relation_nemesis = scope:orc_potential_nemesis	
+		}
+	}
+	option = {
+		name = goblin_yearly.0109.b
+
+	}
+}
+
+goblin_yearly.0135 = { # Whispers of Weakness
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0131.t
+	desc = goblin_yearly.0131.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = idle
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_nemesis 
+		animation = idle
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		any_relation = { 
+			type = rival 
+			count > 0
+		}
+	}
+
+	immediate = {
+		random_relation = {
+			type = rival
+			save_scope_as = orc_potential_nemesis
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0109.a
+		if = {
+			limit = { can_set_relation_nemesis_trigger = { CHARACTER = scope:orc_potential_nemesis } }
+			set_relation_nemesis = scope:orc_potential_nemesis	
+		}
+	}
+	option = {
+		name = goblin_yearly.0109.b
+
+	}
+}
+
+goblin_yearly.0136 = { # Stolen Trophies
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0131.t
+	desc = goblin_yearly.0131.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = idle
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_nemesis 
+		animation = idle
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		any_relation = { 
+			type = rival 
+			count > 0
+		}
+	}
+
+	immediate = {
+		random_relation = {
+			type = rival
+			save_scope_as = orc_potential_nemesis
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0109.a
+		if = {
+			limit = { can_set_relation_nemesis_trigger = { CHARACTER = scope:orc_potential_nemesis } }
+			set_relation_nemesis = scope:orc_potential_nemesis	
+		}
+	}
+	option = {
+		name = goblin_yearly.0109.b
+
+	}
+}
+
+goblin_yearly.0137 = { # Mockery of the Hunt
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0131.t
+	desc = goblin_yearly.0131.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = idle
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_nemesis 
+		animation = idle
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		any_relation = { 
+			type = rival 
+			count > 0
+		}
+	}
+
+	immediate = {
+		random_relation = {
+			type = rival
+			save_scope_as = orc_potential_nemesis
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0109.a
+		if = {
+			limit = { can_set_relation_nemesis_trigger = { CHARACTER = scope:orc_potential_nemesis } }
+			set_relation_nemesis = scope:orc_potential_nemesis	
+		}
+	}
+	option = {
+		name = goblin_yearly.0109.b
+
+	}
+}
+
+goblin_yearly.0138 = { # Defied in Council
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0131.t
+	desc = goblin_yearly.0131.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = idle
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_nemesis 
+		animation = idle
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		any_relation = { 
+			type = rival 
+			count > 0
+		}
+	}
+
+	immediate = {
+		random_relation = {
+			type = rival
+			save_scope_as = orc_potential_nemesis
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0109.a
+		if = {
+			limit = { can_set_relation_nemesis_trigger = { CHARACTER = scope:orc_potential_nemesis } }
+			set_relation_nemesis = scope:orc_potential_nemesis	
+		}
+	}
+	option = {
+		name = goblin_yearly.0109.b
+
+	}
+}
+
+goblin_yearly.0139 = { # Spilled Blood in Sport
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0131.t
+	desc = goblin_yearly.0131.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = idle
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_nemesis 
+		animation = idle
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		any_relation = { 
+			type = rival 
+			count > 0
+		}
+	}
+
+	immediate = {
+		random_relation = {
+			type = rival
+			save_scope_as = orc_potential_nemesis
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0109.a
+		if = {
+			limit = { can_set_relation_nemesis_trigger = { CHARACTER = scope:orc_potential_nemesis } }
+			set_relation_nemesis = scope:orc_potential_nemesis	
+		}
+	}
+	option = {
+		name = goblin_yearly.0109.b
+
+	}
+}
+
+goblin_yearly.0140 = { # Scorned Kin
+    content_source = realms_dlc
+	type = character_event
+	title = goblin_yearly.0131.t
+	desc = goblin_yearly.0131.desc
+	theme = martial_strategy_focus
+
+    left_portrait = {
+		character = root
+        animation = idle
+    }
+
+    right_portrait = { 
+		character = scope:orc_potential_nemesis 
+		animation = idle
+	}
+
+	cooldown = { months = 18 }
+
+	trigger = {
+		is_orc = yes
+		any_relation = { 
+			type = rival 
+			count > 0
+		}
+	}
+
+	immediate = {
+		random_relation = {
+			type = rival
+			save_scope_as = orc_potential_nemesis
+		}
+	}
+
+	option = {
+		name = goblin_yearly.0109.a
+		if = {
+			limit = { can_set_relation_nemesis_trigger = { CHARACTER = scope:orc_potential_nemesis } }
+			set_relation_nemesis = scope:orc_potential_nemesis	
+		}
+	}
+	option = {
+		name = goblin_yearly.0109.b
+
+	}
+}

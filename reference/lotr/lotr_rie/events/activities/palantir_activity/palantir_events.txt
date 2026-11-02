@@ -1,0 +1,2911 @@
+﻿namespace = palantir
+
+### Starting event
+
+palantir.0001 = { # The Palantir / The Mirror
+	type = character_event
+	content_source = realms_dlc
+	title = {
+		desc = {
+			first_valid = {
+				triggered_desc = {
+					trigger = {
+						has_character_flag = looking_into_the_mirror			
+					}
+					desc = palantir.0001.mirror.t
+				}
+				desc = palantir.0001.t
+			}
+		}
+	}
+	desc = {
+		desc = {
+			first_valid = {
+				triggered_desc = {
+					trigger = {
+						has_character_flag = looking_into_the_mirror			
+					}
+					desc = palantir.0001.mirror.desc
+				}
+				desc = palantir.0001.desc
+			}
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = relaxing_room
+	}
+	left_portrait = {
+		character = root
+		animation = pondering
+	}
+	
+	option = { # Gaze into the Palantir / Mirror.
+		name = palantir.0001.a	
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0001.mirror.a.tt
+		}
+		else = {
+			custom_tooltip = palantir.0001.a.tt
+		}
+		random = {
+				chance = 33
+				random_list = {
+					1 = {add_intrigue_lifestyle_perk_points = 1}
+					1 = {add_martial_lifestyle_perk_points = 1}
+					1 = {add_diplomacy_lifestyle_perk_points = 1}
+					1 = {add_learning_lifestyle_perk_points = 1}
+					1 = {add_stewardship_lifestyle_perk_points = 1}
+					1 = {add_crafting_lifestyle_perk_points = 1}
+				}
+			}
+		random = {
+			chance = 50
+			if = {
+				limit = {
+					is_elf = yes
+					is_istari = yes
+				}
+				add_stress = 80
+			}
+			else = { add_stress = 40 }
+		}
+		trigger_event = {
+			on_action = palantir_good_events
+			days = 3
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	
+	option = { # It is too dangerous.
+		name = palantir.0001.b	
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0001.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0001.b.tt
+		}
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			remove_decision_cooldown = decision_mirror_of_galadriel
+		}
+		else = {
+			remove_decision_cooldown = decision_palantir
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+### Palantir.0101 to 0199 - Free Peoples events
+
+palantir.0101 = { # The Palantir - Ithilien
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0101.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_character_flag = looking_into_the_mirror
+					title:e_mordor.holder ?= character:lineofsauron
+				}
+				desc = palantir.0101.mirror.desc
+			}
+			triggered_desc = {
+				trigger = {
+					title:e_mordor.holder ?= character:lineofsauron
+				}
+				desc = palantir.0101.desc
+			}
+			triggered_desc = {
+				trigger = {
+					sauron_is_alive = yes
+					has_character_flag = looking_into_the_mirror
+					title:e_mordor.holder ?= { faith_is_evil = yes }
+				}
+				desc = palantir.0101.mirror.desc.pre_sauron
+			}
+			triggered_desc = {
+				trigger = {
+					sauron_is_alive = yes
+					title:e_mordor.holder ?= { faith_is_evil = yes }
+				}
+				desc = palantir.0101.desc.pre_sauron
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = looking_into_the_mirror
+				}
+				desc = palantir.0101.mirror.desc.alt
+			}
+			desc = palantir.0101.desc.alt
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = wilderness_forest_pine
+	}
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+	trigger = {
+		root = {
+			not = {
+				root.capital_province = {
+					geographical_region = middleearth_west_gondor_ithilien
+				}
+			}
+		}
+	}
+	
+	option = { # Keep looking into the Palantir / Mirror
+		name = {
+            text = {
+                first_valid = {
+                    triggered_desc = {
+                        trigger = { title:e_mordor.holder ?= character:lineofsauron }
+                        desc = palantir.0101.a	
+                    }
+					triggered_desc = {
+                        trigger = { 
+							title:e_mordor.holder != character:lineofsauron
+							title:e_mordor.holder ?= { faith_is_evil = yes }
+							sauron_is_alive = yes
+						}
+						desc = palantir.0101.a.pre_sauron
+					}
+                    desc = palantir.0101.a.alt
+                }
+            }
+        }
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.a.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.a.tt
+		}
+		random = {
+				chance = 50
+				random_list = {
+					1 = {add_intrigue_lifestyle_perk_points = 1}
+					1 = {add_martial_lifestyle_perk_points = 1}
+					1 = {add_diplomacy_lifestyle_perk_points = 1}
+					1 = {add_learning_lifestyle_perk_points = 1}
+					1 = {add_stewardship_lifestyle_perk_points = 1}
+					1 = {add_crafting_lifestyle_perk_points = 1}
+				}
+			}
+		random = {
+			chance = 50
+			if = {
+				limit = {
+					is_elf = yes
+					is_istari = yes
+				}
+				add_stress = 80
+			}
+			else = { add_stress = 40 }
+		}
+		trigger_event = {
+			on_action = palantir_evil_events
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = 0.25
+				ai_energy = 0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = -20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = -50
+				stress >= 150
+			}
+		}
+	}
+	
+	option = {
+		name = palantir.0100.b # I must stop, this is too dangerous...
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = -0.25
+				ai_energy = -0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = 20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = 50
+				stress >= 150
+			}
+		}
+	}
+}
+
+palantir.0102 = { # The Palantir - Pelargir
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0102.t
+	desc = palantir.0102.desc
+	theme = mental_break
+	override_background = {
+		reference = docks_dunedain
+	}
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:sealord
+		animation = personality_rational
+	}
+	trigger = {
+		root = {
+			not = {
+				has_title = title:d_pelargir
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:d_pelargir.holder }
+			title:d_pelargir.holder = {
+				save_scope_as = sealord
+			}
+		}
+	}
+	
+	option = { # Keep looking into the Mirror / Palantir
+		name = palantir.0102.a
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.a.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.a.tt
+		}
+		random = {
+				chance = 50
+				random_list = {
+					1 = {add_intrigue_lifestyle_perk_points = 1}
+					1 = {add_martial_lifestyle_perk_points = 1}
+					1 = {add_diplomacy_lifestyle_perk_points = 1}
+					1 = {add_learning_lifestyle_perk_points = 1}
+					1 = {add_stewardship_lifestyle_perk_points = 1}
+					1 = {add_crafting_lifestyle_perk_points = 1}
+				}
+			}
+		random = {
+			chance = 50
+			if = {
+				limit = {
+					is_elf = yes
+					is_istari = yes
+				}
+				add_stress = 80
+			}
+			else = { add_stress = 40 }
+		}
+		trigger_event = {
+			on_action = palantir_evil_events
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = 0.25
+				ai_energy = 0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = -20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = -50
+				stress >= 150
+			}
+		}
+	}
+
+	option = {
+		name = palantir.0100.b # I must stop, this is too dangerous...
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = -0.25
+				ai_energy = -0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = 20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = 50
+				stress >= 150
+			}
+		}
+	}
+}
+
+palantir.0103 = { # The Palantir - Withered Tree
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0103.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					sauron_is_alive = yes
+				}
+				desc = palantir.0103.desc
+			}
+			desc = palantir.0103.desc.alt
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = minas_tirith
+	}
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:gondor
+		animation = shame
+	}
+	trigger = {
+		and = {
+			or = {
+				exists = title:e_gondor.holder
+				exists = title:e_gondor_steward.holder
+				exists = title:e_castamir.holder
+				exists = title:h_numenor_in_exile.holder
+			}
+			root = {
+				nor = {
+					has_title = title:e_gondor
+					has_title = title:e_gondor_steward
+					has_title = title:e_castamir
+					has_title = title:h_numenor_in_exile
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:e_gondor_steward.holder }
+			title:e_gondor_steward.holder = {
+				save_scope_as = gondor
+			}
+		}
+		if = {
+			limit = { exists = title:e_gondor.holder }
+			title:e_gondor.holder = {
+				save_scope_as = gondor
+			}
+		}
+		if = {
+			limit = { exists = title:e_castamir.holder }
+			title:e_castamir.holder = {
+				save_scope_as = gondor
+			}
+		}
+		if = {
+			limit = { exists = title:h_numenor_in_exile.holder }
+			title:h_numenor_in_exile.holder = {
+				save_scope_as = gondor
+			}
+		}
+	}
+	
+	option = {
+		name = {
+            text = {
+                first_valid = {
+                    triggered_desc = {
+                        trigger = {
+							faith_is_evil = no
+							sauron_is_alive = yes
+						}
+                        desc = palantir.0103.a.good
+                    }
+					triggered_desc = {
+                        trigger = {
+							faith_is_evil = yes
+							sauron_is_alive = yes
+						}
+						desc = palantir.0103.a.evil
+					}
+                    desc = palantir.0103.a.alt
+                }
+            }
+        }
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.a.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.a.tt
+		}
+		random = {
+			chance = 50
+			random_list = {
+				1 = {add_intrigue_lifestyle_perk_points = 1}
+				1 = {add_martial_lifestyle_perk_points = 1}
+				1 = {add_diplomacy_lifestyle_perk_points = 1}
+				1 = {add_learning_lifestyle_perk_points = 1}
+				1 = {add_stewardship_lifestyle_perk_points = 1}
+				1 = {add_crafting_lifestyle_perk_points = 1}
+			}
+		}
+		random = {
+			chance = 50
+			if = {
+				limit = {
+					is_elf = yes
+					is_istari = yes
+				}
+				add_stress = 80
+			}
+			else = { add_stress = 40 }
+		}
+		trigger_event = {
+			on_action = palantir_evil_events
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = 0.25
+				ai_energy = 0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = -20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = -50
+				stress >= 150
+			}
+		}
+	}
+
+	option = { 
+		name = palantir.0100.b # I must stop, this is too dangerous...
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}	
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = -0.25
+				ai_energy = -0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = 20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = 50
+				stress >= 150
+			}
+		}
+	}
+}
+
+palantir.0104 = { # The Palantir - Horselords
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0104.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					or = {
+						title:k_rohan.holder = character:lineofsaruman
+						title:k_rohan.holder.liege = character:lineofsaruman
+					}
+				}
+				desc = palantir.0104.desc.saruman
+			}
+			triggered_desc = {
+				trigger = {
+					or = {
+						title:k_rohan.holder.culture = { has_cultural_pillar = heritage_daen_lintis }
+						title:k_rohan.holder.liege.culture = { has_cultural_pillar = heritage_daen_lintis }
+					}
+				}
+				desc = palantir.0104.desc.dunlending
+			}
+			triggered_desc = {
+				trigger = {
+					sauron_has_palantir = yes
+					game_start_date >= 7033.1.1 # WotR BM
+					or = {
+						title:k_rohan.holder.culture = { has_cultural_pillar = heritage_daen_lintis }
+						title:k_rohan.holder.liege.culture = { has_cultural_pillar = heritage_daen_lintis }
+					}
+				}
+				desc = palantir.0104.desc.sauron
+			}
+			triggered_desc = {
+				trigger = {
+					sauron_has_palantir = no
+					game_start_date >= 7033.1.1 # WotR BM
+					or = {
+						title:k_rohan.holder.culture = { has_cultural_pillar = heritage_daen_lintis }
+						title:k_rohan.holder.liege.culture = { has_cultural_pillar = heritage_daen_lintis }
+					}
+				}
+				desc = palantir.0104.desc.sauronless
+			}
+			triggered_desc = {
+				trigger = {
+					character:lineoffreca3 = {
+						is_alive = yes 
+						this != title:k_rohan.holder
+						this != title:k_rohan.holder.liege
+					}
+					game_start_date = 6787.1.1 # LW BM
+				}
+				desc = palantir.0104.desc.pre_LW
+			}
+			triggered_desc = {
+				trigger = {
+					character:lineoffreca3 = {
+						is_alive = no
+					}
+					OR = {
+						title:k_rohan.holder.culture = { has_cultural_pillar = heritage_eotheod }
+						title:k_rohan.holder.liege.culture = { has_cultural_pillar = heritage_eotheod }
+					}
+					game_start_date = 6787.1.1 # LW BM
+					
+				}
+				desc = palantir.0104.desc.post_LW
+			}
+			desc = palantir.0104.desc.neutral
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = edoras
+	}
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+	right_portrait = {
+		character = scope:rohanking
+		animation = personality_honorable
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:k_rohan.holder }
+			title:k_rohan.holder = {
+				save_scope_as = rohanking
+			}
+		}
+	}
+	trigger = {
+		root = {
+			not = {
+				has_title = title:k_rohan
+				root.capital_province = {
+					geographical_region = middleearth_west_rohan		
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = {
+            text = {
+                first_valid = {
+                    triggered_desc = {
+                        trigger = {
+							nor = {
+								title:k_rohan.holder.liege = character:lineofsaruman
+								title:k_rohan.holder = character:lineofsaruman
+							}
+							sauron_has_palantir = yes
+						}
+                        desc = palantir.0104.a
+                    }
+					triggered_desc = {
+                        trigger = {
+							or = {
+								title:k_rohan.holder = character:lineofsaruman
+								title:k_rohan.holder.liege = character:lineofsaruman
+							}
+						}
+						desc = palantir.0104.a.saruman
+					}
+                    desc = palantir.0104.a.alt
+                }
+            }
+        }
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.a.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.a.tt
+		}
+		random = {
+			chance = 50
+			random_list = {
+				1 = {add_intrigue_lifestyle_perk_points = 1}
+				1 = {add_martial_lifestyle_perk_points = 1}
+				1 = {add_diplomacy_lifestyle_perk_points = 1}
+				1 = {add_learning_lifestyle_perk_points = 1}
+				1 = {add_stewardship_lifestyle_perk_points = 1}
+				1 = {add_crafting_lifestyle_perk_points = 1}
+			}
+		}
+		random = {
+			chance = 50
+			if = {
+				limit = {
+					is_elf = yes
+					is_istari = yes
+				}
+				add_stress = 80
+			}
+			else = { add_stress = 40 }
+		}
+		trigger_event = {
+			on_action = palantir_evil_events
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = 0.25
+				ai_energy = 0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = -20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = -50
+				stress >= 150
+			}
+		}
+	}
+
+	option = { 
+		name = palantir.0100.b # I must stop, this is too dangerous...
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = -0.25
+				ai_energy = -0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = 20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = 50
+				stress >= 150
+			}
+		}
+	}
+}
+
+palantir.0105 = { # The Palantir - Tulwang
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0105.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					sauron_is_alive = yes
+				}
+				desc = palantir.0105.desc
+			}
+			desc = palantir.0105.desc.alt
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = docks_adunai
+	}
+	left_portrait = {
+		character = scope:bellakarking
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:stormmarshal
+		animation = aggressive_sword
+	}
+	trigger = {
+		and = {
+			exists = title:e_bellakar.holder
+			root = {
+				nor = {
+					has_title = title:e_bellakar
+					has_title = title:e_thon_an_kharlokh
+					root.capital_province = {
+						geographical_region = custom_bayoftulwang
+						geographical_region = middleearth_harad_far_tulwang		
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:e_bellakar.holder }
+			title:e_bellakar.holder = {
+				save_scope_as = bellakarking
+			}
+		}
+		if = {
+			limit = { exists = title:e_thon_an_kharlokh.holder }
+			title:e_thon_an_kharlokh.holder = {
+				save_scope_as = stormmarshal
+			}
+		}
+	}
+	
+	option = {
+		name = {
+            text = {
+                first_valid = {
+                    triggered_desc = {
+                        trigger = {
+							and = {
+								faith_is_evil = no
+								sauron_is_alive = yes
+							}
+						}
+                        desc = palantir.0105.a.good
+                    }
+					triggered_desc = {
+                        trigger = {
+							and = {
+								faith_is_evil = yes
+								sauron_is_alive = yes
+							}
+						}
+						desc = palantir.0105.a.evil
+					}
+                    desc = palantir.0105.a.alt
+                }
+            }
+        }
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.a.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.a.tt
+		}
+		random = {
+			chance = 50
+			random_list = {
+				1 = {add_intrigue_lifestyle_perk_points = 1}
+				1 = {add_martial_lifestyle_perk_points = 1}
+				1 = {add_diplomacy_lifestyle_perk_points = 1}
+				1 = {add_learning_lifestyle_perk_points = 1}
+				1 = {add_stewardship_lifestyle_perk_points = 1}
+			}
+		}
+		random = {
+			chance = 50
+			if = {
+				limit = {
+					is_elf = yes
+					is_istari = yes
+				}
+				add_stress = 80
+			}
+			else = { add_stress = 40 }
+		}
+		trigger_event = {
+			on_action = palantir_evil_events
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = 0.25
+				ai_energy = 0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = -20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = -50
+				stress >= 150
+			}
+		}
+	}
+	
+	option = {
+		name = palantir.0100.b # I must stop, this is too dangerous...
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = -0.25
+				ai_energy = -0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = 20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = 50
+				stress >= 150
+			}
+		}
+	}
+}
+
+palantir.0106 = { # The Palantir - Lorien
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0106.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					sauron_is_alive = yes
+				}
+				desc = palantir.0106.desc
+			}
+			desc = palantir.0106.desc.alt
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = lorien_day
+	}
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:lorienking
+		animation = dismissal
+	}
+	trigger = {
+		and = {
+			title:k_lothlorien.holder = { is_elf = yes }
+			root = {
+				nor = {
+					has_title = title:k_lothlorien
+					root.capital_province = {
+						geographical_region = middleearth_west_rhovanion_lothlorien
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:k_lothlorien.holder }
+			title:k_lothlorien.holder = {
+				save_scope_as = lorienking
+			}
+		}
+	}
+	
+	option = {
+		name = {
+            text = {
+                first_valid = {
+                    triggered_desc = {
+                        trigger = {
+							and = {
+								faith_is_evil = no
+								sauron_is_alive = yes
+							}
+						}
+                        desc = palantir.0106.a.good
+                    }
+					triggered_desc = {
+                        trigger = {
+							and = {
+								faith_is_evil = yes
+								sauron_is_alive = yes
+							}
+						}
+						desc = palantir.0106.a.evil
+					}
+                    desc = palantir.0106.a.alt
+                }
+            }
+        }
+		name = palantir.0106.a.good
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.a.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.a.tt
+		}
+		random = {
+			chance = 50
+			random_list = {
+				1 = {add_intrigue_lifestyle_perk_points = 1}
+				1 = {add_martial_lifestyle_perk_points = 1}
+				1 = {add_diplomacy_lifestyle_perk_points = 1}
+				1 = {add_learning_lifestyle_perk_points = 1}
+				1 = {add_stewardship_lifestyle_perk_points = 1}
+			}
+		}
+		random = {
+			chance = 50
+			if = {
+				limit = {
+					is_elf = yes
+					is_istari = yes
+				}
+				add_stress = 80
+			}
+			else = { add_stress = 40 }
+		}
+		trigger_event = {
+			on_action = palantir_evil_events
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = 0.25
+				ai_energy = 0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = -20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = -50
+				stress >= 150
+			}
+		}
+	}
+
+	option = {
+		name = palantir.0100.b # I must stop, this is too dangerous...
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = -0.25
+				ai_energy = -0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = 20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = 50
+				stress >= 150
+			}
+		}
+	}
+}
+
+palantir.0107 = { # The Palantir - Mirkwood
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0107.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_character_flag = looking_into_the_mirror 
+					title:k_amon_lanc.holder = character:lineofsauron
+				}
+				desc = palantir.0107.mirror.desc.necromancer
+			}
+			triggered_desc = {
+				trigger = {
+					title:k_amon_lanc.holder = character:lineofsauron
+				}
+				desc = palantir.0107.desc.necromancer
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = looking_into_the_mirror
+					sauron_is_alive = yes
+				}
+				desc = palantir.0107.mirror.desc
+			}
+			triggered_desc = {
+				trigger = {
+					sauron_is_alive = yes
+				}
+				desc = palantir.0107.desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = looking_into_the_mirror
+				}
+				desc = palantir.0107.mirror.desc.alt
+			}
+			desc = palantir.0107.desc.alt
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = wilderness_forest_deep
+	}
+	left_portrait = {
+		character = scope:elvenking
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:khamul
+		animation = rage
+	}
+	trigger = {
+		and = {
+			title:k_lasgalen.holder = { is_elf = yes }
+			root = {
+				nor = {
+					has_title = title:k_lasgalen
+					has_title = title:k_amon_lanc
+					root.capital_province = {
+						geographical_region = middleearth_west_rhovanion_mirkwood
+						geographical_region = custom_dolguldur
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:k_lasgalen.holder }
+			title:k_lasgalen.holder = {
+				save_scope_as = elvenking
+			}
+		}
+		if = {
+			limit = {
+				and = {
+					exists = title:k_amon_lanc.holder
+					title:k_amon_lanc.holder = { 
+						cannot_be_killed = yes
+					}
+				}
+			}
+			title:k_amon_lanc.holder = {
+				save_scope_as = khamul
+			}
+			
+		}
+	}
+	
+	option = { 
+		name = {
+            text = {
+                first_valid = {
+                    triggered_desc = {
+                        trigger = {
+							and = {
+								is_elf = yes
+								sauron_is_alive = yes
+							}
+						}
+                        desc = palantir.0107.a.elven
+                    }
+                    triggered_desc = {
+                        trigger = {
+							and = {
+								faith_is_evil = no
+								sauron_is_alive = yes
+							}
+						}
+                        desc = palantir.0107.a.good
+                    }
+					triggered_desc = {
+                        trigger = {
+							and = {
+								faith_is_evil = yes
+								sauron_is_alive = yes
+							}
+						}
+						desc = palantir.0107.a.evil
+					}
+                    desc = palantir.0107.a.alt
+                }
+            }
+        }
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.a.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.a.tt
+		}
+		random = {
+			chance = 50
+			random_list = {
+				1 = {add_intrigue_lifestyle_perk_points = 1}
+				1 = {add_martial_lifestyle_perk_points = 1}
+				1 = {add_diplomacy_lifestyle_perk_points = 1}
+				1 = {add_learning_lifestyle_perk_points = 1}
+				1 = {add_stewardship_lifestyle_perk_points = 1}
+			}
+		}
+		random = {
+			chance = 50
+			if = {
+				limit = {
+					is_elf = yes
+					is_istari = yes
+				}
+				add_stress = 80
+			}
+			else = { add_stress = 40 }
+		}
+		trigger_event = {
+			on_action = palantir_evil_events
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = 0.25
+				ai_energy = 0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = -20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = -50
+				stress >= 150
+			}
+		}
+	}
+	
+	option = { 
+		name = palantir.0100.b # I must stop, this is too dangerous...
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = -0.25
+				ai_energy = -0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = 20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = 50
+				stress >= 150
+			}
+		}
+	}
+}
+
+palantir.0108 = { # The Palantir - Dale
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0108.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:erebor_king ?= { is_dwarf = yes }
+					sauron_has_palantir = yes
+				}
+				desc = palantir.0108.desc.sauron
+			}
+			triggered_desc = {
+				trigger = {
+					scope:erebor_king ?= { is_dwarf = yes }
+					sauron_has_palantir = no
+				}
+				desc = palantir.0108.desc.dwarf
+			}
+			triggered_desc = {
+				trigger = {
+					scope:erebor_king ?= { NOT = { is_dwarf = yes } }
+				}
+				desc = palantir.0108.desc.evil
+			}
+			triggered_desc = {
+				trigger = {
+					game_start_date >= 6787.1.1 # Long Winter BM
+					game_start_date <= 6787.1.1 # Smaug's death
+				}
+				desc = palantir.0108.desc.smaug
+			}
+			desc = palantir.0108.desc.erebor_destroyed
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = market_west
+	}
+	left_portrait = {
+		character = scope:erebor_king
+		scripted_animation = {
+			triggered_animation = {
+				trigger = { scope:erebor_king = { is_dwarf = yes } }
+				animation = drink
+			}
+			animation = assassin
+		}
+	}
+	right_portrait = {
+		character = scope:daleking
+		animation = steward
+	}
+	trigger = {
+		root = {
+			nor = {
+				has_title = title:k_dale
+				has_title = title:k_erebor
+				root.capital_province = {
+					geographical_region = middleearth_west_rhovanion_dalelands
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:k_dale.holder }
+			title:k_dale.holder = {
+				save_scope_as = daleking
+			}
+		}
+		if = {
+			limit = { exists = title:k_erebor.holder }
+			title:k_erebor.holder = {
+				save_scope_as = erebor_king
+			}
+		}
+	}
+	
+	option = {
+		name = {
+            text = {
+                first_valid = {
+                    triggered_desc = {
+                        trigger = {
+							scope:erebor_king ?= { is_dwarf = yes }
+							sauron_has_palantir = yes
+						}
+                        desc = palantir.0108.a
+                    }
+					triggered_desc = {
+                        trigger = {
+							scope:erebor_king ?= { is_dwarf = yes }
+							sauron_has_palantir = no
+						}
+						desc = palantir.0108.a.alt
+					}
+                    desc = palantir.0108.a.evil
+                }
+            }
+        }
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.a.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.a.tt
+		}
+		random = {
+			chance = 50
+			random_list = {
+				1 = {add_intrigue_lifestyle_perk_points = 1}
+				1 = {add_martial_lifestyle_perk_points = 1}
+				1 = {add_diplomacy_lifestyle_perk_points = 1}
+				1 = {add_learning_lifestyle_perk_points = 1}
+				1 = {add_stewardship_lifestyle_perk_points = 1}
+			}
+		}
+		random = {
+			chance = 50
+			if = {
+				limit = {
+					is_elf = yes
+					is_istari = yes
+				}
+				add_stress = 80
+			}
+			else = { add_stress = 40 }
+		}
+		trigger_event = {
+			on_action = palantir_evil_events
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = 0.25
+				ai_energy = 0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = -20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = -50
+				stress >= 150
+			}
+		}
+	}
+	
+	option = { 
+		name = palantir.0100.b # I must stop, this is too dangerous...
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = -0.25
+				ai_energy = -0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = 20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = 50
+				stress >= 150
+			}
+		}
+	}
+}
+
+palantir.0109 = { # The Palantir - Dorwinion
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0109.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					sauron_is_alive = yes
+				}
+				desc = palantir.0109.desc
+			}
+			desc = palantir.0109.desc.alt
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = bp1_crossroads_inn
+	}
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:dorwinionking
+		animation = steward
+	}
+	trigger = {
+		root = {
+			nor = {
+				has_title = title:k_dorwinion
+				root.capital_province = {
+					geographical_region = middleearth_west_rhovanion_dorwinion
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:k_dorwinion.holder }
+			title:k_dorwinion.holder = {
+				save_scope_as = dorwinionking
+			}
+		}
+	}
+	
+	option = { 
+		name = {
+            text = {
+                first_valid = {
+                    triggered_desc = {
+                        trigger = {
+							sauron_is_alive = yes
+						}
+                        desc = palantir.0109.a
+                    }
+                    desc = palantir.0109.a.alt
+                }
+            }
+        }
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.a.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.a.tt
+		}
+		random = {
+			chance = 50
+			random_list = {
+				1 = {add_intrigue_lifestyle_perk_points = 1}
+				1 = {add_martial_lifestyle_perk_points = 1}
+				1 = {add_diplomacy_lifestyle_perk_points = 1}
+				1 = {add_learning_lifestyle_perk_points = 1}
+				1 = {add_stewardship_lifestyle_perk_points = 1}
+			}
+		}
+		random = {
+			chance = 50
+			if = {
+				limit = {
+					is_elf = yes
+					is_istari = yes
+				}
+				add_stress = 80
+			}
+			else = { add_stress = 40 }
+		}
+		trigger_event = {
+			on_action = palantir_evil_events
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = 0.25
+				ai_energy = 0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = -20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = -50
+				stress >= 150
+			}
+		}
+	}
+
+	option = { 
+		name = palantir.0100.b # I must stop, this is too dangerous...
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = -0.25
+				ai_energy = -0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = 20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = 50
+				stress >= 150
+			}
+		}
+	}
+}
+
+palantir.0110 = { # The Palantir - Rivendell
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0110.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					sauron_is_alive = yes
+				}
+				desc = palantir.0110.desc
+			}
+			desc = palantir.0110.desc.alt
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = imladris
+	}
+	right_portrait = {
+		character = scope:rivendelllord
+		animation = toast_goblet
+	}
+	trigger = {
+		and = {
+			title:k_imladris.holder = { is_elf = yes }
+			root = {
+				not = {
+					has_title = title:k_imladris
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:k_imladris.holder }
+			title:k_imladris.holder = {
+				save_scope_as = rivendelllord
+			}
+		}
+	}
+	
+	option = {
+		name = {
+            text = {
+                first_valid = {
+                    triggered_desc = {
+                        trigger = {
+							sauron_is_alive = yes
+						}
+                        desc = palantir.0110.a
+                    }
+                    desc = palantir.0110.a.alt
+                }
+            }
+        }
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.a.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.a.tt
+		}
+		random = {
+			chance = 50
+			random_list = {
+				1 = {add_intrigue_lifestyle_perk_points = 1}
+				1 = {add_martial_lifestyle_perk_points = 1}
+				1 = {add_diplomacy_lifestyle_perk_points = 1}
+				1 = {add_learning_lifestyle_perk_points = 1}
+				1 = {add_stewardship_lifestyle_perk_points = 1}
+			}
+		}
+		random = {
+			chance = 50
+			if = {
+				limit = {
+					is_elf = yes
+					is_istari = yes
+				}
+				add_stress = 80
+			}
+			else = { add_stress = 40 }
+		}
+		trigger_event = {
+			on_action = palantir_evil_events
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = 0.25
+				ai_energy = 0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = -20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = -50
+				stress >= 150
+			}
+		}
+	}
+
+	option = { 
+		name = palantir.0100.b # I must stop, this is too dangerous...
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = -0.25
+				ai_energy = -0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = 20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = 50
+				stress >= 150
+			}
+		}
+	}
+}
+
+palantir.0111 = { # The Palantir - Mithlond
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0111.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					sauron_is_alive = yes
+				}
+				desc = palantir.0111.desc
+			}
+			desc = palantir.0111.desc.alt
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = grey_havens
+	}
+	right_portrait = {
+		character = scope:mithlondlord
+		animation = chancellor
+	}
+	trigger = {
+		and = {
+			title:d_mithlond.holder = { is_elf = yes }
+			root = {
+				not = {
+					has_title = title:d_mithlond
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:d_mithlond.holder }
+			title:d_mithlond.holder = {
+				save_scope_as = mithlondlord
+			}
+		}
+	}
+	
+	option = {
+		name = {
+            text = {
+                first_valid = {
+                    triggered_desc = {
+                        trigger = {
+							sauron_is_alive = yes
+						}
+                        desc = palantir.0111.a
+                    }
+                    desc = palantir.0111.a.alt
+                }
+            }
+        }
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.a.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.a.tt
+		}
+		random = {
+			chance = 50
+			random_list = {
+				1 = {add_intrigue_lifestyle_perk_points = 1}
+				1 = {add_martial_lifestyle_perk_points = 1}
+				1 = {add_diplomacy_lifestyle_perk_points = 1}
+				1 = {add_learning_lifestyle_perk_points = 1}
+				1 = {add_stewardship_lifestyle_perk_points = 1}
+			}
+		}
+		random = {
+			chance = 50
+			if = {
+				limit = {
+					is_elf = yes
+					is_istari = yes
+				}
+				add_stress = 80
+			}
+			else = { add_stress = 40 }
+		}
+		trigger_event = {
+			on_action = palantir_evil_events
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = 0.25
+				ai_energy = 0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = -20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = -50
+				stress >= 150
+			}
+		}
+	}
+
+	option = { 
+		name = palantir.0100.b # I must stop, this is too dangerous...
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = -0.25
+				ai_energy = -0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = 20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = 50
+				stress >= 150
+			}
+		}
+	}
+}
+
+palantir.0112 = { # The Palantir - Shire
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0112.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:thain = { is_hobbit = yes }
+				}
+				desc = palantir.0112.desc.hobbit
+			}
+			triggered_desc = {
+				trigger = {
+					scope:thain = { faith_is_evil = yes }
+				}
+				desc = palantir.0112.desc.evil
+			}
+			desc = palantir.0112.desc
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = market_hobbit
+	}
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:thain
+		scripted_animation = {
+			triggered_animation = {
+				trigger = { scope:thain = { is_hobbit = yes } }
+				animation = toast
+			}
+			triggered_animation = {
+				trigger = { scope:thain = { faith_is_evil = yes } }
+				animation = assassin
+			}
+			animation = idle
+		}	
+	}
+	trigger = {
+		root = {
+			nor = {
+				has_title = title:k_shire
+				root.capital_province = {
+					geographical_region = middleearth_west_arnor_arthedain
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:k_shire.holder }
+			title:k_shire.holder = {
+				save_scope_as = thain
+			}
+		}
+	}
+	
+	option = { 
+		name = {
+            text = {
+                first_valid = {
+                    triggered_desc = {
+                        trigger = {
+							scope:thain = { faith_is_evil = no }
+						}
+                        desc = palantir.0112.a
+                    }
+                    desc = palantir.0112.a.alt
+                }
+            }
+        }
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.a.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.a.tt
+		}
+		random = {
+			chance = 50
+			random_list = {
+				1 = {add_intrigue_lifestyle_perk_points = 1}
+				1 = {add_martial_lifestyle_perk_points = 1}
+				1 = {add_diplomacy_lifestyle_perk_points = 1}
+				1 = {add_learning_lifestyle_perk_points = 1}
+				1 = {add_stewardship_lifestyle_perk_points = 1}
+			}
+		}
+		random = {
+			chance = 50
+			if = {
+				limit = {
+					is_elf = yes
+					is_istari = yes
+				}
+				add_stress = 80
+			}
+			else = { add_stress = 40 }
+		}
+		trigger_event = {
+			on_action = palantir_evil_events
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = 0.25
+				ai_energy = 0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = -20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = -50
+				stress >= 150
+			}
+		}
+	}
+
+	option = { 
+		name = palantir.0100.b # I must stop, this is too dangerous...
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = -0.25
+				ai_energy = -0.25
+			}
+			modifier = {	# Weight up for stress.
+				add = 20
+				stress_level >= 1
+			}
+			modifier = {	# Weight up for stress.
+				add = 50
+				stress >= 150
+			}
+		}
+	}
+}
+
+
+## Palantir.0201 to 0299 - Forces of Evil events
+
+palantir.0201 = { # The Palantir - Harondor
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0201.t
+	desc = palantir.0201.desc
+	theme = mental_break
+	override_background = {
+		reference = wilderness_steppe
+	}
+	left_portrait = {
+		character = root
+		animation = disgust
+	}
+	right_portrait = {
+		character = scope:haruzanking
+		animation = aggressive_sword
+	}
+	trigger = {
+		root = {
+			nor = {
+				has_title = title:k_haruzan
+				root.capital_province = {
+					geographical_region = middleearth_harad_near_harondor
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:k_haruzan.holder }
+			title:k_haruzan.holder = {
+				save_scope_as = haruzanking
+			}
+		}
+	}
+	
+	option = {
+		name = palantir.0201.a # I must stop, this is too dangerous...
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+	}
+}
+
+palantir.0202 = { # The Palantir - Abrakhân
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0202.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = title:k_abrakhan
+				}
+				desc = palantir.0202.desc
+			}
+			desc = palantir.0202.desc.alt
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = wilderness_desert
+	}
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:goldenking
+		animation = personality_cynical
+	}
+	trigger = {
+		always = no # Golden King has been cut
+		root = {
+			nor = {
+				has_title = title:k_abrakhan
+				root.capital_province = {
+					geographical_region = middleearth_harad_dunesea_abrakhan
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:k_abrakhan.holder }
+			title:k_abrakhan.holder = {
+				save_scope_as = goldenking
+			}
+		}
+	}
+	
+	option = {
+		name = palantir.0202.a # I must stop, this is too dangerous...
+		trigger = {
+			exists = title:k_abrakhan.holder
+		}
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+	}
+	
+	option = {
+		name = palantir.0202.a.alt # I must stop, this is too dangerous...
+		trigger = {
+			NOT = { exists = title:k_abrakhan.holder }
+		}
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+	}
+}
+
+palantir.0203 = { # The Palantir - Rhûn
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0203.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					sauron_is_alive = yes
+					title:e_golden_realm_rhun.holder ?= { 
+						completely_controls = title:k_usrievar 
+						faith_is_evil = yes
+					}
+				}
+				desc = palantir.0203.desc.evil
+			}
+			triggered_desc = {
+				trigger = {
+					sauron_is_alive = yes
+					title:e_golden_realm_rhun.holder ?= { 
+						completely_controls = title:k_usrievar 
+					}
+				}
+				desc = palantir.0203.desc.non_evil
+			}
+			triggered_desc = {
+				trigger = {
+					sauron_is_alive = yes
+				}
+				desc = palantir.0203.desc.chaos
+			}
+			desc = palantir.0203.desc.sauron_dead
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = wilderness_desert_rhun
+	}
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:lokekan
+		animation = personality_greedy
+	}
+	trigger = {
+		root = {
+			nor = {
+				has_title = title:e_golden_realm_rhun
+				root.capital_province = {
+					geographical_region = middleearth_rhun_seaofrhun
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:e_golden_realm_rhun.holder }
+			title:e_golden_realm_rhun.holder = {
+				save_scope_as = lokekan
+			}
+		}
+	}
+	
+	option = {
+		name = palantir.0203.a # I must stop, this is too dangerous...
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+	}
+}
+
+palantir.0204 = { # The Palantir - Umbar
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0204.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					or = {
+						title:k_umbar.holder = { is_gondor = yes }
+						title:k_umbar.holder.liege = { is_gondor = yes }
+					}
+				}
+				desc = palantir.0204.desc.alt
+			}
+			desc = palantir.0204.desc
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = black_ship
+	}
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:umbarking
+		animation = personality_greedy
+	}
+	trigger = {
+		root = {
+			nor = {
+				has_title = title:k_umbar
+				root.capital_province = {
+					geographical_region = middleearth_harad_near_umbar
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:k_umbar.holder }
+			title:k_umbar.holder = {
+				save_scope_as = umbarking
+			}
+		}
+	}
+	
+	option = {
+		name = {
+            text = {
+                first_valid = {
+                    triggered_desc = {
+                        trigger = {
+							nor = {
+								title:k_umbar.holder = { is_gondor = yes }
+								title:k_umbar.holder.liege = { is_gondor = yes }
+							}
+						}
+                        desc = palantir.0204.a
+                    }
+                    desc = palantir.0204.a.alt
+                }
+            }
+        }
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+	}
+}
+
+palantir.0205 = { # The Palantir - Khand
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0205.t
+	desc = palantir.0205.desc
+	theme = mental_break
+	override_background = {
+		reference = wilderness_desert_rhun
+	}
+	left_portrait = {
+		character = scope:variagking1
+		animation = personality_callous
+	}
+	right_portrait = {
+		character = scope:variagking2
+		animation = personality_callous
+	}
+	trigger = {
+		root = {
+			nor = {
+				has_title = title:k_lower_khand
+				has_title = title:k_upper_khand
+				root.capital_province = {
+					geographical_region = middleearth_rhun_khand
+				}				
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:k_lower_khand.holder }
+			title:k_lower_khand.holder = {
+				save_scope_as = variagking1
+			}
+		}
+		if = {
+			limit = { 
+				exists = title:k_upper_khand.holder 
+				title:k_upper_khand.holder = { 
+					not = { has_title = title:k_lower_khand }
+				}
+			}
+			title:k_upper_khand.holder = {
+				save_scope_as = variagking2
+			}
+		}
+	}
+	
+	option = {
+		name = palantir.0205.a # I must stop, this is too dangerous...
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+	}
+}
+
+palantir.0206 = { # The Palantir - Dunland
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0206.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					sauron_is_alive = yes
+				}
+				desc = palantir.0206.desc
+			}
+			desc = palantir.0206.desc.alt
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = burning_building
+	}
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:dunlandchief
+		animation = aggressive_axe
+	}
+	trigger = {
+		root = {
+			not = {
+				root.capital_province = {
+					geographical_region = middleearth_west_enedhwaith
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:d_dunlandfells.holder }
+			title:d_dunlandfells.holder = {
+				save_scope_as = dunlandchief
+			}
+		}
+	}
+	
+	option = {
+		name = {
+            text = {
+                first_valid = {
+                    triggered_desc = {
+                        trigger = {
+							sauron_is_alive = yes
+						}
+                        desc = palantir.0206.a
+                    }
+                    desc = palantir.0206.a.alt
+                }
+            }
+        }
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+	}
+}
+
+palantir.0207 = { # The Palantir - Misty Mountains
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0207.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					title:k_khazad_dum.holder ?= { is_dwarf = yes }
+				}
+				desc = palantir.0207.desc.dwarf
+			}
+			triggered_desc = {
+				trigger = {
+					character:lineofazog1 = { is_alive = yes }
+				}
+				desc = palantir.0207.desc.azog
+			}
+			desc = palantir.0207.desc
+		}
+	}
+	theme = mental_break
+	override_background = {
+		trigger = { scope:moriaking ?= { is_dwarf = yes } }
+		reference = durins_door
+	}
+	override_background = {
+		trigger = { scope:moriaking = { NOT = { is_dwarf = yes } } }
+		reference = durins_bane
+	}
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:moriaking
+		animation = marshal_shield
+	}
+	trigger = {
+		root = {
+			not = {
+				root.capital_province = {
+					geographical_region = middleearth_mountains_misty
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = title:k_khazad_dum.holder }
+			title:k_khazad_dum.holder = {
+				save_scope_as = moriaking
+			}
+		}
+	}
+	
+	option = {
+		name = {
+            text = {
+                first_valid = {
+                    triggered_desc = {
+                        trigger = {
+							scope:moriaking = { NOT = { is_dwarf = yes } }
+						}
+                        desc = palantir.0207.a
+                    }
+                    desc = palantir.0207.a.dwarf
+                }
+            }
+        }
+		if = {
+			limit = { has_character_flag = looking_into_the_mirror }
+			custom_tooltip = palantir.0100.mirror.b.tt
+		}
+		else = {
+			custom_tooltip = palantir.0100.b.tt
+		}
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+	}
+}
+
+## I SEE YOU !
+
+palantir.0300 = { # The Palantir - Dark Tower
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0300.t
+	desc = palantir.0300.desc
+	theme = mental_break
+	override_background = {
+		reference = throne_room_evil
+	}
+	left_portrait = {
+		character = root
+		animation = fear
+	}
+	right_portrait = {
+		character = character:lineofsauron
+		animation = war_over_win
+	}
+	trigger = {
+		sauron_is_alive = yes
+		sauron_has_palantir = yes
+		NOR = { 
+			this = character:lineofsauron
+			and = {
+				this = character:lineofsaruman
+				faith_is_evil = yes
+			}
+			faith = faith:lidless_eye
+			is_tributary_of = character:lineofsauron
+		}
+	}
+	
+	immediate = {
+		play_music_cue = lotr_action_evil_04
+	}
+	
+	weight_multiplier = {
+		base = 1
+		compare_modifier = {
+			value = numenorean_blood_tier
+			multiplier = -0.1
+			min = -0.5
+		}
+		modifier = {
+			add = -0.1
+			has_trait = intellect_good_1
+		}
+		modifier = {
+			add = -0.2
+			has_trait = intellect_good_2
+		}
+		modifier = {
+			add = -0.3
+			has_trait = intellect_good_3
+		}
+		modifier = {
+			add = 0.1
+			has_trait = intellect_bad_1
+		}
+		modifier = {
+			add = 0.2
+			has_trait = intellect_bad_2
+		}
+		modifier = {
+			add = 0.3
+			has_trait = intellect_bad_3
+		}
+		modifier = {
+			add = 1
+			faith_is_evil = yes
+		}
+		modifier = {
+			add = 0.5
+			faith_is_neutral = yes
+		}
+		modifier = {
+			add = 1
+			is_orc = yes
+		}
+		modifier = {
+			add = -0.7
+			OR = {
+				is_elf = yes
+				is_istari = yes
+			}
+		}
+		modifier = {
+			add = -0.5
+			is_dwarf = yes
+		}
+	}	
+	
+	option = { # Attempt to resist
+		name = palantir.0300.a		
+		trigger_event = {
+			id = palantir.0400
+			days = 3
+		}
+		if = {
+			limit = {
+				is_elf = yes
+				is_istari = yes
+			}
+			add_stress = 200
+		}
+		else = { add_stress = 100 }
+		if = {
+			limit = {
+				NOT = {
+					has_game_rule = default_ai_behavior
+					is_ai = yes
+					OR = {
+						is_istari = yes
+						this = character:lineisildur42 #Aragorn
+						this = character:linesteward38 #Denethor II
+						this = character:linesteward40 #Faramir
+						this = character:lineofeorl28 #Théoden
+						this = character:lineofeofor17 #Eomer
+						this = character:lineofeorl33 #Théodred
+					}
+				}
+			}
+			random = {
+				chance = 5
+				add_trait = lunatic_1
+			}
+		}
+		random_list = {
+			85 = {
+				desc = palantir.0300.a.tt	
+				modifier = {
+					add = 5
+					has_trait = stubborn
+				}
+				modifier = {
+					add = 10
+					has_trait = brave
+				}
+				modifier = {
+					add = 10
+					has_trait = zealous
+				}
+				modifier = {
+					add = 5
+					has_trait = compassionate
+				}
+				modifier = {
+					add = 5
+					has_trait = diligent
+				}
+				modifier = {
+					add = 5
+					faith_is_good = yes
+				}
+				modifier = {
+					add = 5
+					numenorean_blood_tier >= 1
+				}
+				modifier = {
+					add = 10
+					numenorean_blood_tier >= 3
+				}
+				modifier = {
+					add = 20
+					numenorean_blood_tier >= 5
+				}
+				modifier = {
+					add = 30
+					numenorean_blood_tier >= 7
+				}
+				# modifier = {
+				# 	add = 10
+				# 	num_total_troops >= character:lineofsauron.num_total_troops
+				# }
+				root = {
+					send_interface_toast = {
+						title = palantir.0300.a.tt	
+						left_icon = root
+						right_icon = character:lineofsauron
+						add_prestige = major_prestige_gain
+					}
+				}
+			}
+			15 = {
+				desc = palantir.0300.b.tt
+				trigger = {
+					Not = {
+						has_game_rule = default_ai_behavior
+						is_ai = yes
+						OR = {
+							is_istari = yes
+							is_elf = yes
+							this = character:lineisildur42 #Aragorn
+							this = character:linesteward38 #Denethor II
+							this = character:linesteward40 #Faramir
+							this = character:lineofeorl28 #Théoden
+							this = character:lineofeofor17 #Eomer
+							this = character:lineofeorl33 #Théodred
+							this = character:lineoftumakveh135 #Nîlûhîn II
+						}
+					}
+				}
+				modifier = {
+					add = 10
+					has_trait = craven
+				}
+				modifier = {
+					add = 10
+					has_trait = cynical
+				}
+				modifier = {
+					add = 5
+					has_trait = callous
+				}
+				modifier = {
+					add = 5
+					has_trait = lazy
+				}
+				modifier = {
+					add = 10
+					has_trait = sadistic
+				}
+				modifier = {
+					add = 5
+					faith_is_good = no
+				}
+				modifier = {
+					add = 5
+					faith_is_evil = yes
+				}
+				modifier = {
+					add = 5
+					has_trait = murderer
+				}
+				modifier = {
+					add = 10
+					has_trait = witch
+				}
+				# modifier = {
+				# 	add = 5
+				# 	num_total_troops < character:lineofsauron.num_total_troops
+				# }
+				root = {
+					send_interface_toast = {
+						title = palantir.0300.b.tt	
+						left_icon = root
+						right_icon = character:lineofsauron
+						add_piety_level = -1
+						add_prestige_level = -1
+						root.dynasty = { add_dynasty_prestige_level = -1 }
+						set_character_faith = faith:lidless_eye
+						character:lineofsauron = {
+							add_hook = {
+								type = loyalty_hook
+								target = root
+							}
+						}
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	
+	option = { # Command me, Dark Lord
+		name = palantir.0300.b
+		custom_tooltip = palantir.0300.b.tt	
+		add_stress = -300
+		add_piety_level = -1
+		add_prestige_level = -1
+		root.dynasty = { add_dynasty_prestige_level = -1 }
+		set_character_faith = faith:lidless_eye
+		character:lineofsauron = {
+			add_hook = {
+				type = loyalty_hook
+				target = root
+			}
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+## Ending Event
+palantir.0400 = { # The Palantir - End
+	type = character_event
+	content_source = realms_dlc
+	title = palantir.0400.t
+	desc = {
+		desc = {
+			first_valid = {
+				triggered_desc = {
+					trigger = { has_character_flag = looking_into_the_mirror }
+					desc = palantir.0400.mirror.desc
+				}
+				desc = palantir.0400.desc
+			}
+		}
+	}
+	theme = mental_break
+	override_background = {
+		reference = relaxing_room
+	}
+	left_portrait = {
+		character = root
+		animation = dismissal
+	}
+	option = { # Finished
+		name = palantir.0400.a	
+	}
+
+	after = {
+		#End the activity
+		if = {
+			limit = {
+				exists = scope:activity
+			}
+			# scope:activity = { complete_activity = yes } #TODO - no longer a thing, need to close differently in rework
+		}	
+	}
+}

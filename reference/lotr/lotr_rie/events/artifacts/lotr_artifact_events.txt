@@ -1,0 +1,2818 @@
+﻿namespace = lotr_artifact
+
+### LotR Artifact Events ###
+#			lotr_artifact.0001 		Morgul knife self-destruct
+#			lotr_artifact.0002		Elven artifact burns evil characters
+#			lotr_artifact.0003		Finding Durin's artifacts
+#			lotr_artifact.001x		Heir receives artifact
+#			lotr_artifact.002x		Dwarven Ring influence
+#			lotr_artifact.003x		Plundering Thorin's tomb
+#			lotr_artifact.004x		Aragorn receives Arnor's regalia
+#			lotr_artifact.0100		Ring of Power modifier switch event
+
+
+lotr_artifact.0001 = { #Morgul knife self-destruct
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0001.t
+	desc = lotr_artifact.0001.desc
+	theme = intrigue
+	right_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	
+	trigger = {
+		is_nazgul = no
+		is_sauron = no
+		NOR = {	
+			has_trait = sorcerer_1
+			has_trait = sorcerer_2
+			has_trait = sorcerer_3 
+		}
+	}
+	
+	option = { 
+		name = lotr_artifact.0001.a
+		every_character_artifact = {
+			limit = { has_variable = morgul_blade }
+			destroy_artifact = this
+		}
+		hidden_effect = {
+			if = {
+				limit = { 
+					NOT = { is_elf = yes }
+					cannot_be_killed = no
+				}
+				random = {
+					chance = 5
+					contract_disease_notify_effect = { DISEASE = black_breath }
+				}
+			}
+		}
+	}
+}
+
+
+lotr_artifact.0002 = { #It burns !
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0002.t
+	desc = lotr_artifact.0002.desc
+	theme = stewardship_wealth_focus
+	right_portrait = {
+		character = root
+		animation = fear
+	}
+	
+	trigger = {
+		OR = {
+			is_orc = yes
+			is_nazgul = yes
+		}
+	}
+	
+	option = { 
+		name = lotr_artifact.0002.a
+		increase_wounds_no_death_effect = { REASON = burned }
+	}
+}
+
+lotr_artifact.0003 = { #Finding Durin's artifacts
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0003.t
+
+	right_portrait = {
+		character = root
+		animation = steward
+	}
+
+	left_portrait = {
+		character = scope:martial
+		animation = ecstasy
+	}
+
+	lower_center_portrait = character:lineofdurinVI
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = found_both }
+				desc = lotr_artifact.0003.desc_both
+			}
+			triggered_desc = {
+				trigger = { has_character_flag = found_axe }
+				desc = lotr_artifact.0003.desc_axe
+			}
+			triggered_desc = {
+				trigger = { has_character_flag = found_helm }
+				desc = lotr_artifact.0003.desc_helm
+			}
+		}
+	}
+
+	theme = stewardship_wealth_focus
+	override_background = {
+		reference = city_dwarven
+	}
+
+	trigger = {
+		has_global_variable = gear_found
+	}
+
+	immediate = {
+		cp:councillor_marshal = { save_scope_as = martial }
+	}
+
+	option = {
+		name = lotr_artifact.0003.a
+
+		if = {
+			limit = { has_character_flag = found_both }
+			create_artifact_axe_of_durin_effect = { OWNER = root }
+			scope:newly_created_artifact = {
+				add_artifact_history = {
+					type = discovered
+					location = province:4909 #Durin's Hall
+					actor = root
+					recipient = root
+				}
+			}
+			create_artifact_durins_helm_effect = { OWNER = root }
+			scope:newly_created_artifact = {
+				add_artifact_history = {
+					type = discovered
+					location = province:4909 #Durin's Hall
+					actor = root
+					recipient = root
+				}
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = found_axe }
+			create_artifact_axe_of_durin_effect = { OWNER = root }
+			scope:newly_created_artifact = {
+				add_artifact_history = {
+					type = discovered
+					location = province:4909 #Durin's Hall
+					actor = root
+					recipient = root
+				}
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = found_helm }
+			create_artifact_durins_helm_effect = { OWNER = root }
+			scope:newly_created_artifact = {
+				add_artifact_history = {
+					type = discovered
+					location = province:4909 #Durin's Hall
+					actor = root
+					recipient = root
+				}
+			}
+		}
+	}
+}
+
+lotr_artifact.0010 = { #Heirloom for my heir ?
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0010.t
+	desc = lotr_artifact.0010.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	right_portrait = {
+		character = scope:heir
+		animation = idle
+	}
+	artifact = { # To display the artifact in the event-window
+		target = scope:heirloom_artifact_1
+		position = lower_left_portrait
+	}
+	artifact = { # To display the artifact in the event-window
+		trigger = { exists = scope:heirloom_artifact_2 }
+		target = scope:heirloom_artifact_2
+		position = lower_center_portrait
+	}
+	artifact = { # To display the artifact in the event-window
+		trigger = { exists = scope:heirloom_artifact_3 }
+		target = scope:heirloom_artifact_3
+		position = lower_right_portrait
+	}
+	
+	cooldown = { days = 1 }
+	
+	trigger = {
+		any_character_artifact = {
+			has_variable = heirloom_of_title
+			root = var:heirloom_of_title.holder
+		}
+		primary_heir = { 
+			is_lotr_adult = yes
+			dynasty = root.dynasty
+			NOT = { has_character_flag = heir_scorned }
+		}
+	}
+	
+	immediate = {
+		root = { save_scope_as = parent }
+		primary_heir = { save_scope_as = heir }
+		random_character_artifact = {
+			limit = {
+				has_variable = heirloom_of_title
+				root = var:heirloom_of_title.holder
+			}
+			save_scope_as = heirloom_artifact_1
+		}
+		random_character_artifact = {
+			limit = {
+				has_variable = heirloom_of_title
+				root = var:heirloom_of_title.holder
+				this != scope:heirloom_artifact_1
+			}
+			save_scope_as = heirloom_artifact_2
+		}
+		random_character_artifact = {
+			limit = {
+				has_variable = heirloom_of_title
+				root = var:heirloom_of_title.holder
+				this != scope:heirloom_artifact_1
+				this != scope:heirloom_artifact_2
+			}
+			save_scope_as = heirloom_artifact_3
+		}
+	}
+	
+	option = { #Give them to you heir
+		name = lotr_artifact.0010.a
+		scope:heirloom_artifact_1 = {
+			set_owner = scope:heir
+			add_artifact_history = {
+				type = given
+				actor = root
+				recipient = scope:heir
+			}
+		}
+		scope:heirloom_artifact_2 ?= {
+			set_owner = scope:heir
+			add_artifact_history = {
+				type = given
+				actor = root
+				recipient = scope:heir
+			}
+		}
+		scope:heirloom_artifact_3 ?= {
+			set_owner = scope:heir
+			add_artifact_history = {
+				type = given
+				actor = root
+				recipient = scope:heir
+			}
+		}
+		scope:heir = {
+			add_opinion = {
+				target = root
+				opinion = 50
+				modifier = grateful_opinion
+			}
+			trigger_event = lotr_artifact.0011
+		}
+		ai_chance = 100
+	}
+	
+	option = { #The _insert name here_ is MINE! And no other's
+		name = lotr_artifact.0010.b
+		scope:heir = {
+			add_opinion = {
+				target = root
+				opinion = -50
+				modifier = outraged_opinion
+			}
+			add_personal_artifact_claim = scope:heirloom_artifact_1
+			if = {
+				limit = { exists = scope:heirloom_artifact_2 }
+				add_personal_artifact_claim = scope:heirloom_artifact_2
+			}
+			if = {
+				limit = { exists = scope:heirloom_artifact_3 }
+				add_personal_artifact_claim = scope:heirloom_artifact_3
+			}
+			add_character_flag = heir_scorned
+			trigger_event = lotr_artifact.0012
+		}
+		every_vassal_or_below = {
+			limit = {
+				has_vassal_stance = courtly
+			}
+			custom = every_courtly_vassal
+			add_opinion = {
+				target = root
+				opinion = -20
+				modifier = disappointed_opinion
+			}
+		}
+		ai_chance = 0
+	}
+}
+
+lotr_artifact.0011 = { #A present fit for an heir
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0011.t
+	desc = lotr_artifact.0011.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = scope:parent
+		animation = personality_honorable
+	}
+	artifact = { # To display the artifact in the event-window
+		target = scope:heirloom_artifact_1
+		position = lower_left_portrait
+	}
+	artifact = { # To display the artifact in the event-window
+		trigger = { exists = scope:heirloom_artifact_2 }
+		target = scope:heirloom_artifact_2
+		position = lower_center_portrait
+	}
+	artifact = { # To display the artifact in the event-window
+		trigger = { exists = scope:heirloom_artifact_3 }
+		target = scope:heirloom_artifact_3
+		position = lower_right_portrait
+	}
+	
+	immediate = {
+		random_character_artifact = {
+			limit = {
+				has_variable = heirloom_of_title
+				scope:parent = var:heirloom_of_title.holder
+			}
+			save_scope_as = heirloom_artifact_1
+		}
+		random_character_artifact = {
+			limit = {
+				has_variable = heirloom_of_title
+				scope:parent = var:heirloom_of_title.holder
+				this != scope:heirloom_artifact_1
+			}
+			save_scope_as = heirloom_artifact_2
+		}
+		random_character_artifact = {
+			limit = {
+				has_variable = heirloom_of_title
+				scope:parent = var:heirloom_of_title.holder
+				this != scope:heirloom_artifact_1
+				this != scope:heirloom_artifact_2
+			}
+			save_scope_as = heirloom_artifact_3
+		}
+	}
+	
+	option = { #Thank you so much !
+		name = lotr_artifact.0011.a
+	}
+}
+
+lotr_artifact.0012 = { #An heir scorned
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0012.t
+	desc = lotr_artifact.0012.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	right_portrait = {
+		character = scope:parent
+		animation = personality_greedy
+	}
+	artifact = { # To display the artifact in the event-window
+		target = scope:heirloom_artifact_1
+		position = lower_left_portrait
+	}
+	artifact = { # To display the artifact in the event-window
+		trigger = { exists = scope:heirloom_artifact_2 }
+		target = scope:heirloom_artifact_2
+		position = lower_center_portrait
+	}
+	artifact = { # To display the artifact in the event-window
+		trigger = { exists = scope:heirloom_artifact_3 }
+		target = scope:heirloom_artifact_3
+		position = lower_right_portrait
+	}
+	
+	immediate = {
+		scope:parent = {
+			random_character_artifact = {
+				limit = {
+					has_variable = heirloom_of_title
+					root = var:heirloom_of_title.holder
+				}
+				save_scope_as = heirloom_artifact_1
+			}
+			random_character_artifact = {
+				limit = {
+					has_variable = heirloom_of_title
+					root = var:heirloom_of_title.holder
+					this != scope:heirloom_artifact_1
+				}
+				save_scope_as = heirloom_artifact_2
+			}
+			random_character_artifact = {
+				limit = {
+					has_variable = heirloom_of_title
+					root = var:heirloom_of_title.holder
+					this != scope:heirloom_artifact_1
+					this != scope:heirloom_artifact_2
+				}
+				save_scope_as = heirloom_artifact_3
+			}
+		}
+	}
+	
+	option = { #Well, all right
+		name = lotr_artifact.0012.a
+		
+		ai_chance = {
+			base = 0
+		
+			ai_value_modifier = {
+				ai_sociability = 1
+				ai_vengefulness = -1
+			}
+		}
+	}
+	
+	option = { #I'll get you for this !
+		name = lotr_artifact.0012.b
+		set_relation_rival = scope:parent
+		
+		ai_chance = {
+			base = 0
+		
+			ai_value_modifier = {
+				ai_sociability = -1
+				ai_vengefulness = 1
+			}
+		}
+	}
+}
+
+lotr_artifact.0013 = { #Heirloom returned
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0013.t
+	desc = lotr_artifact.0013.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = sadness
+	}
+	right_portrait = {
+		character = scope:dead_heir
+		animation = dead
+	}
+	artifact = { # To display the artifact in the event-window
+		target = scope:heirloom_artifact
+		position = lower_center_portrait
+	}
+	
+	immediate = {
+		root = { save_scope_as = parent }
+		random_character_artifact = {
+			limit = {
+				has_variable = heirloom_of_title
+				root = var:heirloom_of_title.holder
+			}
+			save_scope_as = heirloom_artifact
+		}
+	}
+	
+	option = { #Such a sad day
+		name = lotr_artifact.0013.a
+	}
+}
+
+lotr_artifact.0014 = { #Heirloom category choice
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0014.t
+	desc = lotr_artifact.0014.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	
+	immediate = {
+		primary_title = { save_scope_as = primary_title }
+	}
+	
+	option = { #Weapon
+		name = lotr_artifact.0014.a
+		trigger = {
+			any_character_artifact = {
+				artifact_slot_type = primary_armament
+				OR = { # Cool enough
+					rarity = famed
+					rarity = illustrious
+				}
+				OR = { #Available to be attributed
+					NOR = { 
+						has_variable = heirloom_of_title 
+						has_variable = artifact_succession_title
+					}
+					trigger_if = { #To change the title of an heirloom
+						limit = { has_variable = heirloom_of_title }
+						var:heirloom_of_title.holder = root
+						root.primary_title != var:heirloom_of_title
+					}
+					trigger_if = { #To change the title of a titular artifact
+						limit = { has_variable = artifact_succession_title }
+						var:artifact_succession_title.holder = root
+						root.primary_title != var:heirloom_of_title
+					}
+				}
+			}
+		}
+		add_character_flag = weapon_heirloom
+	}
+	
+	option = { #Regalia
+		name = lotr_artifact.0014.b
+		trigger = {
+			any_character_artifact = {
+				artifact_slot_type = regalia
+				OR = { # Cool enough
+					rarity = famed
+					rarity = illustrious
+				}
+				OR = { #Available to be attributed
+					NOR = { 
+						has_variable = heirloom_of_title 
+						has_variable = artifact_succession_title
+					}
+					trigger_if = { #To change the title of an heirloom
+						limit = { has_variable = heirloom_of_title }
+						var:heirloom_of_title.holder = root
+						root.primary_title != var:heirloom_of_title
+					}
+					trigger_if = { #To change the title of a titular artifact
+						limit = { has_variable = artifact_succession_title }
+						var:artifact_succession_title.holder = root
+						root.primary_title != var:heirloom_of_title
+					}
+				}
+			}
+		}
+		add_character_flag = regalia_heirloom
+	}
+	
+	option = { #Crown
+		name = lotr_artifact.0014.c
+		trigger = {
+			any_character_artifact = {
+				artifact_slot_type = helmet
+				OR = { # Cool enough
+					rarity = famed
+					rarity = illustrious
+				}
+				OR = { #Available to be attributed
+					NOR = { 
+						has_variable = heirloom_of_title 
+						has_variable = artifact_succession_title
+					}
+					trigger_if = { #To change the title of an heirloom
+						limit = { has_variable = heirloom_of_title }
+						var:heirloom_of_title.holder = root
+						root.primary_title != var:heirloom_of_title
+					}
+					trigger_if = { #To change the title of a titular artifact
+						limit = { has_variable = artifact_succession_title }
+						var:artifact_succession_title.holder = root
+						root.primary_title != var:heirloom_of_title
+					}
+				}
+				NOT = { has_variable = silmaril }
+			}
+		}
+		add_character_flag = helmet_heirloom
+	}
+	
+	option = { #Armour
+		name = lotr_artifact.0014.d
+		trigger = {
+			any_character_artifact = {
+				artifact_slot_type = armor
+				OR = { # Cool enough
+					rarity = famed
+					rarity = illustrious
+				}
+				OR = { #Available to be attributed
+					NOR = { 
+						has_variable = heirloom_of_title 
+						has_variable = artifact_succession_title
+					}
+					trigger_if = { #To change the title of an heirloom
+						limit = { has_variable = heirloom_of_title }
+						var:heirloom_of_title.holder = root
+						root.primary_title != var:heirloom_of_title
+					}
+					trigger_if = { #To change the title of a titular artifact
+						limit = { has_variable = artifact_succession_title }
+						var:artifact_succession_title.holder = root
+						root.primary_title != var:heirloom_of_title
+					}
+				}
+			}
+		}
+		add_character_flag = armor_heirloom
+	}
+	
+	option = { #Trinkets
+		name = lotr_artifact.0014.e
+		trigger = {
+			any_character_artifact = {
+				artifact_slot_type = miscellaneous
+				OR = { # Cool enough
+					rarity = famed
+					rarity = illustrious
+				}
+				OR = { #Available to be attributed
+					NOR = { 
+						has_variable = heirloom_of_title 
+						has_variable = artifact_succession_title
+					}
+					trigger_if = { #To change the title of an heirloom
+						limit = { has_variable = heirloom_of_title }
+						var:heirloom_of_title.holder = root
+						root.primary_title != var:heirloom_of_title
+					}
+					trigger_if = { #To change the title of a titular artifact
+						limit = { has_variable = artifact_succession_title }
+						var:artifact_succession_title.holder = root
+						root.primary_title != var:heirloom_of_title
+					}
+				}
+				NOT = {	has_variable = ring_of_power }
+			}
+		}
+		add_character_flag = trinket_heirloom
+	}
+	
+	option = { #Cancel
+		name = lotr_artifact.0014.f
+		remove_character_flag = weapon_heirloom
+		remove_character_flag = regalia_heirloom
+		remove_character_flag = armor_heirloom
+		remove_character_flag = helmet_heirloom
+		remove_character_flag = trinket_heirloom
+	}
+	
+	after = {
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = weapon_heirloom
+					has_character_flag = regalia_heirloom
+					has_character_flag = armor_heirloom
+					has_character_flag = helmet_heirloom
+					has_character_flag = trinket_heirloom
+				}
+			}
+			trigger_event = lotr_artifact.0015
+		}
+	}
+}
+
+lotr_artifact.0015 = { #Heirloom item choice
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0015.t
+	desc = lotr_artifact.0015.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	right_portrait = {
+		character = scope:heir
+		animation = happiness
+	}
+	artifact = { # To display the artifact in the event-window
+		target = scope:artifact_1
+		position = lower_left_portrait
+	}
+	artifact = { # To display the artifact in the event-window
+		trigger = { scope:artifact_2 != scope:artifact_1 }
+		target = scope:artifact_2
+		position = lower_center_portrait
+	}
+	artifact = { # To display the artifact in the event-window
+		trigger = { scope:artifact_3 != scope:artifact_1 }
+		target = scope:artifact_3
+		position = lower_right_portrait
+	}
+	
+	
+	immediate = {
+		root = { save_scope_as = parent }
+		primary_heir = { save_scope_as = heir }
+		if = {
+			limit = { has_character_flag = weapon_heirloom }
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = primary_armament
+					NOT = { has_variable = rejected_artifact }
+					OR = { # Cool enough
+						rarity = famed
+						rarity = illustrious
+					}
+					OR = { #Available to be attributed
+						NOR = { 
+							has_variable = heirloom_of_title 
+							has_variable = artifact_succession_title
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = heirloom_of_title
+							var:heirloom_of_title.holder = root
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = artifact_succession_title
+							var:artifact_succession_title.holder = root
+						}
+					}
+				}
+				save_scope_as = artifact_1
+				save_scope_as = artifact_2
+				save_scope_as = artifact_3
+				set_variable = rejected_artifact
+			}
+			random_character_artifact = {
+				limit = {
+					NOT = { this = scope:artifact_1 }
+					NOT = { has_variable = rejected_artifact }
+					artifact_slot_type = primary_armament
+					OR = { # Cool enough
+						rarity = famed
+						rarity = illustrious
+					}
+					OR = { #Available to be attributed
+						NOR = { 
+							has_variable = heirloom_of_title 
+							has_variable = artifact_succession_title
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = heirloom_of_title
+							var:heirloom_of_title.holder = root
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = artifact_succession_title
+							var:artifact_succession_title.holder = root
+						}
+					}
+				}
+				save_scope_as = artifact_2
+				set_variable = rejected_artifact
+			}
+			random_character_artifact = {
+				limit = {
+					NOT = { this = scope:artifact_1 }
+					NOT = { this = scope:artifact_2 }
+					# NOT = { has_variable = rejected_artifact }
+					artifact_slot_type = primary_armament
+					OR = { # Cool enough
+						rarity = famed
+						rarity = illustrious
+					}
+					OR = { #Available to be attributed
+						NOR = { 
+							has_variable = heirloom_of_title 
+							has_variable = artifact_succession_title
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = heirloom_of_title
+							var:heirloom_of_title.holder = root
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = artifact_succession_title
+							var:artifact_succession_title.holder = root
+						}
+					}
+				}
+				save_scope_as = artifact_3
+				set_variable = rejected_artifact
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = regalia_heirloom }
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = regalia
+					NOT = { has_variable = rejected_artifact }
+					OR = { # Cool enough
+						rarity = famed
+						rarity = illustrious
+					}
+					OR = { #Available to be attributed
+						NOR = { 
+							has_variable = heirloom_of_title 
+							has_variable = artifact_succession_title
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = heirloom_of_title
+							var:heirloom_of_title.holder = root
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = artifact_succession_title
+							var:artifact_succession_title.holder = root
+						}
+					}
+				}
+				save_scope_as = artifact_1
+				save_scope_as = artifact_2
+				save_scope_as = artifact_3
+				set_variable = rejected_artifact
+			}
+			random_character_artifact = {
+				limit = {
+					NOT = { this = scope:artifact_1 }
+					NOT = { has_variable = rejected_artifact }
+					artifact_slot_type = regalia
+					OR = { # Cool enough
+						rarity = famed
+						rarity = illustrious
+					}
+					OR = { #Available to be attributed
+						NOR = { 
+							has_variable = heirloom_of_title 
+							has_variable = artifact_succession_title
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = heirloom_of_title
+							var:heirloom_of_title.holder = root
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = artifact_succession_title
+							var:artifact_succession_title.holder = root
+						}
+					}
+				}
+				save_scope_as = artifact_2
+				set_variable = rejected_artifact
+			}
+			random_character_artifact = {
+				limit = {
+					NOT = { this = scope:artifact_1 }
+					NOT = { this = scope:artifact_2 }
+					# NOT = { has_variable = rejected_artifact }
+					artifact_slot_type = regalia
+					OR = { # Cool enough
+						rarity = famed
+						rarity = illustrious
+					}
+					OR = { #Available to be attributed
+						NOR = { 
+							has_variable = heirloom_of_title 
+							has_variable = artifact_succession_title
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = heirloom_of_title
+							var:heirloom_of_title.holder = root
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = artifact_succession_title
+							var:artifact_succession_title.holder = root
+						}
+					}
+				}
+				save_scope_as = artifact_3
+				set_variable = rejected_artifact
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = armor_heirloom }
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = armor
+					NOT = { has_variable = rejected_artifact }
+					OR = { # Cool enough
+						rarity = famed
+						rarity = illustrious
+					}
+					OR = { #Available to be attributed
+						NOR = { 
+							has_variable = heirloom_of_title 
+							has_variable = artifact_succession_title
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = heirloom_of_title
+							var:heirloom_of_title.holder = root
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = artifact_succession_title
+							var:artifact_succession_title.holder = root
+						}
+					}
+				}
+				save_scope_as = artifact_1
+				save_scope_as = artifact_2
+				save_scope_as = artifact_3
+				set_variable = rejected_artifact
+			}
+			random_character_artifact = {
+				limit = {
+					NOT = { this = scope:artifact_1 }
+					NOT = { has_variable = rejected_artifact }
+					artifact_slot_type = armor
+					OR = { # Cool enough
+						rarity = famed
+						rarity = illustrious
+					}
+					OR = { #Available to be attributed
+						NOR = { 
+							has_variable = heirloom_of_title 
+							has_variable = artifact_succession_title
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = heirloom_of_title
+							var:heirloom_of_title.holder = root
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = artifact_succession_title
+							var:artifact_succession_title.holder = root
+						}
+					}
+				}
+				save_scope_as = artifact_2
+				set_variable = rejected_artifact
+			}
+			random_character_artifact = {
+				limit = {
+					NOT = { this = scope:artifact_1 }
+					NOT = { this = scope:artifact_2 }
+					# NOT = { has_variable = rejected_artifact }
+					artifact_slot_type = armor
+					OR = { # Cool enough
+						rarity = famed
+						rarity = illustrious
+					}
+					OR = { #Available to be attributed
+						NOR = { 
+							has_variable = heirloom_of_title 
+							has_variable = artifact_succession_title
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = heirloom_of_title
+							var:heirloom_of_title.holder = root
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = artifact_succession_title
+							var:artifact_succession_title.holder = root
+						}
+					}
+				}
+				save_scope_as = artifact_3
+				set_variable = rejected_artifact
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = helmet_heirloom }
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = helmet
+					NOT = { has_variable = rejected_artifact }
+					OR = { # Cool enough
+						rarity = famed
+						rarity = illustrious
+					}
+					OR = { #Available to be attributed
+						NOR = { 
+							has_variable = heirloom_of_title 
+							has_variable = artifact_succession_title
+							has_variable = silmaril
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = heirloom_of_title
+							var:heirloom_of_title.holder = root
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = artifact_succession_title
+							var:artifact_succession_title.holder = root
+						}
+					}
+				}
+				save_scope_as = artifact_1
+				save_scope_as = artifact_2
+				save_scope_as = artifact_3
+				set_variable = rejected_artifact
+			}
+			random_character_artifact = {
+				limit = {
+					NOT = { this = scope:artifact_1 }
+					NOT = { has_variable = rejected_artifact }
+					artifact_slot_type = helmet
+					OR = { # Cool enough
+						rarity = famed
+						rarity = illustrious
+					}
+					OR = { #Available to be attributed
+						NOR = { 
+							has_variable = heirloom_of_title 
+							has_variable = artifact_succession_title
+							has_variable = silmaril
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = heirloom_of_title
+							var:heirloom_of_title.holder = root
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = artifact_succession_title
+							var:artifact_succession_title.holder = root
+						}
+					}
+				}
+				save_scope_as = artifact_2
+				set_variable = rejected_artifact
+			}
+			random_character_artifact = {
+				limit = {
+					NOT = { this = scope:artifact_1 }
+					NOT = { this = scope:artifact_2 }
+					# NOT = { has_variable = rejected_artifact }
+					artifact_slot_type = helmet
+					OR = { # Cool enough
+						rarity = famed
+						rarity = illustrious
+					}
+					OR = { #Available to be attributed
+						NOR = { 
+							has_variable = heirloom_of_title 
+							has_variable = artifact_succession_title
+							has_variable = silmaril
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = heirloom_of_title
+							var:heirloom_of_title.holder = root
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = artifact_succession_title
+							var:artifact_succession_title.holder = root
+						}
+					}
+				}
+				save_scope_as = artifact_3
+				set_variable = rejected_artifact
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = trinket_heirloom }
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = miscellaneous
+					NOT = { has_variable = rejected_artifact }
+					OR = { # Cool enough
+						rarity = famed
+						rarity = illustrious
+					}
+					OR = { #Available to be attributed
+						NOR = { 
+							has_variable = heirloom_of_title 
+							has_variable = artifact_succession_title
+							has_variable = ring_of_power
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = heirloom_of_title
+							var:heirloom_of_title.holder = root
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = artifact_succession_title
+							var:artifact_succession_title.holder = root
+						}
+					}
+				}
+				save_scope_as = artifact_1
+				save_scope_as = artifact_2
+				save_scope_as = artifact_3
+				set_variable = rejected_artifact
+			}
+			random_character_artifact = {
+				limit = {
+					NOT = { this = scope:artifact_1 }
+					NOT = { has_variable = rejected_artifact }
+					artifact_slot_type = miscellaneous
+					OR = { # Cool enough
+						rarity = famed
+						rarity = illustrious
+					}
+					OR = { #Available to be attributed
+						NOR = { 
+							has_variable = heirloom_of_title 
+							has_variable = artifact_succession_title
+							has_variable = ring_of_power
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = heirloom_of_title
+							var:heirloom_of_title.holder = root
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = artifact_succession_title
+							var:artifact_succession_title.holder = root
+						}
+					}
+				}
+				save_scope_as = artifact_2
+				set_variable = rejected_artifact
+			}
+			random_character_artifact = {
+				limit = {
+					NOT = { this = scope:artifact_1 }
+					NOT = { this = scope:artifact_2 }
+					# NOT = { has_variable = rejected_artifact }
+					artifact_slot_type = miscellaneous
+					OR = { # Cool enough
+						rarity = famed
+						rarity = illustrious
+					}
+					OR = { #Available to be attributed
+						NOR = { 
+							has_variable = heirloom_of_title 
+							has_variable = artifact_succession_title
+							has_variable = ring_of_power
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = heirloom_of_title
+							var:heirloom_of_title.holder = root
+						}
+						AND = { #To change the title of an heirloom
+							has_variable = artifact_succession_title
+							var:artifact_succession_title.holder = root
+						}
+					}
+				}
+				save_scope_as = artifact_3
+				set_variable = rejected_artifact
+			}
+		}
+	}
+	
+	option = { #First choice
+		name = lotr_artifact.0015.a
+		trigger = {
+			exists = scope:artifact_1
+		}
+		scope:artifact_1 = {
+			save_scope_as = heirloom_artifact
+			set_variable = {
+				name = heirloom_of_title
+				value = root.primary_title
+			}
+			remove_variable = artifact_succession_title
+			set_artifact_description = lotr_heirloom_artifact_desc
+			add_artifact_modifier = lotr_heirloom_artifact_modifier
+			set_owner = scope:heir
+			add_artifact_history = {
+				type = given
+				actor = root
+				recipient = scope:heir
+			}
+   equip_artifact_to_owner = yes
+		}
+		scope:heir = {
+			add_opinion = {
+				target = root
+				opinion = 50
+				modifier = grateful_opinion
+			}
+			trigger_event = lotr_artifact.0011
+		}
+		every_character_artifact = {
+			limit = { has_variable = rejected_artifact }
+			remove_variable = rejected_artifact
+		}
+		remove_character_flag = weapon_heirloom
+		remove_character_flag = regalia_heirloom
+		remove_character_flag = armor_heirloom
+		remove_character_flag = helmet_heirloom
+		remove_character_flag = trinket_heirloom
+	}
+	
+	option = { #Second choice
+		name = lotr_artifact.0015.b
+		trigger = {
+			exists = scope:artifact_2
+			scope:artifact_2 != scope:artifact_1
+		}
+		scope:artifact_2 = {
+			save_scope_as = heirloom_artifact
+			set_variable = {
+				name = heirloom_of_title
+				value = root.primary_title
+			}
+			remove_variable = artifact_succession_title
+			set_artifact_description = lotr_heirloom_artifact_desc
+			add_artifact_modifier = lotr_heirloom_artifact_modifier
+			set_owner = scope:heir
+			add_artifact_history = {
+				type = given
+				actor = root
+				recipient = scope:heir
+			}
+   equip_artifact_to_owner = yes
+		}
+		scope:heir = {
+			add_opinion = {
+				target = root
+				opinion = 50
+				modifier = grateful_opinion
+			}
+			trigger_event = lotr_artifact.0011
+		}
+		every_character_artifact = {
+			limit = { has_variable = rejected_artifact }
+			remove_variable = rejected_artifact
+		}
+		remove_character_flag = weapon_heirloom
+		remove_character_flag = regalia_heirloom
+		remove_character_flag = armor_heirloom
+		remove_character_flag = helmet_heirloom
+		remove_character_flag = trinket_heirloom
+	}
+	
+	option = { #Third choice
+		name = lotr_artifact.0015.c
+		trigger = {
+			exists = scope:artifact_3
+			scope:artifact_3 != scope:artifact_1
+		}
+		scope:artifact_3 = {
+			save_scope_as = heirloom_artifact
+			set_variable = {
+				name = heirloom_of_title
+				value = root.primary_title
+			}
+			remove_variable = artifact_succession_title
+			set_artifact_description = lotr_heirloom_artifact_desc
+			add_artifact_modifier = lotr_heirloom_artifact_modifier
+			set_owner = scope:heir
+			add_artifact_history = {
+				type = given
+				actor = root
+				recipient = scope:heir
+			}
+   equip_artifact_to_owner = yes
+	 }
+		scope:heir = {
+			add_opinion = {
+				target = root
+				opinion = 50
+				modifier = grateful_opinion
+			}
+			trigger_event = lotr_artifact.0011
+		}
+		every_character_artifact = {
+			limit = { has_variable = rejected_artifact }
+			remove_variable = rejected_artifact
+		}
+		remove_character_flag = weapon_heirloom
+		remove_character_flag = regalia_heirloom
+		remove_character_flag = armor_heirloom
+		remove_character_flag = helmet_heirloom
+		remove_character_flag = trinket_heirloom
+	}
+	
+	option = { #What else ?
+		name = lotr_artifact.0015.d
+		trigger_event = lotr_artifact.0015
+	}
+	
+	option = { #Not one of those after all ?
+		name = lotr_artifact.0015.e
+		every_character_artifact = {
+			limit = { has_variable = rejected_artifact }
+			remove_variable = rejected_artifact
+		}
+		remove_character_flag = weapon_heirloom
+		remove_character_flag = regalia_heirloom
+		remove_character_flag = armor_heirloom
+		remove_character_flag = helmet_heirloom
+		remove_character_flag = trinket_heirloom
+		trigger_event = lotr_artifact.0014
+	}
+}
+
+lotr_artifact.0020 = { # Convert to Gold faith
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0020.t
+	desc = lotr_artifact.0020.desc
+	theme = mental_break
+	override_background = { reference = throne_room }
+	left_portrait = {
+		character = root
+		animation = paranoia
+	}
+	
+	trigger = {
+		is_dwarf = yes
+		NOT = { 
+			faith = {
+				has_doctrine = tenet_gold_veneration
+				has_doctrine = doctrine_heretic_branch_dwarven
+			}
+		}
+		any_character_artifact = { has_variable = corrupted_ring }
+	}
+	
+	immediate = { add_stress = 75 }
+	
+	option = {
+		name = lotr_artifact.0020.a
+		set_character_faith = faith:faith_gold_worship
+		if = {
+			limit = { NOT = { has_trait = greedy } }
+			add_trait_force_tooltip = greedy
+		}
+		if = {
+			limit = { has_trait = generous }
+			remove_trait = generous
+		}
+		if = {
+			limit = { has_trait = trusting }
+			remove_trait = trusting
+			add_trait_force_tooltip = paranoid
+		}
+	}
+	
+	option = {
+		name = lotr_artifact.0020.b
+		add_stress = massive_stress_gain
+	}
+}
+
+lotr_artifact.0021 = { # Convert to Gold faith maintenance event
+	hidden = yes
+	
+	immediate = { 
+		if = { 
+			limit = { faith != faith:faith_gold_worship }
+			trigger_event = lotr_artifact.0020
+		}
+		trigger_event = { 
+			id = lotr_artifact.0021
+			years = 5
+		}
+	}
+}
+
+lotr_artifact.0030 = { #Thorin's tomb plunder event
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0030.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					is_dwarf = yes
+				}
+				desc = lotr_artifact.0030.desc.dwarf
+			}
+			triggered_desc = {
+				trigger = {
+					is_orc = yes
+				}
+				desc = lotr_artifact.0030.desc.orc
+			}
+			desc = lotr_artifact.0030.desc
+		}
+	}
+	theme = intrigue_skulduggery_focus
+	left_portrait = {
+		character = character:lineofdurin83
+		animation = marshal
+	}
+	right_portrait = {
+		character = root
+		animation = scheme
+	}
+
+	trigger = { game_start_date > 6974.11.30 } #Thorin died before start date
+	
+	option = { #I shouldn't
+		name = lotr_artifact.0030.a
+	}
+	
+	option = { #It's there for the taking - Dwarf and Good characters
+		name = {
+			trigger = { 
+				is_dwarf = yes
+			}
+			text = lotr_artifact.0030.b.dwarf
+		}
+		name = {
+			trigger = {
+				NOT = { is_dwarf = yes }
+			}
+			text = lotr_artifact.0030.b
+		}
+		trigger = {
+			OR = {
+				faith_is_good = yes
+				is_dwarf = yes
+			}
+		}
+		plunder_thorins_tomb_good_effect = yes
+	}
+	
+	option = { #It's there for the taking - Non-good and Orcs
+		name = {
+			trigger = { 
+				is_orc = yes
+			}
+			text = lotr_artifact.0030.c.orc
+		}
+		name = {
+			trigger = {
+				NOT = { is_orc = yes }
+			}
+			text = lotr_artifact.0030.c
+		}
+		
+		trigger = {
+			faith_is_good = no
+			NOT = { is_dwarf = yes }
+		}
+		plunder_thorins_tomb_evil_effect = yes
+	}
+}
+
+lotr_artifact.0031 = { #Return the Artifacts
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0031.t
+	desc = {
+		desc = lotr_artifact.0031.desc.intro
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = scope:orcrist
+					exists = scope:arkenstone
+				}
+				desc = lotr_artifact.0031.desc.both
+			}
+			triggered_desc = {
+				trigger = {
+					exists = scope:orcrist
+				}
+				desc = lotr_artifact.0031.desc.orcrist
+			}
+			desc = lotr_artifact.0031.desc.arkenstone
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					is_dwarf = yes
+				}
+				desc = lotr_artifact.0031.desc.dwarf
+			}
+			desc = lotr_artifact.0031.desc
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					any_sub_realm_county = {
+						this = title:c_throne_of_erebor
+					}
+				}
+				desc = lotr_artifact.0031.desc.erebor
+			}
+			desc = lotr_artifact.0031.desc.not_erebor
+		}
+	}
+	
+	theme = diplomacy
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+	right_portrait = {
+		character = scope:dwarven_ruler
+		animation = beg
+	}
+	artifact = { # To display the artifact in the event-window
+		target = scope:arkenstone
+		position = lower_left_portrait
+	}
+	artifact = { # To display the artifact in the event-window
+		target = scope:orcrist
+		position = lower_center_portrait
+	}
+	cooldown = { days = 2}
+	trigger = {
+		NOT = { is_orc = yes }
+		faith_is_evil = no
+		OR = {
+			AND = {
+				NOT = {
+					is_dwarf = yes
+					title:c_throne_of_erebor.holder.top_liege = { NOT = { is_dwarf = yes } }
+				}
+				any_ruler = {
+					in_diplomatic_range = root
+					is_dwarf = yes
+				}
+			}
+			AND = {
+				is_dwarf = yes
+				title:c_throne_of_erebor.holder.top_liege = { is_dwarf = yes }
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				any_character_artifact = {
+					has_variable = orcrist
+				}
+			}
+			random_character_artifact = {
+				limit = { has_variable = orcrist }
+				save_scope_as = orcrist
+			}
+		}
+		if = {
+			limit = {
+				any_character_artifact = {
+					has_variable = arkenstone
+				}
+			}
+			random_character_artifact = {
+				limit = { has_variable = arkenstone }
+				save_scope_as = arkenstone
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					title:c_throne_of_erebor.holder.top_liege = this
+					title:c_throne_of_erebor.holder = this
+				}
+			}
+			if = { #Fetch the ruler of Erebor
+				limit = { title:c_throne_of_erebor.holder.top_liege = { is_dwarf = yes } }
+				title:c_throne_of_erebor.holder.top_liege = { save_scope_as = dwarven_ruler }
+			}
+			else_if = { #If Erebor is occupied, fetch a nearby Dwarven king
+				limit = {
+					any_independent_ruler = {
+						in_diplomatic_range = root
+						highest_held_title_tier >= tier_kingdom
+						is_dwarf = yes
+					}
+				}
+				random_independent_ruler = {
+					limit = {
+						in_diplomatic_range = root
+						highest_held_title_tier >= tier_kingdom
+						is_dwarf = yes
+					}
+					save_scope_as = dwarven_ruler
+				}
+			}
+			else_if = { #If there aren't any, pick any nearby House of Durin ruler
+				limit = {
+					any_independent_ruler = {
+						in_diplomatic_range = root
+						highest_held_title_tier >= tier_kingdom
+						is_dwarf = yes
+					}
+				}
+				random_ruler = {
+					limit = {
+						in_diplomatic_range = root
+						dynasty = dynasty:dynasty_durin
+						is_dwarf = yes
+					}
+					save_scope_as = dwarven_ruler
+				}
+			}
+			else = { #If there aren't any, pick any nearby Dwarven ruler
+				random_ruler = {
+					limit = {
+						in_diplomatic_range = root
+						is_dwarf = yes
+					}
+					save_scope_as = dwarven_ruler
+				}
+			}
+		}
+	}
+	
+	option = { #No, I'll keep it/them
+		name = lotr_artifact.0031.a
+		add_character_modifier = kept_thorins_artifact_modifier
+		
+		ai_chance = {
+			base = 25
+			ai_value_modifier = {
+				ai_greed = 1
+				ai_compassion = -0.5
+				ai_zeal = -1
+			}
+			modifier = {
+				factor = 0
+				is_dwarf = yes
+			}
+		}
+	}
+	
+	option = { #All right, have it/them
+		name = {
+			trigger = {
+				is_dwarf = yes
+			}
+			text = lotr_artifact.0031.b.dwarf
+		}
+		name = {
+			trigger = {
+				NOT = { is_dwarf = yes }
+			}
+			text = lotr_artifact.0031.b
+		}
+		
+		trigger = {
+			NOT = {
+				any_sub_realm_county = {
+					this = title:c_throne_of_erebor
+				}
+			}
+		}
+
+		return_thorins_artifacts_effect = yes
+		
+		ai_chance = {
+			base = 25
+			ai_value_modifier = {
+				ai_greed = -1
+				ai_compassion = 0.5
+				ai_zeal = 1
+			}
+			modifier = {
+				factor = 2
+				is_dwarf = yes
+			}
+		}
+	}
+	
+	option = { #I'll restore the tomb
+		name = lotr_artifact.0031.c
+		trigger = {
+			any_sub_realm_county = {
+				this = title:c_throne_of_erebor
+			}
+		}
+
+		restore_thorins_tomb_effect = yes
+		
+		ai_chance = {
+			base = 75
+			ai_value_modifier = {
+				ai_greed = -1
+				ai_compassion = 0.5
+				ai_zeal = 1
+			}
+			modifier = {
+				factor = 2
+				is_dwarf = yes
+			}
+		}
+	}
+}
+
+lotr_artifact.0032 = { #Send for the Artifacts
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0032.t
+	desc = {
+		desc = lotr_artifact.0032.desc.intro
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_global_variable = orcrist_plundered
+					has_global_variable = arkenstone_plundered
+					NOT = {
+						any_character_artifact = {
+							OR = {
+								has_variable = orcrist
+								has_variable = arkenstone
+							}
+						}
+					}
+				}
+				desc = lotr_artifact.0032.desc.both
+			}
+			triggered_desc = {
+				trigger = {
+					has_global_variable = orcrist_plundered
+					NOT = {
+						any_character_artifact = {
+							has_variable = orcrist
+						}
+					}
+				}
+				desc = lotr_artifact.0032.desc.orcrist
+			}
+			desc = lotr_artifact.0032.desc.arkenstone
+		}
+		desc = lotr_artifact.0032.desc.outro
+	}
+	
+	theme = stewardship
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+	lower_left_portrait = {
+		character = scope:spymaster
+	}
+	lower_center_portrait = {
+		character = scope:chancellor
+	}
+	lower_right_portrait = {
+		character = scope:marshal
+	}
+	cooldown = { days = 2}
+	
+	immediate = {
+		if = {
+			limit = {
+				has_global_variable = orcrist_plundered
+				NOT = {
+					any_character_artifact = {
+						has_variable = orcrist
+					}
+				}
+			}
+			add_character_flag = looking_for_orcrist
+		}
+		if = {
+			limit = {
+				has_global_variable = arkenstone_plundered
+				NOT = {
+					any_character_artifact = {
+						has_variable = arkenstone
+					}
+				}
+			}
+			add_character_flag = looking_for_arkenstone
+		}
+		cp:councillor_marshal ?= { save_scope_as = marshal }
+		cp:councillor_spymaster ?= { save_scope_as = spymaster }
+		cp:councillor_chancellor ?= { save_scope_as = chancellor }
+	}
+	
+	option = { #Send my spies
+		name = lotr_artifact.0032.a
+		custom_tooltip = lotr_artifact.0032.a.tt
+		add_character_flag = lotr_artifact_0032_cheap
+		remove_short_term_gold = medium_gold_value
+		cp:councillor_spymaster = {
+			add_character_modifier = {
+				modifier = thorins_artifact_distracted_councillor_modifier
+				years = 2
+			}
+		}
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_greed = 1
+				ai_zeal = -1
+			}
+		}
+	}
+	
+	option = { #Send my spies, and my diplomats !
+		name = lotr_artifact.0032.b
+		custom_tooltip = lotr_artifact.0032.a.tt
+		add_character_flag = lotr_artifact_0032_medium
+		remove_short_term_gold = major_gold_value
+		scope:spymaster = {
+			add_character_modifier = {
+				modifier = thorins_artifact_distracted_councillor_modifier
+				years = 2
+			}
+		}
+		scope:chancellor = {
+			add_character_modifier = {
+				modifier = thorins_artifact_distracted_councillor_modifier
+				years = 2
+			}
+		}
+		
+		ai_chance = {
+			base = 50
+
+			modifier = {
+				factor = 0
+				gold < major_gold_value
+			}
+		}
+	}
+	
+	option = { #Send EVERYONE !!!
+		name = lotr_artifact.0032.c
+		custom_tooltip = lotr_artifact.0032.a.tt
+		add_character_flag = lotr_artifact_0032_expensive
+		remove_short_term_gold = massive_gold_value
+		scope:spymaster = {
+			add_character_modifier = {
+				modifier = thorins_artifact_distracted_councillor_modifier
+				years = 2
+			}
+		}
+		scope:chancellor = {
+			add_character_modifier = {
+				modifier = thorins_artifact_distracted_councillor_modifier
+				years = 2
+			}
+		}
+		scope:marshal = {
+			add_character_modifier = {
+				modifier = thorins_artifact_distracted_councillor_modifier
+				years = 2
+			}
+		}
+		
+		
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_greed = -1
+				ai_zeal = 1
+			}
+			modifier = {
+				factor = 0
+				gold < massive_gold_value
+			}
+		}
+	}
+
+	option = { #How much ?!
+		name = lotr_artifact.0032.c
+		custom_tooltip = lotr_artifact.0032.c.tt
+	}
+
+	after = {
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = lotr_artifact_0032_cheap
+					has_character_flag = lotr_artifact_0032_medium
+					has_character_flag = lotr_artifact_0032_expensive
+				}
+			}
+			trigger_event = {
+				id = lotr_artifact.0033
+				years = 2
+			}
+		}
+	}	
+}
+
+lotr_artifact.0033 = { #Spymaster returns
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0033.t
+	desc = {
+		desc = lotr_artifact.0033.desc.intro
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					OR = {
+						exists = scope:orcrist
+						exists = scope:arkenstone
+					}
+				}
+				desc = lotr_artifact.0033.intro.artifact
+			}
+			triggered_desc = {
+				trigger = {
+					OR = {
+						exists = scope:orcrist_owner
+						exists = scope:arkenstone_owner
+					}
+				}
+				desc = lotr_artifact.0033.intro.owner
+			}
+			desc = lotr_artifact.0032.desc.intro.failure
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { has_character_flag = looking_for_orcrist }
+				}
+			}
+			triggered_desc = {
+				trigger = {
+					exists = scope:orcrist
+				}
+				desc = lotr_artifact.0033.orcrist.found
+			}
+			triggered_desc = {
+				trigger = {
+					exists = scope:orcrist_owner
+				}
+				desc = lotr_artifact.0033.orcrist.owner
+			}
+			desc = lotr_artifact.0033.orcrist.failure
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { has_character_flag = looking_for_arkenstone }
+				}
+			}
+			triggered_desc = {
+				trigger = {
+					exists = scope:arkenstone
+				}
+				desc = lotr_artifact.0033.arkenstone.found
+			}
+			triggered_desc = {
+				trigger = {
+					exists = scope:arkenstone_owner
+				}
+				desc = lotr_artifact.0033.arkenstone.owner
+			}
+			desc = lotr_artifact.0033.arkenstone.failure
+		}
+	}
+	
+	theme = stewardship
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+	right_portrait = {
+		character = scope:spymaster
+		triggered_animation = {
+			trigger = {
+				OR = {
+					exists = scope:orcrist
+					exists = scope:orcrist_owner
+					exists = scope:arkenstone
+					exists = scope:arkenstone_owner
+				}
+			}
+			animation = chancellor
+		}
+		animation = shame
+	}
+	artifact = {
+		target = scope:orcrist
+		position = lower_left_portrait
+		trigger = { exists = scope:orcrist }
+	}
+	lower_center_portrait = {
+		character ?= scope:artifact_owner
+	}
+	artifact = {
+		target = scope:arkenstone
+		position = lower_right_portrait
+		trigger = { exists = scope:arkenstone }
+	}
+
+	cooldown = { days = 2}
+	
+	immediate = {
+		if = { #Cheap option
+			limit = {
+				has_character_flag = lotr_artifact_0032_cheap
+			}
+			if = { #Looking for both artifacts
+				limit = {
+					AND = {
+						has_character_flag = looking_for_orcrist
+						has_character_flag = looking_for_arkenstone
+					}
+				}
+
+				if = {
+					limit = {
+						any_artifact = {
+							has_variable = orcrist
+						}
+					}
+					random = {
+						chance = 75
+						every_artifact = {
+							limit = { has_variable = orcrist }
+							artifact_owner = { save_scope_as = orcrist_owner }
+							root = { add_personal_artifact_claim = prev }
+						}
+					}
+				}
+				else = {
+					random = {
+						chance = 30
+						create_artifact_orcrist_effect = { OWNER = this }
+						scope:newly_created_artifact = { save_scope_as = orcrist }
+					}
+				}
+
+				if = {
+					limit = {
+						any_artifact = {
+							has_variable = arkenstone
+						}
+					}
+					random = {
+						chance = 75
+						every_artifact = {
+							limit = { has_variable = arkenstone }
+							artifact_owner = { save_scope_as = arkenstone_owner }
+							root = { add_personal_artifact_claim = prev }
+						}
+					}
+				}
+				else = {
+					random = {
+						chance = 30
+						create_artifact_arkenstone_effect = { OWNER = this }
+						scope:newly_created_artifact = { save_scope_as = arkenstone }
+					}
+				}
+			}
+			else_if = { #Looking for the Arkenstone
+				limit = {
+					has_character_flag = looking_for_arkenstone
+				}
+				if = {
+					limit = {
+						any_artifact = {
+							has_variable = arkenstone
+						}
+					}
+					random = {
+						chance = 75
+						every_artifact = {
+							limit = { has_variable = arkenstone }
+							artifact_owner = { save_scope_as = arkenstone_owner }
+							root = { add_personal_artifact_claim = prev }
+						}
+					}
+				}
+				else = {
+					random = {
+						chance = 30
+						create_artifact_arkenstone_effect = { OWNER = this }
+						scope:newly_created_artifact = { save_scope_as = arkenstone }
+					}
+				}
+			}
+			else = { #Looking for Orcrist
+				if = {
+					limit = {
+						any_artifact = {
+							has_variable = orcrist
+						}
+					}
+					random = {
+						chance = 75
+						every_artifact = {
+							limit = { has_variable = orcrist }
+							artifact_owner = { save_scope_as = orcrist_owner }
+							root = { add_personal_artifact_claim = prev }
+						}
+					}
+				}
+				else = {
+					random = {
+						chance = 30
+						create_artifact_orcrist_effect = { OWNER = this }
+						scope:newly_created_artifact = { save_scope_as = orcrist }
+					}
+				}
+			}
+		}
+
+		else_if = { #Medium option
+			limit = {
+				has_character_flag = lotr_artifact_0032_medium
+			}
+			if = { #Looking for both artifacts
+				limit = {
+					AND = {
+						has_character_flag = looking_for_orcrist
+						has_character_flag = looking_for_arkenstone
+					}
+				}
+
+				if = {
+					limit = {
+						any_artifact = {
+							has_variable = orcrist
+						}
+					}
+					every_artifact = {
+						limit = { has_variable = orcrist }
+						artifact_owner = { save_scope_as = orcrist_owner }
+						root = { add_personal_artifact_claim = prev }
+					}
+				}
+				else = {
+					random = {
+						chance = 60
+						create_artifact_orcrist_effect = { OWNER = this }
+						scope:newly_created_artifact = { save_scope_as = orcrist }
+					}
+				}
+
+				if = {
+					limit = {
+						any_artifact = {
+							has_variable = arkenstone
+						}
+					}
+					every_artifact = {
+						limit = { has_variable = arkenstone }
+						artifact_owner = { save_scope_as = arkenstone_owner }
+						root = { add_personal_artifact_claim = prev }
+					}
+				}
+				else = {
+					random = {
+						chance = 60
+						create_artifact_arkenstone_effect = { OWNER = this }
+						scope:newly_created_artifact = { save_scope_as = arkenstone }
+					}
+				}
+			}
+			else_if = { #Looking for the Arkenstone
+				limit = {
+					has_character_flag = looking_for_arkenstone
+				}
+				if = {
+					limit = {
+						any_artifact = {
+							has_variable = arkenstone
+						}
+					}
+					every_artifact = {
+						limit = { has_variable = arkenstone }
+						artifact_owner = { save_scope_as = arkenstone_owner }
+						root = { add_personal_artifact_claim = prev }
+					}
+				}
+				else = {
+					random = {
+						chance = 60
+						create_artifact_arkenstone_effect = { OWNER = this }
+						scope:newly_created_artifact = { save_scope_as = arkenstone }
+					}
+				}
+			}
+			else = { #Looking for Orcrist
+				if = {
+					limit = {
+						any_artifact = {
+							has_variable = orcrist
+						}
+					}
+					every_artifact = {
+						limit = { has_variable = orcrist }
+						artifact_owner = { save_scope_as = orcrist_owner }
+						root = { add_personal_artifact_claim = prev }
+					}
+				}
+				else = {
+					random = {
+						chance = 60
+						create_artifact_orcrist_effect = { OWNER = this }
+						scope:newly_created_artifact = { save_scope_as = orcrist }
+					}
+				}
+			}
+		}
+		
+		else = { #Expensive option
+			if = { #Looking for both artifacts
+				limit = {
+					AND = {
+						has_character_flag = looking_for_orcrist
+						has_character_flag = looking_for_arkenstone
+					}
+				}
+
+				if = {
+					limit = {
+						any_artifact = {
+							has_variable = orcrist
+						}
+					}
+					every_artifact = {
+						limit = { has_variable = orcrist }
+						artifact_owner = { save_scope_as = orcrist_owner }
+						root = { add_personal_artifact_claim = prev }
+					}
+				}
+				else = {
+					random = {
+						chance = 80
+						create_artifact_orcrist_effect = { OWNER = this }
+						scope:newly_created_artifact = { save_scope_as = orcrist }
+					}
+				}
+
+				if = {
+					limit = {
+						any_artifact = {
+							has_variable = arkenstone
+						}
+					}
+					every_artifact = {
+						limit = { has_variable = arkenstone }
+						artifact_owner = { save_scope_as = arkenstone_owner }
+						root = { add_personal_artifact_claim = prev }
+					}
+				}
+				else = {
+					random = {
+						chance = 80
+						create_artifact_arkenstone_effect = { OWNER = this }
+						scope:newly_created_artifact = { save_scope_as = arkenstone }
+					}
+				}
+			}
+			else_if = { #Looking for the Arkenstone
+				limit = {
+					has_character_flag = looking_for_arkenstone
+				}
+				if = {
+					limit = {
+						any_artifact = {
+							has_variable = arkenstone
+						}
+					}
+					every_artifact = {
+						limit = { has_variable = arkenstone }
+						artifact_owner = { save_scope_as = arkenstone_owner }
+						root = { add_personal_artifact_claim = prev }
+					}
+				}
+				else = {
+					random = {
+						chance = 60
+						create_artifact_arkenstone_effect = { OWNER = this }
+						scope:newly_created_artifact = { save_scope_as = arkenstone }
+					}
+				}
+			}
+			else = { #Looking for Orcrist
+				if = {
+					limit = {
+						any_artifact = {
+							has_variable = orcrist
+						}
+					}
+					every_artifact = {
+						limit = { has_variable = orcrist }
+						artifact_owner = { save_scope_as = orcrist_owner }
+						root = { add_personal_artifact_claim = prev }
+					}
+				}
+				else = {
+					random = {
+						chance = 60
+						create_artifact_orcrist_effect = { OWNER = this }
+						scope:newly_created_artifact = { save_scope_as = orcrist }
+					}
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				exists = scope:arkenstone_owner
+			}
+			scope:arkenstone_owner = { save_scope_as = artifact_owner }
+		}
+		else_if = {
+			limit = {
+				exists = scope:orcrist_owner
+			}
+			scope:arkenstone_owner = { save_scope_as = artifact_owner }
+		}
+	}
+	
+	option = {
+		name = {
+			trigger = {
+				OR = {
+					exists = scope:orcrist
+					exists = scope:orcrist_owner
+					exists = scope:arkenstone
+					exists = scope:arkenstone_owner
+				}
+			}
+			text = lotr_artifact.0033.a
+		}
+		name = {
+			trigger = {
+				NOR = {
+					exists = scope:orcrist
+					exists = scope:orcrist_owner
+					exists = scope:arkenstone
+					exists = scope:arkenstone_owner
+				}
+			}
+			text = lotr_artifact.0033.b
+		}
+	}
+
+	after = {
+		remove_character_flag ?= looking_for_orcrist
+		remove_character_flag ?= looking_for_arkenstone
+		remove_character_flag ?= lotr_artifact_0032_cheap
+		remove_character_flag ?= lotr_artifact_0032_medium
+		remove_character_flag ?= lotr_artifact_0032_expensive
+	}
+}
+
+
+lotr_artifact.0040 = { #Aragorn receives the regalia of Arnor
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0040.t
+	cooldown = { years = 5 }
+	desc = {
+		desc = lotr_artifact.0040.desc.intro
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_character_flag = is_aragorn
+					scope:elrond_substitute = character:lineofelrond1 #Elrond
+					character:lineofelrond2 = { is_alive = yes } #Elladan
+					character:lineofelrond3 = { is_alive = yes } #Elrohir
+				}
+				desc = lotr_artifact.0040.desc.default
+			}
+			desc = lotr_artifact.0040.desc.alt
+		}
+		triggered_desc = {
+			trigger = {
+				scope:elrond_substitute.culture = { has_cultural_tradition = tradition_legendary_artisans }
+				any_character_artifact = {
+					has_variable = shards_of_narsil
+				}
+				OR = {
+					has_character_flag = is_aragorn
+					AND = {
+						has_title = title:e_gondor
+						title:e_mordor.holder = { is_sauron = yes }
+					}
+				}
+			}
+			desc = lotr_artifact.0040.desc.narsil
+		}
+	}
+	
+	theme = diplomacy
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = scope:messenger #Elladan
+		animation = personality_honorable
+	}
+	lower_center_portrait = {
+		character = scope:elrond_substitute #Elrond
+	}
+	artifact = {
+		target = scope:scepter
+		position = lower_left_portrait
+	}
+	artifact = {
+		target = scope:elendilmir
+		position = lower_right_portrait
+	}
+	
+	trigger = {
+		has_title = title:e_arnor
+		OR = {
+			dynasty = dynasty:dynasty_elendil
+			dynasty = dynasty:dynasty_anarion
+		}
+		OR = {
+			title:k_imladris.holder = {
+				any_character_artifact = {
+					OR = {
+						has_variable = sceptre_of_annuminas
+						has_variable = elendilmir_valandil
+					}
+				}
+			}
+			character:lineofelrond1 = {
+				any_character_artifact = {
+					OR = {
+						has_variable = sceptre_of_annuminas
+						has_variable = elendilmir_valandil
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				character:lineofelrond1 = {
+					any_character_artifact = {
+						OR = {
+							has_variable = sceptre_of_annuminas
+							has_variable = elendilmir_valandil
+						}
+					}
+				}
+			}
+			character:lineofelrond1 = { save_scope_as = elrond_substitute }
+		}
+		else = {
+			title:k_imladris.holder = { save_scope_as = elrond_substitute }
+		}
+		scope:elrond_substitute = { # Aragorn receives the regalia of Arnor from Elrond or any other ruler of Imladris
+			every_character_artifact = {
+				limit = {
+					has_variable = sceptre_of_annuminas
+				}
+				save_scope_as = sceptre
+				set_owner = {
+					target = root
+					history = {
+						type = given
+						recipient = root
+					}
+				}
+			}
+			every_character_artifact = {
+				limit = {
+					has_variable = elendilmir_valandil
+				}
+				save_scope_as = elendilmir
+				set_owner = {
+					target = root
+					history = {
+						type = given
+						recipient = root
+					}
+				}
+			}
+			# hidden_effect = {
+				# remove_personal_artifact_claim = scope:sceptre
+				# remove_personal_artifact_claim = scope:elendilmir
+				# house = { 
+					# remove_house_artifact_claim = scope:sceptre 
+					# remove_house_artifact_claim = scope:elendilmir 
+				# }
+			# }
+		}
+		if = {
+			limit = { scope:elrond_substitute = character:lineofelrond1 } #Elrond 
+			if = {
+				limit = { character:lineofelrond2 = { is_alive = yes } }
+				character:lineofelrond2 = { save_scope_as = messenger }
+			}
+			else_if = {
+				limit = { character:lineofelrond3 = { is_alive = yes } }
+				character:lineofelrond3 = { save_scope_as = messenger }
+			}
+			else = {
+				random_knight = { save_scope_as = messenger }
+			}
+		}
+		else = {
+			random_knight = { save_scope_as = messenger }
+		}
+	}
+	
+	option = { #Please take the shards
+		name = lotr_artifact.0040.a
+		trigger = {
+			scope:elrond_substitute.culture = { has_cultural_tradition = tradition_legendary_artisans }
+			any_character_artifact = {
+				has_variable = shards_of_narsil
+			}
+			OR = {
+				has_character_flag = is_aragorn
+				AND = {
+					has_title = title:e_gondor
+					title:e_mordor.holder = { is_sauron = yes }
+				}
+			}
+		}	
+	
+		every_character_artifact = {
+			limit = { has_variable = shards_of_narsil }
+			set_owner = {
+				target = scope:elrond_substitute #Elrond
+				history = {
+					type = given
+					recipient = scope:elrond_substitute #Elrond
+				}
+			}
+		}
+		
+		trigger_event = {
+			id = lotr_artifact.0041
+			months = 6
+		}
+		
+		ai_chance = 100
+	}
+	
+	option = { #I'll keep them, thanks
+		name = {
+			trigger = { 
+				scope:elrond_substitute.culture = { has_cultural_tradition = tradition_legendary_artisans }
+				any_character_artifact = {
+					has_variable = shards_of_narsil
+				}
+				OR = {
+					has_character_flag = is_aragorn
+					AND = {
+						has_title = title:e_gondor
+						title:e_mordor.holder = { is_sauron = yes }
+					}
+				}
+			}
+			text = lotr_artifact.0040.b.narsil_kept
+		}
+		name = lotr_artifact.0040.b
+		
+		ai_chance = 0
+	}
+}
+
+lotr_artifact.0041 = { #Elladan returns with Anduril reforged
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0041.t
+	desc = {
+		desc = lotr_artifact.0041.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_character_flag = is_aragorn
+					scope:elrond_substitute.holder = character:lineofelrond1 #Elrond
+					character:lineofelrond2 = { is_alive = yes } #Elladan
+					character:lineofelrond3 = { is_alive = yes } #Elrohir
+				}
+				desc = lotr_artifact.0041.desc.default_outro
+			}
+			desc = lotr_artifact.0041.desc.alt_outro
+		}
+	}
+	theme = diplomacy
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = scope:messenger #Elladan
+		animation = personality_honorable
+	}
+	lower_center_portrait = {
+		character = scope:elrond_substitute #Elrond
+	}
+	artifact = {
+		target = scope:anduril
+		position = lower_left_portrait
+	}
+
+	cooldown = { years = 10 }
+	
+	immediate = {
+		scope:elrond_substitute = {
+			save_scope_as = reforger
+			every_character_artifact = {
+				limit = { has_variable = shards_of_narsil }
+				save_scope_as = anduril
+				reforge_artifact = {
+					modifier = anduril_modifier
+					visuals = anduril
+					type = sword
+					name = anduril_name
+					description = anduril_description
+				}
+				set_variable = anduril
+				remove_variable = shards_of_narsil
+			}
+		}
+		
+		set_global_variable = anduril_reforged
+	}
+	
+	option = {
+		name = lotr_artifact.0041.a
+		
+		scope:anduril = {
+			set_owner = {
+				target = root
+				history = {
+					type = given
+					recipient = root
+				}
+			}
+		}
+		hidden_effect = { scope:elrond_substitute = { remove_personal_artifact_claim = scope:anduril } }
+	}
+}
+
+lotr_artifact.0042 = { #Elrond offers to reforge Narsil
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_artifact.0042.t
+	desc = lotr_artifact.0042.desc
+	
+	theme = diplomacy
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = scope:messenger #Elladan
+		animation = personality_honorable
+	}
+	lower_center_portrait = {
+		character = scope:elrond_substitute #Elrond
+	}
+	
+	trigger = {
+		has_title = title:e_arnor
+		has_title = title:e_gondor
+		title:e_mordor.holder = { is_sauron = yes }
+		NOT = { has_character_flag = is_aragorn }
+		any_character_artifact = {
+			has_variable = shards_of_narsil
+		}
+		OR = {
+			dynasty = dynasty:dynasty_elendil
+			dynasty = dynasty:dynasty_anarion
+		}
+		OR = {
+			title:k_imladris.holder.culture = { has_cultural_tradition = tradition_legendary_artisans }
+			character:lineofelrond1 = { is_alive = yes }
+		}
+		NOR = {
+			title:k_imladris.holder = { 
+				any_character_artifact = {
+					OR = {
+						has_variable = sceptre_of_annuminas
+						has_variable = elendilmir_valandil
+					}
+				} 
+			}
+			character:lineofelrond1 = { 
+				any_character_artifact = {
+					OR = {
+						has_variable = sceptre_of_annuminas
+						has_variable = elendilmir_valandil
+					}
+				}
+			}
+		}
+	}
+	
+	cooldown = { years = 10 }
+
+	immediate = {
+		if = {
+			limit = {
+				character:lineofelrond1 = {
+					is_alive = yes
+				}
+			}
+			character:lineofelrond1 = { save_scope_as = elrond_substitute }
+		}
+		else = {
+			title:k_imladris.holder = { save_scope_as = elrond_substitute }
+		}
+		if = {
+			limit = { scope:elrond_substitute = character:lineofelrond1 } #Elrond 
+			if = {
+				limit = { character:lineofelrond2 = { is_alive = yes } }
+				character:lineofelrond2 = { save_scope_as = messenger }
+			}
+			else_if = {
+				limit = { character:lineofelrond3 = { is_alive = yes } }
+				character:lineofelrond3 = { save_scope_as = messenger }
+			}
+			else = {
+				random_knight = { save_scope_as = messenger }
+			}
+		}
+		else = {
+			random_knight = { save_scope_as = messenger }
+		}
+	}
+	
+	option = { #Please take the shards
+		name = lotr_artifact.0040.a
+	
+		every_character_artifact = {
+			limit = { has_variable = shards_of_narsil }
+			set_owner = {
+				target = scope:elrond_substitute #Elrond
+				history = {
+					type = given
+					recipient = scope:elrond_substitute #Elrond
+				}
+			}
+		}
+		
+		trigger_event = {
+			id = lotr_artifact.0041
+			months = 6
+		}
+		
+		ai_chance = 100
+	}
+	
+	option = { #I'll keep them, thanks
+		name = lotr_artifact.0040.b.narsil_kept
+		
+		ai_chance = 0
+	}
+}
+
+scripted_effect remove_ring_of_mortals_modifiers = {
+	remove_artifact_modifier ?= ring_of_mortals_men_modifier
+	remove_artifact_modifier ?= ring_of_mortals_elves_modifier
+	remove_artifact_modifier ?= ring_of_mortals_nazgul_modifier
+	remove_artifact_modifier ?= ring_of_mortals_sauron_modifier
+	remove_artifact_modifier ?= ring_of_mortals_orcs_modifier
+	remove_artifact_modifier ?= ring_of_mortals_dwarves_modifier
+}
+
+lotr_artifact.0100 = { # Ring of Power modifier switch
+	hidden  = yes
+	
+	trigger = {
+		any_character_artifact = { 
+			has_variable = ring_of_mortals 
+		}
+	}
+	
+	immediate = {
+		every_character_artifact = {
+			limit = { 
+				has_variable = ring_of_mortals 
+			}
+			remove_ring_of_mortals_modifiers = yes
+			
+			if = {
+				limit = { root = { is_dwarf = yes } }
+				add_artifact_modifier = ring_of_mortals_dwarves_modifier
+			}
+			else_if = {
+				limit = { # Elves and Istari
+					root = {
+						OR = {
+							is_elf = yes
+							is_istari = yes
+						}
+					}
+				}
+				add_artifact_modifier = ring_of_mortals_elves_modifier
+			}
+			else_if = {
+				limit = { root = { is_nazgul = yes } }
+				add_artifact_modifier = ring_of_mortals_nazgul_modifier
+			}
+			else_if = {
+				limit = { root = { is_sauron = yes } }
+				add_artifact_modifier = ring_of_mortals_sauron_modifier
+				if = { #A little additional layer of corruption
+					limit = { NOT = { has_variable = corrupted_ring } }
+					set_variable = corrupted_ring
+				}
+			}
+			else_if = {
+				limit = { root = { is_orc = yes } }
+				add_artifact_modifier = ring_of_mortals_orcs_modifier
+			}
+			else = { add_artifact_modifier = ring_of_mortals_men_modifier }
+		}
+	}
+}

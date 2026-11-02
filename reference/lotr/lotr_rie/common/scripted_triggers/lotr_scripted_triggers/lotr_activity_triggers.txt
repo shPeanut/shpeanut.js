@@ -1,0 +1,63 @@
+﻿lotr_is_shown_basic_activity_trigger = {
+	is_nazgul = no 
+	is_in_valinor = no
+	is_wastelands = no
+	NOT = { has_trait = sauron_ringless }
+}
+
+lotr_is_shown_inspection_activity_trigger = {
+	NOT = { has_trait = sauron_ringless }
+	is_in_valinor = no #LotR
+	is_lotr_adult = yes
+	is_wastelands = no
+}
+
+lotr_is_shown_pilgrimage_activity_trigger = {
+	lotr_is_shown_basic_activity_trigger = yes
+	faith = { #LotR
+		NOT = { has_doctrine_parameter = forbidden_from_pilgrimage }
+		any_holy_site = { exists = this }	
+	}
+}
+
+lotr_is_shown_adult_education_activity_trigger = {
+	lotr_is_shown_basic_activity_trigger = yes
+	is_orc = no # Orcs don't go to college!
+}
+
+lotr_can_sail = {
+	NOR = {
+		is_maiar_fallen = yes
+		is_orc = yes # Orcs hate water
+		is_hobbit = yes # Most hobbits aren't fond of boating
+		is_druedain = yes # They don't build ships
+		trigger_if = { # Can only trigger if you're a dwarf holding Kheledul (directly)
+			limit = { is_dwarf = yes }
+			NOT = { has_title = title:c_kheledul }
+		}
+		faith = { has_doctrine_parameter = no_sailing } # Obv
+	}
+}
+
+lotr_can_explore_histories = {
+	OR = {
+		AND = {
+			OR = { #Freep Eldar, Istari and Numenorean-descendants have access to Histories/Propaganda
+				lotr_has_numenorean_culture_trigger = yes
+				is_eldar = yes
+				is_istari = yes
+			}
+			religion = { is_in_family = rf_eruhini }
+		}
+		AND = {
+			lotr_has_numenorean_culture_trigger = yes
+			faith = {
+				OR = { #Faiths with Adunaic tenets have access to Histories/Propaganda
+					has_doctrine = tenet_adunaic_birthright
+					has_doctrine = tenet_adunaic_mandate
+					has_doctrine = tenet_memory_of_akallabeth
+				}
+			}
+		}
+	}
+}

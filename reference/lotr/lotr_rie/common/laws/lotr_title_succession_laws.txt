@@ -1,0 +1,284 @@
+﻿lotr_title_succession_laws = {
+	#Aristocratic Elective
+	aristocratic_elective_succession_law = {
+		can_have = {
+			OR = {
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
+			}
+			highest_held_title_tier >= tier_kingdom
+			culture = {
+				OR = {
+					has_cultural_pillar = heritage_ioriag
+					has_cultural_pillar = heritage_igath
+				}
+			}
+		}
+		can_pass = {
+			can_change_title_law_trigger = yes
+		}
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+		}
+		succession = {
+			order_of_succession = election
+			election_type = aristocratic_elective
+		}
+		flag = elective_succession_law
+		title_allegiance_opinion = 15
+		revoke_cost = {
+			prestige = 15000
+		}
+		pass_cost = {
+			prestige = change_title_succession_law_prestige_cost
+		}
+	}
+	#Oligarchic Elective
+	oligarchic_elective_succession_law = {
+		#can_have = {
+			#government_has_flag = government_is_oligarchy
+		#}
+		can_pass = {
+			government_has_flag = government_is_oligarchy
+		}
+		can_title_have = {
+			always = yes
+		}
+		#can_keep = {
+		#	government = oligarchy_government
+		#}
+		succession = {
+			order_of_succession = election
+			election_type = oligarchic_elective
+		}
+		#should_start_with = {
+		#	government_has_flag = government_is_oligarchy
+		#}
+		flag = elective_succession_law
+		title_allegiance_opinion = 5
+		revoke_cost = {
+			prestige = 10000
+		}
+		#pass_cost = {
+		#	prestige = change_title_succession_law_prestige_cost
+		#}
+		pass_cost = {
+			prestige = 100
+		}
+	}
+
+	vassal_conclave_dynastic_elective_succession_law = {
+		can_pass = {
+			can_change_title_law_trigger = yes
+		}
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+			this = title:k_pel
+		}
+		succession = {
+			order_of_succession = election
+			election_type = vassal_conclave_dynastic_elective
+		}
+		flag = elective_succession_law
+		title_allegiance_opinion = 5
+		revoke_cost = {
+			piety = 15000
+			prestige = 10000
+		}
+		pass_cost = {
+			piety = 15000
+			prestige = 10000
+		}
+	}
+
+	balan_lai_leader_elective_succession_law = {
+		can_pass = {
+			can_change_title_law_trigger = yes
+		}
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+			this = title:d_balan_lai_leader
+		}
+		succession = {
+			order_of_succession = election
+			election_type = balan_lai_leader_elective
+		}
+		flag = elective_succession_law
+		title_allegiance_opinion = 0
+		revoke_cost = {
+			gold = 1000000
+			piety = 1000000
+			prestige = 1000000
+		}
+		pass_cost = {
+			prestige = 0
+		}
+	}
+
+	tamska_succession_law = {
+		can_pass = {
+			always = no
+		}
+		can_title_have = {
+			# can_title_have_law_general_trigger = yes
+			this = title:d_tamska_main
+			# OR = {
+			# 	this = title:e_mag_tumag
+			# 	this = title:k_mag
+			# 	this = title:k_tumag
+			# }
+		}
+		succession = {
+			order_of_succession = election
+			election_type = tamska_elective
+		}
+		flag = elective_succession_law
+		title_allegiance_opinion = 15
+		revoke_cost = {
+			piety = 50000
+			prestige = 30000
+		}
+		pass_cost = {
+			piety = 50000
+			prestige = 30000
+		}
+	}
+
+	# Balan-Lai unite peacefully while still having the council as a main "thing"
+	balan_lai_elective_succession_law = {
+		can_have = {
+			government_has_flag = government_is_feudal
+			highest_held_title_tier = tier_empire
+		}
+		can_pass = {
+			can_change_title_law_trigger = yes
+		}
+		can_title_have = {
+			this = title:e_thani_hazad
+			can_title_have_law_general_trigger = yes
+		}
+		succession = {
+			order_of_succession = election
+			election_type = balan_lai_elective
+		}
+		flag = elective_succession_law
+		title_allegiance_opinion = 10
+		modifier = {
+			vassal_limit = 20
+		}
+		revoke_cost = {
+			gold = 2500
+			piety = 5000
+			prestige = 7500
+		}
+		pass_cost = {
+			prestige = 10000
+		}
+	}
+
+	orcish_succession_law_1 = { #LotR
+		can_keep = {
+			realm_law_use_orcish_government_authority = yes
+			custom_tooltip = {
+				text = LOTR_MUST_NOT_HAVE_TAMSKA_SUCCESSION_TRIGGER
+				can_have_tamska_succession_law_trigger = no #LOTR
+			}
+		}
+		can_pass = {
+			realm_law_use_orcish_government_authority = yes
+		}
+		can_have = {
+			realm_law_use_orcish_government_authority = yes
+			custom_tooltip = {
+				text = LOTR_MUST_NOT_HAVE_TAMSKA_SUCCESSION_TRIGGER
+				can_have_tamska_succession_law_trigger = no #LOTR
+			}
+		}
+		should_start_with = {
+			realm_law_use_orcish_government_authority = yes
+		}
+		potential = { realm_law_use_orcish_government_authority = yes }
+
+		requires_approve = {
+			NOT = { realm_law_use_orcish_government_authority = yes }
+		}
+
+		flag = orcish_succession_law
+
+		succession = {
+			order_of_succession = inheritance
+			traversal_order = children
+			rank = oldest
+			title_division = single_heir
+		}
+		modifier = {
+			player_heir_opinion = 40
+		}
+	}
+
+	dwarven_succession_law = {
+		can_have = {
+			government_has_flag = government_is_feudal
+			is_dwarf = yes
+		}
+		can_pass = {
+			always = no
+		}
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+		}
+		should_show_for_title = { # Never show this in the UI, just apply it through script
+			always = no
+		}
+		can_remove_from_title = {
+			custom_tooltip = {
+				text = succession_law_cannot_be_removed
+				always = no
+			}
+		}
+		succession = {
+			order_of_succession = inheritance
+			traversal_order = children
+			title_division = single_heir
+		}
+		flag = advanced_succession_law
+		modifier = {
+			glory_hound_opinion = -10
+			parochial_opinion = -5
+			player_heir_opinion = 20
+			eligible_child_except_player_heir_opinion = -5
+		}
+	}
+
+	# Dwarven Hegemonic Voting
+	dwarven_hegemonic_elective_succession_law = {
+		can_have = {
+			highest_held_title_tier >= tier_empire
+		}
+		can_pass = {
+			always = no
+		}
+		can_title_have = {
+			this = title:h_mountains
+			can_title_have_law_general_trigger = yes
+		}
+		should_show_for_title = { # Never show this in the UI, just apply it through script
+			always = no
+		}
+		can_remove_from_title = {
+			custom_tooltip = {
+				text = succession_law_cannot_be_removed
+				always = no
+			}
+		}
+		succession = {
+			order_of_succession = election
+			election_type = dwarven_hegemonic_elective
+		}
+		flag = elective_succession_law
+		title_allegiance_opinion = 0
+		modifier = {
+			vassal_limit = 20
+		}
+	}
+}

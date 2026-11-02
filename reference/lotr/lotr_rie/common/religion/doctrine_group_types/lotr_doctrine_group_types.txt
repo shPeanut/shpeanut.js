@@ -1,0 +1,73 @@
+﻿is_adulation_of_the_dark_faith = {
+	category = "special"
+	
+	is_available_on_create = {
+		has_doctrine = special_doctrine_is_adulation_of_the_dark_faith
+	}
+
+	doctrine_types = {
+		special_doctrine_is_adulation_of_the_dark_faith
+	}
+}
+
+is_freepeople_faith = {
+	category = "special"
+	
+	is_available_on_create = {
+		has_doctrine = special_doctrine_is_freepeople_faith
+	}
+
+	doctrine_types = {
+		special_doctrine_is_freepeople_faith
+	}
+}
+
+is_survival_of_the_strong_faith = {
+	category = "special"
+	
+	is_available_on_create = {
+		has_doctrine = special_doctrine_is_survival_of_the_strong_faith
+	}
+
+	doctrine_types = {
+		special_doctrine_is_survival_of_the_strong_faith
+	}
+}
+
+doctrine_influence = {
+	category = "main_group"
+
+	is_available_on_create = {
+        religion = {
+            is_in_family = rf_darkness
+        }
+    }
+
+	doctrine_types = {
+		doctrine_echoes_of_the_ainur
+		doctrine_a_people_apart
+		doctrine_dominion_of_the_dark
+	}
+}
+
+lotr_hostility_category = {
+	category = "not_creatable"
+
+	doctrine_types = {
+		freepeoples_hostility_doctrine
+		darkness_hostility_doctrine
+		forcesofevil_hostility_doctrine
+	}
+}
+
+doctrine_dwarven_branches = {
+	category = "main_group"
+	is_available_on_create = {
+		religion_tag = dwarven_religion
+	}
+	
+	doctrine_types = {
+		doctrine_major_branch_dwarven
+		doctrine_heretic_branch_dwarven
+	}
+}

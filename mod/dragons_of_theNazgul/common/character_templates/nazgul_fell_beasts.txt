@@ -1,0 +1,26 @@
+# ============================================================
+# Шаблоны персонажей-зверей (автономно, без AGOT).
+# Трейт nazgul_dragon — наш аналог AGOT-трейта dragon.
+# Личностные трейты — порты AGOT: bloodthirsty / physique_good_3 / swift.
+# ============================================================
+
+nazgul_fell_beast_template = {
+        gender = male
+        traits = {
+                nazgul_dragon                  # базовый «драконий» трейт этой системы
+                nazgul_dragon_bloodthirsty     # свирепость падаль-зверя
+        }
+        disallow_random_traits = yes
+}
+
+nazgul_lord_angermont_template = {
+        gender = male
+        traits = {
+                nazgul_dragon
+                nazgul_lord_of_angermont       # уникальный маркер
+                nazgul_dragon_bloodthirsty
+                nazgul_dragon_physique_good_3  # размер +, health +2
+                nazgul_dragon_swift            # скорость +
+        }
+        disallow_random_traits = yes
+}

@@ -1,0 +1,995 @@
+﻿namespace = korlea
+
+### Set up Arc ###
+
+korlea.0001 = { # Expedition Start! Select your fighter!
+	content_source = realms_dlc
+	type = character_event	
+	title = korlea.0001.t
+	desc = korlea.0001.desc
+	theme = sailing_activity
+
+	override_background = {
+		reference = docks
+	}
+
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	lower_left_portrait = {
+		character = scope:belphegor
+	}
+    lower_center_portrait = {
+		character = scope:lominzil
+	}
+    lower_right_portrait = {
+		character = scope:nimruzir
+	}
+	immediate = {
+		character:lineofnilubel25littlebrother = { save_scope_as = belphegor }
+		character:lineofostiohincadet23littlesister = { save_scope_as = lominzil }
+		character:lineborodiriath96brother = { save_scope_as = nimruzir }
+	}
+	option = { # Select Belphegor (and play as him)
+		name = korlea.0001.a
+		show_as_tooltip = { set_player_character = scope:belphegor }
+		scope:belphegor = {
+			create_landless_adventurer_title_effect = {
+				REASON = flag:voluntary
+				FLAVOR_CHAR = root
+			}
+			trigger_event = { id = ep3_laamps.0030 days = 2 }
+			save_scope_as = selected_expeditionary
+		}
+		scope:lominzil = { save_scope_as = korlea_first_mate }
+		scope:nimruzir = { save_scope_as = korlea_helmsman }
+		trigger_event = korlea.0003
+	}
+	option = { # Select Lominzil (and play as her)
+		name = korlea.0001.b
+		show_as_tooltip = { set_player_character = scope:lominzil }
+		scope:lominzil = {
+			create_landless_adventurer_title_effect = {
+				REASON = flag:voluntary
+				FLAVOR_CHAR = root
+			}
+			trigger_event = { id = ep3_laamps.0030 days = 2 }
+			save_scope_as = selected_expeditionary
+		}
+		scope:belphegor = { save_scope_as = korlea_first_mate }
+		scope:nimruzir = { save_scope_as = korlea_helmsman }
+		trigger_event = korlea.0003
+	}
+	option = { # Select Nimruzir (and play as him)
+		name = korlea.0001.c
+		show_as_tooltip = { set_player_character = scope:nimruzir }
+		scope:nimruzir = {
+			create_landless_adventurer_title_effect = {
+				REASON = flag:voluntary
+				FLAVOR_CHAR = root
+			}
+			trigger_event = { id = ep3_laamps.0030 days = 2 }
+			save_scope_as = selected_expeditionary
+		}
+		scope:lominzil = { save_scope_as = korlea_first_mate }
+		scope:belphegor = { save_scope_as = korlea_helmsman }
+		trigger_event = korlea.0003
+	}
+	option = { # This is but a dream. (Opt out of story content)
+		name = korlea.0001.d
+		custom_tooltip = korlea.0001.d.tt 
+		ai_chance = { # AI skips the story content due to MP issues
+			base = 100 
+		}
+	}
+}
+
+korlea.0002 = { # Expedition Start! (Poor people version)
+	content_source = realms_dlc
+	type = character_event	
+	title = korlea.0002.t
+	desc = korlea.0002.desc
+	theme = sailing_activity
+
+	override_background = {
+		reference = docks
+	}
+
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	lower_left_portrait = {
+		character = scope:belphegor
+	}
+    lower_center_portrait = {
+		character = scope:lominzil
+	}
+    lower_right_portrait = {
+		character = scope:nimruzir
+	}
+	immediate = {
+		character:lineofnilubel25littlebrother = { save_scope_as = belphegor }
+		character:lineofostiohincadet23littlesister = { save_scope_as = lominzil }
+		character:lineborodiriath96brother = { save_scope_as = nimruzir }
+	}
+	option = { # Select Belphegor (and play as him)
+		name = korlea.0002.a
+		show_as_tooltip = { set_player_character = scope:belphegor }
+		scope:belphegor = {
+			get_title = title:c_kaltos
+			save_scope_as = selected_expeditionary
+		}
+		scope:lominzil = { save_scope_as = korlea_first_mate }
+		scope:nimruzir = { save_scope_as = korlea_helmsman }
+		trigger_event = korlea.0003
+	}
+	option = { # Select Lominzil (and play as her)
+		name = korlea.0002.b
+		show_as_tooltip = { set_player_character = scope:lominzil }
+		scope:lominzil = {
+			get_title = title:c_kaltos
+			save_scope_as = selected_expeditionary
+		}
+		scope:belphegor = { save_scope_as = korlea_first_mate }
+		scope:nimruzir = { save_scope_as = korlea_helmsman }
+		trigger_event = korlea.0003
+	}
+	option = { # Select Nimruzir (and play as him)
+		name = korlea.0002.c
+		show_as_tooltip = { set_player_character = scope:nimruzir }
+		scope:nimruzir = {
+			get_title = title:c_kaltos
+			save_scope_as = selected_expeditionary
+		}
+		scope:belphegor = { save_scope_as = korlea_first_mate }
+		scope:lominzil = { save_scope_as = korlea_helmsman }
+		trigger_event = korlea.0003
+	}
+	option = { # This is but a dream. (Opt out of story content)
+		name = korlea.0002.d
+		custom_tooltip = korlea.0002.d.tt 
+		ai_chance = { # AI skips the story content due to MP issues
+			base = 100 
+		}
+	}
+}
+
+korlea.0003 = { # Hidden: Expedition Set-up event
+	hidden = yes
+	immediate = {
+		set_player_character = scope:selected_expeditionary
+		scope:selected_expeditionary = {
+			trigger_event = {
+				id = korlea.0004
+				days = 1
+			}
+		}
+	}
+}
+
+korlea.0004 = { # Hidden: Add courtiers & give correct camp name if laamp
+	hidden = yes
+	immediate = {
+		add_courtier = scope:korlea_first_mate
+		add_courtier = scope:korlea_helmsman
+		add_gold = 300
+		domicile ?= { 
+			change_provisions = major_provisions_gain 
+			add_domicile_building = camp_main_02
+			add_domicile_building = baggage_train_01
+			add_domicile_building = barber_tent_01
+			add_domicile_building = baggage_train_02
+			add_domicile_building = barber_tent_02						
+		}
+		if = {
+			limit = { has_government = landless_adventurer_government }
+			root.primary_title = {
+				set_title_name = korlea_expedition_camp_name
+			}
+		}
+		trigger_event = korlea.0005
+	}
+}
+
+korlea.0005 = { # Setting Sail
+	content_source = realms_dlc
+	type = character_event	
+	title = korlea.0005.t
+	desc = korlea.0005.desc
+	theme = sailing_activity
+
+	override_background = {
+		reference = docks
+	}
+
+	left_portrait = {
+		character = root
+		animation = survey
+		camera = camera_event_left
+	}
+	right_portrait = {
+		character = scope:korlea_first_mate
+		animation = throne_room_conversation_1
+		camera = camera_event_right_pointing_right_scheme
+	}
+
+	immediate = {
+		character:lineofnilubel25littlebrother = { save_scope_as = belphegor }
+		character:lineofostiohincadet23littlesister = { save_scope_as = lominzil }
+		character:lineborodiriath96brother = { save_scope_as = nimruzir }
+		hidden_effect = { #give free caravan master
+			if = {
+				limit = { NOT = { employs_court_position = travel_leader_court_position } }
+				create_character = {
+					template = travel_leader_court_position_template
+					employer = root
+					save_scope_as = caravan_master
+				}
+				appoint_court_position = {
+					recipient = scope:caravan_master
+					court_position = travel_leader_court_position
+				}
+			}
+		}
+		if = {
+			limit = { root = character:lineofostiohincadet23littlesister }
+			scope:belphegor = { save_scope_as = korlea_first_mate }
+		}
+		else = {
+			scope:lominzil = { save_scope_as = korlea_first_mate }
+		}
+	}
+	option = { # Travel to Bozisha-Dar before continuing south
+		name = korlea.0005.a 
+		custom_tooltip = korlea.0005.a.tt
+		start_travel_plan = { #Travel to Rây
+			destination = province:1156 # Bay of Tulwang
+			destination = province:1157 # Bay of Tulwang
+			destination = province:1161 # Bay of Tulwang
+			destination = title:c_bozisha_dar.title_province
+			players_use_planner = no
+			on_arrival_on_action = korlea_ray_on_action
+		}
+	}
+	option = { # Go directly south, skip Bozisha-Dar
+		name = korlea.0005.b
+		custom_tooltip = korlea.0005.b.tt
+		start_travel_plan = { #Travel to the border
+			destination = title:c_sunira.title_province
+			players_use_planner = no
+			on_arrival_event = korlea.0050
+		}
+	}
+	after = { 
+		trigger_event = { # Get the first crew event
+			id = korlea.0020
+			days = 20
+		}
+	}
+}
+
+### Bozisha-Dar Arc ###
+
+korlea.0006 = { # Arrival at Bozisha-Dar - we present the letter from Sakalkhad
+	content_source = realms_dlc
+	type = character_event	
+	title = korlea.0006.t
+	desc = korlea.0006.desc
+	theme = travel
+
+	override_background = {
+		reference = tgp_docks_asia
+	}
+
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = scope:korlea_first_mate
+		animation = personality_callous
+	}
+
+	immediate = {
+		character:lineofnilubel25littlebrother = { save_scope_as = belphegor }
+		character:lineofostiohincadet23littlesister = { save_scope_as = lominzil }
+		character:lineborodiriath96brother = { save_scope_as = nimruzir }
+		if = {
+			limit = { root = character:lineofostiohincadet23littlesister }
+			scope:belphegor = { save_scope_as = korlea_first_mate }
+		}
+		else = {
+			scope:lominzil = { save_scope_as = korlea_first_mate }
+		}
+		hidden_effect = { current_travel_plan = { cancel_travel_plan = yes } }
+	}
+	option = { # Just stock up on provisions and then continue the expedition
+		name = korlea.0006.a 
+		custom_tooltip = korlea.0006.a.tt
+		if = {
+			limit = { has_government = landless_adventurer_government }
+			domicile ?= { change_provisions = minor_provisions_gain }
+		}
+		else = {
+			add_gold = 15 
+		}
+		start_travel_plan = { #Travel to Sunira
+			destination = title:c_sunira.title_province
+			players_use_planner = no
+			on_arrival_event = korlea.0050
+		}
+	}
+	option = { # Explore the city
+		name = korlea.0006.b
+		custom_tooltip = korlea.0006.b.tt
+		trigger_event = korlea.0007
+	}
+}
+
+korlea.0007 = { # Bozisha-Dar - the Markets
+	content_source = realms_dlc
+	type = character_event	
+	title = korlea.0007.t
+	desc = korlea.0007.desc
+	theme = stewardship
+
+	override_background = {
+		reference = market
+	}
+
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+	right_portrait = {
+		character = scope:ray_merchant
+		animation = personality_greedy
+	}
+
+	immediate = {
+		character:lineofnilubel25littlebrother = { save_scope_as = belphegor }
+		character:lineofostiohincadet23littlesister = { save_scope_as = lominzil }
+		character:lineborodiriath96brother = { save_scope_as = nimruzir }
+		create_character = { 
+			location = root.location
+			culture = culture:bozishnarud
+			faith = faith:faith_ray
+			gender_female_chance = 0
+			after_creation = {
+				save_scope_as = ray_merchant
+			}
+		}
+	}
+	option = { # Buy something 
+		name = korlea.0007.a 
+		custom_tooltip = korlea.0006.a.tt
+		remove_short_term_gold = 20
+		random_list = {
+			20 = { # You buy food 
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = korlea.0007.a.food
+					left_icon = root
+					right_icon = scope:ray_merchant
+					add_character_modifier = {
+						modifier = ate_good_meal
+						years = 3
+					}
+				}
+			}
+			20 = { # You buy a warfare book 
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = korlea.0007.a.martial
+					left_icon = root
+					right_icon = scope:ray_merchant
+					add_martial_lifestyle_xp = medium_lifestyle_xp
+				}
+			}
+			20 = { # You listen to a story about Ray
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = korlea.0007.a.diplo
+					left_icon = root
+					right_icon = scope:ray_merchant
+					add_diplomacy_lifestyle_xp = medium_lifestyle_xp
+				}
+			}
+			20 = { # You buy a Ring	
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = korlea.0007.a.ring
+					left_icon = root
+					right_icon = scope:ray_merchant
+					create_artifact_ring_effect = {
+						OWNER = root
+						SMITH = scope:ray_merchant
+					}
+					if = {
+						limit = { exists = scope:newly_created_artifact }
+						scope:newly_created_artifact = {
+							set_artifact_name = house_founder_ring_name
+							set_artifact_description = house_founder_ring_desc
+						}
+					}
+				}
+			}
+			20 = { # You get scammed
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = korlea.0007.a.scam
+					left_icon = root
+					right_icon = scope:ray_merchant
+					add_opinion = {
+						modifier = insulted_opinion
+						target = scope:ray_merchant
+						opinion = -15
+					}
+				}
+			}
+		}
+	}
+	option = { # Don't buy anything, just look around
+		name = korlea.0007.b
+		custom_tooltip = korlea.0007.b.tt
+		add_learning_lifestyle_xp = medium_lifestyle_xp
+	}
+	after = {
+		trigger_event = korlea.0008
+	}
+}
+
+korlea.0008 = { # Bozisha-Dar - An Invitation from the Kralyi
+	content_source = realms_dlc
+	type = character_event	
+	title = korlea.0008.t
+	desc = korlea.0008.desc
+	theme = crown
+
+	override_background = {
+		reference = market
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	right_portrait = {
+		character = scope:bozisha_dar_guard
+		animation = marshal_shield
+	}
+	lower_center_portrait = {
+		character = scope:rayholder 
+	}
+
+	immediate = {
+		character:lineofnilubel25littlebrother = { save_scope_as = belphegor }
+		character:lineofostiohincadet23littlesister = { save_scope_as = lominzil }
+		character:lineborodiriath96brother = { save_scope_as = nimruzir }
+		title:c_bozisha_dar.holder = { save_scope_as = rayholder }
+		create_character = { 
+			location = root.location
+			culture = culture:bozishnarud
+			faith = faith:faith_ray
+			gender_female_chance = 0
+			after_creation = {
+				save_scope_as = bozisha_dar_guard
+				add_character_flag = wear_armor
+			}
+		}
+	}
+	
+	option = { # Aye we'll go see him 
+		name = korlea.0008.a
+		custom_tooltip = korlea.0008.a.tt
+		trigger_event = korlea.0009
+		add_prestige = minor_prestige_gain
+	}
+	option = { # Nah we're outta here
+		name = korlea.0008.b
+		custom_tooltip = korlea.0008.b.tt
+		scope:rayholder = {
+			add_opinion = {
+				modifier = insulted_opinion
+				target = root
+				opinion = -25
+			}
+		}
+		start_travel_plan = { #Travel to Sunira
+			destination = title:c_sunira.title_province
+			players_use_planner = no
+			on_arrival_event = korlea.0050
+		}
+	}
+	after = {
+		scope:bozisha_dar_guard = { silent_disappearance_effect = yes }
+	}
+}
+
+korlea.0009 = { # Bozisha-Dar - In the Palace of the Kralyi
+	content_source = realms_dlc
+	type = character_event	
+	title = korlea.0009.t
+	desc = korlea.0009.desc
+	theme = diplomacy
+
+	override_background = {
+		reference = throne_room_east
+	}
+
+	left_portrait = {
+		character = root
+		animation = throne_room_conversation_1
+	}
+	right_portrait = {
+		character = scope:rayholder
+		animation = personality_compassionate
+	}
+
+	immediate = {
+		character:lineofnilubel25littlebrother = { save_scope_as = belphegor }
+		character:lineofostiohincadet23littlesister = { save_scope_as = lominzil }
+		character:lineborodiriath96brother = { save_scope_as = nimruzir }
+		title:c_bozisha_dar.holder = { save_scope_as = rayholder }
+		add_gold = 100
+	}
+	option = { # Wow thank you!
+		name = korlea.0009.a
+		scope:rayholder = {
+			add_opinion = {
+				modifier = pleased_opinion
+				target = root
+				opinion = 15
+			}
+		}
+		start_travel_plan = { #Travel to Sunira
+			destination = title:c_sunira.title_province
+			players_use_planner = no
+			on_arrival_event = korlea.0050
+		}
+	}
+}
+
+### Crew events, part 1 ###
+korlea.0020 = { # Crew of the Dream-chaser #1 - Life at Sea
+	content_source = realms_dlc
+	type = character_event	
+	title = korlea.0020.t
+	desc = korlea.0020.desc
+	theme = sailing_activity
+
+	override_background = {
+		reference = ocean
+	}
+
+	left_portrait = {
+		character = root
+		animation = throne_room_conversation_1
+	}
+	right_portrait = {
+		character = scope:korlea_first_mate
+		animation = thinking
+	}
+
+	immediate = {
+		character:lineofnilubel25littlebrother = { save_scope_as = belphegor }
+		character:lineofostiohincadet23littlesister = { save_scope_as = lominzil }
+		character:lineborodiriath96brother = { save_scope_as = nimruzir }
+		if = {
+			limit = { root = character:lineofostiohincadet23littlesister }
+			scope:belphegor = { save_scope_as = korlea_first_mate }
+		}
+		else = {
+			scope:lominzil = { save_scope_as = korlea_first_mate }
+		}
+	}
+	option = { # The ocean has a certain charm, doesn't it?
+		name = korlea.0020.a
+		progress_towards_friend_effect = {
+			REASON = friend_hunt_conversation_impressed
+			CHARACTER = scope:korlea_first_mate
+			OPINION = default_friend_opinion
+		}
+	}
+	option = { # You ought to follow my lead
+		name = korlea.0020.b
+		progress_towards_rival_effect = {
+			CHARACTER = scope:korlea_first_mate
+			OPINION = default_rival_opinion
+			REASON = rival_bickering
+		}
+	}
+	option = { # I really enjoy your company...
+		name = korlea.0020.c
+		progress_towards_lover_effect = {
+			REASON = lover_feast_crush
+			CHARACTER = scope:korlea_first_mate
+			OPINION = default_lover_opinion
+		}
+	}
+}
+
+korlea.0021 = { # Crew of the Dream-chaser #1 - Challenge of Leadership
+	content_source = realms_dlc
+	type = character_event	
+	title = korlea.0021.t
+	desc = korlea.0021.desc
+	theme = sailing_activity
+
+	override_background = {
+		reference = ocean
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_callous
+	}
+	right_portrait = {
+		character = scope:korlea_first_mate
+		animation = anger
+	}
+
+	immediate = {
+		character:lineofnilubel25littlebrother = { save_scope_as = belphegor }
+		character:lineofostiohincadet23littlesister = { save_scope_as = lominzil }
+		character:lineborodiriath96brother = { save_scope_as = nimruzir }
+		if = {
+			limit = { root = character:lineborodiriath96brother }
+			scope:belphegor = { save_scope_as = korlea_second_mate }
+		}
+		else = {
+			scope:nimruzir = { save_scope_as = korlea_second_mate }
+		}
+	}
+	option = { # Let's talk this through (addres their concerns)
+		name = korlea.0021.a
+		progress_towards_friend_effect = {
+			REASON = friend_took_side_in_dispute
+			CHARACTER = scope:korlea_second_mate
+			OPINION = default_friend_opinion
+		}
+	}
+	option = { # I give the orders here, not you
+		name = korlea.0021.b
+		progress_towards_rival_effect = {
+			CHARACTER = scope:korlea_second_mate
+			OPINION = default_rival_opinion
+			REASON = rival_bickering
+		}
+	}
+	option = { # I could have you thrown off the ship
+		name = korlea.0021.c
+		add_dread = medium_dread_gain
+		scope:korlea_second_mate = {
+			add_opinion = {
+				target = root
+				opinion = -30
+				modifier = fp3_mildly_terrified_opinion
+			}
+		}
+	}
+}
+
+### Tulwang Arc ###
+korlea.0050 = { # An island of corsairs?
+	content_source = realms_dlc
+	type = character_event	
+	title = korlea.0050.t
+	desc = korlea.0050.desc
+	theme = raid
+
+	override_background = {
+		reference = docks_tribal
+	}
+
+	left_portrait = {
+		character = root
+		animation = shock
+	}
+	right_portrait = {
+		character = scope:korlea_first_mate
+		animation = marshal
+	}
+
+	immediate = {
+		character:lineofnilubel25littlebrother = { save_scope_as = belphegor }
+		character:lineofostiohincadet23littlesister = { save_scope_as = lominzil }
+		character:lineborodiriath96brother = { save_scope_as = nimruzir }
+		hidden_effect = { current_travel_plan ?= { abort_travel_plan = yes } }
+		if = {
+			limit = { root = character:lineofostiohincadet23littlesister }
+			scope:belphegor = { save_scope_as = korlea_first_mate }
+		}
+		else = {
+			scope:lominzil = { save_scope_as = korlea_first_mate }
+		}
+	}
+	option = { # Scary, we should move on
+		name = korlea.0050.a
+		custom_tooltip = korlea.0050.a.tt 
+		start_travel_plan = { #Travel to An-Balkumagan
+			destination = province:3092 # Belegaer Coast 
+			destination = province:3094 # Anballukhor Coast
+			destination = title:c_adunazain.title_province
+			players_use_planner = no
+			on_arrival_on_action = korlea_anbalkumagan_on_action
+		}
+		trigger_event = {
+			id = korlea.0021 # Crew event #2
+			days = 15
+		}
+	}
+	option = { # Let's dock the ship here for a while
+		name = korlea.0050.b
+		custom_tooltip = korlea.0050.b.tt # Unlocks "Explore Sunira" decision
+		add_character_flag = korlea_expedition_sunira
+		if = {
+			limit = { has_government = landless_adventurer_government }
+			domicile ?= {
+				move_domicile = title:c_sunira.title_province
+				change_provisions = minor_provisions_gain 
+			}
+		}
+		else = {
+			hidden_effect = { current_travel_plan ?= { delay_travel_plan = { years = 99 } } }
+		}
+	}
+}
+
+korlea.0051 = { # A drink at the tavern
+	content_source = realms_dlc
+	type = character_event	
+	title = korlea.0051.t
+	desc = korlea.0051.desc
+	theme = friendly
+
+	override_background = {
+		reference = tavern
+	}
+
+	left_portrait = {
+		character = root
+		animation = interested
+	}
+	right_portrait = {
+		character = scope:corsair_lady
+		animation = drink
+	}
+
+	immediate = {
+		character:lineofnilubel25littlebrother = { save_scope_as = belphegor }
+		character:lineofostiohincadet23littlesister = { save_scope_as = lominzil }
+		character:lineborodiriath96brother = { save_scope_as = nimruzir }
+		if = {
+			limit = { root = character:lineofostiohincadet23littlesister }
+			scope:belphegor = { save_scope_as = korlea_first_mate }
+		}
+		else = {
+			scope:lominzil = { save_scope_as = korlea_first_mate }
+		}
+		create_character = {
+			template = new_warrior_character
+			location = root.location
+			culture = culture:soriyan
+			faith = faith:faith_corsair
+			gender_female_chance = 100
+			save_scope_as = corsair_lady
+			after_creation = {	
+				add_trait = shrewd
+				add_trait = lifestyle_mariner
+			}
+		}
+	}
+	option = { # Tell us about the isle
+		name = korlea.0051.a
+		add_learning_lifestyle_xp = 250 
+	}
+	option = { # Tell us about the Corsairs
+		name = korlea.0051.b
+		add_martial_lifestyle_xp = 250 
+	}
+	option = { # Join the crew!
+		name = korlea.0051.c
+		add_courtier = scope:corsair_lady
+	}
+	after = {
+		trigger_event = korlea.0052
+	}
+}
+
+korlea.0052 = { # The treasure map
+	content_source = realms_dlc
+	type = character_event	
+	title = korlea.0052.t
+	desc = korlea.0052.desc
+	theme = stewardship_wealth_focus
+
+	override_background = {
+		reference = tavern
+	}
+
+	left_portrait = {
+		character = root
+		animation = shock
+	}
+	right_portrait = {
+		character = scope:corsair_lady
+		animation = storyteller
+	}
+	
+	option = { # Treasure! Treasure!
+		name = korlea.0052.a
+		custom_tooltip = korlea.0052.a.tt 
+		remove_short_term_gold = 20
+	}
+	option = { # What nonsense! 
+		name = korlea.0052.b
+		add_character_modifier = {
+			modifier = korlea_well_supplied_modifier
+			years = 2 
+		}
+	}
+	after = {
+		trigger_event = korlea.0053
+	}
+}
+
+korlea.0053 = { # The bar fight
+	content_source = realms_dlc
+	type = character_event	
+	title = korlea.0053.t
+	desc = korlea.0053.desc
+	theme = battle
+
+	override_background = {
+		reference = tavern
+	}
+
+	left_portrait = {
+		character = root
+		animation = throne_room_one_handed_passive
+	}
+	right_portrait = {
+		character = scope:corsair_lady
+		animation = aggressive_sword
+	}
+	
+	option = { # Attempt to quietly slip out
+		name = korlea.0053.a
+		random = {
+			chance = 10
+			increase_wounds_no_death_effect = { REASON = fight }
+		}
+	}
+	option = { # Fight back!
+		name = korlea.0053.b
+		add_prestige = 25
+		random = {
+			chance = 30 
+			add_prowess_skill = 1
+		}
+		random = {
+			chance = 30
+			increase_wounds_no_death_effect = { REASON = fight }
+		}
+	}
+}
+
+korlea.0099 = { # Leave for An-Balkumagan
+	content_source = realms_dlc
+	type = character_event	
+	title = korlea.0099.t
+	desc = korlea.0099.desc
+	theme = sailing_activity
+
+	override_background = {
+		reference = docks_tribal
+	}
+
+	left_portrait = {
+		character = root
+		animation = survey
+	}
+	right_portrait = {
+		character = scope:korlea_first_mate
+		animation = personality_rational
+	}
+
+	immediate = {
+		character:lineofnilubel25littlebrother = { save_scope_as = belphegor }
+		character:lineofostiohincadet23littlesister = { save_scope_as = lominzil }
+		character:lineborodiriath96brother = { save_scope_as = nimruzir }
+		hidden_effect = { current_travel_plan ?= { abort_travel_plan = yes } }
+		if = {
+			limit = { root = character:lineofostiohincadet23littlesister }
+			scope:belphegor = { save_scope_as = korlea_first_mate }
+		}
+		else = {
+			scope:lominzil = { save_scope_as = korlea_first_mate }
+		}
+	}
+	option = { # Time to set sail once again
+		name = korlea.0099.a
+		custom_tooltip = korlea.0099.a.tt 
+		remove_character_flag = korlea_expedition_sunira
+		start_travel_plan = { #Travel to An-Balkumagan
+			destination = province:3092 # Belegaer Coast 
+			destination = province:3094 # Anballukhor Coast
+			destination = title:c_adunazain.title_province
+			players_use_planner = no
+			on_arrival_on_action = korlea_anbalkumagan_on_action
+		}
+		trigger_event = {
+			id = korlea.0021 # Crew event #2
+			days = 15
+		}
+	}
+}
+
+### An-Balkumagan Arc ###
+korlea.0100 = { # The Black Port
+	content_source = realms_dlc
+	type = character_event	
+	title = korlea.0100.t
+	desc = korlea.0100.desc
+	theme = martial
+
+	override_background = {
+		reference = docks_adunai
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_callous
+	}
+	right_portrait = {
+		character = scope:korlea_first_mate
+		animation = survey
+	}
+
+	immediate = {
+		character:lineofnilubel25littlebrother = { save_scope_as = belphegor }
+		character:lineofostiohincadet23littlesister = { save_scope_as = lominzil }
+		character:lineborodiriath96brother = { save_scope_as = nimruzir }
+		hidden_effect = { current_travel_plan ?= { abort_travel_plan = yes } }
+		if = {
+			limit = { root = character:lineofostiohincadet23littlesister }
+			scope:belphegor = { save_scope_as = korlea_first_mate }
+		}
+		else = {
+			scope:lominzil = { save_scope_as = korlea_first_mate }
+		}
+	}
+	option = { # Don't like this place, let's sail on
+		name = korlea.0100.a
+		custom_tooltip = korlea.0100.a.tt 
+		# start_travel_plan = { #Travel to An-Balkumagan
+			# destination = province:3092 # Belegaer Coast 
+			# destination = province:3094 # Anballukhor Coast
+			# destination = title:c_adunazain.title_province
+			# players_use_planner = no
+			# on_arrival_on_action = korlea_anbalkumagan_on_action
+		# }
+		# trigger_event = {
+			# id = korlea.0021 # Crew event #2
+			# days = 15
+		# }
+	}
+	option = { # Let's dock the ship here for a while
+		name = korlea.0100.b
+		custom_tooltip = korlea.0100.b.tt # Unlocks "Explore Anballukhor" decision
+		#add_character_flag = korlea_expedition_anballukhor
+		if = {
+			limit = { has_government = landless_adventurer_government }
+			domicile ?= {
+				move_domicile = title:c_adunazain.title_province
+				change_provisions = minor_provisions_gain 
+			}
+		}
+		else = {
+			hidden_effect = { current_travel_plan ?= { delay_travel_plan = { years = 99 } } }
+		}
+	}
+}

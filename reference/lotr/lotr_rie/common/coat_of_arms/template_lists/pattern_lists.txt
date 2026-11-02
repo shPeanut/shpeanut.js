@@ -1,0 +1,342 @@
+pattern_texture_lists = {
+	most_emblems_list = {
+		25  = "pattern_checkers_01.dds"
+		15 	= "pattern_checkers_diagonal_01.dds"
+		#5  	= "pattern_checkers_diagonal_02.dds"
+		25 	= "pattern_horizontal_split_01.dds"
+		10 	= "pattern_horizontal_split_02.dds"
+		15 	= "pattern_horizontal_stripes_01.dds"
+		#100	= "pattern_solid.dds"
+		25 	= "pattern_vertical_split_01.dds"
+		5  	= "pattern_vertical_split_jagged_01.dds"
+		10 	= "pattern_vertical_stripes_01.dds"
+		15 	= "pattern_vertical_stripes_02.dds"
+	}	
+
+	hobbit_patterns_list = {
+		20  = "pattern_solid.dds"
+		40  = "pattern_waves_01.dds"
+		20  = "pattern_vertical_split_01.dds"
+		10  = "pattern_diagonal_split_01.dds"
+		10  = "pattern_diagonal_split_02.dds"
+		20  = "pattern_horizontal_split_01.dds"
+		20  = "pattern_checkers_diagonal_01.dds"
+		10  = "pattern_checkers_02.dds"
+		20  = "pattern_dunland_01.dds"
+	}
+
+	rhun_patterns_list = {
+		50 = "pattern_solid.dds"
+		10 = "pattern_rhun_01.dds"
+		10 = "pattern_rhun_02.dds"
+		 1 = "pattern_nordic_13.dds"
+		 1 = "pattern_nordic_21.dds"
+		 1 = "pattern_nordic_17.dds"
+	}
+	pattern_diamond_list = {
+		1 = "pattern_diamond_00.dds"
+		1 = "pattern_diamond_01.dds"
+		1 = "pattern_diamond_02.dds"
+		1 = "pattern_diamond_03.dds"
+		1 = "pattern_diamond_04.dds"
+		1 = "pattern_diamond_gondor_01.dds"
+		1 = "pattern_diamond_gondor_02.dds"
+		1 = "pattern_diamond_gondor_03.dds"
+		1 = "pattern_diamond_gondor_04.dds"
+		1 = "pattern_diamond_gondor_05.dds"
+		1 = "pattern_diamond_gondor_06.dds"
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = dunedain_group_coa_gfx }
+			}
+			0 = "pattern_diamond_00.dds"
+			0 = "pattern_diamond_01.dds"
+			5 = "pattern_diamond_gondor_01.dds"
+			5 = "pattern_diamond_gondor_02.dds"
+			5 = "pattern_diamond_gondor_03.dds"
+			5 = "pattern_diamond_gondor_04.dds"
+			5 = "pattern_diamond_gondor_05.dds"
+			5 = "pattern_diamond_gondor_06.dds"
+		}
+	}
+	pattern_square_list = {
+		1 = "pattern_square_00.dds"
+		1 = "pattern_square_01.dds"
+		1 = "pattern_square_02.dds"
+		1 = "pattern_square_03.dds"
+		1 = "pattern_square_04.dds"
+		1 = "pattern_square_gondor_01.dds"
+		1 = "pattern_square_gondor_02.dds"
+		1 = "pattern_square_gondor_03.dds"
+		1 = "pattern_square_gondor_04.dds"
+		1 = "pattern_square_gondor_05.dds"
+		1 = "pattern_square_gondor_06.dds"
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = dunedain_group_coa_gfx }
+			}
+			0 = "pattern_square_00.dds"
+			0 = "pattern_square_01.dds"
+			5 = "pattern_square_gondor_01.dds"
+			5 = "pattern_square_gondor_02.dds"
+			5 = "pattern_square_gondor_03.dds"
+			5 = "pattern_square_gondor_04.dds"
+			5 = "pattern_square_gondor_05.dds"
+			5 = "pattern_square_gondor_06.dds"
+		}
+	}
+	pattern_numenorean_base = {
+		10 	= "pattern_numenorean_01.dds"
+		10 	= "pattern_numenorean_02.dds"
+		10 	= "pattern_numenorean_03.dds"
+	}
+	eredrim_tartan_list = {
+		10 	= "tartan_eredrim_01.dds"
+		10 	= "tartan_eredrim_02.dds"
+		10 	= "tartan_eredrim_03.dds"
+		10 	= "tartan_eredrim_04.dds"
+		10  = "tartan_lamedon_01.dds"
+	}
+	rohirrim_royal_pattern = {
+		 5 	= "pattern_rohan_01.dds"
+		 5 	= "pattern_rohan_02.dds"
+		 5 	= "pattern_rohan_03.dds"
+		 5 	= "pattern_rohan_04.dds"
+		 5 	= "pattern_rohan_05.dds"
+	}
+	dunlending_pattern_list = {
+		 5 	= "pattern_frankish_01.dds"
+		 5 	= "pattern_frankish_02.dds"
+		20 	= "pattern_icelandic_03.dds"
+		20 	= "pattern_icelandic_04.dds"
+		40 	= "pattern_nordic_01.dds"
+		40 	= "pattern_nordic_02.dds"
+		40 	= "pattern_nordic_03.dds"
+		40 	= "pattern_nordic_04.dds"
+		10 	= "pattern_nordic_05.dds"
+		10 	= "pattern_nordic_06.dds"
+		10 	= "pattern_nordic_07.dds"
+		10 	= "pattern_nordic_08.dds"
+		10 	= "pattern_nordic_09.dds"
+		10 	= "pattern_nordic_10.dds"
+		10 	= "pattern_nordic_11.dds"
+		10 	= "pattern_nordic_12.dds"
+	}
+	adornaen_pattern_list = {
+		 5 	= "pattern_danish_01.dds"
+		 5 	= "pattern_danish_02.dds"
+		 5 	= "pattern_danish_03.dds"
+		 5 	= "pattern_danish_04.dds"
+		 5 	= "pattern_frankish_01.dds"
+		 5 	= "pattern_frankish_02.dds"
+		 1 	= "pattern_germanic_01.dds"
+		 1 	= "pattern_germanic_02.dds"
+		 1 	= "pattern_germanic_03.dds"
+		 1 	= "pattern_germanic_04.dds"
+		10 	= "pattern_nordic_13.dds"
+		10 	= "pattern_nordic_14.dds"
+		10 	= "pattern_nordic_15.dds"
+		10 	= "pattern_nordic_16.dds"
+		10 	= "pattern_nordic_17.dds"
+		10 	= "pattern_nordic_18.dds"
+		10 	= "pattern_nordic_19.dds"
+		10 	= "pattern_nordic_20.dds"
+		10 	= "pattern_nordic_21.dds"
+		10 	= "pattern_nordic_22.dds"
+		10 	= "pattern_nordic_23.dds"
+		10 	= "pattern_nordic_24.dds"
+		20 	= "pattern_viking_01.dds"
+		20 	= "pattern_viking_02.dds"
+		20 	= "pattern_viking_05.dds"
+		20 	= "pattern_viking_06.dds"
+		20 	= "pattern_viking_07.dds"
+		20 	= "pattern_viking_08.dds"
+		20 	= "pattern_viking_09.dds"
+		20 	= "pattern_viking_10.dds"
+		20 	= "pattern_viking_11.dds"
+		20 	= "pattern_viking_12.dds"
+		20 	= "pattern_viking_13.dds"
+		20 	= "pattern_viking_14.dds"
+		 5 	= "pattern_saxon_01.dds"
+		 5 	= "pattern_saxon_02.dds"
+		 2 	= "pattern_saxon_05.dds"
+		 2 	= "pattern_saxon_06.dds"
+		 1 	= "pattern_cross_bar_01.dds"
+		 1 	= "pattern_cross_bar_02.dds"
+	}
+	eriador_pattern_list = {
+		 5 	= "pattern_saxon_01.dds"
+		 5 	= "pattern_saxon_02.dds"
+		 2 	= "pattern_saxon_05.dds"
+		 2 	= "pattern_saxon_06.dds"
+		 2 	= "pattern_frankish_01.dds"
+		 2 	= "pattern_frankish_02.dds"
+		 2 	= "pattern_nordic_05.dds"
+		 2 	= "pattern_nordic_06.dds"
+		 2 	= "pattern_nordic_07.dds"
+		 2 	= "pattern_nordic_08.dds"
+		 2 	= "pattern_nordic_09.dds"
+		 2 	= "pattern_nordic_10.dds"
+		 2 	= "pattern_nordic_11.dds"
+		 2 	= "pattern_nordic_12.dds"
+		 5 	= "pattern_nordic_17.dds"
+		 5 	= "pattern_nordic_18.dds"
+		 5 	= "pattern_nordic_19.dds"
+		 5 	= "pattern_nordic_20.dds"
+	}
+	
+	frankish_pattern_list = {
+		10 	= "pattern_frankish_01.dds"
+		10 	= "pattern_frankish_02.dds"
+	}
+	germanic_pattern_list = {
+		10 	= "pattern_germanic_01.dds"
+		10 	= "pattern_germanic_02.dds"
+		10 	= "pattern_germanic_03.dds"
+		10 	= "pattern_germanic_04.dds"
+	}
+	icelandic_pattern_list = {
+#		10 	= "pattern_icelandic_01.dds"
+#		10 	= "pattern_icelandic_02.dds"
+		10 	= "pattern_icelandic_03.dds"
+		10 	= "pattern_icelandic_04.dds"
+		 5 	= "pattern_checkers_01.dds"
+		 5 	= "pattern_checkers_02.dds"
+		 5 	= "pattern_cross_01.dds"
+		 5 	= "pattern_cross_02.dds"
+	}
+	viking_pattern_list = {
+		10 	= "pattern_nordic_01.dds"
+		10 	= "pattern_nordic_02.dds"
+		10 	= "pattern_nordic_03.dds"
+		10 	= "pattern_nordic_04.dds"
+		10 	= "pattern_nordic_05.dds"
+		10 	= "pattern_nordic_06.dds"
+		10 	= "pattern_nordic_07.dds"
+		10 	= "pattern_nordic_08.dds"
+		10 	= "pattern_nordic_09.dds"
+		10 	= "pattern_nordic_10.dds"
+		10 	= "pattern_nordic_11.dds"
+		10 	= "pattern_nordic_12.dds"
+		10 	= "pattern_nordic_13.dds"
+		10 	= "pattern_nordic_14.dds"
+		10 	= "pattern_nordic_15.dds"
+		10 	= "pattern_nordic_16.dds"
+		10 	= "pattern_nordic_17.dds"
+		10 	= "pattern_nordic_18.dds"
+		10 	= "pattern_nordic_19.dds"
+		10 	= "pattern_nordic_20.dds"
+		10 	= "pattern_nordic_21.dds"
+		10 	= "pattern_nordic_22.dds"
+		10 	= "pattern_nordic_23.dds"
+		10 	= "pattern_nordic_24.dds"
+		10 	= "pattern_viking_01.dds"
+		10 	= "pattern_viking_02.dds"
+#		10 	= "pattern_viking_03.dds"
+#		10 	= "pattern_viking_04.dds"
+		10 	= "pattern_viking_05.dds"
+		10 	= "pattern_viking_06.dds"
+		10 	= "pattern_viking_07.dds"
+		10 	= "pattern_viking_08.dds"
+		10 	= "pattern_viking_09.dds"
+		10 	= "pattern_viking_10.dds"
+		10 	= "pattern_viking_11.dds"
+		10 	= "pattern_viking_12.dds"
+		10 	= "pattern_viking_13.dds"
+		10 	= "pattern_viking_14.dds"
+#		 5 	= "pattern_cross_bar_01.dds"
+#		 5 	= "pattern_cross_bar_02.dds"
+	}
+	viking_pattern_charge_list = {
+#		10 	= "pattern_viking_03.dds"
+#		10 	= "pattern_viking_04.dds"
+		10 	= "pattern_viking_05.dds"
+		10 	= "pattern_viking_06.dds"
+#		 5 	= "pattern_cross_bar_01.dds"
+#		 5 	= "pattern_cross_bar_02.dds"
+	}
+	saxon_pattern_list = {
+		10 	= "pattern_saxon_01.dds"
+		10 	= "pattern_saxon_02.dds"
+#		10 	= "pattern_saxon_03.dds"
+#		10 	= "pattern_saxon_04.dds"
+		 5 	= "pattern_saxon_05.dds"
+		 5 	= "pattern_saxon_06.dds"
+	}
+	danish_pattern_list = {
+		10 	= "pattern_danish_01.dds"
+		10 	= "pattern_danish_02.dds"
+		10 	= "pattern_danish_03.dds"
+		10 	= "pattern_danish_04.dds"
+	}
+	
+	christian_emblems_list = {
+		50  = "pattern_cross_01.dds"
+		15 	= "pattern_cross_02.dds"
+	}
+	
+	basic_division = {
+		100  = "pattern_solid.dds"
+		20  = "pattern_vertical_split_01.dds"
+		10  = "pattern_diagonal_split_01.dds"
+		20  = "pattern_horizontal_split_01.dds"
+		special_selection = {
+			trigger = {
+				always = no
+				# scope:faith.religion = religion:christianity_religion # Toned down for religions other than christianity
+			}
+			5 	= "pattern_checkers_diagonal_01.dds"
+			10  = "pattern_checkers_01.dds"	
+			30  = "pattern_vertical_split_01.dds"			
+		}			
+	}
+	
+	mena_tierced_per_fess = {
+		10  = "pattern_horizontal_bar_01.dds"
+		1000  = "pattern_tricolor_horizontal_01.dds"
+	}
+	
+	field_cross = {
+		10  = "pattern_solid.dds"
+		2  = "pattern_checkers_01.dds"
+		1  = "pattern_horizontal_split_01.dds"
+		1  = "pattern_vertical_split_01.dds"
+	}
+	field_saltire = {
+		10  = "pattern_solid.dds"
+		2  = "pattern_checkers_diagonal_01.dds"
+		2  = "pattern_diagonal_split_01.dds"
+		2  = "pattern_diagonal_split_02.dds"
+	}
+
+	###
+
+	# Pagan - Simple & rare divisions of the field
+	basic_pagan_patterns = {
+		160  = "pattern_solid.dds"
+		20  = "pattern_vertical_split_01.dds"
+		10  = "pattern_diagonal_split_01.dds"
+		20  = "pattern_horizontal_split_01.dds"
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = adornaen_coa_gfx }
+				# scope:culture = { has_coa_gfx = norse_coa_gfx }
+			}
+			40  = "pattern_diagonal_split_01.dds"
+		}		
+	}
+	
+	# No division of the field
+	field_standalone = {
+		100  = "pattern_solid.dds"
+	}	
+	
+	# No division of the field
+	faction_patterns_list = {
+		20  = "pattern_vertical_split_01.dds"
+		30  = "pattern_diagonal_split_01.dds"
+		20  = "pattern_horizontal_split_01.dds"
+		5  = "pattern_checkers_01.dds"
+		5 	= "pattern_checkers_diagonal_01.dds"
+	}	
+}

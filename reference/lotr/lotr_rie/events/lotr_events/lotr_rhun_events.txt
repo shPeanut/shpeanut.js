@@ -1,0 +1,65 @@
+﻿namespace = rhun
+
+### Rhûn Events ###
+
+#########################
+# 		rhun.0001 		Cochineal decision event
+#		rhun.0100		Dragon Knights formation event
+#
+
+##########################################
+# Cochineal decision event
+# by Juke (based on RICE)
+# 0001
+##########################################
+rhun.0001 = {
+	type = character_event
+	content_source = realms_dlc
+	title = rhun.0001.t
+	desc = rhun.0001.desc
+	theme = stewardship_wealth_focus
+	override_background = { reference = amon_sul }
+
+
+	right_portrait = {
+		character = root
+		animation = frontend_right_idle
+	}
+
+	option = {
+		name = rhun.0001.a
+		cochineal_decision_effect = yes
+	}
+
+}
+
+### Found the Dragon Knights ###
+rhun.0100 = {
+	type = character_event
+	content_source = realms_dlc
+	title = rhun.0100.t
+	desc = rhun.0100.desc
+	theme = martial
+	
+	override_background = { reference = battlefield }
+
+	right_portrait = {
+		character = root
+		animation = horse_sword_shield
+		camera = camera_event_center_pointing_slighty_left
+	}
+	
+	immediate = {
+		add_character_flag = wear_armor
+		show_as_tooltip = { # Effects from the Decision
+			root.dynasty = { add_dynasty_prestige = 500 }
+			get_title = title:k_dragon_knights
+		}
+	}
+	
+	option = {
+		name = rhun.0100.a
+		remove_character_flag = wear_armor
+	}
+
+}

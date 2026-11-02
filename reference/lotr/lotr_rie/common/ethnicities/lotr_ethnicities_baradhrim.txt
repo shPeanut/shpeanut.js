@@ -1,0 +1,122 @@
+﻿lossoth_ethnicity = {
+	template = "talathrim_ethnicity"
+	visible = yes
+	using = "baradhrim"	
+
+	hair_color = {
+		#Dirty Blonde
+		10 = { 0.04 0.50 0.65 0.65 }
+		#Dark Brown
+		25 = { 0.04 0.85 0.65 0.96 }
+		#Auburn
+		3 = { 0.65 0.50 0.99 0.80 }
+		#Dark Auburn
+		20 = { 0.65 0.80 0.99 1.0 }
+		#Dark Red
+		2 = { 0.85 0.25 0.99 0.50 }	
+		#Black
+		40 = { 0.04 0.96 0.30 1.0 }
+	}
+	skin_color = {
+		#Light Tan
+		50 = { 0.30 0.10 0.60 0.30 }
+	}	
+	eye_color = {
+		#Blue
+		10 = { 0.65 0.30 0.95 0.70 }
+		#Dark Blue
+		10 = { 0.65 0.70 0.95 0.90 }	
+		#Brown
+		20 = { 0.02 0.30 0.30 0.70 }
+		#Dark Brown
+		20 = { 0.02 0.70 0.30 0.90 }
+		#Green
+		10 = { 0.40 0.30 0.65 0.70 }		
+		#Black
+		20 = { 0.0 0.90 1.0 1.0 }
+		#Hazel
+		5 = { 0.30 0.30 0.40 0.70 }
+		#Dark Hazel
+		5 = { 0.30 0.70 0.40 0.90 }		
+	}
+    face_detail_cheek_fat = {
+        3 = {  name = cheek_fat_01_pos             range = { 0.0 0.25 }     }
+        15 = {  name = cheek_fat_01_pos             range = { 0.25 0.50 }     }
+        10 = {  name = cheek_fat_01_pos             range = { 0.50 1.0 }     }
+
+        3 = {  name = cheek_fat_02_pos             range = { 0.0 0.25 }     }
+        15 = {  name = cheek_fat_02_pos             range = { 0.25 0.50 }     }
+        10 = {  name = cheek_fat_02_pos             range = { 0.50 1.0 }     }
+
+        3 = {  name = cheek_fat_03_pos             range = { 0.0 0.25 }     }
+        15 = {  name = cheek_fat_03_pos             range = { 0.25 0.50 }     }
+        10 = {  name = cheek_fat_03_pos             range = { 0.50 1.0 }     }
+
+        3 = {  name = cheek_fat_04_pos             range = { 0.0 0.25 }     }
+        15 = {  name = cheek_fat_04_pos             range = { 0.25 0.50 }     }
+        10 = {  name = cheek_fat_04_pos             range = { 0.50 1.0 }     }
+
+        3 = {  name = cheek_fat_01_neg             range = { 0.0 0.25 }     }
+        2 = {  name = cheek_fat_01_neg             range = { 0.25 0.50 }     }
+        0 = {  name = cheek_fat_01_neg             range = { 0.50 1.0 }     }
+    }	
+    gene_bs_nose_length = {
+        0 = { name = nose_length_neg    range = { 0.5 0.8 }    }
+        0 = { name = nose_length_neg    range = { 0.25 0.5 }    }
+        5 = { name = nose_length_neg    range = { 0.0 0.25 }    }
+        30 = { name = nose_length_pos    range = { 0.0 0.25 }    }
+        30 = { name = nose_length_pos    range = { 0.25 0.5 }    }
+        5 = { name = nose_length_pos    range = { 0.5 0.8 }    }
+    }
+    gene_bs_nose_size = {
+        0 = { name = nose_size_neg    range = { 0.50 0.65 }    }
+        2 = { name = nose_size_neg    range = { 0.25 0.50 }    }
+        8 = { name = nose_size_neg    range = { 0.0 0.25 }    }
+        40 = { name = nose_size_pos    range = { 0.0 0.25 }    }
+        8 = { name = nose_size_pos    range = { 0.25 0.50 }    }
+        2 = { name = nose_size_pos    range = { 0.50 0.65 }    }		
+    }
+    gene_bs_nose_nostril_width = {
+        8 = { name = nose_nostril_width_neg    range = { 0.5 0.75 }    }
+        40 = { name = nose_nostril_width_neg    range = { 0.25 0.50 }    }
+        16 = { name = nose_nostril_width_neg    range = { 0.0 0.25 }    }
+        2 = { name = nose_nostril_width_pos    range = { 0.0 0.25 }    }
+        0 = { name = nose_nostril_width_pos    range = { 0.25 0.50 }    }
+        0 = { name = nose_nostril_width_pos    range = { 0.5 0.75 }    }		
+    }
+
+	gene_bs_body_type = {
+		# 0 = { name = body_average 	range = { 0.0 0.0 }		 }
+        0 = { name = body_fat_head_fat_low   range = { 0.3 0.35 }      }
+        5 = { name = body_fat_head_fat_low   range = { 0.35 0.45 }      }
+        20 = { name = body_fat_head_fat_low   range = { 0.45 0.55 }     }
+        25 = { name = body_fat_head_fat_low   range = { 0.55 0.65 }      }
+        5 = { name = body_fat_head_fat_low   range = { 0.65 0.75 }      }
+
+        0 = { name = body_fat_head_fat_medium   range = { 0.3 0.35 }      }
+        5 = { name = body_fat_head_fat_medium   range = { 0.35 0.45 }      }
+        20 = { name = body_fat_head_fat_medium   range = { 0.45 0.55 }      }
+        25 = { name = body_fat_head_fat_medium   range = { 0.55 0.65 }      }
+        5 = { name = body_fat_head_fat_medium   range = { 0.65 0.75 }      }
+
+        0 = { name = body_fat_head_fat_full   range = { 0.3 0.35 }      }
+        5 = { name = body_fat_head_fat_full   range = { 0.35 0.45 }      }
+        10 = { name = body_fat_head_fat_full   range = {0.45 0.55 }      }
+        15 = { name = body_fat_head_fat_full   range = { 0.55 0.65 }      }
+        0 = { name = body_fat_head_fat_full   range = { 0.65 0.75 }      }
+	}	
+    gene_height = {
+		1 = { name = normal_height    range = { 0.46 0.50 }    }
+		5 = { name = normal_height    range = { 0.50 0.52 }    }
+		10 = { name = normal_height    range = { 0.52 0.54 }    }
+		5 = { name = normal_height    range = { 0.54 0.56 }    }
+		1 = { name = normal_height    range = { 0.56 0.60 }    }
+    }
+    gene_hair_type = {
+        40 = {  name = hair_straight             range = { 0.35 0.75 }     }
+        50 = {  name = hair_wavy             range = { 0.35 0.75 }     }
+        10 = {  name = hair_curly             range = { 0.35 0.75 }     }
+        0 = {  name = hair_afro             range = { 0.35 0.75 }     }
+    }
+}
+

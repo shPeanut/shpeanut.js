@@ -1,0 +1,2717 @@
+﻿decision_saruman_many_coloured = {
+	title = decision_saruman_many_coloured
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_saruman_01.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	selection_tooltip = decision_saruman_many_coloured_tooltip
+	desc = decision_saruman_many_coloured_desc
+	confirm_text = decision_saruman_many_coloured_confirm
+
+	cost = {
+		gold = {
+			value = 250
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			multiply = 1
+		}
+		piety = {
+			value = 300
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+
+	decision_group_type = realms_in_exile_minor
+	sort_order = 95
+	
+	is_shown = {
+		has_character_flag = saruman_many_coloured
+	}
+	is_valid = {
+		piety_level >= 3
+	}
+	is_valid_showing_failures_only = {
+		is_at_war = no
+	}
+
+
+	effect = {
+		add_prestige = major_prestige_gain
+		add_learning_lifestyle_xp = minor_lifestyle_xp
+		give_nickname = nick_of_many_colors
+		add_character_flag = had_nickname_event
+		capital_county = {
+			add_county_modifier = { modifier = county_saruman_many_coloured_modifier years = 20 }
+		}
+		remove_character_flag = saruman_many_coloured
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_saruman_invite_dunlendings = {
+	title = decision_saruman_invite_dunlendings
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_wildmen_03.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	selection_tooltip = decision_saruman_invite_dunlendings_tooltip
+	desc = decision_saruman_invite_dunlendings_desc
+	confirm_text = decision_saruman_invite_dunlendings_confirm
+
+	cost = {
+		gold = major_gold_value
+		prestige = major_prestige_value
+	}
+
+	decision_group_type = realms_in_exile_major
+	sort_order = 30
+	
+	is_shown = {
+		has_character_flag = is_saruman
+		faith_is_evil = yes
+	}
+	is_valid = {
+		faith = faith:white_hand_cult
+		any_hooked_character = {
+			culture = {
+				has_cultural_pillar = heritage_daen_lintis
+			}
+			highest_held_title_tier >= tier_duchy
+		}
+		prestige_level >= 3
+		any_sub_realm_barony = {
+			title_province = {
+				OR = {
+					has_building_or_higher = wonder_isengard_05
+					has_building_or_higher = garrison_tower_03
+					has_building_or_higher = barracks_06
+				}
+			}
+		}
+	}
+	is_valid_showing_failures_only = {
+		is_at_war = no
+	}
+
+
+	effect = {
+		add_unpressed_claim = title:k_dunland
+		add_unpressed_claim = title:k_druwaith
+		add_unpressed_claim = title:k_enedhwaith
+		hidden_effect = {
+			make_claim_strong = title:k_dunland
+			make_claim_strong = title:k_druwaith
+			make_claim_strong = title:k_enedhwaith
+		}
+		spawn_army = {
+			uses_supply = no
+			inheritable = no
+			name = isengard_dunlending_event_troops
+			men_at_arms = {
+				type = dunlending_huscarl
+				stacks = 1
+			}
+			men_at_arms = {
+				type = dunlending_longbowmen
+				stacks = 2
+			}
+			men_at_arms = {
+				type = dunlending_axe_hunters
+				stacks = 2
+			}
+			men_at_arms = {
+				type = light_footmen
+				stacks = 2
+			}
+			location = capital_province
+		}
+		root.culture = { add_innovation = innovation_dunlending_warriors }
+		remove_character_flag = saruman_invited_dunlendings
+		add_character_flag = saruman_has_dunlendings
+		trigger_event = {
+			id = saruman_event_chain.2021
+			days = { 1200 1800 }
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_saruman_invite_dunlendings_good = {
+	title = decision_saruman_invite_dunlendings
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_wildmen_03.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	selection_tooltip = decision_saruman_invite_dunlendings_tooltip
+	desc = decision_saruman_invite_dunlendings_good_desc
+	confirm_text = decision_saruman_invite_dunlendings_confirm
+
+	cost = {
+		gold = medium_gold_value
+		prestige = medium_prestige_value
+	}
+
+	decision_group_type = realms_in_exile_minor
+	sort_order = 30
+	
+	is_shown = {
+		has_character_flag = is_saruman
+		faith_is_good = yes
+		is_landed = yes
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_saruman_invite_dunlendings_good
+			}
+		}
+	}
+	is_valid = {
+		faith_is_good = yes
+		prestige_level >= 3
+		is_landed = yes
+		has_title = title:d_isengard
+	}
+	is_valid_showing_failures_only = {
+		is_at_war = no
+		is_travelling = no
+	}
+
+
+	effect = {
+		spawn_army = {
+			uses_supply = no
+			inheritable = no
+			name = isengard_dunlending_event_troops
+			men_at_arms = {
+				type = dunlending_huscarl
+				stacks = 1
+			}
+			men_at_arms = {
+				type = dunlending_longbowmen
+				stacks = 2
+			}
+			men_at_arms = {
+				type = dunlending_axe_hunters
+				stacks = 2
+			}
+			location = capital_province
+		}
+		root.culture = { add_innovation = innovation_dunlending_warriors }
+		culture:isengard_dunlending = { get_all_innovations_from = root.culture }
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_saruman_invite_dunlendings_good
+		}
+		add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_positive_event_choice }
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_antisaruman = {
+	title =  decision_antisaruman
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_saruman_01.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	cooldown = { years = 2 }
+	desc =  decision_antisaruman_desc
+	confirm_text =  decision_antisaruman_confirm
+	decision_group_type = realms_in_exile_minor
+	sort_order = 90
+	
+	is_shown = {
+		has_character_flag = saruman_influence
+	}
+	cost = {
+		prestige = major_prestige_value
+	}
+	effect = {
+		custom_tooltip = decision_antisaruman_tooltip
+	}
+}
+
+decision_recruit_misty_mountain_orcs = {
+	title = decision_recruit_misty_mountain_orcs
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_misty_mountains_01.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	selection_tooltip = decision_recruit_misty_mountain_orcs_tooltip
+	desc = decision_recruit_misty_mountain_orcs_desc
+	confirm_text = decision_recruit_misty_mountain_orcs_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 40
+
+	is_shown = {
+		has_character_flag = saruman_build_me_an_army
+		has_character_flag = is_saruman
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_recruit_misty_mountain_orcs
+			}
+		}
+	}
+
+	cooldown = { years = 10 }
+
+	cost = { 
+		gold = { 
+			value = 200
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0.5
+			}
+			multiply = 1
+		}
+	}
+
+	is_valid = {
+		has_title = title:c_isengard
+		OR = {
+			has_faith = faith:lidless_eye
+			has_faith = faith:white_hand_cult
+		}
+	}
+
+	effect = {
+		spawn_army = {
+			uses_supply = no
+			inheritable = no
+			name = decision_recruit_misty_mountain_orcs_troops
+			men_at_arms = {
+				type = orc_warriors
+				stacks = 5
+			}
+			men_at_arms = {
+				type = orc_archers
+				stacks = 2
+			}
+			men_at_arms = {
+				type = mountainorc_warriors
+				stacks = 3
+			}
+			location = capital_province
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_recruit_misty_mountain_orcs
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_industialise_isengard_1 = {
+	title = decision_industialise_isengard_1
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_orc_lumbermill_01.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	selection_tooltip = decision_industialise_isengard_1_tooltip
+	desc = decision_industialise_isengard_1_desc
+	confirm_text = decision_industialise_isengard_1_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 90
+
+	is_shown = {
+		has_character_flag = saruman_build_me_an_army
+		has_character_flag = is_saruman
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_industialise_isengard_1
+			}
+		}
+	}
+
+	cost = { 
+		gold = { 
+			value = 100
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+
+	is_valid = {
+		has_title = title:c_isengard
+		OR = {
+			has_faith = faith:lidless_eye
+			has_faith = faith:white_hand_cult
+		}
+	}
+
+	effect = {
+		trigger_event = saruman_event_chain.2010
+		custom_description_no_bullet = {
+			text = effect_decision_industialise_isengard_1
+		}
+		show_as_tooltip = {
+			title:c_isengard = {
+				add_county_modifier = industrialised_isengard_1_county_modifier
+			}
+			title:c_isengard.title_province = {
+				add_province_modifier = industrialised_isengard_1_province_modifier
+			}
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_industialise_isengard_1
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_industialise_isengard_2 = {
+	title = decision_industialise_isengard_2
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_orc_lumbermill_01.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	selection_tooltip = decision_industialise_isengard_2_tooltip
+	desc = decision_industialise_isengard_2_desc
+	confirm_text = decision_industialise_isengard_2_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 90
+
+	is_shown = {
+		has_character_flag = saruman_build_me_an_army
+		has_character_flag = is_saruman
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_creation_of_the_uruk_hai
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_industialise_isengard_2
+			}
+		}
+	}
+
+	is_valid = {
+		has_title = title:c_isengard
+		title:c_isengard = {
+			has_county_modifier = industrialised_isengard_1_county_modifier
+		}
+		OR = {
+			has_faith = faith:lidless_eye
+			has_faith = faith:white_hand_cult
+		}
+	}
+
+	cost = { 
+		gold = { 
+			value = 250
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+
+	effect = {
+		trigger_event = saruman_event_chain.2013
+		custom_description_no_bullet = {
+			text = effect_decision_industialise_isengard_1
+		}
+		show_as_tooltip = {
+			title:c_isengard = {
+				add_county_modifier = industrialised_isengard_2_county_modifier
+			}
+			title:c_isengard.title_province = {
+				add_province_modifier = industrialised_isengard_2_province_modifier
+			}
+			if = {
+				limit = {
+					title:b_orthanc.title_province = {
+						NOT = { has_building_or_higher = furnaces_03 }
+					}
+				}
+				title:b_orthanc.title_province = { add_building = furnaces_03 }
+			}
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_industialise_isengard_2
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_industialise_isengard_3 = {
+	title = decision_industialise_isengard_3
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_orc_lumbermill_01.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	selection_tooltip = decision_industialise_isengard_3_tooltip
+	desc = decision_industialise_isengard_3_desc
+	confirm_text = decision_industialise_isengard_3_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 90
+
+	is_shown = {
+		has_character_flag = saruman_build_me_an_army
+		has_character_flag = is_saruman
+		has_character_flag = rohan_war_victory
+		title:c_isengard = {
+			has_county_modifier = industrialised_isengard_2_county_modifier
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_industialise_isengard_3
+			}
+		}
+	}
+
+	cost = { 
+		gold = { 
+			value = 400
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+
+	is_valid = {
+		has_title = title:c_isengard
+		title:c_isengard = {
+			has_county_modifier = industrialised_isengard_2_county_modifier
+		}
+		OR = {
+			has_faith = faith:lidless_eye
+			has_faith = faith:white_hand_cult
+		}
+	}
+
+	effect = {
+		trigger_event = saruman_event_chain.2016
+		custom_description_no_bullet = {
+			text = effect_decision_industialise_isengard_1
+		}
+		show_as_tooltip = {
+			title:c_isengard = {
+				add_county_modifier = industrialised_isengard_3_county_modifier
+			}
+			title:c_isengard.title_province = {
+				add_province_modifier = industrialised_isengard_3_province_modifier
+			}
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_industialise_isengard_3
+		}
+		custom_tooltip = decision_industialise_isengard_3_tt
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_creation_of_the_uruk_hai = {
+	title = decision_creation_of_the_uruk_hai
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_urukhai_03.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	selection_tooltip = decision_creation_of_the_uruk_hai_tooltip
+	desc = decision_creation_of_the_uruk_hai_desc
+	confirm_text = decision_creation_of_the_uruk_hai_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 60
+
+	is_shown = {
+		has_character_flag = saruman_build_me_an_army
+		has_character_flag = is_saruman
+		title:c_isengard = {
+			has_variable = industry_level
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_creation_of_the_uruk_hai
+			}
+		}
+	}
+	is_valid = {
+		has_title = title:c_isengard
+		title:c_isengard = {
+			OR = {
+				has_county_modifier = industrialised_isengard_1_county_modifier
+				has_county_modifier = industrialised_isengard_2_county_modifier
+				has_county_modifier = industrialised_isengard_3_county_modifier
+			}
+		}
+		OR = {
+			has_faith = faith:lidless_eye
+			has_faith = faith:white_hand_cult
+		}
+	}
+
+	cost = {
+		gold = {
+			value = 100
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			multiply = 1
+		}
+		prestige = {
+			value = 500
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+
+	effect = {
+		custom_description_no_bullet = {
+			text = effect_decision_creation_of_the_uruk_hai
+		}
+		trigger_event = saruman_event_chain.2040
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_creation_of_the_uruk_hai
+		}
+		title:c_isengard = {
+			set_county_culture = culture:isengard_urukhai
+		}
+		remove_character_flag = saruman_dunlendings_bent
+		remove_character_flag = saruman_dunlendings_crushed
+		add_character_flag = saruman_uruk_hai_created
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_bolster_the_uruk_hai = {
+	title = decision_bolster_the_uruk_hai
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_urukhai_03.dds"
+	}
+	selection_tooltip = decision_bolster_the_uruk_hai_tooltip
+	desc = decision_bolster_the_uruk_hai_desc
+	confirm_text = decision_bolster_the_uruk_hai_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 30
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 24
+		duchy = 24
+		kingdom = 24
+		empire = 24
+		hegemony = 24
+	}
+
+	cooldown = { years = 5 }
+
+	is_shown = {
+		has_character_flag = saruman_build_me_an_army
+		has_character_flag = is_saruman
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_creation_of_the_uruk_hai
+		}
+	}
+	is_valid = {
+		has_title = title:c_isengard
+		title:c_isengard = {
+			OR = {
+				has_county_modifier = industrialised_isengard_1_county_modifier
+				has_county_modifier = industrialised_isengard_2_county_modifier
+				has_county_modifier = industrialised_isengard_3_county_modifier
+			}
+		}
+		OR = {
+			has_faith = faith:lidless_eye
+			has_faith = faith:white_hand_cult
+		}
+	}
+
+	cost = { prestige = 150	}
+
+	effect = {
+		custom_tooltip = {
+			text = decision_bolster_the_uruk_hai_effect
+			random_list = {
+				4 = {
+					create_character = {
+						template = pool_repopulate_prowess
+						gender = male
+						culture = culture:isengard_urukhai
+						faith = root.faith
+						location = capital_province
+						save_scope_as = new_uruk_1
+					}
+				}
+				1 = {
+					create_character = {
+						template = pool_repopulate_diplomacy
+						gender = male
+						culture = culture:isengard_urukhai
+						faith = root.faith
+						location = capital_province
+						save_scope_as = new_uruk_1
+					}
+				}
+			}
+			random_list = {
+				4 = {
+					create_character = {
+						template = pool_repopulate_martial
+						gender = male
+						culture = culture:isengard_urukhai
+						faith = root.faith
+						location = capital_province
+						save_scope_as = new_uruk_2
+					}
+				}
+				1 = {
+					create_character = {
+						template = pool_repopulate_stewardship
+						gender = male
+						culture = culture:isengard_urukhai
+						faith = root.faith
+						location = capital_province
+						save_scope_as = new_uruk_2
+					}
+				}
+			}
+			random_list = {
+				4 = {
+					create_character = {
+						template = pool_repopulate_intrigue
+						gender = male
+						culture = culture:isengard_urukhai
+						faith = root.faith
+						location = capital_province
+						save_scope_as = new_uruk_3
+					}
+				}
+				1 = {
+					create_character = {
+						template = pool_repopulate_learning
+						gender = male
+						culture = culture:isengard_urukhai
+						faith = root.faith
+						location = capital_province
+						save_scope_as = new_uruk_3
+					}
+				}
+			}
+			send_interface_toast = {
+				title = decision_bolster_the_uruk_hai.toast
+				left_icon = root
+				right_icon = scope:new_uruk_1
+				custom_tooltip = {
+					text = decision_bolster_the_uruk_hai.toast.effect
+					scope:new_uruk_1 = {
+						set_employer = root
+					}
+					scope:new_uruk_2 = {
+						set_employer = root
+					}
+					scope:new_uruk_3 = {
+						set_employer = root
+					}
+				}
+			}
+			# if = { # Commented out since this chain is handled via saruman_event_chain.2059
+			    # limit = {
+				    # title:k_rohan.holder.player_heir = { 
+					    # is_alive = yes
+						# has_character_flag = is_theodred
+					# }
+			    # }
+			    # title:k_rohan.holder.player_heir = {
+				    # trigger_event = {
+					    # id = rohan.2200
+					    # days = { 30 60 }
+			    # }
+			# }
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_bending_the_dunlendings = {
+	title = decision_bending_the_dunlendings
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_wildmen_03.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	selection_tooltip = decision_bending_the_dunlendings_tooltip
+	desc = decision_bending_the_dunlendings_desc
+	confirm_text = decision_bending_the_dunlendings_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 80
+
+	is_shown = {
+		has_character_flag = saruman_build_me_an_army
+		has_character_flag = is_saruman
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_bending_the_dunlendings
+			}
+		}
+	}
+	is_valid = {
+		OR = {
+			has_faith = faith:lidless_eye
+			has_faith = faith:white_hand_cult
+		}
+		any_neighboring_and_across_water_top_liege_realm_owner = {
+			OR = {
+				culture = culture:adornaen
+				culture = culture:dunlending
+				culture = culture:isengard_dunlending
+			}
+		}
+	}
+
+	cost = {
+		prestige = { 
+			value = 500
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+
+	effect = {
+		custom_description_no_bullet = {
+			text = effect_decision_bending_the_dunlendings
+		}
+		custom_tooltip = saruman_event_chain.2032.a.tt1
+		custom_tooltip = saruman_event_chain.2032.a.tt2
+		custom_tooltip = saruman_event_chain.2032.a.tt3
+		trigger_event = saruman_event_chain.2030
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_bending_the_dunlendings
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_assemble_the_white_council = {
+	title = decision_assemble_the_white_council
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_white_council.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	selection_tooltip = decision_assemble_the_white_council_tooltip
+	desc = decision_assemble_the_white_council_desc
+	confirm_text = decision_assemble_the_white_council_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 90
+
+	is_shown = {
+		has_character_flag = saruman_white_council_goal_given
+		has_character_flag = is_saruman
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_assemble_the_white_council
+			}
+		}
+	}
+	is_valid = {
+		faith = { has_doctrine = special_doctrine_is_freepeople_faith }
+		OR = {
+			character:lineofgandalf = {
+				opinion = {
+					target = root
+					value > 80
+				}
+			}
+			character:lineoffinarfin5 = {
+				opinion = {
+					target = root
+					value > 80
+				}
+			}
+			character:lineofelrond1 = {
+				opinion = {
+					target = root
+					value > 80
+				}
+			}
+			character:lineofcirdan = {
+				opinion = {
+					target = root
+					value > 80
+				}
+			}
+		}
+	}
+
+	cost = {
+		gold = 100
+		prestige = 500
+	}
+
+	effect = {
+		custom_tooltip = decision_assemble_the_white_council_effect
+		custom_tooltip = decision_assemble_the_white_council_effect_2
+		trigger_event = saruman_event_chain.0013
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_assemble_the_white_council
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_isengard_center_of_learning = {
+	title = decision_isengard_center_of_learning
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_isengard_university.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	selection_tooltip = decision_isengard_center_of_learning_tooltip
+	desc = decision_isengard_center_of_learning_desc
+	confirm_text = decision_isengard_center_of_learning_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 80
+
+	is_shown = {
+		has_character_flag = saruman_white_council_goal_given
+		has_character_flag = is_saruman
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_isengard_center_of_learning
+			}
+		}
+	}
+
+	is_valid = {
+		faith = { has_doctrine = special_doctrine_is_freepeople_faith }
+		has_title = title:c_isengard
+		prestige_level >= 3
+	}
+
+	is_valid_showing_failures_only = {
+		is_ruler = yes
+		is_available_adult = yes
+	}
+
+	cost = {
+		gold = 1000
+	}
+
+	effect = {
+		save_scope_as = founder
+
+		if = {
+			limit = {
+				title:b_forthbrond.title_province = {
+					has_holding = no
+				}
+			}
+			title:b_forthbrond.title_province = {
+				set_holding_type = castle_holding
+			}
+		}
+
+		title:b_forthbrond.title_province = {
+			add_special_building = generic_university
+		}
+
+		add_prestige = 500
+		add_piety = 500
+		add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_good_realm_rises }
+
+		custom_tooltip = {
+			text = isengard_academy_three_wise_men
+			if = {
+				limit = {
+					character:lineoffinarfin5 = { is_allied_to = root }
+				}
+				create_character = {
+					culture = culture:galadhrim
+					faith = faith:faith_eldar
+					template = scholar_character
+					save_scope_as = scholar1
+					location = root.location
+				}
+			}
+			else_if = {
+				limit = {
+					character:lineoffinarfin5 = { NOT = { is_allied_to = root } }
+				}
+				create_character = {
+					culture = culture:rohirrim
+					faith = faith:faith_rohirric
+					template = scholar_character
+					save_scope_as = scholar1
+					location = root.location
+				}
+			}
+			if = {
+				limit = {
+					character:lineofelrond1 = { is_allied_to = root }
+				}
+				create_character = {
+					culture = culture:noldor
+					faith = faith:faith_eldar
+					template = scholar_character
+					save_scope_as = scholar2
+					location = root.location
+				}
+			}
+			else_if = {
+				limit = {
+					character:lineofelrond1 = { NOT = { is_allied_to = root } }
+				}
+				create_character = {
+					culture = culture:gondorian
+					faith = faith:faith_edain
+					template = scholar_character
+					save_scope_as = scholar2
+					location = root.location
+				}
+			}
+			if = {
+				limit = {
+					character:lineofcirdan = { is_allied_to = root }
+				}
+				create_character = {
+					culture = culture:falathrim
+					faith = faith:faith_eldar
+					template = scholar_character
+					save_scope_as = scholar3
+					location = root.location
+				}
+			}
+			else_if = {
+				limit = {
+					character:lineofcirdan = { NOT = { is_allied_to = root } }
+				}
+				create_character = {
+					culture = culture:dorwinionrim
+					faith = faith:faith_dorwinion
+					template = scholar_character
+					save_scope_as = scholar3
+					location = root.location
+				}
+			}
+
+			send_interface_toast = {
+				left_icon = root
+				right_icon = scope:scholar1
+				title = isengard_academy_three_wise_men.title
+				
+				scope:scholar1 = { set_employer = root }
+				scope:scholar2 = { set_employer = root }
+				scope:scholar3 = { set_employer = root }
+			}
+		}
+
+		add_character_modifier = {
+			modifier = academy_tuition_fees_modifier
+		}
+
+		every_player = {
+			limit = {
+				NOT = { this = root }
+				is_within_diplo_range = { CHARACTER = root }
+			}
+			trigger_event = saruman_event_chain.0021
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_isengard_center_of_learning
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_isengard_new_academies = {
+	sort_order = 70
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_isengard_university.dds"
+	}
+
+	decision_group_type = realms_in_exile_major
+
+	selection_tooltip = decision_isengard_new_academies_tooltip
+	title = decision_isengard_new_academies
+	desc = decision_isengard_new_academies_desc
+	confirm_text = decision_isengard_new_academies_confirm
+
+	cooldown = { years = 10 }
+
+	is_shown = {
+		has_character_flag = saruman_white_council_goal_given
+		has_character_flag = is_saruman
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_isengard_center_of_learning
+		}
+		OR = {
+			show_harlond_academy_trigger = yes
+			show_rohallor_academy_trigger = yes
+			show_barfalas_academy_trigger = yes
+			show_middlemead_academy_trigger = yes
+			show_austeinfell_academy_trigger = yes
+			show_eldrast_academy_trigger = yes
+			show_obagalla_academy_trigger = yes
+			show_minasthalion_academy_trigger = yes
+			show_tirith_amrun_academy_trigger = yes
+			show_narvashun_academy_trigger = yes
+		}
+	}
+
+	is_valid = {
+		faith = { has_doctrine = special_doctrine_is_freepeople_faith }
+		OR = {
+			trigger_if = {
+				limit = { show_harlond_academy_trigger = yes }
+				valid_harlond_academy_trigger = yes
+			}
+			trigger_if = {
+				limit = { show_rohallor_academy_trigger = yes }
+				valid_rohallor_academy_trigger = yes
+			}
+			trigger_if = {
+				limit = { show_barfalas_academy_trigger = yes }
+				valid_barfalas_academy_trigger = yes
+			}
+			trigger_if = {
+				limit = { show_middlemead_academy_trigger = yes }
+				valid_middlemead_academy_trigger = yes
+			}
+			trigger_if = {
+				limit = { show_austeinfell_academy_trigger = yes }
+				valid_austeinfell_academy_trigger = yes
+			}
+			trigger_if = {
+				limit = { show_eldrast_academy_trigger = yes }
+				valid_eldrast_academy_trigger = yes
+			}
+			trigger_if = {
+				limit = { show_obagalla_academy_trigger = yes }
+				valid_obagalla_academy_trigger = yes
+			}
+			trigger_if = {
+				limit = { show_minasthalion_academy_trigger = yes }
+				valid_minasthalion_academy_trigger = yes
+			}
+			trigger_if = {
+				limit = { show_tirith_amrun_academy_trigger = yes }
+				valid_tirith_amrun_academy_trigger = yes
+			}
+			trigger_if = {
+				limit = { show_narvashun_academy_trigger = yes }
+				valid_narvashun_academy_trigger = yes
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_ruler = yes
+		is_available_adult = yes
+	}
+
+
+	widget = {
+		gui = "decision_view_widget_option_list_generic"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "decision_isengard_new_academies.second_step"
+
+		item = {	# Fallback
+			value = new_academy_fallback
+			localization = decision_isengard_new_academies.tt.new_academy_fallback
+			icon = "gfx/interface/icons/message_feed/titles.dds"
+			is_shown = { always = no }
+			is_valid = { always = no }
+			ai_chance = { value = 100 }
+		}
+
+		item = {	# Harlond
+			value = new_academy_harlond
+			localization = decision_isengard_new_academies.tt.new_academy_harlond
+			icon = "gfx/interface/icons/message_feed/titles.dds"
+			is_shown = { show_harlond_academy_trigger = yes }
+			is_valid = { valid_harlond_academy_trigger = yes }
+			ai_chance = { value = 100 }
+		}
+
+		item = {	# Rohallor
+			value = new_academy_rohallor
+			localization = decision_isengard_new_academies.tt.new_academy_rohallor
+			icon = "gfx/interface/icons/message_feed/titles.dds"
+			is_shown = { show_rohallor_academy_trigger = yes }
+			is_valid = { valid_rohallor_academy_trigger = yes }
+			ai_chance = { value = 100 }
+		}
+
+		item = {	# Barfalas
+			value = new_academy_barfalas
+			localization = decision_isengard_new_academies.tt.new_academy_barfalas
+			icon = "gfx/interface/icons/message_feed/titles.dds"
+			is_shown = { show_barfalas_academy_trigger = yes }
+			is_valid = { valid_barfalas_academy_trigger = yes }
+			ai_chance = { value = 100 }
+		}
+
+		item = {	# Middlemead
+			value = new_academy_middlemead
+			localization = decision_isengard_new_academies.tt.new_academy_middlemead
+			icon = "gfx/interface/icons/message_feed/titles.dds"
+			is_shown = { show_middlemead_academy_trigger = yes }
+			is_valid = { valid_middlemead_academy_trigger = yes }
+			ai_chance = { value = 100 }
+		}
+
+		item = {	# Austeinfell
+			value = new_academy_austeinfell
+			localization = decision_isengard_new_academies.tt.new_academy_austeinfell
+			icon = "gfx/interface/icons/message_feed/titles.dds"
+			is_shown = { show_austeinfell_academy_trigger = yes }
+			is_valid = { valid_austeinfell_academy_trigger = yes }
+			ai_chance = { value = 100 }
+		}
+
+		item = {	# Eldrast
+			value = new_academy_eldrast
+			localization = decision_isengard_new_academies.tt.new_academy_eldrast
+			icon = "gfx/interface/icons/message_feed/titles.dds"
+			is_shown = { show_eldrast_academy_trigger = yes }
+			is_valid = { valid_eldrast_academy_trigger = yes }
+			ai_chance = { value = 100 }
+		}
+
+		item = {	# Obagalla
+			value = new_academy_obagalla
+			localization = decision_isengard_new_academies.tt.new_academy_obagalla
+			icon = "gfx/interface/icons/message_feed/titles.dds"
+			is_shown = { show_obagalla_academy_trigger = yes }
+			is_valid = { valid_obagalla_academy_trigger = yes }
+			ai_chance = { value = 100 }
+		}
+
+		item = {	# Minasthalion
+			value = new_academy_minasthalion
+			localization = decision_isengard_new_academies.tt.new_academy_minasthalion
+			icon = "gfx/interface/icons/message_feed/titles.dds"
+			is_shown = { show_minasthalion_academy_trigger = yes }
+			is_valid = { valid_minasthalion_academy_trigger = yes }
+			ai_chance = { value = 100 }
+		}
+
+		item = {	# Tirith Amrun
+			value = new_academy_tirith_amrun
+			localization = decision_isengard_new_academies.tt.new_academy_tirith_amrun
+			icon = "gfx/interface/icons/message_feed/titles.dds"
+			is_shown = { show_tirith_amrun_academy_trigger = yes }
+			is_valid = { valid_tirith_amrun_academy_trigger = yes }
+			ai_chance = { value = 100 }
+		}
+
+		item = {	# Narvashun
+			value = new_academy_narvashun
+			localization = decision_isengard_new_academies.tt.new_academy_narvashun
+			icon = "gfx/interface/icons/message_feed/titles.dds"
+			is_shown = { show_narvashun_academy_trigger = yes }
+			is_valid = { valid_narvashun_academy_trigger = yes }
+			ai_chance = { value = 100 }
+		}
+	}
+
+	effect = {
+		if = {		# Fallback
+			limit = { scope:new_academy_fallback = yes }
+		}
+		else_if = {		# Harlond
+			limit = { scope:new_academy_harlond = yes }
+			
+			title:b_harlond_gondor.title_province = {
+				add_special_building = generic_university
+			}
+			title:b_harlond_gondor = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 50
+						}
+					}
+				}
+			}
+			every_player = {
+				limit = {
+					NOT = { this = root }
+					is_within_diplo_range = { CHARACTER = root }
+				}
+				title:b_harlond_gondor.holder.top_liege = {
+					save_scope_as = founder
+				}
+				trigger_event = saruman_event_chain.0021
+			}
+		}
+		else_if = {		# Rohallor
+			limit = { scope:new_academy_rohallor = yes }
+			
+			title:b_rohallor.title_province = {
+				add_special_building = generic_university
+			}
+			title:b_rohallor = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 50
+						}
+					}
+				}
+			}
+			every_player = {
+				limit = {
+					NOT = { this = root }
+					is_within_diplo_range = { CHARACTER = root }
+				}
+				title:b_rohallor.holder.top_liege = {
+					save_scope_as = founder
+				}
+				trigger_event = saruman_event_chain.0021
+			}
+		}
+		else_if = {		# Barfalas
+			limit = { scope:new_academy_barfalas = yes }
+			
+			title:b_barfalas.title_province = {
+				add_special_building = generic_university
+			}
+			title:b_barfalas = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 50
+						}
+					}
+				}
+			}
+			every_player = {
+				limit = {
+					NOT = { this = root }
+					is_within_diplo_range = { CHARACTER = root }
+				}
+				title:b_barfalas.holder.top_liege = {
+					save_scope_as = founder
+				}
+				trigger_event = saruman_event_chain.0021
+			}
+		}
+		else_if = {		# Middlemead
+			limit = { scope:new_academy_middlemead = yes }
+			
+			title:b_middlemead.title_province = {
+				add_special_building = generic_university
+			}
+			title:b_middlemead = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 50
+						}
+					}
+				}
+			}
+			every_player = {
+				limit = {
+					NOT = { this = root }
+					is_within_diplo_range = { CHARACTER = root }
+				}
+				title:b_middlemead.holder.top_liege = {
+					save_scope_as = founder
+				}
+				trigger_event = saruman_event_chain.0021
+			}
+		}
+		else_if = {		# Austeinfell
+			limit = { scope:new_academy_austeinfell = yes }
+			
+			title:b_austeinfell.title_province = {
+				add_special_building = generic_university
+			}
+			title:b_austeinfell = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 50
+						}
+					}
+				}
+			}
+			every_player = {
+				limit = {
+					NOT = { this = root }
+					is_within_diplo_range = { CHARACTER = root }
+				}
+				title:b_austeinfell.holder.top_liege = {
+					save_scope_as = founder
+				}
+				trigger_event = saruman_event_chain.0021
+			}
+		}
+		else_if = {		# Eldrast
+			limit = { scope:new_academy_eldrast = yes }
+			
+			title:b_eldrast.title_province = {
+				add_special_building = generic_university
+			}
+			title:b_eldrast = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 50
+						}
+					}
+				}
+			}
+			every_player = {
+				limit = {
+					NOT = { this = root }
+					is_within_diplo_range = { CHARACTER = root }
+				}
+				title:b_eldrast.holder.top_liege = {
+					save_scope_as = founder
+				}
+				trigger_event = saruman_event_chain.0021
+			}
+		}
+		else_if = {		# Obagalla
+			limit = { scope:new_academy_obagalla = yes }
+			
+			title:b_obagalla.title_province = {
+				add_special_building = generic_university
+			}
+			title:b_obagalla = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 50
+						}
+					}
+				}
+			}
+			every_player = {
+				limit = {
+					NOT = { this = root }
+					is_within_diplo_range = { CHARACTER = root }
+				}
+				title:b_obagalla.holder.top_liege = {
+					save_scope_as = founder
+				}
+				trigger_event = saruman_event_chain.0021
+			}
+		}
+		else_if = {		# Minasthalion
+			limit = { scope:new_academy_minasthalion = yes }
+			
+			title:b_minasthalion.title_province = {
+				add_special_building = generic_university
+			}
+			title:b_minasthalion = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 50
+						}
+					}
+				}
+			}
+			every_player = {
+				limit = {
+					NOT = { this = root }
+					is_within_diplo_range = { CHARACTER = root }
+				}
+				title:b_minasthalion.holder.top_liege = {
+					save_scope_as = founder
+				}
+				trigger_event = saruman_event_chain.0021
+			}
+		}
+		else_if = {		# Tirith Amrun
+			limit = { scope:new_academy_tirith_amrun = yes }
+			
+			title:b_tirith_amrun.title_province = {
+				add_special_building = generic_university
+			}
+			title:b_tirith_amrun = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 50
+						}
+					}
+				}
+			}
+			every_player = {
+				limit = {
+					NOT = { this = root }
+					is_within_diplo_range = { CHARACTER = root }
+				}
+				title:b_tirith_amrun.holder.top_liege = {
+					save_scope_as = founder
+				}
+				trigger_event = saruman_event_chain.0021
+			}
+		}
+		else_if = {		# Narvashun
+			limit = { scope:new_academy_narvashun = yes }
+			
+			title:b_narvashun.title_province = {
+				add_special_building = generic_university
+			}
+			title:b_narvashun = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 50
+						}
+					}
+				}
+			}
+			every_player = {
+				limit = {
+					NOT = { this = root }
+					is_within_diplo_range = { CHARACTER = root }
+				}
+				title:b_narvashun.holder.top_liege = {
+					save_scope_as = founder
+				}
+				trigger_event = saruman_event_chain.0021
+			}
+		}
+
+		else = {
+
+		}
+
+		custom_tooltip = {
+			text = decision_isengard_new_academies_effect
+		}
+
+		add_prestige = 500
+		add_piety = 500
+		add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_university_founded }
+		add_character_modifier = {
+			modifier = academy_tuition_fees_modifier
+		}
+	}
+
+	cost = {
+		gold = 1000
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+}
+
+decision_isengard_rearm_guards = {
+	title = decision_isengard_rearm_guards
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_gondor_01.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	selection_tooltip = decision_isengard_rearm_guards_tooltip
+	desc = decision_isengard_rearm_guards_desc
+	confirm_text = decision_isengard_rearm_guards_confirm
+	decision_group_type = realms_in_exile_minor
+	sort_order = 70
+
+	is_shown = {
+		game_start_date >= 6550.1.1 # After Ride of Eorl
+		is_landless_adventurer = no
+		trigger_if = {
+			limit = { has_character_flag = is_saruman }
+			has_character_flag = saruman_white_council_goal_given
+		}
+		trigger_else = {
+			faith_is_good = yes 
+			title:c_isengard = root.capital_county # Don't let Rohan waltz into this 
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_isengard_rearm_guards
+			}
+		}
+	}
+
+	is_valid = {
+		faith_is_good = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_ruler = yes
+		is_available_adult = yes
+	}
+
+	cost = {
+		gold = 250
+	}
+
+	effect = {
+		custom_tooltip = decision_isengard_rearm_guards_maa1
+		custom_tooltip = decision_isengard_rearm_guards_maa2
+		hidden_effect = {
+			house = { add_house_modifier = { modifier = house_rearm_orthanc_guard } }
+		}
+		if = {
+			limit = { has_character_flag = is_saruman }
+			add_character_modifier = saruman_rearm_orthanc_guard_modifier
+		}
+		if = {
+			limit = { is_good_undying = yes }
+			add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_orthanc_guard }
+		}
+		add_legitimacy = medium_legitimacy_gain
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_isengard_rearm_guards
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_saruman_invest_in_tharbad = {
+	title = decision_saruman_invest_in_tharbad
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_isengard.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 5
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	selection_tooltip = decision_saruman_invest_in_tharbad_tooltip
+	desc = decision_saruman_invest_in_tharbad_desc
+	confirm_text = decision_saruman_invest_in_tharbad_confirm
+	decision_group_type = realms_in_exile_minor
+	sort_order = 100
+
+	is_shown = {
+		is_good_undying = yes
+		has_character_flag = is_saruman
+		has_character_flag = saruman_white_council_goal_given
+		has_title = title:c_isengard
+		OR = {
+			title:c_tharbad.title_province = {
+				has_holding_type = wastelands_holding
+			}
+			title:c_harabad.title_province = {
+				has_holding_type = wastelands_holding
+			}
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_saruman_invest_in_tharbad
+			}
+		}
+	}
+
+	is_valid = {
+		has_title = title:c_isengard
+		OR = {
+			title:c_tharbad.title_province = {
+				has_holding_type = wastelands_holding
+			}
+			title:c_harabad.title_province = {
+				has_holding_type = wastelands_holding
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_ruler = yes
+		is_available_adult = yes
+	}
+
+	cost = {
+		gold = 250
+	}
+
+	effect = {
+		if = {
+			limit = { title:c_tharbad.title_province = { has_holding_type = wastelands_holding } }
+			get_title = title:c_tharbad 
+			title:c_tharbad = {
+				set_county_culture = culture:isengard_dunlending
+				set_county_faith = faith:faith_dunlending_turthalis
+			}
+			title:c_tharbad.title_province = {
+				set_holding_type = settlement_holding
+			}
+		}
+		else = {
+			limit = { title:c_harabad.title_province = { has_holding_type = wastelands_holding } }
+			get_title = title:c_harabad 
+			title:c_harabad = {
+				set_county_culture = culture:isengard_dunlending
+				set_county_faith = faith:faith_dunlending_turthalis
+			}
+			title:c_harabad.title_province = {
+				set_holding_type = settlement_holding
+			}
+		}
+		if = {
+			limit = { is_good_undying = yes }
+			add_elven_hope_effect = { VALUE = medium_elven_hope_gain HOPE_EFFECT = effect_elven_hope_positive_event_choice }
+		}
+		add_piety = medium_piety_gain
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_saruman_invest_in_tharbad
+		}
+		send_interface_toast = {
+			type = event_toast_effect_good
+			title = decision_saruman_invest_in_tharbad.tt
+			left_icon = root
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_isengard_puppet_rohan = {
+	title = decision_isengard_puppet_rohan
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_edoras_01.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	selection_tooltip = decision_isengard_puppet_rohan_tooltip
+	desc = decision_isengard_puppet_rohan_desc
+	confirm_text = decision_isengard_puppet_rohan_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 99
+
+	is_shown = {
+		has_character_flag = is_saruman
+		has_character_flag = isengard_seeks_to_subdue_rohan
+		exists = title:k_rohan.holder
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_isengard_puppet_rohan
+			}
+		}
+	}
+	is_valid = {
+		OR = {
+			has_title = title:k_rohan
+			AND = {
+				trigger_if = {
+					limit = { title:k_rohan.holder = character:lineofeorl28 }
+					custom_tooltip = {
+						text = theoden_dead_possesed
+						has_hook = character:lineofeorl28
+					}
+				}
+				trigger_else = { title:k_rohan.holder = character:lineofeofor18 }
+				custom_tooltip = {
+					text = eomer_theodred_deceased
+					character:lineofeofor17 ?= { is_alive = no } #Eomer is dead
+					character:lineofeorl33 ?= { is_alive = no } #Theodred is dead
+				}
+			}
+		}
+	}
+
+	effect = {
+		trigger_event = saruman_event_chain.2103 #Choice of Puppet
+		custom_description_no_bullet = {
+			text = effect_decision_isengard_puppet_rohan
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_isengard_puppet_rohan
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_establish_cult_of_the_white_hand = {
+	title = decision_establish_cult_of_the_white_hand
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_saruman_02.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	selection_tooltip = decision_establish_cult_of_the_white_hand_tooltip
+	desc = decision_establish_cult_of_the_white_hand_desc
+	confirm_text = decision_establish_cult_of_the_white_hand_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 70
+
+	is_shown = {
+		has_character_flag = is_saruman
+		has_character_flag = betrayed_sauron
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_establish_cult_of_the_white_hand
+			}
+		}
+	}
+	is_valid = {
+		NOT = {	has_faith = faith:white_hand_cult }
+	}
+
+	cost = { 
+		piety = { 
+			value = 1000
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+
+	effect = {
+		trigger_event = saruman_event_chain.2081
+		show_as_tooltip = {
+			set_character_faith_with_conversion = faith:white_hand_cult
+			capital_county = { set_county_faith = faith:white_hand_cult }
+			custom_tooltip = create_holy_order_decision_effect_message
+			character:lineofsauron = {
+				add_opinion = {
+					modifier = disappointed_opinion
+					target = root
+					opinion = -50
+				}
+			}
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_establish_cult_of_the_white_hand
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_humble_mordor = {
+	title = decision_humble_mordor
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_barad_dur_01.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_humble_mordor_tooltip
+	desc = decision_humble_mordor_desc
+	confirm_text = decision_humble_mordor_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 95
+	
+	is_shown = {
+		has_character_flag = is_saruman
+		has_character_flag = betrayed_sauron
+		exists = title:e_mordor.holder
+		NOR = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_humble_mordor
+			}
+			has_title = title:e_mordor
+		}
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+		is_independent_ruler = yes
+		NOR = {
+			has_truce = title:e_mordor.holder
+		}
+	}
+	is_valid = {
+		prestige_level >= very_high_prestige_level		
+		completely_controls = title:k_isengard
+		completely_controls_region = middleearth_west_rohan
+		completely_controls = title:k_dunland
+		custom_tooltip = {
+			text = decision_humble_mordor_border_sauron_tt
+			character_is_land_realm_neighbor = title:e_mordor.holder
+		}
+		NOT = { has_faith = faith:lidless_eye }
+	}
+	effect = {
+		start_war = {
+			casus_belli = humble_mordor_cb #Will need something more bespoke here.
+			target = title:e_mordor.holder
+			target_title = title:e_mordor
+		}
+		title:e_mordor.holder = {
+			trigger_event = saruman_event_chain.2082
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_humble_mordor
+		}
+	}
+}
+
+decision_the_two_towers = {
+	title = decision_the_two_towers
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_barad_dur_01.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_the_two_towers_tooltip
+	desc = decision_the_two_towers_desc
+	confirm_text = decision_the_two_towers_confirm
+	decision_group_type = realms_in_exile_minor
+	sort_order = 90
+	
+	is_shown = {
+		has_character_flag = is_saruman
+		has_character_flag = betrayed_sauron
+		NOT = { #Can't undo your choice! 
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_the_two_towers
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+		is_independent_ruler = yes
+	}
+
+	is_valid = {
+		prestige_level >= high_prestige_level
+		has_title = title:c_isengard
+		OR = {
+			has_title = title:c_barad_dur
+			has_title = title:c_minas_ithil
+		}
+	}
+
+	cost = { 
+		prestige = { 
+			value = 500
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_the_two_towers.effect
+		if = {
+			limit = { NOT = { has_title = title:e_isengard_unleashed } }
+			form_isengard_unleashed_effect = yes
+		}
+		show_as_tooltip = {
+			title:c_isengard = { add_county_modifier = seat_of_the_new_dark_lord_county_modifier }
+		}
+		trigger_event = saruman_event_chain.2086
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_the_two_towers
+		}
+	}
+}
+
+decision_influence_the_king = {
+	title = decision_influence_the_king
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_theoden_01.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_influence_the_king_tooltip
+	desc = decision_influence_the_king_desc
+	confirm_text = decision_influence_the_king_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 95
+
+	cost = { 
+		prestige = { 
+			value = 500
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		has_character_flag = is_saruman
+		has_character_flag = isengard_seeks_to_subdue_rohan
+		NOR = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_influence_the_king
+			}
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_isengard_puppet_rohan
+			}
+		}
+		character:lineofeorl28 = { is_alive = yes } #Theoden is alive
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	is_valid = {
+		character:lineofeorl28 = { is_alive = yes } #Theodred is alive
+	}
+
+	effect = {
+		character:lineofeorl28 = { save_scope_as = rohanking }
+		custom_description_no_bullet = {
+			text = effect_decision_influence_the_king
+		}
+		custom_tooltip = decision_influence_the_king_effect_positive
+		custom_tooltip = decision_influence_the_king_effect_negative
+		# Our Man in Edoras
+		trigger_event = saruman_event_chain.2054
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_influence_the_king
+		}
+	}
+}
+
+decision_raid_the_westfold = {
+	title = decision_raid_the_westfold
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_raiding.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_raid_the_westfold_tooltip
+	desc = decision_raid_the_westfold_desc
+	confirm_text = decision_raid_the_westfold_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 92
+	
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		has_character_flag = is_saruman
+		has_character_flag = isengard_seeks_to_subdue_rohan
+		NOR = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_raid_the_westfold
+			}
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_isengard_puppet_rohan
+			}
+		}
+		character:lineofeorl33 = { is_alive = yes } #Theodred is alive
+		OR = {
+			is_ai = no
+			AND = {
+				is_ai = yes
+				current_year >= 7052
+			}
+		}
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	is_valid = {
+		character:lineofeorl33 = { is_alive = yes } #Theodred is alive
+	}
+	effect = {
+		custom_tooltip = decision_raid_the_westfold_effect_positive
+		custom_tooltip = decision_raid_the_westfold_effect_negative
+		add_gold = 150
+		#Add Opinion to bordering Dunlendings
+		title:c_gapofrohan = { 
+			add_county_modifier = { 
+				modifier = westfold_raided_county_modifier
+				years = 5
+			}
+		}
+		title:c_grimslade = { 
+			add_county_modifier = { 
+				modifier = westfold_raided_county_modifier
+				years = 5
+			}
+		}
+		trigger_event = saruman_event_chain.2057
+		character:lineofeorl33 = {
+			trigger_event = {
+				id = saruman_event_chain.2058
+				days = 7
+			}
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_raid_the_westfold
+		}
+	}
+}
+
+decision_form_dunland_kingdom_vassal = {
+	title = decision_form_dunland_kingdom_vassal
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_wildmen_03.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 0
+	}
+	selection_tooltip = decision_form_dunland_kingdom_vassal_tooltip
+	desc = decision_form_dunland_kingdom_vassal_desc
+	confirm_text = decision_form_dunland_kingdom_vassal_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 85
+
+	is_shown = {
+		has_character_flag = saruman_dunlending_auxilliaries
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_form_dunland_kingdom_vassal
+			}
+		}
+		any_vassal = { has_character_flag = promised_kingdom_of_dunland }
+	}
+
+	is_valid = {
+		any_vassal = {
+			OR = { 
+				culture = culture:adornaen
+				culture = culture:dunlending
+				culture = culture:isengard_dunlending	
+			}
+		}
+		OR = {
+			custom_tooltip = {
+				text = k_dunland_is_creatable
+				any_alert_creatable_title = {
+					this = title:k_dunland
+				}
+			}
+			has_title = title:k_dunland
+		}
+	}
+
+	effect = {
+		debug_log = "Isengard: Dunland Kingdom Vassal Formed"
+		if = {
+			limit = {
+				title:e_isengard_unleashed = { is_title_created = no }
+				highest_held_title_tier < tier_empire
+			}
+			create_title_and_vassal_change = {
+				type = created
+				save_scope_as = title_change
+				add_claim_on_loss = yes
+			}
+			title:e_isengard_unleashed = {
+				change_title_holder = {
+					holder = root
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+		}
+		if = {
+			limit = {
+				any_vassal = {
+					has_character_flag = promised_kingdom_of_dunland
+				}
+			}
+			random_vassal = {
+				limit = { has_character_flag = promised_kingdom_of_dunland }
+				save_scope_as = recipient
+			}
+		}
+		else = {
+			limit = {
+				any_vassal = {
+					culture = { has_cultural_pillar = heritage_daen_lintis }
+				}
+			}
+			random_vassal = {
+				limit = { culture = { has_cultural_pillar = heritage_daen_lintis } }
+				save_scope_as = recipient
+			}
+		}
+		scope:recipient = {
+			create_title_and_vassal_change = {
+				type = created
+				save_scope_as = title_change
+				add_claim_on_loss = yes
+			}
+			title:k_dunland = {
+				change_title_holder = {
+					holder = scope:recipient
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+			spawn_army = {
+				uses_supply = no
+				inheritable = no
+				name = isengard_muster_troops
+				levies = 1000
+				men_at_arms = {
+					type = urukhai_fighting
+					stacks = 2
+				}
+				men_at_arms = {
+					type = orc_archers
+					stacks = 2
+				}
+				location = capital_province
+			}
+			hidden_effect = {
+				add_opinion = {
+					target = root
+					modifier = received_title_kingdom
+				}
+			}
+		}
+		every_held_title = {
+			limit = {
+				tier = tier_county
+				kingdom = title:k_dunland
+			}
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = title_change
+				add_claim_on_loss = no
+			}
+			change_title_holder = {
+				holder = scope:recipient
+				change = scope:title_change
+			}
+			resolve_title_and_vassal_change = scope:title_change
+		}
+		add_prestige = 500
+		scope:recipient = { add_character_modifier = unifier_of_the_dunlendings_character_modifier }
+		add_character_modifier = friend_of_the_dunlendings_character_modifier
+		
+		culture:adornaen = {
+			change_cultural_acceptance = {
+				target = root.culture
+				value = 50
+				desc = cultural_acceptance_gain_event
+			}
+		}
+		culture:dunlending = {
+			change_cultural_acceptance = {
+				target = root.culture
+				value = 50
+				desc = cultural_acceptance_gain_event
+			}
+		}
+		capital_county = { add_county_modifier = loyal_dunlendings_of_isengard_county_modifier }
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_form_dunland_kingdom_vassal
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_dark_lord_hegemony_saruman = {
+	title = decision_dark_lord_hegemony_saruman
+	desc = decision_dark_lord_hegemony_saruman_desc
+	confirm_text = decision_dark_lord_hegemony_saruman_confirm
+	selection_tooltip = decision_dark_lord_hegemony_saruman_tooltip
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_saruman_02.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		has_character_flag = is_saruman
+		has_character_flag = betrayed_sauron
+		OR = {
+			has_title = title:e_mordor
+			has_title = title:e_isengard_unleashed
+			has_title = title:k_isengard
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_dark_lord_hegemony_saruman
+			}
+		}
+	}
+
+	is_valid = {
+		prestige_level >= high_prestige_level
+		custom_tooltip = {
+			text = tooltip_decision_the_two_towers
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_the_two_towers
+			}
+		}
+		OR = {
+			has_title = title:h_dark_lord
+			has_title = title:e_mordor
+		}
+	}
+
+	cost = {
+		prestige = 10000
+		piety = 8000
+	}
+
+	effect = {
+		#Create the title and make it primary
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = title_change
+			add_claim_on_loss = yes
+		}
+		title:h_dark_lord = {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		set_primary_title_to = title:h_dark_lord
+		# title:e_isengard_unleashed = { 
+		# 	set_de_jure_liege_title = title:h_dark_lord
+		# }
+
+		every_tributary = {
+			add_to_list = tributaries
+		}
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = vassal_change
+		}
+		every_in_list = {
+			list = tributaries
+			change_liege = {
+				liege = root
+				change = scope:vassal_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:vassal_change
+
+		hidden_effect = {
+			if = { # Barad-Dur
+				limit = {
+					capital_province = {
+						geographical_region = middleearth_mordor_gorgoroth
+					}
+				}
+			}
+			if = { # Minas Morgul
+				limit = {
+					capital_province = {
+						geographical_region = middleearth_west_gondor_ithilien
+					}
+				}
+				title:h_dark_lord = {
+					lotr_move_dejure_capital_effect = { COUNTY = c_minas_ithil }
+				}
+			}
+			else = { # Isengard
+				title:h_dark_lord = {
+					set_title_name = h_dark_lord_isengard
+					lotr_move_dejure_capital_effect = { COUNTY = c_isengard }
+				}
+			}
+		}
+
+		root.dynasty = { add_dynasty_prestige = 500 }
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_dark_lord_hegemony_saruman
+		}
+	}
+}

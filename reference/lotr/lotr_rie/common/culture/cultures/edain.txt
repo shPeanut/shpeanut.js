@@ -1,0 +1,98 @@
+﻿# Atanatári, the Fathers of Men, otherwise known as the Edain
+# heritage_atanatari
+#	beorian
+#		House of Bëor
+#	hadorim
+#		House of Haleth
+#	haladin
+#		House of Hador
+
+beorian = {
+	color = { 95 71 102 }
+	created = 3.1.1
+
+	history_loc_override = edain_history_loc
+	
+	ethos = ethos_spiritual
+	heritage = heritage_atanatari
+	language = language_taliska
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_hill_dwellers
+		tradition_welcoming
+	}
+	
+	name_list = name_list_edain
+	
+	coa_gfx = { numenorean_coa_gfx dunedain_group_coa_gfx }
+	building_gfx = { numenorean_building_gfx mediterranean_building_gfx }
+	clothing_gfx = { dunedain_clothing_gfx }
+	unit_gfx = { acg_beorian_unit_gfx western_unit_gfx }
+	house_coa_frame = house_frame_04
+	dynasty_coa_frame = house_frame_04
+	
+	ethnicities = {
+		1 = numenorean_ethnicity
+	}
+}
+
+hadorim = {
+	color = { 95 71 102 }
+	created = 3.1.1
+
+	history_loc_override = edain_history_loc
+	
+	ethos = ethos_stoic
+	heritage = heritage_atanatari
+	language = language_taliska
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_pastoralists
+		tradition_warrior_culture
+	}
+	
+	name_list = name_list_edain
+	
+	coa_gfx = { numenorean_coa_gfx dunedain_group_coa_gfx }
+	building_gfx = { numenorean_building_gfx mediterranean_building_gfx }
+	clothing_gfx = { dunedain_clothing_gfx }
+	unit_gfx = { acg_hadorim_unit_gfx western_unit_gfx }
+	house_coa_frame = house_frame_04
+	dynasty_coa_frame = house_frame_04
+	
+	ethnicities = {
+		1 = numenorean_ethnicity
+	}
+}
+
+haladin = {
+	color = { 95 71 102 }
+	created = 3.1.1
+
+	history_loc_override = edain_history_loc
+	
+	ethos = ethos_communal
+	heritage = heritage_atanatari
+	language = language_halethian
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_isolationist
+		tradition_forest_folk
+	}
+	
+	name_list = name_list_edain
+	
+	coa_gfx = { numenorean_coa_gfx dunedain_group_coa_gfx }
+	building_gfx = { numenorean_building_gfx mediterranean_building_gfx }
+	clothing_gfx = { dunedain_clothing_gfx }
+	unit_gfx = { acg_haladin_unit_gfx western_unit_gfx }
+	house_coa_frame = house_frame_04
+	dynasty_coa_frame = house_frame_04
+	
+	ethnicities = {
+		1 = numenorean_ethnicity
+	}
+}

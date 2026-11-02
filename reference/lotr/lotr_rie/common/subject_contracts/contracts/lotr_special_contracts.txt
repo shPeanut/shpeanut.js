@@ -1,0 +1,48 @@
+﻿@ai_standard_liege_desire = 2
+@ai_standard_vassal_desire = 1
+
+government_change_rights = {
+    display_mode = checkbox
+    is_shown = {
+        scope:liege = {
+            government_has_flag = government_is_administrative
+        }
+        scope:vassal = {
+            NOT = { government_has_flag = government_is_administrative }
+        }
+    }
+    obligation_levels = {
+        government_change_rights_default = {
+            default = yes
+            position = { 0 0 }
+
+            ai_liege_desire = 1
+            ai_subject_desire = 0
+        }
+        government_change_rights_protected = {
+            is_valid = {
+                scope:liege = {
+                    government_has_flag = government_is_administrative
+                }
+                scope:vassal = {
+                    NOT = { government_has_flag = government_is_administrative }
+                }
+            }
+
+            parent = government_change_rights_default
+            position = { 1 0 }
+
+            subject_opinion = 5
+
+            subject_modifier = {
+                monthly_prestige = 0.05
+            }
+
+            flag = vassal_contract_cannot_revoke_titles
+            flag = vassal_contract_cannot_change_governement
+
+            ai_liege_desire = 0
+            ai_subject_desire = @ai_standard_vassal_desire
+        }
+    }
+}

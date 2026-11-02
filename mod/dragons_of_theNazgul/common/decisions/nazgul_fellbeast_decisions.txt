@@ -1,0 +1,66 @@
+# ============================================================
+# Решения для Назгул: призыв и оседлание Fell Beasts
+# (порт механики "claim/bond dragon" из AGOT, автономная версия)
+# Загружается ПОСЛЕ LoTR RIE — category без override просто добавляется.
+# ============================================================
+
+decision_category_nazgul_fell_beasts = {
+        icon = crown
+}
+
+# --- Приручить падаль-зверя ---
+nazgul_claim_fell_beast_decision = {
+        title = decision_nazgul_claim_fell_beast.0.name
+        desc = decision_nazgul_claim_fell_beast.0.desc
+        picture = event_picture_dragon_01       # ванильная картинка CK3 (есть в игре, AGOT не нужен)
+
+        is_shown = {
+                nazgul_can_ride_fell_beast = yes
+        }
+
+        can_take = {
+                NOT = { nazgul_has_bound_fell_beast = yes }     # нет собственного живого зверя
+                OR = {
+                        gold >= 200
+                        held_title_count >= 3                   # контроль над Мордором/Ангмаром упрощает призыв
+                }
+        }
+
+        cost = 200
+        is_valid_for_heirs = no
+
+        ai_potential = { always = yes }
+        ai_weight = { weight = 500 }
+
+        effect = {
+                nazgul_claim_fell_beast_effect = yes
+                trigger_event = { id = nazgul_fellbeast.0001 }
+        }
+}
+
+# --- Взлететь (аналог AGOT mount-decision: усиливает всадника на год) ---
+nazgul_mount_fell_beast_decision = {
+        title = decision_nazgul_mount_fell_beast.0.name
+        desc = decision_nazgul_mount_fell_beast.0.desc
+        picture = event_picture_dragon_02
+
+        is_shown = {
+                nazgul_has_bound_fell_beast = yes
+        }
+
+        can_take = {
+                NOT = { has_character_modifier = nazgul_fell_beast_flight_modifier }
+        }
+
+        cost = 0
+
+        effect = {
+                nazgul_fell_beast_flight_effect = yes
+                if = {
+                        limit = { war = none }
+                        add_character_mood = adventurous_mood   # flavor: полёт
+                }
+        }
+
+        ai_weight = { weight = 300 }
+}

@@ -1,0 +1,16 @@
+﻿#######################################
+############### Anarike ###############
+#######################################
+
+dynasty_balakhorin = {
+	name = dynn_balakhorin
+	culture = east_adunai_colonial
+	motto = dynn_balakhorin_motto
+}
+
+dynasty_inyaloni = {
+	name = dynn_inyaloni
+	culture = east_adunai_colonial
+	motto = dynn_inyaloni_motto	
+}
+
