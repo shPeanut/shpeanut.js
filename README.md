@@ -70,6 +70,48 @@ dir "C:\Program Files (x86)\Steam\steamapps\workshop\content\1158310\2962333032\
 | decisions/events | `picture=`, `theme=` | существующие ассеты |
 | gfx | пути `.dds/.mesh` | пути из AGOT |
 
+## Как передать мне файлы модов (REVERSE — инструкции)
+
+Доступ к твоему компьютеру у меня нет и дать его не нужно — достаточно передать файлы одним из способов:
+
+### Способ 1 — самый простой: архив + чат
+Сделай два «тонких» архива **без тяжёлых ассетов** (gfx/portraits/models, sound, fonts — они не нужны для реверса скриптов, только txt):
+
+PowerShell (Win+X → Windows PowerShell), пути подставь свои:
+```powershell
+$agot = "C:\Program Files (x86)\Steam\steamapps\workshop\content\1158310\2962333032"
+$lotr = Get-ChildItem "C:\Program Files (x86)\Steam\steamapps\workshop\content\1158310" -Directory | Where-Object { $_.Name -ne "2962333032" } | Select-Object -First 1   # или впиши ID LоTR RIE явно
+
+Compress-Archive -Path "$agot\common","$agot\events","$agot\localization","$agot\interface","$agot\gfx\models\portraits\agot_creatures\dragon" `
+                 -DestinationPath "$env:USERPROFILE\Desktop\agot_scripts.zip" -Force
+
+Compress-Archive -Path "$($lotr.FullName)\common","$($lotr.FullName)\events","$($lotr.FullName)\history","$($lotr.FullName)\localization" `
+                 -DestinationPath "$env:USERPROFILE\Desktop\lotr_scripts.zip" -Force
+```
+(Если архив >50 МБ — разбей: отдельно `common/dragon_types`, `common/traits`, `common/scripted_effects`, `events`.)
+Приложи zip к следующему сообщению в чате — я их распакую сам и найду всё необходимое.
+
+### Способ 2 — git-репозиторий
+Заведи пустой приватный репозиторий (GitHub/GitFlic), закинь туда папки `common/ events/ localization/ history/` обоих модов, дай ссылку — я склонирую и проведу реверс.
+
+### Способ 3 — скопировать в рабочую папку
+Если ты можешь класть файлы в `/workspace` этой среды — просто скопируй папки целиком, например:
+```
+/workspace/reference/agot/...
+/workspace/reference/lotr_rie/...
+```
+и скажи «загрузил» — я сам сделаю поиск (`grep`) по ним.
+
+### Чего присылать НЕ надо
+`.dds/.png/.tga` текстуры, `.mesh` модели, `.wav/.ogg`, `gfx/portraits/*` (кроме листинга имён), `.dll`, архивы locator-ов — это сотни МБ и для скриптового реверса бесполезно.
+
+### Что я сделаю, получив файлы
+1. Извлеку точные поля `dragon_types` AGOT → перепишу `nazgul_dragons.txt` 1-в-1.
+2. Найду эффекты/события spawn/bond/riding дракона → заменю все `TODO(REVERSE)` в scripted_effects/events на реальные вызовы.
+3. Подтяну реальные трейт-ключи Назгул из LoTR RIE в триггеры допустимости.
+4. Сверю систему Ужаса (terror) и встроим её в бонус ездового зверя.
+5. Прогоню проверку путей gfx по фактическому листингу папки драконов.
+
 ## Быстрый тест без AGOT
 
 Если не хочешь тащить весь AGOT ради одной механики — есть план Б: реализовать fall-back «ездовых зверей» на чистых CK3-средствах (custom trait + modifier + события). Скажи — сделаю автономную версию, которой не нужен AGOT вообще.
