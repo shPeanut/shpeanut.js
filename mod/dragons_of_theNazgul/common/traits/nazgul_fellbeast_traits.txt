@@ -1,38 +1,95 @@
 # ============================================================
-# Трейты-мост: позволяют носителям ездить на fell beasts
-# (аналог dragon_rider трейтов AGOT).
-# TODO: сверить опции `opposite`/`customizer` с RIE, чтобы не
-# конфликтовать с их системой Nazgûl-трейтов.
+# Трейты этого мода. ПРОВЕРЕНО по присланным common/traits AGOT:
+#  - трейта cannot_have_dragon в AGOT нет -> opposite убран;
+#  - базовый трейт дракона называется dragon (используем как есть);
+#  - трейт наездника — dragonrider (выдаётся через nazgul_bind_fell_beast_effect);
+#  - после гибели зверя AGOT-подобное поведение: remove dragonrider ->
+#    add dragonless_dragonrider (наш unbind-effect повторяет их логику).
+# Здесь только НАШИ трейты-маркеры, чтобы не переопределять AGOT-файлы.
 # ============================================================
 
+# Маркер: носитель умеет призмывать и седлать падаль-зверей
 knows_fell_beast_riders = {
 	cost = 0
 	self_inheritance = no
-	opposite = cannot_have_dragon				# TODO: если в AGOT есть такой — оставить; иначе удалить строку
-	creation = {
-		cannot_create = no
-	}
-	# В AGOT езда на драконе привязана к special traits; здесь — к нашим.
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	category = fame
+
 	modifier = {
-		movement_speed = 1.25					# крылатый ужас летает быстрее пеших орд
+		movement_speed = 1.25						# крылатый ужас летает быстрее пеших орд
 		dread_gain_mult = 0.25
 	}
 	# Интеграция с RIE: Nazgûl получает террор-ауру сильнее верхом
-	# TODO: заменить на реальный модификатор RIE, когда пришлёшь их traits
+	# TODO(REVERSE): заменить на реальный модификатор RIE, когда пришлёшь их traits
 	terror_decay_mult = -0.2
-	
-	# наследование по «традиции» — от мастера к ученику через события
-	# (в films звери служат Девяти, а не рождаются у них)
 }
 
+# Мастер Девяти (Кхот) — усиленная версия
 master_of_fell_beasts = {
 	cost = 0
 	self_inheritance = no
 	ruler_title_prefix = nazgul_fell_beast_flavor.1
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	category = fame
+
 	modifier = {
 		movement_speed = 1.5
 		dread_gain_mult = 0.5
 		host_damage_modifier = 0.15
 		knight_effectiveness_mult = 0.3
 	}
+}
+
+# --- Трейты ЗВЕРЕЙ (ставятся поверх AGOT-трейта dragon из character_templates) ---
+
+nazgul_fell_beast = {
+	desc = trait_nazgul_fell_beast_desc
+	icon = horse								# TODO(REVERSE): иконка из RIE/AGOT (dragon.dds)
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	category = health
+
+	can_have_children = no
+	disables_combat_leadership = yes			# как у AGOT dragon
+	flag = can_not_marry						# как у AGOT dragon
+	inheritance_blocker = all					# как у AGOT dragon
+	claim_inheritance_blocker = all				# как у AGOT dragon
+	health = 4									# чуть хрупче драконов AGOT (fell beasts убиваемы копьём Рока)
+	life_expectancy = 600
+
+	character_travel_speed = 150				# синхронизировано с AGOT dragon_flight_option
+	character_travel_safety = 200
+}
+
+nazgul_lord_of_angermont = {
+	desc = trait_nazgul_lord_of_angermont_desc
+	icon = horse								# TODO(REVERSE): уникальная иконка
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	category = health
+
+	opposites = { }
+
+	can_have_children = no
+	disables_combat_leadership = yes
+	flag = can_not_marry
+	inheritance_blocker = all
+	claim_inheritance_blocker = all
+	health = 6
+	life_expectancy = 1200
+
+	character_travel_speed = 175
+	character_travel_safety = 200
+
+	flag = add_draconic_dread_15				# флаг-модификатор AGOT (обрабатывается их скриптами)
 }

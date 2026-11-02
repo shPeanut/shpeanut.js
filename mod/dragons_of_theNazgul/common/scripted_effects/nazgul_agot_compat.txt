@@ -1,0 +1,65 @@
+# ============================================================
+# СЛОЙ СОВМЕСТИМОСТИ С AGOT (по фактическим ключам из присланных
+# common/traits AGOT, CK3 1.19.x)
+#
+# УСТАНОВЛЕННЫЕ КОНВЕНЦИИ AGOT (подтверждено трейтами):
+#   dragon                      — базовый трейт дракона (у НАШЕГО зверя тоже будет)
+#   dragonrider                 — трейт наездника; привязка через var:current_dragon
+#   dragonless_dragonrider      — выдаётся наезднику после гибели зверя
+#   owned_dragon                — character_flag ДРАКОНА («имеет владельца»)
+#   var:current_rider           — переменная ДРАКОНА -> наездник
+#   dragon_by_horn              — flag «привязан Рогом» (для назгулов НЕ ставим:
+#                                 их связь — тёмная магия Саурона, не Bloodkeeper-магия)
+# ============================================================
+
+# --- Привязать уже заспавненного зверя к назгулу (ядро механики AGOT) ---
+nazgul_bind_fell_beast_effect = {
+	# root = назгул-всадник; event_target:fell_beast = зверь (дракон AGOT)
+	event_target:fell_beast = {
+		add_character_flag = owned_dragon                 # как в AGOT: трейт dragon читает этот флаг
+		set_variable = { name = current_rider value = root }
+	}
+	root = {
+		# Используем РЕАЛЬНЫЙ трейт AGOT — тогда работают все их драконьи решения,
+		# travel-модификаторы полёта и lifestyle-треки dragon_training / dragon_bond.
+		add_trait_force_tooltip = dragonrider             # TODO(сверить): plain add_trait = dragonrider тоже допустим
+		set_variable = { name = current_dragon value = event_target:fell_beast }
+		add_character_flag = nazgul_fell_beast_ridden
+	}
+}
+
+# --- Разрыв связи (зверь погиб / освобождён) ---
+nazgul_unbind_fell_beast_effect = {
+	if = {
+		limit = { exists = var:current_dragon }
+		var:current_dragon = {
+			if = {
+				limit = { var:current_rider = this }
+				remove_variable = current_rider
+			}
+			remove_character_flag = owned_dragon
+		}
+		remove_variable = current_dragon
+	}
+	# AGOT-подобное поведение: всадник без зверя становится «dragonless»
+	if = {
+		limit = { has_trait = dragonrider }
+		remove_trait = dragonrider
+		add_trait = dragonless_dragonrider
+	}
+	# Наш трейт-мост всё равно снимем (если мод выгружается/зверя убили навсегда)
+	# remove_trait = knows_fell_beast_riders   # оставляем: назгулы не «забывают» призыв
+}
+
+# --- Полёт назгула: переиспользуем travel-механику AGOT ---
+# В AGOT сам трейт dragon даёт character_travel_speed = 150 / safety = 200
+# («Should match the modifiers in dragon_flight_option»). Для всадника нам
+# достаточно держать привязку dragonrider <-> dragon: их события полёта
+# подхватят пару автоматически. Дополнительный эффект полёта для армий:
+nazgul_fell_beast_flight_effect = {
+	custom_tooltip = nazgul_fell_beast_flight_tt
+	add_character_modifier = {
+		modifier = nazgul_fell_beast_flight_modifier
+		years = 1
+	}
+}

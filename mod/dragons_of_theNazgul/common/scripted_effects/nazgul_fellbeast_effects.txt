@@ -1,8 +1,10 @@
 # ============================================================
 # Scripted effects — мост AGOT(dragon) -> LoTR RIE(Nazgûl)
-# ВНИМАНИЕ: вызовы create_dragon / set_dragon_mount — ПРЕДПОЛОЖИТЕЛЬНЫЕ
-# имена из AGOT. После получения common/dragon_types и scripted_effects
-# мода AGOT замени на фактические (см. README.md, раздел REVERSE).
+# Ключи AGOT подтверждены из присланных common/traits:
+#   dragon / dragonrider / dragonless_dragonrider / owned_dragon (flag)
+#   var:current_rider (у дракона) / var:current_dragon (у всадника)
+# Осталось уточнить по файлам AGOT: точный эффект спавна дракона
+# (create_dragon vs create_character + template) — см. [ALT] ниже.
 # ============================================================
 
 # ПРИМЕЧАНИЕ: проверка "кто может летать" вынесена в
@@ -12,27 +14,38 @@
 nazgul_claim_fell_beast_effect = {
 	save_event_target_as = fell_beast_claimant
 
-	# --- 1. Спавн зверя через механику драконов AGOT ---
-	create_dragon = {					# TODO: сверить синтаксис с AGOT
-		type = nazgul_dragon_fell_beast
+	# --- 1. Спавн зверя как дракона AGOT ---
+	create_character = {
+		location = root.capital_province
+		character_type = dragon
+		template = nazgul_fell_beast_template                # см. common/character_templates/nazgul_fell_beasts.txt
 		age = 60
+		faith = root.faith
+		culture = root.culture
+		save_event_target_as = fell_beast
+	}
+	# [ALT] Если в scripted_effects AGOT есть нативный спавн, замени блок выше на:
+	# create_dragon = { type = nazgul_dragon_fell_beast age = 60 }
+
+	# --- 2. Привязка по конвенциям AGOT (owned_dragon/current_rider/dragonrider) ---
+	nazgul_bind_fell_beast_effect = yes
+
+	# --- 3. Трейт-мост (гарантирует работу если AGOT-события не подхватят пару) ---
+	add_trait = knows_fell_beast_riders
+	if = {
+		limit = { has_trait = lord_of_the_nazgul }           # TODO(REVERSE): ключ Кхота из LoTR RIE
+		add_trait = master_of_fell_beasts
 	}
 
 	# редкий шанс получить уникального Владыку Ангормаунта
 	random_list = {
-		90 = { }																	# обычный fell beast
+		90 = { }                                             # обычный fell beast
 		10 = { trigger_event = { id = nazgul_fellbeast.0004 days = 30 random = 20 } }
 	}
 
-	# --- 2. Выдать трейты наездника (аналог AGOT "dragon rider") ---
-	add_trait = knows_fell_beast_riders
-	if = {
-		limit = { has_trait = lord_of_the_nazgul }	# TODO: ключ из RIE
-		add_trait = master_of_fell_beasts
-	}
-
-	# --- 3. Интеграция с системой Ужаса (Terror) из LoTR RIE ---
-	# TODO: заменить на реальный эффект RIE (change_terror_value и т.п.)
+	# --- 4. Интеграция с системой Ужаса (Terror) из LoTR RIE ---
+	# TODO(REVERSE): заменить на реальный эффект RIE (add/change terror)
+	add_dread = 50
 	add_prestige_level = 1
 
 	custom_tooltip = nazgul_fell_beast_log_claims
@@ -41,11 +54,18 @@ nazgul_claim_fell_beast_effect = {
 # Особый экземпляр для Лорда Назгул (Кхот)
 nazgul_claim_lord_of_angermont_effect = {
 	save_event_target_as = fell_beast_claimant
-	create_dragon = {					# TODO: сверить синтаксис с AGOT
-		type = nazgul_dragon_lord_angermont
+	create_character = {
+		location = root.capital_province
+		character_type = dragon
+		template = nazgul_lord_angermont_template            # см. common/character_templates/nazgul_fell_beasts.txt
 		age = 200
+		faith = root.faith
+		culture = root.culture
+		save_event_target_as = fell_beast
 	}
+	nazgul_bind_fell_beast_effect = yes
 	add_trait = knows_fell_beast_riders
 	add_trait = master_of_fell_beasts
+	add_character_flag = got_lord_of_angermont
 	custom_tooltip = nazgul_fell_beast_log_claims
 }

@@ -27,9 +27,10 @@ nazgul_fellbeast.0001 = {
 	}
 	
 	immediate = {
-		# спавн уже выполнен в nazgul_claim_fell_beast_effect;
-		# здесь фиксируем привязку зверя к персонажу (механика AGOT)
-		root = { set_dragon_rider = yes }	# TODO: точное имя эффекта из AGOT
+		# Привязка зверя к персонажу уже выполнена в nazgul_claim_fell_beast_effect
+		# через nazgul_bind_fell_beast_effect (конвенции AGOT: owned_dragon,
+		# var:current_rider / var:current_dragon, трейт dragonrider).
+		custom_tooltip = nazgul_bind_fell_beast_tt
 	}
 	
 	option = {
@@ -57,7 +58,13 @@ nazgul_fellbeast.0002 = {
 	}
 	
 	immediate = {
+		# Гибель зверя: чистим привязку по конвенциям AGOT (см. scripted_effects)
+		nazgul_unbind_fell_beast_effect = yes
 		remove_trait = master_of_fell_beasts
+		if = {
+			limit = { exists = event_target:fell_beast }
+			event_target:fell_beast = { die = yes }   # добиваем тушу, чтобы не осталось «живого» трупа
+		}
 	}
 	
 	option = {

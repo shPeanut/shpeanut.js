@@ -1,0 +1,51 @@
+# ============================================================
+# REFERENCE (только для справки, НЕ загружается игрой)
+# Источник: пользователь прислал common/traits из A Game of Thrones (AGOT), CK3 1.19.x
+# Получено: 2026-11-02. Используется для сверки ключей в этом моду.
+# Полный оригинал сохранён в git-истории коммита с этим файлом.
+# ============================================================
+
+## КЛЮЧИ, ИСПОЛЬЗУЕМЫЕ НАМИ:
+#  dragon                      — базовый трейт ВСЕХ драконов (category = health).
+#                                flag: can_not_marry; inheritance_blocker = all;
+#                                character_travel_speed = 150; character_travel_safety = 200;
+#                                health = 5; life_expectancy = 150; fertility = 0; birth = 0
+#  dragonrider                 — трейт наездника (category = fame). Хранит привязку через
+#                                var:current_dragon; имя меняется на trait_dragon_name_dragon_alive.
+#                                tracks: dragon_training / dragon_bond (lifestyle-треки!).
+#  dragonless_dragonrider      — выдаётся вместо dragonrider, когда дракон мёртв.
+#  dragonwidowed               — «вдовец/вдова дракона»; flag = can_not_bond_dragon.
+#
+## ВАЖНЫЕ VAR/FLAG КОНВЕНЦИИ AGOT (из текстов трейтов):
+#  owned_dragon                — character_flag у ДРАКОНА: «имеет владельца»
+#  dragon_by_horn              — character_flag: привязка Рогом Валирии (bound, а не tamed)
+#  var:current_rider           — переменная ДРАКОНА -> его наездник
+#  var:current_dragon          — переменная НАЕЗДНИКА -> его дракон
+#  var:slain_dragon            — переменная убийцы-драконоборца
+#
+## ФЛАГИ-МОДИФИКАТОРЫ AGOT (обрабатываются их скриптами, НЕ движком):
+#  add/subtract_draconic_dread_N      — влияние на «драконий ужас»
+#  add/subtract_temperament_N         — темперамент (сложность приручения)
+#  add/subtract_taming_chance_N       — шанс приручения
+#  add/subtract_combat_effectiveness_modifier_N — боевая эффективность дракона
+#  add/subtract_size_modifier_N       — размер модели
+#  add/subtract_rider_monthly_prestige_1
+#  add_early_growth                   — ускоренный рост дракона
+#
+## ЛИЧНОСТИ ДРАКОНОВ (все имеют potential = has_trait = dragon, birth=0, random_creation=0):
+#  dragon_aggressive <-> dragon_friendly
+#  dragon_solitary   <-> dragon_cooperative
+#  dragon_imperious  <-> dragon_supporting
+#  dragon_impulsive  <-> dragon_calculating
+#  dragon_voracious  <-> dragon_restrained
+#  dragon_defiant    <-> dragon_accepting
+#  dragon_bloodthirsty <-> dragon_skittish
+#  dragon_cannibal (fame, без opposites)
+#
+## КОНГЕНИТАЛЬНЫЕ: dragon_physique_good_1..3 (group dragon_physique_good),
+##  dragon_physique_bad_1..3 (group dragon_physique_bad), dragon_swift/dragon_slow,
+##  dragon_spindly, dragon_majestic/dragon_ugly, dragon_fertile, dragon_destined
+## ОБРАЗОВАНИЕ: education_dragon_1..5
+## РАНЕНИЯ: dragon_wounded_1..5 (group dragon_wounded), dragon_burned, dragon_ill,
+##  dragon_blind (flag subtract_combat_effectiveness_modifier_75), dragon_depressed
+## ПРОЧЕЕ: dragonslayer (потенциал NOT has_trait dragon, prowess +3)
