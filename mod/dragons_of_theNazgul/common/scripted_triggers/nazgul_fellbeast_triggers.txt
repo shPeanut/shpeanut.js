@@ -1,13 +1,27 @@
 # ============================================================
-# Scripted triggers — мост AGOT(dragon) -> LoTR RIE(Nazgûl)
-# (вынесено из scripted_effects, чтобы решения могли вызывать
-#  триггер корректным синтаксисом: nazgul_can_ride_fell_beast = yes)
+# Scripted triggers — НЕЗАВИСИМЫЙ сабмод (LoTR RIE + позаимствованная механика AGOT)
 # ============================================================
 
+# Кто может седлать падаль-зверей.
+# Ключи RIE указаны как заглушки-кандидаты: если у LoTR RIE другие имена
+# трейтов назгулов — просто допиши их сюда через OR = {} (ошибка не возникнет,
+# has_trait с несуществующим ключом просто всегда ложен... НО CK3 ругается в error.log,
+# поэтому точные ключи лучше прислать — см. README раздел REVERSE).
 nazgul_can_ride_fell_beast = {
-	OR = {
-		has_trait = nazgul					# TODO: точный ключ трейта Nazgûl из LoTR RIE
-		has_trait = lord_of_the_nazgul		# TODO: ключ Кхота/Лорда Назгул из RIE
-		has_trait = knows_fell_beast_riders	# наш трейт-мост (traits/nazgul_fellbeast_traits.txt)
-	}
+        OR = {
+                has_trait = nazgul                          # [RIE-кандидат] обычный назгул
+                has_trait = lord_of_the_nazgul              # [RIE-кандидат] Кхот, мастер Девяти
+                has_trait = nazgul_fell_beast_rider         # наш трейт (после первой привязки)
+                has_trait = nazgul_fell_beast_master        # наш трейт (пережил потерю зверя)
+                has_trait = knows_fell_beast_riders         # старый ключ (для совместимости сейвов)
+        }
+}
+
+# Есть ли у root живой привязанный зверь
+nazgul_has_bound_fell_beast = {
+        exists = var:current_dragon
+        var:current_dragon = {
+                is_alive = yes
+                has_character_flag = owned_dragon
+        }
 }

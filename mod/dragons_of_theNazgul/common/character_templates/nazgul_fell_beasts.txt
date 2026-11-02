@@ -1,35 +1,26 @@
 # ============================================================
-# Шаблоны персонажей-зверей. Спавнятся scripted effects.
-# Трейт dragon — РЕАЛЬНЫЙ ключ AGOT (подтверждён из их traits):
-# даёт health +5, life_expectancy 150, travel_speed 150/safety 200,
-# flag can_not_marry, inheritance_blocker = all и т.д.
-# Личностные трейты взяты из присланного файла AGOT:
-#   dragon_bloodthirsty: flag add_draconic_dread_15,
-#                        subtract_taming_chance_25,
-#                        add_combat_effectiveness_modifier_10
-#   dragon_physique_good_3: add_size_modifier_30, health +2
-#   dragon_swift: add_combat_effectiveness_modifier_15, ai_energy +25
+# Шаблоны персонажей-зверей (автономно, без AGOT).
+# Трейт nazgul_dragon — наш аналог AGOT-трейта dragon.
+# Личностные трейты — порты AGOT: bloodthirsty / physique_good_3 / swift.
 # ============================================================
 
 nazgul_fell_beast_template = {
-	gender = male
-	traits = {
-		dragon                       # трейт AGOT: делает существо «драконом» системы AGOT
-		nazgul_fell_beast            # наш трейт-маркер (см. traits/nazgul_fellbeast_traits.txt)
-		dragon_bloodthirsty          # трейт AGOT: свирепость падаль-зверя
-	}
-	disallow_random_traits = yes
+        gender = male
+        traits = {
+                nazgul_dragon                  # базовый «драконий» трейт этой системы
+                nazgul_dragon_bloodthirsty     # свирепость падаль-зверя
+        }
+        disallow_random_traits = yes
 }
 
 nazgul_lord_angermont_template = {
-	gender = male
-	traits = {
-		dragon
-		nazgul_fell_beast
-		nazgul_lord_of_angermont     # уникальный маркер
-		dragon_bloodthirsty
-		dragon_physique_good_3       # трейт AGOT: размер +30%, health +2
-		dragon_swift                 # трейт AGOT: combat effectiveness +15%
-	}
-	disallow_random_traits = yes
+        gender = male
+        traits = {
+                nazgul_dragon
+                nazgul_lord_of_angermont       # уникальный маркер
+                nazgul_dragon_bloodthirsty
+                nazgul_dragon_physique_good_3  # размер +, health +2
+                nazgul_dragon_swift            # скорость +
+        }
+        disallow_random_traits = yes
 }

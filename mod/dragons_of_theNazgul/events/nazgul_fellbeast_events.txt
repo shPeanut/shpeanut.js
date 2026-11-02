@@ -1,116 +1,100 @@
 # ============================================================
 # События: призыв падаль-зверей, гибель зверя, дар Саурона.
 # namespace nazgul_fellbeast — не конфликтует ни с AGOT, ни с RIE.
+# Все эффекты автономны (не требуют AGOT).
 # ============================================================
 
 namespace = nazgul_fellbeast
 
-# --- 0001: обычный призыв (вызывается scripted effect'ом claim) ---
+# --- 0001: обычный призыв (вызывается решением claim) ---
 nazgul_fellbeast.0001 = {
-	type = character_event
-	title = nazgul_fellbeast.0001.t
-	desc = nazgul_fellbeast.0001.d
-	theme = learning_learning_event # TODO: заменить на валидную тему CK3 1.19 / иконку из RIE
-	
-	left_portrait = {
-		character = root
-		animation = anger
-	}
-	right_portrait = {
-		character = root
-		# Показ 3D-модели дракона AGOT в портретной панели события.
-		# Ассеты лежат здесь (Workshop ID 2962333032):
-		# gfx/models/portraits/agot_creatures/dragon/...
-		# TODO(подтвердить): точное имя .mesh/.dds из листинга папки —
-		# пришли содержимое этой папки, и я пропишу конкретный файл:
-		# portrait = "gfx/models/portraits/agot_creatures/dragon/<файл>.mesh"
-	}
-	
-	immediate = {
-		# Привязка зверя к персонажу уже выполнена в nazgul_claim_fell_beast_effect
-		# через nazgul_bind_fell_beast_effect (конвенции AGOT: owned_dragon,
-		# var:current_rider / var:current_dragon, трейт dragonrider).
-		custom_tooltip = nazgul_bind_fell_beast_tt
-	}
-	
-	option = {
-		name = FLAVOR-nazgul_fell_beast_flavor.1
-		add_dread = 50
-		ai_chance = { base = 100 }
-	}
+        type = character_event
+        title = nazgul_fellbeast.0001.t
+        desc = nazgul_fellbeast.0001.d
+        theme = learning_learning_event
+
+        left_portrait = {
+                character = root
+                animation = anger
+        }
+
+        option = {
+                name = FLAVOR-nazgul_fell_beast_flavor.1
+                add_dread = 50
+                ai_chance = { base = 100 }
+        }
 }
 
 # --- 0002: Гибель ездового зверя на войне ---
 nazgul_fellbeast.0002 = {
-	type = character_event
-	title = nazgul_fellbeast.0002.t
-	desc = nazgul_fellbeast.0002.d
-	theme = warfare_conquest_event # TODO: заменить на валидную тему CK3 1.19 / иконку из RIE
-	
-	left_portrait = {
-		character = root
-		animation = grief
-	}
-	
-	trigger = {
-		has_trait = knows_fell_beast_riders
-		is_alive = yes
-	}
-	
-	immediate = {
-		# Гибель зверя: чистим привязку по конвенциям AGOT (см. scripted_effects)
-		nazgul_unbind_fell_beast_effect = yes
-		remove_trait = master_of_fell_beasts
-		if = {
-			limit = { exists = event_target:fell_beast }
-			event_target:fell_beast = { die = yes }   # добиваем тушу, чтобы не осталось «живого» трупа
-		}
-	}
-	
-	option = {
-		name = nazgul_fell_beast_flavor.3
-		add_prestige = -100
-		trigger_event = { id = nazgul_fellbeast.0001 days = 365 } # можно призвать нового
-	}
+        type = character_event
+        title = nazgul_fellbeast.0002.t
+        desc = nazgul_fellbeast.0002.d
+        theme = warfare_conquest_event
+
+        left_portrait = {
+                character = root
+                animation = grief
+        }
+
+        trigger = {
+                is_alive = yes
+                OR = {
+                        has_trait = nazgul_fell_beast_rider
+                        has_trait = nazgul_fell_beast_master
+                }
+                exists = var:current_dragon
+                var:current_dragon = { is_alive = no }
+        }
+
+        immediate = {
+                # Гибель зверя: чистим привязку по конвенциям AGOT + снимаем усиления
+                nazgul_unbind_fell_beast_effect = yes
+                remove_trait = master_of_fell_beasts
+        }
+
+        option = {
+                name = nazgul_fell_beast_flavor.3
+                add_prestige = -100
+                add_dread = 25
+                ai_chance = { base = 100 }
+        }
 }
 
 # --- 0003: Дар Саурона (уникальный зверь для Лорда Назгул) ---
 nazgul_fellbeast.0003 = {
-	type = character_event
-	title = nazgul_fellbeast.0003.t
-	desc = nazgul_fellbeast.0003.d
-	theme = roleplay_darkmagic_event # TODO: тема из RIE/ваниллы — сверить с events/common/event_themes
-	
-	left_portrait = {
-		character = root
-		animation = happiness
-	}
-	
-	trigger = {
-		has_trait = lord_of_the_nazgul	# TODO: ключ Кхота из RIE
-		NOR = {
-			has_character_flag = got_lord_of_angermont
-		}
-	}
-	
-	immediate = {
-		add_character_flag = got_lord_of_angermont
-		nazgul_claim_lord_of_angermont_effect = yes
-	}
-	
-	option = {
-		name = OK
-		ai_chance = { base = 100 }
-	}
+        type = character_event
+        title = nazgul_fellbeast.0003.t
+        desc = nazgul_fellbeast.0003.d
+        theme = roleplay_darkmagic_event
+
+        left_portrait = {
+                character = root
+                animation = happiness
+        }
+
+        trigger = {
+                has_trait = lord_of_the_nazgul   # [RIE-кандидат] ключ Кхота — см. README REVERSE
+                NOT = { has_character_flag = got_lord_of_angermont }
+        }
+
+        immediate = {
+                add_character_flag = got_lord_of_angermont
+                nazgul_claim_lord_of_angermont_effect = yes
+        }
+
+        option = {
+                name = OK
+                ai_chance = { base = 100 }
+        }
 }
 
 # --- 0004: Редкий спавн Владыки Ангормаунта (из random_list claim-effect) ---
 nazgul_fellbeast.0004 = {
-	type = character_event
-	hidden = yes
-	trigger = { always = yes }
-	immediate = {
-		nazgul_claim_lord_of_angermont_effect = yes
-		trigger_event = { id = nazgul_fellbeast.0003 }
-	}
+        type = character_event
+        hidden = yes
+        trigger = { always = yes }
+        immediate = {
+                nazgul_claim_lord_of_angermont_effect = yes
+        }
 }

@@ -1,0 +1,25 @@
+# ============================================================
+# Портреты зверей. ВНИМАНИЕ: это НЕ требует AGOT для работы скриптов.
+# Вариант A (по умолчанию): 2D-заглушка через ванильные attachment-ключи —
+#   игра не упадёт, зверь будет отображаться как крупное существо.
+# Вариант B (красивый): скопируйте mesh/dds из папки AGOT
+#   C:\Program Files (x86)\Steam\steamapps\workshop\content\1158310\
+#     2962333032\gfx\models\portraits\agot_creatures\dragon
+#   в <этот мод>/gfx/models/portraits/nazgul_dragons/ и раскомментируйте
+#   блок 3D ниже (имена файлов возьмите из листинга папки — см. README).
+# ============================================================
+
+nazgul_fell_beast_portrait = {
+        name = "nazgul_fell_beast"
+        layer = {
+                key = "hair"
+                texture = { name = "gfx/interface/illustrations/characters/creature_dragon.dds" }
+        }
+}
+
+# [Вариант B — 3D-модель из ассетов AGOT, раскомментировать после копирования файлов]
+# nazgul_fell_beast_3d = {
+#         name = "nazgul_fell_beast_3d"
+#         meshfile = "gfx/models/portraits/nazgul_dragons/<файл>.mesh"
+#         texture = "gfx/models/portraits/nazgul_dragons/<файл>.dds"
+# }

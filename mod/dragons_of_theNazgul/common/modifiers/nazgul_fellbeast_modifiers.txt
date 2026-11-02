@@ -1,0 +1,7 @@
+# Модификатор полёта падаль-зверя (значения синхронизированы с AGOT flight)
+nazgul_fell_beast_flight_modifier = {
+        character_travel_speed = 150
+        character_travel_safety = 200
+        movement_speed = 1.25
+        dread_gain_mult = 0.25
+}

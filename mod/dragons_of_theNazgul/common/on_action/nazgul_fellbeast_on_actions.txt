@@ -1,0 +1,24 @@
+# ============================================================
+# on_action: ежегодная проверка мёртвых зверей -> событие 0002
+# (автономный аналог AGOT-обработки гибели дракона)
+# ============================================================
+
+yearly_playable_pulse = {
+        on_actions.nazgul_fell_beast_death_check = yes
+}
+
+# Скриптовый on_action
+nazgul_fell_beast_death_check = {
+        every_playable_character = {
+                limit = {
+                        is_ruler = yes
+                        OR = {
+                                has_trait = nazgul_fell_beast_rider
+                                has_trait = nazgul_fell_beast_master
+                        }
+                        exists = var:current_dragon
+                        var:current_dragon = { is_alive = no }
+                }
+                trigger_event = { id = nazgul_fellbeast.0002 }
+        }
+}
