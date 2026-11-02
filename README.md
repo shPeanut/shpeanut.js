@@ -4,7 +4,7 @@
 
 ## ⚠️ Прочитай сначала — это важно
 
-У меня нет доступа к файлам самих модов (AGOT и LotR RIE лежат у тебя на диске). Поэтому каркас мода готов, но **часть имён — предположительная** и помечена `TODO`. Чтобы довести до рабочего состояния, нужны файлы для реверс-инжиниринга (список ниже). Без них часть эффектов останется заглушками.
+У меня нет доступа к файлам самих модов (AGOT и LotR RIE лежат у тебя на диске). Поэтому каркас мода готов, но **часть имён — предположительная** и помечена `TODO`. Чтобы довести до рабочего состояния, нужны файлы для реверс-инжиниринга (см. раздел REVERSE ниже). Без них часть эффектов останется заглушками.
 
 ## Структура
 
@@ -17,6 +17,7 @@ mod/dragons_of_theNazgul/
  ├─ common/scripted_effects/...                     # призыв зверя + привязка наездника
  ├─ common/decisions/nazgul_fellbeast_decisions.txt # решения «Оседлать зверя» / «Взлететь»
  ├─ events/nazgul_fellbeast_events.txt              # цепочка событий призыва/гибели/дара
+ ├─ gfx/portraits/attachable/nazgul_fellbeast_gfx.txt # .gfx-регистрация моделей (ассеты AGOT)
  └─ localization/{english,russian}/*.yml
 ```
 
@@ -27,6 +28,18 @@ mod/dragons_of_theNazgul/
 
 ## Что нужно от тебя для реверс-инжиниринга (REVERSE)
 
+### ✅ Получено: путь ассетов драконов AGOT
+`C:\Program Files (x86)\Steam\steamapps\workshop\content\1158310\2962333032\gfx\models\portraits\agot_creatures\dragon`
+(Workshop ID мода AGOT = **2962333032**.) В код уже вписаны корректные CK3-пути этого вида:
+`gfx/models/portraits/agot_creatures/dragon/...` — см. `common/dragon_types/nazgul_dragons.txt`
+и новый файл `gfx/portraits/attachable/nazgul_fellbeast_gfx.txt`.
+
+**Что ещё нужно по ассетам:** листинг имён файлов в этой папке. Выполни в cmd:
+```
+dir "C:\Program Files (x86)\Steam\steamapps\workshop\content\1158310\2962333032\gfx\models\portraits\agot_creatures\dragon" /s /b
+```
+и пришли вывод. По реальным именам `.mesh`/`.dds` я пропишу точные пути вместо `TODO(REVERSE)` и определю, нужен ли вообще наш .gfx-аттачмент (если AGOT уже регистрирует модели драконов сам — достаточно будет сослаться на их аттачмент).
+
 Пришли содержимое этих файлов/папок (архивом или по одному):
 
 ### Из AGOT (`Documents/Paradox Interactive/mods/A Game of Thrones .../`)
@@ -36,7 +49,7 @@ mod/dragons_of_theNazgul/
    - `events/*dragon*.txt` (hatching, bonding, riding)
    - трейты `dragon_*` / `can_have_dragon` и т.п.
 3. `gui/window_dragon*` или скриншот UI драконов (если хочешь их интерфейс вместо решений).
-4. Пути ассетов: `gfx/models/dragons/...`, `interface/event_images/*dragon*` (для `picture=` и `portrait=`).
+4. ✅ Пути ассетов моделей драконов — **получены**: `.../workshop/content/1158310/2962333032/gfx/models/portraits/agot_creatures/dragon` (вписаны в dragon_types и .gfx). Остался листинг имён файлов (см. блок выше) + `interface/event_images/*dragon*` для картинок событий/решений (`picture=`).
 
 ### Из LotR RIE (`mods/LotR - Realms in Exile .../`)
 5. `common/trraits/*nazg*` — **точные ключи** трейтов Назгул (сейчас заглушки `nazgul`, `lord_of_the_nazgul`).

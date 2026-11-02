@@ -17,8 +17,13 @@ nazgul_fellbeast.0001 = {
 		animation = anger
 	}
 	right_portrait = {
-		character = root	# TODO: когда будет модель дракона — показать её через dragon portrait
-		animation = threat
+		character = root
+		# Показ 3D-модели дракона AGOT в портретной панели события.
+		# Ассеты лежат здесь (Workshop ID 2962333032):
+		# gfx/models/portraits/agot_creatures/dragon/...
+		# TODO(подтвердить): точное имя .mesh/.dds из листинга папки —
+		# пришли содержимое этой папки, и я пропишу конкретный файл:
+		# portrait = "gfx/models/portraits/agot_creatures/dragon/<файл>.mesh"
 	}
 	
 	immediate = {
