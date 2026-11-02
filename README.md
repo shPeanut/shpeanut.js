@@ -62,3 +62,10 @@ localization/english|russian/*.yml               # локализация (UTF-8
 - `terror_decay_multiplier` и `overrides_character_size` — поля CK3 1.19; если
   error.log сообщит о неизвестном поле в трейте, замените его на валидное из
   документации traits (мод от этого не вылетает, поле просто игнорируется).
+
+## Как быстро собрать скрипты AGOT + LoTR RIE для GitHub
+Запустите `tools/copy_scripts_for_github.ps1` (PowerShell). Он скопирует только текстовые
+файлы (.txt) из common/events/history/localization/gui/interface обоих модов в папку
+`%USERPROFILE%\Desktop\mod_scripts_for_github\{agot,lotr_rie}` — обычно это ~50–200 МБ
+вместо 12 ГБ. Затем залейте её в репозиторий (Drag&Drop в web-UI GitHub или git push)
+и пришлите ссылку. ID папки LoTR RIE при необходимости поправьте в массиве `$mods`.
