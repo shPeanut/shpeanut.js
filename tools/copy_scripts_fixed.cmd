@@ -8,8 +8,8 @@ rem ============================================================
 
 setlocal
 set "WS=C:\Program Files (x86)\Steam\steamapps\workshop\content\1158310"
-set "OUT=%USERPROFILE%\Desktop\mod_scripts_for_github"
-set "ZIP=%USERPROFILE%\Desktop\mod_scripts.zip"
+set "OUT=C:\Users\drdre\Desktop\mod_scripts_for_github"
+set "ZIP=C:\Users\drdre\Desktop\mod_scripts.zip"
 
 echo Working dir: %CD%
 if not exist "%WS%" (
