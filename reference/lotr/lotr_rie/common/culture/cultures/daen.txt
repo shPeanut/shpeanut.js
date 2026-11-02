@@ -1,0 +1,617 @@
+﻿### Daen Cultures
+## The Daen are those of the House of Haladin who did not enter Beleriand, and instead spread throughout Enedhwaith and later Gondor
+
+# heritage_daen_lintis (in Enedhwaith = Gwaithuirim)
+#	daen_lintis
+#	enedhwaithrim (Fisher-folk of the coast)
+#	saralain
+#	dunmen (proto-dunlendings)
+#	dunlending
+#	adornaen 
+#	isengard_dunlending
+
+# heritage_daen_coentis (Folk of the White Mountain higlands)
+#	daen_coentis 
+#	coenfir (Men of the W White mountains)
+#	coenmor (Men of the mountains)
+#	eredrim (Successors of Coenfir)
+#	andrastrim 
+
+# heritage_danan_lin (plain daen)
+#	danan_lin
+#	donan (Harondor)
+#	danaine (Calenardhon)
+#	nurnoth (Nurn)
+
+daen = {
+	color = { 100 90 60 }
+	created = 593.1.1
+	parents = { haladin }
+
+	history_loc_override = daen_history_loc
+
+	ethos = ethos_stoic
+	heritage = heritage_old_daen
+	language = language_halethian
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_forest_folk
+		tradition_hill_dwellers
+		tradition_tribe_unity
+	}
+
+	name_list = name_list_eredrim
+
+	coa_gfx = { dunlending_group_coa_gfx }
+	building_gfx = { druedain_building_gfx western_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx }
+	unit_gfx = { acg_daen_unit_gfx norse_unit_gfx northern_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		1 = daen_ethnicity
+	}
+}
+
+### DAEN LINTIS
+
+daen_lintis = { # Those of the Daen who settle Enedhwaith. Also known as the Gwathuirim or Darbarin
+	color = { 128 87 68 }
+	created = 1492.1.1
+	parents = { daen }
+
+	history_loc_override = daen_lintis_history_loc
+
+	ethos = ethos_stoic
+	heritage = heritage_daen_lintis
+	language = language_gwathuirim
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_wetlanders
+		tradition_pastoralists
+		tradition_tribe_unity
+		tradition_storytellers
+	}
+
+	name_list = name_list_enedhwaithrim
+
+	coa_gfx = { eriador_group_coa_gfx dunlending_group_coa_gfx }
+	building_gfx = { daen_building_gfx western_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx }
+	unit_gfx = { acg_daen_lintis_unit_gfx norse_unit_gfx northern_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		1 = daen_ethnicity
+	}
+}
+
+enedhwaithrim = { # Enedhwaith Fisher Folk
+	color = { 107 91 77 }
+	created = 2212.1.1
+	parents = { daen_lintis }
+	
+	history_loc_override = enedhwaithrim_history_loc
+
+	ethos = ethos_stoic
+	heritage = heritage_daen_lintis
+	language = language_gwathuirim
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_hunters
+		tradition_pastoralists
+		tradition_tribe_unity
+		tradition_concubines
+		tradition_fishermen
+	}
+
+	name_list = name_list_enedhwaithrim
+
+	coa_gfx = { eriador_group_coa_gfx dunlending_group_coa_gfx }
+	building_gfx = { daen_building_gfx western_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx }
+	unit_gfx = { acg_enedhwaithrim_unit_gfx norse_unit_gfx northern_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		1 = saralain_ethnicity
+	}
+}
+
+saralain = { # The Gwathuirim who moved north and founded Saralain during Arnors decline
+	color = { 70 95 30 }
+	created = 5598.1.1
+	parents = { enedhwaithrim }
+	
+	history_loc_override = saralain_history_loc
+
+	ethos = ethos_bellicose
+	heritage = heritage_daen_lintis
+	language = language_gwathuirim
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_quarrelsome
+		tradition_storytellers
+		tradition_strong_kinship
+		tradition_battlefield_looters
+		tradition_arnorian_law
+	}
+
+	name_list = name_list_saralain
+
+	coa_gfx = { dunlending_group_coa_gfx }
+	building_gfx = { daen_building_gfx western_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx }
+	unit_gfx = { acg_saralain_unit_gfx norse_unit_gfx northern_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		1 = saralain_ethnicity
+	}
+}
+
+dunmen = { # The progenitors of the Dunlendings
+	color = { 148 49 34 } 
+	created = 2212.1.1
+	parents = { daen_lintis }
+	
+	history_loc_override = dunmen_history_loc
+
+	ethos = ethos_bellicose
+	heritage = heritage_daen_lintis
+	language = language_gwathuirim
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_warriors_by_merit
+		tradition_eye_for_an_eye
+		tradition_runestones
+		tradition_hill_dwellers
+		tradition_storytellers
+	}
+
+	name_list = name_list_dunlending
+
+	coa_gfx = { dunlending_group_coa_gfx }
+	building_gfx = { druedain_building_gfx western_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx }
+	unit_gfx = { acg_dunmen_unit_gfx norse_unit_gfx northern_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		1 = dunlending_ethnicity
+	}
+}
+
+dunlending = { # Stout, hardy folk of Dunland
+	color = { 85 18 17 } 
+	created = 5948.1.1
+	parents = { dunmen }
+	
+	history_loc_override = dunlending_history_loc
+
+	ethos = ethos_bellicose
+	heritage = heritage_daen_lintis
+	language = language_dunlendish # With the depopulation of Enedhwaith, Dunland and the Coastal folk become isolated
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_quarrelsome
+		tradition_eye_for_an_eye
+		tradition_runestones
+		tradition_hill_dwellers
+		tradition_highland_warriors
+	}
+
+	name_list = name_list_dunlending
+
+	coa_gfx = { dunlending_group_coa_gfx }
+	building_gfx = { druedain_building_gfx western_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx }
+	unit_gfx = { acg_dunlending_unit_gfx norse_unit_gfx northern_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		1 = dunlending_ethnicity
+	}
+}
+
+adornaen = { # Dunlendings who mixed with the Rohirrim
+	color = { 76 66 30 }
+	created = 6633.1.1 #Rohirrim mingle with the lowland Dunlendings before the Long Winter
+	parents = { dunlending rohirrim }
+
+	history_loc_override = adornaen_history_loc
+
+	ethos = ethos_bellicose
+	heritage = heritage_daen_lintis
+	#language = language_dunlendish
+	language = language_rohirric # Juke note: Changed, freca and Co now use a dialect of Rohirric
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_quarrelsome
+		tradition_eye_for_an_eye
+		#tradition_runestones #Older practice not really maintained in the lowlands
+		tradition_martial_admiration
+		tradition_pastoralists
+		tradition_highland_warriors
+	}
+
+	name_list = name_list_adornaen
+
+	coa_gfx = { adornaen_coa_gfx dunlending_group_coa_gfx }
+	building_gfx = { norse_building_gfx western_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx }
+	unit_gfx = { acg_adornaen_unit_gfx norse_unit_gfx northern_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		1 = adornaen_ethnicity
+	}
+}
+
+isengard_dunlending = { # Dunlendings who settled Isengard, Gondorian influence
+	color = { 73 57 55 }
+	created = 6323.1.1 # After the migration into Calenardhon, the Dunlendings intermingle with the diminished Gondorian garrison of Isengard
+	parents = { dunlending caledhrim }
+
+	history_loc_override = isengarder_history_loc
+
+	ethos = ethos_stoic
+	heritage = heritage_daen_lintis
+	language = language_westron
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_quarrelsome
+		tradition_loyal_soldiers
+		tradition_agrarian
+		tradition_castle_keepers
+		tradition_stalwart_defenders
+	}
+
+	name_list = name_list_isengarder
+
+	coa_gfx = { adornaen_coa_gfx dunlending_group_coa_gfx }
+	building_gfx = { norse_building_gfx western_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx }
+	unit_gfx = { acg_isengard_dunlending_unit_gfx norse_unit_gfx northern_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		9 = dunlending_ethnicity
+		1 = gondorian_ethnicity
+	}
+}
+
+### DAEN COENTIS
+
+daen_coentis = { # Those of the Daen who settled the White Mountains.
+	color = { 112 87 84}
+	created = 1492.1.1
+	parents = { daen }
+
+	history_loc_override = daen_coentis_history_loc
+
+	ethos = ethos_spiritual
+	heritage = heritage_daen_coentis
+	language = language_daenael
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_mountain_homes
+		tradition_sacred_mountains
+		tradition_modest
+	}
+
+	name_list = name_list_eredrim
+
+	coa_gfx = { welsh_coa_gfx eredrim_coa_gfx }
+	building_gfx = { daen_building_gfx western_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx  }
+	unit_gfx = { acg_daen_coentis_unit_gfx western_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		1 = daen_ethnicity
+	}
+}
+
+coenmor = { # Eastern Daen Coentis, took to worshipping sauron in second age, became Oathbreakers
+	color = { 53 37 35 }
+	created = 3042.1.1
+	parents = { daen_coentis }
+
+	history_loc_override = coenmor_history_loc
+
+	ethos = ethos_spiritual
+	heritage = heritage_daen_coentis
+	language = language_daenael
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_mountain_homes
+		tradition_highland_warriors
+		tradition_spartan
+		tradition_warrior_culture
+		tradition_greatswords
+	}
+
+	name_list = name_list_eredrim
+
+	coa_gfx = { welsh_coa_gfx eredrim_coa_gfx }
+	building_gfx = { daen_building_gfx western_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx  }
+	unit_gfx = { acg_coenmor_unit_gfx western_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		1 = eredrim_ethnicity
+	}
+}
+
+coenfir = { # Western Daen Coentis, increasingly isolated and divided from Coenmor due to Eastern Sauron worship
+	color = { 97 50 39 }
+	created = 3042.1.1
+	parents = { daen_coentis }
+
+	history_loc_override = coenfir_history_loc
+
+	ethos = ethos_spiritual
+	heritage = heritage_daen_coentis
+	language = language_daenael
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_mountain_homes
+		tradition_sacred_mountains
+		tradition_isolationist
+		tradition_modest
+		tradition_greatswords
+	}
+
+	name_list = name_list_eredrim
+
+	coa_gfx = { welsh_coa_gfx eredrim_coa_gfx }
+	building_gfx = { daen_building_gfx western_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx  }
+	unit_gfx = { acg_coenfir_unit_gfx western_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		1 = eredrim_ethnicity
+	}
+}
+
+andrastrim = { # Formed from Coentis and Danan Lin remnants in Andrast. Also known as the Dunir
+	color = { 128 138 108 }
+	created = 3912.1.1
+	parents = { coenfir danan_lin }
+	
+	history_loc_override = andrastrim_history_loc
+
+	ethos = ethos_communal
+	heritage = heritage_daen_coentis
+	language = language_daenael # Changes to language_westron around TA 1300
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_mountaineer_ruralism
+		tradition_mountaineers
+		tradition_mystical_ancestors
+		tradition_isolationist
+		tradition_greatswords
+	}
+
+	name_list = name_list_andrastrim
+
+	coa_gfx = { andrastrim_coa_gfx welsh_coa_gfx }
+	building_gfx = { daen_building_gfx western_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx  }
+	unit_gfx = { acg_andrastrim_unit_gfx western_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		3 = eredrim_ethnicity
+		1 = donan_ethnicity		
+	}
+}
+
+eredrim = { # Isolated Coenfir Remnant, often feuds with Gondor, nevertheless adopted Westron by WotR
+	color = { 73 57 55 }
+	created = 5533.1.1
+	parents = { coenfir }
+	
+	history_loc_override = eredrim_history_loc
+
+	ethos = ethos_spiritual
+	heritage = heritage_daen_coentis
+	language = language_westron
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_hill_dwellers
+		tradition_sacred_mountains
+		tradition_highland_warriors
+		tradition_isolationist
+		tradition_greatswords
+	}
+	dlc_tradition = {
+		trait = tradition_staunch_traditionalists
+		requires_dlc_flag = hybridize_culture
+		fallback = tradition_conservative
+	}
+
+	name_list = name_list_eredrim
+
+	coa_gfx = { welsh_coa_gfx eredrim_coa_gfx }
+	building_gfx = { daen_building_gfx western_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx  }
+	unit_gfx = { acg_eredrim_unit_gfx western_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		1 = eredrim_ethnicity
+	}
+}
+
+### DANAN LIN ###
+
+danan_lin = { # The Daen who once inhabitated the coasts and plains of broader Gondor, Nurn, Harondor and Calenardhon.
+	color = { 153 153 132 }
+	created = 1492.1.1
+	parents = { daen }
+
+	history_loc_override = danan_lin_history_loc
+
+	ethos = ethos_stoic
+	heritage = heritage_danan_lin
+	language = language_daenael
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_pastoralists
+		tradition_fishermen
+		tradition_stalwart_defenders
+		tradition_modest
+	}
+
+	name_list = name_list_donan
+
+	coa_gfx = { andrastrim_coa_gfx welsh_coa_gfx }
+	building_gfx = { daen_building_gfx western_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx  }
+	unit_gfx = { acg_danan_lin_unit_gfx western_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		1 = daen_ethnicity
+	}
+}
+
+nurnoth = { # The Daen who inhabitated Nurn and were subjugated under the Variags and Sauron. They have absorbed many other cultures through influxes of slaves to the great plantations in Nurn
+	color = { 120 89 95 }
+	created = 1590.1.1
+	parents = { danan_lin }
+
+	history_loc_override = nurnoth_history_loc
+
+	ethos = ethos_stoic
+	heritage = heritage_danan_lin
+	language = language_varadia # The Variag language has been imposed upon them by their overlords
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_modest
+		tradition_storytellers
+		tradition_spartan
+		tradition_loyal_soldiers
+		tradition_agrarian 
+	}
+
+	name_list = name_list_donan
+
+	coa_gfx = { scottish_coa_gfx eredrim_coa_gfx }
+	building_gfx = { steppe_building_gfx rhun_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx }
+	unit_gfx = { acg_nurnoth_unit_gfx western_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		10 = donan_ethnicity
+		3 = talathrim_ethnicity
+		2 = haradrim_ethnicity
+		1 = gondorian_ethnicity
+	}
+}
+
+donan = { # The Daen of Harondor. Some of the very last Danan Lin by WotR
+	color = { 108 108 98 }
+	created = 2492.1.1
+	parents = { danan_lin }
+	
+	history_loc_override = donan_history_loc
+
+	ethos = ethos_stoic
+	heritage = heritage_danan_lin
+	language = language_daenael
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_mountaineer_ruralism
+		tradition_hill_dwellers
+		tradition_stalwart_defenders
+		tradition_isolationist
+	}
+
+	dlc_tradition = {
+		trait = tradition_fp3_fierce_independence
+		requires_dlc_flag = legacy_of_persia
+	}
+
+	name_list = name_list_donan
+
+	coa_gfx = { scottish_coa_gfx eredrim_coa_gfx }
+	building_gfx = { daen_building_gfx western_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx }
+	unit_gfx = { acg_donan_unit_gfx western_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		1 = donan_ethnicity
+	}
+}
+
+danaine = { # The Daen of the Pre-Gondorian plains of Calenardhon. Pastoral nomads, eventually absorbed into Gondorian.
+	color = { 129 140 104 }
+	created = 2842.1.1
+	parents = { danan_lin }
+	
+	history_loc_override = danaine_history_loc
+
+	ethos = ethos_stoic
+	heritage = heritage_danan_lin
+	language = language_daenael
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
+	traditions = {
+		tradition_pastoralists
+		tradition_modest
+		tradition_pacifism
+		tradition_medicinal_plants
+	}
+
+	name_list = name_list_danaine
+
+	coa_gfx = { scottish_coa_gfx eredrim_coa_gfx }
+	building_gfx = { daen_building_gfx western_building_gfx }
+	clothing_gfx = { gwathiurim_clothing_gfx  }
+	unit_gfx = { acg_danaine_unit_gfx western_unit_gfx }
+	house_coa_frame = house_frame_18
+	dynasty_coa_frame = house_frame_18
+
+	ethnicities = {
+		1 = donan_ethnicity
+	}
+}

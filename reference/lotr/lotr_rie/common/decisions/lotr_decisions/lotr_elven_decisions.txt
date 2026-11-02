@@ -1,0 +1,6342 @@
+﻿#################################################
+################ Elven Decisions ################
+#################################################
+
+
+##################################################
+# Claim the High-Kingship of the Noldor
+# by VectorMaximus
+##################################################
+
+decision_claim_high_kingship = {
+	title = decision_claim_high_kingship
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { root = character:lineoffeanor2 }
+				desc = decision_claim_high_kingship_maglor_desc
+			}
+			desc = decision_claim_high_kingship_desc
+		}
+	}
+	confirm_text = decision_claim_high_kingship_confirm
+	selection_tooltip = decision_claim_high_kingship_tooltip
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_council_of_elrond_02.dds
+	}
+
+	# AI
+	ai_potential = { # AI WILL NEVER DO THIS
+		always = no
+	}
+	ai_check_interval = 0
+
+	sort_order = 1000
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		dynasty = dynasty:dynasty_finwe # All (custom) descendants of Finwe, EXCEPT...
+		house != house:house_finarfin # No kingship for you, Galadriel!
+		trigger_if = { # Maglor needs to earn it
+			limit = {
+				root = character:lineoffeanor2
+			}
+			# Vector approved Maglor path
+			has_variable = maglor_defensive
+			has_character_flag = maglor_new_noldolante
+		}
+
+
+		# game_start_date > 4033.7.12 # After the death of Gil-galad # Covered by next critera
+		NOT = { exists = title:e_noldor.holder }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_claim_high_kingship
+			}
+		}
+	}
+
+	# IS VALID
+	is_valid = {
+		dynasty = dynasty:dynasty_finwe # Just incase you try to swap away
+		prestige_level >= 5
+		piety_level >= 5
+		has_high_hope_or_higher = yes
+		trigger_if = { # Harder to take if you're not Elrond or his kids
+			limit = { NOT = { root = { house = house:house_elrond } } }
+			legitimacy_level >= 5
+		}
+		trigger_if = {
+			limit = {
+				exists = title:e_lindon.holder
+				title:e_lindon.holder = { is_elf = yes }
+				NOT = { title:e_lindon.holder = root }
+			}
+			has_relation_friend = title:e_lindon.holder
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# EFFECT
+	effect = {
+		# If you're landless, you get Mithlond
+		if = {
+			limit = { has_government = landless_adventurer_government }
+			get_title = title:c_mithrhulond
+		}
+
+		#Create the title and make it primary
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = title_change
+			add_claim_on_loss = yes
+		}
+		title:e_noldor = {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		set_primary_title_to = title:e_noldor
+
+		custom_tooltip = {
+			text = decision_claim_high_kingship_effect_tooltip
+			if = { # If Lindon exists
+				limit = { exists = title:e_lindon.holder }
+				title:e_lindon.holder = {
+					every_vassal = { add_to_list = vassals_in_lindon }
+					save_scope_as = ruler_of_lindon
+				}
+				every_in_list = {
+					list = vassals_in_lindon
+
+					create_title_and_vassal_change = {
+						type = swear_fealty
+						save_scope_as = change
+						add_claim_on_loss = no
+					}
+					change_liege = {
+						liege = root
+						change = scope:change
+					}
+					resolve_title_and_vassal_change = scope:change
+				}
+
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = title_change
+					add_claim_on_loss = no
+				}
+				title:e_lindon = {
+					change_title_holder = {
+						holder = root
+						change = scope:title_change
+					}
+				}
+				resolve_title_and_vassal_change = scope:title_change
+
+				scope:ruler_of_lindon = {
+					create_title_and_vassal_change = {
+						type = swear_fealty
+						save_scope_as = change
+						add_claim_on_loss = no
+					}
+					change_liege = {
+						liege = root
+						change = scope:change
+					}
+					resolve_title_and_vassal_change = scope:change
+				}
+			}
+			else = { # If Lindon does NOT exist
+				title:e_lindon = {
+					every_de_jure_county_holder = {
+						limit = {
+							NOT = {
+								any_in_list = {
+									list = vassals_in_lindon
+									this = prev
+								}
+								OR = {
+									this = character:k_wastelands_holder
+									this = character:lineoffeanor2
+								}
+							}
+							is_independent_ruler = yes
+							is_elf = yes
+						}
+						add_to_list = vassals_in_lindon
+					}
+					every_de_jure_county_holder = {
+						limit = {
+							NOT = {
+								any_in_list = {
+									list = vassals_in_lindon
+									this = prev
+								}
+								this = character:k_wastelands_holder
+							}
+							highest_held_title_tier = tier_duchy
+						}
+						add_to_list = vassals_in_lindon
+					}
+					every_de_jure_county_holder = {
+						limit = {
+							NOT = {
+								any_in_list = {
+									list = vassals_in_lindon
+									this = prev
+								}
+								this = character:k_wastelands_holder
+							}
+							highest_held_title_tier = tier_kingdom
+						}
+						add_to_list = vassals_in_lindon
+					}
+				}
+				every_in_list = {
+					list = vassals_in_lindon
+
+					create_title_and_vassal_change = {
+						type = swear_fealty
+						save_scope_as = change
+						add_claim_on_loss = no
+					}
+					change_liege = {
+						liege = root
+						change = scope:change
+					}
+					resolve_title_and_vassal_change = scope:change
+				}
+			}
+			#Create the title and make it primary
+			create_title_and_vassal_change = {
+				type = created
+				save_scope_as = title_change
+				add_claim_on_loss = yes
+			}
+			title:e_lindon = {
+				change_title_holder = {
+					holder = root
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_claim_high_kingship
+		}
+
+		trigger_event = {
+			id = elven.0802	# A New High-King
+		}
+	}
+}
+
+##################################################
+# Reclaim the Patrimony of Gil-galad
+# by Colepercy120 & VectorMaximus, reworked for hegemonies by Peacock
+##################################################
+
+decision_noldor_eriador = {
+	title = decision_noldor_eriador
+	desc = decision_noldor_eriador_desc
+	confirm_text = decision_noldor_eriador_confirm
+	selection_tooltip = decision_noldor_eriador_tooltip
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_host_of_the_west.dds
+	}
+
+	# AI
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_elf = yes
+		has_title = title:e_noldor
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_noldor_eriador
+			}
+		}
+	}
+
+	# IS VALID
+	is_valid = {
+		# No evil rulers nearby
+		custom_tooltip = {
+			text = no_evil_rulers_in_blue_mountains_tt
+			any_county_in_region = {
+				region = middleearth_mountains_blue
+				holder = {
+					faith_is_evil = no
+				}
+				count = all
+			}
+		}
+		custom_tooltip = {
+			text = no_evil_rulers_in_forodwaith_tt
+			any_county_in_region = {
+				region = middleearth_forodwaith_forochel
+				holder = {
+					faith_is_evil = no
+				}
+				count = all
+			}
+			any_county_in_region = {
+				region = custom_lowlands_angmar
+				holder = {
+					faith_is_evil = no
+				}
+				count = all
+			}
+		}
+
+		# No non-tributized independent rulers
+		custom_tooltip = {
+			text = no_independent_rulers_in_eriador
+			any_county_in_region = {
+				region = custom_eriador
+				OR = {
+					holder.top_overlord ?= root
+					holder.top_liege ?= title:k_wastelands.holder
+				}
+				count = all
+			}
+		}
+
+		custom_tooltip = {
+			text = no_independent_rulers_in_lindon
+			any_county_in_region = {
+				region = middleearth_west_beleriand
+				OR = {
+					holder.top_overlord ?= root
+					holder.top_liege ?= title:k_wastelands.holder
+				}
+				count = all
+			}
+		}
+
+		# Hold all Elven homelands
+		custom_tooltip = {
+			text = hold_all_elven_homelands_in_lindon
+			any_county_in_region = {
+				region = middleearth_west_beleriand
+				has_county_modifier = elven_homeland_county_modifier
+				holder.top_liege = root
+				count = all
+			}
+		}
+
+		custom_tooltip = {
+			text = hold_all_elven_homelands_in_eriador
+			any_county_in_region = {
+				region = custom_eriador
+				trigger_if = {
+					limit = { has_county_modifier = elven_homeland_county_modifier }
+					holder.top_liege = root
+				}
+				count = all
+			}
+		}
+
+		legitimacy_level >= 5
+		prestige_level >= 5
+		piety_level >= 5
+		has_highest_hope = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		prestige = 10000
+		piety = 5000
+	}
+
+	# EFFECT
+	effect = {
+		#Create the title and make it primary
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = title_change
+			add_claim_on_loss = yes
+		}
+		title:h_noldor = {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		set_primary_title_to = title:h_noldor
+
+		title:e_lindon = {
+			set_de_jure_liege_title = title:h_noldor
+		}
+		title:e_arnor = {
+			set_de_jure_liege_title = title:h_noldor
+		}
+		title:e_orrostar = {
+			set_de_jure_liege_title = title:h_noldor
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_noldor_eriador
+		}
+
+		trigger_event = {
+			id = elven.0805
+		}
+	}
+}
+
+##################################################
+# Expand the Patrimony to the East
+# by Peacock, using resources by Colepercy120 & VectorMaximus
+##################################################
+
+decision_noldor_anduin = {
+	title = decision_noldor_anduin
+	desc = decision_noldor_anduin_desc
+	confirm_text = decision_noldor_anduin_confirm
+	selection_tooltip = decision_noldor_anduin_tooltip
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_host_of_the_west.dds
+	}
+
+	# AI
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_elf = yes
+		has_title = title:h_noldor
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_noldor_anduin
+			}
+		}
+	}
+
+	# IS VALID
+	is_valid = {
+		# No evil rulers nearby
+		custom_tooltip = {
+			text = no_evil_rulers_in_blue_mountains_tt
+			any_county_in_region = {
+				region = middleearth_mountains_blue
+				holder = {
+					faith_is_evil = no
+				}
+				count = all
+			}
+		}
+		custom_tooltip = {
+			text = no_evil_rulers_in_misty_mountains_tt
+			any_county_in_region = {
+				region = custom_misty_mountian_surface_caves
+				holder = {
+					faith_is_evil = no
+				}
+				count = all
+			}
+		}
+		custom_tooltip = {
+			text = no_evil_rulers_in_anduin_tt
+			any_county_in_region = {
+				region = middleearth_west_rhovanion_anduin
+				holder = {
+					faith_is_evil = no
+				}
+				count = all
+			}
+		}
+
+		# No non-tributized independent rulers
+		custom_tooltip = {
+			text = no_independent_rulers_in_eriador
+			any_county_in_region = {
+				region = custom_eriador
+				OR = {
+					holder.top_overlord ?= root
+					holder.top_liege ?= title:k_wastelands.holder
+				}
+				count = all
+			}
+		}
+
+		custom_tooltip = {
+			text = no_independent_rulers_in_lindon
+			any_county_in_region = {
+				region = middleearth_west_beleriand
+				OR = {
+					holder.top_overlord ?= root
+					holder.top_liege ?= title:k_wastelands.holder
+				}
+				count = all
+			}
+		}
+
+		custom_tooltip = {
+			text = no_independent_rulers_in_lorien
+			any_county_in_region = {
+				region = middleearth_west_rhovanion_lothlorien
+				OR = {
+					holder.top_overlord ?= root
+					holder.top_liege ?= title:k_wastelands.holder
+				}
+				count = all
+			}
+		}
+
+		# Hold all Elven homelands
+		custom_tooltip = {
+			text = hold_all_elven_homelands_in_lindon
+			any_county_in_region = {
+				region = middleearth_west_beleriand
+				has_county_modifier = elven_homeland_county_modifier
+				holder.top_liege = root
+				count = all
+			}
+		}
+
+		custom_tooltip = {
+			text = hold_all_elven_homelands_in_eriador
+			any_county_in_region = {
+				region = custom_eriador
+				trigger_if = {
+					limit = { has_county_modifier = elven_homeland_county_modifier }
+					holder.top_liege = root
+				}
+				count = all
+			}
+		}
+
+		legitimacy_level >= 5
+		prestige_level >= 5
+		piety_level >= 5
+		has_highest_hope = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		prestige = 5000
+		piety = 2500
+	}
+
+	# EFFECT
+	effect = {
+		title:e_anduin_vale = {
+			set_de_jure_liege_title = title:h_noldor
+		}
+		title:e_laurelindorenan = {
+			set_de_jure_liege_title = title:h_noldor
+		}
+		root.dynasty = { add_dynasty_prestige = 1000 }
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_noldor_anduin
+		}
+
+		trigger_event = {
+			id = elven.0817
+		}
+	}
+}
+
+##################################################
+# Nelornieth Diplomacy Expedition
+# by Brice
+##################################################
+
+decision_nelornieth_diplo = {
+	title = decision_nelornieth_diplo
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_nelornieth_embassy.dds
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 50
+		empire = 50
+		hegemony = 50
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	cooldown = { days = 3650 }
+
+	selection_tooltip = decision_nelornieth_diplo_tooltip
+	desc = decision_nelornieth_diplo_desc
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		culture = { has_cultural_pillar = heritage_moriquendi }
+		has_title = title:k_nelornieth
+		religion = {
+			NOT = {
+				is_in_family = rf_forcesofevil
+			}
+		}
+	}
+
+	is_valid = {
+		is_adult = yes
+		completely_controls = title:k_nelornieth
+		prestige_level >= high_prestige_level
+		gold >= 700
+		prestige >= 1000
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	should_create_alert = { #This means that if the player is tracking the decision, it won't make an alert unless these additional conditions are fulfilled
+		gold >= 700
+		prestige >= 1000
+	}
+
+	effect = {
+		trigger_event = {
+			id = nelornieth.0001
+		}
+	}
+}
+
+#################################################
+# Unleash the Water Spirits
+# by Aerien
+#################################################
+
+decision_penni_tsunami = {
+	title = decision_penni_tsunami
+	desc = decision_penni_tsunami_desc
+	confirm_text = decision_penni_tsunami_confirm
+	selection_tooltip = decision_penni_tsunami_tooltip
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_penni_02.dds
+	}
+
+	# AI
+	ai_potential = {
+		always = no
+	}
+	ai_check_interval = 0
+
+	sort_order = 600
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		has_title = title:k_nelornieth
+		title:c_nabal_mayzri.holder = {
+			is_elf = no
+			is_ai = yes
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_penni_tsunami
+			}
+		}
+	}
+
+	# IS VALID
+	is_valid = {
+		completely_controls = title:k_nelornieth
+		title:c_nabal_mayzri.holder = { is_elf = no }
+		title:c_nabal_mayzri.holder = { faith_is_good = no }
+		has_medium_hope_or_higher = yes
+		piety_level >= 3
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		piety = 1000
+	}
+
+	# EFFECT
+	effect = {
+		make_settlement_county_wilderness = { COUNTY = title:c_nabal_mayzri }
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_penni_tsunami
+		}
+		trigger_event = {
+			id = elven.0951
+			days = 1
+		}
+	}
+}
+
+#################################################
+# Reclaim Egil Dorn
+# by Aerien
+#################################################
+
+decision_penni_island = {
+	title = decision_penni_island
+	desc = decision_penni_island_desc
+	confirm_text = decision_penni_island_confirm
+	selection_tooltip = decision_penni_island_tooltip
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_mithlond_02.dds
+	}
+
+	# AI
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 30
+		kingdom = 5
+		empire = 5
+		hegemony = 5
+	}
+
+	sort_order = 700
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		has_title = title:k_nelornieth
+		is_elf = yes
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_penni_island
+			}
+		}
+	}
+
+	# IS VALID
+	is_valid = {
+		completely_controls = title:k_nelornieth
+		has_title = title:c_nabal_mayzri
+		has_medium_hope_or_higher = yes
+		title:c_nabal_mayzri.title_province = { has_holding_type = elven_holding }
+		piety_level >= 3
+		prestige_level >= 4
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# EFFECT
+	effect = {
+		title:c_nabal_mayzri = {
+			change_development_level = 3
+			set_de_jure_liege_title = title:d_kugathavuld
+			add_county_modifier = elven_homeland_county_modifier
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_penni_island
+		}
+		add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_positive_event_choice }
+		dynasty = { add_dynasty_prestige = 800 }
+		add_legitimacy = major_legitimacy_gain
+		trigger_event = {
+			id = elven.0950
+			days = 1
+		}
+	}
+}
+
+#################################################
+# Penni Empire
+# by Aerien
+#################################################
+
+decision_penni_empire = {
+	title = decision_penni_empire
+	desc = decision_penni_empire_desc
+	confirm_text = decision_penni_empire_confirm
+	selection_tooltip = decision_penni_empire_tooltip
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_dol_guldur_demand_submission_of_neighboring_evil_leofring.dds
+	}
+
+	# AI
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 10
+		empire = 10
+		hegemony = 0
+	}
+
+	sort_order = 900
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		has_title = title:k_nelornieth
+		is_elf = yes
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_penni_empire
+			}
+		}
+	}
+
+	# IS VALID
+	is_valid = {
+		completely_controls = title:k_nelornieth
+		completely_controls = title:c_nabal_mayzri
+		has_high_hope_or_higher = yes
+		piety_level >= 3
+		prestige_level >= 5
+		OR = {
+			has_title = title:k_logathavuld
+			trigger_if = {
+				limit = { exists = title:k_logathavuld.holder }
+				title:k_logathavuld.holder = { is_tributary_of = root }
+			}
+			trigger_if = {
+				limit = { exists = title:k_logathavuld.holder }
+				AND = {
+					title:k_logathavuld.holder = { is_allied_to = root }
+					has_relation_friend = title:k_logathavuld.holder
+				}
+			}
+			AND = {
+				title:d_gazar_barak.holder = { is_tributary_of = root }
+				title:d_gazar_narkad.holder = { is_tributary_of = root }
+				title:d_gazar_utol.holder = { is_tributary_of = root }
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		prestige = 1000
+	}
+
+	# EFFECT
+	effect = {
+		get_title = title:e_penni
+		add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_good_realm_rises }
+		dynasty = { add_dynasty_prestige = 1000 }
+		add_legitimacy = major_legitimacy_gain
+		title:k_nelornieth = { set_de_jure_liege_title = title:e_penni }
+		title:k_logathavuld = { set_de_jure_liege_title = title:e_penni }
+		if = {
+			limit = { exists = title:k_logathavuld.holder }
+			create_title_and_vassal_change = {
+				type = swear_fealty
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			title:k_logathavuld.holder = {
+				change_liege = {
+					liege = root
+					change = scope:change
+				}
+				if = {
+					limit = { government_has_flag = government_is_tribal }
+					convert_whole_realm_to_feudalism_effect = yes
+					add_realm_law_skip_effects = crown_authority_1
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+		else = {
+			title:k_logathavuld = {
+				every_in_de_jure_hierarchy = {
+					limit = {
+						tier = tier_duchy
+						holder = { is_independent_ruler = yes }
+					}
+					this.holder = {
+						create_title_and_vassal_change = {
+							type = swear_fealty
+							save_scope_as = change
+							add_claim_on_loss = no
+						}
+						if = {
+							limit = { government_has_flag = government_is_tribal }
+							convert_whole_realm_to_feudalism_effect = yes
+							add_realm_law_skip_effects = crown_authority_1
+						}
+						change_liege = {
+							liege = root
+							change = scope:change
+						}
+						resolve_title_and_vassal_change = scope:change
+					}
+				}
+			}
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_penni_empire
+		}
+		trigger_event = {
+			id = elven.0952
+			days = 1
+		}
+	}
+}
+
+##################################################
+# Elven Healer Decision
+# by Brice
+##################################################
+
+request_elven_healer_decision = {
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_recruitment.dds
+	}
+	title = request_elven_healer_decision_title
+
+	sort_order = 82
+
+	desc = request_elven_healer_decision_desc
+	selection_tooltip = request_elven_healer_decision_tooltip
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 60
+		duchy = 60
+		kingdom = 60
+		empire = 60
+		hegemony = 60
+	}
+
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		is_ruler = yes
+		faith_is_good = yes
+		OR = {
+			has_serious_disease_trigger = yes
+			any_spouse = { has_serious_disease_trigger = yes }
+			any_child = { has_serious_disease_trigger = yes }
+		}
+		is_in_valinor = no
+	}
+
+	cooldown = { years = 50 }
+
+	is_valid = {
+		is_imprisoned = no
+		custom_tooltip = {
+			text = LOTR_FRIENDS_WITH_ELVEN_KING_TRIGGER
+			lotr_friends_with_elven_king_trigger = yes
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+	}
+
+	effect = {
+		trigger_event = {
+			id = health.3021
+			days = 14
+		}
+		custom_tooltip = request_elven_healer_decision_effect_tooltip
+	}
+
+	ai_potential = {
+		highest_held_title_tier > tier_barony
+		is_landed = yes
+		gold > 500
+		is_at_war = no
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+##################################################
+# Establish the high kingdom of Eryn Lasgalen
+# by Fredsch
+##################################################
+
+decision_establish_high_kingdom_of_eryn_lasgalen = {
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_eryn_lasgalen.dds
+	}
+	title = decision_establish_high_kingdom_of_eryn_lasgalen
+	desc = decision_establish_high_kingdom_of_eryn_lasgalen_desc
+	selection_tooltip = decision_establish_high_kingdom_of_eryn_lasgalen_tooltip
+	confirm_text = decision_establish_high_kingdom_of_eryn_lasgalen_confirm
+
+
+	# Shown checks
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_elf = yes
+		OR = {
+			culture = culture:lasgalendrim
+			AND = {
+				culture = { any_parent_culture_or_above = { this = culture:lasgalendrim } }
+				culture = { has_cultural_pillar = heritage_lomiquendi }
+			}
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_establish_high_kingdom_of_eryn_lasgalen
+			}
+		}
+		current_year >= 4026 # Greenwood must have fallen
+	}
+
+	# Valid checks
+	is_valid = {
+		is_independent_ruler = yes
+		prestige_level >= max_prestige_level
+		completely_controls_region = middleearth_west_rhovanion_mirkwood
+		has_title = title:k_lasgalen
+		custom_tooltip = {
+			text = decision_establish_high_kingdom_of_eryn_lasgalen.amon_lanc_is_lasgalendrim
+			title:c_amon_lanc.culture = culture:lasgalendrim
+		}
+		title:c_amon_lanc = {
+			title_province = {
+				has_building = wonder_amon_lanc_03
+			}
+		}
+		has_high_hope_or_higher = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# Effect
+	effect = {
+		#Create the title and make it primary
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = title_change
+			add_claim_on_loss = yes
+		}
+		title:e_greenwood = {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		set_primary_title_to = title:e_greenwood
+
+		custom_tooltip = decision_establish_high_kingdom_of_eryn_lasgalen.greenwood_renamed_eryn_lasgalen
+		title:e_greenwood = { set_title_name = e_eryn_lasgalen }
+		dynasty_legacy_of_oropher_effects = yes
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_establish_high_kingdom_of_eryn_lasgalen
+		}
+
+		if = {
+			limit = { # Major News
+				NOT = { has_game_rule = no_news }
+			}
+			every_player = { #Global News Announcement
+				trigger_event = news_event.0017
+			}
+		}
+		# Effect on hope
+		add_elven_hope_global_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_good_realm_rises }
+
+	}
+
+	# Cost
+	cost = {
+		prestige = 5000
+	}
+
+	# AI values
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+##################################################
+# Destroy Dol Guldur
+# by Fredsch
+##################################################
+
+decision_destroy_dol_guldur = {
+	title = decision_destroy_dol_guldur
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_dol_guldur_dominion_of_the_sorcerer.dds
+	}
+
+	ai_check_interval = 6
+	selection_tooltip = decision_destroy_dol_guldur_tooltip
+	desc = decision_destroy_dol_guldur_desc
+	confirm_text = decision_destroy_dol_guldur_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		title:d_amon_lanc.holder ?= {
+			is_nazgul = yes
+			has_title = title:c_amon_lanc
+		}
+		game_start_date >= 6974.9.1 #Sauron booted from Mirkwood
+
+		# You're a nearby Elf
+		is_elf = yes
+		highest_held_title_tier >= tier_kingdom
+		any_realm_province = {
+			OR = {
+				geographical_region = middleearth_west_rhovanion_lothlorien
+				geographical_region = middleearth_west_rhovanion
+			}
+		}
+
+		NOT = { exists = global_var:dol_guldur_under_attack } # Someone elf got here first
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		custom_tooltip = {
+			text = decision_destroy_dol_guldur_tt
+			OR = {
+				character_is_realm_neighbor = title:c_amon_lanc.holder
+				any_tributary = { character_is_realm_neighbor = title:c_amon_lanc.holder }
+
+			}
+		}
+		NOT = { has_truce = title:c_amon_lanc.holder }
+		has_medium_hope_or_higher = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+	cost = {
+		piety = 100
+	}
+
+	cooldown = {
+		years = 10
+	}
+
+	effect = {
+		start_war = {
+			casus_belli = destroy_dol_guldur_cb
+			target = title:c_amon_lanc.holder
+			target_title = title:d_amon_lanc
+		}
+		custom_tooltip = decision_destroy_dol_guldur_effect_1
+
+		trigger_event = elven.0701
+	}
+
+	ai_potential = {
+		military_power.mult3.div2 >= title:c_amon_lanc.holder.military_power # At least 75% DG's military power
+	}
+
+	ai_will_do = {
+		base = 80
+	}
+}
+
+##############################################
+# Forge Heavy Armor
+# by Aerien
+##############################################
+
+decision_armored_greenwood_warfare = {
+	picture = {
+		reference = gfx/interface/illustrations/men_at_arms_big/greenwood_swordsmen.dds
+	}
+	title = decision_armored_greenwood_warfare
+	desc = decision_armored_greenwood_warfare_desc
+	selection_tooltip = decision_armored_greenwood_warfare_tooltip
+	confirm_text = decision_armored_greenwood_warfare_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_elf = yes
+		any_realm_province = { geographical_region = middleearth_west_rhovanion_mirkwood }
+		NOT = {
+			culture ?= { has_innovation = innovation_armored_lasgalendrim_warfare }
+		}
+	}
+
+	# Valid checks
+	is_valid = {
+		is_independent_ruler = yes
+		highest_held_title_tier >= tier_duchy
+		completely_controls = title:c_orod_annon
+		completely_controls = title:c_taurannon
+		title:c_orod_annon = {
+			title_province = { has_building_or_higher = elven_settlement_03 }
+			development_level >= 10
+		}
+		title:c_taurannon = {
+			title_province = { has_building_or_higher = elven_settlement_03 }
+			development_level >= 10
+		}
+		has_medium_hope_or_higher = yes
+		custom_tooltip = {
+			text = decision_armored_greenwood_warfare_tt
+			any_ally = {
+				is_dwarf = yes
+				highest_held_title_tier >= tier_duchy
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# Effect
+	effect = {
+		house = {
+			add_house_modifier = {
+				modifier = unlocked_armored_greenwood_units
+			}
+		}
+		culture = {
+			add_innovation = innovation_armored_lasgalendrim_warfare
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_armored_greenwood_warfare
+		}
+	}
+
+	# Cost
+	cost = {
+		prestige = major_prestige_value
+		gold = 400
+	}
+
+	# AI values
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+#########################
+# Cross the Anduin
+# by Aerien
+#########################
+
+decision_cross_the_anduin = {
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_elves_01.dds
+	}
+	title = decision_cross_the_anduin
+	desc = decision_cross_the_anduin_desc
+	selection_tooltip = decision_cross_the_anduin_tooltip
+	confirm_text = decision_cross_the_anduin_confirm
+
+
+	# Shown checks
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		is_elf = yes
+		OR = {
+			culture = culture:galadhrim
+			AND = {
+				culture = { any_parent_culture_or_above = { this = culture:galadhrim } }
+				culture = { has_cultural_pillar = heritage_lomiquendi }
+			}
+		}
+		any_held_title = {
+			de_jure_liege = title:k_lothlorien
+		}
+		has_character_flag = received_leofring_protectorates
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_cross_the_anduin
+			}
+		}
+	}
+
+	# Valid checks
+	is_valid = {
+		is_independent_ruler = yes
+		has_title = title:k_lothlorien
+		custom_tooltip = {
+			text = LEOFRINGS_HAVE_CLAIM
+			title:d_parth_celebrant.holder = {
+				has_claim_on = title:d_drownholt
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# Effect
+	effect = {
+		#custom_tooltip = decision_cross_the_anduin_tt
+		start_war = {
+			casus_belli = cross_anduin_cb
+			target = title:d_drownholt.holder
+			#claimant = title:d_parth_celebrant.holder
+			target_title = title:d_drownholt
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_cross_the_anduin
+		}
+		#remove_character_flag = received_leofring_protectorates
+	}
+
+	# Cost
+	cost = {
+		prestige = medium_prestige_value
+	}
+
+	# AI values
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+##################################################
+# Claim Amon Lanc for Laurelindorenan
+# by Fredsch
+##################################################
+
+claim_amon_lanc_for_laurelindorenan = {
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_grey_elven_archers.dds
+	}
+	title = claim_amon_lanc_for_laurelindorenan
+	desc = claim_amon_lanc_for_laurelindorenan_desc
+	selection_tooltip = claim_amon_lanc_for_laurelindorenan_tooltip
+	confirm_text = claim_amon_lanc_for_laurelindorenan_confirm
+
+
+	# Shown checks
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_elf = yes
+		OR = {
+			culture = culture:galadhrim
+			AND = {
+				culture = { any_parent_culture_or_above = { this = culture:galadhrim } }
+				culture = { has_cultural_pillar = heritage_lomiquendi }
+			}
+		}
+		any_held_title = {
+			de_jure_liege = title:k_lothlorien
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:claim_amon_lanc_for_laurelindorenan
+			}
+		}
+	}
+
+	# Valid checks
+	is_valid = {
+		is_independent_ruler = yes
+		prestige_level >= max_prestige_level
+		has_title = title:k_lothlorien
+		completely_controls = title:d_amon_lanc
+		completely_controls = title:d_gwath_anglennol
+		completely_controls = title:d_taur_e_ndaedlos
+		#completely_controls = title:d_drownholt # Not needed anymore due to being tributaries
+		custom_tooltip = {
+			text = claim_amon_lanc_for_laurelindorenan.amon_lanc_is_galadhrim
+			title:c_amon_lanc.culture = culture:galadhrim
+		}
+		title:c_amon_lanc = {
+			title_province = {
+				has_building = wonder_amon_lanc_03
+			}
+		}
+		has_medium_hope_or_higher = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# Effect
+	effect = {
+		show_as_tooltip = {
+			get_title = title:e_laurelindorenan
+			title:k_amon_lanc = { set_de_jure_liege_title = title:e_laurelindorenan }
+			title:d_drownholt = { set_de_jure_liege_title = title:k_lothlorien }
+			custom_tooltip = claim_amon_lanc_for_laurelindorenan.amon_lanc_renamed_east_lorien
+			title:k_amon_lanc = { set_title_name = cn_east_lorien }
+			dynasty_light_of_the_forest = yes
+
+			give_nickname = nick_lordlady_of_light
+			add_character_flag = had_nickname_event
+
+			if = {
+				limit = {
+					has_character_modifier = valar_ban_modifier
+				}
+				remove_character_modifier = valar_ban_modifier
+			}
+		}
+		trigger_event = elven.0700
+	}
+
+	# Cost
+	cost = {
+		prestige = 5000
+	}
+
+	# AI values
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+##################################################
+# Elevate Edhellond into Kingdom
+# by Jaco_Daan
+##################################################
+
+decision_make_edhellond_kingdom = {
+	picture = {
+		reference = gfx/interface/illustrations/event_scenes/lotr_armenelos.dds
+	}
+	title = decision_make_edhellond_kingdom
+	selection_tooltip = decision_make_edhellond_kingdom_tooltip
+	desc = decision_make_edhellond_kingdom_desc
+	confirm_text = decision_make_edhellond_kingdom_confirm
+
+
+	# SHOWN
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_landed = yes
+		is_elf = yes
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:elves_edhellond_kingdom
+			}
+		}
+		OR = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:invite_elves_edhellond
+			}
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_purchase_edhellond
+			}
+		}
+		has_title = title:c_edhellond
+	}
+
+	# IS VALID
+	is_valid = {
+		prestige_level >= 4
+		AND = {
+			has_title = title:c_edhellond
+		}
+		has_medium_hope_or_higher = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	#COST
+	cost = {
+		prestige = 1500
+		gold = 500
+		piety = 750
+	}
+
+	#EFFECT
+	effect = {
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = yes
+		}
+		title:k_edhellond = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:elves_edhellond_kingdom
+		}
+
+		if = {
+			limit = {
+				has_title = title:c_dol_amroth
+			}
+			title:c_dol_amroth = {
+				set_de_jure_liege_title = title:d_edhellond
+			}
+			title:k_belfalas = {
+				set_capital_county = title:c_methrast
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		if = {
+			limit = {
+				is_independent_ruler = no
+				root.top_liege.primary_title ?= title:h_reunited_kingdom
+				NOT = {
+					is_target_in_global_variable_list = {
+						name = unavailable_unique_decisions
+						target = flag:decision_solidify_reunited_kingdom
+					}
+				}
+			}
+			title:k_edhellond = { set_de_jure_liege_title = title:e_gondor }
+		}
+		else_if = {
+			limit = {
+				is_independent_ruler = yes
+			}
+			title:k_edhellond = { set_de_jure_liege_title = root.primary_title }
+		}
+		else = {
+			title:k_edhellond = { set_de_jure_liege_title = root.top_liege.primary_title }
+		}
+
+		title:d_edhellond = {
+			set_de_jure_liege_title = title:k_edhellond
+		}
+		hidden_effect = {
+			title:c_edhellond = {
+				set_de_jure_liege_title = title:d_edhellond
+			}
+		}
+	}
+
+	# AI
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+##################################################
+# Reclaim Sîrgala Kingdom
+# by Jaco_Daan
+##################################################
+
+decision_reclaim_sirgala = {
+	title = decision_reclaim_sirgala
+	desc = decision_reclaim_sirgala_desc
+	confirm_text = decision_reclaim_sirgala_confirm
+	selection_tooltip = decision_reclaim_sirgala_tooltip
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_elves_dwarves_05.dds
+	}
+
+	# AI
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 24
+		kingdom = 24
+		empire = 12
+		hegemony = 12
+	}
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		OR = {
+			has_culture = culture:sirrandrai
+			AND = {
+				is_elf = yes
+				has_title = title:e_lindon
+			}
+		}
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_reclaim_sirgala
+			}
+		}
+	}
+
+	# IS VALID
+	is_valid = {
+		prestige_level >= high_prestige_level
+		OR = { # Completely controls the old heartland of the Kingdom / Aerien note: changed to holding the title due to Dwarves getting in the way
+			has_title = title:d_siragale
+			any_vassal_or_below = { has_title = title:d_siragale }
+		}
+		# Vector note - Sarn Athrad had slipped out of Sirgala's control by the mid-late Second Age. More fitting to make this an optional objective.
+		#completely_controls = title:d_sarn_athrad # Completely controls the old heartland of the Kingdom
+		OR = { # Completely controls the old heartland of the Kingdom / Aerien note: changed to holding the title due to Dwarves getting in the way
+			has_title = title:d_hyarromenya
+			any_vassal_or_below = { has_title = title:d_hyarromenya }
+		}
+		has_medium_hope_or_higher = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# EFFECT
+	effect = {
+		add_prestige = 1000
+		title:d_siragale = {
+			set_de_jure_liege_title = title:k_sirgala
+		}
+		title:d_hyarromenya = {
+			set_de_jure_liege_title = title:k_sirgala
+		}
+		#title:d_sarn_athrad = { # Vector Note - see above comment
+		#	set_de_jure_liege_title = title:k_sirgala
+		#}
+		hidden_effect = { # If Sirrandrai, set this as your realm capital
+			if = {
+				limit = { root.culture = culture:sirrandrai }
+				set_realm_capital = title:c_edhelas
+			}
+		}
+		culture:sirrandrai = {
+			remove_culture_tradition = tradition_sirgalan_exiles
+			add_culture_tradition = tradition_sirgala_renewed
+			add_innovation = innovation_sirrandrai_warfare
+		}
+		if = {
+			limit = { completely_controls = title:d_sarn_athrad }
+			title:d_sarn_athrad = { set_de_jure_liege_title = title:k_sirgala }
+		}
+		if = {
+			limit = { highest_held_title_tier < tier_empire }
+			set_primary_title_to = title:k_sirgala
+		}
+		title:k_sirgala = {
+			set_de_jure_liege_title = title:e_lindon
+		}
+		title:k_sirgala = {
+			set_capital_county = title:c_edhelas
+		}
+		#Create the title and make it primary
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = title_change
+			add_claim_on_loss = yes
+		}
+		title:k_sirgala = {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+			every_de_jure_county = {
+				add_county_modifier = elven_homeland_county_modifier
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_reclaim_sirgala
+		}
+
+		trigger_event = {
+			id = elven.0801	# Reclaim Sîrgala Kingdom
+		}
+	}
+}
+
+##################################################
+# Reclaim Greater Sirgala
+# by Colepercy120 & VectorMaximus
+##################################################
+
+decision_reclaim_greater_sirgala = {
+	title = decision_reclaim_greater_sirgala
+	desc = decision_reclaim_greater_sirgala_desc
+	confirm_text = decision_reclaim_greater_sirgala_confirm
+	selection_tooltip = decision_reclaim_greater_sirgala_tooltip
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_grey_elven_archers.dds
+	}
+
+
+	# AI
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 24
+		empire = 24
+		hegemony = 24
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		has_title = title:k_sirgala
+
+		NOT = {
+			AND = {
+				title:d_sarn_athrad = {
+					any_this_title_or_de_jure_above = { this = title:k_sirgala }
+				}
+				title:d_shire = {
+					any_this_title_or_de_jure_above = { this = title:k_sirgala }
+				}
+				title:c_dunglan = {
+					any_this_title_or_de_jure_above = { this = title:k_sirgala }
+				}
+			}
+		}
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_reclaim_greater_sirgala
+			}
+		}
+	}
+
+	# IS VALID
+	is_valid = {
+		prestige_level >= high_prestige_level
+
+		completely_controls = title:d_sarn_athrad
+		completely_controls = title:d_shire
+		completely_controls = title:c_dunglan
+		has_high_hope_or_higher = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# EFFECT
+	effect = {
+		add_prestige = 500
+
+		title:c_dunglan = {
+			set_de_jure_liege_title = title:d_shire
+
+		}
+		if = {
+			limit = {
+				NOT = {
+					title:d_sarn_athrad = {
+						any_de_jure_county = {
+							count = all
+							has_county_modifier = elven_homeland_county_modifier
+						}
+					}
+				}
+			}
+			title:d_sarn_athrad = {
+				set_de_jure_liege_title = title:k_sirgala
+				every_de_jure_county = {
+					add_county_modifier = elven_homeland_county_modifier
+				}
+			}
+		}
+		title:d_shire = {
+			set_de_jure_liege_title = title:k_sirgala
+
+			every_de_jure_county = {
+				add_county_modifier = elven_homeland_county_modifier
+			}
+		}
+
+		trigger_event = {
+			id = elven.0803	# Reclaim Sarn Athrad
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_reclaim_greater_sirgala
+		}
+	}
+}
+
+##################################################
+# Rebuild Halls of Bornmir
+# by Colepercy120 & VectorMaximus
+##################################################
+
+decision_rebuild_halls_bornmir = {
+	title = decision_rebuild_halls_bornmir
+	desc = decision_rebuild_halls_bornmir_desc
+	confirm_text = decision_rebuild_halls_bornmir_confirm
+	selection_tooltip = decision_rebuild_halls_bornmir_tooltip
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_eryn_lasgalen.dds
+	}
+
+	# AI
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		OR = {
+			has_title = title:c_edhelas
+			any_vassal = {
+				has_title = title:c_edhelas
+				is_elf = yes
+			}
+		}
+		is_elf = yes
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_rebuild_halls_bornmir
+			}
+		}
+	}
+
+	# IS VALID
+	is_valid = {
+		prestige_level >= high_prestige_level
+		OR = {
+			has_title = title:c_edhelas
+			any_vassal = {
+				has_title = title:c_edhelas
+				is_elf = yes
+			}
+		}
+		title:c_edhelas = {
+			title_province = {
+				NOR = {
+					has_holding_type = settlement_holding
+					has_holding_type = wastelands_holding
+				}
+			}
+		}
+		has_medium_hope_or_higher = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 1000
+	}
+
+	# EFFECT
+	effect = {
+		if = {
+			limit = {
+				province:4804 = {
+					has_special_building_slot = no
+				}
+			}
+			province:4804 = {
+				add_special_building_slot = wonder_edhelas_01
+				add_special_building = wonder_edhelas_01
+			}
+		}
+		title:c_edhelas = {
+			change_development_level = 5
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_rebuild_halls_bornmir
+		}
+
+		trigger_event = {
+			id = elven.0804
+		}
+	}
+}
+
+##################################################
+# Purchase Edhellond
+# by Aerien
+##################################################
+
+decision_purchase_edhellond = {
+	title = decision_purchase_edhellond
+	desc = decision_purchase_edhellond_desc
+	confirm_text = decision_purchase_edhellond_confirm
+	selection_tooltip = decision_purchase_edhellond_tooltip
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_elves_04.dds
+	}
+
+	# AI
+	ai_potential = {
+		always = no
+	}
+	ai_check_interval = 0
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_elf = yes
+		highest_held_title_tier >= tier_empire
+		in_diplomatic_range = title:c_minas_tirith.empire.holder
+		has_high_hope_or_higher = yes
+		top_liege = this
+		title:c_minas_tirith.empire.holder ?= {
+			faith_is_good = yes
+			completely_controls = title:c_edhellond
+		}
+		title:c_edhellond.holder = {
+			NOT = { any_liege_or_above = { is_ai = no } }
+			is_ai = yes
+			is_elf = no
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_purchase_edhellond
+			}
+		}
+	}
+
+	# IS VALID
+	is_valid = {
+		prestige_level >= very_high_prestige_level
+		has_high_hope_or_higher = yes
+		has_relation_friend = title:c_minas_tirith.empire.holder
+		is_allied_to = title:c_minas_tirith.empire.holder
+		highest_held_title_tier >= tier_empire
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 2000
+	}
+
+	# EFFECT
+	effect = {
+		get_title = title:c_edhellond
+		get_title = title:d_edhellond
+		title:c_minas_tirith.empire.holder = { add_gold = 2000 }
+		title:c_edhellond = {
+			set_county_culture = root.culture
+			set_county_faith = root.faith
+			title_province = {
+				set_holding_type = elven_holding
+				add_building = elven_settlement_03
+				add_building = elven_port_02
+				add_building = elven_forges_02
+			}
+		}
+		title:c_edhellond_2 = { set_de_jure_liege_title = title:d_anfalas }
+		title:c_cobas = { set_de_jure_liege_title = title:d_anfalas }
+		title:c_pind_rusc = { set_de_jure_liege_title = title:d_anfalas }
+		title:d_edhellond = { set_de_jure_liege_title = root.capital_province.county.kingdom }
+
+		if = {
+			limit = { # Major News
+				NOT = { has_game_rule = no_news }
+			}
+			every_player = { #Global News Announcement
+				trigger_event = news_event.0068
+			}
+		}
+		add_elven_hope_global_effect = { VALUE = medium_elven_hope_gain HOPE_EFFECT = effect_elven_hope_good_realm_rises }
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_purchase_edhellond
+		}
+	}
+}
+
+##################################################
+# Rebuild Ost-in-Edhil
+# by VectorMaximus
+##################################################
+
+# decision_rebuild_ost_in_edhil = {
+# 	title = decision_rebuild_ost_in_edhil
+# 	desc = decision_rebuild_ost_in_edhil_desc
+# 	confirm_text = decision_rebuild_ost_in_edhil_confirm
+# 	selection_tooltip = decision_rebuild_ost_in_edhil_tooltip
+# 	picture = {
+# 		reference = gfx/interface/illustrations/decisions/decision_elves_dwarves_02.dds
+# 	}
+
+
+# 	# AI
+# 	ai_goal = yes
+# 	ai_potential = {
+# 		always = yes
+# 	}
+# 	ai_will_do = {
+# 		base = 100
+# 	}
+
+# 	# IS SHOWN
+# 	decision_group_type = realms_in_exile_major
+
+# 	is_shown = {
+# 		OR = {
+# 			has_title = title:c_ost_in_edhil
+# 			any_vassal = {
+# 				has_title = title:c_ost_in_edhil
+# 				is_elf = yes
+# 			}
+# 		}
+# 		is_elf = yes
+# 		NOT = {
+# 			is_target_in_global_variable_list = {
+# 				name = unavailable_unique_decisions
+# 				target = flag:decision_rebuilding_ost_in_edhil
+# 			}
+# 		}
+# 	}
+
+# 	# IS VALID
+# 	is_valid = {
+# 		prestige_level >= high_prestige_level
+# 		OR = {
+# 			has_title = title:c_ost_in_edhil
+# 			any_vassal = {
+# 				has_title = title:c_ost_in_edhil
+# 				is_elf = yes
+# 			}
+# 		}
+# 		title:c_ost_in_edhil = {
+# 			title_province = {
+# 				NOR = {
+# 					has_holding_type = settlement_holding
+# 					has_holding_type = wastelands_holding
+# 				}
+# 			}
+# 		}
+# 		has_medium_hope_or_higher = yes
+# 	}
+
+# 	is_valid_showing_failures_only = {
+# 		is_imprisoned = no
+# 		is_available_adult = yes
+# 		is_at_war = no
+# 	}
+
+# 	cost = {
+# 		gold = 3000
+# 	}
+
+# 	# EFFECT
+# 	effect = {
+# 		if = {
+# 			limit = {
+# 				province:4351 = {
+# 					has_special_building_slot = no
+# 				}
+# 			}
+# 			province:4351 = { add_special_building_slot = wonder_mirdairond }
+# 		}
+# 		title:c_ost_in_edhil = {
+# 			change_development_level = 5
+# 		}
+
+# 		custom_tooltip = {
+# 			text = ost_in_edhil_upgrade_holding
+# 			title:c_ost_in_edhil = {
+# 				title_province = {
+# 					if = {
+# 						limit = { has_building = elven_settlement_01 }
+# 						add_building = elven_settlement_03
+# 					}
+# 					else_if = {
+# 						limit = { has_building = elven_settlement_02 }
+# 						add_building = elven_settlement_04
+# 					}
+# 					else_if = {
+# 						limit = { has_building = elven_settlement_03 }
+# 						add_building = elven_settlement_05
+# 					}
+# 					else_if = {
+# 						limit = { has_building = elven_settlement_04 }
+# 						add_building = elven_settlement_06
+# 					}
+# 					else_if = {
+# 						limit = { has_building = elven_settlement_05 }
+# 						add_building = elven_settlement_07
+# 					}
+# 					else_if = {
+# 						limit = { has_building = elven_settlement_06 }
+# 						add_building = elven_settlement_07
+# 						county = { change_development_level = 10 }
+# 					}
+# 					else_if = {
+# 						limit = { has_building = elven_settlement_07 }
+# 						county = { change_development_level = 20 }
+# 					}
+# 				}
+# 			}
+# 		}
+# 		title:e_orrostar = { set_capital_county = title:c_ost_in_edhil }
+# 		add_to_global_variable_list = {
+# 			name = unavailable_unique_decisions
+# 			target = flag:decision_rebuilding_ost_in_edhil
+# 		}
+
+# 		trigger_event = {
+# 			id = elven.0800	# Ost in Edhil Reborn
+# 		}
+# 	}
+# }
+
+#################################################
+# High Pass Outpost
+# by Aerien
+#################################################
+
+decision_high_pass_outpost = {
+	title = decision_high_pass_outpost
+	desc = decision_high_pass_outpost_desc
+	confirm_text = decision_high_pass_outpost_confirm
+	selection_tooltip = decision_high_pass_outpost_tooltip
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_arwen_01.dds
+	}
+
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 20
+		duchy = 10
+		kingdom = 10
+		empire = 5
+		hegemony = 5
+	}
+
+	sort_order = 700
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		OR = { # Must border the western high pass
+			title:c_western_high_pass = {
+				is_neighbor_to_realm = root
+			}
+			title:c_western_high_pass = {
+				is_neighbor_to_realm = root.top_liege
+			}
+		}
+		is_elf = yes
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_high_pass_outpost
+			}
+		}
+		title:c_western_high_pass = {
+			title_province = { has_holding_type = wastelands_holding }
+		}
+	}
+
+	# IS VALID
+	is_valid = {
+		#has_title = title:k_imladris
+		title:c_western_high_pass = {
+			title_province = {
+				NOR = {
+					has_holding_type = settlement_holding
+					has_holding_type = castle_holding
+					has_holding_type = elven_holding
+				}
+			}
+		}
+		#has_medium_hope_or_higher = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 250
+		prestige = 250
+	}
+
+	# EFFECT
+	effect = {
+		hidden_effect = { ai_colonisation_effect = { WASTELANDS = title:b_andrath ROOT_SCOPE = root } }
+		show_as_tooltip = {
+			get_title = title:c_western_high_pass
+			title:c_western_high_pass = {
+				title_province = {
+					set_holding_type = settlement_holding
+				}
+			}
+		}
+		title:c_western_high_pass = {
+			change_development_level = 2
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_high_pass_outpost
+		}
+		add_elven_hope_effect = { VALUE = medium_elven_hope_gain HOPE_EFFECT = effect_elven_hope_positive_event_choice }
+		trigger_event = {
+			id = elven.0600
+			days = 1
+		}
+	}
+}
+
+#################################################
+# Fully Secure the High Pass
+# by Aerien
+#################################################
+
+decision_secure_high_pass = {
+	title = decision_secure_high_pass
+	desc = decision_secure_high_pass_desc
+	confirm_text = decision_secure_high_pass_confirm
+	selection_tooltip = decision_secure_high_pass_tooltip
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_blue_mountains_01.dds
+	}
+
+	# AI
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 10
+		kingdom = 5
+		empire = 5
+		hegemony = 5
+	}
+
+	sort_order = 400
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		OR = { # Must border the high pass
+			completely_controls = title:c_western_high_pass
+			title:d_high_pass = {
+				is_neighbor_to_realm = root
+			}
+			title:d_high_pass = {
+				is_neighbor_to_realm = root.top_liege
+			}
+		}
+		is_elf = yes
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_secure_high_pass
+			}
+		}
+		NOT = {
+			title:d_high_pass.holder ?= { faith_is_good = yes }
+		}
+	}
+
+	# IS VALID
+	is_valid = {
+		#has_title = title:k_imladris
+		has_title = title:c_western_high_pass
+		title:c_western_high_pass.title_province = {
+			has_holding_type = elven_holding
+			has_building_or_higher = elven_settlement_03
+		}
+		#NOT = { exists = title:d_goblin_town }
+		OR = {
+			title:c_goblin_town.title_province = { has_holding_type = wastelands_holding }
+			title:c_goblin_town.holder.top_liege ?= { is_dwarf = yes }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 250
+		prestige = 500
+	}
+
+	# EFFECT
+	effect = {
+		title:d_high_pass = {
+			every_in_de_jure_hierarchy = { # Every pass county held by orcs, take it
+				limit = {
+					tier = tier_county
+					holder = { is_orc = yes }
+				}
+				create_title_and_vassal_change = {
+					type = conquest
+					save_scope_as = change
+					add_claim_on_loss = yes
+				}
+				change_title_holder = {
+					holder = root
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+				add_county_modifier = {
+					modifier = secured_high_pass_modifier
+					years = 25
+				}
+			}
+			every_in_de_jure_hierarchy = { # Every pass wastelands county, make a colony
+				limit = {
+					tier = tier_county
+					holder = { is_wastelands = yes }
+				}
+				ai_colonisation_effect = { WASTELANDS = this.title_province ROOT_SCOPE = root }
+				add_county_modifier = {
+					modifier = secured_high_pass_modifier
+					years = 25
+				}
+			}
+		}
+		title:c_western_high_pass = {
+			add_county_modifier = {
+				modifier = secured_high_pass_modifier
+				years = 25
+			}
+		}
+
+		root.dynasty = { add_dynasty_prestige = 300 }
+		add_legitimacy = major_legitimacy_gain
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_secure_high_pass
+		}
+		add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_positive_event_choice }
+
+		trigger_event = {
+			id = elven.0601
+			days = 1
+		}
+	}
+}
+
+#################################################
+# Visit the Library of Terilaen
+# by Aerien
+#################################################
+
+decision_terilaen_library = {
+	title = decision_terilaen_library
+	desc = decision_terilaen_library_desc
+	confirm_text = decision_terilaen_library_confirm
+	selection_tooltip = decision_terilaen_library_tooltip
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_elves_02.dds
+	}
+
+	# AI
+	ai_potential = {
+		always = no
+	}
+	ai_check_interval = 0
+
+	sort_order = 800
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		culture ?= culture:cuind
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_terilaen_library
+			}
+		}
+	}
+
+	# IS VALID
+	is_valid = {
+		culture ?= culture:cuind
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		prestige = 100
+	}
+
+	# EFFECT
+	effect = {
+		add_character_flag = lotr_travel_no_start_event
+		start_travel_plan = {
+			destination = province:5356 # Can't be Ainglad because it'll bug out for Terilaen
+			#on_start_on_action =
+			#on_travel_planner_cancel_on_action =
+			players_use_planner = no
+			on_arrival_on_action = terilaen_library_on_action
+			#on_arrival_destinations = all_but_last
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_terilaen_library
+		}
+		add_elven_hope_effect = { VALUE = minimal_elven_hope_gain HOPE_EFFECT = effect_elven_hope_positive_event_choice }
+	}
+}
+
+#################################################
+# Secure the Realm of Drel
+# by Aerien
+#################################################
+
+decision_secure_drel = {
+	title = decision_secure_drel
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_fornost_03.dds"}
+	decision_group_type = realms_in_exile_major
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 5
+		empire = 5
+		hegemony = 5
+	}
+	selection_tooltip = decision_secure_drel_tooltip
+	desc = decision_secure_drel_desc
+	confirm_text = decision_secure_drel_confirm
+
+	sort_order = 900
+
+	is_shown = {
+		OR = {
+			culture = culture:cuind
+			AND = {
+				culture = { any_parent_culture_or_above = { this = culture:cuind } }
+				culture = { has_cultural_pillar = heritage_moriquendi }
+			}
+		}
+		is_landed = yes
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_secure_drel
+			}
+		}
+	}
+	is_valid = {
+		highest_held_title_tier >= tier_kingdom
+		has_high_hope_or_higher = yes
+		prestige_level >= very_high_prestige_level
+		capital_province = { has_building_or_higher = elven_settlement_06 }
+		has_title = title:k_drel
+		# custom_tooltip = {
+			# text = decision_secure_drel_tt
+			# title:k_drel = {
+				# every_in_de_jure_hierarchy = {
+					# holder = { faith_is_evil = no }
+				# }
+			# }
+		# }
+		OR = {
+			custom_tooltip = {
+				text = LOTR_FRIENDS_WITH_DWARF
+				any_relation = {
+					type = friend
+					is_dwarf = yes
+				}
+			}
+			custom_tooltip = {
+				text = decision_secure_drel_tt
+				any_relation = {
+					type = friend
+					culture ?= culture:noldor
+				}
+			}
+		}
+	}
+
+	cost = {
+		gold = 1000
+		prestige = 1000
+	}
+
+	effect = {
+		if = {
+			limit = { NOT = { culture ?= { has_cultural_tradition = tradition_miners } } }
+			culture ?= { add_culture_tradition = tradition_miners }
+		}
+		root.dynasty = { add_dynasty_prestige = 1000 }
+
+		root.capital_province ?= {
+			add_great_building = cuind_citadel_of_drel
+		}
+		if = {
+			limit = {
+				has_title = title:c_gidwama
+				title:c_gidwama.title_province = { NOT = { has_holding_type = elven_holding } }
+			}
+			title:c_gidwama = {
+				title_province = { set_holding_type = elven_holding }
+				set_county_culture = root.culture
+				set_county_faith = root.faith
+			}
+		}
+		add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_positive_event_choice }
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_secure_drel
+		}
+		trigger_event = {
+			id = elven.0901
+			days = 1
+		}
+	}
+}
+
+
+##################################################
+# Restore Elven Suza Sumar
+# by Commander Sol
+##################################################
+
+decision_restore_suza_sumar_elven = {
+	title = decision_restore_suza_sumar_elven
+	desc = decision_restore_suza_sumar_elven_desc
+	confirm_text = decision_restore_suza_sumar_elven_confirm
+	selection_tooltip = decision_restore_suza_sumar_elven_tooltip
+	picture = {
+		reference =gfx/interface/illustrations/decisions/decision_eryn_lasgalen_02.dds
+	}
+
+	# AI
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 24
+		kingdom = 24
+		empire = 24
+		hegemony = 50
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		culture = { has_cultural_pillar = heritage_moriquendi }
+		OR = {
+			has_title = title:d_suza_sumar
+			has_character_flag = visited_terilaen_library
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_restore_suza_sumar_elven
+			}
+		}
+	}
+
+	# IS VALID
+	is_valid = {
+		prestige_level >= high_prestige_level
+		completely_controls = title:d_suza_sumar
+		completely_controls = title:d_sarwa
+		has_title = title:c_sanma
+		has_title = title:c_simza
+		has_medium_hope_or_higher = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# EFFECT
+	effect = {
+		add_prestige = 1000
+		if = {
+			limit = { has_character_flag = visited_terilaen_library }
+			remove_character_flag = visited_terilaen_library
+		}
+		hidden_effect = {
+			title:d_suza_sumar = {
+				set_de_jure_liege_title = title:k_sumarieth
+			}
+			title:d_sarwa = {
+				set_de_jure_liege_title = title:k_sumarieth
+			}
+			title:c_simza = {
+				set_de_jure_liege_title = title:d_suza_sumar
+			}
+			title:c_sanma = {
+				set_de_jure_liege_title = title:d_suza_sumar
+			}
+			#set_realm_capital = title:c_pred - Aerien note: moved to an optional event choice
+		}
+		title:k_sumarieth = {
+			set_de_jure_liege_title = title:e_bozisha_miraz
+		}
+		# title:k_sumarieth = { # Not needed, set in history already
+			# set_capital_county = title:c_pred
+		# }
+		#Create the title and make it primary
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = title_change
+			add_claim_on_loss = yes
+		}
+		title:k_sumarieth = {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		#set_primary_title_to = title:k_sumarieth
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_restore_suza_sumar_elven
+		}
+
+		trigger_event = {
+			id = elven.0902
+			days = 1
+		}
+	}
+}
+
+##################################################
+# Restore Return Cuind
+# by Commander Sol
+##################################################
+
+decision_return_cuind = {
+	# TEXT
+	title = decision_return_cuind
+	picture = {
+		reference =gfx/interface/illustrations/decisions/decision_fornost_02.dds
+	}
+	selection_tooltip = decision_return_cuind_tooltip
+	desc = decision_return_cuind_desc
+	confirm_text = decision_return_cuind_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		has_title = title:k_sumarieth
+
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_restore_suza_sumar_elven
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_return_cuind
+			}
+		}
+		NOT = {
+			culture ?= culture:cuind
+		}
+	}
+
+	# IS_VALID
+	is_valid = {
+		prestige_level >= 4
+		piety_level >= 5
+		prestige >= 1000
+		gold >= 200
+		has_medium_hope_or_higher = yes
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# EFFECT
+	effect = {
+		set_culture = culture:cuind
+
+		if = {
+			limit = {
+				any_spouse = {
+					is_landed = no
+					OR = {
+						culture = { has_cultural_pillar = heritage_moriquendi }
+					}
+				}
+			}
+			every_spouse = {
+				limit = {
+					is_landed = no
+					OR = {
+						culture = { has_cultural_pillar = heritage_moriquendi }
+					}
+				}
+				if = {
+					limit = { is_ai = yes }
+					set_culture = culture:cuind
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_close_family_member = {
+					is_landed = no
+					NOT = { is_spouse_of = root }
+					OR = {
+						culture = { has_cultural_pillar = heritage_moriquendi }
+					}
+				}
+			}
+			every_close_family_member = {
+				limit = {
+					is_landed = no
+					NOT = { is_spouse_of = root }
+					OR = {
+						culture = { has_cultural_pillar = heritage_moriquendi }
+					}
+				}
+				custom = all_unlanded_family_members
+				if = {
+					limit = { is_ai = yes }
+					set_culture = culture:cuind
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_child = {
+					OR = {
+						culture = { has_cultural_pillar = heritage_moriquendi }
+					}
+				}
+			}
+			every_child = {
+				limit = {
+					NOT = {
+						OR = {
+							culture = { has_cultural_pillar = heritage_moriquendi }
+						}
+					}
+				}
+				custom = all_children_custom
+				if = {
+					limit = { is_ai = yes }
+					set_culture = culture:cuind
+				}
+			}
+		}
+
+		#Convert appropriate vassals, and their family
+		if = {
+			limit = {
+				any_vassal_or_below = {
+					OR = {
+						culture = { has_cultural_pillar = heritage_moriquendi }
+					}
+				}
+			}
+			every_vassal_or_below = {
+				custom = decision_return_cuind_vassals_custom
+				limit = {
+					OR = {
+						culture = { has_cultural_pillar = heritage_moriquendi }
+					}
+				}
+				if = {
+					limit = { is_ai = yes }
+					set_culture = culture:cuind
+				}
+				hidden_effect = {
+					if = {
+						limit = {
+							any_spouse = {
+								is_landed = no
+								OR = {
+									culture = { has_cultural_pillar = heritage_moriquendi }
+								}
+							}
+						}
+						every_spouse = {
+							limit = {
+								is_landed = no
+								OR = {
+									culture = { has_cultural_pillar = heritage_moriquendi }
+								}
+							}
+							if = {
+								limit = { is_ai = yes }
+								set_culture = culture:cuind
+							}
+						}
+					}
+					if = {
+						limit = {
+							any_close_family_member = {
+								is_landed = no
+								NOT = { is_spouse_of = prev }
+								OR = {
+									culture = { has_cultural_pillar = heritage_moriquendi }
+								}
+							}
+						}
+						every_close_family_member = {
+							limit = {
+								is_landed = no
+								NOT = { is_spouse_of = prev }
+								OR = {
+									culture = { has_cultural_pillar = heritage_moriquendi }
+								}
+							}
+							custom = all_unlanded_family_members
+							if = {
+								limit = { is_ai = yes }
+								set_culture = culture:cuind
+							}
+						}
+					}
+					if = {
+						limit = {
+							any_child = {
+								OR = {
+									culture = { has_cultural_pillar = heritage_moriquendi }
+								}
+							}
+						}
+						every_child = {
+							limit = {
+								OR = {
+									culture = { has_cultural_pillar = heritage_moriquendi }
+								}
+							}
+							custom = all_children_custom
+							if = {
+								limit = { is_ai = yes }
+								set_culture = culture:cuind
+							}
+						}
+					}
+					if = {
+						limit = {
+							any_vassal_or_below = {
+								OR = {
+									culture = { has_cultural_pillar = heritage_moriquendi }
+								}
+							}
+						}
+						every_vassal_or_below = {
+							custom = decision_return_cuind_vassals_custom
+							limit = {
+								OR = {
+									culture = { has_cultural_pillar = heritage_moriquendi }
+								}
+							}
+							if = {
+								limit = { is_ai = yes }
+								set_culture = culture:cuind
+							}
+							hidden_effect = {
+								if = {
+									limit = {
+										any_spouse = {
+											is_landed = no
+											OR = {
+												culture = { has_cultural_pillar = heritage_moriquendi }
+											}
+										}
+									}
+									every_spouse = {
+										limit = {
+											is_landed = no
+											OR = {
+												culture = { has_cultural_pillar = heritage_moriquendi }
+											}
+										}
+										if = {
+											limit = { is_ai = yes }
+											set_culture = culture:cuind
+										}
+									}
+								}
+								if = {
+									limit = {
+										any_close_family_member = {
+											is_landed = no
+											NOT = { is_spouse_of = prev }
+											OR = {
+												culture = { has_cultural_pillar = heritage_moriquendi }
+											}
+										}
+									}
+									every_close_family_member = {
+										limit = {
+											is_landed = no
+											NOT = { is_spouse_of = prev }
+											OR = {
+												culture = { has_cultural_pillar = heritage_moriquendi }
+											}
+										}
+										custom = all_unlanded_family_members
+										if = {
+											limit = { is_ai = yes }
+											set_culture = culture:cuind
+										}
+									}
+								}
+								if = {
+									limit = {
+										any_child = {
+											OR = {
+												culture = { has_cultural_pillar = heritage_moriquendi }
+											}
+										}
+									}
+									every_child = {
+										limit = {
+											OR = {
+												culture = { has_cultural_pillar = heritage_moriquendi }
+											}
+										}
+										custom = all_children_custom
+										if = {
+											limit = { is_ai = yes }
+											set_culture = culture:cuind
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		#Flip Counties
+		every_county = {
+			custom = decision_return_cuind_counties_custom
+			limit = {
+				OR = {
+					holder = root
+					holder.top_liege = root
+				}
+				culture = { has_cultural_pillar = heritage_moriquendi }
+			}
+			set_county_culture = culture:cuind
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_return_cuind
+		}
+	}
+
+	# AI
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 24
+		empire = 24
+		hegemony = 50
+	}
+	ai_potential = { always = yes }
+	ai_will_do = { base = 100 }
+}
+
+##################################################
+# Annihilate the Abhorred
+# Coding by Jaco_Daan
+# Localization by VectorMaximus
+##################################################
+
+decision_annihilate_abhorred = { # Starts war against Sauron
+	# TEXT
+	title = decision_annihilate_abhorred
+	picture = {
+		reference =gfx/interface/illustrations/decisions/decision_barad_dur_01.dds
+	}
+	selection_tooltip = decision_annihilate_abhorred_tooltip
+	desc = decision_annihilate_abhorred_desc
+	confirm_text = decision_annihilate_abhorred_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		root = character:lineoffeanor2
+		OR = {
+			has_variable = maglor_aggresive
+			has_variable = maglor_defensive
+		}
+		character:lineofsauron = {
+			is_alive = yes
+			is_ruler = yes
+		}
+		faith_is_good = yes
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_annihilate_abhorred
+			}
+		}
+	}
+
+	# IS_VALID
+	is_valid = {
+		trigger_if = {
+			limit = { has_variable = maglor_defensive }
+			custom_tooltip = {
+				text =decision_annihilate_abhorred_defensive_azaghal
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:decision_reclamation_of_moria
+				}
+			}
+			custom_tooltip = {
+				text =decision_annihilate_abhorred_defensive_mirkwood
+				OR = {
+					NOT = { title:k_amon_lanc.holder = character:nazgul2 }
+					is_target_in_global_variable_list = {
+						name = unavailable_unique_decisions
+						target = flag:decision_annihilate_dol_guldur
+					}
+				}
+			}
+		}
+		has_high_hope_or_higher = yes
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# COOLDOWN
+	cooldown = { years = 10 }
+
+	# EFFECT
+	effect = {
+		if = {
+			limit = { exists = title:e_gondor_steward.holder }
+			title:e_gondor_steward.holder = { save_temporary_scope_as = gondor_ruler }
+		}
+		else_if = {
+			limit = { exists = title:e_gondor.holder }
+			title:e_gondor.holder = { save_temporary_scope_as = gondor_ruler }
+		}
+		else_if = {
+			limit = { exists = title:h_reunited_kingdom.holder }
+			title:h_reunited_kingdom.holder = { save_temporary_scope_as = gondor_ruler }
+		}
+
+		custom_tooltip = {
+			text = decision_annihilate_abhorred_aggresive_tt_2
+			start_war = {
+				casus_belli = final_battle_maglor_cb
+				target = title:e_mordor.holder
+				target_title = title:c_barad_dur
+			}
+		}
+
+		if = {
+			limit = { has_variable = maglor_defensive }
+			custom_tooltip = decision_annihilate_abhorred_aggresive_tt_3
+			if = {
+				limit = { has_variable = kept_amon_lanc }# Letter event to Galadriel/Thranduil
+				if = {
+					limit = {
+						title:k_lothlorien.holder = {
+							is_elf = yes
+							faith_is_good = yes
+						}
+					}
+					title:k_lothlorien.holder = {
+						trigger_event = {
+							id = maglor_event_chain.0065
+							days = 3
+						}
+					}
+				}
+				if = {
+					limit = {
+						title:k_lasgalen.holder = {
+							is_elf = yes
+							faith_is_good = yes
+						}
+					}
+					title:k_lasgalen.holder = {
+						trigger_event = {
+							id = maglor_event_chain.0065
+							days = 3
+						}
+					}
+				}
+				if = {
+					limit = {
+						title:k_khazad_dum.holder = {
+							is_dwarf = yes
+							faith_is_good = yes
+						}
+					}
+					character:lineoffeanor2 = {
+						random_character_war = {
+							limit = { using_cb = final_battle_maglor_cb }
+							add_attacker = title:k_khazad_dum.holder
+						}
+					}
+				}
+			}
+			else = { trigger_event = maglor_event_chain.0063 } # Call them in automatically
+		}
+		else = {
+			trigger_event = maglor_event_chain.0064 # Letter event to Gondor
+			custom_tooltip = decision_annihilate_abhorred_aggresive_tt
+		}
+	}
+
+	# AI
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	ai_potential = { always = yes }
+	ai_will_do = { base = 100 }
+}
+
+##################################################
+# Umbar Burns
+# Coding by Jaco_Daan
+# Localization by VectorMaximus
+##################################################
+
+decision_umbar_burns = { # Starts war against Umbar
+	# TEXT
+	title = decision_umbar_burns
+	picture = {
+		reference =gfx/interface/illustrations/event_scenes/lotr_kinslaying.dds
+	}
+	selection_tooltip = decision_umbar_burns_tooltip
+	desc = decision_umbar_burns_desc
+	confirm_text = decision_umbar_burns_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		root = character:lineoffeanor2
+		has_variable = maglor_aggresive
+		character:lineofsauron = {
+			is_alive = yes
+			is_ruler = yes
+		}
+		faith_is_good = yes
+		OR = {
+			title:k_umbar.holder ?= { faith_is_good = no }
+			title:e_umbar.holder ?= { faith_is_good = no }
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_umbar_burns
+			}
+		}
+	}
+
+	# IS_VALID
+	is_valid = { }
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# COST
+	cost = {
+		gold = 100
+		prestige = 250
+	}
+
+	# EFFECT
+	effect = {
+		custom_tooltip = decision_umbar_burns_effect_tt
+		if = {
+			limit = { exists = title:e_gondor.holder }
+			title:e_gondor.holder = { save_scope_as = gondor_ruler }
+		}
+		else = {
+			title:e_gondor_steward.holder = { save_scope_as = gondor_ruler }
+		}
+
+		if = {
+			limit = {
+				scope:gondor_ruler = { faith_is_good = yes }
+			}
+			scope:gondor_ruler = {
+				every_vassal_or_below = {
+					limit = {
+						highest_held_title_tier >= tier_county
+						any_held_title = {
+							tier = tier_county
+							is_coastal_county = yes
+						}
+					}
+					trigger_event = {
+						id = maglor_event_chain.0030
+						days = { 15 30 }
+					}
+				}
+			}
+		}
+
+		character:lineoffeanor2 = {
+			trigger_event = {
+				id = maglor_event_chain.0032
+				months = 1
+			}
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_umbar_burns
+		}
+	}
+
+	# AI
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	ai_potential = { always = yes }
+	ai_will_do = { base = 100 }
+}
+
+##################################################
+# Annihilate Dol Guldur
+# Coding by Jaco_Daan
+# Localization by VectorMaximus
+##################################################
+
+decision_annihilate_dol_guldur = { # Starts war against Dol Guldur
+	# TEXT
+	title = decision_annihilate_dol_guldur
+	picture = {
+		reference =gfx/interface/illustrations/decisions/decision_dol_guldur_dominion_of_the_sorcerer.dds
+	}
+	selection_tooltip = decision_annihilate_dol_guldur_tooltip
+	desc = decision_annihilate_dol_guldur_desc
+	confirm_text = decision_annihilate_dol_guldur_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		root = character:lineoffeanor2
+		has_variable = maglor_defensive
+		title:k_amon_lanc.holder ?= { faith_is_evil = yes }
+		# character:nazgul2 = { has_title = title:k_amon_lanc }
+		faith_is_good = yes
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_annihilate_dol_guldur
+			}
+		}
+	}
+
+	# IS_VALID
+	is_valid = {
+		custom_tooltip = {
+			text =decision_annihilate_dol_guldur_is_valid_tt
+			OR = {
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:decision_reclamation_of_moria
+				}
+				AND = {
+					is_target_in_global_variable_list = {
+						name = unavailable_unique_decisions
+						target = flag:decision_reclamation_of_moria
+					}
+					is_target_in_global_variable_list = {
+						name = unavailable_unique_decisions
+						target = flag:decision_cleanse_the_high_pass
+					}
+				}
+			}
+		}
+		has_medium_hope_or_higher = yes
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# COST
+	cost = {
+		gold = 50
+		piety = 250
+	}
+
+	# EFFECT
+	effect = {
+		custom_tooltip = {
+			text = decision_annihilate_dol_guldur_effect_tt
+			start_war = {
+				casus_belli = destroy_dol_guldur_cb
+				target = title:k_amon_lanc.holder
+				target_title = title:k_amon_lanc
+			}
+		}
+		set_variable = war_against_DG
+	}
+
+	# AI
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	ai_potential = { always = yes }
+	ai_will_do = { base = 100 }
+}
+
+##################################################
+# Fourth Kin-Slaying
+# Coding by Jaco_Daan
+# Localization by VectorMaximus
+##################################################
+
+decision_fourth_kinslaying = {
+	# TEXT
+	title = decision_fourth_kinslaying
+	picture = {
+		reference =gfx/interface/illustrations/event_scenes/lotr_kinslaying.dds
+	}
+	selection_tooltip = decision_fourth_kinslaying_tooltip
+	desc = decision_fourth_kinslaying_desc
+	confirm_text = decision_fourth_kinslaying_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		root = character:lineoffeanor2
+		has_variable = fourth_kin_slaying
+		exists = title:e_lindon.holder
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_fourth_kinslaying
+			}
+		}
+	}
+
+	# IS_VALID
+	is_valid = {
+		#custom_tooltip = { text =Completed: Stronghold at Edhellond }
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# EFFECT
+	effect = {
+		custom_tooltip = decision_fourth_kinslaying_effect_tt
+		title:e_lindon.holder = {
+			every_vassal_or_below = {
+				limit = {
+					culture = culture:noldor
+					NOR = {
+						dynasty = dynasty:dynasty_nacilion
+						dynasty = dynasty:dynasty_penlod
+					}
+				}
+				trigger_event = maglor_event_chain.0005
+			}
+		}
+
+		remove_variable = fourth_kin_slaying
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_fourth_kinslaying
+		}
+
+		trigger_event = {
+			id = maglor_event_chain.0006
+			days = 30
+		}
+	}
+
+	# AI
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	ai_potential = { always = yes }
+	ai_will_do = { base = 100 }
+}
+
+##################################################
+# Rally the Army of the Willing/Righteous
+# Coding by Jaco_Daan
+# Localization by VectorMaximus
+##################################################
+
+decision_rally_army_righteous = {
+	# TEXT
+	title = decision_rally_army_righteous
+	picture = {
+		reference =gfx/interface/illustrations/decisions/decision_elvenhost.dds
+	}
+	selection_tooltip = decision_rally_army_righteous_tooltip
+	desc = decision_rally_army_righteous_desc
+	confirm_text = decision_rally_army_righteous_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		root = character:lineoffeanor2
+		has_variable = crusade_against_darkness
+		faith_is_good = yes
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_rally_army_righteous
+			}
+		}
+	}
+
+	# IS_VALID
+	is_valid = { has_title = title:c_himring }
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	widget = {
+		gui =decision_view_widget_option_list_generic
+		controller = decision_option_list_controller
+		decision_to_second_step_button =decision_rally_army_righteous_confirm
+
+		item = { # Northern Route
+			value = maglor_defensive_route
+			current_description = decision_rally_army_righteous_defensive_desc
+			localization = decision_rally_army_righteous_defensive
+			icon =gfx/interface/icons/message_feed/a_catch_all_councillor_icon.dds
+		}
+		item = { # Southern Route
+			value = maglor_aggresive_route
+			current_description = decision_rally_army_righteous_aggresive_desc
+			localization = decision_rally_army_righteous_aggresive
+			icon =gfx/interface/icons/message_feed/mercenary.dds
+		}
+	}
+
+	# EFFECT
+	effect = {
+		custom_tooltip = decision_rally_army_righteous_effect_tt
+		title:e_lindon.holder = {
+			set_variable = volunteers_sent
+			trigger_event = {
+				id = maglor_event_chain.0024
+				days = { 5 10 }
+			}
+			every_vassal_or_below = {
+				limit = { is_elf = yes }
+				set_variable = volunteers_sent
+				trigger_event = {
+					id = maglor_event_chain.0024
+					days = { 5 10 }
+				}
+			}
+		}
+
+		if = {
+			limit = { scope:maglor_defensive_route = yes }
+			character:lineoffeanor2 = {
+				set_variable = maglor_defensive
+
+				trigger_event = {
+					id = maglor_event_chain.0025
+					days = { 25 30 }
+				}
+				trigger_event = {
+					id = maglor_event_chain.0020
+					months = 1
+				}
+			}
+		}
+		else = {
+			character:lineoffeanor2 = {
+				set_variable = maglor_aggresive
+
+				trigger_event = {
+					id = maglor_event_chain.0025
+					days = { 25 30 }
+				}
+				trigger_event = {
+					id = maglor_event_chain.0021
+					months = 1
+				}
+			}
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_rally_army_righteous
+		}
+	}
+
+	# AI
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	ai_potential = { always = yes }
+	ai_will_do = { base = 100 }
+}
+
+##################################################
+# Bring Harad to Heel
+# Coding by Jaco_Daan
+# Localization by VectorMaximus
+##################################################
+
+decision_bring_harad_down = {
+	# TEXT
+	title = decision_bring_harad_down
+	picture = {
+		reference =gfx/interface/illustrations/decisions/decision_harad_02.dds
+	}
+	selection_tooltip = decision_bring_harad_down_tooltip
+	desc = decision_bring_harad_down_desc
+	confirm_text = decision_bring_harad_down_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		root = character:lineoffeanor2
+		has_variable = maglor_aggresive
+		faith_is_good = yes
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_bring_harad_down
+			}
+		}
+	}
+
+	# IS_VALID
+	is_valid = {
+		custom_tooltip = {
+			text = "decision_bring_harad_down_custom_tt"
+			has_variable = won_against_umbar
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_umbar_burns
+			}
+		}
+		has_medium_hope_or_higher = yes
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# EFFECT
+	effect = {
+		custom_tooltip = maglor_shatter_realm_cb_effect_tt.3
+		if = {
+			limit = { exists = title:e_gondor.holder }
+			title:e_gondor.holder = { save_scope_as = gondor_ruler }
+		}
+		else = {
+			title:e_gondor_steward.holder = { save_scope_as = gondor_ruler }
+		}
+
+		if = {
+			limit = {
+				scope:gondor_ruler = { faith_is_good = yes }
+			}
+			scope:gondor_ruler = {
+				every_vassal_or_below = {
+					limit = {
+						highest_held_title_tier >= tier_county
+						any_held_title = {
+							title_province ?= {
+								geographical_region = special_eastern_gondorian_fiefdoms
+							}
+						}
+					}
+					trigger_event = {
+						id = maglor_event_chain.0037
+						days = { 15 30 }
+					}
+				}
+			}
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_bring_harad_down
+		}
+	}
+
+	# AI
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	ai_potential = { always = yes }
+	ai_will_do = { base = 100 }
+}
+
+##################################################
+# The X Dynasty rises
+# Coding by Jaco_Daan
+# Localization by VectorMaximus
+##################################################
+
+decision_help_good_dynasty_rise = {
+	# TEXT
+	title = decision_help_good_dynasty_rise
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_fornost_02.dds"
+	}
+	selection_tooltip = decision_help_good_dynasty_rise_tooltip
+	desc = decision_help_good_dynasty_rise_desc
+	confirm_text = decision_help_good_dynasty_rise_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		root = character:lineoffeanor2
+		has_variable = maglor_aggresive
+		faith_is_good = yes
+
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_bring_harad_down
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_help_good_dynasty_rise
+			}
+		}
+	}
+
+	# IS_VALID
+	is_valid = {
+		custom_tooltip = {
+			text = decision_help_good_dynasty_rise_custom_tt.3
+
+			trigger_if = {
+				limit = {
+					title:e_haradwaith = {
+						any_de_jure_county = {
+							OR = {
+								AND = {
+									exists = empire.holder
+									empire.holder = {
+										faith_is_evil = yes
+										culture = { any_parent_culture_or_above = { this = culture:apysaic } }
+									}
+								}
+								AND = {
+									exists = kingdom.holder
+									kingdom.holder = {
+										faith_is_evil = yes
+										culture = { any_parent_culture_or_above = { this = culture:apysaic } }
+									}
+								}
+							}
+						}
+					}
+				}
+				always = no
+			}
+		}
+
+		OR = {
+			### Amrun Holder is Evil
+			trigger_if = {
+				limit = { exists = title:c_amrun.holder.liege }
+				title:c_amrun.holder.liege ?= { faith_is_evil = yes }
+			}
+			trigger_else = { title:c_amrun.holder ?= { faith_is_good = yes } }
+			### Amrun Holder is Good
+			trigger_if = {
+				limit = { exists = title:c_amrun.holder.liege }
+				title:c_amrun.holder.liege ?= { faith_is_good = yes }
+			}
+			trigger_else = { title:c_amrun.holder ?= { faith_is_good = yes } }
+		}
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# EFFECT
+	effect = {
+		if = {
+			limit = { title:c_amrun.holder = { faith_is_good = yes } }
+			title:c_amrun.holder = { save_scope_as = nadi_manye_leader }
+			set_variable = already_good_haruzan
+			trigger_event = maglor_event_chain.0041
+		}
+		else = {
+			title:c_amrun.holder = {
+				trigger_event = {
+					id = maglor_event_chain.0038
+					days = { 10 15 }
+				}
+			}
+		}
+		custom_tooltip = decision_help_good_dynasty_rise_custom_tt.1
+		custom_tooltip = decision_help_good_dynasty_rise_custom_tt.2
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_help_good_dynasty_rise
+		}
+	}
+
+	# AI
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	ai_potential = { always = yes }
+	ai_will_do = { base = 100 }
+}
+
+##################################################
+# Reclamation of Khazad-dum
+# Coding by Jaco_Daan
+# Localization by VectorMaximus
+##################################################
+
+decision_reclamation_of_moria = {
+	# TEXT
+	title = decision_reclamation_of_moria
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dwarves_02.dds"
+	}
+	selection_tooltip = decision_reclamation_of_moria_tooltip
+	desc = decision_reclamation_of_moria_desc
+	confirm_text = decision_reclamation_of_moria_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		root = character:lineoffeanor2
+		has_variable = unlock_underground_cb
+		faith_is_good = yes
+		trigger_if = {
+			limit = { exists = title:k_khazad_dum.holder }
+			title:k_khazad_dum.holder ?= { is_dwarf = no }
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_reclamation_of_moria
+			}
+		}
+	}
+
+	# IS_VALID
+	is_valid = {
+		custom_tooltip = {
+			text = "decision_reclamation_of_moria_valid_tt"
+			NOT = {
+				title:k_khazad_dum = {
+					any_in_de_jure_hierarchy = {
+						tier = tier_county
+						culture = { is_orc_culture = yes }
+					}
+				}
+			}
+		}
+		#has_medium_hope_or_higher = yes
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# EFFECT
+	effect = { # Give Dwarf back the titles
+		if = {
+			limit = { character:lineofdurin95 ?= { is_alive = yes } }
+			character:lineofdurin95 ?= { save_temporary_scope_as = dwarf_in_moria }
+			custom_tooltip = "decision_reclamation_of_moria_troops_tt"
+			custom_tooltip = { # Works
+				text = "decision_reclamation_of_moria_tt.2"
+			}
+		}
+		else_if = { # Check for Durin dwarf in Moria
+			limit = {
+				title:k_khazad_dum = {
+					any_in_de_jure_hierarchy = {
+						tier = tier_county
+						holder = { culture = { is_dwarf_culture = yes } }
+						holder = { dynasty = dynasty:dynasty_durin }
+						holder = { save_temporary_scope_as = dwarf_in_moria }
+					}
+				}
+			}
+			custom_tooltip = "decision_reclamation_of_moria_troops_tt"
+			custom_tooltip = { # Works
+				text = "decision_reclamation_of_moria_tt.2"
+			}
+		}
+		else_if = {
+			limit = { character:lineofdurin91 ?= { is_alive = yes } }
+			character:lineofdurin91 ?= { save_temporary_scope_as = dwarf_in_moria }
+			custom_tooltip = "decision_reclamation_of_moria_troops_tt"
+			custom_tooltip = { # Works
+				text = "decision_reclamation_of_moria_tt.2"
+			}
+		}
+		else_if = { # Check for random dwarf in Moria
+			limit = {
+				title:k_khazad_dum = {
+					any_in_de_jure_hierarchy = {
+						tier = tier_county
+						holder.culture = { is_dwarf_culture = yes }
+						holder = { save_temporary_scope_as = dwarf_in_moria }
+					}
+				}
+			}
+			custom_tooltip = "decision_reclamation_of_moria_troops_tt"
+			custom_tooltip = { # Works
+				text = "decision_reclamation_of_moria_tt.1"
+			}
+		}
+		else_if = { # Check for landless Durin dwarf in Erebor/Iron Hills
+			limit = {
+				OR = {
+					title:e_iron_mountains = {
+						any_in_de_jure_hierarchy = {
+							tier = tier_county
+							holder = { save_temporary_scope_as = dwarf_in_iron_mountains }
+							holder.culture = { is_dwarf_culture = yes }
+							holder.dynasty = dynasty:dynasty_durin
+							holder.dynasty = {
+								any_dynasty_member = {
+									is_landed = no
+									is_female = no
+									location.empire = scope:dwarf_in_iron_mountains.capital_county.empire
+									NOT = { this = scope:dwarf_in_iron_mountains.primary_heir }
+									save_temporary_scope_as = dwarf_in_moria
+								}
+							}
+						}
+					}
+				}
+			}
+			custom_tooltip = "decision_reclamation_of_moria_troops_tt"
+			custom_tooltip = { # Works
+				text = "decision_reclamation_of_moria_tt.2"
+			}
+		}
+		else_if = { # Check for landed Durin dwarf in Erebor/Iron Hills
+			limit = {
+				OR = {
+					title:e_iron_mountains = {
+						any_in_de_jure_hierarchy = {
+							tier = tier_county
+							holder = { is_landed = yes }
+							holder.culture = { is_dwarf_culture = yes }
+							holder.dynasty = dynasty:dynasty_durin
+							holder = { save_temporary_scope_as = dwarf_in_moria }
+						}
+					}
+				}
+			}
+			custom_tooltip = "decision_reclamation_of_moria_troops_tt"
+			custom_tooltip = { # Works
+				text = "decision_reclamation_of_moria_tt.2"
+			}
+		}
+		else_if = { # Check for Broadbeam dwarf in BM
+			limit = {
+				title:e_blue_mountains = {
+					any_in_de_jure_hierarchy = {
+						holder = {
+							culture = { is_dwarf_culture = yes }
+							dynasty = dynasty:dynasty_dwalin
+						}
+						holder = { save_temporary_scope_as = dwarf_in_moria }
+					}
+				}
+			}
+			custom_tooltip = "decision_reclamation_of_moria_troops_tt"
+			custom_tooltip = { # Works
+				text = "decision_reclamation_of_moria_tt.4"
+			}
+		}
+		else_if = { # Check for noble dwarf in Iron Hills
+			limit = {
+				OR = {
+					title:e_iron_mountains = {
+						any_in_de_jure_hierarchy = {
+							tier = tier_duchy
+							holder.culture = { is_dwarf_culture = yes }
+							holder = { save_temporary_scope_as = dwarf_in_moria }
+						}
+					}
+				}
+			}
+			custom_tooltip = "decision_reclamation_of_moria_troops_tt"
+			custom_tooltip = { # Works
+				text = "decision_reclamation_of_moria_tt.3"
+			}
+		}
+		else_if = { # Check for noble dwarf in BM
+			limit = {
+				title:e_blue_mountains = {
+					any_in_de_jure_hierarchy = {
+						tier = tier_duchy
+						holder.culture = { is_dwarf_culture = yes }
+						holder = { save_temporary_scope_as = dwarf_in_moria }
+					}
+				}
+			}
+			custom_tooltip = "decision_reclamation_of_moria_troops_tt"
+			custom_tooltip = {
+				text = "decision_reclamation_of_moria_tt.4"
+			}
+		}
+		else = { # Create a random dwarven character
+			hidden_effect = {
+				create_character = {
+					age = { 70 250 }
+					culture = culture:longbeards
+					faith = faith:faith_khazad
+					dynasty = none
+					gender_female_chance = 50
+					# Traits.
+					## Education.
+					random_traits_list = {
+						count = 1
+						education_diplomacy_1 = {}
+						education_martial_1 = {}
+						education_stewardship_1 = {}
+						education_intrigue_1 = {}
+						education_learning_1 = {}
+					}
+					## Plus a little bit of variety is nice.
+					random_traits_list = {
+						count = 1
+						stubborn = {}
+						impatient = {}
+						humble = {}
+						wrathful = {}
+					}
+					# Skills.
+					martial = {
+						min_template_decent_skill
+						max_template_decent_skill
+					}
+					prowess = {
+						min_template_decent_skill
+						max_template_decent_skill
+					}
+					employer = root
+					save_scope_as = dwarf_in_moria
+				}
+			}
+			custom_tooltip = "decision_reclamation_of_moria_troops_tt"
+			custom_tooltip = {
+				text = "decision_reclamation_of_moria_tt.4"
+			}
+		}
+		if = {
+			limit = { scope:dwarf_in_moria = { is_ai = yes } }
+			hidden_effect = { transfer_central_moria_effect = yes }
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_reclamation_of_moria
+			}
+			trigger_event = {
+				id = maglor_event_chain.0057
+				days = { 30 45 }
+			}
+		}
+		else = {
+			scope:dwarf_in_moria = { trigger_event = maglor_event_chain.0080 }
+		}
+	}
+
+	# AI
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	ai_potential = { always = yes }
+	ai_will_do = { base = 100 }
+}
+
+##################################################
+# Cleanse the High Pass
+# Coding by Jaco_Daan
+# Localization by VectorMaximus
+##################################################
+
+decision_cleanse_the_high_pass = {
+	# TEXT
+	title = decision_cleanse_the_high_pass
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dol_guldur_subjugate_mount_gundabad.dds"
+	}
+	selection_tooltip = decision_cleanse_the_high_pass_tooltip
+	desc = decision_cleanse_the_high_pass_desc
+	confirm_text = decision_cleanse_the_high_pass_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		root = character:lineoffeanor2
+		has_variable = unlock_underground_cb
+		faith_is_good = yes
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_cleanse_the_high_pass
+			}
+		}
+	}
+
+	# IS_VALID
+	is_valid = {
+		custom_tooltip = {
+			text = "decision_cleanse_the_high_pass_valid_tt"
+			NOT = {
+				title:k_high_pass = {
+					any_in_de_jure_hierarchy = {
+						tier = tier_county
+						culture = { is_orc_culture = yes }
+					}
+				}
+			}
+		}
+		has_medium_hope_or_higher = yes
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# EFFECT
+	effect = { # Give
+		custom_tooltip = decision_cleanse_the_high_pass_effect
+
+		trigger_event = maglor_event_chain.0066
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_cleanse_the_high_pass
+		}
+	}
+
+	# AI
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	ai_potential = { always = yes }
+	ai_will_do = { base = 100 }
+}
+
+##################################################
+# Retire to Himring (minor decision)
+# Coding by Jaco_Daan
+# Localization by VectorMaximus
+##################################################
+
+decision_retire_to_himring = {
+	# TEXT
+	title = decision_retire_to_himring
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_fornost_02.dds"
+	}
+	selection_tooltip = decision_retire_to_himring_tooltip
+	desc = decision_retire_to_himring_desc
+	confirm_text = decision_retire_to_himring_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		has_variable = unlock_retire_to_himring_decision
+		faith_is_good = yes
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_retire_to_himring
+			}
+		}
+	}
+
+	# IS_VALID
+	is_valid = { always = yes }
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# EFFECT
+	effect = {
+		trigger_event = maglor_event_chain.0073
+
+		remove_variable = unlock_retire_to_himring_decision
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_retire_to_himring
+		}
+	}
+
+	# AI
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	ai_potential = { always = yes }
+	ai_will_do = { base = 100 }
+}
+
+#################################
+## Convert to Elven Government ##
+#################################
+#Naugrim Note: Won't come up in regular play, this is an emergency backup for if the player or AI accidentally become a different government.
+
+convert_to_elven_government_decision = {
+	title = convert_to_elven_government_decision
+	decision_group_type = realms_in_exile_major
+	desc = convert_to_elven_government_decision_desc
+	selection_tooltip = convert_to_elven_government_decision_tooltip
+	confirm_text = convert_to_elven_government_decision_confirm
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_council_of_elrond_02.dds"
+	}
+
+
+	is_shown = {
+		is_elf = yes
+		highest_held_title_tier >= tier_county
+		NOR = {
+			has_government = elven_government
+			has_government = landless_adventurer_government
+			has_government = holy_order_government
+			has_government = mercenary_government
+		}
+	}
+
+	is_valid = {
+		is_elf = yes
+	}
+
+	effect = {
+		convert_elven_holdings_effect = yes
+	}
+
+	ai_check_interval = 6
+	ai_will_do = {
+		base = 1000
+	}
+
+}
+
+##############################
+### Elven Racial Mechanics ###
+##############################
+
+decision_try_for_elven_child = {
+	title = decision_try_for_elven_child
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_elf_love.dds"
+	}
+
+	ai_check_interval = 24
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_try_for_elven_child_tooltip
+	desc = decision_try_for_elven_child_desc
+	confirm_text = decision_try_for_elven_child_confirm
+
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		is_elf = yes
+		primary_spouse ?= { is_elf = yes }
+		sex_opposite_of = primary_spouse
+		NOR = {
+			has_character_flag = elf_childbirth_ongoing
+			has_character_modifier = elf_child_limit_modifier
+			primary_spouse = { has_character_modifier = elf_child_limit_modifier }
+		}
+		trigger_if = { #Don't steal the decision from the player
+			limit = { is_ai = yes }
+			primary_spouse = { is_ai = yes }
+		}
+		#Make sure both spouses are on the same side of the Sundering Seas
+		trigger_if = {
+			limit = { is_in_valinor = yes }
+			primary_spouse = { is_in_valinor = yes }
+		}
+		trigger_else = {
+			primary_spouse = { is_in_valinor = no }
+		}
+	}
+
+	is_valid = {
+		stress_level < 1
+		has_medium_hope_or_higher = yes
+		is_at_war = no
+		NOR = {
+			has_character_modifier = elf_childraising_modifier
+			primary_spouse = { has_character_modifier = elf_childraising_modifier }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+	effect = {
+		trigger_event = elven_racial.0001
+		custom_tooltip = decision_try_for_elven_child_effect
+	}
+}
+
+decision_sail_to_valinor = {
+	title = decision_sail_to_valinor
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_mithlond_01.dds"
+	}
+
+	sort_order = 10
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 60
+		duchy = 60
+		kingdom = 60
+		empire = 60
+		hegemony = 60
+	}
+	ai_potential = {
+		trigger_if = {
+			limit = {
+				this = character:lineofcirdan
+			}
+			always = no # Until the last ship sails, which is prob outside the scope of our game, and a really annoying thing to check for.
+		}
+		trigger_else = {
+			always = yes
+		}
+	}
+	ai_will_do = {
+		base = 25 # 25% chance every 5 years if they meet the requirements
+		modifier = {
+			stress_level = 3
+			add = 25
+		}
+	}
+
+	selection_tooltip = decision_sail_to_valinor_tooltip
+	desc = decision_sail_to_valinor_desc
+	confirm_text = decision_sail_to_valinor_confirm
+
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		is_elf = yes
+		is_in_valinor = no
+		NOR = {
+			has_trait = sailed_west
+			has_character_flag = departing_for_valinor
+		}
+		is_ai = no # AI will now sail depending on hope and bypass this decision if they sail ~ Aerien
+	}
+
+	is_valid = {
+		NOT = {
+			has_character_modifier = elf_childraising_modifier
+		}
+		NOT = {
+			has_character_modifier = valar_ban_modifier
+		}
+		OR = {
+			stress_level >= 2
+			AND = {
+				stress_level >= 1
+				OR = {
+					has_trait = depressed_1
+					has_trait = depressed_genetic
+				}
+			}
+			sauron_is_alive = no
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		custom_tooltip = sail_to_valinor_tt
+		if = {
+			limit = { is_ai = yes }
+			depose = yes
+			every_claim = {
+				root = { remove_claim = prev }
+			}
+			add_trait = sailed_west
+			set_variable = {
+				name = sailed_west_date
+				value = current_year
+			}
+			create_character_memory = {
+				type = sailed_west_memory
+			}
+			custom_tooltip = {
+				text = sail_to_valinor
+				set_employer = title:k_tirion.holder
+			}
+		}
+		else = {
+			trigger_event = {
+				id = elven_racial.1000
+			}
+			add_character_flag = departing_for_valinor
+		}
+	}
+}
+
+decision_wander_the_forests = { # Trigger a random forest flavor event ~by Aerien
+	title = decision_wander_the_forests
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_elves_03.dds"
+	}
+
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 10
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	sort_order = 50
+
+	selection_tooltip = decision_wander_the_forests_tooltip
+	desc = decision_wander_the_forests_desc
+	confirm_text = decision_wander_the_forests_confirm
+
+	decision_group_type = realms_in_exile_minor
+
+	cooldown = { years = 3 }
+
+	is_shown = {
+		is_elf = yes
+		is_landed = yes
+		is_in_valinor = no
+		realm_size >= 2
+		trigger_if = {
+			any_realm_province = {
+				OR = {
+					terrain = forest
+					terrain = jungle
+					terrain = deep_forest
+					terrain = mallorn_forest
+				}
+				NOT = { this = root.capital_province }
+			}
+		}
+		trigger_else = {
+			always = no
+		}
+	}
+
+	is_valid = {
+		is_elf = yes
+		trigger_if = {
+			any_realm_province = {
+				custom_tooltip = {
+					OR = {
+						terrain = forest
+						terrain = jungle
+						terrain = deep_forest
+						terrain = mallorn_forest
+					}
+					text = decision_wander_the_forests_tt
+				}
+			}
+		}
+		trigger_else = {
+			always = no
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		custom_tooltip = decision_wander_the_forests_tt_2
+		custom_tooltip = decision_wander_the_forests_tt_3
+		trigger_event = elven_racial.1200
+	}
+
+}
+
+decision_wander_the_forests_laamp = { # Lamps can wander local forests
+	title = decision_wander_the_forests_laamp
+	picture = {
+		reference = "gfx/interface/illustrations/decisions//decision_elves_03.dds"
+	}
+
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 10
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	selection_tooltip = decision_wander_the_forests_tooltip
+	desc = decision_wander_the_forests_desc
+	confirm_text = decision_wander_the_forests_confirm
+
+	decision_group_type = realms_in_exile_minor
+
+	cooldown = { years = 2 }
+
+	is_shown = {
+		is_elf = yes
+		has_government = landless_adventurer_government
+		is_in_valinor = no
+	}
+
+	is_valid = {
+		is_elf = yes
+		has_government = landless_adventurer_government
+		custom_tooltip = {
+			domicile.domicile_location = {
+				OR = {
+					terrain = forest
+					terrain = jungle
+					terrain = deep_forest
+					terrain = mallorn_forest
+					any_neighboring_province = {
+						OR = {
+							terrain = forest
+							terrain = jungle
+							terrain = deep_forest
+							terrain = mallorn_forest
+						}
+					}
+				}
+			}
+			text = decision_wander_the_forests_laamp_tt
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		custom_tooltip = decision_wander_the_forests_tt_2
+		custom_tooltip = decision_wander_the_forests_tt_3
+		trigger_event = elven_racial.1200
+	}
+}
+
+decision_wander_terilaen = {
+	title = decision_wander_terilaen
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_eryn_lasgalen_02.dds"
+	}
+
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	sort_order = 50
+
+	selection_tooltip = decision_wander_terilaen_tooltip
+	desc = decision_wander_terilaen_desc
+	confirm_text = decision_wander_terilaen_confirm
+
+	decision_group_type = realms_in_exile_minor
+
+	cooldown = { months = 60 }
+
+	is_shown = {
+		is_elf = yes
+		is_landed = yes
+		is_in_valinor = no
+		has_character_flag = is_terilaen
+	}
+
+	is_valid = {
+		is_elf = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		custom_tooltip = decision_wander_terilaen_tt_2
+		custom_tooltip = decision_wander_terilaen_tt_3
+		trigger_event = wander_terilaen.1000
+	}
+
+}
+
+decision_elven_border_patrol = { # Border Patrol / Hunt Roaming Foes
+	title = decision_elven_border_patrol
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_elves_06.dds"
+	}
+
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 10
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	sort_order = 50
+
+	selection_tooltip = decision_elven_border_patrol_tooltip
+	desc = decision_elven_border_patrol_desc
+	confirm_text = decision_elven_border_patrol_confirm
+
+	decision_group_type = realms_in_exile_minor
+
+	cooldown = { years = 3 }
+
+	is_shown = {
+		is_elf = yes
+		is_landed = yes
+		is_in_valinor = no
+	}
+
+	is_valid = {
+		is_elf = yes
+		is_landed = yes
+		custom_tooltip = {
+			text = decision_elven_border_patrol_knights
+			number_of_knights >= 2
+		}
+		NOT = { has_trait = depressed_1 } # Sorry, Maglor...
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		custom_tooltip = decision_elven_border_patrol_tt
+		custom_tooltip = decision_wander_the_forests_tt_3
+		trigger_event = elven_racial.1400
+	}
+}
+
+###################################
+# Integrate Nanduhirion into Lórien
+# by Aerien
+####################################
+
+decision_integrate_nanduhirion = {
+	title = decision_integrate_nanduhirion
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_elves_dwarves_03.dds"
+	}
+
+	sort_order = 75
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 120
+		empire = 120
+		hegemony = 120
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+
+	selection_tooltip = decision_integrate_nanduhirion_tooltip
+	desc = decision_integrate_nanduhirion_desc
+	confirm_text = decision_integrate_nanduhirion_confirm
+
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		is_elf = yes
+		OR = {
+			has_title = title:k_lothlorien
+			has_title = title:e_laurelindorenan
+		}
+		is_ai = no
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_integrate_nanduhirion
+			}
+		}
+	}
+
+	is_valid = {
+		is_at_war = no
+		completely_controls = title:c_dimrill_dale
+		OR = {
+			has_title = title:k_lothlorien
+			has_title = title:e_laurelindorenan
+		}
+		title:c_dimrill_dale.title_province = { has_holding_type = elven_holding }
+		has_medium_hope_or_higher = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_lotr_adult = yes
+	}
+
+	cost = {
+		gold = minor_gold_value
+	}
+
+	effect = {
+		title:c_dimrill_dale = {
+			set_de_jure_liege_title = title:d_iathglan
+			change_development_level = 3
+		}
+		title:c_dimrill_dale.title_province = { add_building_if_possible = { BUILDING = tree_flet_02 } }
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_integrate_nanduhirion
+		}
+	}
+}
+
+###################################
+# Establish Trade with Khazad-dum
+# by Aerien
+####################################
+
+decision_moria_trade = {
+	title = decision_moria_trade
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_durins_door.dds"
+	}
+
+	sort_order = 75
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 10
+		empire = 10
+		hegemony = 10
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_moria_trade_tooltip
+	desc = decision_moria_trade_desc
+	confirm_text = decision_moria_trade_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_elf = yes
+		OR = {
+			has_title = title:k_lothlorien
+			has_title = title:e_laurelindorenan
+			has_title = title:k_eregion
+			has_title = title:e_orrostar
+			has_title = title:e_noldor
+		}
+		exists = title:k_khazad_dum.holder
+		title:k_khazad_dum.holder ?= { is_dwarf = yes }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_moria_trade
+			}
+		}
+	}
+
+	is_valid = {
+		OR = {
+			completely_controls = title:k_lothlorien
+			completely_controls = title:k_eregion
+		}
+		custom_tooltip = {
+			text = decision_moria_trade_border_moria
+			any_sub_realm_county = { is_neighbor_to_realm = title:k_khazad_dum.holder }
+		}
+		prestige_level >= 4
+		has_medium_hope_or_higher = yes
+		OR = {
+			is_allied_to = title:k_khazad_dum.holder
+			custom_tooltip = {
+				text = decision_moria_trade_defensively_allied
+				is_defensive_allied_to = { RECIPIENT = title:k_khazad_dum.holder }
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_lotr_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 200
+		prestige = 1000
+	}
+
+	effect = {
+		send_interface_toast = {
+			title = decision_moria_trade_toast
+			left_icon = root
+			right_icon = title:k_khazad_dum.holder
+			title:k_khazad_dum.holder = {
+				add_opinion = {
+					target = root
+					opinion = 40
+					modifier = pleased_opinion
+				}
+			}
+			add_character_modifier = lorien_dwarven_trade_modifier
+			add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_positive_event_choice }
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_moria_trade
+		}
+	}
+}
+
+###################################
+# The Mirror of Galadriel
+# by Aerien
+###################################
+
+decision_mirror_of_galadriel = {
+	title = decision_mirror_of_galadriel
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_mirror_of_galadriel.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 50
+		empire = 50
+		hegemony = 50
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	sort_order = 500
+
+	cooldown = { days = 1825 }
+
+	selection_tooltip = decision_mirror_of_galadriel_tooltip
+	desc = decision_mirror_of_galadriel_desc
+	confirm_text = decision_mirror_of_galadriel_confirm
+
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		any_character_artifact = {
+			has_variable = galadriel_mirror
+		}
+		is_good_undying = yes # Elves and good Istari
+		is_in_valinor = no
+	}
+
+	is_valid = {
+		is_imprisoned = no
+		custom_tooltip = {
+			text = decision_mirror_of_galadriel_tt
+			any_character_artifact = {
+				has_variable = galadriel_mirror
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_lotr_adult = yes
+	}
+
+	effect = {
+		add_character_flag = {
+			flag = looking_into_the_mirror
+			days = 500
+		}
+		trigger_event = {
+			id = palantir.0001
+			days = 1
+		}
+	}
+}
+
+######################################
+# Reveal the Necromancer of Dol Guldur
+# by Aerien
+######################################
+
+decision_reveal_necromancer = {
+	title = decision_reveal_necromancer
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_mordor_02.dds"
+	}
+
+	sort_order = 100
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 10
+		empire = 10
+		hegemony = 10
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+
+	selection_tooltip = decision_reveal_necromancer_tooltip
+	desc = decision_reveal_necromancer_desc
+	confirm_text = decision_reveal_necromancer_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_ai = no
+		OR = {
+			is_elf = yes
+			is_maiar = yes
+		}
+		faith_is_good = yes
+		any_realm_province = {
+			geographical_region = middleearth_west_rhovanion
+		}
+		character:lineofsauron = { has_character_flag = unknown_sauron_flag }
+	}
+
+	is_valid = {
+		highest_held_title_tier >= tier_kingdom
+		has_medium_hope_or_higher = yes
+		faith_is_good = yes
+		custom_tooltip = {
+			text = decision_reveal_necromancer_tt_2
+			title:c_amon_lanc.holder = {
+				has_character_flag = unknown_sauron_flag
+			}
+		}
+		custom_tooltip = {
+			text = decision_reveal_necromancer_tt
+			title:c_amon_lanc = {
+				is_neighbor_to_realm = root
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_lotr_adult = yes
+	}
+
+	effect = {
+		character:lineofsauron = { remove_character_flag = unknown_sauron_flag }
+		start_war = {
+			cb = elven_homelands_county_conquest_cb
+			target = character:lineofsauron
+			target_title = title:c_amon_lanc
+		}
+		trigger_event = mordor.1022 # Info event about Sauron being revealed
+	}
+}
+
+######################################
+# Glorfindel's Vigil - Ride Out
+# by Aerien
+######################################
+
+decision_glorfindel_ride_out = {
+	title = decision_glorfindel_ride_out
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_elves_01.dds"
+	}
+
+	sort_order = 100
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 120
+		duchy = 120
+		kingdom = 120
+		empire = 120
+		hegemony = 120
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+
+	selection_tooltip = decision_glorfindel_ride_out_tooltip
+	desc = decision_glorfindel_ride_out_desc
+	confirm_text = decision_glorfindel_ride_out_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_elf = yes
+		is_landed = yes
+		has_character_flag = glorfindel_readied
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_glorfindel_ride_out
+			}
+		}
+	}
+
+	is_valid = {
+		is_travelling = no
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_lotr_adult = yes
+	}
+
+	effect = {
+		custom_tooltip = decision_glorfindel_ride_out_tt
+		trigger_event = {
+			id = glorfindel.0003
+			days = 1
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_glorfindel_ride_out
+		}
+	}
+}
+
+################################
+# Kinn-lai Reclaim Ardinak
+# by naugrim04
+################################
+
+decision_delve_ardinak = {
+	title = decision_delve_ardinak
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_barrow_04.dds"}
+	decision_group_type = realms_in_exile_major
+	ai_potential = {
+		always = no
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	ai_will_do = {
+		base = 0
+	}
+	selection_tooltip = decision_delve_ardinak_tooltip
+	desc = decision_delve_ardinak_desc
+	confirm_text = decision_delve_ardinak_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		OR = {
+			culture = culture:kinnlai
+			AND = {
+				culture = { any_parent_culture_or_above = { this = culture:kinnlai } }
+				culture = { has_cultural_pillar = heritage_moriquendi }
+			}
+		}
+		province:5852 = { has_building_or_higher = wonder_ardinak_01 }
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_delve_ardinak
+			}
+		}
+	}
+	is_valid = {
+		has_title = title:c_ardinak
+		piety_level >= 3
+		prowess >= 25
+		stress_level < 1
+		OR = {
+			faith = faith:faith_kinnlai_martial
+			faith = faith:faith_kinnlai_tree
+		}
+		has_medium_hope_or_higher = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		piety = {
+			value = 1500
+		}
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = decision_delve_ardinak.tt
+			start_travel_plan = {
+				destination = title:c_ardinak.title_province
+				on_arrival_event = elven.0806
+				return_trip = yes
+				players_use_planner = no
+				#on_arrival_destinations = all
+			}
+		}
+	}
+}
+
+################################
+# Kinn-lai Temple Prowess Training
+# by naugrim04
+################################
+
+decision_temple_training = {
+	title = decision_temple_training
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_arwen_01.dds"}
+	decision_group_type = realms_in_exile_minor
+	ai_potential = {
+		always = no
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 60
+		duchy = 60
+		kingdom = 60
+		empire = 60
+		hegemony = 60
+	}
+	ai_will_do = {
+		base = 0
+	}
+	selection_tooltip = decision_temple_training_tooltip
+	desc = decision_temple_training_desc
+	confirm_text = decision_temple_training_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		title:c_kelun = {
+			title_province = { has_building_or_higher = wonder_kinnlai_sanctum_of_the_valiant_03 }
+		}
+		has_title = title:c_kelun
+	}
+	is_valid = {
+		piety_level >= 2
+		prowess >= 10
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		piety = {
+			value = 150
+		}
+	}
+
+	effect = {
+		send_interface_toast = {
+			title = decision_temple_training.toast
+			left_icon = root
+			add_character_modifier = {
+				modifier = kinnlai_training_modifier
+				years = 5
+			}
+		}
+	}
+}
+
+################################
+# Reunite the Kinn-lai
+# by Aerien
+################################
+
+decision_reunite_kinnlai = {
+	title = decision_reunite_kinnlai
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_kinnlai_01.dds"}
+	decision_group_type = realms_in_exile_major
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 5
+		empire = 5
+		hegemony = 5
+	}
+	selection_tooltip = decision_reunite_kinnlai_tooltip
+	desc = decision_reunite_kinnlai_desc
+	confirm_text = decision_reunite_kinnlai_confirm
+
+	sort_order = 900
+
+	is_shown = {
+		OR = {
+			culture = culture:kinnlai
+			AND = {
+				culture = { any_parent_culture_or_above = { this = culture:kinnlai } }
+				culture = { has_cultural_pillar = heritage_moriquendi }
+			}
+		}
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_reunite_kinnlai
+			}
+		}
+
+		# Neither is extinct
+		house:house_shelepinn = {
+			any_house_member = { count > 0 }
+		}
+		house:house_tulanal = {
+			any_house_member = { count > 0 }
+		}
+	}
+
+	is_valid = {
+		#Set scopes for Tulanal side. (by Trig)
+		# Checks first for landed house head, then for k_talilan, then for proper-faith culture head, and finally for proper-faith strongest indep ruler. If none, you need to make one
+		trigger_if = {
+			limit = { # House head
+				house:house_tulanal.house_head ?= {
+					is_landed = yes
+					save_temporary_scope_as = talilan_ruler
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = { # King of Talilan
+				title:k_talilan.holder ?= {
+					is_elf = yes
+					save_temporary_scope_as = talilan_ruler
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = { # Culture head of Kinn-lai
+				culture:kinnlai.culture_head ?= {
+					faith = faith:faith_kinnlai_tree
+					save_temporary_scope_as = talilan_ruler
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = { # Top Faith ruler
+				faith:faith_kinnlai_tree = {
+					any_faith_ruler = { # Jank a top ruler for faith
+						is_independent_ruler = yes
+						save_temporary_scope_as = faith_head
+						faith = {
+							any_faith_ruler = {
+								domain_size > scope:faith_head.domain_size
+								count = 0
+							}
+						}
+						save_temporary_scope_as = talilan_ruler
+					}
+				}
+			}
+		}
+		trigger_else = { # Find someone to unite with first
+			custom_tooltip = {
+				text = landed_tree_faith_ruler
+				always = no
+			}
+		}
+
+		#Set scope for Shelepinn side. (By Trig)
+		# Checks first for landed house head, then for k_usakan, then d_gard_kinn, then for proper-faith culture head, and finally for proper-faith strongest indep ruler. If none, you need to make one
+		trigger_if = {
+			limit = { # House head
+				house:house_shelepinn.house_head ?= {
+					is_landed = yes
+					save_temporary_scope_as = shelepinn_ruler
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = { # King of Usakan
+				title:k_usakan.holder ?= {
+					is_elf = yes
+					save_temporary_scope_as = shelepinn_ruler
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = { # Ruler of Gard Kinn
+				title:d_gard_kinn.holder ?= {
+					is_elf = yes
+					save_temporary_scope_as = shelepinn_ruler
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = { # Culture head of Kinn-lai
+				culture:kinnlai.culture_head ?= {
+					faith = faith:faith_kinnlai_martial
+					save_temporary_scope_as = shelepinn_ruler
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = { # Top Faith ruler
+				faith:faith_kinnlai_martial = {
+					any_faith_ruler = { # Jank a top ruler for faith
+						is_independent_ruler = yes
+						save_temporary_scope_as = faith_head
+						faith = {
+							any_faith_ruler = {
+								domain_size > scope:faith_head.domain_size
+								count = 0
+							}
+						}
+						save_temporary_scope_as = shelepinn_ruler
+					}
+				}
+			}
+		}
+		trigger_else = { # Find someone to unite with first
+			custom_tooltip = {
+				text = landed_martial_faith_ruler
+				always = no
+			}
+		}
+
+		# You need to be the one in charge here
+		trigger_if = {
+			limit = {
+				NOR = {
+					this = scope:shelepinn_ruler
+					this = scope:talilan_ruler
+				}
+			}
+			custom_tooltip = {
+				text = be_the_one_in_charge
+				OR = {
+					this = scope:shelepinn_ruler
+					this = scope:talilan_ruler
+				}
+			}
+		}
+
+		# You're a faith that's involved
+		trigger_if = {
+			limit = {
+				NOR = {
+					faith = faith:faith_kinnlai_martial
+					faith = faith:faith_kinnlai_tree
+				}
+			}
+			OR = {
+				faith = faith:faith_kinnlai_martial
+				faith = faith:faith_kinnlai_tree
+			}
+		}
+
+		# Now the normal requirements
+		highest_held_title_tier >= tier_kingdom
+		legitimacy_level >= 5
+		prestige_level >= 3
+		piety_level >= 4
+		has_medium_hope_or_higher = yes
+
+		# You hold your side's realm
+		OR = {
+			has_title = title:k_talilan
+			has_title = title:k_usakan
+		}
+		OR = {
+			custom_tooltip = {
+				text = hold_all_elven_homelands_in_usakan
+				any_county_in_region = {
+					region = middleearth_uttersouth_usakan
+					trigger_if = {
+						limit = { has_county_modifier = elven_homeland_county_modifier }
+						holder.top_liege = root
+					}
+					count = all
+				}
+			}
+			custom_tooltip = {
+				text = hold_all_elven_homelands_in_mumakan
+				any_county_in_region = {
+					region = middleearth_uttersouth_mumakan
+					trigger_if = {
+						limit = { has_county_modifier = elven_homeland_county_modifier }
+						holder.top_liege = root
+					}
+					count = all
+				}
+			}
+		}
+
+		# The other side likes you
+		trigger_if = {
+			limit = {
+				OR = {
+					this = scope:shelepinn_ruler
+					faith = faith:faith_kinnlai_martial # For tt purposes
+				}
+				NOT = { this = scope:talilan_ruler } # Incase something *really* strange happens
+			}
+			has_relation_friend = scope:talilan_ruler
+			is_allied_to = scope:talilan_ruler
+			scope:talilan_ruler = {
+				trigger_if = {
+					limit = {
+						any_vassal = { count > 0 }
+					}
+					any_vassal = {
+						count = all
+						opinion = {
+							target = root
+							value >= very_high_positive_opinion
+						}
+					}
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = {
+				OR = {
+					this = scope:talilan_ruler
+					faith = faith:faith_kinnlai_tree # For tt purposes
+				}
+				NOT = { this = scope:shelepinn_ruler } # In case something really strange happens
+			}
+			has_relation_friend = scope:shelepinn_ruler
+			is_allied_to = scope:shelepinn_ruler
+			scope:shelepinn_ruler= {
+				trigger_if = {
+					limit = {
+						any_vassal = { count > 0 }
+					}
+					any_vassal = {
+						count = all
+						opinion = {
+							target = root
+							value >= very_high_positive_opinion
+						}
+					}
+				}
+			}
+		}
+		trigger_else = {} # This is needed for errors
+
+		# Your side likes you
+		trigger_if = {
+			limit = {
+				any_vassal = { count > 0 }
+			}
+			any_vassal = {
+				count = all
+				opinion = {
+					target = root
+					value >= very_high_positive_opinion
+				}
+			}
+		}
+	}
+
+	cost = {
+		gold = 500
+		piety = major_piety_value
+		prestige = major_prestige_value
+	}
+
+	effect = {
+		# Save scopes pt 2
+		#Set scopes for Tulanal side. (by Trig)
+		# Checks first for landed house head, then for k_talilan, then for proper-faith culture head, and finally for proper-faith strongest indep ruler. If none, you need to make one
+		if = {
+			limit = { # House head
+				house:house_tulanal.house_head ?= {
+					is_landed = yes
+				}
+			}
+			house:house_tulanal.house_head ?= {
+				save_scope_as = talilan_ruler
+			}
+		}
+		else_if = {
+			limit = { # King of Talilan
+				title:k_talilan.holder ?= {
+					is_elf = yes
+				}
+			}
+			title:k_talilan.holder ?= {
+				save_scope_as = talilan_ruler
+			}
+		}
+		else_if = {
+			limit = { # Culture head of Kinn-lai
+				culture:kinnlai.culture_head ?= {
+					faith = faith:faith_kinnlai_tree
+				}
+			}
+			culture:kinnlai.culture_head ?= {
+				save_scope_as = talilan_ruler
+			}
+		}
+		else_if = {
+			limit = { # Top Faith ruler
+				faith:faith_kinnlai_tree = {
+					any_faith_ruler = { # Jank a top ruler for faith
+						is_independent_ruler = yes
+						save_temporary_scope_as = faith_head
+						faith = {
+							any_faith_ruler = {
+								domain_size > scope:faith_head.domain_size
+								count = 0
+							}
+						}
+					}
+				}
+			}
+			faith:faith_kinnlai_tree = {
+				ordered_faith_ruler = { # Jank a top ruler for faith
+					limit = { is_independent_ruler = yes }
+					order_by = domain_size
+					save_scope_as = talilan_ruler
+				}
+			}
+		}
+		else = { # Find someone to unite with first
+			custom_tooltip = {
+				text = landed_tree_faith_ruler
+			}
+		}
+
+		#Set scope for Shelepinn side. (By Trig)
+		# Checks first for landed house head, then for k_usakan, then d_gard_kinn, then for proper-faith culture head, and finally for proper-faith strongest indep ruler. If none, you need to make one
+		if = {
+			limit = { # House head
+				house:house_shelepinn.house_head ?= {
+					is_landed = yes
+				}
+			}
+			house:house_shelepinn.house_head ?= {
+				save_scope_as = shelepinn_ruler
+			}
+		}
+		else_if = {
+			limit = { # King of Talilan
+				title:k_usakan.holder ?= {
+					is_elf = yes
+				}
+			}
+			title:k_usakan.holder ?= {
+				save_scope_as = shelepinn_ruler
+			}
+		}
+		else_if = {
+			limit = { # Lord of Gard Kinn
+				title:d_gard_kinn.holder ?= {
+					is_elf = yes
+				}
+			}
+			title:d_gard_kinn.holder ?= {
+				save_scope_as = shelepinn_ruler
+			}
+		}
+		else_if = {
+			limit = { # Culture head of Kinn-lai
+				culture:kinnlai.culture_head ?= {
+					faith = faith:faith_kinnlai_martial
+				}
+			}
+			culture:kinnlai.culture_head ?= {
+				save_scope_as = shelepinn_ruler
+			}
+		}
+		else_if = {
+			limit = { # Top Faith ruler
+				faith:faith_kinnlai_martial = {
+					any_faith_ruler = { # Jank a top ruler for faith
+						is_independent_ruler = yes
+						save_temporary_scope_as = faith_head
+						faith = {
+							any_faith_ruler = {
+								domain_size > scope:faith_head.domain_size
+								count = 0
+							}
+						}
+					}
+				}
+			}
+			faith:faith_kinnlai_martial = {
+				ordered_faith_ruler = { # Jank a top ruler for faith
+					limit = { is_independent_ruler = yes }
+					order_by = domain_size
+					save_scope_as = shelepinn_ruler
+				}
+			}
+		}
+		else = { # Find someone to unite with first
+			custom_tooltip = {
+				text = landed_martial_faith_ruler
+			}
+		}
+
+		#Get Empire title
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = title_change
+			add_claim_on_loss = yes
+		}
+		title:e_kinnlai = { # Historical Host of the Kinn-lai
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		hidden_effect = {
+			if = {
+				limit = { highest_held_title_tier < tier_hegemony }
+				set_primary_title_to = title:e_kinnlai
+			}
+		}
+
+		if = {
+			limit = {
+				OR = {
+					this = scope:shelepinn_ruler
+					faith = faith:faith_kinnlai_martial
+				}
+			}
+			scope:talilan_ruler ?= {
+				save_scope_as = kinnlai_ruler
+				create_title_and_vassal_change = {
+					type = swear_fealty
+					save_scope_as = change
+					add_claim_on_loss = yes
+				}
+				change_liege = {
+					liege = root
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					this = scope:talilan_ruler
+					faith = faith:faith_kinnlai_tree
+				}
+			}
+			scope:shelepinn_ruler ?= {
+				save_scope_as = kinnlai_ruler
+				create_title_and_vassal_change = {
+					type = swear_fealty
+					save_scope_as = change
+					add_claim_on_loss = yes
+				}
+				change_liege = {
+					liege = root
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
+		}
+		else_if = { # Fallback if the other ruler is already your vassal
+			limit = { any_vassal_or_below = { any_character_artifact = { has_variable = fragment_of_separation } } }
+			every_vassal_or_below = {
+				limit = { any_character_artifact = { has_variable = fragment_of_separation } }
+				save_scope_as = kinnlai_ruler
+			}
+		}
+
+		root.dynasty = { add_dynasty_prestige = 1000 }
+
+		root.capital_province ?= {
+			add_great_building = kinnlai_spire_of_unity_01
+		}
+		give_nickname = nick_kinnlai_reconciler
+		add_character_flag = had_nickname_event
+
+		if = { # Reforge Tainalaan's pendant if both halves are brought together
+			limit = {
+				any_character_artifact = { has_variable = fragment_of_separation }
+				scope:kinnlai_ruler = { any_character_artifact = { has_variable = fragment_of_separation } }
+			}
+			every_character_artifact = {
+				limit = { has_variable = fragment_of_separation }
+				destroy_artifact = this
+			}
+			scope:kinnlai_ruler = {
+				every_character_artifact = {
+					limit = { has_variable = fragment_of_separation }
+					destroy_artifact = this
+				}
+			}
+			create_artifact_pendant_of_tainalann_effect = { OWNER = root }
+		}
+
+		title:k_talilan = { set_de_jure_liege_title = title:e_usakan }
+
+		# Set everyone as part of the original house
+		show_as_tooltip = {
+			house:house_shelepinn.house_head ?= {
+				set_house = character:lineoftainalann1.house
+			}
+			house:house_tulanal.house_head ?= {
+				set_house = character:lineoftainalann1.house
+			}
+		}
+		hidden_effect = {
+			dynasty:dynasty_tainalann = {
+				every_dynasty_member = { #Catch the dead ones too
+					even_if_dead = yes
+					limit = {
+						NOT = {
+							any_in_list = {
+								list = cadet_dynasty_members
+								this = prev
+							}
+						}
+					}
+					add_to_list = cadet_dynasty_members
+					every_ancestor = {
+						even_if_dead = yes
+						limit = { dynasty = dynasty:dynasty_tainalann }
+						add_to_list = cadet_dynasty_members
+						every_ancestor = {
+							even_if_dead = yes
+							limit = { dynasty = dynasty:dynasty_tainalann }
+							add_to_list = cadet_dynasty_members
+							every_ancestor = {
+								even_if_dead = yes
+								limit = { dynasty = dynasty:dynasty_tainalann }
+								add_to_list = cadet_dynasty_members
+								every_ancestor = {
+									even_if_dead = yes
+									limit = { dynasty = dynasty:dynasty_tainalann }
+									add_to_list = cadet_dynasty_members
+									every_ancestor = {
+										even_if_dead = yes
+										limit = { dynasty = dynasty:dynasty_tainalann }
+										add_to_list = cadet_dynasty_members
+										every_ancestor = {
+											even_if_dead = yes
+											limit = { dynasty = dynasty:dynasty_tainalann }
+											add_to_list = cadet_dynasty_members
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				every_in_list = {
+					list = cadet_dynasty_members
+					set_house = character:lineoftainalann1.house
+				}
+			}
+			character:lineoftainalann1.house = { #Set the right house head
+				if = {
+					limit = {
+						this = root.house
+						NOT = { house_head = root }
+					}
+					set_house_head = root
+				}
+			}
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_reunite_kinnlai
+		}
+
+		add_elven_hope_effect = { VALUE = monumental_elven_hope_value HOPE_EFFECT = effect_elven_hope_kinnlai_reunited }
+
+		trigger_event = elven.0750
+	}
+}
+
+################################
+# Patrimony of the Kinn-lai
+# by Peacock
+################################
+
+decision_utter_south_elven = {
+	title = decision_utter_south_elven
+	desc = decision_utter_south_elven_desc
+	confirm_text = decision_utter_south_elven_confirm
+	selection_tooltip = decision_utter_south_elven_tooltip
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_kinnlai_02.dds"
+	}
+
+	# AI
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	sort_order = 1000
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_elf = yes
+		highest_held_title_tier >= tier_kingdom
+
+		OR = {
+			culture = culture:kinnlai
+			AND = {
+				culture = { any_parent_culture_or_above = { this = culture:kinnlai } }
+				culture = { has_cultural_pillar = heritage_moriquendi }
+			}
+		}
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:unify_utter_south
+			}
+			exists = title:h_utter_south.holder
+		}
+	}
+
+	# IS VALID
+	is_valid = {
+		has_title = title:e_kinnlai
+
+		# No non-tributized independent rulers
+		custom_tooltip = {
+			text = no_independent_rulers_in_usakan
+			any_county_in_region = {
+				region = middleearth_uttersouth_usakan
+				OR = {
+					holder.top_overlord ?= root
+					holder.top_liege ?= title:k_wastelands.holder
+				}
+				count = all
+			}
+		}
+
+		custom_tooltip = {
+			text = no_independent_rulers_in_mumakan
+			any_county_in_region = {
+				region = middleearth_uttersouth_mumakan
+				OR = {
+					holder.top_overlord ?= root
+					holder.top_liege ?= title:k_wastelands.holder
+				}
+				count = all
+			}
+		}
+
+		custom_tooltip = {
+			text = no_independent_rulers_in_shayn
+			any_county_in_region = {
+				region = middleearth_uttersouth_shayn
+				OR = {
+					holder.top_overlord ?= root
+					holder.top_liege ?= title:k_wastelands.holder
+				}
+				count = all
+			}
+		}
+
+		# Hold all Elven homelands
+		custom_tooltip = {
+			text = hold_all_elven_homelands_in_usakan
+			any_county_in_region = {
+				region = middleearth_uttersouth_usakan
+				trigger_if = {
+					limit = { has_county_modifier = elven_homeland_county_modifier }
+					holder.top_liege = root
+				}
+				count = all
+			}
+		}
+
+		custom_tooltip = {
+			text = hold_all_elven_homelands_in_mumakan
+			any_county_in_region = {
+				region = middleearth_uttersouth_mumakan
+				trigger_if = {
+					limit = { has_county_modifier = elven_homeland_county_modifier }
+					holder.top_liege = root
+				}
+				count = all
+			}
+		}
+
+		# Ardinak/Dilsulinol Cleansed
+		custom_tooltip = {
+			text = unify_utter_south_ardinak_cleansed
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_delve_ardinak
+			}
+		}
+
+		legitimacy_level >= 5
+		prestige_level >= 5
+		piety_level >= 5
+		has_highest_hope = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 1000
+		prestige = 5000
+	}
+
+	# EFFECT
+	effect = {
+		hidden_effect = {
+			title:h_utter_south = { lotr_move_dejure_capital_effect = { COUNTY = c_ardinak } }
+		}
+		#Create the title and make it primary
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = title_change
+			add_claim_on_loss = yes
+		}
+		title:h_utter_south = {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		set_primary_title_to = title:h_utter_south
+
+		title:e_mumakan = {
+			set_de_jure_liege_title = title:h_utter_south
+		}
+		title:e_shayn = {
+			set_de_jure_liege_title = title:h_utter_south
+		}
+		title:e_usakan = {
+			set_de_jure_liege_title = title:h_utter_south
+		}
+
+		root.dynasty = { add_dynasty_prestige = 1000 }
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:unify_utter_south
+		}
+
+		trigger_event = {
+			id = elven.0818
+			days = 1
+		}
+	}
+}
+
+decision_utter_south_integrate_mag_tumag_elven = {
+	title = decision_utter_south_integrate_mag_tumag_elven
+	desc = decision_utter_south_integrate_mag_tumag_elven_desc
+	confirm_text = decision_utter_south_integrate_mag_tumag_elven_confirm
+	selection_tooltip = decision_utter_south_integrate_mag_tumag_elven_tooltip
+
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_tame_the_lynerian_jungles.dds"
+	}
+
+	# AI
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		has_title = title:h_utter_south
+
+		OR = {
+			culture = culture:kinnlai
+			AND = {
+				culture = { any_parent_culture_or_above = { this = culture:kinnlai } }
+				culture = { has_cultural_pillar = heritage_moriquendi }
+			}
+		}
+
+		NOT = {
+			title:e_mag_tumag = {
+				de_jure_liege = title:h_utter_south
+			}
+		}
+	}
+
+	# IS VALID
+	is_valid = {
+		legitimacy_level >= 5
+		prestige_level >= 5
+		piety_level >= 5
+
+		has_highest_hope = yes
+		has_title = title:h_utter_south
+		OR = {
+			any_vassal = {
+				culture = { has_cultural_pillar = heritage_magri }
+				has_title = title:e_mag_tumag
+			}
+			title:e_mag_tumag.holder = {
+				culture = { has_cultural_pillar = heritage_magri }
+				is_tributary_of = root
+			}
+		}
+
+		OR = {
+			culture = culture:kinnlai
+			AND = {
+				culture = { any_parent_culture_or_above = { this = culture:kinnlai } }
+				culture = { has_cultural_pillar = heritage_moriquendi }
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		prestige = 2000
+	}
+
+	# EFFECT
+	effect = {
+		send_interface_toast = {
+			type = event_toast_effect_good
+			title = decision_utter_south_integrate_mag_tumag_elven_tt
+			left_icon = root
+			title:e_mag_tumag = {
+				set_de_jure_liege_title = title:h_utter_south
+			}
+			root.dynasty = { add_dynasty_prestige = 500 }
+		}
+		if = {
+			limit = {
+				title:e_mag_tumag.holder = { is_tributary_of = root }
+			}
+			create_title_and_vassal_change = {
+				type = swear_fealty
+				save_scope_as = vassal_change
+			}
+			title:e_mag_tumag.holder = {
+				change_liege = {
+					liege = root
+					change = scope:vassal_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:vassal_change
+		}
+	}
+}

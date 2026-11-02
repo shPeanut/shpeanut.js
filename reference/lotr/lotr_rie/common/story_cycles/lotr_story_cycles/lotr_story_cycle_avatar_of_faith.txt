@@ -1,0 +1,25 @@
+﻿story_cycle_avatar_of_faith = {
+	on_setup = {
+		add_to_variable_list = {
+			name = avatar_faiths
+			target = story_owner.faith
+		}
+	}
+	on_end = {
+	}
+	on_owner_death = {
+		end_story = yes
+	}
+	visible = yes
+	icon = {
+		reference = "gfx/interface/icons/message_feed/mandala.dds"
+	}
+	background = {
+		reference = "gfx/interface/illustrations/decisions/fp3/fp3_decision_foundation.dds"
+	}
+	visualization = {
+		custom_string_key = "story_cycle_avatar_of_faith_info_tooltips"
+		decisions = { decision_reign_of_the_avatar }
+		traits = { avatar }
+	}
+}

@@ -1,0 +1,1978 @@
+#####	Rhûn (e_rhun)
+####	Ûsrievar (k_usrievar)
+###		Medlóshad (d_medloshad)
+##		Mistrand (c_mistrand)
+
+3635 = {	#Mistrand (b_mistrand)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_03
+			curtain_walls_03
+			farm_estates_04
+			# common_tradeport_03
+			# barracks_02
+		}
+	}
+	4033.1.1 = {
+		special_building_slot = wonder_mistrand_01
+		special_building = wonder_mistrand_01
+	}
+	5273.1.1 = { # Arrival of the Ulgath
+		culture = ulgath
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+	6900.1.1 = {
+		religion = faith_kerkassk
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
+}
+
+3639 = {	#Obagalla (b_obagalla)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = city_holding
+	4033.1.1 = {
+		buildings = {
+			city_02
+			farm_estates_04
+		}
+	}
+}
+
+3636 = {	#Radibar (b_radibar)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = city_holding
+	4033.1.1 = {
+		buildings = {
+			city_02
+			common_tradeport_03
+		}
+	}
+}
+
+3637 = {	#Orundost (b_orundost)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3638 = {	#Resarand (b_resarand)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = church_holding
+	4033.1.1 = {
+		buildings = {
+			temple_02
+			horse_pastures_03
+		}
+	}
+}
+
+##	Crispa (c_crispa)
+
+3640 = {	#Crispa (b_crispa)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			barracks_04
+			curtain_walls_02
+		}
+	}
+	5273.1.1 = { # Arrival of the Ulgath
+		culture = ulgath
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+	5500.1.1 = {
+		religion = faith_kerkassk
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
+}
+
+3641 = {	#Ginorun (b_ginorun)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = city_holding
+	4033.1.1 = {
+		buildings = {
+			city_02
+			horse_pastures_03
+		}
+	}
+}
+
+3642 = {	#Dulmek (b_dulmek)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Tarehâ (c_tareha)
+
+3644 = {	#Tset-Tarehâ (b_tset_tareha)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			barracks_02
+			curtain_walls_03
+		}
+	}
+	5273.1.1 = { # Arrival of the Ulgath
+		culture = ulgath
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+	6900.1.1 = {
+		religion = faith_kerkassk
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
+}
+
+3643 = {	#Ralosahr (b_ralosahr)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = city_holding
+	4033.1.1 = {
+		buildings = {
+			city_02
+			common_tradeport_03
+		}
+	}
+}
+
+3645 = {	#Rimandhily (b_rimandhily)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Pitarana (c_pitarana)
+
+3651 = {	#Pitarana (b_pitarana)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			hill_forts_03
+			hillside_grazing_02
+		}
+	}
+	5273.1.1 = { # Arrival of the Ulgath
+		culture = ulgath
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+	5500.1.1 = {
+		religion = faith_kerkassk
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
+}
+
+3652 = {	#Antikhad (b_antikhad)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3646 = {	#Guzelland (b_guzelland)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = church_holding
+	4033.1.1 = {
+		buildings = {
+			temple_01
+			hillside_grazing_02
+		}
+	}
+}
+
+##	Astrel (c_astrel)
+
+3647 = {	#Astrel (b_astrel)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			barracks_02
+			horse_pastures_03
+		}
+	}
+	5500.1.1 = {
+		religion = faith_kerkassk
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
+}
+
+3648 = {	#Evrad (b_evrad)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = city_holding
+	4033.1.1 = {
+		buildings = {
+			city_02
+			barracks_03
+		}
+	}
+}
+
+3649 = {	#Yuksekad (b_yuksekad)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3650 = {	#Perosidat (b_perosidat)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Dilgul (c_dilgul)
+
+3682 = {	#Dilgul (b_dilgul)
+	culture = sagath
+	religion = faith_blue_sect
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			barracks_02
+			curtain_walls_03
+		}
+	}
+	5273.1.1 = { # Arrival of the Ulgath
+		culture = ulgath
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+	6800.1.1 = {
+		religion = faith_kerkassk
+	}
+	7174.1.1 = {
+		religion = faith_blue_sect
+	}
+}
+
+3683 = {	#Or-Sarn (b_or_sarn)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = city_holding
+}
+
+3684 = {	#Valosahr (b_valosahr)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Nabal Mayzri (c_nabal_mayzri)
+
+3694 = {	#Egil Dorn (b_egil_dorn)
+	culture = sagath
+	religion = faith_blue_sect
+	holding = castle_holding
+	5.3.12 = {
+		special_building_slot = wonder_temple_sulereb_01
+		special_building = wonder_temple_sulereb_01
+	}
+	3589.1.1 = {
+		special_building = wonder_temple_sulereb_02
+		buildings = {
+			castle_01
+			common_tradeport_02
+			curtain_walls_01
+		}
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+	6800.1.1 = {
+		religion = faith_kerkassk
+	}
+	7174.1.1 = {
+		religion = faith_blue_sect
+	}
+}
+
+3695 = {	#Nabal Mayzri (b_nabal_mayzri)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+###	Sûrûbeki (d_surubeki)
+##	Mithana (c_mithana)
+
+3653 = {	#Mithana (b_mithana)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_03
+			barracks_02
+		}
+	}
+	5500.1.1 = {
+		religion = faith_kerkassk
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
+}
+
+3654 = {	#Kalubarn (b_kalubarn)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = church_holding
+	4033.1.1 = {
+		buildings = {
+			temple_02
+			logging_camps_03
+		}
+	}
+}
+
+3655 = {	#Merhamarun (b_merhamarun)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = city_holding
+	4033.1.1 = {
+		buildings = {
+			city_02
+			cereal_fields_03
+		}
+	}
+}
+
+3656 = {	#Aclikad (b_aclikad)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Mavishad (c_mavishad)
+
+3657 = {	#Mavishad (b_mavishad)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_01
+			barracks_02
+			curtain_walls_01
+		}
+	}
+	4050.1.1 = { # First Odhriag migration
+		culture = odhriag
+	}
+	5430.1.1 = { # Variags move northwards under Ovatha VI
+		culture = variag
+	}
+	5500.1.1 = {
+		culture = odhriag
+		religion = faith_kerkassk
+	}
+	6800.1.1 = {
+		culture = asdriag
+		religion = faith_kerkassk
+	}
+}
+
+3658 = {	#Barinak (b_barinak)
+	culture = odhriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3659 = {	#Dymezahr (b_dymezahr)
+	culture = odhriag
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_01
+			hill_forts_01
+		}
+	}
+}
+
+3660 = {	#Itana (b_itana)
+	culture = odhriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Zaferkend (c_zaferkend)
+
+3661 = {	#Zaferkend (b_zaferkend)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_01
+			hill_forts_02
+			hillside_grazing_02
+		}
+	}
+	4050.1.1 = { # First Odhriag migration
+		culture = odhriag
+	}
+	5430.1.1 = { # Variags move northwards under Ovatha VI
+		culture = variag
+	}
+	6500.1.1 = { # Balchoth invasions
+		culture = asdriag
+		religion = faith_easterling_war
+	}
+	6900.1.1 = {
+		religion = faith_kerkassk
+	}
+}
+
+3662 = {	#Atardat (b_atardat)
+	culture = asdriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3663 = {	#Ovonad (b_ovonad)
+	culture = asdriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Sarand (c_sarand)
+
+3664 = {	#Sarand (b_sarand)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_02
+			barracks_03
+		}
+	}
+	5273.1.1 = { # Arrival of the Ulgath
+		culture = ulgath
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+	6500.1.1 = { # Balchoth invasions
+		culture = asdriag
+		religion = faith_easterling_war
+	}
+	6600.1.1 = { # Collapse of martial faiths after the Balchoth's fall
+		religion = faith_rhun_pantheistic
+	}
+	6800.1.1 = {
+		religion = faith_kerkassk
+	}
+}
+
+3665 = {	#Saraigul (b_saraigul)
+	culture = asdriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3666 = {	#Barudhan (b_barudhan)
+	culture = asdriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3667 = {	#Usrevar (b_usrevar)
+	culture = asdriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Luts (c_luts)
+
+3668 = {	#Luts (b_luts)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_01
+			curtain_walls_02
+			horse_pastures_02
+		}
+	}
+	5273.1.1 = { # Arrival of the Ulgath
+		culture = ulgath
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+	6500.1.1 = { # Balchoth invasions
+		culture = asdriag
+		religion = faith_easterling_war
+	}
+	6600.1.1 = { # Collapse of martial faiths after the Balchoth's fall
+		religion = faith_rhun_pantheistic
+	}
+	6900.1.1 = {
+		religion = faith_kerkassk
+	}
+}
+
+3669 = {	#Prisarn (b_prisarn)
+	culture = asdriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3670 = {	#Avlamakand (b_avlamakand)
+	culture = asdriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Parakh (c_parakh)
+
+4084 = {	#Parakhad (b_parakhad)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_01
+			hill_forts_02
+			hillside_grazing_02
+		}
+	}
+	4050.1.1 = { # first Odhriag migration
+		culture = odhriag
+	}
+	5430.1.1 = { # Variags move northwards under Ovatha VI
+		culture = variag
+	}
+	5500.1.1 = {
+		religion = faith_kerkassk
+	}
+	6500.1.1 = { # Balchoth invasions
+		culture = asdriag
+	}
+}
+
+4083 = {	#Valorand (b_valorand)
+	culture = asdriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+###	Dacranamel (d_dacranamel)
+##	Lest (c_lest)
+
+3671 = {	#Lest (b_lest)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	5.3.12 = {
+		special_building_slot = wonder_lest_01
+	}
+	4033.1.1 = {
+		special_building = wonder_lest_01
+		buildings = {
+			castle_03
+			curtain_walls_04
+			cereal_fields_03
+			# barracks_02
+		}
+	}
+	5500.1.1 = {
+		religion = faith_kerkassk
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
+}
+
+3672 = {	#Riavashad (b_riavashad)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = city_holding
+	4033.1.1 = {
+		buildings = {
+			city_02
+			farm_estates_03
+		}
+	}
+}
+
+3673 = {	#Sumna (b_sumna)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			hill_forts_03
+		}
+	}
+}
+
+3674 = {	#Kenshad (b_kenshad)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = church_holding
+	4033.1.1 = {
+		buildings = {
+			temple_02
+			hillside_grazing_03
+		}
+	}
+}
+
+##	Palcana (c_palcana)
+
+3676 = {	#Palcana (b_palcana)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			barracks_02
+			cereal_fields_03
+		}
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+}
+
+3675 = {	#Tset-Turna (b_tset-turna)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = city_holding
+	4033.1.1 = {
+		buildings = {
+			city_02
+			common_tradeport_03
+		}
+	}
+}
+
+3677 = {	#Idagul (b_idagul)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = church_holding
+}
+
+3678 = {	#Kamhalan (b_kamhalan)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Serverna (c_serverna)
+
+3679 = {	#Serverna (b_serverna)
+	culture = sagath
+	religion = faith_blue_sect
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			barracks_02
+			cereal_fields_03
+		}
+	}
+	5273.1.1 = { # Arrival of the Ulgath
+		culture = ulgath
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+	6000.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
+}
+
+3680 = {	#Damarand (b_damarand)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = city_holding
+	4033.1.1 = {
+		buildings = {
+			city_02
+			common_tradeport_03
+		}
+	}
+}
+
+3681 = {	#Ilsetashad (b_ilsetashad)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Rhonada (c_rhonada)
+
+3685 = {	#Rhonada (b_rhonada)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			hillside_grazing_03
+			hill_forts_02
+		}
+	}
+	5500.1.1 = {
+		religion = faith_kerkassk
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+}
+
+3686 = {	#Tset-Damya (b_tset-damya)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3687 = {	#Hûnmorsahr (b_hunmorsahr)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Martakend (c_martakend)
+
+3688 = {	#Martakend (b_martakend)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			hill_forts_04
+			hillside_grazing_03
+		}
+	}
+	4533.1.1 = { # Second Odhriag migration
+		culture = odhriag
+	}
+	5500.1.1 = {
+		religion = faith_kerkassk
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+}
+
+3689 = {	#Devadag (b_devadag)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3690 = {	#Skhôrzri (b_skhorzri)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Dargeca (c_dargeca)
+
+3691 = {	#Dargeca (b_dargeca)
+	culture = sagath
+	religion = faith_blue_sect
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_03
+			barracks_03
+			hill_forts_04
+		}
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+}
+
+3692 = {	#Sahildik (b_sahildik)
+	culture = igath
+	religion = faith_blue_sect
+	holding = none
+}
+
+3693 = {	#Kuzarend (b_kuzarend)
+	culture = igath
+	religion = faith_blue_sect
+	holding = none
+}
+
+###	Gathod (d_gathod)
+##	Matahari (c_matahari)
+
+3696 = {	#Tset-Lunaras (b_tset_lunaras)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_03
+			regimental_grounds_02
+		}
+	}
+	4533.1.1 = { # Second Odhriag migration
+		culture = odhriag
+	}
+	5382.5.1 = { # Rise of Angmar Start
+		religion = faith_phaon_afod
+	}
+	5500.1.1 = {
+		religion = faith_kerkassk
+	}
+	6500.1.1 = { # Balchoth invasions
+		culture = asdriag
+	}
+	6800.1.1 = {
+		culture = igath
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
+}
+
+3697 = {	#Tôsahr (b_tosahr)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = city_holding
+	4033.1.1 = {
+		buildings = {
+			city_01
+			logging_camps_02
+		}
+	}
+}
+
+3698 = {	#Marizar (b_marizar)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = church_holding
+	4033.1.1 = {
+		buildings = {
+			temple_01
+			hillside_grazing_02
+		}
+	}
+}
+
+3699 = {	#Hûnkkahad (b_hunkkahad)
+	culture = igath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Lhânzri (c_lhanzri)
+
+3700 = {	#Lhânzri (b_lhanzri)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_01
+			curtain_walls_01
+			horse_pastures_02
+		}
+	}
+	4533.1.1 = { # Second Odhriag migration
+		culture = odhriag
+	}
+	5500.1.1 = {
+		religion = faith_kerkassk
+	}
+	7174.1.1 = {
+		culture = igath
+		religion = faith_rhun_pantheistic
+	}
+}
+
+3701 = {	#Côrikas (b_corikas)
+	culture = odhriag
+	religion = faith_rhun_pantheistic
+	holding = city_holding
+	4033.1.1 = {
+		buildings = {
+			city_01
+			cereal_fields_01
+		}
+	}
+}
+
+3702 = {	#Maramasa (b_maramasa)
+	culture = odhriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3703 = {	#Maklôsahr (b_maklosahr)
+	culture = odhriag
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_01
+			hill_forts_01
+		}
+	}
+}
+
+##	Tarlzahad (c_tarlzahad)
+
+3704 = {	#Tarlzahad (b_tarlzahad)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			barracks_02
+			curtain_walls_01
+		}
+	}
+	4533.1.1 = { # Second Odhriag migration
+		culture = odhriag
+	}
+}
+
+3705 = {	#Sânisahr (b_sanisahr)
+	culture = odhriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3706 = {	#Shôritol (b_shoritol)
+	culture = odhriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Udnad (c_udnad)
+
+3707 = {	#Udnad (b_udnad)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_01
+			hill_forts_01
+			hillside_grazing_02
+		}
+	}
+	4533.1.1 = { # Second Odhriag migration
+		culture = odhriag
+	}
+	5382.5.1 = { # Rise of Angmar Start
+		religion = faith_phaon_afod
+	}
+	6000.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
+}
+
+3709 = {	#Ikûmanikaz (b_ikumanikaz)
+	culture = odhriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Westa (c_westa)
+
+3710 = {	#Stainah Westa (b_stainah_westa)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_01
+			curtain_walls_01
+			horse_pastures_02
+		}
+	}
+	4533.1.1 = { # Second Odhriag migration
+		culture = odhriag
+	}
+	5382.5.1 = { # Rise of Angmar Start
+		religion = faith_phaon_afod
+	}
+	5500.1.1 = {
+		religion = faith_kerkassk
+	}
+	6500.1.1 = { # Balchoth invasions
+		culture = asdriag
+	}
+	6800.1.1 = {
+		culture = odhriag
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
+}
+
+3711 = {	#Avosod (b_avosod)
+	culture = odhriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3712 = {	#Barsakis (b_barsakis)
+	culture = odhriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Rovlarand (c_rovlarand)
+
+3713 = {	#Rovlarand (b_rovlarand)
+	culture = northron
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_01
+			hill_forts_02
+			hillside_grazing_02
+		}
+	}
+	5382.5.1 = { # Rise of Angmar Start
+		culture = ebnathiuda
+		religion = faith_phaon_afod
+	}
+	5500.1.1 = {
+		culture = sagath
+		religion = faith_rhun_pantheistic
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+	6500.1.1 = { # Balchoth invasions
+		culture = asdriag
+	}
+	6800.1.1 = {
+		religion = faith_kerkassk
+	}
+	7174.1.1 = {
+		culture = igath
+		religion = faith_rhun_pantheistic
+	}
+}
+
+3714 = {	#Marazahad (b_marazahad)
+	culture = asdriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3715 = {	#Hazriag (b_hazriag)
+	culture = asdriag
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+###	Ulgathavuld (d_ulgathavuld)
+##	Kelepar (c_kelepar)
+
+3716 = {	#Kelepar (b_kelepar)
+	culture = logath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_03
+			curtain_walls_03
+			common_tradeport_04
+		}
+	}
+	5273.1.1 = { # Arrival of the Ulgath
+		culture = ulgath
+	}
+	6800.1.1 = {
+		religion = faith_kerkassk
+	}
+	7174.1.1 = {
+		religion = faith_blue_sect
+	}
+}
+
+3717 = {	#Tset-Ulgatha (b_tset_ulgatha)
+	culture = ulgath
+	religion = faith_rhun_pantheistic
+	holding = city_holding
+	4033.1.1 = {
+		buildings = {
+			city_02
+			barracks_03
+		}
+	}
+}
+
+3718 = {	#Meydan (b_meydan)
+	culture = ulgath
+	religion = faith_rhun_pantheistic
+	holding = church_holding
+	4033.1.1 = {
+		buildings = {
+			temple_02
+			horse_pastures_03
+		}
+	}
+}
+
+3719 = {	#Zilirye (b_zilirye)
+	culture = ulgath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Hedren (c_hedren)
+
+3720 = {	#Tset-Hedren (b_tset_hedren)
+	culture = logath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			hill_forts_03
+			hillside_grazing_02
+		}
+	}
+	5273.1.1 = { # Arrival of the Ulgath
+		culture = ulgath
+	}
+	6800.1.1 = {
+		religion = faith_kerkassk
+	}
+	7174.1.1 = {
+		religion = faith_blue_sect
+	}
+}
+
+3721 = {	#Tset-Tokay (b_tset_tokay)
+	culture = ulgath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3722 = {	#Ekizri (b_ekizri)
+	culture = ulgath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3723 = {	#Bastag (b_bastag)
+	culture = ulgath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Habaor (c_habaor)
+
+3724 = {	#Tset-Habaor (b_tset_habaor)
+	culture = sagath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_03
+			barracks_02
+		}
+	}
+	5273.1.1 = { # Arrival of the Ulgath
+		culture = ulgath
+	}
+	5883.1.1 = { # Arrival of the Wainriders
+		culture = igath
+	}
+	6800.1.1 = {
+		culture = ulgath
+	}
+	6900.1.1 = {
+		religion = faith_kerkassk
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
+
+}
+
+3725 = {	#Nazimak (b_nazimak)
+	culture = ulgath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3726 = {	#Harizri (b_harizri)
+	culture = ulgath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Sura (c_sura)
+
+3727 = {	#Sura (b_sura)
+	culture = ulgath
+	religion = faith_rhun_pantheistic
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_01
+			ramparts_02
+			logging_camps_02
+		}
+	}
+	5500.1.1 = {
+		religion = faith_kerkassk
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
+}
+
+3728 = {	#Lhanzgahad (b_lhanzgahad)
+	culture = ulgath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3729 = {	#Lormarn (b_lormarn)
+	culture = ulgath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+####	Nelornieth (k_nelornieth)
+###	Nimbregardh (d_nimbregardh)
+##	Caras Torn (c_caras_torn)
+
+3911 = {	#Caras Torn (b_caras_torn)
+	culture = penni
+	religion = faith_penni
+	holding = elven_holding
+	300.1.1 = {
+		buildings = {
+			elven_settlement_05
+			elven_markets_05
+			elven_embassy_03
+		}
+		special_building_slot = wonder_quartz_hall
+		special_building = wonder_quartz_hall
+		duchy_capital_building = hall_of_music_and_tales_03
+	}
+}
+
+3912 = {	#Bronador (b_bronador)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+3913 = {	#Eryn Halleth (b_eryn_halleth)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+3914 = {	#Brithilwen (b_brithilwen)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+##	Nimbrethil (c_nimbrethil)
+
+3915 = {	#Nimbrethil (b_nimbrethil)
+	culture = penni
+	religion = faith_penni
+	holding = elven_holding
+	300.1.1 = {
+		buildings = {
+			elven_settlement_03
+			tree_flet_03
+			elven_forges_03
+		}
+	}
+}
+
+3916 = {	#Haernen (b_haernen)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+3917 = {	#Arnimbar (b_arnimbar)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+##	Lant Glawar (c_lant_glawar)
+
+3918 = {	#Lant Glawar (b_lant_glawar)
+	culture = penni
+	religion = faith_penni
+	holding = elven_holding
+	300.1.1 = {
+		buildings = {
+			elven_settlement_03
+			tree_flet_03
+			elven_forges_03
+		}
+	}
+}
+
+3921 = {	#Glithinen (b_glithinen)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+##	Eryn Laeg (c_eryn_laeg)
+
+3919 = {	#Eryn Laeg (b_eryn_laeg)
+	culture = penni
+	religion = faith_penni
+	holding = elven_holding
+	300.1.1 = {
+		buildings = {
+			elven_settlement_03
+			tree_flet_03
+			elven_fletchers_03
+		}
+	}
+}
+
+3920 = {	#Eglaros (b_eglaros)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+##	Nen Gweleb (c_nen_gweleb)
+
+3922 = {	#Nen Gweleb (b_nen_gweleb)
+	culture = penni
+	religion = faith_penni
+	holding = elven_holding
+	300.1.1 = {
+		buildings = {
+			elven_settlement_03
+			tree_flet_03
+			elven_forges_03
+		}
+	}
+}
+
+3923 = {	#Arossond (b_arossond)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+###	Dor Banath (d_dor_banath)
+##	Caras Edel (c_caras_edel)
+
+3925 = {	#Caras Edel (b_caras_edel)
+	culture = penni
+	religion = faith_penni
+	holding = elven_holding
+	300.1.1 = {
+		buildings = {
+			elven_settlement_04
+			elven_markets_04
+			elven_barracks_03
+		}
+		duchy_capital_building = sentinel_keeps_01
+	}
+}
+
+3926 = {	#Cirimar (b_cirimar)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+3927 = {	#Nin-i-Thin (b_nin_i_thin)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+3942 = {	#Avrailur (b_avrailur)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+##	Eryn Tirnen (c_eryn_tirnen)
+
+3928 = {	#Eryn Tirnen (b_eryn_tirnen)
+	culture = penni
+	religion = faith_penni
+	holding = elven_holding
+	300.1.1 = {
+		buildings = {
+			elven_settlement_02
+			tree_flet_02
+			elven_forestry_02
+		}
+	}
+}
+
+3930 = {	#Aelennor (b_aelennor)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+##	Padrand (c_padrand)
+
+3935 = {	#Padrand (b_padrand)
+	culture = penni
+	religion = faith_penni
+	holding = elven_holding
+	300.1.1 = {
+		buildings = {
+			elven_settlement_02
+			tree_flet_02
+			elven_hunting_grounds_02
+		}
+	}
+}
+
+3933 = {	#Esgarond (b_esgarond)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+3934 = {	#Taur Minui (b_taur_minui)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+##	Rhond Gwanwen (c_rhond_gwanwen)
+
+3924 = {	#Rhond Gwanwen (b_rhond gwanwen)
+	culture = penni
+	religion = faith_penni
+	holding = elven_holding
+	300.1.1 = {
+		buildings = {
+			elven_settlement_02
+			tree_flet_02
+			elven_fletchers_02
+		}
+	}
+}
+
+3932 = {	#Dolmadhras (b_dolmadhras)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+3937 = {	#Eressenor (b_eressenor)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+3938 = {	#Cabed-en-Celoros (b_cabed_en_celoros)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+###	Naergurthardh (d_naergurthardh)
+##	Lant Naergurth (c_lant_naergurth)
+
+3945 = {	#Lant Naergurth (b_lant_naergurth)
+	culture = penni
+	religion = faith_penni
+	holding = elven_holding
+	300.1.1 = {
+		buildings = {
+			elven_settlement_03
+			tree_flet_03
+			elven_fletchers_02
+		}
+	}
+}
+
+3944 = {	#Gruithel (b_gruithel)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+3941 = {	#Lothlad (b_lothlad)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+3939 = {	#Morenning (b_morenning)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+##	Midilhad (c_midilhad)
+
+3946 = {	#Midilhad (b_midilhad)
+	culture = penni
+	religion = faith_penni
+	holding = elven_holding
+	300.1.1 = {
+		buildings = {
+			elven_settlement_02
+			tree_flet_02
+			elven_forges_02
+		}
+	}
+}
+
+3947 = {	#Taeglas (b_taeglas)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+3948 = {	#Rinnaur (b_rinnaur)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+##	Lind Gelir (c_lind_gelir)
+
+3950 = {	#Lind Gelir (b_lind gelir)
+	culture = penni
+	religion = faith_penni
+	holding = elven_holding
+	300.1.1 = {
+		buildings = {
+			elven_settlement_02
+			tree_flet_02
+			elven_hunting_grounds_02
+		}
+	}
+}
+
+3949 = {	#Tharithir (b_tharithir)
+	culture = penni
+	religion = faith_penni
+	holding = none
+}
+
+###	Kugathavuld (d_kugathavuld)
+##	Kugavod (c_kugavod)
+
+3951 = {	#Kugavod (b_kugavod)
+	culture = ulgath
+	religion = faith_blue_sect
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_04
+			peat_quarries_03
+		}
+	}
+}
+
+3952 = {	#Eryribor (b_eryribor)
+	culture = ulgath
+	religion = faith_blue_sect
+	holding = none
+}
+
+3953 = {	#Kugoria (b_kugoria)
+	culture = ulgath
+	religion = faith_blue_sect
+	holding = none
+}
+
+##	Leshen (c_leshen)
+
+3954 = {	#Tset-Leshen (b_tset_leshen)
+	culture = ulgath
+	religion = faith_blue_sect
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_01
+			hill_forts_02
+			hillside_grazing_02
+		}
+	}
+	6800.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
+}
+
+3956 = {	#Leshizri (b_leshizri)
+	culture = ulgath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+3955 = {	#Kugamarn (b_kugamarn)
+	culture = ulgath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+##	Risok Usor (c_risok_usor)
+
+3957 = {	#Tset-Risok (b_tset_risok)
+	culture = ulgath
+	religion = faith_blue_sect
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_01
+			hill_forts_02
+			barracks_02
+		}
+	}
+	6800.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
+}
+
+3958 = {	#Kalemek (b_kalemek)
+	culture = ulgath
+	religion = faith_rhun_pantheistic
+	holding = none
+}
+
+###	Gazar Kug (d_gazar_kug)
+##	Otava (c_otava)
+
+3962 = {	#Otava (b_otava)
+	culture = ulgath
+	religion = faith_blue_sect
+	holding = castle_holding
+	4033.1.1 = {
+		buildings = {
+			castle_01
+			curtain_walls_02
+			common_tradeport_02
+		}
+	}
+}
+
+3964 = {	#Toropils (b_toropils)
+	culture = ulgath
+	religion = faith_blue_sect
+	holding = church_holding
+	4033.1.1 = {
+		buildings = {
+			temple_01
+			common_tradeport_02
+		}
+	}
+}
+
+3965 = {	#Draguvod (b_draguvod)
+	culture = ulgath
+	religion = faith_blue_sect
+	holding = none
+}
+
+##	Chernobor (c_chernobor)
+
+3959 = {	#Chernobor (b_chernobor)
+	culture = ulgath
+	religion = faith_rhun_pantheistic
+	holding = tribal_holding
+	4033.1.1 = {
+		buildings = {
+			tribe_02
+			palisades_02
+			market_villages_01
+		}
+	}
+	6000.1.1 = {
+		culture = logath
+		religion = faith_logath
+	}
+}
+
+3960 = {	#Polonava (b_polonava)
+	culture = logath
+	religion = faith_logath
+	holding = none
+}
+
+##	Berestye (c_berestye)
+
+3963 = {	#Berestye (b_berestye)
+
+	culture = ulgath
+	religion = faith_rhun_pantheistic
+	holding = tribal_holding
+	4033.1.1 = {
+		buildings = {
+			tribe_02
+			palisades_02
+		}
+	}
+	6000.1.1 = {
+		culture = logath
+		religion = faith_logath
+	}
+}
+
+3961 = {	#Kurovanaar (b_kurovanaar)
+	culture = logath
+	religion = faith_logath
+	holding = none
+}
+
+####	Nurunkizdin (k_nurunkizdin)
+###	Nurunkizdin (d_nurunkizdin)
+##	Falek-dim (c_falek_dim)
+
+5239 = {	#Falek-dim (b_falek_dim)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		wild_orcs
+		stale_air
+	}
+
+	3389.6.3 = { # Ironfists Settle
+		culture = ironfists
+		religion = faith_ironfists
+		holding = dwarven_holding
+	}
+
+	4339.10.11 = { # Dragons wipe them out
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			dragon_attack
+		}
+	}
+}
+
+##	Gabil-dûm (c_gabil_dum)
+
+5240 = {	#Gabil-dûm (b_gabil_dum)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		collapsed_ceiling
+		stale_air
+	}
+
+	3389.6.3 = { # Ironfists Settle
+		culture = ironfists
+		religion = faith_ironfists
+		holding = dwarven_holding
+	}
+
+	4337.9.10 = { # # Ironfist population dwindles
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			wild_orcs
+		}
+	}
+
+	5274.2.7 = { # Orcish outcasts settle for a while
+		culture = kuhai
+		religion = dragon_cult
+		holding = dwarven_holding
+	}
+	5422.12.17 = { # Goblins win the war against the Orcs and drive them out
+		culture = roofsleeper_goblin
+		religion = faith_deep_cult
+		holding = dwarven_holding
+	}
+	5741.5.19 = { # After incessant raids into the rhovannic plains, the Goblins are decimated and retreat to their deepest holes
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			stale_air
+		}
+	}
+
+}
+
+##	Hathur-na-bunderok (c_hathur_na_bunderok)
+
+5241 = {	#Hathur-na-bunderok (b_hathur_na_bunderok)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		stale_air
+	}
+
+	3389.6.3 = { # Ironfists Settle
+		culture = ironfists
+		religion = faith_ironfists
+		holding = dwarven_holding
+	}
+
+	4339.10.11 = { # Dragons wipe them out
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			stale_air
+		}
+	}
+
+	5000.1.1 = { # Goblins Settle
+		culture = roofsleeper_goblin
+		religion = faith_deep_cult
+		holding = dwarven_holding
+	}
+}
+
+##	Danakh-nâla (c_danakh_nâla)
+
+5242 = {	#Danakh-nâla (b_danakh_nâla)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		collapsed_ceiling
+		flooded_tunnels
+	}
+
+	3389.6.3 = { # Ironfists Settle
+		culture = ironfists
+		religion = faith_ironfists
+		holding = dwarven_holding
+	}
+
+	4195.5.10 = { # Ironfist population dwindles
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			flooded_tunnels
+		}
+	}
+}
+
+##	Marzgûr (c_marzgur)
+
+5243 = {	#Marzgûr (b_marzgur)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		bear_den
+		bandits
+	}
+
+	1.1.3 = {
+		special_building_slot = wonder_iflenak
+		special_building = wonder_iflenak
+	}
+
+	3389.6.3 = { # Ironfists Settle
+		culture = ironfists
+		religion = faith_ironfists
+		holding = castle_holding
+	}
+
+	4339.10.11 = { # Dragons wipe them out
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			bandits
+		}
+	}
+
+	#6821.9.18 = { # Easterlings Settle
+	#	culture = asdriag
+	#	religion = faith_kerkassk
+	#	holding = tribal_holding
+	#}
+}
+
+5244 = {	#Filkîn-zâram (b_filkin_zaram)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+}

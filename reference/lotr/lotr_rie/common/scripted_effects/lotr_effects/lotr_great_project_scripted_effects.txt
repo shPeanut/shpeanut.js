@@ -1,0 +1,1599 @@
+﻿upgrade_dwarven_great_building_effect = {
+	switch = {
+		trigger = has_building
+		#Belegost
+		wonder_belegost_broken = {
+			hidden_effect = { remove_building = wonder_belegost_broken }
+			set_great_building = wonder_belegost_t2
+		}
+		wonder_belegost_t2 = {
+			hidden_effect = { remove_building = wonder_belegost_t2 }
+			set_great_building = wonder_belegost_rebuilt
+		}
+		wonder_belegost_rebuilt = {
+			hidden_effect = { remove_building = wonder_belegost_rebuilt }
+			set_great_building = wonder_belegost_t4
+		}
+		wonder_belegost_t4 = {
+			hidden_effect = { remove_building = wonder_belegost_t4 }
+			set_great_building = wonder_belegost_reborn
+		}
+		#Nogrod
+		wonder_nogrod_broken = {
+			hidden_effect = { remove_building = wonder_nogrod_broken }
+			set_great_building = wonder_nogrod_t2
+		}
+		wonder_nogrod_t2 = {
+			hidden_effect = { remove_building = wonder_nogrod_t2 }
+			set_great_building = wonder_nogrod_rebuilt
+		}
+		wonder_nogrod_rebuilt = {
+			hidden_effect = { remove_building = wonder_nogrod_rebuilt }
+			set_great_building = wonder_nogrod_t4
+		}
+		wonder_nogrod_t4 = {
+			hidden_effect = { remove_building = wonder_nogrod_t4 }
+			set_great_building = wonder_nogrod_reborn
+		}
+		#Khazad-dûm - LotR TODO - Implement 5-tier Khazad-dûm
+		wonder_durin_throne_broken = {
+			hidden_effect = { remove_building = wonder_durin_throne_broken }
+			set_great_building = wonder_durin_throne_t2
+		}
+		wonder_durin_throne_t2 = {
+			hidden_effect = { remove_building = wonder_durin_throne_t2 }
+			set_great_building = wonder_durin_throne_t3
+		}
+		wonder_durin_throne_t3 = {
+			hidden_effect = { remove_building = wonder_durin_throne_t3 }
+			set_great_building = wonder_durin_throne_t4
+		}
+		wonder_durin_throne_t4 = {
+			hidden_effect = { remove_building = wonder_durin_throne_t4 }
+			set_great_building = wonder_durin_throne_t5
+		}
+		#Mablâd-dûm
+		wonder_mabladdum_broken = {
+			hidden_effect = { remove_building = wonder_mabladdum_broken }
+			set_great_building = wonder_mabladdum_t2
+		}
+		wonder_mabladdum_t2 = {
+			hidden_effect = { remove_building = wonder_mabladdum_t2 }
+			set_great_building = wonder_mabladdum_rebuilt
+		}
+		wonder_mabladdum_rebuilt = {
+			hidden_effect = { remove_building = wonder_mabladdum_rebuilt }
+			set_great_building = wonder_mabladdum_t4
+		}
+		wonder_mabladdum_t4 = {
+			hidden_effect = { remove_building = wonder_mabladdum_t4 }
+			set_great_building = wonder_mabladdum_reborn
+		}
+	}
+}
+
+##Dwarven Capital Great Project Contribution Rewards
+
+### Capital 02 Breakdown Effects ###
+
+contributed_rite_of_mahal_effect = {
+	custom_description_no_bullet = { text = contributed_rite_of_mahal }
+	mandala_contributor_minor_rite_reward_effect = yes
+}
+
+dwarven_contributor_work_force_reward_effect = { 
+	add_character_modifier = { 
+		modifier = dwarven_strong_workers_modifier
+		years = 15
+	}
+}
+contributed_dwarven_work_force_effect = {
+	custom_description_no_bullet = { text = contributed_work_force }
+	dwarven_contributor_work_force_reward_effect = yes
+}
+dwarven_contributor_shallow_pools_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+			value = {
+				add = medium_prestige_value
+				multiply = 1.5
+			}
+		}	
+	}
+	if = {
+		limit = { exists = scope:province }
+		custom_tooltip = dwarven_contributor_shallow_pools_reward_province_effect_tt
+		hidden_effect = {
+			scope:province = {
+				add_province_modifier = { modifier = dwarven_shallow_pools_defense_modifier }
+			}
+		}
+	}
+	else = {
+		custom_tooltip = dwarven_contributor_shallow_pools_reward_effect_tt
+		hidden_effect = {
+			scope:owner.capital_province = {
+				add_province_modifier = { modifier = dwarven_shallow_pools_defense_modifier }
+			}
+		}	
+	}
+}
+contributed_dwarven_shallow_pools_effect = {
+	custom_description_no_bullet = { text = contributed_dwarven_shallow_pools }
+	dwarven_contributor_shallow_pools_reward_effect = yes
+}
+
+dwarven_contributor_decorated_ceilings_reward_effect = {
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = major_prestige_value
+	}
+	scope:owner.dynasty = {
+		scope:owner = { custom_tooltip = dwarven_contributor_decorated_ceilings_reward_effect_tt }
+		hidden_effect = {
+			add_dynasty_modifier = { modifier = dwarven_decorated_ceilings_dynasty_modifier }
+		}
+	}	
+}
+contributed_decorated_ceilings_effect = {
+	custom_description_no_bullet = { text = contributed_decorated_ceilings }
+	dwarven_contributor_decorated_ceilings_reward_effect = yes
+}
+
+dwarven_contributor_throne_room_reward_effect = { 
+	dynasty = { add_dynasty_prestige = major_dynasty_prestige_value }
+	player_heir ?= {
+		add_piety_experience = major_piety_value
+	}
+}
+contributed_throne_room_effect = {
+	custom_description_no_bullet = { text = contributed_throne_room }
+	dwarven_contributor_throne_room_reward_effect = yes
+}
+
+#The actual effect
+lotr_check_and_reward_dwarven_contributions_02_effect = {
+	if = {
+		limit = { scope:contributed_rite_of_mahal ?= root }
+		contributed_rite_of_mahal_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_brick ?= root }
+		contributed_brick_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_tiles ?= root }
+		contributed_decorative_tiles_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_shallow_pools ?= root }
+		contributed_dwarven_shallow_pools_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_work_force ?= root }
+		contributed_dwarven_work_force_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_decorative_tiles ?= root }
+		contributed_decorative_tiles_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_decorated_ceilings ?= root }
+		contributed_decorated_ceilings_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_throne_room ?= root }
+		contributed_throne_room_effect = yes	
+	}
+}
+
+
+### Capital 03 Breakdown Effects ###
+contributed_rite_of_mahal_02_effect = {
+	custom_description_no_bullet = { text = contributed_rite_of_mahal }
+	mandala_contributor_medium_rite_reward_effect = yes
+}
+
+dwarven_contributor_marble_stone_reward_effect = { 
+	add_prestige = {
+		value = {
+			add = major_prestige_value
+			multiply = 1.25
+			#Rounds up to the closest number divisible by 5
+			divide = 5
+			ceiling = yes
+			multiply = 5
+		}
+	}
+}
+contributed_marble_stone_effect = {
+	custom_description_no_bullet = { text = contributed_marble_stone }
+	dwarven_contributor_marble_stone_reward_effect = yes
+}
+
+dwarven_contributor_arched_gateways_reward_effect = { 
+	add_prestige = {
+		value = {
+			add = medium_prestige_value
+			multiply = 1.75
+			#Rounds up to the closest number divisible by 5
+			divide = 5
+			ceiling = yes
+			multiply = 5
+		}
+	}
+	add_piety_experience = {
+		value = {
+			add = mandala_contribution_medium_dynasty_reward
+			multiply = 1.75
+			#Rounds up to the closest number divisible by 5
+			divide = 5
+			ceiling = yes
+			multiply = 5
+		}
+	}
+}
+contributed_arched_gateways_effect = {
+	custom_description_no_bullet = { text = contributed_arched_gateways }
+	dwarven_contributor_arched_gateways_reward_effect = yes
+}
+
+dwarven_contributor_dynastic_statues_reward_effect = {
+	add_stewardship_skill = 1
+	if = {
+		limit = { exists = scope:province }
+		custom_tooltip = dwarven_contributor_dynastic_statues_reward_province_effect_tt
+		hidden_effect = {
+			scope:province = {
+				add_province_modifier = { modifier = dwarven_dynastic_statues_modifier }
+			}
+		}
+	}
+	else = {
+		custom_tooltip = dwarven_contributor_dynastic_statues_reward_effect_tt
+		hidden_effect = {
+			scope:owner.capital_province = {
+				add_province_modifier = { modifier = dwarven_dynastic_statues_modifier }
+			}
+		}	
+	}
+}
+contributed_dynastic_statues_effect = {
+	custom_description_no_bullet = { text = contributed_dynastic_statues }
+	dwarven_contributor_dynastic_statues_reward_effect = yes
+}
+
+dwarven_contributor_gilded_ceilings_reward_effect = {
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = major_prestige_value
+	}
+	scope:owner.dynasty = {
+		if = {
+			limit = { has_dynasty_modifier = dwarven_decorated_ceilings_dynasty_modifier }
+			scope:owner = { custom_tooltip = dwarven_contributor_decorated_gilded_ceilings_reward_effect_tt_replaced }
+			hidden_effect = {
+				remove_dynasty_modifier = dwarven_decorated_ceilings_dynasty_modifier
+				add_dynasty_modifier = { modifier = dwarven_gilded_ceilings_dynasty_modifier }
+			}
+		}
+		else = {
+			scope:owner = { custom_tooltip = dwarven_contributor_gilded_ceilings_reward_effect_tt }
+			hidden_effect = {
+				add_dynasty_modifier = { modifier = dwarven_gilded_ceilings_dynasty_modifier }
+			}
+		}
+	}
+}
+contributed_gilded_ceilings_effect = {
+	custom_description_no_bullet = { text = contributed_gilded_ceilings }
+	dwarven_contributor_gilded_ceilings_reward_effect = yes
+}
+
+dwarven_contributor_palatial_compound_reward_effect = { 
+	dynasty = { add_dynasty_prestige = major_dynasty_prestige_value }
+	player_heir ?= {
+		add_piety_experience = massive_piety_value
+	}
+}
+contributed_palatial_compound_effect = {
+	custom_description_no_bullet = { text = contributed_palatial_compound }
+	dwarven_contributor_palatial_compound_reward_effect = yes
+}
+dwarven_contributor_divine_statues_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+			value = {
+				add = medium_prestige_value
+				multiply = 1.5
+			}
+		}
+		add_piety_experience = mandala_contribution_medium_dynasty_reward
+	}
+	if = {
+		limit = { exists = scope:province }
+		custom_tooltip = dwarven_contributor_divine_statues_reward_province_effect_tt
+		hidden_effect = {
+			scope:province = {
+				add_province_modifier = { modifier = dwarven_divine_statues_province_modifier }
+			}
+		}
+	}
+	else = {
+		custom_tooltip = dwarven_contributor_divine_statues_reward_effect_tt
+		hidden_effect = {
+			scope:owner.capital_province = {
+				add_province_modifier = { modifier = dwarven_divine_statues_province_modifier }
+			}
+		}	
+	}
+}
+contributed_dwarven_divine_statues_effect = {
+	custom_description_no_bullet = { text = dwarven_contributed_divine_statues }
+	dwarven_contributor_divine_statues_reward_effect = yes
+}
+
+#The actual effect
+lotr_check_and_reward_dwarven_contributions_03_effect = {
+	if = {
+		limit = { scope:contributed_rite_of_mahal ?= root }
+		contributed_rite_of_mahal_02_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_marble_stone ?= root }
+		contributed_marble_stone_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_arched_gateways ?= root }
+		contributed_arched_gateways_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_divine_statues ?= root }
+		contributed_dwarven_divine_statues_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_work_force ?= root }
+		contributed_dwarven_work_force_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_dynastic_statues ?= root }
+		contributed_dynastic_statues_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_gilded_ceilings ?= root }
+		contributed_gilded_ceilings_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_palatial_compound ?= root }
+		contributed_palatial_compound_effect = yes	
+	}
+}
+
+
+### Capital 04 Breakdown Effects ###
+
+dwarven_contributor_slabs_of_porphyry_reward_effect = { 
+	add_prestige = {
+		value = {
+			add = major_prestige_value
+			multiply = 1.25
+			#Rounds up to the closest number divisible by 5
+			divide = 5
+			ceiling = yes
+			multiply = 5
+		}
+	}
+}
+contributed_slabs_of_porphyry_effect = {
+	custom_description_no_bullet = { text = contributed_slabs_of_porphyry }
+	dwarven_contributor_slabs_of_porphyry_reward_effect = yes
+}
+
+dwarven_contributor_light_shafts_reward_effect = { 
+	add_prestige = {
+		value = {
+			add = medium_prestige_value
+			multiply = 1.75
+			#Rounds up to the closest number divisible by 5
+			divide = 5
+			ceiling = yes
+			multiply = 5
+		}
+	}
+	add_piety_experience = {
+		value = {
+			add = mandala_contribution_medium_dynasty_reward
+			multiply = 1.75
+			#Rounds up to the closest number divisible by 5
+			divide = 5
+			ceiling = yes
+			multiply = 5
+		}
+	}
+}
+contributed_light_shafts_effect = {
+	custom_description_no_bullet = { text = contributed_light_shafts }
+	dwarven_contributor_light_shafts_reward_effect = yes
+}
+
+dwarven_contributor_great_mirrors_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+			value = {
+				add = medium_prestige_value
+				multiply = 1.5
+			}
+		}
+		add_piety_experience = mandala_contribution_medium_dynasty_reward
+	}
+	if = {
+		limit = { exists = scope:province }
+		custom_tooltip = dwarven_contributor_great_mirrors_reward_province_effect_tt
+		hidden_effect = {
+			scope:province = {
+				add_province_modifier = { modifier = dwarven_great_mirrors_province_modifier }
+			}
+		}
+	}
+	else = {
+		custom_tooltip = dwarven_contributor_great_mirrors_reward_province_effect_tt
+		hidden_effect = {
+			scope:owner.capital_province = {
+				add_province_modifier = { modifier = dwarven_great_mirrors_province_modifier }
+			}
+		}	
+	}
+}
+contributed_great_mirrors_effect = {
+	custom_description_no_bullet = { text = contributed_great_mirrors }
+	mandala_contributor_gilded_shrines_reward_effect = yes
+}
+
+dwarven_contributor_carven_pillars_reward_effect = { 
+	add_character_modifier = { modifier = dwarven_carven_pillars_modifier }
+}
+contributed_carven_pillars_effect = {
+	custom_description_no_bullet = { text = contributed_carven_pillars }
+	dwarven_contributor_carven_pillars_reward_effect = yes
+}
+
+dwarven_contributor_bejeweled_ceilings_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = major_prestige_value
+	}
+	scope:owner.dynasty = {
+		if = {
+			limit = { has_dynasty_modifier = dwarven_decorated_ceilings_dynasty_modifier }
+			scope:owner = { custom_tooltip = dwarven_contributor_decorated_bejeweled_ceilings_reward_effect_tt_replaced }
+			hidden_effect = {
+				remove_dynasty_modifier = dwarven_decorated_ceilings_dynasty_modifier
+				add_dynasty_modifier = { modifier = dwarven_bejeweled_ceilings_dynasty_modifier }
+			}
+		}
+		else_if = {
+			limit = { has_dynasty_modifier = dwarven_gilded_ceilings_dynasty_modifier }
+			scope:owner = { custom_tooltip = dwarven_contributor_gilded_bejeweled_ceilings_reward_effect_tt_replaced }
+			hidden_effect = {
+				remove_dynasty_modifier = dwarven_gilded_ceilings_dynasty_modifier
+				add_dynasty_modifier = { modifier = dwarven_bejeweled_ceilings_dynasty_modifier }
+			}
+		}
+		else = {
+			scope:owner = { custom_tooltip = dwarven_contributor_bejeweled_ceilings_reward_effect_tt }
+			hidden_effect = {
+				add_dynasty_modifier = { modifier = dwarven_bejeweled_ceilings_dynasty_modifier }
+			}
+		}
+	}
+}
+contributed_bejeweled_ceilings_effect = {
+	custom_description_no_bullet = { text = contributed_bejeweled_ceilings }
+	dwarven_contributor_bejeweled_ceilings_reward_effect = yes
+}
+
+dwarven_contributor_palatial_complex_reward_effect = { 
+	dynasty = { add_dynasty_prestige = monumental_dynasty_prestige_value }
+	player_heir ?= {
+		add_piety_experience = monumental_piety_value
+	}
+}
+contributed_palatial_complex_effect = {
+	custom_description_no_bullet = { text = contributed_palatial_complex }
+	dwarven_contributor_palatial_complex_reward_effect = yes
+}
+
+
+#The actual effect
+lotr_check_and_reward_dwarven_contributions_04_effect = {
+	if = {
+		limit = { scope:contributed_rite_of_mahal ?= root }
+		contributed_rite_of_mahal_02_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_slabs_of_porphyry ?= root }
+		contributed_slabs_of_porphyry_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_light_shafts ?= root }
+		contributed_light_shafts_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_great_mirrors ?= root }
+		contributed_great_mirrors_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_work_force ?= root }
+		contributed_dwarven_work_force_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_carven_pillars ?= root }
+		contributed_carven_pillars_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_bejeweled_ceilings ?= root }
+		contributed_bejeweled_ceilings_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_palatial_complex ?= root }
+		contributed_palatial_complex_effect = yes	
+	}
+}
+
+
+### Capital 05 Breakdown Effects ###
+
+dwarven_contributor_waterways_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+			value = {
+				add = medium_prestige_value
+				multiply = 1.5
+			}
+		}	
+	}
+	if = {
+		limit = { exists = scope:province }
+		custom_tooltip = dwarven_contributor_waterways_reward_province_effect_tt
+		hidden_effect = {
+			scope:province = {
+				add_province_modifier = { modifier = dwarven_waterways_defense_modifier }
+			}
+		}
+	}
+	else = {
+		custom_tooltip = dwarven_contributor_waterways_reward_effect_tt
+		hidden_effect = {
+			scope:owner.capital_province = {
+				add_province_modifier = { modifier = dwarven_waterways_defense_modifier }
+			}
+		}	
+	}
+}
+contributed_waterways_effect = {
+	custom_description_no_bullet = { text = contributed_waterways }
+	dwarven_contributor_waterways_reward_effect = yes
+}
+
+dwarven_contributor_pillar_forest_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige_experience = major_prestige_value
+		if = {
+			limit = { 
+				can_add_hook = {
+					target = scope:owner
+					type = strong_contribution_hook
+				}
+			}
+			add_hook = {
+				target = scope:owner
+				type = strong_contribution_hook
+			}
+		}
+	}
+	custom_tooltip = dwarven_contributor_pillar_forest_reward_effect_tt
+	hidden_effect = {
+		scope:owner.dynasty = {
+			add_dynasty_modifier = { modifier = dwarven_pillar_forest_modifier }
+		}
+	}
+}
+contributed_pillar_forest_effect = {
+	custom_description_no_bullet = { text = contributed_pillar_forest }
+	dwarven_contributor_pillar_forest_reward_effect = yes
+}
+
+dwarven_contributor_dwarf_father_palace_reward_effect = { 
+	dynasty = { add_dynasty_prestige = monumental_dynasty_prestige_value }
+	player_heir ?= {
+		add_piety_experience = {
+			value = monumental_piety_value
+			add = massive_piety_value
+		}
+	}
+}
+contributed_dwarf_father_palace_effect = {
+	custom_description_no_bullet = { text = contributed_dwarf_father_palace }
+	dwarven_contributor_dwarf_father_palace_reward_effect = yes
+}
+
+dwarven_contributor_bejeweled_reliefs_reward_effect = {
+	add_character_modifier = { modifier = dwarven_bejeweled_reliefs_modifier }
+}
+lotr_contributed_bejeweled_reliefs_effect = {
+	custom_description_no_bullet = { text = contributed_bejeweled_reliefs }
+	dwarven_contributor_bejeweled_reliefs_reward_effect = yes
+}
+
+#The actual effect
+lotr_check_and_reward_dwarven_contributions_05_effect = {
+	if = {
+		limit = { scope:contributed_rite_of_mahal ?= root }
+		contributed_rite_of_mahal_02_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_marble_foundation ?= root }
+		contributed_marble_foundation_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_waterways ?= root }
+		contributed_waterways_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_work_force ?= root }
+		contributed_dwarven_work_force_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_bejeweled_reliefs ?= root }
+		lotr_contributed_bejeweled_reliefs_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_pillar_forest ?= root }
+		contributed_pillar_forest_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_dwarf_father_palace ?= root }
+		contributed_dwarf_father_palace_effect = yes	
+	}
+}
+
+upgrade_arnorian_stronghold_building_effect = {
+	switch = {
+		trigger = has_building
+		#Annuminas
+		wonder_annuminas_01 = {
+			hidden_effect = { remove_building = wonder_annuminas_01 }
+			set_great_building = wonder_annuminas_02
+		}
+		wonder_annuminas_02 = {
+			hidden_effect = { remove_building = wonder_annuminas_02 }
+			set_great_building = wonder_annuminas_03
+		}
+		#Fornost
+		wonder_fornost_01 = {
+			hidden_effect = { remove_building = wonder_fornost_01 }
+			set_great_building = wonder_fornost_02
+		}
+		wonder_fornost_02 = {
+			hidden_effect = { remove_building = wonder_fornost_02 }
+			set_great_building = wonder_fornost_03
+		}
+		#Cameth Brin
+		wonder_cameth_brin_01 = {
+			hidden_effect = { remove_building = wonder_cameth_brin_01 }
+			set_great_building = wonder_cameth_brin_02
+		}
+		wonder_cameth_brin_02 = {
+			hidden_effect = { remove_building = wonder_cameth_brin_02 }
+			set_great_building = wonder_cameth_brin_03
+		}
+		#Thalion
+		wonder_thalion_01 = {
+			hidden_effect = { remove_building = wonder_thalion_01 }
+			set_great_building = wonder_thalion_02
+		}
+		wonder_thalion_02 = {
+			hidden_effect = { remove_building = wonder_thalion_02 }
+			set_great_building = wonder_thalion_03
+		}
+		#Argond
+		wonder_argond_01 = {
+			hidden_effect = { remove_building = wonder_argond_01 }
+			set_great_building = wonder_argond_02
+		}
+		wonder_argond_02 = {
+			hidden_effect = { remove_building = wonder_argond_02 }
+			set_great_building = wonder_argond_03
+		}
+		#Tharbad
+		wonder_tharbad_01 = {
+			hidden_effect = { remove_building = wonder_tharbad_01 }
+			set_great_building = wonder_tharbad_02
+		}
+		wonder_tharbad_02 = {
+			hidden_effect = { remove_building = wonder_tharbad_02 }
+			set_great_building = wonder_tharbad_03
+		}
+		#Amon Sûl
+		wonder_amon_sul_01 = {
+			hidden_effect = { remove_building = wonder_amon_sul_01 }
+			set_great_building = wonder_amon_sul_02
+		}
+		wonder_amon_sul_02 = {
+			hidden_effect = { remove_building = wonder_amon_sul_02 }
+			set_great_building = wonder_amon_sul_03
+		}
+		#Mistalondë
+		wonder_mistalonde_01 = {
+			hidden_effect = { remove_building = wonder_mistalonde_01 }
+			set_great_building = wonder_mistalonde_02
+		}
+		wonder_mistalonde_02 = {
+			hidden_effect = { remove_building = wonder_mistalonde_02 }
+			set_great_building = wonder_mistalonde_03
+		}
+	}
+}
+
+contributed_sandstone_effect = {
+	custom_description_no_bullet = { text = contributed_sandstone }
+	mandala_contributor_slabs_of_sandstone_reward_effect = yes
+}
+
+contributed_white_marble_effect = {
+	custom_description_no_bullet = { text = contributed_white_marble }
+	mandala_contributor_marble_foundation_reward_effect = yes
+}
+
+arnorian_contributor_gardens_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+			value = {
+				add = medium_prestige_value
+				multiply = 1.5
+			}
+		}
+		add_piety_experience = mandala_contribution_medium_dynasty_reward
+	}
+	if = {
+		limit = { exists = scope:province }
+		custom_tooltip = arnorian_contributor_gardens_reward_province_effect_tt
+		hidden_effect = {
+			scope:province = {
+				add_province_modifier = { modifier = arnorian_gardens_province_modifier }
+			}
+		}
+	}
+	else = {
+		custom_tooltip = arnorian_contributor_gardens_reward_effect_tt
+		hidden_effect = {
+			scope:owner.capital_province = {
+				add_province_modifier = { modifier = arnorian_gardens_province_modifier }
+			}
+		}	
+	}
+}
+contributed_gardens_effect = {
+	custom_description_no_bullet = { text = contributed_gardens }
+	arnorian_contributor_gardens_reward_effect = yes
+}
+
+contributed_marble_statues_effect = {
+	custom_description_no_bullet = { text = contributed_marble_statues }
+	mandala_contributor_family_statues_reward_effect = yes
+}
+
+
+lotr_check_and_reward_arnorian_stronghold_contributions_01_effect = {
+	if = {
+		limit = { scope:contributed_sandstone ?= root }
+		contributed_sandstone_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_timber ?= root }
+		contributed_timber_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_tiles ?= root }
+		contributed_tiles_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_white_marble ?= root }
+		contributed_white_marble_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_work_force ?= root }
+		contributed_dwarven_work_force_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_gardens ?= root }
+		contributed_gardens_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_decorated_domes ?= root }
+		contributed_decorated_domes_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_marble_statues ?= root }
+		contributed_marble_statues_effect = yes	
+	}
+}
+
+arnorian_contributor_numenorean_walls_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige_experience = major_prestige_value
+		if = {
+			limit = { 
+				can_add_hook = {
+					target = scope:owner
+					type = strong_contribution_hook
+				}
+			}
+			add_hook = {
+				target = scope:owner
+				type = strong_contribution_hook
+			}
+		}
+	}
+}
+contributed_numenorean_walls_effect = {
+	custom_description_no_bullet = { text = contributed_numenorean_walls }
+	arnorian_contributor_numenorean_walls_reward_effect = yes
+}
+
+contributed_towering_keep_effect = {
+	custom_description_no_bullet = { text = contributed_towering_keep }
+	arnorian_contributor_numenorean_walls_reward_effect = yes
+}
+
+arnorian_contributor_mosaics_reward_effect = { 
+	
+}
+contributed_mosaics_effect = {
+	custom_description_no_bullet = { text = contributed_mosaics }
+	arnorian_contributor_mosaics_reward_effect = yes
+}
+
+arnorian_contributor_houses_of_healing_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+			value = {
+				add = medium_prestige_value
+				multiply = 1.5
+			}
+		}
+		add_piety_experience = mandala_contribution_medium_dynasty_reward
+	}
+	if = {
+		limit = { exists = scope:province }
+		custom_tooltip = arnorian_contributor_houses_of_healing_reward_province_effect_tt
+		hidden_effect = {
+			scope:province = {
+				add_province_modifier = { modifier = arnorian_houses_of_healing_province_modifier }
+			}
+		}
+	}
+	else = {
+		custom_tooltip = arnorian_contributor_houses_of_healing_reward_effect_tt
+		hidden_effect = {
+			scope:owner.capital_province = {
+				add_province_modifier = { modifier = arnorian_houses_of_healing_province_modifier }
+			}
+		}	
+	}
+}
+contributed_houses_of_healing_effect = {
+	custom_description_no_bullet = { text = contributed_houses_of_healing }
+	arnorian_contributor_houses_of_healing_reward_effect = yes
+}
+
+arnorian_contributor_sacred_hallow_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+			value = {
+				add = medium_prestige_value
+				multiply = 1.5
+			}
+		}
+		add_piety_experience = mandala_contribution_medium_dynasty_reward
+	}
+	if = {
+		limit = { exists = scope:province }
+		custom_tooltip = arnorian_contributor_sacred_hallow_reward_province_effect_tt
+		hidden_effect = {
+			scope:province = {
+				add_province_modifier = { modifier = arnorian_sacred_hallow_province_modifier }
+			}
+		}
+	}
+	else = {
+		custom_tooltip = arnorian_contributor_sacred_hallow_reward_effect_tt
+		hidden_effect = {
+			scope:owner.capital_province = {
+				add_province_modifier = { modifier = arnorian_sacred_hallow_province_modifier }
+			}
+		}	
+	}
+}
+contributed_sacred_hallow_effect = {
+	custom_description_no_bullet = { text = contributed_sacred_hallow }
+	arnorian_contributor_sacred_hallow_reward_effect = yes
+}
+
+
+lotr_check_and_reward_arnorian_stronghold_contributions_02_effect = {
+	if = {
+		limit = { scope:contributed_arched_gateways ?= root }
+		contributed_arched_gateways_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_numenorean_walls ?= root }
+		contributed_numenorean_walls_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_towering_keep ?= root }
+		contributed_towering_keep_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_mosaics ?= root }
+		contributed_mosaics_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_work_force ?= root }
+		contributed_dwarven_work_force_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_houses_of_healing ?= root }
+		contributed_houses_of_healing_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_sacred_hallow ?= root }
+		contributed_sacred_hallow_effect = yes	
+	}
+	if = {
+		limit = { scope:contributed_throne_room ?= root }
+		contributed_throne_room_effect = yes	
+	}
+}
+
+##Ost-in-Edhil Great Project Contribution Rewards
+
+### Ost-in-Edhil 01 Breakdown Effects ###
+
+contributed_mirdan_applicant_effect = {
+	custom_description_no_bullet = { text = contributed_mirdan_applicant }
+	mandala_contributor_minor_rite_reward_effect = yes
+}
+
+eregion_contributor_work_force_reward_effect = { 
+	add_character_modifier = { 
+		modifier = dwarven_strong_workers_modifier
+		years = 15
+	}
+}
+contributed_eregion_work_force_effect = {
+	custom_description_no_bullet = { text = contributed_work_force }
+	eregion_contributor_work_force_reward_effect = yes
+}
+
+eregion_contributor_excavation_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+			value = medium_prestige_value
+		}
+	}
+}
+contributed_excavation_effect = {
+	custom_description_no_bullet = { text = contributed_excavation }
+	eregion_contributor_excavation_reward_effect = yes
+}
+
+eregion_contributor_conservatory_reward_effect = {
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = medium_prestige_value
+	}
+	add_piety_experience = {
+		value = mandala_contribution_medium_dynasty_reward
+	}
+}
+contributed_conservatory_effect = {
+	custom_description_no_bullet = { text = contributed_conservatory }
+	eregion_contributor_conservatory_reward_effect = yes
+}
+
+
+eregion_contributor_shelters_reward_effect = { add_prestige_experience = minor_prestige_value }
+contributed_shelters_effect = {
+	custom_description_no_bullet = { text = contributed_shelters }
+	eregion_contributor_shelters_reward_effect = yes
+}
+
+eregion_contributor_jeweller_workshop_reward_effect = {
+	add_prestige = medium_prestige_value
+	add_piety_experience = medium_piety_value
+}
+contributed_jeweller_workshop_effect = {
+	custom_description_no_bullet = { text = contributed_jeweller_workshop }
+	eregion_contributor_jeweller_workshop_reward_effect = yes
+}
+
+#The actual effect
+lotr_check_and_reward_eregion_contributions_01_effect = {
+	if = {
+		limit = { scope:contributed_mirdan_applicant ?= root }
+		contributed_mirdan_applicant_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_excavation ?= root }
+		contributed_excavation_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_conservatory ?= root }
+		contributed_conservatory_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_work_force ?= root }
+		contributed_eregion_work_force_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_shelters ?= root }
+		contributed_shelters_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_jeweller_workshop ?= root }
+		contributed_jeweller_workshop_effect = yes
+	}
+	if = {
+		limit = {
+			OR = {
+				scope:contributed_mirdan_applicant ?= root
+				scope:contributed_excavation ?= root
+				scope:contributed_conservatory ?= root
+				scope:contributed_work_force ?= root
+				scope:contributed_shelters ?= root
+				scope:contributed_jeweller_workshop ?= root
+			}
+		}
+		create_artifact_lesser_ring_effect = { OWNER = root }
+	}
+}
+
+### Ost-in-Edhil 02 Breakdown Effects ###
+
+contributed_mirdan_apprentice_effect = {
+	custom_description_no_bullet = { text = contributed_mirdan_apprentice }
+	mandala_contributor_minor_rite_reward_effect = yes
+}
+
+eregion_contributor_forge_reward_effect = { add_prestige_experience = medium_prestige_value }
+contributed_forge_effect = {
+	custom_description_no_bullet = { text = contributed_forge }
+	eregion_contributor_forge_reward_effect = yes
+}
+
+contributed_stables_effect = {
+	custom_description_no_bullet = { text = contributed_stables }
+	eregion_contributor_forge_reward_effect = yes
+}
+
+contributed_orchards_effect = {
+	custom_description_no_bullet = { text = contributed_orchards }
+	eregion_contributor_jeweller_workshop_reward_effect = yes
+}
+
+
+#The actual effect
+lotr_check_and_reward_eregion_contributions_02_effect = {
+	if = {
+		limit = { scope:contributed_mirdan_apprentice ?= root }
+		contributed_mirdan_apprentice_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_slabs_of_sandstone ?= root }
+		contributed_slabs_of_sandstone_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_timber ?= root }
+		contributed_timber_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_forge ?= root }
+		contributed_forge_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_work_force ?= root }
+		contributed_eregion_work_force_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_stables ?= root }
+		contributed_stables_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_orchards ?= root }
+		contributed_orchards_effect = yes
+	}
+}
+
+### Ost-in-Edhil 03 Breakdown Effects ###
+
+contributed_mirdan_artisan_effect = {
+	custom_description_no_bullet = { text = contributed_mirdan_artisan }
+	mandala_contributor_minor_rite_reward_effect = yes
+}
+
+eregion_contributor_advanced_forge_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = medium_prestige_value
+	}
+	add_prestige_experience = {
+		value = mandala_contribution_medium_dynasty_reward
+	}
+}
+contributed_advanced_forge_effect = {
+	custom_description_no_bullet = { text = contributed_advanced_forge }
+	eregion_contributor_advanced_forge_reward_effect = yes
+}
+
+eregion_contributor_decorative_frescoes_reward_effect = {
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = major_prestige_value
+	}
+	scope:owner.dynasty = {
+		scope:owner = { custom_tooltip = eregion_contributor_decorative_frescoes_reward_effect_tt }
+		hidden_effect = {
+			add_dynasty_modifier = { modifier = eregion_decorative_frescoes_dynasty_modifier }
+		}
+	}
+}
+contributed_decorative_frescoes_effect = {
+	custom_description_no_bullet = { text = contributed_decorative_frescoes }
+	eregion_contributor_decorative_frescoes_reward_effect = yes
+}
+
+eregion_contributor_fountains_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+			value = {
+				add = medium_prestige_value
+				multiply = 1.5
+			}
+		}
+	}
+	add_piety = medium_prestige_value
+}
+contributed_fountains_effect = {
+	custom_description_no_bullet = { text = contributed_fountains }
+	eregion_contributor_fountains_reward_effect = yes
+}
+
+
+#The actual effect
+lotr_check_and_reward_eregion_contributions_03_effect = {
+	if = {
+		limit = { scope:contributed_mirdan_artisan ?= root }
+		contributed_mirdan_artisan_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_marble_stone ?= root }
+		contributed_marble_stone_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_arched_gateways ?= root }
+		contributed_arched_gateways_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_gardens ?= root }
+		contributed_gardens_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_advanced_forge ?= root }
+		contributed_advanced_forge_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_work_force ?= root }
+		contributed_eregion_work_force_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_decorative_frescoes ?= root }
+		contributed_decorative_frescoes_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_fountains ?= root }
+		contributed_fountains_effect = yes
+	}
+}
+
+### Ost-in-Edhil 04 Breakdown Effects ###
+
+contributed_mirdan_master_effect = {
+	custom_description_no_bullet = { text = contributed_mirdan_master }
+	mandala_contributor_minor_rite_reward_effect = yes
+}
+
+eregion_contributor_elven_jewels_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = major_prestige_value
+	}
+	add_prestige_experience = {
+		value = mandala_contribution_major_dynasty_reward
+	}
+}
+contributed_elven_jewels_effect = {
+	custom_description_no_bullet = { text = contributed_elven_jewels }
+	eregion_contributor_elven_jewels_reward_effect = yes
+}
+
+eregion_contributor_sculpted_gateways_reward_effect = { 
+	add_prestige = {
+		value = {
+			add = medium_prestige_value
+			multiply = 2.5
+			#Rounds up to the closest number divisible by 5
+			divide = 5
+			ceiling = yes
+			multiply = 5
+		}
+	}
+	add_piety_experience = {
+		value = {
+			add = mandala_contribution_medium_dynasty_reward
+			multiply = 2.5
+			#Rounds up to the closest number divisible by 5
+			divide = 5
+			ceiling = yes
+			multiply = 5
+		}
+	}
+}
+contributed_sculpted_gateways_effect = {
+	custom_description_no_bullet = { text = contributed_sculpted_gateways }
+	eregion_contributor_sculpted_gateways_reward_effect = yes
+}
+
+
+contributed_defensive_walls_effect = {
+	custom_description_no_bullet = { text = contributed_defensive_walls }
+	arnorian_contributor_numenorean_walls_reward_effect = yes
+}
+
+eregion_contributor_great_forge_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+		value = {
+			add = massive_prestige_value
+			multiply = 1.5
+			#Rounds up to the closest number divisible by 5
+			divide = 5
+			ceiling = yes
+			multiply = 5
+		}
+	}
+	}
+	add_prestige_experience = {
+		value = {
+			add = massive_prestige_value
+			multiply = 1.5
+			#Rounds up to the closest number divisible by 5
+			divide = 5
+			ceiling = yes
+			multiply = 5
+		}
+	}
+}
+contributed_great_forge_effect = {
+	custom_description_no_bullet = { text = contributed_great_forge }
+	eregion_contributor_great_forge_reward_effect = yes
+}
+
+eregion_contributor_mirdain_statues_reward_effect = {
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+			value = {
+				add = medium_prestige_value
+				multiply = 2.5
+			}
+		}
+	}
+	add_piety = {
+		value = medium_prestige_value
+		multiply = 1.5
+	}
+}
+contributed_mirdain_statues_effect = {
+	custom_description_no_bullet = { text = contributed_mirdain_statues }
+	eregion_contributor_mirdain_statues_reward_effect = yes
+}
+
+eregion_contributor_garden_lakes_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+			value = {
+				add = medium_prestige_value
+				multiply = 2.5
+			}
+		}
+	}
+	add_piety = {
+		value = medium_prestige_value
+		multiply = 1.5
+	}
+}
+contributed_garden_lakes_effect = {
+	custom_description_no_bullet = { text = contributed_garden_lakes }
+	eregion_contributor_garden_lakes_reward_effect = yes
+}
+
+
+#The actual effect
+lotr_check_and_reward_eregion_contributions_04_effect = {
+	if = {
+		limit = { scope:contributed_mirdan_master ?= root }
+		contributed_mirdan_master_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_elven_jewels ?= root }
+		contributed_elven_jewels_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_sculpted_gateways ?= root }
+		contributed_sculpted_gateways_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_waterways ?= root }
+		contributed_waterways_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_defensive_walls ?= root }
+		contributed_defensive_walls_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_great_forge ?= root }
+		contributed_great_forge_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_work_force ?= root }
+		contributed_eregion_work_force_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_mirdain_statues ?= root }
+		contributed_mirdain_statues_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_garden_lakes ?= root }
+		contributed_garden_lakes_effect = yes
+	}
+}
+
+### Ost-in-Edhil 05 Breakdown Effects ###
+
+contributed_mirdan_grandmaster_effect = {
+	custom_description_no_bullet = { text = contributed_mirdan_grandmaster }
+	mandala_contributor_minor_rite_reward_effect = yes
+}
+
+contributed_grand_promenade_effect = {
+	custom_description_no_bullet = { text = contributed_grand_promenade }
+	eregion_contributor_elven_jewels_reward_effect = yes
+}
+
+contributed_ardhlarem_effect = {
+	custom_description_no_bullet = { text = contributed_ardhlarem }
+	dwarven_contributor_dwarf_father_palace_reward_effect = yes
+}
+
+contributed_gatehouses_effect = {
+	custom_description_no_bullet = { text = contributed_gatehouses }
+	arnorian_contributor_numenorean_walls_reward_effect = yes
+}
+
+eregion_contributor_river_harbour_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+			value = {
+				add = medium_prestige_value
+				multiply = 2.5
+			}
+		}	
+	}
+	if = {
+		limit = { exists = scope:province }
+		custom_tooltip = eregion_contributor_river_harbour_reward_province_effect_tt
+		hidden_effect = {
+			scope:province = {
+				add_province_modifier = { modifier = eregion_river_harbour_tax_modifier }
+			}
+		}
+	}
+	else = {
+		custom_tooltip = eregion_contributor_river_harbour_reward_effect_tt
+		hidden_effect = {
+			scope:owner.capital_province = {
+				add_province_modifier = { modifier = eregion_river_harbour_tax_modifier }
+			}
+		}	
+	}
+}
+contributed_river_harbour_effect = {
+	custom_description_no_bullet = { text = contributed_river_harbour }
+	eregion_contributor_river_harbour_reward_effect = yes
+}
+
+eregion_contributor_mirdairond_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+		value = {
+			add = major_piety_value
+			multiply = 3
+			#Rounds up to the closest number divisible by 5
+			divide = 5
+			ceiling = yes
+			multiply = 5
+		}
+	}
+	}
+	add_prestige_experience = {
+		value = {
+			add = major_piety_value
+			multiply = 3
+			#Rounds up to the closest number divisible by 5
+			divide = 5
+			ceiling = yes
+			multiply = 5
+		}
+	}
+}
+contributed_mirdairond_effect = {
+	custom_description_no_bullet = { text = contributed_mirdairond }
+	eregion_contributor_mirdairond_reward_effect = yes
+}
+
+eregion_contributor_valar_statues_reward_effect = {
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+			value = {
+				add = medium_prestige_value
+				multiply = 4
+			}
+		}
+	}
+	add_piety = {
+		value = medium_prestige_value
+		multiply = 2.5
+	}
+}
+contributed_valar_statues_effect = {
+	custom_description_no_bullet = { text = contributed_valar_statues }
+	eregion_contributor_valar_statues_reward_effect = yes
+}
+
+eregion_contributor_mithril_gates_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+			value = {
+				add = medium_prestige_value
+				multiply = 2.5
+			}
+		}	
+	}
+	if = {
+		limit = { exists = scope:province }
+		custom_tooltip = eregion_contributor_mithril_gates_reward_province_effect_tt
+		hidden_effect = {
+			scope:province = {
+				add_province_modifier = { modifier = eregion_mithril_gates_defense_modifier }
+			}
+		}
+	}
+	else = {
+		custom_tooltip = eregion_contributor_mithril_gates_reward_effect_tt
+		hidden_effect = {
+			scope:owner.capital_province = {
+				add_province_modifier = { modifier = eregion_mithril_gates_defense_modifier }
+			}
+		}	
+	}
+}
+contributed_mithril_gates_effect = {
+	custom_description_no_bullet = { text = contributed_mithril_gates }
+	eregion_contributor_mithril_gates_reward_effect = yes
+}
+
+eregion_contributor_obscuring_veil_reward_effect = { 
+	if = {
+		limit = { this != scope:owner }
+		add_prestige = {
+			value = {
+				add = medium_prestige_value
+				multiply = 2.5
+			}
+		}	
+	}
+	if = {
+		limit = { exists = scope:province }
+		custom_tooltip = eregion_contributor_obscuring_veil_reward_province_effect_tt
+		hidden_effect = {
+			scope:province = {
+				add_province_modifier = { modifier = eregion_obscuring_veil_defense_modifier }
+			}
+		}
+	}
+	else = {
+		custom_tooltip = eregion_contributor_obscuring_veil_reward_effect_tt
+		hidden_effect = {
+			scope:owner.capital_province = {
+				add_province_modifier = { modifier = eregion_obscuring_veil_defense_modifier }
+			}
+		}	
+	}
+}
+contributed_obscuring_veil_effect = {
+	custom_description_no_bullet = { text = contributed_obscuring_veil }
+	eregion_contributor_obscuring_veil_reward_effect = yes
+}
+
+
+#The actual effect
+lotr_check_and_reward_eregion_contributions_05_effect = {
+	if = {
+		limit = { scope:contributed_mirdan_grandmaster ?= root }
+		contributed_mirdan_grandmaster_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_grand_promenade ?= root }
+		contributed_elven_jewels_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_ardhlarem ?= root }
+		contributed_ardhlarem_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_gatehouses ?= root }
+		contributed_gatehouses_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_river_harbour ?= root }
+		contributed_river_harbour_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_mirdairond ?= root }
+		contributed_mirdairond_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_work_force ?= root }
+		contributed_eregion_work_force_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_valar_statues ?= root }
+		contributed_valar_statues_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_mithril_gates ?= root }
+		contributed_mithril_gates_effect = yes
+	}
+	if = {
+		limit = { scope:contributed_obscuring_veil ?= root }
+		contributed_obscuring_veil_effect = yes
+	}
+}

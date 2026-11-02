@@ -1,0 +1,242 @@
+﻿dynasty_eorl = {
+	name = "Eorling"
+	culture = "rohirrim"
+	motto = dynn_eorlings_motto
+}
+dynasty_freca = {
+	name = "Frecaling"
+	culture = "rohirrim"
+	motto = dynn_frecalings_motto
+}
+dynasty_gaesela = {
+	name = "dynn_gaesela"
+	culture = "dunlending"
+}
+
+dynastyfelanda = {
+	name = "dynn_felanda"
+	culture = "rohirrim"
+	motto = dynn_felanda_motto
+}
+dynastygrima = {
+	name = "dynn_grima"
+	culture = "rohirrim"
+	motto = dynn_grima_motto
+}
+dynastyelfhelm = {
+	name = "dynn_elfhelm"
+	culture = "rohirrim"
+	motto = dynn_elfhelm_motto
+}
+dynastygamling = {
+	name = "dynn_gamling"
+	culture = "rohirrim"
+	motto = dynn_gamling_motto
+}
+dynastygrimbold = {
+	name = "dynn_grimbold"
+	culture = "rohirrim"
+	motto = dynn_grimbold_motto
+}
+dynastyhama = {
+	name = "dynn_hama"
+	culture = "rohirrim"
+	motto = dynn_hama_motto
+}
+dynastyceorl = {
+	name = "dynn_ceorl"
+	culture = "rohirrim"
+	motto = dynn_ceorl_motto
+}
+dynastyeothain = {
+	name = "dynn_eothain"
+	culture = "rohirrim"
+	motto = dynn_yeothain_motto
+}
+dynastyguthlaf = {
+	name = "dynn_guthlaf"
+	culture = "rohirrim"
+	motto = dynn_guthlaf_motto
+}
+dynastyfastred = {	
+	name = "dynn_fastred"
+	culture = "rohirrim"
+	motto = dynn_fastred_motto
+}
+dynastygarulf = {
+	name = "dynn_garulf"
+	culture = "rohirrim"
+	motto = dynn_garulf_motto
+}
+dynastygleowine = {
+	name = "dynn_gleowine"
+	culture = "rohirrim"
+	motto = dynn_gleowine_motto
+}
+dynastyharding = {
+	name = "dynn_harding"
+	culture = "rohirrim"
+	motto = dynn_harding_motto
+}
+dynastydeorwine = {
+	name = "dynn_deorwine"
+	culture = "rohirrim"
+	motto = dynn_deorwine_motto
+}
+dynastyeofolda = {
+	name = "dynn_eofolda"
+	culture = "rohirrim"
+	motto = dynn_eofolda_motto
+}
+dynastyfroda = {
+	name = "dynn_froda"
+	culture = "rohirrim"
+	motto = dynn_froda_motto
+}	
+dynastygrimstan = {
+	name = "dynn_grimstan"
+	culture = "rohirrim"
+	motto = dynn_grimstan_motto
+}	
+dynasty_halethring = {
+	name = "dynn_haleth_rohan"
+	culture = "rohirrim"
+	motto = dynn_haleth_eoth_motto
+}	
+dynastybeowyrt = {
+	name = "dynn_beowyrt"
+	culture = "rohirrim"
+	motto = dynn_beowyrt_motto
+}	
+dynastyfasthelm = {	# now unlanded
+	name = "dynn_fasthelm"
+	culture = "rohirrim"
+}	
+dynasty_leofr = {
+	name = "dynn_leofr"
+	culture = "leofring"
+	motto = dynn_leofr_motto
+}	
+dynastybregdan = {
+	name = "dynn_bregdan"
+	culture = "leofring"
+	motto = dynn_bregdan_motto
+}	
+dynastywidmund = {
+	name = "dynn_widmund"
+	culture = "rohirrim"
+	motto = dynn_widmund_motto
+}
+dynasty_tordag = {
+	name = "dynn_Tordaging"
+	culture = "rohirrim"
+	motto = dynn_Tordaging_motto
+}
+dynasty_elfwig = {
+	name = "dynn_Elfwiging"
+	culture = "rohirrim"
+	motto = dynn_Elfwiging_motto
+}
+dynasty_athellaf = {
+	name = "dynn_Aethellafing"
+	culture = "rohirrim"
+}
+dynasty_gyrthing = {
+	name = "dynn_gyrthing"
+	culture = "rohirrim"
+	motto = dynn_gyrthing_motto
+}
+dynasty_ordlac = {
+	name = "dynn_Ordlacing"
+	culture = "rohirrim"
+}
+dynasty_marhath = {
+	name = "dynn_Marhath"
+	culture = "rohirrim"
+}
+dynasty_oscytel = {
+	name = "dynn_Oscyteling"
+	culture = "rohirrim"
+}
+dynasty_swinthila = {
+	name = "dynn_swinthila"
+	culture = "leofring"
+}
+dynasty_griming = {
+	name = "dynn_griming"
+	culture = "leofring"
+	motto = dynn_griming_motto
+}
+dynasty_fening = {
+	name = "dynn_fening"
+	culture = "leofring"
+	motto = dynn_fening_motto
+}
+dynasty_langburging = {
+	name = "dynn_langburging"
+	culture = "framling"
+	motto = dynn_langburging_motto
+}
+dynasty_tauring = {
+	name = "dynn_tauring"
+	culture = "framling"
+}
+dynasty_iwgaras = {
+	name = "dynn_iwgaras"
+	culture = "leofring"
+}
+dynasty_leofring  = {
+	name = "dynn_leofring"
+	culture = "leofring"
+	motto = dynn_leofring_motto
+}
+dynasty_cerdicing  = {
+	name = "dynn_cerdicing"
+	culture = "rohirrim"
+	motto = dynn_cerdicing_motto
+}
+dynasty_cyneric = {
+	name = "dynn_cyneric"
+	culture = "leofring"
+	motto = dynn_cyneric_motto
+}
+dynasty_aelfwarding = {
+	name = "dynn_aelfwarding"
+	culture = "leofring"
+	motto = dynn_aelfwarding_motto
+}
+dynasty_wolding = {
+	name = "dynn_wolding"
+	culture = "leofring"
+	motto = dynn_wolding_motto
+}
+dynasty_torferthing = {
+	name = "dynn_torferthing"
+	culture = "rohirrim"
+	motto = dynn_torferthing_motto
+}
+dynasty_easthere = {
+	name = "dynn_easthere"
+	culture = "rohirrim"
+	motto = dynn_easthere_motto
+}
+dynasty_theodmar = {
+	name = "dynn_theodmar"
+	culture = "rohirrim"
+	motto = dynn_theodmar_motto
+}
+dynasty_thorne = {
+	name = "dynn_thorne"
+	culture = "rohirrim"
+	motto = dynn_thorne_motto
+}
+dynasty_feorthwine = {
+	name = "dynn_feorthwine"
+	culture = "rohirrim"
+	motto = dynn_feorthwine_motto
+}
+dynasty_dunhere = {
+	name = "dynn_dunhere"
+	culture = "rohirrim"
+	motto = dynn_dunhere_motto
+}

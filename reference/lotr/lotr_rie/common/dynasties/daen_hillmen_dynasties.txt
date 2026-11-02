@@ -1,0 +1,79 @@
+﻿##################################################
+############ King Ruadcara of Rhudaur ############
+##################################################
+
+dynasty_thuir = { # Legendary first Hillmen King
+	name = dynn_thuir
+	culture = hillmen
+	motto = dynn_thuir_motto
+}
+dynasty_deirach = { # Hwaldars original dynasty
+	name = dynn_deirach
+	culture = hillmen
+	motto = dynn_deirach_motto
+}
+
+dynasty_ormoch = {
+	name = dynn_ormoch
+	culture = hillmen
+	motto = dynn_ormoch_motto
+}
+
+dynasty_braighir = {
+	name = dynn_braighir
+	culture = hillmen
+	motto = dynn_braighir_motto
+}
+
+dynasty_aramirach = { # Rúadcara's dynasty
+	name = dynn_aramirach
+	culture = hillmen
+	motto = dynn_aramirach_motto
+}
+
+dynasty_daurich = { # Minor chiefs, stay loyal to Dunedain and die	
+	name = dynn_daurich
+	culture = hillmen
+	motto = dynn_daurich_motto
+}
+
+dynasty_merghach = {
+	name = dynn_merghach
+	culture = hillmen
+	motto = dynn_merghach_motto
+}
+
+dynasty_taobach = {
+	name = dynn_taobach
+	culture = hillmen
+	motto = dynn_taobach_motto
+}
+
+dynasty_moighir = {
+	name = dynn_moighir
+	culture = hillmen
+	motto = dynn_moighir_motto
+}
+
+dynasty_laighannach = {
+	name = dynn_laighannach
+	culture = hillmen
+	motto = dynn_laighannach_motto
+}
+
+dynasty_cenndoch = { # Bastard branch of Ormoch
+	name = dynn_cenndoch
+	culture = hillmen
+	motto = dynn_cenndoch_motto
+}
+
+dynasty_caradach = { # Caradach - The last Hillmen
+	name = dynn_caradach
+	culture = hillmen
+	motto = dynn_caradach_motto
+}
+dynasty_crannog = { 
+    name = dynn_crannog
+	culture = hillmen
+	motto = dynn_crannog_motto
+}

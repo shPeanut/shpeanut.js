@@ -1,0 +1,2403 @@
+﻿###	Dudol Iga (d_dudol_iga)
+c_dudol_iga = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_b_oiga = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_iga_durisisab = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+###	Modûne (d_modune)
+d_modune = {
+	6760.10.1 = {
+		holder = linegumahar1 #Jabaka
+		government = wanua_government
+	}
+	6792.2.23 = {
+		holder = linegumahar3 #Adeg
+	}
+	6849.7.11 = {
+		holder = lineolamma1 #Mihar
+	}
+	6930.9.7 = {
+		holder = lineolamma3 #Kulakamuul
+	}
+	6936.5.6 = {
+		holder = lineolamma5 #Segun
+	}
+	7013.1.16 = {
+		holder = lineolamma7 #Segun
+	}
+	7039.2.28 = {
+		holder = lineolamma9 #Kuleer
+	}
+	7060.12.17 = {
+		holder = lineolamma11 #Diganyad
+	}
+}
+
+c_guishas = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -1000
+		government = wastelands_government
+		liege = 0
+	}
+	5100.1.1 = { # Lom'Chy Migration
+		change_development_level = 8
+		government = wanua_government
+	}
+	6760.10.1 = {
+		holder = linegumahar1 #Jabaka
+	}
+	6792.2.23 = {
+		holder = linegumahar3 #Adeg
+	}
+	6849.7.11 = {
+		holder = lineolamma1 #Mihar
+	}
+	6930.9.7 = {
+		holder = lineolamma3 #Kulakamuul
+	}
+	6936.5.6 = {
+		holder = lineolamma5 #Segun
+	}
+	7013.1.16 = {
+		holder = lineolamma7 #Segun
+	}
+	7039.2.28 = {
+		holder = lineolamma9 #Kuleer
+	}
+	7060.12.17 = {
+		holder = lineolamma11 #Diganyad
+	}
+}
+c_nol_klust = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -1000
+		government = wastelands_government
+		liege = 0
+	}
+	5100.1.1 = { # Lom'Chy Migration
+		change_development_level = 5
+		government = wanua_government
+	}
+	6760.10.1 = {
+		holder = linegumahar1 #Jabaka
+	}
+	6792.2.23 = {
+		holder = linegumahar3 #Adeg
+	}
+	6849.7.11 = {
+		holder = lineolamma1 #Mihar
+	}
+	6930.9.7 = {
+		holder = lineolamma3 #Kulakamuul
+	}
+	6936.5.6 = {
+		holder = lineolamma5 #Segun
+	}
+	7013.1.16 = {
+		holder = lineolamma7 #Segun
+	}
+	7039.2.28 = {
+		holder = lineolamma9 #Kuleer
+	}
+	7060.12.17 = {
+		holder = lineolamma11 #Diganyad
+	}
+}
+c_che_chy = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -1000
+		government = wastelands_government
+		liege = 0
+	}
+	5100.1.1 = { # Lom'Chy Migration
+		change_development_level = 4
+		government = wanua_government
+	}
+	6760.10.1 = {
+		holder = linegumahar1 #Jabaka
+	}
+	6792.2.23 = {
+		holder = linegumahar3 #Adeg
+	}
+	6849.7.11 = {
+		holder = lineolamma1 #Mihar
+	}
+	6930.9.7 = {
+		holder = lineolamma3 #Kulakamuul
+	}
+	6936.5.6 = {
+		holder = lineolamma5 #Segun
+	}
+	7013.1.16 = {
+		holder = lineolamma7 #Segun
+	}
+	7039.2.28 = {
+		holder = lineolamma9 #Kuleer
+	}
+	7060.12.17 = {
+		holder = lineolamma11 #Diganyad
+	}
+}
+c_nolil_duda = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_sa_gowil = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_ndam_kulakal = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+###	Gard-Kinn (d_gard_kinn)
+d_gard_kinn = {
+	313.1.1 = { # The Sundering of the Kinn-lai (happened on the 310th anniversary of Tainalann and Tivpai's auspicious wedding)
+		holder = lineoftainalann3 # Shelepinn
+	}
+}
+c_kelun = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	313.1.1 = { # The Sundering of the Kinn-lai (happened on the 310th anniversary of Tainalann and Tivpai's auspicious wedding)
+		change_development_level = 6
+		holder = lineoftainalann3 # Shelepinn
+	}
+	6900.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_taullonn = {
+	313.1.1 = { # The Sundering of the Kinn-lai (happened on the 310th anniversary of Tainalann and Tivpai's auspicious wedding)
+		change_development_level = 7
+		holder = lineoftainalann3 # Shelepinn
+	}
+}
+c_balann_del = {
+	313.1.1 = { # The Sundering of the Kinn-lai
+		holder = lineofoyabiikuul1
+		liege = d_gard_kinn
+	}
+	3770.1.1 = {
+		change_development_level = 6
+		holder = lineofoyabiikuul2
+	}
+	5500.1.1 = {
+		liege = 0
+	}
+}
+c_malna_tinn = {
+	313.1.1 = { # The Sundering of the Kinn-lai
+		holder = lineofoyabiikuul1
+		liege = d_gard_kinn
+	}
+	3770.1.1 = {
+		change_development_level = 5
+		holder = lineofoyabiikuul2
+	}
+	5500.1.1 = {
+		liege = 0
+	}
+}
+c_eln_lai = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+###	Unnalgald (d_unnalgald)
+c_unnalgald = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_unnaltinn = {
+	3770.1.1 = {
+		change_development_level = 5
+		holder = lineoflodveg3
+		liege = d_gard_kinn
+	}
+	5500.1.1 = {
+		liege = 0
+	}
+}
+c_unnalolen = {
+	3770.1.1 = {
+		change_development_level = 5
+		holder = lineoflodveg3
+		liege = d_gard_kinn
+	}
+	5500.1.1 = {
+		liege = 0
+	}
+}
+
+###	Ôkân (d_okan)
+d_okan = {
+	5381.3.9 = {
+		holder = tanturakliberator1
+	}
+	5447.12.14 = {
+		holder = 0
+	}
+}
+c_osum = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_okan = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6773.8.6 = {
+		holder = linedirsakounika4
+		change_development_level = 4
+		government = tribal_government
+	}
+	6780.1.2 = {
+		liege = d_tam_wamo
+	}
+	6854.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_durche = {
+	5381.3.9 = {
+		holder = tanturakliberator1
+		change_development_level = 4
+	}
+	6780.1.1 = {
+		holder = linedirsakounika3
+	}
+	6780.1.2 = {
+		liege = d_tam_wamo
+	}
+	6833.12.1 = {
+		liege = 0
+	}
+	7026.4.28 = {
+		holder = lineogori9
+		government = wanua_government
+	}
+
+}
+c_deghuka = {
+	5381.3.9 = {
+		holder = tanturakliberator1
+		change_development_level = 4
+	}
+
+	6780.1.1 = {
+		holder = linemasamavin3 #Dartoyir
+		change_development_level = 5
+	}
+	6780.1.2 = {
+		liege = d_tanturak
+	}
+	6833.12.1 = {
+		liege = 0
+	}
+	7026.4.28 = {
+		holder = lineogori9
+		government = wanua_government
+	}
+}
+
+####	Tantûrak (k_tanturak)
+###	Tantûrak (d_tanturak)
+k_tanturak = {
+	3691.5.2 = {
+		holder = linearkinyarn2
+	}
+	3845.3.8 = {
+		holder = tanturakigovernor3
+	}
+	3861.2.11 = {
+		holder = tanturakigovernor4
+	}
+	3913.8.2 = {
+		holder = linearkinyarn4
+	}
+	3915.1.19 = {
+		holder = linearkinyarn7
+	}
+	4008.8.3 = {
+		holder = linearkinyarn11
+	}
+	4113.4.5 = {
+		holder = linearkinyarn12
+	}
+	4117.6.3 = {
+		holder = linearkinyarn13
+	}
+	4200.9.21 = {
+		holder = linearkinyarn14
+	}
+	4228.7.25 = {
+		holder = linearkinyarn15
+	}
+	4229.2.1 = {
+		holder = linearkinyarnbastard4
+	}
+	4271.10.2 = {
+		holder = linearkinyarnbastard5
+	}
+	4424.12.11 = {
+		holder = linearkinyarnbastard6
+	}
+	4458.5.5 = {
+		holder = linearkinyarnyoungbro8
+	}
+	4480.4.25 = {
+		holder = linearkinyarnyoungbro10
+	}
+	4564.7.2 = {
+		holder = linearkinyarnyoungbro11
+	}
+	4649.1.27 = {
+		holder = linearkinyarnyoungbro12
+	}
+	4665.10.15 = {
+		holder = linearkinyarn21
+	}
+	4737.5.17 = {
+		holder = linearkinyarnbrother13
+	}
+	4756.5.16 = {
+		holder = linearkinyarnyoungbro14
+	}
+	4803.11.26 = {
+		holder = linearkinyarnyoungbro15
+	}
+	4933.7.13 = {
+		holder = linearkinyarnbrothersecond14
+	}
+	4972.10.18 = {
+		holder = linearkinyarnbrothersecond15
+	}
+	5026.1.2 = {
+		holder = linearkinyarnbrothersecond16
+	}
+	5035.9.1 = {
+		holder = linearkinyarnyoungbro16
+	}
+	5043.5.8 = {
+		holder = linearkinyarnyoungbro17
+	}
+	5102.6.23 = {
+		holder = linearkinyarnbrotherthird13
+	}
+	5183.12.12 = {
+		holder = linearkinyarnbrotherthird14
+	}
+	5281.2.23 = {
+		holder = linearkinyarnbrotherthird15
+	}
+	5284.4.15 = {
+		holder = linearkinyarnbrothersecond18
+	}
+	5313.8.8 = {
+		holder = linearkinyarnbrotherthird16
+	}
+	5375.4.15 = {
+		holder = linearkinyarnbrotherthird17
+	}
+	5381.6.18 = {
+		holder = linearkinyarnbrothersecond20
+	}
+	5408.2.6 = {
+		holder = tanturakliberator1
+	}
+	5447.12.14 = {
+		holder = 0
+	}
+	6780.1.1 = {
+		holder = linemasamavin1 #Radovan (Vimana)
+	}
+	6833.12.1= {
+		holder = 0
+	}
+}
+k_tanturakusurper = {
+	5382.1.23 = {
+		holder = lineofwariga23
+		de_jure_liege = e_usakan
+	}
+	5408.2.6 = {
+		holder = 0
+	}
+}
+d_tanturak = {
+	259.4.10 = { # Sided with Shelepinn
+		holder = lineoftainalann3 # Shelepinn
+	}
+	313.1.1 = { # The Sundering of the Kinn-lai (happened on the 310th anniversary of Tainalann and Tivpai's auspicious wedding)
+		holder = 0
+	}
+
+	3691.5.2 = {
+		holder = linearkinyarn2
+	}
+	3845.3.8 = {
+		holder = tanturakigovernor3
+	}
+	3861.2.11 = {
+		holder = tanturakigovernor4
+	}
+	3913.8.2 = {
+		holder = linearkinyarn4
+	}
+	3915.1.19 = {
+		holder = linearkinyarn7
+	}
+	4008.8.3 = {
+		holder = linearkinyarn11
+	}
+	4113.4.5 = {
+		holder = linearkinyarn12
+	}
+	4117.6.3 = {
+		holder = linearkinyarn13
+	}
+	4200.9.21 = {
+		holder = linearkinyarn14
+	}
+	4228.7.25 = {
+		holder = linearkinyarn15
+	}
+	4229.2.1 = {
+		holder = linearkinyarnbastard4
+	}
+	4271.10.2 = {
+		holder = linearkinyarnbastard5
+	}
+	4424.12.11 = {
+		holder = linearkinyarnbastard6
+	}
+	4458.5.5 = {
+		holder = linearkinyarnyoungbro8
+	}
+	4480.4.25 = {
+		holder = linearkinyarnyoungbro10
+	}
+	4564.7.2 = {
+		holder = linearkinyarnyoungbro11
+	}
+	4649.1.27 = {
+		holder = linearkinyarnyoungbro12
+	}
+	4665.10.15 = {
+		holder = linearkinyarn21
+	}
+	4737.5.17 = {
+		holder = linearkinyarnbrother13
+	}
+	4756.5.16 = {
+		holder = linearkinyarnyoungbro14
+	}
+	4803.11.26 = {
+		holder = linearkinyarnyoungbro15
+	}
+	4933.7.13 = {
+		holder = linearkinyarnbrothersecond14
+	}
+	4972.10.18 = {
+		holder = linearkinyarnbrothersecond15
+	}
+	5026.1.2 = {
+		holder = linearkinyarnbrothersecond16
+	}
+	5035.9.1 = {
+		holder = linearkinyarnyoungbro16
+	}
+	5043.5.8 = {
+		holder = linearkinyarnyoungbro17
+	}
+	5102.6.23 = {
+		holder = linearkinyarnbrotherthird13
+	}
+	5183.12.12 = {
+		holder = linearkinyarnbrotherthird14
+	}
+	5281.2.23 = {
+		holder = linearkinyarnbrotherthird15
+	}
+	5284.4.15 = {
+		holder = linearkinyarnbrothersecond18
+	}
+	5313.8.8 = {
+		holder = linearkinyarnbrotherthird16
+	}
+	5375.4.15 = {
+		holder = linearkinyarnbrotherthird17
+	}
+	5381.6.18 = {
+		holder = linearkinyarnbrothersecond20
+	}
+	5408.2.6 = {
+		holder = tanturakliberator1
+	}
+	5447.12.14 = {
+		holder = 0
+	}
+	6780.1.1 = {
+		holder = linemasamavin1 #Radovan (Vimana)
+	}
+	6833.12.1= {
+		holder = 0
+	}
+}
+c_sarul = {
+	3640.1.1 = {
+		change_development_level = 8
+	}
+	3691.5.2 = {
+		holder = linearkinyarn2
+	}
+	3845.3.8 = {
+		holder = tanturakigovernor3
+	}
+	3861.2.11 = {
+		holder = tanturakigovernor4
+	}
+	3913.8.2 = {
+		holder = linearkinyarn4
+	}
+	3915.1.19 = {
+		holder = linearkinyarn7
+	}
+	4008.8.3 = {
+		holder = linearkinyarn11
+	}
+	4113.4.5 = {
+		holder = linearkinyarn12
+	}
+	4117.6.3 = {
+		holder = linearkinyarn13
+	}
+	4200.9.21 = {
+		holder = linearkinyarn14
+	}
+	4228.7.25 = {
+		holder = linearkinyarn15
+	}
+	4229.2.1 = {
+		holder = linearkinyarnbastard4
+	}
+	4271.10.2 = {
+		holder = linearkinyarnbastard5
+	}
+	4424.12.11 = {
+		holder = linearkinyarnbastard6
+	}
+	4458.5.5 = {
+		holder = linearkinyarnyoungbro8
+	}
+	4480.4.25 = {
+		holder = linearkinyarnyoungbro10
+	}
+	4564.7.2 = {
+		holder = linearkinyarnyoungbro11
+	}
+	4649.1.27 = {
+		holder = linearkinyarnyoungbro12
+	}
+	4665.10.15 = {
+		holder = linearkinyarn21
+	}
+	4737.5.17 = {
+		holder = linearkinyarnbrother13
+	}
+	4756.5.16 = {
+		holder = linearkinyarnyoungbro14
+	}
+	4803.11.26 = {
+		holder = linearkinyarnyoungbro15
+	}
+	4933.7.13 = {
+		holder = linearkinyarnbrothersecond14
+	}
+	4972.10.18 = {
+		holder = linearkinyarnbrothersecond15
+	}
+	5026.1.2 = {
+		holder = linearkinyarnbrothersecond16
+	}
+	5035.9.1 = {
+		holder = linearkinyarnyoungbro16
+	}
+	5043.5.8 = {
+		holder = linearkinyarnyoungbro17
+	}
+	5102.6.23 = {
+		holder = linearkinyarnbrotherthird13
+	}
+	5183.12.12 = {
+		holder = linearkinyarnbrotherthird14
+	}
+	5281.2.23 = {
+		holder = linearkinyarnbrotherthird15
+	}
+	5284.4.15 = {
+		holder = linearkinyarnbrothersecond18
+	}
+	5313.8.8 = {
+		holder = linearkinyarnbrotherthird16
+	}
+	5375.4.15 = {
+		holder = linearkinyarnbrotherthird17
+	}
+	5381.6.18 = {
+		holder = linearkinyarnbrothersecond20
+	}
+	5408.2.6 = {
+		holder = tanturakliberator1
+	}
+	6780.1.1 = {
+		holder = linemasamavin1 #Radovan (Vimana)
+	}
+	6844.1.12 = {
+		holder = linediganyadi1 #Diganjad
+	}
+	6906.8.26 = {
+		holder = linediganyadi3 #Ayamido
+	}
+	6950.10.18 = {
+		holder = linediganyadi5 #Gumahar
+	}
+	6953.1.6 = {
+		holder = linediganyadi7 #Jolen
+	}
+	7011.10.5 = {
+		holder = linediganyadi9 #Ludaji
+	}
+}
+c_bata_an_sarul = {
+	3640.1.1 = {
+		change_development_level = 7
+	}
+	3691.5.2 = {
+		holder = linearkinyarn2
+	}
+	3845.3.8 = {
+		holder = tanturakigovernor3
+	}
+	3861.2.11 = {
+		holder = tanturakigovernor4
+	}
+	3913.8.2 = {
+		holder = linearkinyarn4
+	}
+	3915.1.19 = {
+		holder = linearkinyarn7
+	}
+	4008.8.3 = {
+		holder = linearkinyarn11
+	}
+	4113.4.5 = {
+		holder = linearkinyarn12
+	}
+	4117.6.3 = {
+		holder = linearkinyarn13
+	}
+	4200.9.21 = {
+		holder = linearkinyarn14
+	}
+	4228.7.25 = {
+		holder = linearkinyarn15
+	}
+	4229.2.1 = {
+		holder = linearkinyarnbastard4
+	}
+	4271.10.2 = {
+		holder = linearkinyarnbastard5
+	}
+	4424.12.11 = {
+		holder = linearkinyarnbastard6
+	}
+	4458.5.5 = {
+		holder = linearkinyarnyoungbro8
+	}
+	4480.4.25 = {
+		holder = linearkinyarnyoungbro10
+	}
+	4564.7.2 = {
+		holder = linearkinyarnyoungbro11
+	}
+	4649.1.27 = {
+		holder = linearkinyarnyoungbro12
+	}
+	4665.10.15 = {
+		holder = linearkinyarn21
+	}
+	4737.5.17 = {
+		holder = linearkinyarnbrother13
+	}
+	4756.5.16 = {
+		holder = linearkinyarnyoungbro14
+	}
+	4803.11.26 = {
+		holder = linearkinyarnyoungbro15
+	}
+	4933.7.13 = {
+		holder = linearkinyarnbrothersecond14
+	}
+	4972.10.18 = {
+		holder = linearkinyarnbrothersecond15
+	}
+	5026.1.2 = {
+		holder = linearkinyarnbrothersecond16
+	}
+	5035.9.1 = {
+		holder = linearkinyarnyoungbro16
+	}
+	5043.5.8 = {
+		holder = linearkinyarnyoungbro17
+	}
+	5102.6.23 = {
+		holder = linearkinyarnbrotherthird13
+	}
+	5183.12.12 = {
+		holder = linearkinyarnbrotherthird14
+	}
+	5281.2.23 = {
+		holder = linearkinyarnbrotherthird15
+	}
+	5284.4.15 = {
+		holder = linearkinyarnbrothersecond18
+	}
+	5313.8.8 = {
+		holder = linearkinyarnbrotherthird16
+	}
+	5375.4.15 = {
+		holder = linearkinyarnbrotherthird17
+	}
+	5381.6.18 = {
+		holder = linearkinyarnbrothersecond20
+	}
+	5408.2.6 = {
+		holder = tanturakliberator1
+	}
+
+	6780.1.1 = {
+		holder = linemasamavin1 #Radovan
+	}
+	6844.1.12 = {
+		holder = linediganyadi1 #Diganjad
+	}
+	6906.8.26 = {
+		holder = linediganyadi3 #Ayamido
+	}
+	6950.10.18 = {
+		holder = linediganyadi5 #Gumahar
+	}
+	6953.1.6 = {
+		holder = linediganyadi7 #Jolen
+	}
+	7011.10.5 = {
+		holder = linediganyadi9 #Ludaji
+	}
+}
+c_narsacha = {
+	3640.1.1 = {
+		change_development_level = 6
+	}
+	4957.4.25 = {
+		holder = linelomibari1 #Ephalzo_o_r
+	}
+	5088.8.1 = {
+		holder = linelomibari3 #Be_e_lzagar
+	}
+	5140.1.6 = {
+		holder = linelomibari7 #Bana_a_thin
+	}
+	5188.2.24 = {
+		holder = linelomibari9 #Gimlibe_e_n
+	}
+	5223.5.21 = {
+		holder = linelomibari13 #Aba_a_ruzi_i_r
+	}
+	5316.11.28 = {
+		holder = linelomibari15 #Imruzi_i_r
+	}
+	5357.11.13 = { #RoA ruler
+		holder = linelomibari17 #Bala_a_kha_a_n
+		liege = k_tanturakusurper
+	}
+	5416.1.20 = {
+		holder = linelomibari19 #Aba_a_zagar
+	}
+	6780.1.1 = {
+		holder = linemasamavin1 #Radovan
+	}
+	6833.3.24 = {
+		holder = lineeguundayo1 #Gayin
+	}
+	6904.8.10 = {
+		holder = lineeguundayo3 #Diganyad
+	}
+	6952.2.5 = {
+		holder = lineeguundayo5 #Kulakamuul
+	}
+	6959.4.14 = {
+		holder = lineeguundayo7 #Eguundayo
+	}
+	7006.9.21 = {
+		holder = lineeguundayo9 #Rugani
+	}
+}
+c_hye_uvar = {
+	3640.1.1 = {
+		change_development_level = 5
+	}
+	3913.8.2 = {
+		holder = lineofwariga1
+	}
+	3919.2.15 = {
+		holder = lineofwariga2
+	}
+	4046.6.25 = {
+		holder = lineofwariga3
+	}
+	4081.8.23 = {
+		holder = lineofwariga4
+	}
+	4150.10.4 = {
+		holder = lineofwariga5
+	}
+	4206.12.5 = {
+		holder = lineofwariga6
+	}
+	4278.2.4 = {
+		holder = lineofwariga7
+	}
+	4357.4.1 = {
+		holder = lineofwariga8
+	}
+	4425.6.2 = {
+		holder = lineofwariga9
+	}
+	4489.8.9 = {
+		holder = lineofwariga10
+	}
+	4633.10.13 = {
+		holder = lineofwariga11
+	}
+	4674.12.26 = {
+		holder = lineofwariga12
+	}
+	4734.2.8 = {
+		holder = lineofwariga13
+	}
+	4772.4.19 = {
+		holder = lineofwariga14
+	}
+	4881.6.27 = {
+		holder = lineofwariga15
+	}
+	4924.8.11 = {
+		holder = lineofwariga16
+	}
+	4990.10.20 = {
+		holder = lineofwariga17
+	}
+	5061.12.16 = {
+		holder = lineofwariga18
+	}
+	5124.2.1 = {
+		holder = lineofwariga19
+	}
+	5197.4.9 = {
+		holder = lineofwariga20
+	}
+	5232.6.15 = {
+		holder = lineofwariga21
+	}
+	5294.8.16 = {
+		holder = lineofwariga22
+	}
+	5356.2.20 = {
+		holder = lineofwariga23
+	}
+	5483.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6783.6.6 = {
+		holder = linemusanes1
+		change_development_level = 4
+		government = tribal_government
+	}
+	6880.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_azu_uri = {
+	3640.1.1 = {
+		change_development_level = 4
+	}
+	3691.5.2 = {
+		holder = linearkinyarn2
+	}
+	3845.3.8 = {
+		holder = tanturakigovernor3
+	}
+	3861.2.11 = {
+		holder = tanturakigovernor4
+	}
+	3913.8.2 = {
+		holder = linearkinyarn4
+	}
+	3915.1.19 = {
+		holder = linearkinyarn7
+	}
+	4008.8.3 = {
+		holder = linearkinyarn11
+	}
+	4113.4.5 = {
+		holder = linearkinyarn12
+	}
+	4117.6.3 = {
+		holder = linearkinyarn13
+	}
+	4200.9.21 = {
+		holder = linearkinyarn14
+	}
+	4228.7.25 = {
+		holder = linearkinyarn15
+	}
+	4229.2.1 = {
+		holder = linearkinyarnbastard4
+	}
+	4271.10.2 = {
+		holder = linearkinyarnbastard5
+	}
+	4424.12.11 = {
+		holder = linearkinyarnbastard6
+	}
+	4458.5.5 = {
+		holder = linearkinyarnyoungbro8
+	}
+	4480.4.25 = {
+		holder = linearkinyarnyoungbro10
+	}
+	4564.7.2 = {
+		holder = linearkinyarnyoungbro11
+	}
+	4649.1.27 = {
+		holder = linearkinyarnyoungbro12
+	}
+	4665.10.15 = {
+		holder = linearkinyarn21
+	}
+	4737.5.17 = {
+		holder = linearkinyarnbrother13
+	}
+	4756.5.16 = {
+		holder = linearkinyarnyoungbro14
+	}
+	4803.11.26 = {
+		holder = linearkinyarnyoungbro15
+	}
+	4933.7.13 = {
+		holder = linearkinyarnbrothersecond14
+	}
+	4972.10.18 = {
+		holder = linearkinyarnbrothersecond15
+	}
+	5010.7.8 = {
+		holder = linephazganihin1 #Agandu_u_r
+	}
+	5146.12.4 = {
+		holder = linephazganihin3 #Zimrupa_a_n
+	}
+	5151.8.27 = {
+		holder = linephazganihin7 #Balkazi_i_r
+	}
+	5261.2.11 = {
+		holder = linephazganihin9 #Aphanuzi_i_r
+	}
+	5294.2.26 = {
+		holder = linephazganihin11 #Bala_a_kha_a_n
+	}
+	5326.3.12 = {
+		holder = linephazganihin13 #Imruzi_i_r
+	}
+	5370.12.21 = { # RoA ruler
+		holder = linephazganihin15 #Azgarzi_i_r
+		liege = k_tanturak
+	}
+	5405.6.15 = {
+		holder = linephazganihin17 #Zabatha_a_n
+	}
+	5408.2.6 = {
+		holder = tanturakliberator1
+	}
+	5483.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6783.6.6 = {
+		holder = linemasamavin1 #Radovan
+		change_development_level = 4
+		government = tribal_government
+	}
+	6854.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_miena_uri = {
+	3770.1.1 = {
+		change_development_level = 6
+	}
+	3913.8.2 = {
+		holder = lineofwariga1
+	}
+	3919.2.15 = {
+		holder = lineofwariga2
+	}
+	4046.6.25 = {
+		holder = lineofwariga3
+	}
+	4081.8.23 = {
+		holder = lineofwariga4
+	}
+	4150.10.4 = {
+		holder = lineofwariga5
+	}
+	4206.12.5 = {
+		holder = lineofwariga6
+	}
+	4278.2.4 = {
+		holder = lineofwariga7
+	}
+	4357.4.1 = {
+		holder = lineofwariga8
+	}
+	4425.6.2 = {
+		holder = lineofwariga9
+	}
+	4489.8.9 = {
+		holder = lineofwariga10
+	}
+	4633.10.13 = {
+		holder = lineofwariga11
+	}
+	4674.12.26 = {
+		holder = lineofwariga12
+	}
+	4734.2.8 = {
+		holder = lineofwariga13
+	}
+	4772.4.19 = {
+		holder = lineofwariga14
+	}
+	4955.6.27 = {
+		holder = linebelzorhin1 #Be_e_lkho_o_r
+	}
+	5077.3.15 = {
+		holder = linebelzorhin3 #Be_e_lnardu_u_
+	}
+	5128.6.1 = {
+		holder = linebelzorhin5 #Gimlibe_e_n
+	}
+	5182.2.1 = {
+		holder = linebelzorhin7 #Bana_a_thin
+	}
+	5211.12.18 = {
+		holder = linebelzorhin9 #Be_e_lphaza_a_n
+	}
+	5224.11.13 = {
+		holder = linebelzorhin11 #Aba_a_zagar
+	}
+	5269.8.28 = {
+		holder = linebelzorhin13 #Minulzo_o_r
+	}
+	5300.9.8 = {
+		holder = linebelzorhin15 #Na_a_lo_o_da_a_n
+	}
+	5314.9.8 = {
+		holder = linebelzorhin17 #Bala_a_kha_a_n
+	}
+	5376.1.11 = { # RoA ruler
+		holder = linebelzorhin19 #Gimlibe_e_n
+		liege = k_tanturakusurper
+	}
+	5483.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_lwohebata = {
+	3770.1.1 = {
+		change_development_level = 3
+	}
+	4950.9.9 = {
+		holder = lineazruthor1 #Aba_a_ruzi_i_r
+	}
+	5054.3.2 = {
+		holder = lineazruthor3 #Na_a_lo_o_da_a_n
+	}
+	5116.9.20 = {
+		holder = lineazruthor7 #I_I_bal
+	}
+	5190.2.17 = {
+		holder = lineazruthor9 #Khibilatho_o_r
+	}
+	5222.8.27 = {
+		holder = lineazruthor11 #Azu_u_lzi_i_r
+	}
+	5233.6.17 = {
+		holder = lineazruthor13 #Izinduzo_o_r
+	}
+	5316.2.28 = {
+		holder = lineazruthor15 #Inzilzu_u_r
+	}
+	5341.12.18 = {
+		holder = lineazruthor17 #Khibilun
+		liege = k_tanturakusurper
+	}
+	5383.8.3 = { # RoA ruler
+		holder = lineazruthor19 #I_I_bal
+		liege = k_tanturakusurper
+	}
+	5483.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6783.6.6 = {
+		holder = linemusanes1
+		change_development_level = 4
+		government = tribal_government
+	}
+	6854.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+###	Ardinâk (d_ardinak)
+c_ardinak = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+###	Tâm Wâmo (d_tam_wamo)
+d_tam_wamo = {
+	5021.4.9 = {
+		holder = lineoftamwamotantu1
+	}
+	5106.2.9 = {
+		holder = lineoftamwamotantu2
+	}
+	5166.4.13 = {
+		holder = lineoftamwamotantu3
+	}
+	5226.6.18 = {
+		holder = lineoftamwamotantu4
+	}
+	5304.7.17 = {
+		holder = lineoftamwamotantu5
+	}
+	5372.10.16 = {
+		holder = lineoftamwamotantu6
+	}
+	5382.1.24 = {
+		liege = k_tanturakusurper
+	}
+	#5404.1.12 = {
+	#	holder = 0
+	#}
+	6753.6.6 = {
+		holder = linedirsakounika1
+	}
+	6854.1.1 = {
+		holder = 0
+	}
+}
+c_tam_wamo = {
+	3770.1.1 = {
+		change_development_level = 8
+	}
+	5021.4.9 = {
+		holder = lineoftamwamotantu1
+	}
+	5106.2.9 = {
+		holder = lineoftamwamotantu2
+	}
+	5166.4.13 = {
+		holder = lineoftamwamotantu3
+	}
+	5226.6.18 = {
+		holder = lineoftamwamotantu4
+	}
+	5304.7.17 = {
+		holder = lineoftamwamotantu5
+		liege = k_tanturakusurper
+	}
+	5372.10.16 = {
+		holder = lineoftamwamotantu6
+		liege = k_tanturakusurper
+	}
+	#5404.1.12 = {
+	#	holder = 0
+	#}
+
+	5483.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6753.6.6 = {
+		holder = linedirsakounika1
+		change_development_level = 4
+		government = tribal_government
+	}
+	6854.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_wamo_vasa = {
+	3770.1.1 = {
+		change_development_level = 5
+	}
+	5021.4.9 = {
+		holder = lineoftamwamotantu1
+	}
+	5106.2.9 = {
+		holder = lineoftamwamotantu2
+	}
+	5166.4.13 = {
+		holder = lineoftamwamotantu3
+	}
+	5226.6.18 = {
+		holder = lineoftamwamotantu4
+	}
+	5304.7.17 = {
+		holder = lineoftamwamotantu5
+		liege = k_tanturakusurper
+	}
+	5372.10.16 = {
+		holder = lineoftamwamotantu6
+		liege = k_tanturakusurper
+	}
+	#5404.1.12 = {
+	#	holder = 0
+	#}
+
+	6780.1.1 = {
+		holder = linemasamavin3 #Dartoyir
+	}
+	6780.1.2 = {
+		liege = d_tanturak
+	}
+	6833.3.24 = {
+		holder = lineeguundayo1 #Gayin
+	}
+	6904.8.10 = {
+		holder = lineeguundayo3 #Diganyad
+	}
+	6952.2.5 = {
+		holder = lineeguundayo5 #Kulakamuul
+	}
+	6959.4.14 = {
+		holder = lineeguundayo7 #Eguundayo
+	}
+	7006.9.21 = {
+		holder = lineeguundayo9 #Rugani
+	}
+}
+c_hideg = {
+	3770.1.1 = {
+		change_development_level = 2
+	}
+	5000.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6753.6.6 = {
+		holder = linedirsakounika1
+		change_development_level = 4
+		government = tribal_government
+	}
+	6854.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_jodeg = {
+	3770.1.1 = {
+		change_development_level = 4
+	}
+	5000.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_iga_jowil = {
+	3770.1.1 = {
+		change_development_level = 5
+	}
+	5000.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+
+### Gowil Ado (d_gowil_ado)
+# d_gowil_ado = {}
+c_gowil_ado = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_aludeg = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_wamoru = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6753.6.6 = {
+		holder = linedirsakounika1
+		change_development_level = 4
+		government = tribal_government
+	}
+	6854.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+###	Azra-Zhê (d_azra_zhe)
+d_azra_zhe = {
+	259.4.10 = { # Sided with Shelepinn
+		holder = lineoftainalann3 # Shelepinn
+	}
+	313.1.1 = { # The Sundering of the Kinn-lai (happened on the 310th anniversary of Tainalann and Tivpai's auspicious wedding)
+		holder = 0
+	}
+
+	3613.5.3 = {
+		holder = lineazrazhe1
+	}
+	3759.2.26 = {
+		holder = linearkinyarn2
+	}
+	3845.3.8 = {
+		holder = lineazrazhe2
+	}
+	3905.4.11 = {
+		holder = lineazrazhe3
+		liege = k_tanturak
+	}
+	3913.8.2 = {
+		holder = lineazrazhe6
+	}
+	4023.10.10 = {
+		holder = lineazrazhe7
+	}
+	4106.1.7 = {
+		holder = lineazrazhe8
+	}
+	4186.3.3 = {
+		holder = lineazrazhe10
+	}
+	4248.6.8 = {
+		holder = lineazrazhe11
+	}
+	4271.10.2 = {
+		holder = lineazrasecond4
+	}
+	4351.3.23 = {
+		holder = lineazrasecond5
+	}
+	4450.12.6 = {
+		holder = lineazrasecond6
+	}
+	4517.1.1 = {
+		holder = lineazrasecond7
+	}
+	4600.3.25 = {
+		holder = lineazrasecond8
+	}
+	4709.7.11 = {
+		holder = lineazrasecond9
+	}
+	4796.6.7 = {
+		holder = lineazrasecond10
+	}
+	4873.2.13 = {
+		holder = lineazrasecond11
+	}
+	4978.3.20 = {
+		holder = lineazrasecond12
+	}
+	5043.12.27 = {
+		holder = lineazrasecond13
+	}
+	5102.6.23 = {
+		holder = lineazrasecond15
+	}
+	5111.11.11 = {
+		holder = lineazrasecond16
+	}
+	5201.9.4 = {
+		holder = lineazrasecond17
+	}
+	5267.7.12 = {
+		holder = lineazrasecond18
+		liege = k_tanturak
+	}
+	5336.5.11 = {
+		holder = lineazrasecond19
+		liege = k_tanturak
+	}
+	5406.9.5 = {
+		holder = lineazrasecond20
+		liege = k_tanturak
+	}
+	5408.2.6 = {
+		holder = 0
+	}
+	6780.1.1 = {
+		holder = linemasamavin1 #Radovan
+	}
+	6833.12.1 = {
+		holder = 0
+	}
+}
+c_azra_zhe = {
+	3770.1.1 = {
+		change_development_level = 8
+	}
+	3613.5.3 = {
+		holder = lineazrazhe1
+	}
+	3759.2.26 = {
+		holder = linearkinyarn2
+	}
+	3845.3.8 = {
+		holder = lineazrazhe2
+	}
+	3905.4.11 = {
+		holder = lineazrazhe3
+		liege = k_tanturak
+	}
+	3913.8.2 = {
+		holder = lineazrazhe6
+	}
+	4023.10.10 = {
+		holder = lineazrazhe7
+	}
+	4106.1.7 = {
+		holder = lineazrazhe8
+	}
+	4186.3.3 = {
+		holder = lineazrazhe10
+	}
+	4248.6.8 = {
+		holder = lineazrazhe11
+	}
+	4271.10.2 = {
+		holder = lineazrasecond4
+	}
+	4351.3.23 = {
+		holder = lineazrasecond5
+	}
+	4450.12.6 = {
+		holder = lineazrasecond6
+	}
+	4517.1.1 = {
+		holder = lineazrasecond7
+	}
+	4600.3.25 = {
+		holder = lineazrasecond8
+	}
+	4709.7.11 = {
+		holder = lineazrasecond9
+	}
+	4796.6.7 = {
+		holder = lineazrasecond10
+	}
+	4873.2.13 = {
+		holder = lineazrasecond11
+	}
+	4978.3.20 = {
+		holder = lineazrasecond12
+	}
+	5043.12.27 = {
+		holder = lineazrasecond13
+	}
+	5102.6.23 = {
+		holder = lineazrasecond15
+	}
+	5111.11.11 = {
+		holder = lineazrasecond16
+	}
+	5201.9.4 = {
+		holder = lineazrasecond17
+	}
+	5267.7.12 = {
+		holder = lineazrasecond18
+	}
+	5336.5.11 = {
+		holder = lineazrasecond19
+	}
+	5406.9.5 = {
+		holder = lineazrasecond20
+	}
+	6710.2.13 = {
+		holder = lineoludajin1 #Ayamido
+		change_development_level = 6
+	}
+	6759.2.25 = {
+		holder = lineoludajin3 #Ojahar
+	}
+	6780.1.1 = {
+		liege = d_tanturak
+	}
+	6784.7.12 = { #Long winter start date ruler
+		holder = lineoludajin5 #Diganyad
+	}
+	6832.10.3 = {
+		holder = lineoludajin7 #Ayo
+	}
+	6873.9.10 = {
+		holder = lineoludajin9 #Kiwano
+	}
+	6926.11.24 = {
+		holder = lineoludajin11 #Ayo
+	}
+	6950.12.10 = {
+		holder = lineoludajin13 #Ayamido
+	}
+	6997.9.28 = {
+		holder = lineoludajin17 #Igo
+	}
+	7032.5.6 = {
+		holder = lineoludajin20
+	}
+}
+c_hwozaya = {
+	3770.1.1 = {
+		change_development_level = 5
+	}
+	3613.5.3 = {
+		holder = lineazrazhe1
+	}
+	3759.2.26 = {
+		holder = linearkinyarn2
+	}
+	3845.3.8 = {
+		holder = lineazrazhe2
+	}
+	3905.4.11 = {
+		holder = lineazrazhe3
+		liege = k_tanturak
+	}
+	3913.8.2 = {
+		holder = lineazrazhe6
+	}
+	4023.10.10 = {
+		holder = lineazrazhe7
+	}
+	4106.1.7 = {
+		holder = lineazrazhe8
+	}
+	4186.3.3 = {
+		holder = lineazrazhe10
+	}
+	4248.6.8 = {
+		holder = lineazrazhe11
+	}
+	4271.10.2 = {
+		holder = lineazrasecond4
+	}
+	4351.3.23 = {
+		holder = lineazrasecond5
+	}
+	4450.12.6 = {
+		holder = lineazrasecond6
+	}
+	4517.1.1 = {
+		holder = lineazrasecond7
+	}
+	4600.3.25 = {
+		holder = lineazrasecond8
+	}
+	4709.7.11 = {
+		holder = lineazrasecond9
+	}
+	4796.6.7 = {
+		holder = lineazrasecond10
+	}
+	4873.2.13 = {
+		holder = lineazrasecond11
+	}
+	4978.3.20 = {
+		holder = lineazrasecond12
+	}
+	5015.10.19 = {
+		holder = linezorzathon1 #Azu_u_lzi_i_r
+	}
+	5115.7.4 = {
+		holder = linezorzathon3 #Aba_a_ruzo_o_r
+	}
+	5179.6.10 = {
+		holder = linezorzathon5 #Marme_e_do_o_n
+	}
+	5216.11.28 = {
+		holder = linezorzathon7 #Ni_i_lo_o_zi_i_r
+	}
+	5244.7.22 = {
+		holder = linezorzathon9 #Khibilun
+	}
+	5271.4.23 = {
+		holder = linezorzathon13 #Gimlibe_e_n
+	}
+	5354.6.25 = { # RoA ruler
+		holder = linezorzathon15 #Bala_a_kha_a_n
+		liege = d_azra_zhe
+	}
+	5410.10.27 = {
+		holder = linezorzathon17 #Zimrupa_a_n
+	}
+	6710.2.13 = {
+		holder = lineoludajin1 #Ayamido
+		change_development_level = 5
+	}
+	6759.2.25 = {
+		holder = lineoludajin3 #Ojahar
+	}
+	6780.1.1 = {
+		liege = d_tanturak
+	}
+	6784.7.12 = { #Long winter start date ruler
+		holder = lineoludajin5 #Diganyad
+	}
+	6832.10.3 = {
+		holder = lineoludajin7 #Ayo
+	}
+	6873.9.10 = {
+		holder = lineoludajin9 #Kiwano
+	}
+	6926.11.24 = {
+		holder = lineoludajin11 #Ayo
+	}
+	6950.12.10 = {
+		holder = lineoludajin13 #Ayamido
+	}
+	6997.9.28 = {
+		holder = lineoludajin17 #Igo
+	}
+	7032.5.6 = {
+		holder = lineoludajin20
+	}
+}
+c_rathane = {
+	3770.1.1 = {
+		change_development_level = 7
+	}
+	3613.5.3 = {
+		holder = lineazrazhe1
+	}
+	3759.2.26 = {
+		holder = linearkinyarn2
+	}
+	3845.3.8 = {
+		holder = lineazrazhe2
+	}
+	3905.4.11 = {
+		holder = lineazrazhe3
+		liege = k_tanturak
+	}
+	3913.8.2 = {
+		holder = lineazrazhe6
+	}
+	4023.10.10 = {
+		holder = lineazrazhe7
+	}
+	4106.1.7 = {
+		holder = lineazrazhe8
+	}
+	4186.3.3 = {
+		holder = lineazrazhe10
+	}
+	4248.6.8 = {
+		holder = lineazrazhe11
+	}
+	4271.10.2 = {
+		holder = lineazrasecond4
+	}
+	4351.3.23 = {
+		holder = lineazrasecond5
+	}
+	4450.12.6 = {
+		holder = lineazrasecond6
+	}
+	4517.1.1 = {
+		holder = lineazrasecond7
+	}
+	4600.3.25 = {
+		holder = lineazrasecond8
+	}
+	4709.7.11 = {
+		holder = lineazrasecond9
+	}
+	4796.6.7 = {
+		holder = lineazrasecond10
+	}
+	4873.2.13 = {
+		holder = lineazrasecond11
+	}
+	4978.3.20 = {
+		holder = lineazrasecond12
+	}
+	5043.12.27 = {
+		holder = lineazrasecond13
+	}
+	5102.6.23 = {
+		holder = lineazrasecond15
+	}
+	5111.11.11 = {
+		holder = lineazrasecond16
+	}
+	5201.9.4 = {
+		holder = lineazrasecond17
+	}
+	5267.7.12 = {
+		holder = lineazrasecond18
+	}
+	5336.5.11 = {
+		holder = lineazrasecond19
+	}
+	5406.9.5 = {
+		holder = lineazrasecond20
+	}
+	6710.2.13 = {
+		holder = lineoludajin1 #Ayamido
+	}
+	6759.2.25 = {
+		holder = lineoludajin3 #Ojahar
+	}
+	6780.1.1 = {
+		liege = d_tanturak
+	}
+	6784.7.12 = { #Long winter start date ruler
+		holder = lineoludajin5 #Diganyad
+	}
+
+	6853.12.12 = {
+		holder = linekulakamuui1 #Niwahar
+	}
+	6913.4.2 = {
+		holder = linekulakamuui3 #Ade
+	}
+	6958.2.17 = {
+		holder = linekulakamuui5 #Ojahar
+	}
+	7016.2.9 = {
+		holder = linekulakamuui7 #Igo
+	}
+	7044.8.13 = {
+		holder = linekulakamuui9 #Enitaan
+	}
+}
+c_bata_jeme = {
+	3770.1.1 = {
+		change_development_level = 4
+	}
+	3613.5.3 = {
+		holder = lineazrazhe1
+	}
+	3759.2.26 = {
+		holder = linearkinyarn2
+	}
+	3845.3.8 = {
+		holder = lineazrazhe2
+	}
+	3905.4.11 = {
+		holder = lineazrazhe3
+		liege = k_tanturak
+	}
+	3913.8.2 = {
+		holder = lineazrazhe6
+	}
+	4023.10.10 = {
+		holder = lineazrazhe7
+	}
+	4106.1.7 = {
+		holder = lineazrazhe8
+	}
+	4186.3.3 = {
+		holder = lineazrazhe10
+	}
+	4248.6.8 = {
+		holder = lineazrazhe11
+	}
+	4271.10.2 = {
+		holder = lineazrasecond4
+	}
+	4351.3.23 = {
+		holder = lineazrasecond5
+	}
+	4450.12.6 = {
+		holder = lineazrasecond6
+	}
+	4517.1.1 = {
+		holder = lineazrasecond7
+	}
+	4600.3.25 = {
+		holder = lineazrasecond8
+	}
+	4709.7.11 = {
+		holder = lineazrasecond9
+	}
+	4796.6.7 = {
+		holder = lineazrasecond10
+	}
+	4873.2.13 = {
+		holder = lineazrasecond11
+	}
+	4978.3.20 = {
+		holder = lineazrasecond12
+	}
+	5000.4.4 = {
+		holder = linenithorhin1 #Minulzo_o_r
+	}
+	5135.11.27 = {
+		holder = linenithorhin3 #Inzilzu_u_r
+	}
+	5170.7.2 = {
+		holder = linenithorhin5 #Do_o_lguzagar
+	}
+	5213.11.19 = {
+		holder = linenithorhin7 #Agandu_u_r
+	}
+	5221.4.10 = {
+		holder = linenithorhin9 #Aba_a_ragar
+	}
+	5270.10.24 = {
+		holder = linenithorhin13 #Gimla_a_n
+	}
+	5332.9.21 = {
+		holder = linenithorhin15 #Karbazi_i_r
+	}
+	5360.11.5 = { # RoA ruler
+		holder = linenithorhin17 #Na_a_lo_o_da_a_n
+		liege = d_azra_zhe
+	}
+	5416.10.11 = {
+		holder = linenithorhin19 #Zabatha_a_n
+	}
+	5406.9.5 = {
+		holder = lineazrasecond20
+	}
+	6710.2.13 = {
+		holder = lineoludajin1 #Ayamido
+		change_development_level = 4
+	}
+	6759.2.25 = {
+		holder = lineoludajin3 #Ojahar
+	}
+	6780.1.1 = {
+		liege = d_tanturak
+	}
+	6784.7.12 = { #Long winter start date ruler
+		holder = lineoludajin5 #Diganyad
+	}
+	6832.10.3 = {
+		holder = lineoludajin7 #Ayo
+	}
+	6873.9.10 = {
+		holder = lineoludajin9 #Kiwano
+	}
+	6926.11.24 = {
+		holder = lineoludajin11 #Ayo
+	}
+	6950.12.10 = {
+		holder = lineoludajin13 #Ayamido
+	}
+	6997.9.28 = {
+		holder = lineoludajin17 #Igo
+	}
+	7032.5.6 = {
+		holder = lineoludajin20
+	}
+}
+
+###	Wâriga (d_wariga)
+d_wariga = {
+	3913.8.2 = {
+		holder = lineofwariga1
+	}
+	3919.2.15 = {
+		holder = lineofwariga2
+	}
+	4046.6.25 = {
+		holder = lineofwariga3
+	}
+	4081.8.23 = {
+		holder = lineofwariga4
+	}
+	4150.10.4 = {
+		holder = lineofwariga5
+	}
+	4206.12.5 = {
+		holder = lineofwariga6
+	}
+	4278.2.4 = {
+		holder = lineofwariga7
+	}
+	4357.4.1 = {
+		holder = lineofwariga8
+	}
+	4425.6.2 = {
+		holder = lineofwariga9
+	}
+	4489.8.9 = {
+		holder = lineofwariga10
+	}
+	4633.10.13 = {
+		holder = lineofwariga11
+	}
+	4674.12.26 = {
+		holder = lineofwariga12
+	}
+	4734.2.8 = {
+		holder = lineofwariga13
+	}
+	4772.4.19 = {
+		holder = lineofwariga14
+	}
+	4881.6.27 = {
+		holder = lineofwariga15
+	}
+	4924.8.11 = {
+		holder = lineofwariga16
+	}
+	4990.10.20 = {
+		holder = lineofwariga17
+	}
+	5061.12.16 = {
+		holder = lineofwariga18
+	}
+	5124.2.1 = {
+		holder = lineofwariga19
+	}
+	5197.4.9 = {
+		holder = lineofwariga20
+	}
+	5232.6.15 = {
+		holder = lineofwariga21
+	}
+	5294.8.16 = {
+		holder = lineofwariga22
+	}
+	5356.2.20 = {
+		holder = lineofwariga23
+	}
+	5408.2.6 = {
+		holder = 0
+	}
+	6703.1.12 = {
+		holder = lineraghash1 #Radnag
+	}
+	6786.10.8 = {
+		holder = 0
+	}
+}
+
+c_hwomo = {
+	3770.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+
+	6703.1.12 = {
+		holder = lineraghash1 #Radnag
+		government = orcish_government
+		change_development_level = 4
+	}
+	6786.10.8 = {
+		holder = lineraghash4 #Radnu
+	}
+	6899.9.24 = {
+		holder = linemarku1 #Argdush
+	}
+	6938.11.18 = {
+		holder = linemarku3 #Gazdush
+	}
+	6972.2.22 = {
+		holder = linemarku5 #Lu_u_nthak
+	}
+	6997.10.21 = {
+		holder = linemarku7 #Gazduf
+	}
+}
+c_mbara = {
+	3770.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+
+	6703.1.12 = {
+		holder = lineraghash1 #Radnag
+		government = orcish_government
+		change_development_level = 4
+	}
+	6786.10.8 = {
+		holder = lineraghash5 #Radzag
+	}
+	6909.3.22 = {
+		holder = linerulum1 #Mauduf
+	}
+	6968.9.20 = {
+		holder = linerulum3 #Lagrad
+	}
+	6984.6.23 = {
+		holder = linerulum5 #Gazdush
+	}
+	7031.1.11 = {
+		holder = linerulum7 #Yagrat
+	}
+
+}
+c_godega = {
+	3770.1.1 = {
+		change_development_level = 3
+	}
+	3913.8.2 = {
+		holder = lineofwariga1
+	}
+	3919.2.15 = {
+		holder = lineofwariga2
+	}
+	4046.6.25 = {
+		holder = lineofwariga3
+	}
+	4081.8.23 = {
+		holder = lineofwariga4
+	}
+	4150.10.4 = {
+		holder = lineofwariga5
+	}
+	4206.12.5 = {
+		holder = lineofwariga6
+	}
+	4278.2.4 = {
+		holder = lineofwariga7
+	}
+	4357.4.1 = {
+		holder = lineofwariga8
+	}
+	4425.6.2 = {
+		holder = lineofwariga9
+	}
+	4489.8.9 = {
+		holder = lineofwariga10
+	}
+	4633.10.13 = {
+		holder = lineofwariga11
+	}
+	4674.12.26 = {
+		holder = lineofwariga12
+	}
+	4734.2.8 = {
+		holder = lineofwariga13
+	}
+	4772.4.19 = {
+		holder = lineofwariga14
+	}
+	4881.6.27 = {
+		holder = lineofwariga15
+	}
+	4924.8.11 = {
+		holder = lineofwariga16
+	}
+	4990.10.20 = {
+		holder = lineofwariga17
+	}
+	5061.12.16 = {
+		holder = lineofwariga18
+	}
+	5124.2.1 = {
+		holder = lineofwariga19
+	}
+	5197.4.9 = {
+		holder = lineofwariga20
+	}
+	5232.6.15 = {
+		holder = lineofwariga21
+	}
+	5294.8.16 = {
+		holder = lineofwariga22
+	}
+	5356.2.20 = {
+		holder = lineofwariga23
+	}
+	#5408.2.6 = {
+	#	holder = 0
+	#}
+	6703.1.12 = {
+		holder = lineraghash1 #Radnag
+		government = orcish_government
+	}
+	6786.10.8 = {
+		holder = lineraghash4 #Radnu
+		government = orcish_government
+	}
+	6909.3.22 = {
+		holder = linerulum1 #Mauduf
+		government = orcish_government
+	}
+	6968.9.20 = {
+		holder = linerulum3 #Lagrad
+	}
+	6984.6.23 = {
+		holder = linerulum5 #Gazdush
+	}
+	7031.1.11 = {
+		holder = linerulum7 #Yagrat
+	}
+}
+c_ramorth = {
+	3770.1.1 = {
+		change_development_level = 7
+	}
+	3913.8.2 = {
+		holder = lineofwariga1
+	}
+	3919.2.15 = {
+		holder = lineofwariga2
+	}
+	4046.6.25 = {
+		holder = lineofwariga3
+	}
+	4081.8.23 = {
+		holder = lineofwariga4
+	}
+	4150.10.4 = {
+		holder = lineofwariga5
+	}
+	4206.12.5 = {
+		holder = lineofwariga6
+	}
+	4278.2.4 = {
+		holder = lineofwariga7
+	}
+	4357.4.1 = {
+		holder = lineofwariga8
+	}
+	4425.6.2 = {
+		holder = lineofwariga9
+	}
+	4489.8.9 = {
+		holder = lineofwariga10
+	}
+	4633.10.13 = {
+		holder = lineofwariga11
+	}
+	4674.12.26 = {
+		holder = lineofwariga12
+	}
+	4734.2.8 = {
+		holder = lineofwariga13
+	}
+	4772.4.19 = {
+		holder = lineofwariga14
+	}
+	4881.6.27 = {
+		holder = lineofwariga15
+	}
+	4924.8.11 = {
+		holder = lineofwariga16
+	}
+	4990.10.20 = {
+		holder = lineofwariga17
+	}
+	5061.12.16 = {
+		holder = lineofwariga18
+	}
+	5124.2.1 = {
+		holder = lineofwariga19
+	}
+	5197.4.9 = {
+		holder = lineofwariga20
+	}
+	5232.6.15 = {
+		holder = lineofwariga21
+	}
+	5294.8.16 = {
+		holder = lineofwariga22
+	}
+	5356.2.20 = {
+		holder = lineofwariga23
+	}
+	#5408.2.6 = {
+	#	holder = 0
+	#}
+	3913.8.2 = {
+		holder = lineofwariga1
+	}
+	3919.2.15 = {
+		holder = lineofwariga2
+	}
+	4046.6.25 = {
+		holder = lineofwariga3
+	}
+	4081.8.23 = {
+		holder = lineofwariga4
+	}
+	4150.10.4 = {
+		holder = lineofwariga5
+	}
+	4206.12.5 = {
+		holder = lineofwariga6
+	}
+	4278.2.4 = {
+		holder = lineofwariga7
+	}
+	4357.4.1 = {
+		holder = lineofwariga8
+	}
+	4425.6.2 = {
+		holder = lineofwariga9
+	}
+	4489.8.9 = {
+		holder = lineofwariga10
+	}
+	4633.10.13 = {
+		holder = lineofwariga11
+	}
+	4674.12.26 = {
+		holder = lineofwariga12
+	}
+	4734.2.8 = {
+		holder = lineofwariga13
+	}
+	4772.4.19 = {
+		holder = lineofwariga14
+	}
+	4881.6.27 = {
+		holder = lineofwariga15
+	}
+	4924.8.11 = {
+		holder = lineofwariga16
+	}
+	4990.10.20 = {
+		holder = lineofwariga17
+	}
+	5061.12.16 = {
+		holder = lineofwariga18
+	}
+	5124.2.1 = {
+		holder = lineofwariga19
+	}
+	5197.4.9 = {
+		holder = lineofwariga20
+	}
+	5232.6.15 = {
+		holder = lineofwariga21
+	}
+	5294.8.16 = {
+		holder = lineofwariga22
+	}
+	5356.2.20 = {
+		holder = lineofwariga23
+	}
+
+	6703.1.12 = {
+		holder = lineraghash1 #Radnag
+		government = orcish_government
+		change_development_level = 5
+	}
+	6786.10.8 = {
+		holder = lineraghash3 #Rhukar
+	}
+	6911.10.20 = {
+		holder = linemorakh1 #Gazdush
+		government = orcish_government
+	}
+	6983.8.3 = {
+		holder = linemorakh3 #Wrask_u
+	}
+	7010.8.3 = {
+		holder = linemorakh5 #Yaglu_u_n
+	}
+}
+

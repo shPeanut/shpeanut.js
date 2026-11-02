@@ -1,0 +1,153 @@
+﻿##################
+#### DRUEDAIN ####
+##################
+
+dynasty_aghanghu = {
+	name = "dynn_aghanghu"
+	culture = "druedain"
+	motto = dynn_aghanghu_motto
+}
+
+dynasty_waghanghu = {
+	name = "dynn_waghanghu"
+	culture = "druedain"
+	motto = dynn_waghanghu_motto
+}
+
+dynasty_madranghu = {
+	name = "dynn_madranghu"
+	culture = "druedain"
+	motto = dynn_madranghu_motto
+}
+
+dynasty_burigumi = {
+	name = "dynn_burigumi"
+	culture = "druedain"
+	motto = dynn_burigumi_motto	
+}
+
+dynasty_manhighu = {
+	name = "dynn_manhighu"
+	culture = "druedain"
+	motto = dynn_manhighu_motto
+}
+
+dynasty_anwaghan = {
+	name = "dynn_anwaghan"
+	culture = "druedain"
+	motto = dynn_anwaghan_motto
+}
+
+dynasty_derdrighu = {
+	name = "dynn_derdrighu"
+	culture = "druedain"
+	motto = dynn_derdrighu_motto
+}
+
+dynasty_buri_z_i_ghi = {
+	name = "dynn_buri_z_i_ghi"
+	culture = "beffraen"
+	motto = dynn_buri_z_i_ghi_motto
+}
+dynasty_a_n_z_u_n = {
+	name = "dynn_a_n_z_u_n"
+	culture = "beffraen"
+	motto = dynn_a_n_z_u_n_motto
+}
+dynasty_a_n_gh_a_wa = {
+	name = "dynn_a_n_gh_a_wa"
+	culture = "beffraen"
+	motto = dynn_a_n_gh_a_wa_motto
+}
+dynasty_buri_r_u_ghi = {
+	name = "dynn_buri_r_u_ghi"
+	culture = "beffraen"
+	motto = dynn_buri_r_u_ghi_motto
+}
+dynasty_a_n_amb_u_ghi = {
+	name = "dynn_a_n_amb_u_ghi"
+	culture = "beffraen"
+	motto = dynn_a_n_amb_u_ghi_motto
+}
+dynasty_a_n_sagh_a_n = {
+	name = "dynn_a_n_sagh_a_n"
+	culture = "beffraen"
+	motto = dynn_a_n_sagh_a_n_motto
+}
+dynasty_zunughi = {
+	name = "dynn_zunughi"
+	culture = "chaialla"
+	motto = dynn_zunughi_motto
+}
+dynasty_antigan = {
+	name = "dynn_antigan"
+	culture = "chaialla"
+	motto = dynn_antigan_motto
+}
+dynasty_lhanaghu = {
+	name = "dynn_lhanaghu"
+	culture = "chaialla"
+	motto = dynn_lhanaghu_motto
+}
+dynasty_buri_lh_o_s = {
+	name = "dynn_buri_lh_o_s"
+	culture = "druedain"
+	motto = dynn_buri_lh_o_s_motto
+}
+
+################
+#### HONNIN ####
+################
+dynasty_onikanna = {
+	name = "dynn_onikana"
+	culture = "honnin"
+	motto = "dynn_onikana_motto"
+}
+
+dynasty_oniras = {
+	name = "dynn_oniras"
+	culture = "honnin"
+	motto = "dynn_oniras_motto"
+}
+
+dynasty_anedin = {
+	name = "dynn_anedin"
+	culture = "honnin"
+	motto = "dynn_anedin_motto"
+}
+
+dynasty_ibanuburi = {
+	name = "dynn_ibanuburi"
+	culture = "honnin"
+	motto = "dynn_ibanuburi_motto"
+}
+
+dynasty_honnanuru = {
+	name = "dynn_honnanuru"
+	culture = "honnin"
+	motto = "dynn_honnanuru_motto"
+}
+
+dynasty_narughas = {
+	name = "dynn_narughas"
+	culture = "honnin"
+	motto = "dynn_narughas_motto"
+}
+
+dynasty_whan = {
+	name = "dynn_whan"
+	culture = "honnin"
+	motto = "dynn_whan_motto"
+}
+
+dynasty_burirhan = {
+	name = "dynn_burirhan"
+	culture = "honnin"
+	motto = "dynn_burirhan_motto"
+}
+
+dynasty_tighan = {
+	name = "dynn_tighan"
+	culture = "yatali_gan"
+	motto = "dynn_tighan_motto"
+}

@@ -1,0 +1,2659 @@
+﻿#####	Misty Mountains (e_misty_mountains)
+####	Khazad-dûm (k_khazad_dum)
+###		Zirakzigil (d_zirakzigil)
+##		Durin's Hall (c_durins_hall)
+
+4909 = {	#Durin's Hall (b_durins_hall)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_09
+		dwarven_quarry_09
+		silver_mines_09
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			wild_orcs
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria under Azog the Defiler
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+		special_building_slot = wonder_durin_throne_orcish
+		special_building = wonder_durin_throne_orcish
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			wild_orcs
+		}
+	}
+	6906.9.13 = { #Malech One-Eye returns to reconquer Moria in the name of Bolg.
+		culture = hallroamer_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6998.8.9 = { # Events of ToR, power struggle in Moria
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			wild_orcs
+		}
+	}
+}
+
+##	East Hall (c_east_hall)
+
+4910 = {	#East Hall (b_east_hall)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_04
+		dwarven_quarry_04
+		dwarven_vaults_04
+	}
+	1.1.1 = {
+		special_building_slot = wonder_bridge_of_durin
+		special_building = wonder_bridge_of_durin
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			wild_orcs
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria
+		culture = hallroamer_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			collapsed_ceiling
+		}
+	}
+	6926.2.4 = {	#Gorlakh the Doorwarden bars the East-Gate
+		culture = clawscorcher_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	7000.1.10 = { # Events of ToR, power struggle in Moria
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			wild_orcs
+		}
+	}
+	7021.5.15 = { # Kurfrag, brother of Kalmog Dwarf-Cutter occupies East Hall
+		culture = hallroamer_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+	7032.4.3 = { # Kurfrag is slain by Flói of Balin's Expedition and East-Hall is abandoned
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			wild_orcs
+		}
+	}
+}
+
+##	Endless Stair (c_endless_stair)
+
+4911 = {	#Endless Stair (b_endless_stair)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_04
+		dwarven_quarry_04
+		dwarven_roads_04
+	}
+	1.1.1 = {
+		special_building_slot = wonder_endless_stairs
+		special_building = wonder_endless_stairs
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			ghosts
+		}
+	}
+	6973.1.1 = { #Naglur infiltrates Moria
+		culture = morlughai
+		religion = lidless_eye
+		holding = dwarven_holding
+	}
+	6998.8.4 = { # Events of ToR, power struggle in Moria
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			ghosts
+		}
+	}
+}
+
+##	Chamber of Mazarbul (c_chamber_of_mazarbul)
+
+4912 = {	#Chamber of Mazarbul (b_chamber_of_mazarbul)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_04
+		dwarven_quarry_04
+		quartz_mines_04
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria
+		culture = hallroamer_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			ghosts
+		}
+	}
+	7022.1.1 = { # T.A. 2989 Balin's expedition arives in Khazad-dûm
+		culture = longbeards
+		religion = faith_khazad
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_01
+			dwarven_fungal_farm_01
+		}
+	}
+	7034.1.1 = { # T.A. 3001 Balin's expedition fails
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+}
+
+##	Hall of a Thousand Pillars (c_hall_of_a_thousand_pillars)
+
+4913 = {	#Hall of a Thousand Pillars (b_hall_of_a_thousand_pillars)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_05
+		dwarven_quarry_05
+		gold_mines_05
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			flooded_tunnels
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria under Azog the Defiler
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			flooded_tunnels
+		}
+	}
+}
+
+##	West Hall (c_west_hall)
+
+4914 = {	#West Hall (b_west_hall)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_04
+		dwarven_quarry_04
+		dwarven_forge_04
+	}
+	1889.1.1 = {
+		special_building_slot = wonder_doors_of_durin
+		special_building = wonder_doors_of_durin
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			stale_air
+			flooded_tunnels
+		}
+	}
+	6700.1.1 = { # Orcs resettle the empty halls of Moria
+		culture = hallroamer_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Orcs devastated in War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			ghosts
+		}
+	}
+	6952.8.11 = { #Hagrot the Sneak establishes outpost in the West Hall
+		culture = hallroamer_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6998.8.9 = { # Events of ToR, power struggle in Moria
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			ghosts
+		}
+	}
+
+}
+
+##	Central Halls (c_central_halls)
+
+4915 = {	#Central Halls (b_central_halls)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_05
+		dwarven_quarry_05
+		emerald_mines_05
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			stale_air
+			collapsed_ceiling
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria under Azog the Defiler
+		culture = hallroamer_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			stale_air
+			ghosts
+		}
+	}
+	6906.9.13 = { #Malech One-Eye returns to reconquer Moria in the name of Bolg.
+		culture = hallroamer_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6998.8.9 = { # Events of ToR, power struggle in Moria
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			stale_air
+			ghosts
+		}
+	}
+	7000.1.1 = {
+		culture = hallroamer_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+}
+
+##	Mithril Lodes (c_great_mines)
+
+4916 = {	#Mithril Lodes (b_great_mines)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_05
+		dwarven_quarry_05
+		mithril_mines_05
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			stale_air
+			collapsed_ceiling
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria under Azog the Defiler
+		culture = drumstriker_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			stale_air
+			collapsed_ceiling
+		}
+	}
+}
+
+##	Zirîn kûk (c_zirin_kuk)
+
+4917 = {	#Zirîn kûk (b_zirin_kuk)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_05
+		dwarven_quarry_05
+		iron_mines_05
+	}
+	5911.9.22 = { # The Longbeards of Khazad-dûm continue to retreat inward
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			ghosts
+		}
+	}
+	6700.1.1 = { # Orcs resettle the empty halls of Moria
+		culture = drumstriker_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Orcs devastated in War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			ghosts
+		}
+	}
+	7000.1.1 = { #Orcs begin to resettle after long years of silence
+		culture = hallroamer_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+}
+
+##	Caradhras Pass (d_barazmekhem)
+##	Dimrill Dale (c_dimrill_dale)
+
+4919 = {	#Mirrormere (b_mirrormere)
+	culture = longbeards
+	religion = faith_khazad
+	holding = castle_holding
+	buildings = {
+		castle_02
+		dwarven_market_03
+		dwarven_outpost_02
+	}
+	1.1.1 = {
+		special_building_slot = wonder_mirrormere
+		special_building = wonder_mirrormere
+	}
+	5930.7.11 = { # The Longbeards of Khazad-dûm continue to retreat inward
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			bandits
+		}
+	}
+	6755.5.5 = { # Orcs begin to spread out from Moria under Azog's reign
+		culture = hallroamer_goblin
+		religion = way_of_strength
+		holding = castle_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			bandits
+		}
+	}
+}
+
+4918 = {	#Dimrill Dale (b_nanduhirion)
+	culture = longbeards
+	religion = faith_khazad
+	holding = none
+}
+
+###	Barazinbar (d_barazinbar)
+##	Êthârul nulâ (c_etharul_nula)
+
+4920 = {	#Êthârul nulâ (b_etharul_nula)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_05
+		dwarven_quarry_05
+		mithril_mines_05
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			wild_orcs
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria
+		culture = fangstealer_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			ghosts
+		}
+	}
+	6950.2.22 = { #Granny Goblin establishes "Goblin Village" at the Ancient Crossing
+		culture = shroombrewer_goblin
+		religion = faith_goblin_town
+		holding = dwarven_holding
+	}
+	6998.8.9 = { # Events of ToR, power struggle in Moria
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			ghosts
+		}
+	}
+}
+
+##	Sigin-dûm (c_sigin_dum)
+
+4921 = {	#Sigin-dûm (b_sigin_dum)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_05
+		dwarven_quarry_05
+		mithril_mines_05
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			stale_air
+			collapsed_ceiling
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria under Azog the Defiler
+		culture = drumstriker_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			collapsed_ceiling
+		}
+	}
+	7000.1.1 = {
+		culture = fangstealer_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+}
+
+##	Athkushmur (c_athkushmur)
+
+4922 = {	#Athkushmur (b_athkushmur)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_05
+		dwarven_quarry_05
+		ruby_mines_05
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			stale_air
+			strange_creatures
+		}
+	}
+}
+
+##	Buzrâ um (c_buzra_um)
+
+4923 = {	#Buzrâ um (b_buzra_um)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_05
+		dwarven_quarry_05
+		iron_mines_05
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			stale_air
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria under Azog the Defiler
+		culture = drumstriker_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			stale_air
+		}
+	}
+	6950.2.22 = { #Granny Goblin establishes "Goblin Village" at the Ancient Crossing
+		culture = shroombrewer_goblin
+		religion = faith_goblin_town
+		holding = dwarven_holding
+	}
+	6998.8.9 = { # Events of ToR, power struggle in Moria
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			stale_air
+		}
+	}
+}
+
+##	Sulkhâsukhra (c_mines_of_caradhras)
+
+4924 = {	#Sulkhâsukhra (b_mines_of_caradhras)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_03
+		dwarven_quarry_03
+		dwarven_roads_03
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			stale_air
+			ghosts
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria under Azog the Defiler
+		culture = fangstealer_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			ghosts
+		}
+	}
+	6952.10.1 = {	#Shagram the Merry Fellow occupies the mines
+		culture = fangstealer_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6998.8.9 = { # Events of ToR, power struggle in Moria
+		religion = faith_balrog_cult
+	}
+}
+
+##	Dufhumul Agâr (c_dufhumul_agar)
+
+4925 = {	#Dufhumul Agâr (b_dufhumul_agar)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_05
+		dwarven_quarry_05
+		mithril_mines_05
+	}
+	5802.9.11 = { # The Longbeards of Khazad-dûm continue to retreat inward
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			stale_air
+			flooded_tunnels
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria under Azog the Defiler
+		culture = fangstealer_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			ghosts
+		}
+	}
+}
+
+##	Kalâh-êthârul (c_kalah_etharul)
+
+4926 = {	#Kalâh-êthârul (b_kalah_etharul)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_05
+		dwarven_quarry_05
+		sapphire_mines_05
+	}
+	5859.7.18 = { # The Longbeards of Khazad-dûm continue to retreat inward
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			stale_air
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria
+		culture = bellbreaker_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			ghosts
+		}
+	}
+	6938.7.21 = { #Yagul the Snatcher seizes the Cold Forges
+		culture = bellbreaker_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6998.8.9 = { # Events of ToR, power struggle in Moria
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			ghosts
+		}
+	}
+	7000.1.1 = {
+		culture = bellbreaker_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+}
+
+##	Dufhuzrak (c_dufhuzrak)
+
+4927 = {	#Dufhuzrak (b_dufhuzrak)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_05
+		dwarven_quarry_05
+		emerald_mines_05
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			flooded_tunnels
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria
+		culture = bellbreaker_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			strange_creatures
+		}
+	}
+}
+
+##	Caradhras Pass (c_caradhras_pass)
+
+4928 = {	#Binanab Razûkh (b_binanab_razukh)
+	culture = longbeards
+	religion = faith_khazad
+	holding = castle_holding
+	buildings = {
+		castle_02
+		dwarven_outpost_04
+	}
+	3.1.1 = {
+		special_building_slot = mountain_pass_01
+		special_building = mountain_pass_03
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			frozen_ground
+		}
+	}
+}
+
+4929 = {	#Agruskub (b_agruskub)
+	culture = longbeards
+	religion = faith_khazad
+	holding = none
+	6014.1.1 = { #
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+}
+
+###	Bundushathûr (d_bundushathur)
+##	Durin's Way (c_durins_way)
+
+4930 = {	#Durin's Way (b_durins_way)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_05
+		dwarven_quarry_05
+		iron_mines_05
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria
+		culture = gloomdrinker_goblin
+		religion = faith_deep_cult
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+		}
+	}
+	7000.1.1 = {
+		culture = gloomdrinker_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+}
+
+##	Zandrukul Akhar (c_zandrukul_akhar)
+
+4931 = {	#Zandrukul Akhar (b_zandrukul_akhar)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_04
+		dwarven_quarry_04
+		dwarven_terrace_farm_04
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			strange_creatures
+		}
+	}
+}
+
+##	Jazârgund (c_jazargund)
+
+4932 = {	#Jazârgund (b_jazargund)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_04
+		dwarven_quarry_04
+		dwarven_terrace_farm_04
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			collapsed_ceiling
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria under Azog the Defiler
+		culture = gloomdrinker_goblin
+		religion = faith_deep_cult
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			collapsed_ceiling
+		}
+	}
+}
+
+##	Sanzigunûd (c_sanzigunud)
+
+4933 = {	#Sanzigunûd (b_sanzigunud)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_04
+		dwarven_quarry_04
+		dwarven_terrace_farm_04
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			strange_creatures
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria
+		culture = clawscorcher_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			ghosts
+		}
+	}
+}
+
+##	Tharâkh Bazân (c_tharakh_bazan)
+
+4934 = {	#Tharâkh Bazân (b_tharakh_bazan)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_05
+		dwarven_quarry_05
+		tin_mines_05
+	}
+	5832.4.23 = { # The Longbeards of Khazad-dûm continue to retreat inward
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			collapsed_ceiling
+		}
+	}
+	6928.7.11 = { #Grimnar the Gaoler creeps into the Darkest Dungeons
+		culture = gloomdrinker_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6998.8.10 = { # Events of ToR, power struggle in Moria
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			collapsed_ceiling
+		}
+	}
+}
+
+##	Gairurakhânîn (c_gairurakhanin)
+
+4935 = {	#Gairurakhânîn (b_gairurakhanin)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_05
+		dwarven_quarry_05
+		copper_mines_05
+	}
+	5778.6.15 = { # The Longbeards of Khazad-dûm continue to retreat inward
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			strange_creatures
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria under Azog the Defiler
+		culture = clawscorcher_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			stale_air
+			ghosts
+		}
+	}
+	7000.1.1 = {
+		culture = clawscorcher_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+}
+
+##	Falnâ um (c_falna_um)
+
+4936 = {	#Falnâ um (b_falna_um)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_04
+		dwarven_quarry_04
+		dwarven_terrace_farm_04
+	}
+	5778.6.15 = { # The Longbeards of Khazad-dûm continue to retreat inward
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			stale_air
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria
+		culture = gloomdrinker_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			wild_orcs
+		}
+	}
+	7000.1.1 = {
+		culture = gloomdrinker_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+}
+
+###	Fuhmdushâ (d_fuhmdusha)
+##	Nazshûn (c_nazshun)
+
+4991 = {	#Nazshûn (b_nazshun)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	5200.2.16 = { # The Longbeards of Khazad-dûm continue to retreat inward
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			stale_air
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria
+		culture = shroombrewer_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			wild_orcs
+		}
+	}
+}
+
+##	Id-nazsh (c_id_nazsh)
+
+4992 = {	#Id-nazsh (b_id_nazsh)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	5200.2.16 = { # The Longbeards of Khazad-dûm continue to retreat inward
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			collapsed_ceiling
+			##spider_nest #Juke note: Vec says no spideys :/
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria
+		culture = shroombrewer_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			wild_orcs
+		}
+	}
+	7000.1.1 = {
+		culture = shroombrewer_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+}
+
+##	Fuhmâ hirbâ (c_fuhma_hirba)
+
+4993 = {	#Fuhmâ hirbâ (b_fuhma_hirba)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	5200.2.16 = { # The Longbeards of Khazad-dûm continue to retreat inward
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			#spider_nest #Juke note: Vec says no spideys :/
+			collapsed_ceiling
+			ghosts
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs resettle Moria
+		culture = shroombrewer_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			wild_orcs
+		}
+	}
+	7000.1.1 = {
+		culture = shroombrewer_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+}
+
+##	Fuhmâ kûk (c_fuhma_kuk)
+
+4994 = {	#Fuhmâ kûk (b_fuhma_kuk)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	5200.2.16 = { # The Longbeards of Khazad-dûm continue to retreat inward
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			#spider_nest #Juke note: Vec says no spideys :/
+			wild_orcs
+			stale_air
+		}
+	}
+}
+
+####	High Pass (k_high_pass)
+###	High Pass (d_high_pass)
+##	Central High Pass (c_central_high_pass)
+
+4518 = {	#Thallbâd (b_thallbad)
+	3.1.1 = {
+		special_building_slot = mountain_pass_01
+		special_building = mountain_pass_01
+	}
+	2290.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			frozen_ground
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs multiply in the Misties
+		culture = towndweller_goblin
+		religion = way_of_strength
+		holding = castle_holding
+	}
+	6792.3.25 = { # Under Azog the Defiler, the Orcs spread through the mountains
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # War of Dwarves and Orcs, the Longbeards cleanse the High Pass
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			frozen_ground
+		}
+	}
+}
+
+4517 = {	#Lorfeleg (b_lorfeleg)
+	2290.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+	6614.1.1 = { # T.A. 2580 Orcs multiply in the Misties
+		culture = towndweller_goblin
+		religion = way_of_strength
+		holding = city_holding
+	}
+	6832.4.8 = { # War of Dwarves and Orcs, the Longbeards cleanse the High Pass
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none # throws errors
+	}
+}
+
+4525 = {	#Norothriss (b_norothriss)
+	2290.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+}
+
+4524 = {	#Nînrad (b_ninrad)
+	2290.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+}
+
+##	Western High Pass (c_western_high_pass)
+
+4520 = {	#Andrath (b_andrath)
+	2290.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+		}
+	}
+}
+
+4521 = {	#Tarchasrâd (b_tarchasrad)
+	2290.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+}
+
+4522 = {	#Men Aglon (b_men_aglon)
+	2290.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+}
+
+##	Eastern High Pass (c_eastern_high_pass)
+
+4519 = {	#Padúland (b_paduland)
+	2290.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bear_den
+			frozen_ground
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs multiply in the Misties
+		culture = towndweller_goblin
+		religion = way_of_strength
+		holding = castle_holding
+	}
+	6792.3.25 = { # Under Azog the Defiler, the Orcs spread through the mountains
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # War of Dwarves and Orcs, the Longbeards cleanse the High Pass
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			frozen_ground
+		}
+	}
+	7029.1.1 = { #Beornings keep the High pass open
+		culture = valemen
+		religion = faith_woodmen
+		holding = tribal_holding
+	}
+	7081.5.19 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+}
+
+4523 = {	#Taeriss (b_taeriss)
+	2290.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+}
+
+###	Goblin Town (d_goblin_town)
+##	Goblin Town (c_goblin_town)
+
+4529 = {	#Goblin Town (b_goblin_town)
+	culture = towndweller_goblin
+	religion = faith_goblin_town
+	holding = dwarven_holding
+	special_building_slot = wonder_goblin_town_01
+	special_building = wonder_goblin_town_01
+	buildings = {
+		dwarven_depths_04
+		slave_mines_03
+		raiding_camps_04
+	}
+	6444.4.4 = {
+		religion = way_of_strength
+	}
+	6877.7.7 = {
+		religion = faith_goblin_town
+	}
+}
+
+##	Throne of Immensity (c_throne_of_immensity)
+
+4528 = {	#Throne of Immensity (b_throne_of_immensity)
+	culture = towndweller_goblin
+	religion = faith_goblin_town
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_04
+		slave_mines_03
+		raiding_camps_04
+	}
+}
+
+##	Fetid Sump (c_fetid_sump)
+
+4527 = {	#Fetid Sump (b_fetid_sump)
+	culture = towndweller_goblin
+	religion = faith_goblin_town
+	holding = dwarven_holding
+	5109.4.1 = {
+		culture = towndweller_goblin
+		religion = faith_deep_cult
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_04
+			slave_mines_01
+			raiding_camps_02
+		}
+	}
+	5834.2.7 = {
+		culture = towndweller_goblin
+		religion = faith_goblin_town
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_03
+			slave_mines_02
+			raiding_camps_02
+		}
+	}
+	7089.4.12 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			stale_air
+		}
+	}
+}
+
+##	Torture Racks (c_torture_racks)
+
+4530 = {	#Torture Racks (b_torture_racks)
+	culture = towndweller_goblin
+	religion = faith_goblin_town
+	holding = dwarven_holding
+	5109.4.1 = {
+		culture = towndweller_goblin
+		religion = faith_deep_cult
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_04
+			slave_mines_01
+			raiding_camps_02
+		}
+	}
+	5834.2.7 = {
+		culture = towndweller_goblin
+		religion = faith_goblin_town
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_03
+			slave_mines_02
+			raiding_camps_02
+		}
+	}
+	7127.6.29 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			stale_air
+		}
+	}
+}
+
+##	Goblin Gate (c_goblin_gate)
+
+4526 = {	#Goblin Gate (b_goblin_gate)
+	culture = towndweller_goblin
+	religion = faith_goblin_town
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_02
+		slave_mines_02
+		raiding_camps_02
+	}
+	6755.5.5 = { #Orcs are sent from Dol Guldur by Sauron to slap the Goblins in line
+		culture = kazgumhoth
+		religion = lidless_eye
+		holding = dwarven_holding
+	}
+	6822.2.2 = { #The Great Goblin kicks them out
+		culture = towndweller_goblin
+		religion = faith_goblin_town
+		holding = dwarven_holding
+	}
+	7089.4.12 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			stale_air
+		}
+	}
+}
+
+##	Front Porch (c_front_porch)
+
+4531 = {	#Front Porch (b_front_porch)
+	culture = towndweller_goblin
+	religion = faith_goblin_town
+	holding = dwarven_holding
+	buildings = {
+		dwarven_depths_02
+		slave_mines_02
+		raiding_camps_02
+	}
+	7127.6.29 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			stale_air
+		}
+	}
+}
+
+###	Gabilgir (d_gabilgir)
+##	Akht bazarî (c_akht_bazari)
+
+4995 = {	#Akht Bazarî (b_akht_bazari)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	4035.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			stale_air
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs spread throughout the misties
+		culture = ridgelurker_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			wild_orcs
+		}
+	}
+	7000.1.1 = {
+		culture = ghrazim
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	7077.5.12 = { # Bolgakh Descendant of Azog
+		religion = way_of_strength
+	}
+}
+
+##	Furkâ Anut (c_furka_anut)
+
+4996 = {	#Furkâ Anut (b_furka_anut)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	4035.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			flooded_tunnels
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs spread throughout the misties
+		culture = ridgelurker_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	7077.5.12 = { # Bolgakh Descendant of Azog
+		culture = ghrazim
+		religion = way_of_strength
+	}
+}
+
+##	Ingudumsu (c_ingudumsu)
+
+4997 = {	#Ingudumsu (b_ingudumsu)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	4035.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			stale_air
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs spread throughout the misties
+		culture = ridgelurker_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			ghosts
+		}
+	}
+}
+
+##	Nâla Zudrâ (c_nala_zudra)
+
+4998 = {	#Nâla Zudrâ (b_nala_zudra)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	4035.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			wild_orcs
+		}
+	}
+}
+
+##	Binakhrâm Bazarî (c_binakhram_bazari)
+
+4999 = {	#Binakhrâm Bazarî (b_binakhram_bazari)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	4035.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			strange_creatures
+		}
+	}
+}
+
+###	Zandîth Dûm (d_zandith_dum)
+##	Zudrâ Zabad (c_zudra_zabad)
+
+5000 = {	#Zudrâ Zabad (b_zudra_zabad)
+	culture = longbeards
+	religion = faith_khazad
+	holding = castle_holding
+	2290.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			stale_air
+			wild_orcs
+		}
+	}
+	5380.12.3 = {
+		culture = longbeards
+		religion = faith_khazad
+		holding = dwarven_holding
+		buildings = {	#ROA Buildings
+			dwarven_depths_04
+			dwarven_quarry_04
+			dwarven_armory_03
+		}
+	}
+	5481.9.21 = { # Lóni the Turncoat dies, while his collaborators, dwindling in number, are forced to abandon the area
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			strange_creatures
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs spread throughout the misties
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			stale_air
+			wild_orcs
+		}
+	}
+}
+
+##	Nâlu luznâ (c_nalu_iuzna)
+
+5001 = {	#Nâlu luznâ (b_nalu_iuzna)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	6614.1.1 = { # T.A. 2580 Orcs spread throughout the misties
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			collapsed_ceiling
+		}
+	}
+}
+
+##	Athrur Duban (c_athrur_duban)
+
+5002 = {	#Athrur Duban (b_athrur_duban)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	2511.8.23 = { # Held by the Longbeards for a time as an outpost after the fall of Gundabad, but is eventually overrun
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			ghosts
+		}
+	}
+	6614.1.1 = { # T.A. 2580 Orcs spread throughout the misties
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			ghosts
+		}
+	}
+}
+
+##	Fuklâ Ibab (c_fukla_ibab)
+
+5003 = {	#Fuklâ Ibab (b_fukla_ibab)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	2511.8.23 = { # Held by the Longbeards for a time as an outpost after the fall of Gundabad, but is eventually overrun
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			ghosts
+		}
+	}
+}
+
+####	Gundabad (k_gundabad)
+###	Gundabad (d_gundabad)
+##	Máttugard (c_mattugard)
+
+5010 = {	#Máttugard (b_mattugard)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	2290.1.1 = {
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	4087.12.7 = { # Urro dies and his forces lose Gundabad after last alliance, Durin IV reclaims his stirring place
+		culture = longbeards
+		religion = faith_khazad
+		holding = dwarven_holding
+	}
+	4144.11.30 = { # After Durin IV dies, his heirs abandon the culturally important but indefensible hold
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+	4530.12.17 = { # Urro the Reconqueror of the Lokikrah retakes Gundabad
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	5330.1.1 = {
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+		buildings = {	#ROA Buildings
+			dwarven_depths_04
+			slave_mines_04
+			furnaces_04
+		}
+	}
+	6000.1.1 = {
+		culture = ghrazim
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_04
+			slave_mines_02
+			raiding_camps_03
+		}
+	}
+}
+
+##	Chamber of Awakening (c_chamber_of_awakening)
+
+5011 = {	#Chamber of Awakening (b_chamber_of_awakening)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	special_building_slot = wonder_mazalabkan
+	special_building = wonder_mazalabkan
+	2290.1.1 = {
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	4087.12.7 = { # Urro dies and his forces lose Gundabad after last alliance, Durin IV reclaims his stirring place
+		culture = longbeards
+		religion = faith_khazad
+		holding = dwarven_holding
+	}
+	4144.11.30 = { # After Durin IV dies, his heirs abandon the culturally important but indefensible hold
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+	4530.12.17 = { # Urro the Reconqueror of the Lokikrah retakes Gundabad
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	6000.1.1 = {
+		culture = maskbearer_goblin
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+}
+
+##	Gundabad (c_gundabad)
+
+3210 = {	#Gundabad (b_gundabad)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	special_building_slot = wonder_gundabad_01
+	special_building = wonder_gundabad_01
+	2290.1.1 = {
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	4087.12.7 = { # Urro dies and his forces lose Gundabad after last alliance, Durin IV reclaims his stirring place
+		culture = longbeards
+		religion = faith_khazad
+		holding = dwarven_holding
+	}
+	4144.11.30 = { # After Durin IV dies, his heirs abandon the culturally important but indefensible hold
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+	4530.12.17 = { # Urro the Reconqueror of the Lokikrah retakes Gundabad
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	5330.1.1 = {
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_04
+			furnaces_04
+			slave_mines_04
+			# uruk_pits_02
+			# warg_pits_02
+		}
+	}
+	6000.1.1 = {
+		culture = ghrazim
+		religion = cult_of_the_ulukai
+		buildings = {
+			dwarven_depths_03
+			furnaces_01
+			slave_mines_02
+			# uruk_pits_02
+			# warg_pits_02
+		}
+	}
+}
+
+##	Pit of Stonejaws (c_pit_of_stonejaws)
+
+5012 = {	#Pit of Stonejaws (b_pit_of_stonejaws)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	2290.1.1 = {
+		culture = maskbearer_goblin
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	5330.1.1 = {
+		culture = maskbearer_goblin
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+		buildings = {	#ROA Buildings
+			dwarven_depths_03
+			raiding_camps_03
+			uruk_pits_02
+		}
+	}
+	6000.1.1 = {
+		culture = maskbearer_goblin
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_02
+			raiding_camps_02
+			uruk_pits_01
+		}
+	}
+}
+
+##	The Cloven Spire (c_the_cloven_spire)
+
+5013 = {	#The Cloven Spire (b_the_cloven_spire)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	2290.1.1 = {
+		culture = maskbearer_goblin
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	5330.1.1 = {
+		culture = maskbearer_goblin
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+		buildings = {	#ROA Buildings
+			dwarven_depths_03
+			raiding_camps_03
+			warg_pits_02
+		}
+	}
+	6000.1.1 = {
+		culture = maskbearer_goblin
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_02
+			raiding_camps_02
+			warg_pits_01
+		}
+	}
+}
+
+##	Ashlukruk Shâlak (c_ashlukruk_shalak)
+
+5014 = {	#Ashlukruk Shâlak (b_ashlukruk_shalak)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	2290.1.1 = {
+		culture = maskbearer_goblin
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	5330.1.1 = {
+		culture = maskbearer_goblin
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+		buildings = {	#ROA Buildings
+			dwarven_depths_03
+			scouting_posts_02
+			orc_siege_works_03
+		}
+	}
+	6000.1.1 = {
+		culture = maskbearer_goblin
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_02
+			scouting_posts_01
+			orc_siege_works_02
+		}
+	}
+}
+
+##	Ibdêkh-buzrû (c_ibdekh_buzru)
+
+5015 = {	#Ibdêkh-buzrû (b_ibdekh_buzru)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	2290.1.1 = {
+		culture = maskbearer_goblin
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	5330.1.1 = {
+		culture = maskbearer_goblin
+		religion = faith_angmar_evil
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_03
+			warg_pits_03
+			scouting_posts_02
+		}
+	}
+	6000.1.1 = {
+		culture = maskbearer_goblin
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+		buildings = {	#ROA Buildings
+			dwarven_depths_02
+			warg_pits_02
+			scouting_posts_01
+		}
+	}
+	7034.4.12 = { # Gorgol routes Goblins
+		culture = ghrazim
+	}
+}
+
+###	Gunduz Mahab (d_gunduz_mahab)
+##	Gunduz Mekh (c_gunduz_mekh)
+
+5008 = {	#Gunduz Mekh (b_gunduz_mekh)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	2290.1.1 = {
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6792.3.25 = { # Under Azog the Defiler, the Orcs spread through the mountains
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	6974.11.30 = { # Battle of the five armies reduces gundabad's population
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+}
+
+##	Gunduz Mahab (c_gunduz_mahab)
+
+5009 = {	#Gunduz Mahab (b_gunduz_mahab)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	2290.1.1 = {
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	#5201.4.5 = {
+	#	culture = worauthai_madur
+	#	religion = way_of_strength
+	#	holding = dwarven_holding
+	#}
+	6792.3.25 = { # Under Azog the Defiler, the Orcs spread through the mountains
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	6974.11.30 = { # Battle of the five armies reduces gundabad's population
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6974.11.30 = { # Battle of the five armies reduces gundabad's population
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+
+}
+
+##	NâIkhsêsh (c_naikhsesh)
+
+5016 = {	#NâIkhsêsh (b_naikhsesh)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	2290.1.1 = {
+		culture = worauthai_madur
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			wild_orcs
+		}
+	}
+}
+
+###	Gundalok (d_gundalok)
+##	Gundalok (c_gundalok)
+
+3213 = {	#Zudramdam (b_zudramdam)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	2290.1.1 = {
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	5330.1.1 = {
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = castle_holding
+		buildings = {	#ROA Buildings
+			castle_02
+			hill_forts_03
+			slave_mines_03
+		}
+	}
+	6000.1.1 = {
+		culture = ghrazim
+		religion = cult_of_the_ulukai
+		holding = castle_holding
+	}
+	6974.11.30 = { # Battle of the five armies reduces gundabad population
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			bandits
+		}
+	}
+}
+
+3211 = {	#Elderslade (b_elderslade)
+	culture = ghrazim
+	religion = cult_of_the_ulukai
+	holding = none
+}
+
+3212 = {	#Meond's Watch (b_meonds_watch)
+	culture = ghrazim
+	religion = cult_of_the_ulukai
+	holding = none
+}
+
+##	Ûgûlai (c_ugulai)
+
+3215 = {	#Ûgûlai (b_ugulai)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	2290.1.1 = {
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	5330.1.1 = {
+		culture = worauthai_madur
+		religion = faith_angmar_evil
+		holding = castle_holding
+		buildings = {	#ROA Buildings
+			castle_01
+			hill_forts_01
+			slave_mines_02
+		}
+	}
+	6000.1.1 = {
+		culture = ghrazim
+		religion = cult_of_the_ulukai
+		holding = castle_holding
+	}
+	6974.11.30 = { # Battle of the five armies reduces gundabad population
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			wolf_den
+		}
+	}
+}
+
+3214 = {	#Udrabax (b_udrabax)
+	culture = ghrazim
+	religion = cult_of_the_ulukai
+	holding = none
+}
+
+##	Pass of Gundabad (c_pass_of_gundabad)
+
+5245 = {	#Highgate (b_highgate)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	3.1.1 = {
+		special_building_slot = mountain_pass_01
+		special_building = mountain_pass_01
+	}
+	2290.1.1 = {
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	5330.1.1 = {
+		culture = uruk_ongmair
+		religion = faith_angmar_evil
+		holding = castle_holding
+		buildings = {	#ROA Buildings
+			castle_02
+			hill_forts_04
+			slave_mines_02
+		}
+		special_building = mountain_pass_02
+	}
+	6000.1.1 = {
+		culture = ghrazim
+		religion = cult_of_the_ulukai
+		holding = castle_holding
+	}
+	6974.11.30 = { # Battle of the five armies reduces gundabad population
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			frozen_ground
+		}
+	}
+}
+
+5246 = {	#Axecleft Ridge (b_axecleft_ridge)
+	culture = ghrazim
+	religion = cult_of_the_ulukai
+	holding = none
+}
+
+###	Malasul Tagerkar (d_malasul_tagerkar)
+##	Binnukhru Ibriz (c_binnukhru_ibriz)
+
+5004 = {	#Binnukhru Ibriz (b_binnukhru_ibriz)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	2290.1.1 = {
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	5270.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			strange_creatures
+		}
+	}
+	6700.1.1 = {
+		culture = lakestalker_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+}
+
+##	Abnân (c_abnan)
+
+5005 = {	#Abnân (b_abnan)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	2290.1.1 = {
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	3000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			stale_air
+		}
+	}
+	6700.1.1 = { #Orcs spread throughout the misties
+		culture = lakestalker_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6792.3.25 = { # Under Azog the Defiler, the Orcs spread through the mountains
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			stale_air
+		}
+	}
+}
+
+##	Rukhbnân (c_rukhbnan)
+
+5006 = {	#Rukhbnân (b_rukhbnan)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	2290.1.1 = {
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	5270.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			flooded_tunnels
+		}
+	}
+	6700.1.1 = { #Orcs spread throughout the misties
+		culture = lakestalker_goblin
+		religion = way_of_strength
+		holding = dwarven_holding
+	}
+	6792.3.25 = { # Under Azog the Defiler, the Orcs spread through the mountains
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			flooded_tunnels
+		}
+	}
+}
+
+##	Thartâ (c_tharta)
+
+5007 = {	#Thartâ (b_tharta)
+	culture = longbeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	2290.1.1 = {
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			spider_nest
+		}
+	}
+}
+
+####	Southern Misties (k_southern_misties)
+###	Foundations of Stone (d_foundations_of_stone)
+##	Amrâd 'âzahal (c_amrad_azahal)
+
+4937 = {	#Amrâd 'âzahal (b_amrad_azahal)
+	culture = firebeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	4035.1.1 = { # L.A. depopulates Khazad-dum. Foundations of Stones stays depopulated for a long time
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			wild_orcs
+		}
+	}
+	6792.3.25 = { # Goblin seizes his opportunity to slay his father and swear fealty to Azog when he unites the Misty Mountains
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Azog is slain by Dain II, the Orcish domain of the Misty Mountains collapses outside of Gundabad
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			wild_orcs
+		}
+	}
+	6953.2.22 = {	#Thu "Firespeaker" establishes his cult
+		culture = deepwalker_goblin
+		religion = faith_balrog_cult
+		holding = dwarven_holding
+	}
+	7000.1.10 = { # Events of ToR, power struggle in Moria
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			wild_orcs
+		}
+	}
+}
+
+##	Dâr Narbugud (c_dar_narbugud)
+
+4938 = {	#Dâr Narbugud (b_dar_narbugud)
+	culture = firebeards
+	religion = faith_khazad
+	holding = dwarven_holding
+	4035.1.1 = { # L.A. depopulates Khazad-dum. Foundations of Stones stays depopulated for a long time
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			strange_creatures
+		}
+	}
+}
+
+##	Mainthirî ikrihî (c_mainthiri_ikrihi)
+
+4939 = {	#Mainthirî ikrihî (b_mainthiri_ikrihi)
+	culture = broadbeams
+	religion = faith_khazad
+	holding = dwarven_holding
+	2.2.4 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			strange_creatures
+		}
+	}
+	6700.1.1 = {
+		culture = deepwalker_goblin
+		religion = faith_deep_cult
+		holding = dwarven_holding
+	}
+	6792.3.25 = { # Under Azog the Defiler, the Orcs spread through the mountains
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			wild_orcs
+		}
+	}
+	7000.1.1 = { #Deep-Walkers creep back in
+		culture = deepwalker_goblin
+		religion = faith_deep_cult
+		holding = dwarven_holding
+	}
+}
+
+##	Abanathkul (c_abanathkul)
+
+5297 = {	#Abanathkul (b_abanathkul)
+	culture = broadbeams
+	religion = faith_khazad
+	holding = dwarven_holding
+	2.2.4 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			wild_orcs
+		}
+	}
+	6700.1.1 = {
+		culture = deepwalker_goblin
+		religion = faith_deep_cult
+		holding = dwarven_holding
+	}
+	6792.3.25 = { # Under Azog the Defiler, the Orcs spread through the mountains
+		culture = worauthai_madur
+		religion = cult_of_the_ulukai
+		holding = dwarven_holding
+	}
+	6832.4.8 = { # Battle of Azanulbizar ending the War of the Dwarves and Orcs
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			wild_orcs
+		}
+	}
+	6854.3.4 = { #Some sort of terrifying incident occurrs, all goblins vanish in a single night
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			strange_creatures
+		}
+	}
+}
+
+### Furkâbbad (d_furkabbad)
+##	Buzrâdusha (c_buzradusha)
+
+5298 = {	#Buzrâdusha (b_buzradusha)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		ghosts
+		strange_creatures
+	}
+}
+
+##	Humûtasadul (c_humutasadul)
+
+5299 = {	#Humûtasadul (b_humutasadul)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		wild_orcs
+		stale_air
+	}
+	5317.6.21 = { #Some Orcs creep in
+		culture = worauthai_madur
+		religion = faith_deep_cult
+		holding = dwarven_holding
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			wild_orcs
+		}
+	}
+}
+
+##	Agârudlag (c_agarudlag)
+
+5300 = {	#Agârudlag (b_agarudlag)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		strange_creatures
+		stale_air
+	}
+	5317.6.21 = { #Some Orcs creep in
+		culture = worauthai_madur
+		religion = faith_deep_cult
+		holding = dwarven_holding
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			strange_creatures
+		}
+	}
+}
+
+##	Abanutut (c_abanutut)
+
+5301 = {	#Abanutut (b_abanutut)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		strange_creatures
+		stale_air
+	}
+	5317.6.21 = { #Some Orcs creep in
+		culture = worauthai_madur
+		religion = faith_deep_cult
+		holding = dwarven_holding
+	}
+	6014.1.1 = { # T.A. 1980 Durin's Bane awakens
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			wild_orcs
+		}
+	}
+}

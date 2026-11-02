@@ -1,0 +1,1545 @@
+﻿namespace = lotr_yearly
+
+### LotR Yearly Events ###
+#	lotr_yearly.0001-0099		Childhood Parent/Guardian Events
+#	
+
+
+
+###############################################
+###	CHILDHOOD PARENT/GUARDIAN EVENTS		###
+### lotr_yearly.0001-0099					###
+###############################################
+# Events from the perspective of a parent/guardian/host
+
+
+### The Longing - Parent/Guardian perspective, Child wants to Sail
+# by Juke
+scripted_trigger lotr_yearly_0001_eligible_child_trigger = {
+	age >= 6
+	age < 15
+	is_available = yes
+	is_ai = yes
+	location = root.location
+	NOT = { has_trait = lifestyle_mariner }
+	can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = ROOT } # As a shorthand for 'Is it considered fine for them to steer ships'
+	NOT = { has_variable = had_lotr_yearly_0001_learning_event }
+}
+scripted_trigger lotr_yearly_0001_model_sailor_trigger = {
+	is_available_ai_adult = yes
+	has_trait = lifestyle_mariner
+}
+lotr_yearly.0001 = {
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_yearly.0001.t
+	desc = {
+		desc = lotr_yearly.0001.desc.intro
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:sailor_child = {
+						OR = {
+							is_child_of = root
+							is_grandchild_of = root
+							is_great_grandchild_of = root
+						}
+					}
+				}
+				desc = lotr_yearly.0001.desc.parent
+			}
+			desc = lotr_yearly.0001.desc.guardian
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = scope:model_sailor } }
+				desc = lotr_yearly.0001.desc.nosailor
+			}
+			triggered_desc = {
+				trigger = { scope:model_sailor = ROOT }
+				desc = lotr_yearly.0001.desc.model_sailor_you
+			}
+			triggered_desc = {
+				trigger = {
+					scope:model_sailor = {
+						is_close_or_extended_family_of = scope:sailor_child
+					}
+				}
+				desc = lotr_yearly.0001.desc.model_sailor_family
+			}
+			desc = lotr_yearly.0001.desc.model_sailor
+		}
+		desc = lotr_yearly.0001.desc.outro
+	}
+	theme = family
+	override_background = { reference = docks }
+	left_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = { has_trait = callous }
+			animation = personality_cynical
+		}
+	}
+
+	right_portrait = {
+		character = scope:sailor_child
+		animation = love
+	}
+
+	lower_center_portrait = {
+		trigger = { NOT = { scope:model_sailor ?= root } }
+		character = scope:model_sailor
+	}
+
+	#Set up the cooldown
+	cooldown = { years = 10 }
+
+	trigger = {
+		#Standard checks
+		is_available_adult = yes
+		lotr_can_sail = yes
+		is_landed_or_landless_administrative = yes
+		capital_county ?= {
+			any_county_province = {
+				is_coastal = yes
+				has_holding = yes
+			}
+		}
+		OR = {
+			any_courtier = {
+				OR = {
+					is_child_of = root
+					is_grandchild_of = root
+					is_great_grandchild_of = root
+				}
+				lotr_yearly_0001_eligible_child_trigger = yes
+			}
+			any_relation = {
+				type = ward
+				lotr_yearly_0001_eligible_child_trigger = yes
+			}
+			any_warden_hostage = {
+				lotr_yearly_0001_eligible_child_trigger = yes
+			}
+		}
+	}
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			has_trait = lifestyle_mariner
+			add = 1
+		}
+		modifier = {
+			lotr_has_sailing_traits_more_common = yes
+			add = 1
+		}
+	}
+	immediate = {
+		random_list = {
+			40 = {
+				trigger = {
+					any_courtier = {
+						OR = {
+							is_child_of = root
+							is_grandchild_of = root
+							is_great_grandchild_of = root
+						}
+						lotr_yearly_0001_eligible_child_trigger = yes
+					}
+				}
+				random_courtier = {
+					limit = {
+						OR = {
+							is_child_of = root
+							is_grandchild_of = root
+							is_great_grandchild_of = root
+						}
+						lotr_yearly_0001_eligible_child_trigger = yes
+						this = root.player_heir
+					}
+					alternative_limit = {
+						is_child_of = root
+						lotr_yearly_0001_eligible_child_trigger = yes
+					}
+					alternative_limit = {
+						OR = {
+							is_grandchild_of = root
+							is_great_grandchild_of = root
+						}
+						lotr_yearly_0001_eligible_child_trigger = yes
+					}
+					save_scope_as = sailor_child
+				}
+				modifier = {
+					any_courtier = {
+						OR = {
+							is_child_of = root
+							is_grandchild_of = root
+							is_great_grandchild_of = root
+						}
+						lotr_yearly_0001_eligible_child_trigger = yes
+						this = root.player_heir
+					}
+					add = 50
+				}
+			}
+			30 = {
+				trigger = {
+					any_relation = {
+						type = ward
+						lotr_yearly_0001_eligible_child_trigger = yes
+					}
+				}
+				random_relation = {
+					type = ward
+					limit = { 
+						lotr_yearly_0001_eligible_child_trigger = yes
+						has_focus = education_learning
+					}
+					alternative_limit = { lotr_yearly_0001_eligible_child_trigger = yes }
+					save_scope_as = sailor_child
+				}
+			}
+			30 = {
+				trigger = {
+					any_warden_hostage = {
+						lotr_yearly_0001_eligible_child_trigger = yes
+					}
+				}
+				random_warden_hostage = {
+					#A child you care about
+					limit = { 
+						lotr_yearly_0001_eligible_child_trigger = yes
+						has_focus = education_learning
+					}
+					alternative_limit = { lotr_yearly_0001_eligible_child_trigger = yes }
+					save_scope_as = sailor_child
+				}
+			}
+		}
+		scope:sailor_child = {
+			set_variable = {
+				name = had_lotr_yearly_0001_learning_event
+				value = flag:yes
+			}
+		}
+
+		## Find our Model Sailor
+		if = { # If youre a sailor, its you
+			limit = { has_trait = lifestyle_mariner }
+			save_scope_as = model_sailor
+		}
+		else_if = { # Otherwise, build a list
+			limit = {
+				OR = {
+					any_courtier_or_guest = { lotr_yearly_0001_model_sailor_trigger = yes }
+					any_councillor = { lotr_yearly_0001_model_sailor_trigger = yes }
+					any_spouse = { lotr_yearly_0001_model_sailor_trigger = yes }
+					scope:sailor_child = {
+						any_relation = {
+							type = guardian
+							lotr_yearly_0001_model_sailor_trigger = yes
+						}
+					}
+				}
+			}
+			every_courtier_or_guest = {
+				limit = { lotr_yearly_0001_model_sailor_trigger = yes }
+				add_to_list = potential_sailors
+			}
+			every_councillor = {
+				limit = { lotr_yearly_0001_model_sailor_trigger = yes }
+				add_to_list = potential_sailors
+			}
+			every_spouse = {
+				limit = { lotr_yearly_0001_model_sailor_trigger = yes }
+				add_to_list = potential_sailors
+			}
+			scope:sailor_child = {
+				every_relation = {
+					type = guardian
+					limit = { lotr_yearly_0001_model_sailor_trigger = yes }
+					add_to_list = potential_sailors
+				}
+			}
+			random_in_list = {
+				list = potential_sailors
+				save_scope_as = model_sailor
+				weight = {
+					base = 1
+					modifier = {
+						add = 10
+						has_relation_guardian = scope:sailor_child
+					}
+					modifier = {
+						add = 10
+						is_close_family_of = scope:sailor_child
+					}
+					modifier = {
+						add = 5
+						has_court_position = court_tutor_court_position
+					}
+				}
+			}
+		}
+		# If both of these fail, the event is set up to also work without a model sailor
+	}
+	option = { # You can learn
+		name = {
+			text = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							exists = scope:model_sailor
+							this = scope:model_sailor
+						}
+						desc = lotr_yearly.0001.a.me
+					}
+					triggered_desc = {
+						trigger = { exists = scope:model_sailor }
+						desc = lotr_yearly.0001.a.sailor
+					}
+					desc = lotr_yearly.0001.a.nosailor
+				}
+			}
+		}
+		trait = lifestyle_mariner
+		if = {
+			limit = {
+				exists = scope:model_sailor
+				NOT = { this = scope:model_sailor }
+			}
+			pay_short_term_gold = {
+				target = scope:model_sailor
+				gold = minor_gold_value
+			}
+		}
+		else = {
+			remove_short_term_gold = minor_gold_value
+		}
+		reverse_add_opinion = {
+			target = scope:sailor_child
+			modifier = teaching_moment_opinion
+			opinion = 15
+		}
+		random_list = {
+			50 = {
+				desc = taught_sailing_success
+				send_interface_toast = {
+					left_icon = scope:sailor_child
+					type = event_toast_effect_good
+					title = reinforce_soldiers_skill_success
+					scope:sailor_child = { add_trait = lifestyle_mariner }
+				}
+				modifier = {
+					add = 5
+					exists = scope:model_sailor
+				}
+				modifier = {
+					add = 10
+					exists = scope:model_sailor
+					scope:model_sailor = {
+						has_trait_xp = {
+							trait = lifestyle_mariner
+							value >= 50
+						}
+					}
+				}
+				modifier = {
+					add = 10
+					exists = scope:model_sailor
+					scope:model_sailor = {
+						has_trait_xp = {
+							trait = lifestyle_mariner
+							value >= 100
+						}
+					}
+				}
+				modifier = {
+					add = 10
+					lotr_has_sailing_traits_more_common = yes
+				}
+				modifier = {
+					add = 5
+					scope:sailor_child = {
+						OR = {
+							has_trait = rowdy
+							has_trait = diligent
+							has_trait = stubborn
+						}
+					}
+				}
+				modifier = {
+					add = -10
+					scope:sailor_child = {
+						OR = {
+							has_trait = fickle
+							has_trait = arbitrary
+							has_trait = lazy
+						}
+					}
+				}
+			}
+			50 = {
+				desc = taught_sailing_failure
+				send_interface_toast = {
+					left_icon = scope:sailor_child
+					type = event_toast_effect_bad
+					title = taught_sailing_failure
+					add_prestige = minor_prestige_loss
+				}
+				modifier = {
+					add = -5
+					exists = scope:model_sailor
+				}
+				modifier = {
+					add = -10
+					exists = scope:model_sailor
+					scope:model_sailor = {
+						has_trait_xp = {
+							trait = lifestyle_mariner
+							value >= 50
+						}
+					}
+				}
+				modifier = {
+					add = -10
+					exists = scope:model_sailor
+					scope:model_sailor = {
+						has_trait_xp = {
+							trait = lifestyle_mariner
+							value >= 100
+						}
+					}
+				}
+				modifier = {
+					add = -10
+					lotr_has_sailing_traits_more_common = yes
+				}
+				modifier = {
+					add = -5
+					scope:sailor_child = {
+						OR = {
+							has_trait = rowdy
+							has_trait = diligent
+							has_trait = stubborn
+						}
+					}
+				}
+				modifier = {
+					add = 10
+					scope:sailor_child = {
+						OR = {
+							has_trait = fickle
+							has_trait = arbitrary
+							has_trait = lazy
+						}
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				lotr_has_sailing_traits_more_common = yes
+				factor = 2
+			}
+			modifier = {
+				has_trait = lifestyle_mariner
+				factor = 2
+			}
+			modifier = {
+				short_term_gold < minor_gold_value
+				factor = 0.2
+			}
+		}
+	}
+	option = { # Nope!
+		name = lotr_yearly.0001.d
+		reverse_add_opinion = {
+			target = scope:sailor_child
+			modifier = disappointed_opinion
+			opinion = -30
+		}
+		stress_impact = {
+			greedy = minor_stress_impact_loss
+		}
+		ai_chance = {
+			base = 33
+		}
+	}
+}
+
+### The Little Loremaster - Parent/Guardian perspective, Child has lore questions
+# by Juke
+scripted_trigger lotr_yearly_0002_eligible_child_trigger = {
+	age >= 5
+	age < 16
+	is_available = yes
+	is_ai = yes
+	location = root.location
+	lotr_can_explore_histories = yes
+	NOT = { has_trait = lifestyle_archivist }
+	NOT = { has_variable = had_lotr_yearly_0002_learning_event }
+}
+scripted_trigger valid_taxpolicy_king = { # Valid dead ruler for tax policy question
+	is_alive = no
+	primary_title.tier >= tier_kingdom
+}
+scripted_trigger lotr_in_qlist = { # Check if its in question list already
+	is_target_in_variable_list = {
+		name = lore_questions
+		target = $TARGET$
+	}
+}
+scripted_effect lotr_add_to_qlist = { # Add to question list
+	add_to_variable_list = {
+		name = lore_questions
+		target = $TARGET$
+	}
+}
+scripted_effect lotr_select_lore_question_effect = { # Select our lore questions!
+	random_List = {
+		130 = { # Who founded REALM?
+			trigger = {
+				exists = primary_title
+				primary_title.tier >= tier_duchy
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_founder } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_founder }
+		}
+		130 = { # What was RULERS Tax Policy?
+			trigger = {
+				OR = {
+					any_ancestor = { even_if_dead = yes valid_taxpolicy_king = yes }
+					any_liege_or_above = { any_ancestor = { even_if_dead = yes valid_taxpolicy_king = yes } }
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_taxpolicy } }
+			}
+			every_ancestor = {
+				even_if_dead = yes
+				limit = { valid_taxpolicy_king = yes }
+				add_to_list = taxpolicy_kings
+			}
+			every_liege_or_above = {
+				every_ancestor = {
+					even_if_dead = yes
+					limit = {
+						valid_taxpolicy_king = yes
+						NOT = { is_in_list = taxpolicy_kings }
+					}
+					add_to_list = taxpolicy_kings
+				}
+			}
+			random_in_list = { list = taxpolicy_kings save_scope_as = taxpolicy_ruler } # Get a king for the tax policy
+			lotr_add_to_qlist = { TARGET = flag:loreq_taxpolicy }
+		}
+		130 = {
+			trigger = {
+				exists = capital_county
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_capital } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_capital }
+		}
+		130 = {
+			trigger = {
+				any_culture_innovation = {
+					is_known_by_culture = ROOT.culture
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_innovation } }
+			}
+			random_culture_innovation = {
+				limit = {
+					is_known_by_culture = ROOT.culture
+				}
+				save_scope_as = innovation
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_innovation }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_tameanimal } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_tameanimal }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_instrument } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_instrument }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_builder } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_builder }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_downfall } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_downfall }
+		}
+		100 = {
+			trigger = {
+				location ?= { geographical_region = middleearth_west }
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_elendilsize } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_elendilsize }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_amanround } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_amanround }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 5600
+				OR = {
+					location ?= { geographical_region = middleearth_west }
+					location ?= { geographical_region = middleearth_harad_near }
+					culture = { has_cultural_pillar = heritage_dunedain }
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_kinstrife } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_kinstrife }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 6510
+				OR = {
+					location ?= { geographical_region = middleearth_west }
+					culture = { has_cultural_pillar = heritage_dunedain }
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_osgiliath } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_osgiliath }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 5885
+				location ?= { geographical_region = middleearth_west }
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_wainriders } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_wainriders }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_forodwaith } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_forodwaith }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_haradwaith } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_haradwaith }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_enedhwaith } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_enedhwaith }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_mistymountains } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_mistymountains }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_ancalagon } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_ancalagon }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_numenorarmy } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_numenorarmy }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 6015
+				OR = {
+					location ?= { geographical_region = middleearth_west }
+					location ?= { geographical_region = middleearth_forodwaith }
+					culture = { has_cultural_pillar = heritage_dunedain }
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_angmarwars } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_angmarwars }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_beleriand } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_beleriand }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_warofwrath } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_warofwrath }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_greatarmament } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_greatarmament }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 4895
+				OR = {
+					location ?= { geographical_region = middleearth_west }
+					culture = { has_cultural_pillar = heritage_dunedain }
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_arnor } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_arnor }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 4036
+				OR = {
+					location ?= { geographical_region = middleearth_west }
+					culture = { has_cultural_pillar = heritage_dunedain }
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_gladdenfields } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_gladdenfields }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 6979
+				location ?= { geographical_region = middleearth_west }
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_fivearmies } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_fivearmies }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 6100
+				OR = {
+					location ?= { geographical_region = middleearth_west_gondor }
+					culture = { has_cultural_pillar = heritage_dunedain }
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_imrazor } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_imrazor }
+		}
+		100 = {
+			trigger = {
+				OR = {
+					location ?= { geographical_region = middleearth_west }
+					location ?= { geographical_region = middleearth_harad }
+					location ?= { geographical_region = middleearth_uttersouth_thanihazad }
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_umbar } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_umbar }
+		}
+		100 = {
+			trigger = {
+				OR = {
+					location ?= { geographical_region = middleearth_west_gondor }
+					location ?= { geographical_region = middleearth_harad }
+					location ?= { geographical_region = middleearth_uttersouth_thanihazad }
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_bellakar } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_bellakar }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 4429
+				OR = {
+					location ?= { geographical_region = middleearth_harad_far_bellakar }
+					culture = { has_cultural_pillar = heritage_bellakari }
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_zimrebal } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_zimrebal }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 4429
+				OR = {
+					location ?= { geographical_region = custom_bayoftulwang }
+					faith = { has_doctrine = tenet_bellakari_syncretism }
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_iunast } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_iunast }
+		}
+		100 = {
+			trigger = {
+				location ?= { geographical_region = middleearth_harad }
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_haradmerchant } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_haradmerchant }
+		}
+		100 = {
+			trigger = {
+				OR = {
+					location ?= { geographical_region = middleearth_harad_far_bellakar }
+					location ?= { geographical_region = middleearth_uttersouth_thanihazad }
+					culture = { has_cultural_pillar = heritage_southern_adunaic }
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_balanlai } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_balanlai }
+		}
+		100 = {
+			trigger = {
+				OR = {
+					location ?= { geographical_region = middleearth_harad_far_bellakar }
+					location ?= { geographical_region = middleearth_uttersouth_thanihazad }
+					culture = { has_cultural_pillar = heritage_southern_adunaic }
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_anbalkumagan } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_anbalkumagan }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 4100
+				faith.religion = religion:adunai_religion
+				faith_is_evil = no
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_zigur } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_zigur }
+		}
+		100 = {
+			trigger = {
+				location ?= { geographical_region = middleearth_west }
+				faith.religion = { is_in_family = rf_eruhini }
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_glorfindel } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_glorfindel }
+		}
+		100 = {
+			trigger = {
+				location ?= { geographical_region = middleearth_west }
+				faith.religion = { is_in_family = rf_eruhini }
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_hurin } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_hurin }
+		}
+		100 = {
+			trigger = {
+				culture = { has_cultural_parameter = heritage_group_numenorean }
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_elros } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_elros }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_pettydwarves } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_pettydwarves }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_halforcs } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_halforcs }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_greateagles } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_greateagles }
+		}
+		100 = {
+			trigger = {
+				location ?= { geographical_region = middleearth_west }
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_entwives } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_entwives }
+		}
+		100 = {
+			trigger = {
+				any_neighboring_top_liege_realm_owner = { is_druedain = yes }
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_druedain } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_druedain }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 4034
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_nazgul } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_nazgul }
+		}
+		100 = {
+			trigger = {
+				is_elf = no
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_elvesbreath } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_elvesbreath }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_trees } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_trees }
+		}
+		100 = {
+			trigger = {
+				OR = {
+					is_elf = yes
+					has_trait = blood_of_numenor
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_longevity } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_longevity }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_elfmanwed } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_elfmanwed }
+		}
+		100 = {
+			trigger = {
+				is_orc = no
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_orcsevil } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_orcsevil }
+		}
+		100 = {
+			trigger = {
+				is_orc = no
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_orcsex } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_orcsex }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_dragons } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_dragons }
+		}
+		100 = {
+			trigger = {
+				is_troll = no
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_trolls } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_trolls }
+		}
+		100 = {
+			trigger = {
+				faith_is_good = yes
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_evilelves } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_evilelves }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 6000
+				is_hobbit = no
+				location ?= { geographical_region = middleearth_west }
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_halflings } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_halflings }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_balrogwings } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_balrogwings }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 5500
+				faith_is_good = yes
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_istaricount } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_istaricount }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 6000
+				faith_is_good = yes
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_bluewizards } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_bluewizards }
+		}
+		100 = {
+			trigger = {
+				faith_is_good = yes
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_cirth } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_cirth }
+		}
+		100 = {
+			trigger = {
+				is_elf = no
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_elfpee } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_elfpee }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 6000
+				OR = {
+					location ?= { geographical_region = middleearth_west_gondor }
+					location ?= { geographical_region = middleearth_harad_near }
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_southconfed } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_southconfed }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 4100
+				OR = {
+					location ?= { geographical_region = middleearth_west_gondor }
+					culture = { has_cultural_pillar = heritage_dunedain }
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_oathbreakers } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_oathbreakers }
+		}
+		100 = {
+			trigger = {
+				faith_is_good = yes
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_morgothreturn } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_morgothreturn }
+		}
+		100 = {
+			trigger = {
+				location ?= { geographical_region = middleearth_west }
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_crowstalk } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_crowstalk }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_snack } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_snack }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_pharazonreturn } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_pharazonreturn }
+		}
+		100 = {
+			trigger = {
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_utumno } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_utumno }
+		}
+		100 = {
+			trigger = {
+				exists = capital_county.duchy
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_secondageduchy } }
+			}
+			capital_county.duchy = { save_scope_as = oldduchy }
+			lotr_add_to_qlist = { TARGET = flag:loreq_secondageduchy }
+		}
+		100 = {
+			trigger = {
+				location ?= { geographical_region = middleearth_west }
+				faith_is_good = yes
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_gilgaladdad } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_gilgaladdad }
+		}
+		100 = {
+			trigger = {
+				OR = {
+					location ?= { geographical_region = middleearth_west }
+					location ?= { geographical_region = middleearth_rhun }
+				}
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_northmen } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_northmen }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 4034
+				game_start_date < 7050
+				is_eldar = yes
+				location ?= { geographical_region = middleearth_west }
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_onering } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_onering }
+		}
+		100 = {
+			trigger = {
+				faith.religion = { is_in_family = rf_eruhini }
+				location ?= { geographical_region = middleearth_west }
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_feanor } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_feanor }
+		}
+		100 = {
+			trigger = {
+				is_orc = no
+				scope:curious_child = { is_orc = no }
+				scope:curious_child = { any_sibling = { is_lotr_adult = no } }
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_siblingorc } }
+			}
+			scope:curious_child = {
+				random_sibling = {
+					limit = { is_lotr_adult = no }
+					save_scope_as = sibling
+					weight = {
+						base = 1
+						modifier = {
+							add = 10
+							OR = {
+								has_trait = wrathful
+								has_trait = irritable
+								has_trait = rowdy
+								has_trait = sadistic
+							}
+						}
+					}
+				}
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_siblingorc }
+		}
+		100 = {
+			trigger = {
+				game_start_date >= 4100
+				NOT = { is_grandparent_of = scope:curious_child }
+				NOT = { is_great_grandparent_of = scope:curious_child }
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_lastalliance } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_lastalliance }
+		}
+		50 = {
+			trigger = {
+				culture = { has_cultural_parameter = heritage_group_numenorean }
+    			NOT = { lotr_in_qlist = { TARGET = flag:loreq_colonialism } }
+			}
+			lotr_add_to_qlist = { TARGET = flag:loreq_colonialism }
+		}
+	}
+}
+lotr_yearly.0002 = {
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_yearly.0002.t
+	desc = {
+		desc = lotr_yearly.0002.desc.intro
+
+		# Lore Questions
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_founder		} } desc = loreq_founder		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_taxpolicy		} } desc = loreq_taxpolicy		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_capital		} } desc = loreq_capital		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_innovation		} } desc = loreq_innovation		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_tameanimal		} } desc = loreq_tameanimal		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_instrument		} } desc = loreq_instrument		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_builder		} } desc = loreq_builder		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_downfall		} } desc = loreq_downfall		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_elendilsize	} } desc = loreq_elendilsize	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_amanround		} } desc = loreq_amanround		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_kinstrife		} } desc = loreq_kinstrife		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_osgiliath		} } desc = loreq_osgiliath		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_wainriders		} } desc = loreq_wainriders		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_forodwaith		} } desc = loreq_forodwaith		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_haradwaith		} } desc = loreq_haradwaith		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_enedhwaith		} } desc = loreq_enedhwaith		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_mistymountains	} } desc = loreq_mistymountains	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_ancalagon		} } desc = loreq_ancalagon		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_numenorarmy	} } desc = loreq_numenorarmy	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_angmarwars		} } desc = loreq_angmarwars		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_beleriand		} } desc = loreq_beleriand		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_warofwrath		} } desc = loreq_warofwrath		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_greatarmament	} } desc = loreq_greatarmament	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_arnor			} } desc = loreq_arnor			}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_gladdenfields	} } desc = loreq_gladdenfields	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_fivearmies		} } desc = loreq_fivearmies		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_imrazor		} } desc = loreq_imrazor		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_umbar			} } desc = loreq_umbar			}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_bellakar		} } desc = loreq_bellakar		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_zimrebal		} } desc = loreq_zimrebal		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_iunast			} } desc = loreq_iunast			}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_haradmerchant	} } desc = loreq_haradmerchant	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_balanlai		} } desc = loreq_balanlai		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_anbalkumagan	} } desc = loreq_anbalkumagan	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_zigur			} } desc = loreq_zigur			}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_glorfindel		} } desc = loreq_glorfindel		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_hurin			} } desc = loreq_hurin			}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_elros			} } desc = loreq_elros			}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_pettydwarves	} } desc = loreq_pettydwarves	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_halforcs		} } desc = loreq_halforcs		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_greateagles	} } desc = loreq_greateagles	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_entwives		} } desc = loreq_entwives		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_druedain		} } desc = loreq_druedain		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_nazgul			} } desc = loreq_nazgul			}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_elvesbreath	} } desc = loreq_elvesbreath	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_trees			} } desc = loreq_trees			}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_longevity		} } desc = loreq_longevity		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_elfmanwed		} } desc = loreq_elfmanwed		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_orcsevil		} } desc = loreq_orcsevil		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_orcsex			} } desc = loreq_orcsex			}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_dragons		} } desc = loreq_dragons		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_trolls			} } desc = loreq_trolls			}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_evilelves		} } desc = loreq_evilelves		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_halflings		} } desc = loreq_halflings		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_balrogwings	} } desc = loreq_balrogwings	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_istaricount	} } desc = loreq_istaricount	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_bluewizards	} } desc = loreq_bluewizards	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_cirth			} } desc = loreq_cirth			}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_elfpee			} } desc = loreq_elfpee			}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_southconfed	} } desc = loreq_southconfed	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_oathbreakers	} } desc = loreq_oathbreakers	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_morgothreturn	} } desc = loreq_morgothreturn	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_crowstalk		} } desc = loreq_crowstalk		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_snack			} } desc = loreq_snack			}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_pharazonreturn	} } desc = loreq_pharazonreturn	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_utumno			} } desc = loreq_utumno			}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_secondageduchy	} } desc = loreq_secondageduchy	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_gilgaladdad	} } desc = loreq_gilgaladdad	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_northmen		} } desc = loreq_northmen		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_onering		} } desc = loreq_onering		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_feanor			} } desc = loreq_feanor			}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_siblingorc		} } desc = loreq_siblingorc		}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_lastalliance	} } desc = loreq_lastalliance	}
+		triggered_desc = { trigger = { lotr_in_qlist = { TARGET = flag:loreq_colonialism	} } desc = loreq_colonialism	}
+
+		# Outro
+		desc = lotr_yearly.0002.desc.outro
+	}
+	theme = family
+	override_background = { reference = study }
+
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+
+	right_portrait = {
+		character = scope:curious_child
+		animation = love
+	}
+
+	lower_center_portrait = {
+		trigger = { exists = scope:loremaster }
+		character = scope:loremaster
+	}
+
+	#Set up the cooldown
+	cooldown = { years = 10 }
+
+	trigger = {
+		#Standard checks
+		is_available_adult = yes
+		lotr_can_explore_histories = yes
+		is_landed_or_landless_administrative = yes
+		exists = cp:councillor_court_chaplain
+		OR = {
+			any_courtier = {
+				OR = {
+					is_child_of = root
+					is_grandchild_of = root
+					is_great_grandchild_of = root
+				}
+				lotr_yearly_0002_eligible_child_trigger = yes
+			}
+			any_relation = {
+				type = ward
+				lotr_yearly_0002_eligible_child_trigger = yes
+			}
+			any_warden_hostage = {
+				lotr_yearly_0002_eligible_child_trigger = yes
+			}
+		}
+	}
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			has_trait = lifestyle_archivist
+			add = 1
+		}
+		modifier = {
+			OR = {
+				any_child = { 
+					lotr_yearly_0002_eligible_child_trigger = yes
+					has_focus = education_learning
+				}
+				any_relation = {
+					type = ward
+					lotr_yearly_0002_eligible_child_trigger = yes
+					has_focus = education_learning
+				}
+				any_warden_hostage = {
+					lotr_yearly_0002_eligible_child_trigger = yes
+					has_focus = education_learning
+				}
+			}
+			add = 1
+		}
+	}
+	immediate = {
+		random_list = {
+			40 = {
+				trigger = {
+					any_courtier = {
+						OR = {
+							is_child_of = root
+							is_grandchild_of = root
+							is_great_grandchild_of = root
+						}
+						lotr_yearly_0002_eligible_child_trigger = yes
+					}
+				}
+				random_courtier = {
+					limit = {
+						OR = {
+							is_child_of = root
+							is_grandchild_of = root
+							is_great_grandchild_of = root
+						}
+						lotr_yearly_0002_eligible_child_trigger = yes
+						this = root.player_heir
+					}
+					alternative_limit = {
+						is_child_of = root
+						lotr_yearly_0002_eligible_child_trigger = yes
+					}
+					alternative_limit = {
+						OR = {
+							is_grandchild_of = root
+							is_great_grandchild_of = root
+						}
+						lotr_yearly_0002_eligible_child_trigger = yes
+					}
+					save_scope_as = curious_child
+					weight = {
+						base = 1
+						modifier = {
+							has_focus = education_learning
+							add = 4
+						}
+						modifier = {
+							has_trait = curious
+							add = 2
+						}
+					}
+				}
+				modifier = {
+					any_courtier = {
+						OR = {
+							is_child_of = root
+							is_grandchild_of = root
+							is_great_grandchild_of = root
+						}
+						lotr_yearly_0002_eligible_child_trigger = yes
+						this = root.player_heir
+					}
+					add = 50
+				}
+			}
+			30 = {
+				trigger = {
+					any_relation = {
+						type = ward
+						lotr_yearly_0002_eligible_child_trigger = yes
+					}
+				}
+				random_relation = {
+					type = ward
+					limit = { 
+						lotr_yearly_0002_eligible_child_trigger = yes
+						has_focus = education_learning
+					}
+					alternative_limit = { lotr_yearly_0002_eligible_child_trigger = yes }
+					save_scope_as = curious_child
+				}
+			}
+			30 = {
+				trigger = {
+					any_warden_hostage = {
+						lotr_yearly_0002_eligible_child_trigger = yes
+					}
+				}
+				random_warden_hostage = {
+					#A child you care about
+					limit = { 
+						lotr_yearly_0002_eligible_child_trigger = yes
+						has_focus = education_learning
+					}
+					alternative_limit = { lotr_yearly_0002_eligible_child_trigger = yes }
+					save_scope_as = curious_child
+				}
+			}
+		}
+		scope:curious_child = {
+			set_variable = {
+				name = had_lotr_yearly_0002_learning_event
+				value = flag:yes
+			}
+		}
+		if = {
+			limit = { exists = cp:councillor_court_chaplain }
+			cp:councillor_court_chaplain = { save_scope_as = loremaster }
+		}
+
+		### Lore Questions Selection
+		# We select three questions
+		lotr_select_lore_question_effect = yes
+		lotr_select_lore_question_effect = yes
+		lotr_select_lore_question_effect = yes
+
+	}
+	
+	option = { # Well you see...
+		name = lotr_yearly.0002.a
+		trigger = {
+			OR = {
+				has_focus = learning_scholarship_focus
+				has_court_position = court_tutor_court_position
+				has_trait = education_learning
+				has_trait = scholar
+				has_trait = lifestyle_archivist
+			}
+		}
+		trait = scholar
+		trait = lifestyle_archivist
+
+		scope:curious_child = { add_learning_skill = 1 }
+		#More points for a matching education
+		if = {
+			limit = { has_trait = education_learning }
+			custom_tooltip = lotr_yearly.0002.tt_matching
+			hidden_effect = {
+				scope:curious_child = { 
+					education_point_acquisition_additional_points_effect = { LEVEL = mid }
+				}
+			}
+		}
+		else = {
+			custom_tooltip = lotr_yearly.0002.tt
+			hidden_effect = {
+				scope:curious_child = { 
+					education_point_acquisition_additional_points_effect = { LEVEL = low }
+				}
+			}
+		}
+		reverse_add_opinion = {
+			target = scope:curious_child
+			modifier = teaching_moment_opinion
+			opinion = 15
+		}
+		stress_impact = {
+			base = minor_stress_impact_gain
+			lifestyle_archivist = minor_stress_impact_loss
+			patient = miniscule_stress_impact_loss
+			compassionate = miniscule_stress_impact_loss
+		}
+		ai_chance = {
+			base = 300
+		}
+	}
+	
+	option = { # Go ask Loremaster
+		name = lotr_yearly.0002.b
+		#More points for a matching education
+		if = {
+			limit = { has_trait = education_learning }
+			custom_tooltip = lotr_yearly.0002.tt_matching
+			hidden_effect = {
+				scope:curious_child = { 
+					education_point_acquisition_additional_points_effect = { LEVEL = mid }
+				}
+			}
+		}
+		else = {
+			custom_tooltip = lotr_yearly.0002.tt
+			hidden_effect = {
+				scope:curious_child = { 
+					education_point_acquisition_additional_points_effect = { LEVEL = low }
+				}
+			}
+		}
+		scope:loremaster = {
+			stress_impact = {
+				base = medium_stress_impact_gain
+			}
+		}
+		reverse_add_opinion = {
+			target = scope:loremaster
+			modifier = annoyed_opinion
+			opinion = -25
+		}
+		if = {
+			limit = {
+				NOR = {
+					has_focus = learning_scholarship_focus
+					has_court_position = court_tutor_court_position
+					has_trait = education_learning
+					has_trait = scholar
+					has_trait = lifestyle_archivist
+				}
+			}
+			stress_impact = {
+				base = minor_stress_impact_gain
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	option = { # Figure it out yourself!
+		name = lotr_yearly.0002.c
+		name = {
+			text = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							OR = {
+								has_trait = wrathful
+								has_trait = irritable
+							}
+						}
+						desc = lotr_yearly.0002.c.rage
+					}
+					desc = lotr_yearly.0002.c
+				}
+			}
+		}
+		trait = wrathful
+		trait = irritable
+
+		reverse_add_opinion = {
+			target = scope:curious_child
+			modifier = disappointed_opinion
+			opinion = -25
+		}
+		stress_impact = {
+			wrathful = minor_stress_impact_loss
+			irritable = minor_stress_impact_loss
+			arrogant = miniscule_stress_impact_loss
+			lazy = miniscule_stress_impact_loss
+			callous = miniscule_stress_impact_loss
+		}
+		ai_chance = {
+			base = 35
+			modifier = {
+				factor = 3
+				OR = {
+					has_trait = wrathful
+					has_trait = irritable
+					has_trait = arrogant
+					has_trait = lazy
+					has_trait = callous
+				}
+			}
+		}
+	}
+
+	after = { clear_variable_list = lore_questions }
+}

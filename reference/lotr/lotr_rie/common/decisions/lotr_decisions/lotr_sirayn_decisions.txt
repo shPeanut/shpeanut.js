@@ -1,0 +1,3775 @@
+﻿############
+## Sîrayn ##
+############
+decision_avatar_of_x_deity = {
+	sort_order = 400
+	title = decision_avatar_of_x_deity
+	picture = { reference = "gfx/interface/illustrations/decisions/fp3/fp3_decision_foundation.dds" }
+	selection_tooltip = decision_avatar_of_x_deity_tooltip
+	desc = decision_avatar_of_x_deity_desc
+	confirm_text = decision_avatar_of_x_deity_confirm
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_nazgul = no
+		is_sauron = no
+		OR = {
+			faith.religion = religion:sirayn_religion
+			faith.religion = religion:harshandatt_religion
+		}
+		NOR = {
+			has_trait = avatar
+			#has_government = mandala_government
+			this = character:lineoflavrajyatante21 # Radyani has her own dedicated version
+			is_nazgul = yes
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		highest_held_title_tier >= tier_duchy
+		custom_description = {
+			text = faith_is_reformed
+			subject = root
+			faith = { NOT = { has_doctrine_parameter = unreformed } }
+		}
+		#trigger_if = { #Juke note: requirements were getting a bit hefty
+		#	limit = { is_landless_adventurer = no }
+		#	custom_description = {
+		#		text = "consecrate_bloodline_holy_site"
+		#		faith = {
+		#			any_holy_site = {
+		#				OR = {
+		#					county.holder = root
+		#					county.holder.top_liege = { this = root }
+		#				}
+		#				count >= 1
+		#			}
+		#		}
+		#	}
+		#}
+		piety_level >= 4
+
+		### Head of Faith Triggers ###
+		# Depends on HoF Doctrine
+		trigger_if = { # Faith has Temporal Head
+			limit = { faith = { has_doctrine = doctrine_temporal_head } }
+			custom_tooltip = {
+				text = lotr_is_temporal_hof
+				faith = { has_doctrine = doctrine_temporal_head }
+				exists = faith.religious_head
+				faith.religious_head = root
+			}
+		}
+		trigger_else_if = { # Faith has Spiritual Head, exists
+			limit = {
+				faith = { has_doctrine = doctrine_spiritual_head }
+				exists = faith.religious_head
+				root != root.faith.religious_head
+			}
+			OR = {
+				faith.religious_head = {
+					opinion = {
+						target = root
+						value >= very_high_positive_opinion
+					}
+				}
+				has_strong_hook = root.faith.religious_head
+				custom_description = {
+					text = lotr_no_spiritual_hof
+					NOT = { exists = faith.religious_head }
+				}
+			}
+		}
+		trigger_else_if = { # Faith has spiritual head, doesnt exist
+			limit = {
+				faith = { has_doctrine = doctrine_spiritual_head }
+				NOT = { exists = faith.religious_head }
+			}
+			OR = {
+				custom_description = {
+					text = lotr_spiritual_hof_high_opinion
+					always = no
+				}
+				custom_tooltip = {
+					text = lotr_strong_hook_on_spiritual_hof
+					always = no
+				}
+				custom_description = {
+					text = lotr_no_spiritual_hof
+					NOT = { exists = faith.religious_head }
+				}
+			}
+		}
+		trigger_else = {}
+		# No HoF, no problem
+		custom_tooltip = { # more virtues than sins
+			text = lotr_more_virtue_than_sin_traits
+			OR = {
+				num_sinful_traits = 0
+				num_virtuous_traits > num_sinful_traits
+			}
+		}
+		
+		### Faith-Specific Triggers
+		# Depends on which god you wish to mantle
+		custom_description = {
+			text = tayee_special_requirement_to_mantle_deity_tt
+			subject = ROOT
+			tayee_special_requirement_to_mantle_deity_tt_trigger = yes
+		}
+		tayee_special_requirement_to_mantle_deity_tt_trigger = yes
+	}
+	
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_at_war = no
+		is_available_adult = yes
+		custom_tooltip = {
+			text = tayee_already_an_avatar_of_faith_tt
+			NOT = {
+				faith = {
+					any_faith_character = {
+						any_owned_story = {
+							type = story_cycle_avatar_of_faith
+						}
+					}
+				}
+			}
+		}
+	}
+
+	effect = {
+		show_as_tooltip = { sirayn_become_avatar_effect = yes }
+		trigger_event = sirayn.1100
+	}
+
+	cost = {
+		piety = { value = monumental_piety_value }
+	}
+
+	ai_goal = yes
+
+	ai_will_do = {
+		base = 1000
+
+		modifier = {
+			add = {
+				value = ai_zeal
+				multiply = -0.5
+			}
+		}
+
+		modifier = {
+			add = -20
+			has_trait = craven
+		}
+
+		modifier = {
+			add = -20
+			has_trait = cynical
+		}
+
+		modifier = {
+			add = 20
+			has_trait = ambitious
+		}
+	}
+}
+
+decision_reign_of_the_avatar = {
+	sort_order = 800
+
+	title = decision_reign_of_the_avatar
+	picture = {reference = "gfx/interface/illustrations/decisions/tgp_decision_mandala.dds"}
+	selection_tooltip = decision_reign_of_the_avatar_tooltip
+	desc = decision_reign_of_the_avatar_desc
+	confirm_text = decision_reign_of_the_avatar_confirm
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		has_tgp_dlc_trigger = yes
+		any_owned_story = { type = story_cycle_avatar_of_faith }
+		NOT = { has_government = mandala_government }
+	}
+	
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_at_war = no
+		is_available_adult = yes
+	}
+
+	is_valid = {
+		is_landed = yes
+		is_independent_ruler = yes
+		highest_held_title_tier >= tier_kingdom
+		realm_size >= 20
+		custom_tooltip = {
+			text = lotr_must_have_mandala_culture_trigger
+			has_mandala_culture_trigger = yes
+		}
+		has_trait = avatar
+		piety_level >= 5
+		capital_province.county = {
+			development_level >= convert_to_feudalism_development_requirement
+		}
+		custom_description = { #You need to have 70% of all (non-regional/unique) tribal innovations!
+			text = has_all_tribal_innovations
+			subject = root.culture
+			culture = {
+				calc_true_if = {
+					amount >= 9
+					has_innovation = innovation_motte
+					has_innovation = innovation_catapult
+					has_innovation = innovation_barracks
+					has_innovation = innovation_mustering_grounds
+					has_innovation = innovation_bannus
+					has_innovation = innovation_quilted_armor
+					has_innovation = innovation_gavelkind
+					has_innovation = innovation_crop_rotation
+					has_innovation = innovation_city_planning
+					has_innovation = innovation_casus_belli
+					has_innovation = innovation_plenary_assemblies
+					has_innovation = innovation_ledger
+					has_innovation = innovation_development_01
+					has_innovation = innovation_currency_01
+				}
+			}
+		}
+	}
+
+	effect = {
+		dynasty ?= { add_dynasty_prestige_level = 1 }
+		# account for oligarchies 
+		if = {
+			limit = { has_government = oligarchy_government }
+			hidden_effect = {
+				primary_title.title_province = { set_holding_type = castle_holding }
+				change_government = clan_government
+			}
+		}
+		#GoK stops really being GoK
+		gok_government_change_story_end_effect = yes
+		#Out with the old laws, in with the new
+		change_to_mandala_government_decree_effect = yes
+		#No Succession for this character pls
+		set_variable = {
+			name = not_subject_to_succession_trials
+			value = flag:adopted_mandala_government
+		}
+		if = {
+			limit = { var:not_subject_to_succession_trials ?= flag:adopted_mandala_government }
+			#To prevent 'unused except in loc' errors :catto:
+		}
+		show_as_tooltip = {
+			change_government = mandala_government
+		}
+		#Huh, guess you _are_ divine
+		if = {
+			limit = { has_variable = vying_for_mandala_divinity }
+			custom_description_no_bullet = { text = because_of_your_divine_happenstance_tt }
+			show_as_tooltip = { divine_happenstance_adopt_mandala_effect = yes }
+		}
+		if = {
+			limit = {
+				culture = {
+					has_cultural_parameter = mandala_tributaries 
+				}
+				exists = confederation
+			}
+			custom_tooltip = confederates_to_tributaries_tt
+		}
+		trigger_event = tgp_east_asia_decision_events.0010
+		hidden_effect = {
+			every_vassal = {
+				trigger_event = {
+					id = tgp_east_asia_decision_events.0015
+					days = 3
+				}
+			}
+		}
+	}
+
+	cost = {
+		gold = {
+			value = 500
+		}
+		piety = {
+			value = major_piety_value
+		}
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+}
+
+decision_choose_new_tayee_patron = {
+	sort_order = 100
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_harad_priests.dds" }
+
+	decision_group_type = realms_in_exile_minor
+
+	cooldown = { years = 30 }
+
+	is_shown = {
+		faith = {
+			has_doctrine = tenet_sirayn_syncretism
+		}
+		is_landed = yes
+	}
+
+	is_valid_showing_failures_only = {
+		OR = {
+			faith.religion = religion:sirayn_religion
+			faith.religion = religion:harshandatt_religion
+		}
+	}
+
+	is_valid = {
+		NOT = { has_trait = avatar }
+	}
+
+	widget = {
+		gui = "decision_view_widget_generic_multichoice_with_effects"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "CHOOSE_TAYEE_FAITH"
+		show_from_start = yes
+
+		# Personality traits get 5 points. All faiths get 10 points for having counties of them. All other weightings are at your, yes, your, discretion
+
+		### Mirsaya
+		item = {
+			value = choose_mirsaya
+			is_valid = {
+				NOT = { faith = faith:faith_mirsaya }
+			}
+			current_description = choose_mirsaya_desc
+			localization = choose_mirsaya_name
+			icon = "gfx/interface/icons/faith/custom_sirayn_mirsaya.dds"
+			ai_chance = {
+				value = 10 # Traditional head of pantheon = higher base value
+				if = {
+					limit = {
+							has_trait = calm
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = honest
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+						any_sub_realm_county = {
+							faith = faith:faith_mirsaya
+						}
+					}
+					add = 10
+				}
+			}
+		}
+		### Num
+		item = {
+			value = choose_num
+			is_valid = {
+				NOT = { faith = faith:faith_num }
+			}
+			current_description = choose_num_desc
+			localization = choose_num_name
+			icon = "gfx/interface/icons/faith/custom_sirayn_num.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+							has_trait = diligent
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = arrogant
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = just
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = zealous
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = stubborn
+					}
+					add = 5
+				}
+				if = { # Scholars follow the scholar faith
+					limit = {
+							has_trait = scholar
+					}
+					add = 20
+				}
+				if = { # Might as well make the HoF relevant
+					limit = {
+						exists = title:d_gabbaz_balahask.holder
+						opinion = {
+							target = title:d_gabbaz_balahask.holder
+							value > 50
+						}
+					}
+					add = 20
+				}
+				if = {
+					limit = {
+						any_sub_realm_county = {
+							faith = faith:faith_num
+						}
+					}
+					add = 10
+				}
+			}
+		}
+		### Lalit
+		item = {
+			value = choose_lalit
+			is_valid = {
+				NOT = { faith = faith:faith_lalit }
+			}
+			current_description = choose_lalit_desc
+			localization = choose_lalit_name
+			icon = "gfx/interface/icons/faith/custom_sirayn_lalit.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+							has_trait = forgiving
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = generous
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = gregarious
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = humble
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = trusting
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = compassionate
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+						any_sub_realm_county = {
+							faith = faith:faith_lalit
+						}
+					}
+					add = 10
+				}
+			}
+		}
+		### Vinaleem
+		item = {
+			value = choose_vinaleem
+			is_valid = {
+				NOT = { faith = faith:faith_vinaleem }
+			}
+			current_description = choose_vinaleem_desc
+			localization = choose_vinaleem_name
+			icon = "gfx/interface/icons/faith/custom_sirayn_vinaleem.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+							has_trait = lustful
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = gluttonous
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = fickle
+					}
+					add = 5
+				}
+				if = { # Seducers follow the seducer faith
+					limit = {
+							has_trait = seducer
+					}
+					add = 20
+				}
+				if = {
+					limit = {
+						any_sub_realm_county = {
+							faith = faith:faith_vinaleem
+						}
+					}
+					add = 10
+				}
+			}
+		}
+
+		### Markur
+		item = {
+			value = choose_markur
+			is_valid = {
+				NOT = { faith = faith:faith_markur }
+			}
+			current_description = choose_markur_desc
+			localization = choose_markur_name
+			icon = "gfx/interface/icons/faith/custom_sirayn_markur.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+							has_trait = shy
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = patient
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = temperate
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+						any_sub_realm_county = {
+							faith = faith:faith_markur
+						}
+					}
+					add = 10
+				}
+			}
+		}
+		### Garauda
+		item = {
+			value = choose_sirayn_garauda
+			is_valid = {
+				NOT = { faith = faith:faith_sirayn_garauda }
+			}
+			current_description = choose_sirayn_garauda_desc
+			localization = choose_sirayn_garauda_name
+			icon = "gfx/interface/icons/faith/custom_sirayn_garauda.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+							has_trait = diligent
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = content
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+						any_sub_realm_county = {
+							faith = faith:faith_sirayn_garauda
+						}
+					}
+					add = 10
+				}
+			}
+		}
+		### Yom
+		item = {
+			value = choose_yom
+			is_valid = {
+				NOT = { faith = faith:faith_yom }
+			}
+			current_description = choose_yom_desc
+			localization = choose_yom_name
+			icon = "gfx/interface/icons/faith/custom_sirayn_yom.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+							has_trait = vengeful
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = paranoid
+					}
+					add = 5
+				}
+				if = { # Witches follow the witch faith
+					limit = {
+							has_trait = witch
+					}
+					add = 50
+				}
+				if = { # To show reactionary sentiment
+					limit = {
+						any_sub_realm_county = {
+							faith = faith:faith_arienism
+						}
+					}
+					add = 20
+				}
+				if = {
+					limit = {
+						any_sub_realm_county = {
+							faith = faith:faith_yom
+						}
+					}
+					add = 10
+				}
+
+			}
+		}
+		### Ulokan
+		item = {
+			value = choose_ulokan
+			is_valid = {
+				NOT = { faith = faith:faith_ulokan }
+			}
+			current_description = choose_ulokan_desc
+			localization = choose_ulokan_name
+			icon = "gfx/interface/icons/faith/custom_sirayn_ulokan.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+							has_trait = fickle
+					}
+					add = 5
+				}
+				if = { # Mariners follow the mariner faith
+					limit = {
+							has_trait = lifestyle_mariner
+					}
+					add = 40
+				}
+				if = { # Lynerians are always coastal
+					limit = {
+						OR = {
+							culture = culture:lynerian
+							culture = { any_parent_culture_or_above = { this = culture:lynerian } }
+						}
+					}
+					add = 50
+				}
+				if = {
+					limit = {
+						any_sub_realm_county = {
+							faith = faith:faith_ulokan
+						}
+					}
+					add = 10
+				}
+			}
+		}
+		### Anhur
+		item = {
+			value = choose_anhur
+			is_valid = {
+				NOT = { faith = faith:faith_anhur }
+				liege.capital_county.title_province ?= {
+							geographical_region = middleearth_harad_bayoformal_harshandatt
+					}
+			}
+			current_description = choose_anhur_desc
+			localization = choose_anhur_name
+			icon = "gfx/interface/icons/faith/custom_harshandatt_anhur.dds"
+			ai_chance = {
+				value = 0
+				if = { # Really only a thing among communities with Muranian influence
+					limit = {
+						OR = {
+							culture = culture:muranian
+							culture = { any_parent_culture_or_above = { this = culture:muranian } }
+						}
+					}
+					add = 50
+				}
+				if = {
+					limit = {
+						any_sub_realm_county = {
+							faith = faith:faith_anhur
+						}
+					}
+					add = 10
+				}
+			}
+		}
+		### Shyra
+		item = {
+			value = choose_shyra
+			is_valid = {
+				NOT = { faith = faith:faith_shyra }
+			}
+			current_description = choose_shyra_desc
+			localization = choose_shyra_name
+			icon = "gfx/interface/icons/faith/custom_sirayn_shyra.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+							has_trait = sadistic
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = arrogant
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = vengeful
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = brave
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = wrathful
+					}
+					add = 5
+				}
+				if = { # Bulgans go unga bunga
+					limit = {
+						OR = {
+							culture = culture:bulgan
+						}
+					}
+					add = 30
+				}
+				if = {
+					limit = {
+						any_sub_realm_county = {
+							faith = faith:faith_shyra
+						}
+					}
+					add = 10
+				}
+			}
+		}
+		### Taimaraud
+		item = {
+			value = choose_taimaraud
+			is_valid = {
+				NOT = { faith = faith:faith_taimaraud }
+			}
+			current_description = choose_taimaraud_desc
+			localization = choose_taimaraud_name
+			icon = "gfx/interface/icons/faith/custom_sirayn_taimaraud.dds"
+			ai_chance = {
+				value = -10 # Shouldn't be popular
+				if = {
+					limit = {
+							has_trait = eccentric
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = temperate
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = callous
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = just
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = vengeful
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = deceitful
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+							has_trait = cynical
+					}
+					add = 5
+				}
+				if = { # Schemers follow the schemer faith
+					limit = {
+							has_trait = schemer
+					}
+					add = 20
+				}
+				if = {
+					limit = {
+						any_sub_realm_county = {
+							faith = faith:faith_taimaraud
+						}
+					}
+					add = 10
+				}
+			}
+		}
+	}
+
+	effect = {
+		if = {
+			limit = { scope:choose_markur = yes }
+
+			if = {
+				limit = {
+					capital_county.faith = faith
+				}
+				capital_county = { set_county_faith = faith:faith_markur }
+			}
+			show_as_tooltip = { set_character_faith = faith:faith_markur }
+			hidden_effect = {
+				set_character_faith_with_conversion = faith:faith_markur
+			}
+			faith:faith_markur = {
+				change_fervor = {
+					value = 5
+					desc = fervor_gain_sirayn_fervor
+				}
+			}
+		}
+		else_if = {
+			limit = { scope:choose_sirayn_garauda = yes  }
+
+			if = {
+				limit = {
+					capital_county.faith = faith
+				}
+				capital_county = { set_county_faith = faith:faith_sirayn_garauda }
+			}
+			show_as_tooltip = { set_character_faith = faith:faith_sirayn_garauda }
+			hidden_effect = {
+				set_character_faith_with_conversion = faith:faith_sirayn_garauda
+			}
+			faith:faith_sirayn_garauda = {
+				change_fervor = {
+					value = 5
+					desc = fervor_gain_sirayn_fervor
+				}
+			}
+		}
+		else_if = {
+			limit = { scope:choose_mirsaya = yes  }
+
+			if = {
+				limit = {
+					capital_county.faith = faith
+				}
+				capital_county = { set_county_faith = faith:faith_mirsaya }
+			}
+			show_as_tooltip = { set_character_faith = faith:faith_mirsaya }
+			hidden_effect = {
+				set_character_faith_with_conversion = faith:faith_mirsaya
+			}
+			faith:faith_mirsaya = {
+				change_fervor = {
+					value = 5
+					desc = fervor_gain_sirayn_fervor
+				}
+			}
+		}
+		else_if = {
+			limit = { scope:choose_num = yes  }
+
+			if = {
+				limit = {
+					capital_county.faith = faith
+				}
+				capital_county = { set_county_faith = faith:faith_num }
+			}
+			show_as_tooltip = { set_character_faith = faith:faith_num }
+			hidden_effect = {
+				set_character_faith_with_conversion = faith:faith_num
+			}
+			faith:faith_num = {
+				change_fervor = {
+					value = 5
+					desc = fervor_gain_sirayn_fervor
+				}
+			}
+		}
+		else_if = {
+			limit = { scope:choose_lalit = yes  }
+
+			if = {
+				limit = {
+					capital_county.faith = faith
+				}
+				capital_county = { set_county_faith = faith:faith_lalit }
+			}
+			show_as_tooltip = { set_character_faith = faith:faith_lalit }
+			hidden_effect = {
+				set_character_faith_with_conversion = faith:faith_lalit
+			}
+			faith:faith_lalit = {
+				change_fervor = {
+					value = 5
+					desc = fervor_gain_sirayn_fervor
+				}
+			}
+		}
+		else_if = {
+			limit = { scope:choose_vinaleem = yes  }
+
+			if = {
+				limit = {
+					capital_county.faith = faith
+				}
+				capital_county = { set_county_faith = faith:faith_vinaleem }
+			}
+			show_as_tooltip = { set_character_faith = faith:faith_vinaleem }
+			hidden_effect = {
+				set_character_faith_with_conversion = faith:faith_vinaleem
+			}
+			faith:faith_vinaleem = {
+				change_fervor = {
+					value = 5
+					desc = fervor_gain_sirayn_fervor
+				}
+			}
+		}
+		else_if = {
+			limit = { scope:choose_yom = yes  }
+
+			if = {
+				limit = {
+					capital_county.faith = faith
+				}
+				capital_county = { set_county_faith = faith:faith_yom }
+			}
+			show_as_tooltip = { set_character_faith = faith:faith_yom }
+			hidden_effect = {
+				set_character_faith_with_conversion = faith:faith_yom
+			}
+			faith:faith_yom = {
+				change_fervor = {
+					value = 5
+					desc = fervor_gain_sirayn_fervor
+				}
+			}
+		}
+		else_if = {
+			limit = { scope:choose_ulokan = yes  }
+
+			if = {
+				limit = {
+					capital_county.faith = faith
+				}
+				capital_county = { set_county_faith = faith:faith_ulokan }
+			}
+			show_as_tooltip = { set_character_faith = faith:faith_ulokan }
+			hidden_effect = {
+				set_character_faith_with_conversion = faith:faith_ulokan
+			}
+			faith:faith_ulokan = {
+				change_fervor = {
+					value = 5
+					desc = fervor_gain_sirayn_fervor
+				}
+			}
+		}
+		else_if = {
+			limit = { scope:choose_anhur = yes  }
+
+			if = {
+				limit = {
+					capital_county.faith = faith
+				}
+				capital_county = { set_county_faith = faith:faith_anhur }
+			}
+			show_as_tooltip = { set_character_faith = faith:faith_anhur }
+			hidden_effect = {
+				set_character_faith_with_conversion = faith:faith_anhur
+			}
+			faith:faith_anhur = {
+				change_fervor = {
+					value = 5
+					desc = fervor_gain_sirayn_fervor
+				}
+			}
+		}
+		else_if = {
+			limit = { scope:choose_shyra = yes  }
+
+			if = {
+				limit = {
+					capital_county.faith = faith
+				}
+				capital_county = { set_county_faith = faith:faith_shyra }
+			}
+			show_as_tooltip = { set_character_faith = faith:faith_shyra }
+			hidden_effect = {
+				set_character_faith_with_conversion = faith:faith_shyra
+			}
+			faith:faith_shyra = {
+				change_fervor = {
+					value = 5
+					desc = fervor_gain_sirayn_fervor
+				}
+			}
+		}
+		else_if = {
+			limit = { scope:choose_shyra = yes  }
+
+			if = {
+				limit = {
+					capital_county.faith = faith
+				}
+				capital_county = { set_county_faith = faith:faith_shyra }
+			}
+			show_as_tooltip = { set_character_faith = faith:faith_shyra }
+			hidden_effect = {
+				set_character_faith_with_conversion = faith:faith_shyra
+			}
+			faith:faith_shyra = {
+				change_fervor = {
+					value = 5
+					desc = fervor_gain_sirayn_fervor
+				}
+			}
+			show_as_tooltip = { custom_tooltip = choose_new_tayee_patron_loose_access }
+		}
+		else_if = {
+			limit = { scope:choose_taimaraud = yes  }
+
+			if = {
+				limit = {
+					capital_county.faith = faith
+				}
+				capital_county = { set_county_faith = faith:faith_taimaraud }
+			}
+			show_as_tooltip = { set_character_faith = faith:faith_taimaraud }
+			hidden_effect = {
+				set_character_faith_with_conversion = faith:faith_taimaraud
+			}
+			faith:faith_taimaraud = {
+				change_fervor = {
+					value = 5
+					desc = fervor_gain_sirayn_fervor
+				}
+			}
+			show_as_tooltip = { custom_tooltip = choose_new_tayee_patron_loose_access }
+		}
+		capital_county = {
+			add_county_modifier = {
+				modifier = religious_settler_influx
+				years = 10
+			}
+		}
+	}
+
+	cost = {
+		piety = {
+			value = major_piety_value
+		}
+	}
+
+	ai_potential = {
+		highest_held_title_tier >= tier_county
+		is_landed = yes
+		is_at_war = no
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	ai_will_do = {
+		base = 20
+
+		modifier = {
+			add = {
+				value = ai_zeal
+				multiply = -0.5
+			}
+		}
+
+		modifier = {
+			add = -20
+			has_trait = craven
+		}
+
+		modifier = {
+			add = 20
+			has_trait = ambitious
+		}
+	}
+}
+
+decision_sponsor_tayee_holy_building = {
+	sort_order = 70
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_harad_03.dds" }
+	decision_group_type = realms_in_exile_minor
+	cooldown = { days = 3650 }
+
+	desc = decision_sponsor_tayee_holy_building_desc
+	selection_tooltip = decision_sponsor_tayee_holy_building_tooltip
+
+	is_shown = {
+		is_landed = yes
+		faith = {
+			has_doctrine = tenet_sirayn_syncretism
+		}
+	}
+
+	is_valid = {
+		faith = { has_doctrine = tenet_sirayn_syncretism }
+		custom_description = {
+			text = decision_sponsor_tayee_holy_building_county_mod_req
+			any_held_county = {
+				faith = { has_doctrine = tenet_sirayn_syncretism }
+				NOR = {
+					has_county_modifier = sponsored_tayee_wayshrine_county
+					has_county_modifier = sponsored_tayee_small_temple_county
+					has_county_modifier = sponsored_tayee_small_monastery_county
+					has_county_modifier = sponsored_tayee_large_temple_county
+					has_county_modifier = sponsored_tayee_large_monastery_county
+				}
+			}
+		}
+		custom_description = {
+			text = decision_sponsor_tayee_holy_building_current_req
+			NOT = { has_character_flag = tayee_currently_building_religious_site }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+
+
+    widget = {
+    	gui = "decision_view_widget_decision_sponsor_tayee_holy_building"
+		controller = decision_option_list_controller
+
+		#decision_has_second_step = yes
+		#decision_custom_widget_container = "custom_widgets_container_step_two"
+		decision_to_second_step_button = "lotr_tayee_holy_building_type"
+
+		item = {
+			value = RICE_sponsor_tayee_site_wayshrine_option
+			current_description = RICE_sponsor_tayee_site_wayshrine_option_desc
+			localization = RICE_sponsor_tayee_site_wayshrine_option
+			icon = "gfx/interface/icons/building_types/icon_building_hill_farms.dds"
+
+			ai_chance = {
+				value = 10
+			}
+		}
+		item = {
+			value = RICE_sponsor_tayee_site_small_temple_option
+			current_description = RICE_sponsor_tayee_site_small_temple_option_desc
+			localization = RICE_sponsor_tayee_site_small_temple_option
+			icon = "gfx/interface/icons/building_types/icon_structure_kyz_kala.dds"
+
+			ai_chance = {
+				value = 10
+			}
+		}
+		item = {
+			value = RICE_sponsor_tayee_site_small_monastery_option
+			current_description = RICE_sponsor_tayee_site_small_monastery_option_desc
+			localization = RICE_sponsor_tayee_site_small_monastery_option
+			icon = "gfx/interface/icons/building_types/icon_building_monastic_schools.dds"
+
+			ai_chance = {
+				value = 10
+			}
+		}
+		item = {
+			value = RICE_sponsor_tayee_site_large_temple_option
+			current_description = RICE_sponsor_tayee_site_large_temple_option_desc
+			localization = RICE_sponsor_tayee_site_large_temple_option
+			icon = "gfx/interface/icons/building_types/icon_structure_cathedral_zoroastric.dds"
+
+			ai_chance = {
+				value = 10
+			}
+		}
+		item = {
+			value = RICE_sponsor_tayee_site_large_monastery_option
+			current_description = RICE_sponsor_tayee_site_large_monastery_option_desc
+			localization = RICE_sponsor_tayee_site_large_monastery_option
+			icon = "gfx/interface/icons/building_types/icon_building_university.dds"
+
+			ai_chance = {
+				value = 10
+			}
+		}
+	}
+
+	effect = {
+
+		custom_tooltip = decision_sponsor_tayee_holy_building_effect_tooltip_1
+		custom_tooltip = decision_sponsor_tayee_holy_building_effect_tooltip_2
+		if = {
+			limit = {
+				this = title:c_barzain.holder
+				title:c_barzain.title_province = {
+					has_building_or_higher = wonder_tarnet_barzain
+				}
+				NOT = { has_character_modifier = tayee_worthy_of_augar_prophet }
+			}
+			custom_tooltip = decision_sponsor_tayee_holy_building_effect_tooltip_3
+		}
+		else_if = {
+			limit = {
+				this = title:c_barzain.holder
+				title:c_barzain.title_province = {
+					has_building_or_higher = wonder_tarnet_barzain
+				}
+			}
+			custom_tooltip = decision_sponsor_tayee_holy_building_effect_tooltip_4
+		}
+
+		# Select location
+		if = { # Capital is first choice
+			limit = {
+				capital_county = {
+					faith = { has_doctrine = tenet_sirayn_syncretism }
+					NOR = {
+						has_county_modifier = sponsored_tayee_wayshrine_county
+						has_county_modifier = sponsored_tayee_small_temple_county
+						has_county_modifier = sponsored_tayee_small_monastery_county
+						has_county_modifier = sponsored_tayee_large_temple_county
+						has_county_modifier = sponsored_tayee_large_monastery_county
+					}
+				}
+			}
+			capital_county = { save_scope_as = county }
+		}
+		else_if = { # Then any in capital duchy
+			limit = {
+				any_held_county = {
+					faith = { has_doctrine = tenet_sirayn_syncretism }
+					duchy = capital_county.duchy
+					NOR = {
+						has_county_modifier = sponsored_tayee_wayshrine_county
+						has_county_modifier = sponsored_tayee_small_temple_county
+						has_county_modifier = sponsored_tayee_small_monastery_county
+						has_county_modifier = sponsored_tayee_large_temple_county
+						has_county_modifier = sponsored_tayee_large_monastery_county
+					}
+				}
+			}
+			random_held_county = {
+				limit = {
+					faith = { has_doctrine = tenet_sirayn_syncretism }
+					duchy = capital_county.duchy
+					NOR = {
+						has_county_modifier = sponsored_tayee_wayshrine_county
+						has_county_modifier = sponsored_tayee_small_temple_county
+						has_county_modifier = sponsored_tayee_small_monastery_county
+						has_county_modifier = sponsored_tayee_large_temple_county
+						has_county_modifier = sponsored_tayee_large_monastery_county
+					}
+				}
+				save_scope_as = county
+			}
+		}
+		else_if = { # Then any held county
+			limit = {
+				any_held_county = {
+					faith = { has_doctrine = tenet_sirayn_syncretism }
+					NOR = {
+						has_county_modifier = sponsored_tayee_wayshrine_county
+						has_county_modifier = sponsored_tayee_small_temple_county
+						has_county_modifier = sponsored_tayee_small_monastery_county
+						has_county_modifier = sponsored_tayee_large_temple_county
+						has_county_modifier = sponsored_tayee_large_monastery_county
+					}
+				}
+			}
+			random_held_county = {
+				limit = {
+					faith = { has_doctrine = tenet_sirayn_syncretism }
+					NOR = {
+						has_county_modifier = sponsored_tayee_wayshrine_county
+						has_county_modifier = sponsored_tayee_small_temple_county
+						has_county_modifier = sponsored_tayee_small_monastery_county
+						has_county_modifier = sponsored_tayee_large_temple_county
+						has_county_modifier = sponsored_tayee_large_monastery_county
+					}
+				}
+				save_scope_as = county
+			}
+		}
+		set_variable = {
+			name = RICE_tayee_building_county
+			value = scope:county
+		}
+
+		# Not sure why AI can't pick one option or another
+		if = {
+			limit = { is_ai = yes }
+			random_list = {
+				20 = {
+					set_variable = {
+						name = RICE_tayee_building_type
+						value = flag:wayshrine
+					}
+					# AI Weighting
+					modifier = {
+						factor = 2
+						has_trait = greedy
+					}
+				}
+				10 = {
+					set_variable = {
+						name = RICE_tayee_building_type
+						value = flag:small_temple
+					}
+					# AI Weighting
+					modifier = {
+						factor = 2
+						has_trait = greedy
+					}
+				}
+				10 = {
+					set_variable = {
+						name = RICE_tayee_building_type
+						value = flag:small_monastery
+					}
+					# AI Weighting
+					modifier = {
+						factor = 2
+						has_trait = greedy
+					}
+					modifier = {
+						add = 20
+						faith = { has_doctrine = tenet_monasticism }
+					}
+				}
+				10 = {
+					set_variable = {
+						name = RICE_tayee_building_type
+						value = flag:large_temple
+					}
+					# AI Weighting
+					modifier = {
+						factor = 2
+						has_trait = zealous
+					}
+					modifier = {
+						factor = 2
+						has_trait = generous
+					}
+				}
+				10 = {
+					set_variable = {
+						name = RICE_tayee_building_type
+						value = flag:large_monastery
+					}
+					# AI Weighting
+					modifier = {
+						factor = 2
+						has_trait = zealous
+					}
+					modifier = {
+						factor = 2
+						has_trait = generous
+					}
+					modifier = {
+						add = 20
+						faith = { has_doctrine = tenet_monasticism }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				scope:RICE_sponsor_tayee_site_wayshrine_option = yes
+			}
+			set_variable = {
+				name = RICE_tayee_building_type
+				value = flag:wayshrine
+			}
+		}
+		else_if = {
+			limit = {
+				scope:RICE_sponsor_tayee_site_small_temple_option = yes
+			}
+			set_variable = {
+				name = RICE_tayee_building_type
+				value = flag:small_temple
+			}
+		}
+		else_if = {
+			limit = {
+				scope:RICE_sponsor_tayee_site_small_monastery_option = yes
+			}
+			set_variable = {
+				name = RICE_tayee_building_type
+				value = flag:small_monastery
+			}
+		}
+		else_if = {
+			limit = {
+				scope:RICE_sponsor_tayee_site_large_temple_option = yes
+			}
+			set_variable = {
+				name = RICE_tayee_building_type
+				value = flag:large_temple
+			}
+		}
+		else_if = {
+			limit = {
+				scope:RICE_sponsor_tayee_site_large_monastery_option = yes
+			}
+			set_variable = {
+				name = RICE_tayee_building_type
+				value = flag:large_monastery
+			}
+		}
+
+		trigger_event = sirayn.1050
+	}
+
+	minimum_cost = {
+		gold = { value = RICE_build_small_tayee_site_cost } # Will depend
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 40
+		duchy = 40
+		kingdom = 40
+		empire = 40
+		hegemony = 40
+	}
+
+	ai_potential = {
+		short_term_gold > RICE_build_medium_tayee_site_cost
+		is_at_war = no
+	}
+
+	ai_will_do = {
+		base = 30
+		modifier = {
+			add = 5
+			has_trait = zealous
+		}
+		modifier = {
+			add = -15
+			has_trait = cynical
+		}
+		modifier = {
+			add = -30
+			has_trait = conqueror
+		}
+	}
+}
+
+decision_chennacatti_animal_sacrifice = {
+	sort_order = 65
+	title = decision_chennacatti_animal_sacrifice_title
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 36
+		duchy = 36
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
+	ai_potential = {
+		NOR = {
+			has_trait = cynical
+			has_trait = greedy
+		}
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_chennacatti_animal_sacrifice_tooltip
+	desc = decision_chennacatti_animal_sacrifice_desc
+	confirm_text = decision_chennacatti_animal_sacrifice_confirm
+
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		has_variable = ancestor_to_bury
+		is_landed = yes
+		OR = {
+			culture = culture:chennacatti
+			culture = { any_parent_culture_or_above = { this = culture:chennacatti } } #account for divergent cultures
+		}
+		NOT = { has_character_flag = lotr_chennacatti_animal_sacrifice_flag }
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+	cost = { gold = { value = 25 } }
+
+	effect = {
+		trigger_event = flavourevent.0015
+	}
+
+}
+
+# Sikentr Decisions
+#by Naugrim04
+decision_sikentr_empire = {
+	title = decision_sikentr_empire_title
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_sikentr.dds"
+	}
+	sort_order = 500
+
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_sikentr_empire_tooltip
+	desc = decision_sikentr_empire_desc
+	confirm_text = decision_sikentr_empire_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_landed = yes
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_sikentr_empire
+			}
+		}
+		culture = culture:bulgan #Do not account for divergent cultures- this is Bulgan exclusive
+
+	}
+
+	is_valid = {
+		prestige_level >= 5
+		has_title = title:e_sirayn
+		completely_controls = title:e_sirayn
+		completely_controls = title:k_lyneria
+		completely_controls = title:k_harshandatt
+		completely_controls = title:k_zajantak
+		completely_controls = title:k_raishoul
+		completely_controls = title:k_mejhanir
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+	cost = { prestige = { value = 2500 } }
+
+	effect = {
+		title:k_lyneria = {
+			set_de_jure_liege_title = title:e_sirayn
+		}
+		title:k_harshandatt = {
+			set_de_jure_liege_title = title:e_sirayn
+		}
+		title:k_zajantak = {
+			set_de_jure_liege_title = title:e_sirayn
+		}
+		title:k_raishoul = {
+			set_de_jure_liege_title = title:e_sirayn
+		}
+		title:k_mejhanir = {
+			set_de_jure_liege_title = title:e_sirayn
+		}
+		title:e_sirayn = {
+			set_title_name = e_sirayn_sikentr
+			set_color_from_title = title:e_sirayn_sikentr #placeholder
+			set_coa = e_sirayn_sikentr
+		}
+		root.capital_county = {
+			change_development_level = 5
+		}
+		title:k_chennacatt = {
+			change_development_level = 3
+		}
+		root.dynasty = {
+			add_dynasty_prestige = 1000
+			add_dynasty_modifier = {
+				modifier = sikentr_legacy_dynasty_modifier
+				years = 100
+			}
+		}
+
+		trigger_event = sirayn.1001
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_sikentr_empire
+		}
+
+	}
+}
+
+#by Naugrim04
+decision_sikentr_empire_expand_khy = {
+	title = decision_sikentr_empire_expand_khy_title
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_control_trade_in_the_bay_of_ormal.dds"
+	}
+	sort_order = 499
+
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_sikentr_empire_expand_khy_tooltip
+	desc = decision_sikentr_empire_expand_khy_desc
+	confirm_text = decision_sikentr_empire_expand_khy_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_landed = yes
+		has_title = title:e_sirayn
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_sikentr_empire
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_sikentr_empire_expand_khy
+			}
+		}
+		culture = culture:bulgan #Do not account for divergent cultures- this is Bulgan exclusive
+	}
+
+	is_valid = {
+		completely_controls = title:k_sammar
+		completely_controls = title:k_bulchyades
+		completely_controls = title:k_anarike
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+	cost = { prestige = { value = 1500 } }
+
+	effect = {
+		title:k_sammar = {
+			set_de_jure_liege_title = title:e_sirayn
+		}
+		title:k_bulchyades = {
+			set_de_jure_liege_title = title:e_sirayn
+		}
+		title:k_anarike = {
+			set_de_jure_liege_title = title:e_sirayn
+		}
+		root.dynasty = {
+			add_dynasty_prestige = 500
+		}
+		trigger_event = sirayn.1002
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_sikentr_empire_expand_khy
+		}
+	}
+}
+
+#by Naugrim04
+decision_sikentr_empire_expand_ray = {
+	title = decision_sikentr_empire_expand_ray_title
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	}
+	sort_order = 498
+
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_sikentr_empire_expand_ray_tooltip
+	desc = decision_sikentr_empire_expand_ray_desc
+	confirm_text = decision_sikentr_empire_expand_ray_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_landed = yes
+		has_title = title:e_sirayn
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_sikentr_empire
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_sikentr_empire_expand_ray
+			}
+		}
+		culture = culture:bulgan #Do not account for divergent cultures- this is Bulgan exclusive
+	}
+
+	is_valid = {
+		completely_controls = title:k_ray
+		completely_controls = title:k_tulwang
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+	cost = { prestige = { value = 1500 } }
+
+	effect = {
+		title:k_ray = {
+			set_de_jure_liege_title = title:e_sirayn
+		}
+		title:k_tulwang = {
+			set_de_jure_liege_title = title:e_sirayn
+		}
+		root.dynasty = {
+			add_dynasty_prestige = 500
+		}
+		trigger_event = sirayn.1003
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_sikentr_empire_expand_ray
+		}
+	}
+}
+
+# Radyani decisions
+decision_radyani_vengeance = {
+	title = decision_radyani_vengeance
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_radyani.dds"
+	}
+	sort_order = 1000
+
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_radyani_vengeance_tooltip
+	desc = decision_radyani_vengeance_desc
+	confirm_text = decision_radyani_vengeance_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		this = character:lineoflavrajyatante21
+		is_landed = yes
+
+		title:e_sirayn = { # Have the Arienists invaded?
+			any_ruler = {
+				is_landed = yes
+				is_independent_ruler = yes
+				has_faith = faith:faith_arienism
+			}
+		}
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_radyani_vengeance
+			}
+		}
+	}
+
+	is_valid = {
+		# has_title = title:k_isra
+		highest_held_title_tier >= tier_kingdom
+		has_faith = faith:faith_yom
+		custom_tooltip = {
+			text = RADYANI_WAR_TARGET_EXISTS
+			title:e_sirayn = {
+				any_ruler = {
+					is_landed = yes
+					is_independent_ruler = yes
+					has_faith = faith:faith_arienism
+				}
+			}
+		}
+		trigger_if = {
+			limit = { is_ai = yes }
+			realm_size >= major_realm_size
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_at_war = no
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+	cost = {
+		piety = 500
+	}
+
+	effect = {
+		if = {
+			limit = {
+				title:d_ornad.holder = { has_faith = faith:faith_arienism }
+			}
+			title:d_ornad.holder = { save_scope_as = radyani_target_character }
+			title:d_ornad = { save_scope_as = radyani_target_duchy }
+		}
+		else_if = {
+			title:e_sirayn = {
+				every_in_de_jure_hierarchy = {
+					limit = {
+						holder ?= {
+							has_faith = faith:faith_arienism
+						}
+					}
+					this.holder = {
+						save_scope_as = radyani_target_character
+					}
+					save_scope_as = radyani_target_duchy
+				}
+			}
+		}
+
+		start_war = {
+			casus_belli = religious_war
+			target = scope:radyani_target_character
+			target_title = scope:radyani_target_duchy
+		}
+		custom_tooltip = RADYANI_ARIENISTS_RALLY
+
+		root.dynasty = {
+			add_dynasty_prestige = 500
+		}
+
+		trigger_event = {
+			id = sirayn.1601
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_radyani_vengeance
+		}
+		if = {
+			limit = { NOT = { has_character_flag = radyani_holy_war } }
+			add_character_flag = radyani_holy_war
+		}
+	}
+}
+
+decision_radyani_avatar = {
+	title = decision_radyani_avatar
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_mardruak_01.dds"
+	}
+	sort_order = 500
+
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_radyani_avatar_tooltip
+	desc = decision_radyani_avatar_desc
+	confirm_text = decision_radyani_avatar_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		this = character:lineoflavrajyatante21
+		is_landed = yes
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_radyani_avatar
+			}
+		}
+	}
+
+	is_valid = {
+		highest_held_title_tier >= tier_kingdom
+		has_faith = faith:faith_yom
+		piety_level >= 4
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_at_war = no
+		is_available_adult = yes
+		custom_tooltip = {
+			text = tayee_already_an_avatar_of_faith_tt
+			NOT = {
+				faith = {
+					any_faith_character = {
+						any_owned_story = {
+							type = story_cycle_avatar_of_faith
+						}
+					}
+				}
+			}
+		}
+	}
+
+	cost = {
+		piety = 1000
+	}
+
+	effect = {
+		sirayn_become_avatar_effect = yes
+		faith:faith_yom = {
+			hidden_effect = {
+				remove_doctrine = doctrine_no_head
+				add_doctrine = doctrine_temporal_head
+			}
+			set_religious_head_title = title:k_avatar_of_yom
+		}
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:k_avatar_of_yom = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		hidden_effect = {
+			if = {
+				limit = {
+					highest_held_title_tier = tier_kingdom
+					primary_title = title:k_avatar_of_yom
+					has_title = title:k_isra
+				}
+			}
+			set_primary_title_to = title:k_isra
+		}
+
+		#	Create Holy Order for Yóm
+		lotr_create_holy_order = { DESIGNATED_COUNTY = title:c_carnesra }
+
+		if = {
+			limit = { exists = title:d_arien.holder }
+			title:d_arien.holder ?= {
+				add_opinion = {
+					modifier = annoyed_opinion
+					target = root
+					opinion = -50
+				}
+			}
+		}
+		if = {
+			limit = { exists = title:d_nhazadh.holder }
+			title:d_nhazadh.holder ?= {
+				add_opinion = {
+					modifier = annoyed_opinion
+					target = root
+					opinion = -50
+				}
+			}
+		}
+
+		trigger_event = {
+			id = sirayn.1605
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_radyani_avatar
+		}
+	}
+}
+
+decision_secure_sirayn = {
+	title = decision_secure_sirayn
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_radyani_03.dds"
+	}
+	sort_order = 750
+
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_secure_sirayn_tooltip
+	desc = decision_secure_sirayn_desc
+	confirm_text = decision_secure_sirayn_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	sort_order = 950
+
+	is_shown = {
+		game_start_date >= 6000.1.1 # Trig TODO - figure out better is_showns for earlier dates
+		is_landed = yes
+		faith.religion = religion:sirayn_religion
+		capital_county.empire = title:e_sirayn
+		OR = {
+			title:e_sirayn = {
+				any_de_jure_county = { # Is there a hostile non-Tayee faith county in Sirayn?
+					faith = {
+						AND = {
+							religion != religion:sirayn_religion
+							faith_hostility_level = {
+								target = root.faith
+								value >= faith_hostile_level
+							}
+						}
+					}
+				}
+			}
+			faith = faith:faith_yom #Or you're Yomi
+		}
+
+		NOT = { # Let this be taken more than once, but not by the same person
+			has_character_flag = decision_secure_sirayn_flag
+			dynasty = {
+				has_dynasty_modifier = sirayn_secured_modifier
+			}
+		}
+	}
+
+	is_valid = {
+		highest_held_title_tier >= tier_kingdom #Only Kings and Emperors
+		custom_tooltip = {
+			text = decision_secure_sirayn_trigger_tt
+			title:e_sirayn = {
+				any_de_jure_county_holder = { # There are no evil non-Tayee faith rulers in Sirayn
+					faith = {
+						NAND = {
+							religion != religion:sirayn_religion
+							faith_hostility_level = {
+								target = root.faith
+								value >= faith_evil_level
+							}
+						}
+					}
+					count = all
+				}
+			}
+		}
+		custom_tooltip = {
+			text = fervor_greater_than_50
+			faith.fervor >= 50
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_landed = yes
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		piety = 500
+	}
+
+	effect = {
+		dynasty = {
+			add_dynasty_modifier = sirayn_secured_modifier
+		}
+		custom_tooltip = decision_secure_sirayn_effect_tt
+		save_scope_value_as = {
+			name = fervor_value
+			value = {
+				add = root.faith.fervor
+				divide = 10
+			}
+		}
+		title:e_sirayn = {
+			ordered_de_jure_county = {
+				limit = {
+					faith != root.faith
+					holder.top_liege = root
+				}
+				order_by = {
+					value = 1
+					if = {
+						limit = {
+							any_neighboring_county = {
+								faith = root.faith
+							}
+						}
+						every_neighboring_county = {
+							limit = {
+								faith = root.faith
+							}
+							add = 50
+						}
+					}
+					if = {
+						limit = {
+							any_neighboring_county = {
+								this = root.capital_county
+							}
+						}
+						add = 10000
+					}
+					if = {
+						limit = {
+							kingdom = root.capital_county.kingdom
+						}
+						add = 10
+					}
+					if = {
+						limit = {
+							OR = {
+								title_province.barony = {
+									is_holy_site_of = root.faith
+								}
+								faith.religion != root.faith.religion
+							}
+						}
+						multiply = 10
+					}
+				}
+				set_county_faith = root.faith
+				max = scope:fervor_value
+			}
+		}
+		faith = {
+			change_fervor = {
+				value = 10
+				desc = fervor_gain_sirayn_fervor
+			}
+		}
+		add_character_flag = decision_secure_sirayn_flag
+	}
+}
+
+decision_destroy_arienism = { # Adapted from vanilla Dismantle Papacy
+	title = decision_destroy_arienism
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_radyani_02.dds"
+	}
+	sort_order = 750
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_destroy_arienism_tooltip
+	desc = decision_destroy_arienism_desc
+	confirm_text = decision_destroy_arienism_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	sort_order = 999
+
+	is_shown = {
+		is_landed = yes
+		has_faith = faith:faith_yom
+		faith:faith_arienism = {
+			faith_hostility_level = { # In case you do something funny...
+				target = root.faith
+				value >= faith_hostile_level
+			}
+		}
+
+		highest_held_title_tier >= tier_kingdom #Only Kings and Emperors
+
+		title:e_khy.holder ?= { # Does Khy exist?
+			has_faith = faith:faith_arienism
+			NOT = {
+				this = root
+			}
+		}
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_destroy_arienism
+			}
+		}
+	}
+
+	is_valid = {
+		completely_controls = title:k_khy
+		trigger_if = { # HOF is smited
+			limit = {
+				exists = title:d_arien.holder
+			}
+			title:d_arien.holder = { is_landed = no } #If he fled elsewhere, it cannot be done, the Pope must be landless.
+		}
+		title:e_khy.holder ?= { # Empire must still exist
+			has_faith = faith:faith_arienism
+			has_title = title:e_khy
+		}
+		highest_held_title_tier >= tier_kingdom #Only Kings and Emperors
+		piety_level >= 3
+		prestige_level >= 3
+		custom_tooltip = {
+			text = fervor_greater_than_70
+			faith.fervor >= 70
+		}
+		has_faith = faith:faith_yom
+	}
+
+	is_valid_showing_failures_only = {
+		is_landed = yes
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+		is_available_adult = yes
+		is_at_war = no
+
+		trigger_if = { # HOF is smited
+			limit = {
+				exists = title:d_arien.holder
+			}
+			title:d_arien.holder = { is_at_war = no } #Shouldn't be possible during a Crusade
+		}
+	}
+
+	cost = {
+		piety = 100
+		prestige = 500
+	}
+
+	effect = {
+		custom_tooltip = destroy_arienism_effect_tooltip
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_destroy_arienism
+		}
+		gain_holy_legend_seed_tooltip_effect = yes
+		hidden_effect = {
+			legend_seed_great_deed_faith_effect = {
+				ANTAGONIST = title:d_arien.holder
+				OLD_FAITH = title:d_arien.holder.faith
+			}
+		}
+
+		# Destroy Khy
+		if = {
+			limit = { exists = title:e_khy.holder }
+			title:e_khy.holder ?= {
+				every_held_title = {
+					limit = {
+						OR = {
+							tier = tier_empire
+							tier = tier_kingdom
+						}
+						NOT = { this = title:e_khy }
+					}
+					add_to_list = khy_titles_to_destroy
+				}
+			}
+			every_in_list = {
+				list = khy_titles_to_destroy
+				save_scope_as = kingdom_title
+				title:e_khy.holder ?= { destroy_title = scope:kingdom_title }
+				remove_from_list = khy_titles_to_destroy
+			}
+		}
+		title:e_khy.holder ?= { # Khy is a wimp now
+			add_dread = major_dread_loss
+			add_legitimacy = {
+				value = 0
+				subtract = title:e_khy.holder.legitimacy
+			}
+		}
+		destroy_title = title:e_khy
+
+		#Destroy the Papacy time
+		show_as_tooltip = {
+			destroy_arienism_scripted_effect = yes
+		}
+
+		# Remove Zarinusha
+		province:6294 = {
+			if = {
+				limit = {
+					has_building = wonder_zarinusha_01
+				}
+				remove_building = wonder_zarinusha_01
+				add_special_building = wonder_zarinusha_destroyed_01
+			}
+		}
+		hidden_effect = {
+			title:c_zarinusha = {
+				set_county_faith = root.faith
+			}
+		}
+
+		add_piety_level = 1
+		add_dread = 50
+
+		trigger_event = {
+			id = sirayn.1650
+		}
+	}
+}
+
+# Powa decisions
+decision_form_powa_kingdom = {
+	title = decision_form_powa_kingdom_title
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_harad_03.dds"
+	}
+	sort_order = 500
+
+	decision_group_type = realms_in_exile_major
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_form_powa_kingdom_tooltip
+	desc = decision_form_powa_kingdom_desc
+	confirm_text = decision_form_powa_kingdom_confirm
+
+	is_shown = {
+		dynasty ?= dynasty:dynasty_latantee
+		has_variable = powan_unification
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_form_powa_kingdom
+			}
+		}
+	}
+
+	is_valid = {
+		trigger_if = { #Triggers for diplo route
+			limit = {
+				has_variable = powan_unification
+				var:powan_unification = flag:diplomacy
+			}
+			prestige_level >= 3
+			trigger_if = {
+				limit = { has_title = title:k_poa }
+				custom_tooltip = {
+					text = decision_form_powa_kingdom_diplo_trigger_tt
+					decision_unite_poa_value_normalized >= 50
+				}
+			}
+			trigger_else = {
+				custom_tooltip = {
+					text = decision_form_powa_kingdom_diplo_trigger_tt
+					decision_unite_poa_value_normalized >= 80
+				}
+			}
+		}
+		trigger_else = { #Triggers for martial route
+			custom_tooltip = {
+				text = decision_form_powa_kingdom_effect_tt_2
+				decision_unite_poa_martial_route >= 50
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		change_government = oligarchy_government
+		get_title = title:k_poa
+		custom_tooltip = {
+            text = TITLES_GAIN_OLIGARCHIC_SUCCESSION
+            root.primary_title = {
+                add_title_law = oligarchic_elective_succession_law
+            }
+        }
+		custom_tooltip = {
+			text = decision_form_powa_kingdom_effect_tt_1
+			create_title_and_vassal_change = {
+				type = swear_fealty
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			random = {
+				chance = 60
+				title:k_poa = {
+					every_de_jure_county_holder = {
+						limit = {
+							OR = {
+								root = { has_hook = prev }
+								has_relation_friend = root
+								has_relation_lover = root
+								trigger_if = {
+									limit = {
+										root = { is_confederation_member = yes }
+										root.confederation = { save_temporary_scope_as = root_confederation }
+									}
+									OR = {
+										is_member_of_confederation = scope:root_confederation
+										top_liege = { is_member_of_confederation = scope:root_confederation }
+									}
+								}
+							}
+						}
+						change_government = oligarchy_government
+						every_held_county = {
+							title_province = { set_holding_type = city_holding }
+						}
+						change_liege = {
+							liege = root
+							change = scope:change
+						}
+					}
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+			random = {
+				chance = 60
+				title:k_poa = {
+					every_de_jure_county_holder = {
+						limit = {
+							is_independent_ruler = no
+							top_liege = root
+						}
+						change_government = oligarchy_government
+						every_held_county = {
+							title_province = { set_holding_type = city_holding }
+						}
+						primary_title = {
+							add_title_law = oligarchic_elective_succession_law
+						}
+					}
+				}
+			}
+		}
+		title:c_tul_poac.title_province = {
+			add_special_building = wonder_tul_poac_monument_01
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_form_powa_kingdom
+		}
+		trigger_event = sirayn.1004
+		every_held_county = {
+			title_province = { set_holding_type = city_holding }
+			add_county_modifier = {
+				modifier = powan_conquest_county_modifier
+				years = 10 
+			}
+		}
+	}
+}
+
+decision_expand_powa_kingdom = {
+	title = decision_expand_powa_kingdom
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_harad_06.dds"
+	}
+	sort_order = 500
+
+	decision_group_type = realms_in_exile_major
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_expand_powa_kingdom_tooltip
+	desc = decision_expand_powa_kingdom_desc
+	confirm_text = decision_expand_powa_kingdom_confirm
+
+	is_shown = {
+		dynasty ?= dynasty:dynasty_latantee
+		has_variable = powan_unification
+		has_title = title:k_poa
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_expand_powa_kingdom
+			}
+		}
+	}
+
+	is_valid = {
+		OR = {
+			has_title = title:d_delritha
+			any_vassal_or_below = { has_title = title:d_delritha }
+		}
+		OR = {
+			has_title = title:d_gai
+			any_vassal_or_below = { has_title = title:d_gai }
+		}
+		OR = {
+			has_title = title:d_yasin
+			any_vassal_or_below = { has_title = title:d_yasin }
+		}
+		OR = {
+			has_title = title:d_silvesa
+			any_vassal_or_below = { has_title = title:d_silvesa }
+		}
+		OR = {
+			has_title = title:d_sola
+			any_vassal_or_below = { has_title = title:d_sola }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		root.dynasty = {
+			add_dynasty_modifier = {
+				modifier = powan_conquest_dynasty_modifier
+				years = 80
+			}
+			add_dynasty_prestige = 500
+		}
+		give_nickname = nick_the_war_bringer
+		add_character_flag = had_nickname_event
+		title:d_delritha = { set_de_jure_liege_title = title:k_poa }
+		title:d_gai = { set_de_jure_liege_title = title:k_poa }
+		title:d_yasin = { set_de_jure_liege_title = title:k_poa }
+		title:d_silvesa = { set_de_jure_liege_title = title:k_poa }
+		title:d_sola = { set_de_jure_liege_title = title:k_poa }
+		
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_expand_powa_kingdom
+		}
+	}
+}
+
+decision_make_powa_mercantile_center = {
+	title = decision_make_powa_mercantile_center_title
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_harad_03.dds"
+	}
+	sort_order = 499
+
+	decision_group_type = realms_in_exile_major
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_make_powa_mercantile_center_tooltip
+	desc = decision_make_powa_mercantile_center_desc
+	confirm_text = decision_make_powa_mercantile_center_confirm
+
+	is_shown = {
+		dynasty ?= dynasty:dynasty_latantee
+		has_variable = powan_unification
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_form_powa_kingdom
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_make_powa_mercantile_center
+			}
+		}
+	}
+
+	is_valid = {
+		has_trait = lifestyle_trans_haradric_merchant
+		has_trait_xp = {
+			trait = lifestyle_trans_haradric_merchant
+			value >= 50
+		}
+		custom_tooltip = {
+			text = decision_make_powa_mercantile_center_effect_tt_1
+			any_neighboring_top_liege_realm_owner = {
+				count >= 5
+				OR = {
+					root = { has_hook = prev }
+					has_relation_friend = root
+					has_relation_lover = root
+					is_tributary_of_suzerain_or_above = root
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_make_powa_mercantile_center
+		}
+		custom_tooltip = {
+			text = united_powa_peacefully_building_tt
+			add_character_flag = powan_unification_flag
+		}
+		title:c_tul_poac = {
+			add_county_modifier = {
+				modifier = powan_unification_county_modifier
+				years = 15
+			}
+		}
+		dynasty ?= {
+			add_dynasty_modifier = {
+				modifier = powan_unification_dynasty_modifier
+				years = 80
+			}
+		}
+		trigger_event = sirayn.1005
+	}
+}
+
+decision_form_powa_military_kingdom = {
+	title = decision_fortify_powa_borders_title
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_harad_04.dds"
+	}
+	sort_order = 500
+
+	decision_group_type = realms_in_exile_major
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_form_powa_kingdom_tooltip
+	desc = decision_form_powa_kingdom_desc
+	confirm_text = decision_form_powa_kingdom_confirm
+
+	is_shown = {
+		dynasty ?= dynasty:dynasty_latantee
+		has_variable = powan_unification
+		var:powan_unification = flag:martial
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_form_powa_military_kingdom
+			}
+		}
+	}
+
+	is_valid = {
+		prestige_level >= 3
+		OR = {
+			has_government = wanua_government
+			has_government = tribal_government
+			has_government = oligarchy_government 
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		if = {
+			limit = { 
+				OR = { 
+					has_government = tribal_government 
+					has_government = wanua_government 
+				}
+			}
+			convert_whole_realm_to_feudalism_effect = yes
+		}
+		else = {
+			change_government = clan_government
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_form_powa_military_kingdom
+		}
+		#trigger_event = sirayn.1006
+		every_held_county = {
+			title_province = { set_holding_type = castle_holding }
+			add_county_modifier = {
+				modifier = powan_conquest_county_modifier
+				years = 10 
+			}
+		}
+	}
+}
+
+# RoA General decisions
+decision_restore_taimaraud = { 
+	title = decision_restore_taimaraud
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
+	}
+	sort_order = 200
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_restore_taimaraud_tooltip
+	desc = decision_restore_taimaraud_desc
+	confirm_text = decision_restore_taimaraud_confirm
+
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		faith_is_evil = no
+		faith = {
+			has_doctrine = tenet_sirayn_syncretism
+		}
+		current_year >= 5083
+		current_year <= 6000
+		is_landed = yes
+		#alternate requirement for Blue Wizards?
+	}
+	is_valid = {
+		has_trait = theologian
+		piety_level >= 4
+		AND = {
+			completely_controls = title:c_tul_harar
+			completely_controls = title:c_carnesra
+			completely_controls = title:c_tul_isra
+			completely_controls = title:c_ayim
+			completely_controls = title:c_tul_askar
+		}
+	}
+	cost = {
+		piety = 1250
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+		}
+	effect = {
+		trigger_event = {
+			id = sirayn.1006
+		}
+		faith:faith_taimaraud = {
+			remove_doctrine = special_doctrine_is_adulation_of_the_dark_faith
+			remove_doctrine = tenet_sacrificial_ceremonies
+			if = {
+				limit = { has_doctrine = tenet_fp3_fedayeen }
+				remove_doctrine = tenet_fp3_fedayeen
+			}
+			if = {
+				limit = { has_doctrine = tenet_sacred_shadows }
+				remove_doctrine = tenet_sacred_shadows
+			}
+			remove_doctrine = doctrine_dominion_of_the_dark
+			add_doctrine = doctrine_a_people_apart
+			add_doctrine = tenet_sirayn_syncretism
+			add_doctrine = tenet_religious_legal_pronouncements
+			change_fervor = {
+				value = -100
+				desc = fervour_loss_temporal_meddling
+			}
+		}
+	}
+}
+
+############################
+#### KHORAHIL DECISIONS ####
+############################
+#by Naugrim04
+decision_favor_overseers = { #AKA Stabilise Sirayn
+	title = decision_favor_overseers
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_urukhai_04.dds"
+	}
+	sort_order = 200
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_favor_overseers_tooltip
+	desc = decision_favor_overseers_desc
+	confirm_text = decision_favor_overseers_confirm
+
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		has_character_flag = is_khorahil
+		has_title = title:e_thon_an_kharlokh
+		NOT = {
+			OR = {
+				has_character_flag = khorahil_has_bulgans
+				has_character_flag = khorahil_has_black_numenoreans
+				has_character_flag = khorahil_has_orcs
+			}
+		}
+	}
+	is_valid = {
+		AND = {
+			has_title = title:e_sirayn
+			completely_controls_region = special_region_khorahil_secure_sirayn
+			prestige_level >= 2
+		}
+	}
+	cost = {
+		prestige = 350
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+		}
+	effect = {
+		custom_tooltip = {
+			text = decision_favor_overseers_effect.tt
+			trigger_event = {
+				id = sirayn.0001
+			}
+		}
+
+	}
+}
+
+decision_khorahil_fortify_west = {
+	title = decision_khorahil_fortify_west
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_adunai_01.dds"
+	}
+	sort_order = 200
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	cooldown = { years = 25 }
+	selection_tooltip = decision_khorahil_fortify_west_tooltip
+	desc = decision_khorahil_fortify_west_desc
+	confirm_text = decision_khorahil_fortify_west_confirm
+
+
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		has_character_flag = is_khorahil
+		has_title = title:e_thon_an_kharlokh
+		has_character_flag = khorahil_attacks_bellakar
+		NOT = { has_character_flag = khorahil_defeated_bellakar }
+	}
+	is_valid = {
+		AND = {
+			has_title = title:e_sirayn
+			completely_controls_region = special_region_khorahil_fortify_coasts_west		
+			custom_tooltip = {
+				text = tulwang_building_3_tt
+				any_county_in_region = {
+					region = special_region_khorahil_fortify_coasts_west
+					count >= 3					
+					any_county_province = {
+						OR = {
+							has_building_or_higher = march_01
+							has_building_or_higher = tunnel_network_01							
+						}
+					}
+				}
+			}
+		}
+	}
+	cost = {
+		gold = 250
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	effect = {
+		custom_tooltip = {
+			text = decision_khorahil_fortify_west_effect.tt
+			every_sub_realm_county = {
+				limit = {
+					any_county_province = {
+						geographical_region = special_region_khorahil_fortify_coasts_west
+					}				
+				}
+				add_county_modifier = {
+					modifier = khorahil_fortified_coasts_county_modifier
+					years = 25
+				}
+			}		
+		}
+		trigger_event = sirayn.0010
+	}
+}
+
+decision_khorahil_fortify_east = {
+	title = decision_khorahil_fortify_east
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_rhun_03.dds"
+	}
+	sort_order = 200
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	cooldown = { years = 25 }
+	selection_tooltip = decision_khorahil_fortify_east_tooltip
+	desc = decision_khorahil_fortify_east_desc
+	confirm_text = decision_khorahil_fortify_east_confirm
+
+
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		has_character_flag = is_khorahil
+		has_title = title:e_thon_an_kharlokh
+		has_character_flag = khorahil_attacks_khy
+		NOT = { has_character_flag = khorahil_defeated_khy }
+	}
+	is_valid = {
+		AND = {
+			has_title = title:e_sirayn
+			completely_controls_region = special_region_khorahil_fortify_coasts_east
+			custom_tooltip = {
+				text = ormal_building_3_tt
+				any_county_in_region = {
+					region = special_region_khorahil_fortify_coasts_east
+					count >= 3
+					any_county_province = {
+						OR = {
+							has_building_or_higher = march_01
+							has_building_or_higher = tunnel_network_01							
+						}
+					}
+				}
+			}
+		}
+	}
+	cost = {
+		gold = 250
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	effect = {
+		custom_tooltip = {
+			text = decision_khorahil_fortify_east_effect.tt
+			every_sub_realm_county = {
+				limit = {
+					any_county_province = {
+						geographical_region = special_region_khorahil_fortify_coasts_east
+					}
+				}
+				add_county_modifier = {
+					modifier = khorahil_fortified_coasts_county_modifier
+					years = 25
+				}
+			}			
+		}
+		trigger_event = sirayn.0010
+	}
+}
+
+decision_khorahil_indoctrinate_harshandatt = {
+	title = decision_khorahil_indoctrinate_harshandatt
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_harshandatt.dds"
+	}
+	sort_order = 200
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	
+	selection_tooltip = decision_khorahil_indoctrinate_harshandatt_tooltip
+	desc = decision_khorahil_indoctrinate_harshandatt_desc
+	confirm_text = decision_khorahil_indoctrinate_harshandatt_confirm
+
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		has_character_flag = is_khorahil
+		has_title = title:e_thon_an_kharlokh
+		has_character_flag = khorahil_attacks_khy
+		NOT = { has_character_flag = khorahil_defeated_khy }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_khorahil_indoctrinate_harshandatt
+			}
+		}
+	}
+	is_valid = {
+		AND = {
+			completely_controls = title:k_harshandatt
+			has_title = title:e_harshandatt
+			piety_level >= 4
+		}
+	}
+	cost = {
+		piety = 1500
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+		}
+	effect = {
+		custom_tooltip = {
+			text = decision_khorahil_indoctrinate_harshandatt.tt
+			every_sub_realm_county = {
+				limit = {
+					empire = title:e_harshandatt
+					tier = tier_county
+				}
+				random = {
+					chance = 50
+					set_county_faith = faith:faith_sened
+				}
+			}
+		}
+		trigger_event = sirayn.0012
+		spawn_army = {
+			uses_supply = yes
+			inheritable = no
+			name = khorahil_zealots_army_name
+			men_at_arms = {
+				type = ancient_charioteers
+				stacks = {
+					value = 50
+				}
+			}
+			levies = 1000
+			location = capital_province
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_khorahil_indoctrinate_harshandatt
+		}
+	}
+}
+
+decision_khorahil_annex_an_balkumagan = {
+	title = decision_khorahil_annex_an_balkumagan
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_adunai_02.dds"
+	}
+	sort_order = 200
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	
+	selection_tooltip = decision_khorahil_annex_an_balkumagan_tooltip
+	desc = decision_khorahil_annex_an_balkumagan_desc
+	confirm_text = decision_khorahil_annex_an_balkumagan_confirm
+
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		has_character_flag = is_khorahil
+		has_title = title:e_thon_an_kharlokh
+		has_character_flag = khorahil_attacks_bellakar
+		NOT = { has_character_flag = khorahil_defeated_bellakar }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_khorahil_annex_an_balkumagan
+			}
+		}
+		NOR = {
+			has_title = title:k_an_balkumagan
+			title:k_an_balkumagan.holder = { liege = root }
+		}
+	}
+	is_valid = {
+		custom_tooltip = {
+			text = decision_khorahil_annex_an_balkumagan.tt
+			character_is_land_realm_neighbor = title:k_an_balkumagan.holder
+		}
+		prestige_level >= 3
+		
+			title:k_an_balkumagan.holder = {
+				OR = {
+					AND = {
+						opinion = {
+							target = root
+							value >= very_high_positive_opinion
+						}
+						title:e_thon_an_kharlokh.holder = { dread >= 80 }
+					}
+					root = { has_strong_hook = prev }					
+				}
+			}
+		custom_tooltip = {
+			text = decision_khorahil_annex_an_balkumagan.tt_2
+			title:k_an_balkumagan.holder = {
+				faith_is_evil = yes
+			}		
+		}
+		title:k_an_balkumagan.holder = {
+			highest_held_title_tier = tier_kingdom
+		}
+		custom_tooltip = {
+			text = military_strength_more_than_an_balk
+			root.script_current_military_strength >= title:k_an_balkumagan.holder.script_current_military_strength
+		}
+	}
+	cost = {
+		prestige = 500
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+		}
+	effect = {
+		trigger_event = sirayn.0013
+		title:k_an_balkumagan.holder = { trigger_event = sirayn.0014 }
+		custom_tooltip = {
+			text = decision_khorahil_annex_an_balkumagan.tt_3
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_khorahil_annex_an_balkumagan
+		}
+	}
+}
+
+decision_khorahil_destroy_bellakar = {
+	title = decision_khorahil_destroy_bellakar
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_amon_sul_destroyed.dds"
+	}
+	sort_order = 200
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	
+	cooldown = { years = 10 }
+	
+	selection_tooltip = decision_khorahil_destroy_bellakar_tooltip
+	desc = decision_khorahil_destroy_bellakar_desc
+	confirm_text = decision_khorahil_destroy_bellakar_confirm
+
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		has_character_flag = is_khorahil
+		has_title = title:e_thon_an_kharlokh
+		exists = title:e_bellakar.holder
+		NOT = { has_title = title:e_bellakar }
+		has_character_flag = khorahil_attacks_bellakar
+		NOT = { has_character_flag = khorahil_defeated_bellakar }
+	}
+	is_valid = {
+		AND = {
+			completely_controls = title:k_ray
+			has_title = title:e_sirayn
+			prestige_level >= 4
+			custom_tooltip = {
+				text = military_strength_15000
+				current_military_strength >= 15000 # 15k troops
+			}
+		}
+		exists = title:e_bellakar.holder
+	}
+	cost = {
+		prestige = 2500
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+		}
+	effect = {
+		start_war = {
+			casus_belli = khorahil_megawar_cb
+			target = title:e_bellakar.holder
+			target_title = title:e_bellakar
+		}
+		custom_tooltip = { 
+			text = decision_khorahil_vassals_join.tt 
+		}
+		#trigger_event = {
+		#	id = sirayn.0021
+		#	days = { 365 730 }
+		#}
+	}
+}
+
+decision_khorahil_destroy_khy = {
+	title = decision_khorahil_destroy_khy
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_mithlond_03.dds"
+	}
+	sort_order = 200
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	cooldown = { years = 10 }
+	
+	selection_tooltip = decision_khorahil_destroy_khy_tooltip
+	desc = decision_khorahil_destroy_khy_desc
+	confirm_text = decision_khorahil_destroy_khy_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		has_character_flag = is_khorahil
+		has_title = title:e_thon_an_kharlokh
+		NOT = { has_title = title:e_khy }
+		exists = title:e_khy.holder
+		has_character_flag = khorahil_attacks_khy
+		NOT = { has_character_flag = khorahil_defeated_khy }
+	}
+	is_valid = {
+		AND = {
+			completely_controls = title:k_mejhanir
+			has_title = title:e_sirayn
+			prestige_level >= 4
+			custom_tooltip = {
+				text = military_strength_15000
+				current_military_strength >= 15000 # 15k troops
+			}
+			exists = title:e_khy.holder
+		}
+	}
+	cost = {
+		prestige = 2500
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+		}
+	effect = {
+		start_war = {
+			casus_belli = khorahil_megawar_cb
+			target = title:e_khy.holder
+			target_title = title:e_khy
+		}
+		custom_tooltip = { 
+			text = decision_khorahil_vassals_join.tt 
+		}
+		trigger_event = {
+			id = sirayn.0021
+			days = { 365 730 }
+		}
+	}
+}
+
+decision_khorahil_garrison_abrakhan = {
+	title = decision_khorahil_garrison_abrakhan
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_abrakhan_01.dds"
+	}
+	sort_order = 200
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	
+	selection_tooltip = decision_khorahil_garrison_abrakhan_tooltip
+	desc = decision_khorahil_garrison_abrakhan_desc
+	confirm_text = decision_khorahil_garrison_abrakhan_confirm
+
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		has_character_flag = is_khorahil
+		has_title = title:e_thon_an_kharlokh
+		has_character_flag = khorahil_attacks_khy
+		NOT = { has_character_flag = khorahil_defeated_khy }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_khorahil_garrison_abrakhan
+			}
+		}
+	}
+	is_valid = {
+		title:c_abrashadorh = {
+			title_province = {
+				has_building = wonder_zekhetz_abrakhan_03
+			}
+		}
+		has_title = title:k_abrakhan
+		custom_tooltip = {
+			text = decision_khorahil_garrison_abrakhan_developed.tt		
+			any_county_in_region = {
+				region = middleearth_harad_dunesea_abrakhan
+				title_province = {
+					has_holding_type = castle_holding
+				}			
+				percent >= 0.5
+			}
+		}
+	}
+	cost = {
+
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+		}
+	effect = {				
+		province:2300 = {
+			set_holding_type = castle_holding
+			add_special_building = wonder_ghaesch_kanra_01
+		}
+		
+		culture:darsalai = {
+			hidden_effect = {
+				get_all_innovations_from = culture:lushek_pust
+			}
+		}
+		culture:lushek_pust = {
+			hidden_effect = {
+				get_all_innovations_from = culture:darsalai
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					culture:darsalai = {
+						has_cultural_tradition = tradition_abrakhan_magic_cities
+					}
+				}
+			}
+			culture:darsalai = {
+				add_culture_tradition = tradition_abrakhan_magic_cities
+			}
+		}
+
+		if = {
+			limit = {
+				NOT = {
+					culture:lushek_pust = {
+						has_cultural_tradition = tradition_castle_keepers
+					}
+				}
+			}
+			culture:lushek_pust = {
+				add_culture_tradition = tradition_castle_keepers
+			}
+		}		
+		custom_tooltip = {
+			text = decision_khorahil_garrison_abrakhan.tt
+			every_sub_realm_county = {	#Western Pustics
+				limit = {
+					duchy = title:d_sarysis
+					tier = tier_county
+				}
+				set_county_culture = culture:darsalai
+			}
+			every_sub_realm_county = {	#Western Pustics
+				limit = {
+					duchy = title:d_darsalan
+					tier = tier_county
+				}
+				set_county_culture = culture:darsalai
+			}
+			every_sub_realm_county = {	#Western Pustics
+				limit = {
+					duchy = title:d_abrakhan
+					tier = tier_county
+				}
+				set_county_culture = culture:darsalai
+			}
+			every_sub_realm_county = {	#Eastern Pustics
+				limit = {
+					duchy = title:d_tahbr_abrakhan
+					tier = tier_county
+				}
+				set_county_culture = culture:lushek_pust
+			}
+			every_sub_realm_county = {	#Eastern Pustics
+				limit = {
+					duchy = title:d_tarsesh_abrakhan
+					tier = tier_county
+				}
+				set_county_culture = culture:lushek_pust
+			}
+		}
+		custom_tooltip = {
+			text = decision_khorahil_garrison_abrakhan.tt2
+			every_sub_realm_county = {
+				limit = {
+					kingdom = title:k_abrakhan
+					tier = tier_county
+				}
+				set_county_faith = faith:faith_kanra
+			}		
+		}
+		title:k_abrakhan = { change_development_level = 5 }
+		spawn_army = {
+			uses_supply = yes
+			inheritable = no
+			name = pustic_legion_army_name
+			men_at_arms = {
+				type = giant_scorpions
+				stacks = {
+					value = 10
+				}
+			}
+			men_at_arms = {
+				type = guard_of_abrakhan
+				stacks = {
+					value = 10
+				}
+			}
+			men_at_arms = {
+				type = guard_of_abrakhan
+				stacks = {
+					value = 10
+				}
+			}
+			men_at_arms = {
+				type = desert_spearmen
+				stacks = {
+					value = 10
+				}
+			}
+			men_at_arms = {
+				type = camel_rider
+				stacks = {
+					value = 10
+				}
+			}
+			levies = 950
+			location = capital_province
+		}		
+		trigger_event = sirayn.0020
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_build_ghaesch_kanra_fortress
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_khorahil_garrison_abrakhan
+		}
+	}
+}
+
+#by Naugrim04
+decision_khorahil_infiltrate_yellow_mountains = { #For RoA Khorahil and Indur - unlock character interactions to influence politics in the Yellow Mountains
+	title = decision_khorahil_infiltrate_yellow_mountains
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_urukhai_03.dds"
+	}
+	sort_order = 200
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_khorahil_infiltrate_yellow_mountains_tooltip
+	desc = decision_khorahil_infiltrate_yellow_mountains_desc
+	confirm_text = decision_khorahil_infiltrate_yellow_mountains_confirm
+
+
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		is_nazgul = yes
+		capital_county = {
+			title_province = {
+				geographical_region = custom_petition_murghuri_region
+			}
+		}
+		NOT = { has_character_flag = nazgul_infiltrated_yellow_mountains }
+	}
+	is_valid = {
+		is_independent_ruler = yes
+		OR = {
+			piety_level >= 2
+			prestige_level >= 2
+		}
+		intrigue >= 15
+		custom_tooltip = {
+			text = decision_khorahil_infiltrate_yellow_mountains.tt4
+			any_realm_county = {
+				any_neighboring_county = {
+					empire = title:e_yellow_mountains
+				}
+			}
+		}
+	}
+	cost = {
+		prestige = 250
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_at_war = no
+	}
+	
+	effect = {
+		custom_tooltip = {
+			text = decision_khorahil_infiltrate_yellow_mountains.tt
+			trigger_event = sirayn.0003
+		}
+		custom_tooltip = {
+			text = decision_khorahil_infiltrate_yellow_mountains.tt2
+		}
+		custom_tooltip = {
+			text = decision_khorahil_infiltrate_yellow_mountains.tt3
+		}
+		custom_tooltip = {
+			text = decision_khorahil_infiltrate_yellow_mountains.tt5
+		}
+	}
+
+}

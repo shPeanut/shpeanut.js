@@ -1,0 +1,1371 @@
+﻿### EVENT BACKGROUNDS LIST:
+
+## Vanilla backgrounds
+
+fp2_corridor_day = {
+	background = { #LotR/FP2
+		reference = "gfx/interface/illustrations/event_scenes/fp2_corridor_day.dds"
+		environment = "environment_event_fp2_corridor_day" 
+		ambience = "event:/DLC/FP2/SFX/Events/corridor_day"
+	}
+}
+
+fp2_corridor_night = {
+	background = { #LotR/FP2
+		reference = "gfx/interface/illustrations/event_scenes/fp2_corridor_night.dds"
+		environment = "environment_event_fp2_corridor_night" 
+		ambience = "event:/DLC/FP2/SFX/Events/corridor_night" 
+	}
+}
+
+fp2_courtyard = {
+	background = { #LotR/FP2
+		reference = "gfx/interface/illustrations/event_scenes/fp2_courtyard.dds"
+		environment = "environment_event_fp2_courtyard" 
+		ambience = "event:/DLC/FP2/SFX/Events/courtyard" 
+	}
+}
+
+fp2_garden = {
+	background = { #LotR/FP2
+		reference = "gfx/interface/illustrations/event_scenes/fp2_garden.dds"
+		environment = "environment_event_fp2_garden" 
+		ambience = "event:/DLC/FP2/SFX/Events/garden"
+	}
+}
+
+fp2_prison = {
+	background = { #LotR/FP2
+		reference = "gfx/interface/illustrations/event_scenes/fp2_prison.dds"
+		environment = "environment_event_fp2_prison" 
+		ambience = "event:/DLC/FP2/SFX/Events/prison" 
+	}
+}
+
+fp2_relaxing_room = {
+	background = { #LotR/FP2
+		reference = "gfx/interface/illustrations/event_scenes/fp2_relaxing_room.dds"
+		environment = "environment_event_fp2_relaxing_room"
+		ambience = "event:/DLC/FP2/SFX/Events/relaxing_room"
+	}
+}
+
+fp2_temple = {
+	background = { #LotR/FP2
+		reference = "gfx/interface/illustrations/event_scenes/fp2_temple.dds"
+		environment = "environment_event_fp2_temple"
+		ambience = "event:/DLC/FP2/SFX/Events/temple" 
+	}
+}
+
+fp2_throne_room = {
+	background = { #LotR/FP2
+		reference = "gfx/interface/illustrations/event_scenes/fp2_throneroom.dds"
+		environment = "environment_event_fp2_throneroom"
+		ambience = "event:/DLC/FP2/SFX/Events/throneroom" 
+	}
+}
+
+ep2_wedding_ceremony_western = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/ep2_wedding_ceremony_western.dds"
+		environment = "environment_western_wedding"
+		ambience = "event:/DLC/EP2/SFX/Events/Grand_Activities/Weddings/ep2_event_grand_wedding"
+	}
+}
+
+docks_western = { #Vanilla
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/docks.dds"
+		environment = "environment_event_docks"
+		ambience = "event:/SFX/Events/Backgrounds/docks_day"
+	}
+}
+
+docks_tribal = { #Vanilla
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/bp1_docks_tribal.dds"
+		environment = "environment_event_bp1_docks_tribal"
+		ambience = "event:/SFX/Events/Backgrounds/docks_day"
+	}
+}
+
+alley_night_western = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/alley.dds"
+		environment = "environment_event_alley"
+		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
+	}
+}
+
+tour_arrival_norse_suspicious = {
+	background = {
+		reference = "gfx/interface/illustrations/activity_splash_screens/tour_arrival_norse_suspicious.dds"
+		environment = "environment_ep2_tour_arrival_norse_suspicious" 
+		ambience = "event:/SFX/Events/Backgrounds/camp_generic_day" 
+	}
+}
+
+tour_arrival_tribal_suspicious = {
+	background = {
+		reference = "gfx/interface/illustrations/activity_splash_screens/tour_arrival_tribal_suspicious.dds"
+		environment = "environment_ep2_tour_arrival_tribal_suspicious" 
+		ambience = "event:/SFX/Events/Backgrounds/camp_generic_day" 
+	}
+}
+
+tour_arrival_mena_suspicious = {
+	background = {
+		reference = "gfx/interface/illustrations/activity_splash_screens/tour_arrival_mena_suspicious.dds"
+		environment = "environment_ep2_tour_arrival_mena_suspicious" 
+		ambience = "event:/SFX/Events/Backgrounds/camp_generic_day" 
+	}
+}
+
+tour_arrival_iberian_suspicious = {
+	background = {
+		reference = "gfx/interface/illustrations/activity_splash_screens/tour_arrival_iberian_suspicious.dds"
+		environment = "environment_ep2_tour_arrival_iberian_suspicious" 
+		ambience = "event:/SFX/Events/Backgrounds/camp_generic_day" 
+	}
+}
+
+tour_arrival_indian_suspicious = {
+	background = {
+		reference = "gfx/interface/illustrations/activity_splash_screens/tour_arrival_indian_suspicious.dds"
+		environment = "environment_ep2_tour_arrival_indian_suspicious" 
+		ambience = "event:/SFX/Events/Backgrounds/camp_generic_day" 
+	}
+}
+
+tour_arrival_western_suspicious = {
+	background = {
+		reference = "gfx/interface/illustrations/activity_splash_screens/tour_arrival_western_suspicious.dds"
+		environment = "environment_ep2_tour_arrival_western_suspicious" 
+		ambience = "event:/SFX/Events/Backgrounds/camp_generic_day" 
+	}	
+}
+
+
+## Generic LotR backgrounds
+
+#Outdoors Backgrounds
+
+wilderness_desert_rhun = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_rhun.dds"
+		environment = "environment_event_desert"
+		ambience = "event:/SFX/Events/Backgrounds/desert_day"
+	}
+}
+
+wilderness_forest_deep = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_forest_deep.dds"
+		environment = "environment_event_forest"
+		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
+	}
+}
+
+wilderness_forest_mallorn = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_forest_mallorn.dds"
+		environment = "environment_event_forest"
+		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
+	}
+}
+
+wilderness_savanna = { #LotR savanna
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_harad_drylands.dds"
+		environment = "environment_event_steppe"
+		ambience = "event:/SFX/Events/Backgrounds/steppe_day"
+	}
+}
+
+wilderness_volcanic = {
+	background = { #LotR volcanic_plains
+		reference = "gfx/interface/illustrations/event_scenes/lotr_volcanic_plains.dds"
+		environment = "environment_event_feast"
+		ambience = "event:/SFX/Events/Backgrounds/burning_building"
+	}
+}
+
+wilderness_arctic = {
+	background = { #LotR arctic
+		reference = "gfx/interface/illustrations/event_scenes/lotr_arctic.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+}
+
+wilderness_underground = {
+	background = { #LotR underground
+		reference = "gfx/interface/illustrations/event_scenes/lotr_halls.dds"
+		environment = "environment_event_alley"
+		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
+	}
+}
+
+wilderness_saltflats = {
+	background = { #LotR saltflats
+		reference = "gfx/interface/illustrations/event_scenes/lotr_saltflats.dds"
+		environment = "environment_event_bp1_desert"
+		ambience = "event:/SFX/Events/Backgrounds/desert_day"
+	}
+}
+
+hills_hobbit = {
+	background = { #Hobbit hills
+		reference = "gfx/interface/illustrations/event_scenes/lotr_hills_hobbit.dds"
+		environment = "environment_event_farms"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+}
+
+hobbit_garden = {
+	background = { #Hobbit garden
+		reference = "gfx/interface/illustrations/event_scenes/lotr_hobbit_smial.dds"
+		environment = "environment_event_market_west"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+}
+
+dwarven_gate = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_dwarven_gate.dds"
+		environment = "environment_travel_farmlands"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+}
+
+forodwaith = { #LotR forodwaith
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_forodwaith.dds"
+		environment = "environment_event_steppe"
+		ambience = "event:/SFX/Events/Backgrounds/steppe_day"
+	}
+}
+
+on_river = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_river.dds"
+		environment = "environment_event_docks"
+		ambience = "event:/DLC/EP2/SFX/Events/Grand_Activities/Hunts/ep2_event_grand_hunt_waterbank"
+	}
+}
+
+fangorn = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_fangorn.dds"
+		environment = "environment_event_forest"
+		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
+	}
+}
+
+eaves_of_lorien = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_eaves_of_lorien.dds"
+		environment = "environment_event_bp1_plains" 
+		ambience = "event:/DLC/EP2/SFX/Events/Grand_Activities/Hunts/ep2_event_grand_hunt_praire"
+	}
+}
+
+lone_lands = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_lonelands.dds"
+		environment = "environment_event_bp1_plains" 
+		ambience = "event:/DLC/EP2/SFX/Events/Grand_Activities/Hunts/ep2_event_grand_hunt_praire"
+	}
+}
+
+elven_holding = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_elven_holding.dds"
+		environment = "environment_event_farms"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+}
+
+dwarf_caravan = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_dwarf_caravan.dds"
+		environment = "environment_event_bp1_plains" 
+		ambience = "event:/DLC/EP2/SFX/Events/Grand_Activities/Hunts/ep2_event_grand_hunt_praire"
+	}
+}
+
+city_north = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_city_north.dds"
+		environment = "environment_event_alley"
+		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
+	}
+}
+
+city_dwarven = {
+	background = { #LotR Dwarven
+		reference = "gfx/interface/illustrations/event_scenes/lotr_city_dwarven.dds"
+		environment = "environment_bp2_university"
+		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	}
+}
+
+ettenmoors = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_ettenmoors.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+}
+
+#Throne rooms
+
+throne_room_dunedain = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_dunedain.dds"
+		environment = "environment_frontend_mediterranean_main"
+		ambience = "event:/SFX/Events/Backgrounds/throneroom_mediterranean"
+	}
+}
+
+throne_room_evil = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_evil.dds"
+		environment = "environment_frontend_west_main"
+		ambience = "event:/SFX/Events/Backgrounds/throneroom_western"
+	}
+}
+
+throne_room_sauron = {
+	background = { #LotR Sauron
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_sauron.dds"
+		environment = "environment_event_mena_bedchamber"
+		ambience = "event:/DLC/FP2/SFX/Events/prison"
+	}
+}
+
+throne_room_orthanc = {
+	background = { #LotR Orthanc
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_evil_istari.dds"
+		environment = "environment_event_fp2_temple"
+		ambience = "event:/DLC/FP2/SFX/Events/prison" 
+	}
+}
+
+throne_room_orc = {
+	background = { #LotR Orc
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_orc.dds"
+		environment = "environment_event_feast"
+		ambience = "event:/SFX/Events/Backgrounds/camp_generic_day"
+	}
+}
+
+throne_room_dorwinion = { 
+	background = { #LotR Northron
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_dorwinion.dds"
+		environment = "environment_frontend_mediterranean_main"
+		ambience = "event:/SFX/Events/Backgrounds/throneroom_mediterranean"
+	}
+}
+
+throne_room_thranduils_halls = { 
+	background = { #LotR Lasgalen
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_thranduils_halls.dds"
+		environment = "environment_event_feast"
+		ambience = "event:/SFX/Events/Backgrounds/throneroom_western"
+	}
+}
+
+throne_room_woodelf = { 
+	background = { #LotR Wood Elf
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_woodelf.dds"
+		environment = "environment_indian_wedding"
+		ambience = "event:/SFX/Events/Backgrounds/throneroom_western"
+	}
+}
+
+throne_room_noldor = { 
+	background = { #LotR Noldor
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_noldor.dds"
+		environment = "environment_event_councilchamber"
+		ambience = "event:/SFX/Events/Backgrounds/meetingchamber_western"
+	}
+}
+
+throne_room_rivendell = { 
+	background = { #LotR Rivendell
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_rivendell.dds"
+		environment = "environment_event_councilchamber"
+		ambience = "event:/SFX/Events/Backgrounds/meetingchamber_western"
+	}
+}
+
+throne_room_hobbit = { 
+	background = { #LotR Hobbits
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_hobbit.dds"
+		environment = "environment_event_councilchamber"
+		ambience = "event:/SFX/Events/Backgrounds/meetingchamber_western"
+	}
+}
+
+throne_room_hadorim = { 
+	background = { #LotR Hadorrim
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_rohirrim.dds"
+		environment = "environment_event_councilchamber"
+		ambience = "event:/SFX/Events/Backgrounds/throneroom_western"
+	}
+}
+
+throne_room_easterling = { 
+	background = { #LotR Easterling
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_easterling_imperial.dds"
+		environment = "environment_event_bp1_relaxing_room_western" 
+		ambience = "event:/SFX/Events/Backgrounds/throneroom_middleeastern_african"
+	}
+}
+
+throne_room_dwarf = {
+	background = { #LotR Dwarf
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_dwarf.dds"
+		environment = "environment_event_mena_bedchamber"
+		ambience = "event:/SFX/Events/Backgrounds/throneroom_western"
+	}
+}
+
+throne_room_dwarf_eastern = {
+	background = { #LotR Dwarf Eastern
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_dwarf_eastern.dds"
+		environment = "environment_event_mena_bedchamber"
+		ambience = "event:/SFX/Events/Backgrounds/throneroom_western"
+	}
+}
+
+
+#Docks
+
+docks_dunedain = { #LotR Dúnedain
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_docks_dunedain.dds"
+		environment = "environment_event_docks"
+		ambience = "event:/SFX/Events/Backgrounds/docks_day"
+	}
+}
+
+docks_adunai = { #LotR Adunai
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_docks_adunai.dds"
+		environment = "environment_event_docks"
+		ambience = "event:/SFX/Events/Backgrounds/docks_day"
+	}
+}
+
+docks_elven = { #LotR Elven
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_docks_elf.dds"
+		environment = "environment_event_corridor"
+		ambience = "event:/SFX/Events/Backgrounds/docks_day"
+	}
+}
+
+#Markets
+
+market_elven = {
+	background = { # LotR Elf
+		reference = "gfx/interface/illustrations/event_scenes/lotr_elven_town.dds"
+		environment = "environment_event_market_west"
+		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	}
+}
+
+market_hobbit = {	
+	background = { # LotR Hobbit
+		reference = "gfx/interface/illustrations/event_scenes/lotr_market_hobbit.dds"
+		environment = "environment_event_market_west"
+		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	}
+}
+
+market_dunedain = {	
+	background = { # LotR Dúnedain
+		reference = "gfx/interface/illustrations/event_scenes/lotr_market_dunedain.dds"
+		environment = "environment_event_market_west"
+		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	}
+}
+
+market_dwarven = {
+	background = { #LotR Dwarven
+		reference = "gfx/interface/illustrations/event_scenes/lotr_market_dwarven.dds"
+		environment = "environment_tgp_tanabata_festival_night_japan"
+		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	}
+}
+
+market_goblin = { #Below Ground
+	background = { #LotR Orc
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_goblins.dds"
+		environment = "environment_bp2_university"
+		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	}
+}
+
+market_orc = { #Above Ground
+	background = { #LotR Orc
+		reference = "gfx/interface/illustrations/event_scenes/lotr_orc_camp.dds"
+		environment = "environment_event_battlefield"
+		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	}
+}
+
+#Taverns
+
+hobbit_tavern = {
+	background = { #Hobbit Tavern
+		reference = "gfx/interface/illustrations/event_scenes/lotr_hobbit_tavern.dds"
+		environment = "environment_event_tavern"
+		ambience = "event:/SFX/Events/Backgrounds/corner_of_tavern"
+	}
+}
+
+daen_tavern = {
+	background = { #Daen Tavern
+		reference = "gfx/interface/illustrations/event_scenes/lotr_daen_tavern.dds"
+		environment = "environment_event_tavern"
+		ambience = "event:/SFX/Events/Backgrounds/corner_of_tavern"
+	}
+}
+
+dunedain_tavern = {
+	background = { #Dunedain Tavern
+		reference = "gfx/interface/illustrations/event_scenes/lotr_market_dunedain.dds"
+		environment = "environment_event_tavern"
+		ambience = "event:/SFX/Events/Backgrounds/corner_of_tavern"
+	}
+}
+
+#Kitchens
+
+kitchen_hobbit = {
+	background = { # LotR Hobbit
+		reference = "gfx/interface/illustrations/event_scenes/lotr_kitchen_hobbit.dds"
+		environment = "environment_event_bp1_kitchen_western" 
+		ambience = "event:/SFX/Events/Backgrounds/corner_of_tavern"
+	}
+}
+
+kitchen_dwarven = {
+	background = { # LotR Dwarf
+		reference = "gfx/interface/illustrations/event_scenes/lotr_kitchen_dwarven.dds"
+		environment = "environment_event_bp1_kitchen_western" 
+		ambience = "event:/SFX/Events/Backgrounds/corner_of_tavern"
+	}
+}
+
+#Corridors
+
+corridor_dunedain = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_corridor_dunedain.dds"
+		environment = "environment_frontend_mediterranean_main" 
+		ambience = "event:/DLC/FP2/SFX/Events/corridor_day"
+	}
+}
+
+corridor_dwarven = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_corridor_dwarven.dds"
+		environment = "environment_event_corridor_day"
+		ambience = "event:/SFX/Events/Backgrounds/castle_corridor_day"
+	}
+}
+
+#Relaxing Rooms
+
+relaxing_room_hobbit = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_relaxing_room_hobbit.dds"
+		environment = "environment_bp2_study_indian"
+		ambience = "event:/DLC/FP2/SFX/Events/relaxing_room"
+	}
+}
+
+#Battlefields
+
+battlefield_dunedain = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_battlefield_dunedain.dds"
+		environment = "environment_event_battlefield"
+		ambience = "event:/SFX/Events/Backgrounds/battlefield_gloomy"
+	}
+}
+
+#Temples
+
+temple_dwarven = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_temple_dwarven.dds"
+		environment = "environment_event_temple"
+		ambience = "event:/SFX/Events/Backgrounds/temple_generic"
+	}
+}
+
+#Camps
+
+orc_camp = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_orc_camp.dds"
+		environment = "environment_event_battlefield"
+		ambience = "event:/SFX/Events/Backgrounds/camp_generic_day"
+	}
+}
+
+mumakani_camp = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_mumakani_camp.dds"
+		environment = "environment_event_genericcamp"
+		ambience = "event:/SFX/Events/Backgrounds/camp_generic_day"
+	}
+}
+
+#Unique Locations
+
+umbar = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_umbar.dds"
+		environment = "environment_event_docks"
+		ambience = "event:/SFX/Events/Backgrounds/docks_day"
+	}
+}
+
+argonath = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_argonath.dds"
+		environment = "environment_event_genericcamp"
+		ambience = "event:/SFX/Events/Backgrounds/camp_generic_day"
+	}
+}
+
+eregion = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_eregion.dds"
+		environment = "environment_event_farms"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+}
+
+eregion_ruins = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_eregion_ruins.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+}
+
+eregion_crebain = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_eregion_crebain.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+}
+
+armenelos = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_armenelos.dds"
+		environment = "environment_event_market_west"
+		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	}
+}
+
+meneltarma = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_meneltarma_illustration.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+}
+
+gondolin = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_gondolin.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+}
+
+gondolin_fall = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_gondolin_fall.dds"
+		environment = "environment_event_feast"
+		ambience = "event:/SFX/Events/Backgrounds/burning_building"
+	}
+}
+
+amon_lanc = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_amon_lanc.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+}
+
+minas_tirith = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_minas_tirith.dds"
+		environment = "environment_event_farms"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+}
+
+edoras = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_edoras.dds"
+		environment = "environment_event_farms"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+}
+
+lorien_day = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_lorien_day.dds"
+		environment = "environment_event_forest"
+		ambience = "event:/DLC/EP2/SFX/Events/Backgrounds/evn_background_dark_forest"
+	}
+}
+
+lorien_night = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_lorien_night.dds"
+		environment = "environment_event_alley"
+		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
+	}
+}
+
+flooded_isengard = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_flooded_isengard.dds"
+		environment = "environment_event_farms"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+}
+
+durins_door = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_durins_door.dds"
+		environment = "environment_event_fp3_courtyard_night" 
+		ambience = "event:/SFX/Events/Backgrounds/castle_corridor_night"
+	}
+}
+
+trollshaws = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_trollshaws.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+}
+
+laurelin = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_laurelin.dds"
+		environment = "environment_event_alley"
+		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
+	}
+}
+
+carrock = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_carrock.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+}
+
+tharbad = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_tharbad.dds"
+		environment = "environment_event_docks"
+		ambience = "event:/SFX/Events/Backgrounds/docks_day"
+	}
+}
+
+dimril_dale = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_dimril_dale.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+}
+
+last_bridge = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_last_bridge.dds"
+		environment = "environment_event_bp1_plains" 
+		ambience = "event:/DLC/EP2/SFX/Events/Grand_Activities/Hunts/ep2_event_grand_hunt_praire"
+	}
+}
+
+weathertop = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_weathertop.dds"
+		environment = "environment_event_bp1_plains" 
+		ambience = "event:/DLC/EP2/SFX/Events/Grand_Activities/Hunts/ep2_event_grand_hunt_praire"
+	}
+}
+
+halls_mandos = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_halls_mandos.dds"
+		environment = "environment_event_alley"
+		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
+	}
+}
+
+imladris = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_imladris.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+}
+
+grond = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_grond.dds"
+		environment = "environment_event_feast"
+		ambience = "event:/SFX/Events/Backgrounds/burning_building"
+	}
+}
+
+dol_amroth = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_dol_amroth.dds"
+		environment = "environment_event_docks"
+		ambience = "event:/SFX/Events/Backgrounds/docks_day"
+	}
+}
+
+annuminas = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_annuminas.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+}
+
+amon_sul = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_amon_sul.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+}
+
+fornost = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_fornost.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+}
+
+barrow = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_barrow.dds"
+		environment = "environment_event_fp3_courtyard_night"
+		ambience = "event:/SFX/Events/Backgrounds/steppe_day"
+	}
+}
+
+grey_havens = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_grey_havens.dds"
+		environment = "environment_event_docks"
+		ambience = "event:/SFX/Events/Backgrounds/docks_day"
+	}
+}
+
+nimrodel = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_nimrodel.dds"
+		environment = "environment_event_forest"
+		ambience = "event:/DLC/EP2/SFX/Events/Grand_Activities/Hunts/ep2_event_grand_hunt_waterbank"
+	}
+}
+
+# Miscellaneous
+
+black_ship = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_black_ship.dds"
+		environment = "environment_event_genericcamp"
+		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
+	}
+}
+
+ulmo = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_ulmo.dds"
+		environment = "environment_event_docks"
+		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
+	}
+}
+
+luthien = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_luthien.dds"
+		environment = "environment_event_forest"
+		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
+	}
+}
+
+downfall = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_downfall.dds"
+		environment = "environment_event_docks"
+		ambience = "event:/SFX/Events/Backgrounds/docks_day"
+	}
+}
+
+kinslaying = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_kinslaying.dds"
+		environment = "environment_event_feast"
+		ambience = "event:/SFX/Events/Backgrounds/burning_building"
+	}
+}
+
+durins_bane = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_durins_bane.dds"
+		environment = "environment_event_feast"
+		ambience = "event:/SFX/Events/Backgrounds/burning_building"
+	}
+}
+
+smaug_arrive = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/smaug_arrive.dds"
+		environment = "environment_event_feast"
+		ambience = "event:/SFX/Events/Backgrounds/burning_building"
+	}
+}
+
+smaug_destruction = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/smaug_destruction.dds"
+		environment = "environment_event_feast"
+		ambience = "event:/SFX/Events/Backgrounds/burning_building"
+	}
+}
+
+eagles = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_eagles.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
+	}
+}
+
+
+
+### Activities ###
+# Mining
+mining_activity = { # Matches with activity background
+	background = {
+		reference = "gfx/interface/illustrations/activity_backgrounds/lotr_cave_interior.dds"
+		environment = "environment_event_alley"
+		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
+	}
+}
+
+# Wine Tasting
+RICE_background_granada_alhambra_exterior = { # Taken from RICE
+	background = {
+		reference = "gfx/interface/illustrations/activity_backgrounds/RICE_granada_alhambra_exterior.dds"
+		environment = "environment_event_garden"
+		ambience = "event:/SFX/Events/Backgrounds/castle_garden_day"
+	}
+}
+RICE_background_granada_alhambra_interior = { # # Taken from RICE
+	background = {
+		reference = "gfx/interface/illustrations/activity_backgrounds/RICE_granada_alhambra_interior.dds"
+		environment = "environment_event_garden"
+		ambience = "event:/SFX/Events/Backgrounds/castle_garden_day"
+	}
+}
+RICE_background_granada_alhambra_courtyard = { # Taken from RICE
+	background = {
+		reference = "gfx/interface/illustrations/activity_backgrounds/RICE_granada_alhambra_courtyard.dds"
+		environment = "environment_event_garden"
+		ambience = "event:/SFX/Events/Backgrounds/castle_garden_day"
+	}
+}
+
+# Yule Activity
+lotr_yule_celebration = {
+	background = {
+		trigger = {
+			location = {
+				geographical_region = middleearth_forodwaith
+			}
+		}
+		reference = "gfx/interface/illustrations/event_scenes/lotr_throneroom_forodwaith.dds"
+		environment = "environment_event_steppe"
+		ambience = "event:/SFX/Events/Backgrounds/steppe_day"
+	}
+	background = {
+		trigger = {
+			location = {
+				geographical_region = middleearth_harad
+			}
+		}
+		reference = "gfx/interface/illustrations/event_scenes/ep2_wedding_ceremony_mena.dds"
+		environment = "environment_event_garden"
+		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	}
+	background = {
+		trigger = {
+			location = {
+				OR = {
+					is_hobbit = yes
+					culture = { has_cultural_pillar = heritage_eriadorim } #Bree
+				}
+			}
+		}
+		reference = "gfx/interface/illustrations/event_scenes/lotr_market_hobbit.dds"
+		environment = "environment_event_garden"
+		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	}
+	background = {
+		trigger = {
+			location = {
+				is_dwarf = yes
+			}
+		}
+		reference = "gfx/interface/illustrations/event_scenes/lotr_market_dwarven.dds"
+		environment = "environment_event_garden"
+		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	}
+	background = {
+		trigger = {
+			location = {
+				is_elf = yes
+			}
+		}
+		reference = "gfx/interface/illustrations/event_scenes/lotr_elven_town.dds"
+		environment = "environment_event_garden"
+		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	}
+	background = {
+		trigger = {
+			location = {				
+				culture = { has_cultural_pillar = heritage_dunedain }
+			}
+		}
+		reference = "gfx/interface/illustrations/event_scenes/lotr_market_dunedain.dds"
+		environment = "environment_event_garden"
+		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	}
+	# Fallback
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/market_tribal.dds"
+		environment = "environment_event_garden"
+		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	}
+}
+
+# First-Fruits Activity
+lotr_background_firstfruits_festival = {
+	# Indian
+	background = {
+		trigger = {
+			location.culture ?= { has_graphical_india_culture_group_trigger = yes }
+		}
+		reference = "gfx/interface/illustrations/event_scenes/throneroom_india.dds"
+		environment = "environment_frontend_india_main"
+		ambience = "event:/SFX/Events/Backgrounds/throneroom_middleeastern_african"
+	}
+	# Mediterranean
+	background = {
+		trigger = {
+			location.culture ?= { has_graphical_mediterranean_culture_group_trigger = yes }
+		}
+		reference = "gfx/interface/illustrations/event_scenes/throneroom_india.dds"
+		environment = "environment_frontend_india_main"
+		ambience = "event:/SFX/Events/Backgrounds/throneroom_middleeastern_african"
+	}
+	# Fallback - Iranian throne room
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/RICE_iranian_throne_room.dds"
+		environment = "environment_frontend_east_main"
+		ambience = "event:/SFX/Events/Backgrounds/throneroom_middleeastern_african"
+	}
+}
+
+########################################################
+### LOTR STRUGGLES - DO NOT USE FOR CHARACTER EVENTS ###
+########################################################
+
+balrog_struggle_start = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/balrog_struggle_start.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/SFX/Events/Backgrounds/burning_building"
+	}
+}
+
+thani_hazad_struggle_start = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/thani_hazad_struggle_start.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/SFX/Events/Backgrounds/meetingchamber_western"
+	}
+}
+
+thani_hazad_struggle_unity = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/thani_hazad_struggle_unity.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/SFX/Events/Backgrounds/meetingchamber_western"
+	}
+}
+
+#### Elven Situation Fullscreen ####
+elven_situation_fullscreen = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/elven_hope.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
+	}
+}
+
+############################################################
+### GLOBAL NEWS EVENTS - DO NOT USE FOR CHARACTER EVENTS ###
+############################################################
+
+tedjin_war_start = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/tedjin_war_start.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+felaya_rapprochement = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/felaya_rapprochement.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+honnin_takeover = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/honnin_takeover.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+march_of_the_ents = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/march_of_the_ents.dds"
+		environment = "environment_event_farms" # added because it is expected in events
+		ambience = "event:/SFX/Events/Backgrounds/burning_building"
+	}
+}
+
+return_of_the_king = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/return_of_the_king.dds"
+		environment = "environment_event_farms" # added because it is expected in events
+		ambience = "event:/SFX/Events/Backgrounds/throneroom_mediterranean"
+	}
+}
+
+umbarean_ships = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/umbareans.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+harad_city = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/harad_city.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+harad_desert = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/harad_desert.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+mordor_fullscreen = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/mordor_fullscreen.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+the_long_winter = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/the_long_winter.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+dunlendings = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/dunlendings.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+wood_elves = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/wood_elves.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+woodmen = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/woodmen.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+mirkwood_ablaze = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/mirkwood_ablaze.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+upper_anduin = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/upper_anduin.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+dwarf_father = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/dwarf_father.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+pen_and_parchment = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/pen_and_parchment.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+mardruak = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/mardruak.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+eotheod = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/eotheod.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+angmar_rise = {
+	background = {
+		reference = "gfx/interface/illustrations/decisions/decision_angmar_03.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_end_loop_hostility"
+	}
+}
+
+jungle_pyramid_ruins = {
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/jungle_pyramid_ruins.dds"
+		environment = "environment_event_bp1_jungle" 
+		ambience = "event:/DLC/EP2/SFX/Events/Backgrounds/evn_background_jungle"
+	}
+}
+
+armory_dwarven = {
+	background = { #LotR Dwarven
+		reference = "gfx/interface/illustrations/event_scenes/armory_dwarven.dds"
+		environment = "environment_bp2_university"
+		ambience = "event:/SFX/Events/Backgrounds/camp_generic_day"
+	}
+}
+
+flying_eagles = {
+	background = {
+		reference = "gfx/interface/illustrations/decisions/decision_eagles_01.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
+	}
+}
+
+erebor_sacking = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/erebor_sacking.dds"
+		environment = "environment_event_feast"
+		ambience = "event:/SFX/Events/Backgrounds/burning_building"
+	}
+}
+
+burning_beornings = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/burning_beornings.dds"
+		environment = "environment_travel_farmlands"
+		ambience = "event:/SFX/Events/Backgrounds/burning_building"
+	}
+}
+burning_rivendell = {
+	background = {
+		reference = "gfx/interface/illustrations/event_fullscreen/burning_rivendell.dds"
+		environment = "environment_event_alley"
+		ambience = "event:/SFX/Events/Backgrounds/burning_building"
+	}
+}
+
+# durins_bane = {
+# 	background = {
+# 		reference = "gfx/interface/illustrations/event_fullscreen/durins_bane.dds"
+# 		environment = "environment_event_farms" # added because it is expected in events
+# 		ambience = "event:/SFX/Events/Backgrounds/throneroom_mediterranean"
+# 	}
+# }
+
+# Full screen Dwarven Laamp illustration - DO NOT USE FOR CHARACTER EVENTS
+
+lotr_fullscreen_adventurer_dwarf = {
+	background = { # LAAMP landing event
+		reference = "gfx/interface/illustrations/event_story/laamp_dwarf_caravan.dds"
+		environment = "environment_event_study_physician" # added because it is expected in events
+		ambience = "event:/DLC/EP2/SFX/Events/Grand_Activities/Tours/ep2_event_grand_tour_arrival_neutral" 
+	}
+}

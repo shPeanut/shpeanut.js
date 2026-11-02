@@ -1,0 +1,285 @@
+﻿has_dunedain_court_illustration_trigger = { # Gondorian
+	exists = title:e_gondor_steward
+	primary_title != title:e_gondor_steward
+	capital_county.culture = {
+		has_cultural_pillar = heritage_dunedain
+		NOR = {
+			this = culture:arnorian
+			this = culture:new_arnorian
+			this = culture:numenorean
+			this = culture:dunedain
+			this = culture:dunedain_ranger
+			this = culture:uialedain
+		}
+	}
+	NOT = { capital_province = { geographical_region = middleearth_harad_near_umbar } }
+}
+
+has_dunedain_steward_court_illustration_trigger = { # House of Steward
+	exists = title:e_gondor_steward
+	primary_title = title:e_gondor_steward
+	capital_county.culture = {
+		has_cultural_pillar = heritage_dunedain
+	}
+	NOT = { capital_province = { geographical_region = middleearth_harad_near_umbar } }
+}
+
+has_dunedain_2_court_illustration_trigger = { # Arnorian
+	capital_county.culture = {
+		has_cultural_pillar = heritage_dunedain
+		OR = {
+			this = culture:arnorian
+			this = culture:new_arnorian
+			this = culture:numenorean
+			this = culture:dunedain
+			this = culture:dunedain_ranger
+			this = culture:uialedain
+		}
+	}
+	NOT = { capital_province = { geographical_region = middleearth_harad_near_umbar } }
+}
+
+has_dunedain_3_court_illustration_trigger = { # Dunedain Umbar
+	culture = {
+		has_cultural_pillar = heritage_dunedain
+	}
+	capital_province = { geographical_region = middleearth_harad_near_umbar }
+}
+
+has_dwarven_court_illustration_trigger = {
+	culture = {
+		OR = {
+			has_cultural_pillar = heritage_longbeard
+			has_cultural_pillar = heritage_firebeard
+			has_cultural_pillar = heritage_broadbeam
+		}
+	}
+}
+
+has_noldor_court_illustration_trigger = {
+	capital_county.culture = {
+		OR = {
+			is_eldar_culture = yes
+			has_cultural_pillar = heritage_quendi
+		}
+	}
+}
+
+has_moriquendi_court_illustration_trigger = {
+	capital_county.culture = {
+		has_cultural_pillar = heritage_moriquendi
+	}
+}
+
+has_lothlorien_court_illustration_trigger = {
+	capital_province = { geographical_region = middleearth_west_rhovanion_lothlorien }
+}
+
+has_hadorim_court_illustration_trigger = {
+	capital_county.culture = {
+		has_cultural_pillar = heritage_eotheod
+	}
+}
+
+has_middlemen_court_illustration_trigger = {
+	OR = {
+		capital_county.culture = {
+			OR = {
+				has_cultural_pillar = heritage_hillmen
+				has_cultural_pillar = heritage_northron
+				has_cultural_pillar = heritage_eriadorim
+				has_cultural_pillar = heritage_old_daen
+				has_cultural_pillar = heritage_daen_lintis
+				has_cultural_pillar = heritage_daen_coentis
+				has_cultural_pillar = heritage_danan_lin
+				has_cultural_tradition = tradition_the_people_of_the_plains_old
+				this = culture:gargath
+				this = culture:logath
+			}
+			NOT = { has_cultural_tradition = tradition_dorwinion_vineyards }
+		}
+	}
+}
+
+has_sauron_court_illustration_trigger = {
+	culture = culture:maiar_fallen
+}
+
+has_nazgul_court_illustration_trigger = {
+	culture = {
+		this = culture:ringwraith
+	}
+}
+
+has_saruman_court_illustration_trigger = {
+	OR = {
+		AND = {
+			capital_province = province:20 #Orthanc
+			culture = {
+				this = culture:istari
+			}
+		}
+		culture = {
+			this = culture:istari_evil
+		}
+	}
+}
+
+has_saruman_many_colours_court_illustration_trigger = {
+	culture = {
+		this = culture:istari_evil
+	}
+	has_nickname = nick_of_many_colors
+}
+
+has_mordorrim_court_illustration_trigger = {
+	culture = {
+		this = culture:mordorrim
+	}
+}
+
+has_orc_court_illustration_trigger = {
+	culture = {
+		OR = {
+			has_cultural_pillar = heritage_orc
+			has_cultural_pillar = heritage_goblin
+		}
+	}
+}
+
+has_eastern_dwarf_1_court_illustration_trigger = { # Blue Bricks
+	culture = {
+		OR = {
+			has_cultural_pillar = heritage_ironfist
+			has_cultural_pillar = heritage_stiffbeard
+			has_cultural_pillar = heritage_blacklock
+			has_cultural_pillar = heritage_stonefoot
+		}
+	}
+	OR = {
+		capital_province = { geographical_region = middleearth_mountains_yellow_west }
+	}
+}
+
+has_eastern_dwarf_2_court_illustration_trigger = { # Black Bricks
+	culture = {
+		NOR = {
+			has_cultural_pillar = heritage_orc
+			has_cultural_pillar = heritage_goblin
+		}
+	}
+	AND = {
+		capital_province = province:7884 #Ursulbazari
+		NOT = { capital_province = { has_building = wonder_mabladdum_broken } }
+	}
+}
+
+has_eastern_dwarf_3_court_illustration_trigger = { # Yellow Bricks
+	culture = {
+		OR = {
+			has_cultural_pillar = heritage_ironfist
+			has_cultural_pillar = heritage_stiffbeard
+			has_cultural_pillar = heritage_blacklock
+			has_cultural_pillar = heritage_stonefoot
+		}
+	}
+	OR = {
+		capital_province = { geographical_region = middleearth_mountains_yellow_east }
+	}
+	NOT = { capital_province = province:7884 } #Ursulbazari
+}
+
+has_eastern_dwarf_4_court_illustration_trigger = { # Red Bricks
+	culture = {
+		OR = {
+			has_cultural_pillar = heritage_ironfist
+			has_cultural_pillar = heritage_stiffbeard
+			has_cultural_pillar = heritage_blacklock
+			has_cultural_pillar = heritage_stonefoot
+		}
+	}
+	OR = {
+		capital_province = { geographical_region = middleearth_rhun_nurunkizdin }
+		#capital_province = { geographical_region = middleearth_mountains_red }
+	}
+}
+
+has_eastern_dwarf_5_court_illustration_trigger = { # Light Grey Bricks
+	culture = {
+		OR = {
+			has_cultural_pillar = heritage_ironfist
+			has_cultural_pillar = heritage_stiffbeard
+			has_cultural_pillar = heritage_blacklock
+			has_cultural_pillar = heritage_stonefoot
+		}
+	}
+	capital_province = { geographical_region = middleearth_mountains_white }
+}
+
+has_eastern_dwarf_6_court_illustration_trigger = { # Green Bricks, Ruined
+	culture = {
+		NOR = {
+			has_cultural_pillar = heritage_orc
+			has_cultural_pillar = heritage_goblin
+		}
+	}
+	AND = {
+		capital_province = province:7884 #Ursulbazari
+		capital_province = { has_building = wonder_mabladdum_broken }
+	}
+}
+
+has_eastern_dwarf_7_court_illustration_trigger = { # Dark Grey Bricks, Fallback
+	culture = {
+		OR = {
+			has_cultural_pillar = heritage_ironfist
+			has_cultural_pillar = heritage_stiffbeard
+			has_cultural_pillar = heritage_blacklock
+			has_cultural_pillar = heritage_stonefoot
+		}
+	}
+	NOR = {
+		capital_province = { geographical_region = middleearth_mountains_yellow }
+		capital_province = { geographical_region = middleearth_rhun_nurunkizdin }
+		capital_province = { geographical_region = middleearth_mountains_white }
+		#capital_province = { geographical_region = middleearth_mountains_red }
+		capital_province = province:7884 #Ursulbazari
+	}
+}
+
+has_adunai_court_illustration_trigger = {
+	culture = {
+		OR = {
+			has_cultural_pillar = heritage_northern_adunaic
+			has_cultural_pillar = heritage_southern_adunaic
+			has_cultural_pillar = heritage_eastern_adunaic
+			has_cultural_pillar = heritage_bellakari
+		}
+	}
+}
+
+lotr_has_throne_room_trigger = {
+	OR = {
+		has_dunedain_court_illustration_trigger = yes
+		has_dunedain_steward_court_illustration_trigger = yes
+		has_dunedain_2_court_illustration_trigger = yes
+		has_dunedain_3_court_illustration_trigger = yes
+		has_adunai_court_illustration_trigger = yes
+		has_noldor_court_illustration_trigger = yes
+		has_moriquendi_court_illustration_trigger = yes
+		has_sauron_court_illustration_trigger = yes
+		has_saruman_court_illustration_trigger = yes
+		has_saruman_many_colours_court_illustration_trigger = yes
+		has_nazgul_court_illustration_trigger =  yes
+		has_mordorrim_court_illustration_trigger =  yes
+		has_orc_court_illustration_trigger = yes
+		has_dwarven_court_illustration_trigger = yes
+		has_eastern_dwarf_1_court_illustration_trigger = yes
+		has_eastern_dwarf_2_court_illustration_trigger = yes
+		has_eastern_dwarf_3_court_illustration_trigger = yes
+		has_eastern_dwarf_4_court_illustration_trigger = yes
+		has_eastern_dwarf_5_court_illustration_trigger = yes
+		has_eastern_dwarf_6_court_illustration_trigger = yes
+		has_eastern_dwarf_7_court_illustration_trigger = yes
+	}
+}

@@ -1,0 +1,6 @@
+﻿lotr_has_sailing_traits_more_common = {
+	OR = {
+		culture = { has_cultural_parameter = sailing_traits_more_common }
+		faith = { has_doctrine_parameter = sailing_traits_more_common_faith }
+	}
+}

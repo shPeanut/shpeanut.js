@@ -1,0 +1,15 @@
+﻿###############################################
+################ Mountain Orcs ################
+###############################################
+
+house_gurhoi = { # Gurhoi 'Gur-horrible' formed by Balcog, spawn of Lurd
+	name = "dynn_gurhoi"
+	dynasty = dynasty_bolgdur
+	motto = dynn_gurhoi_motto
+}	
+
+house_gazatgayutar = { # Gazatgayutar-hai 'Dwarfhunter', grey mountains
+	name = "dynn_gazatgayutar"
+	dynasty = dynasty_lokikrah
+	motto = dynn_gazatgayutar_motto
+}

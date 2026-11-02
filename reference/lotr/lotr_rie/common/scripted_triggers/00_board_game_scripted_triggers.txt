@@ -1,0 +1,118 @@
+﻿
+##################################################
+# GENERIC TRIGGERS
+
+# Note: this is a very stripped down trigger set. It's expected that it'll be parsed through something that parses out more typically unsuitable candidates (e.g., prisoners under most circumstances).
+bg_can_start_board_game_trigger = {
+	# Check for the usual stuff.
+	can_start_board_game_eligibility_checks_trigger = yes
+	# And filter out those who can never play a board game.
+	bg_can_start_board_game_is_scope_banned_checks_trigger = no
+}
+
+can_start_board_game_eligibility_checks_trigger = {
+	# Children need to be old enough to know to not eat the playing pieces.
+	age >= 8
+	# Otherwise, we're actually pretty forgiving of basically everyone being able to play somehow. For now.
+}
+
+bg_can_start_board_game_is_scope_banned_checks_trigger = {
+	# Currently, we just *always* filter anyone who's already in a bout.
+	exists = var:engaged_in_board_game
+}
+
+##################################################
+# INTERACTION TRIGGERS
+
+bg_game_type_region_pachisi_trigger = {
+	# OR = { #LotR
+	# 	geographical_region = world_india
+	# 	geographical_region = world_burma
+	# }
+	OR = { #LotR - Reflavored
+		geographical_region = middleearth_harad_bayoformal
+		geographical_region = middleearth_uttersouth_mumakan
+		geographical_region = middleearth_uttersouth_twinkingdoms
+		geographical_region = middleearth_mountains_yellow_east
+	}
+}
+
+bg_game_type_region_hnefatafl_trigger = {
+	# NOT = { geographical_region = board_game_fidchell_region } #LotR
+	# OR = {
+	# 	geographical_region = world_europe_north
+	# 	geographical_region = world_europe_west_britannia
+	# }
+	OR = { #LotR - Reflavored
+		geographical_region = middleearth_rhun_khand
+		geographical_region = middleearth_rhun_nurunkizdin
+		geographical_region = middleearth_rhun_greatsteppe
+		geographical_region = middleearth_mordor
+		AND = { # Introduced to Sea of Rhûn by Wainriders
+			game_start_date > 5800
+			OR = {
+				geographical_region = middleearth_west_rhovanion_dorwinion
+				geographical_region = middleearth_rhun_seaofrhun
+			}
+		}
+		AND = { # Later spreads through South Rhovanion
+			game_start_date > 6500
+			geographical_region = middleearth_west_rhovanion_brownlands
+		}
+	}
+}
+
+bg_game_type_region_tabula_trigger = {
+	# OR = { #LotR
+	# 	geographical_region = world_asia_minor
+	# 	geographical_region = world_europe_south
+	# }
+	OR = { #LotR - Reflavored
+		geographical_region = middleearth_harad_near_umbar
+		geographical_region = middleearth_harad_far
+		geographical_region = middleearth_uttersouth_thanihazad
+		geographical_region = middleearth_mountains_yellow_west
+		AND = { # Becomes Popular in Gondor around the ship-kings
+			game_start_date > 5000
+			geographical_region = middleearth_west_gondor
+		}
+	}
+}
+
+bg_game_type_region_go_trigger = {
+	# geographical_region = world_tibet #LotR
+	OR = { #LotR - Reflavored
+		geographical_region = middleearth_fareast
+		geographical_region = middleearth_mountains_red
+	}
+}
+
+bg_game_type_region_fidchell_trigger = {
+	# geographical_region = board_game_fidchell_region #LotR
+	OR = { #LotR - Reflavored
+		geographical_region = middleearth_harad_near_harnen
+		geographical_region = middleearth_harad_near_harondor
+		geographical_region = middleearth_harad_dunesea
+	}
+}
+
+bg_stake_land_valid_neighbouring_county_to_trade_trigger = {
+	tier = tier_county
+	# Suppress a false positive error.
+	trigger_if = {
+		limit = { tier = tier_county }
+		this != prev.capital_county
+		any_neighboring_county = {
+			# Ensure that they're swappable.
+			OR = {
+				# Generally, the county should be held by the other character.
+				holder = $NEIGHBOUR$
+				# But OCMs can be traded too.
+				holder = {
+					liege = $NEIGHBOUR$
+					sub_realm_size = 1
+				}
+			}
+		}
+	}
+}

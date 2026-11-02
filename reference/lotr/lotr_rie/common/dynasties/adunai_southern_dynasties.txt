@@ -1,0 +1,384 @@
+﻿#######################################
+############ An-Balkûmagân ############
+#######################################
+
+dynasty_adunaphazorohin = {
+	name = dynn_adunaphazorohin
+	culture = anbalukkhori
+	motto = dynn_adunaphazorohin_motto
+}
+
+dynasty_anballukkhorohin = {
+	name = dynn_anballukkhorohin
+	culture = anbalukkhori
+	motto = dynn_anballukkhorohin_motto
+}
+dynasty_erphelohin = {
+	name = dynn_erphelohin
+	culture = anbalukkhori
+	motto = dynn_erphelohin_motto
+}
+dynasty_zadan_n_asukisu = {
+	name = dynn_zadan_n_asukisu
+	culture = anbalukkhori
+	motto = dynn_zadan_n_asukisu_motto
+}
+dynasty_dairabarohil = {
+	name = dynn_dairabarohil
+	culture = anbalukkhori
+	motto = dynn_dairabarohil_motto
+}
+dynasty_balannaru = {
+	name = dynn_balannaru
+	culture = anbalukkhori
+	motto = dynn_balannaru_motto
+}
+dynasty_imrathorohil = {
+	name = dynn_imrathorohil
+	culture = kharadunaim
+	motto = dynn_imrathorohil_motto
+}
+dynasty_zimrakhor = {
+	name = "dynn_zimrakhor"
+	culture = anbalukkhori
+	motto = dynn_zimrakhor_motto
+}
+dynasty_urudeth = {
+	name = "dynn_urudeth"
+	culture = anbalukkhori
+	motto = dynn_urudeth_motto
+}
+dynasty_phurutsakal = {
+	name = "dynn_phurutsakal"
+	culture = anbalukkhori
+	motto = dynn_phurutsakal_motto
+}
+dynasty_ashaturpoint = {
+	name = "dynn_ashaturpoint"
+	culture = anbalukkhori
+	motto = dynn_ashaturpoint_motto
+}
+dynasty_belphazan = {
+	name = "dynn_belphazan"
+	culture = anbalukkhori
+	motto = dynn_belphazan_motto
+}
+dynasty_dulgu = {
+	name = "dynn_dulgu"
+	culture = anbalukkhori
+	motto = dynn_dulgu_motto
+}
+dynasty_sapazir = {
+	name = "dynn_sapazir"
+	culture = anbalukkhori
+	motto = dynn_sapazir_motto
+}
+dynasty_manaman = {
+	name = "dynn_manaman"
+	culture = anbalukkhori
+	motto = dynn_manaman_motto
+}
+dynasty_ostozal = {
+	name = "dynn_ostozal"
+	culture = anbalukkhori
+	motto = dynn_ostozal_motto
+}
+dynasty_kyerna = {
+	name = "dynn_kyerna"
+	culture = anbalukkhori
+	motto = dynn_kyerna_motto
+}
+dynasty_sakya = {
+	name = "dynn_sakya"
+	culture = anbalukkhori
+	motto = dynn_sakya_motto
+}
+dynasty_dubudapan = {
+	name = "dynn_dubudapan"
+	culture = anbalukkhori
+	motto = dynn_dubudapan_motto
+}
+
+dynasty_jerman = {
+	name = "dynn_jerman"
+	culture = anbalukkhori
+	motto = dynn_jerman_motto
+}
+
+dynasty_jerman_lover = {
+	name = "dynn_jerman_lover"
+	culture = anbalukkhori
+	motto = dynn_jerman_lover_motto
+}
+
+dynasty_syarhioni = {	# black vizier
+	name = "dynn_syarhioni"
+	culture = anbalukkhori
+	motto = dynn_syarhioni_motto
+}
+
+dynasty_sirkukhor = {
+	name = "dynn_sirkukhor"
+	culture = banadunai
+	motto = dynn_sirkukhor_motto
+}
+
+#####################################
+############ Thani-Hazad ############
+#####################################
+
+dynasty_erimrazor = {
+	name = "dynn_erimrazor"
+	culture = kharadunaim
+	motto = dynn_erimrazor_motto
+}
+dynasty_hammerdelgenerals = {
+	name = "dynn_hammerdelgeneral"
+	culture = kharadunaim
+	motto = dynn_hammerdelgeneral_motto
+}
+dynasty_mixedazar = {
+	name = "dynn_mixedazar"
+	culture = kharadunaim
+	motto = dynn_mixedazar_motto
+}
+dynasty_bastardrotharana = {
+	name = "dynn_bastardroth"
+	culture = kharadunaim
+	motto = dynn_bastardroth_motto
+}
+dynasty_gimilthabastard = {
+	name = "dynn_gimilthabastard"
+	culture = kharadunaim
+	motto = dynn_gimilthabastard_motto
+}
+dynasty_mispirone = {
+	name = "dynn_mispirone"
+	culture = kharadunaim
+	motto = dynn_mispirone_motto
+}
+dynasty_mispirtwo = {
+	name = "dynn_mispirtwo"
+	culture = kharadunaim
+	motto = dynn_mispirtwo_motto
+}
+dynasty_mispirthree = {
+	name = "dynn_mispirthree"
+	culture = kharadunaim
+	motto = dynn_mispirthree_motto
+}
+dynasty_krassabarohin = {
+	name = "dynn_krassabarohin"
+	culture = kharadunaim
+	motto = dynn_krassabarohin_motto
+}
+dynasty_adunazirid = {
+	name = "dynn_adunazirid"
+	culture = kharadunaim
+	motto = dynn_adunazirid_motto
+}
+
+dynasty_gimilethtwo = {
+	name = "dynn_nilozurid"
+	culture = kharadunaim
+	motto = dynn_nilozurid_motto
+}
+dynasty_agathohin = {
+	name = "dynn_agathohin"
+	culture = kharadunaim
+	motto = dynn_agathohin_motto
+}
+dynasty_alsariastwo = {
+	name = "dynn_alsariastwo"
+	culture = kharadunaim
+	motto = dynn_alsariastwo_motto
+}
+dynasty_zaradan = {
+	name = "dynn_zaradan"
+	culture = kharadunaim
+	motto = dynn_zaradan_motto
+}
+dynasty_azulzirioni = {
+	name = "dynn_azulzirioni"
+	culture = kharadunaim
+	motto = dynn_azulzirioni_motto
+}
+dynasty_gimilurushone = {
+	name = "dynn_gimilurushone"
+	culture = kharadunaim
+	motto = dynn_gimilurushone_motto
+}
+dynasty_gimilazari = {
+	name = "dynn_gimilazari"
+	culture = kharadunaim
+	motto = dynn_gimilazari_motto
+}
+dynasty_gimilurushonetwo = {
+	name = "dynn_gimilurushonetwo"
+	culture = kharadunaim
+	motto = dynn_gimilurushonetwo_motto
+}
+dynasty_gimilazaribastard = {
+	name = "dynn_gimilazaribastard"
+	culture = kharadunaim
+	motto = dynn_gimilazaribastard_motto
+}
+dynasty_arnakhorin = {
+	name = "dynn_arnakhorin"
+	culture = kharadunaim
+	motto = dynn_arnakhorin_motto
+}
+dynasty_zabathanid = {
+	name = "dynn_zabathanid"
+	culture = kharadunaim
+	motto = dynn_zabathanid_motto
+}
+dynasty_murazorhin = {
+	name = "dynn_murazorhin"
+	culture = kharadunaim
+	motto = dynn_murazorhin_motto
+}
+dynasty_arkhadi = {
+	name = "dynn_arkhadi"
+	culture = kharadunaim
+	motto = dynn_arkhadi_motto
+}
+dynasty_balkazim = {
+	name = "dynn_balkazim"
+	culture = kharadunaim
+	motto = dynn_balkazim_motto
+}
+dynasty_urzakhorin = {
+	name = "dynn_urzakhorin"
+	culture = kharadunaim
+	motto = dynn_urzakhorin_motto
+}
+dynasty_dylukhin = {
+	name = "dynn_dylukhin"
+	culture = kharadunaim
+	motto = dynn_dylukhin_motto
+}
+dynasty_telkhodi = {
+	name = "dynn_telkhodi"
+	culture = kharadunaim
+	motto = dynn_telkhodi_motto
+}
+dynasty_kadarei = {
+	name = "dynn_kadarei"
+	culture = kharadunaim
+	motto = dynn_kadarei_motto
+}
+dynasty_baladon = {
+	name = "dynn_baladon"
+	culture = kharadunaim
+	motto = dynn_baladon_motto
+}
+dynasty_ezirkhon = {
+	name = "dynn_ezirkhon"
+	culture = kharadunaim
+	motto = dynn_ezirkhon_motto
+}
+dynasty_aphurathanna = {
+	name = "dynn_aphurathanna"
+	culture = kharadunaim
+	motto = dynn_aphurathanna_motto
+}
+dynasty_ziranihin = {
+	name = "dynn_ziranihin"
+	culture = kharadunaim
+	motto = dynn_ziranihin_motto
+}
+dynasty_imrathori = {
+	name = "dynn_imrathori"
+	culture = kharadunaim
+	motto = dynn_imrathori_motto
+}
+
+###################################
+####### Tanturak ##################
+###################################
+
+dynasty_tantugovernor = {
+	name = "dynn_tantugovernor"
+	culture = tanturaki
+	motto = dynn_tantugovernor_motto
+}
+
+dynasty_aganohin = {
+	name = "dynn_aganohin"
+	culture = tanturaki
+	motto = dynn_aganohin_motto
+}
+
+dynasty_kinyarn = {
+	name = "dynn_kinyarn"
+	culture = tanturaki
+	motto = dynn_kinyarn_motto
+}
+
+dynasty_kinyarnbastardmixed = {
+	name = "dynn_kinyarnbastardmixed"
+	culture = tanturaki
+	motto = dynn_kinyarnbastardmixed_motto
+}
+
+dynasty_dulguwariga = {
+	name = "dynn_dulguwariga"
+	culture = tanturaki
+	motto = dynn_dulguwariga_motto
+}
+
+dynasty_tamwamotantu = {
+	name = "dynn_tamwamotantu"
+	culture = tanturaki
+	motto = dynn_tamwamotantu_motto
+}
+
+dynasty_azrazheone = {
+	name = "dynn_azrazheone"
+	culture = tanturaki
+	motto = dynn_azrazheone_motto
+}
+
+dynasty_azrazhetwo = {
+	name = "dynn_azrazhetwo"
+	culture = tanturaki
+	motto = dynn_azrazhetwo_motto
+}
+
+dynasty_azrazhethree = {
+	name = "dynn_azrazhethree"
+	culture = tanturaki
+	motto = dynn_azrazhethree_motto
+}
+
+dynasty_azruthorhin = {
+	name = "dynn_azruthorhin"
+	culture = tanturaki
+	motto = dynn_azruthorhin_motto
+}
+dynasty_belzorhin = {
+	name = "dynn_belzorhin"
+	culture = tanturaki
+	motto = dynn_belzorhin_motto
+}
+dynasty_lomibari = {
+	name = "dynn_lomibari"
+	culture = tanturaki
+	motto = dynn_lomibari_motto
+}
+dynasty_nithorhin = {
+	name = "dynn_nithorhin"
+	culture = tanturaki
+	motto = dynn_nithorhin_motto
+}
+dynasty_phazganihin = {
+	name = "dynn_phazganihin"
+	culture = tanturaki
+	motto = dynn_phazganihin_motto
+}
+dynasty_zorzathon = {
+	name = "dynn_zorzathon"
+	culture = tanturaki
+	motto = dynn_zorzathon_motto
+}

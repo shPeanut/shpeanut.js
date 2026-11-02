@@ -1,0 +1,545 @@
+﻿### Drúedain Dynasties ###
+
+dynasty_aghanghu = { # The Keepers of the Drúadan Forest
+	pattern = "pattern_solid.tga"
+	color1 = rgb { 30 90 30 }
+	colored_emblem = {
+		texture = "ce_piles_conjoined.dds"
+		color1 = "bone_white"
+		color2 = "black"
+		instance = { rotation = 0 scale = { 1.1 0.8 }  position = { 0.5 0.4 } }
+	}
+	colored_emblem = {
+		texture = "ce_religion_vodun.dds"
+		color1 = "yellow"
+		color2 = "black"
+		instance = { rotation = 0 scale = { 1.1 0.8 }  position = { 0.5 0.45 } }
+	}
+
+}
+
+dynasty_waghanghu = { # The Keepers of the Ancient Mountain Passes
+	pattern = "pattern_viking_05.dds"
+	color1 = "brown"
+	color2 = "yellow"
+	color3 = "black"
+	colored_emblem = {
+		texture = "ce_cross_auseklis_03.dds"
+		color1 = "bone_white"
+		instance = { rotation = 0 scale = { 1.0 1.0 }  position = { 0.5 0.48 } }
+	}
+}
+
+dynasty_manhighu = { # The Keepers of the Stone Circle of Parth Iaur
+	pattern = "pattern_solid.tga"
+	color1 = "black"
+	colored_emblem = {
+		texture = "ce_pagan_circle_frame.dds"
+		color1 = "yellow"
+		instance = { rotation = 180 position = { 0.5 0.48 } }
+	}
+	colored_emblem = {
+		texture = "ce_african_kara.dds"
+		color1 = "yellow"
+		instance = { scale = { 0.6 -0.6 } position = { 0.5 0.48 } }
+	}
+}
+
+dynasty_a_n_z_u_n = {
+	pattern="pattern_solid.dds"
+	color1=rgb { 20 40 22 }
+	color2=yellow
+	color3=red
+	colored_emblem={
+		color1=rgb { 43 80 48 }
+		texture="ce_norse_tree_16.dds"
+	}
+
+	colored_emblem={
+		color1=black
+		texture="ce_african_wawa_aba.dds"
+		instance={
+			position={ 0.500000 0.515000 }
+			depth=3.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=grey
+		texture="ce_african_yoruba_snake.dds"
+		instance={
+			position={ 0.445000 0.620000 }
+			scale={ 0.250000 0.250000 }
+			depth=1.010000
+			rotation=270
+		}
+
+		instance={
+			position={ 0.555000 0.620000 }
+			scale={ -0.250000 0.250000 }
+			depth=2.010000
+			rotation=90
+		}
+
+	}
+
+}
+
+dynasty_buri_z_i_ghi = {
+	pattern="pattern_solid.dds"
+	color1=rgb { 43 110 50 }
+	color2=white
+	color3=green_light
+	colored_emblem={
+		color1=rgb { 17 79 24 }
+		texture="ce_trefoil_eretnid.dds"
+		instance={
+			position={ 0.500000 0.470000 }
+			depth=1.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 11 64 17 }
+		texture="ce_norse_tree_04.dds"
+		instance={
+			position={ 0.500000 0.570000 }
+			scale={ 0.666000 0.666000 }
+		}
+
+	}
+
+}
+
+
+dynasty_a_n_gh_a_wa = {
+	pattern="pattern_solid.dds"
+	color1=blue
+	color2=red
+	color3=black
+	colored_emblem={
+		color1=black
+		color2=beige
+		texture="ce_norse_tree_01.dds"
+	}
+
+}
+
+dynasty_buri_r_u_ghi = {
+	pattern="pattern_solid.dds"
+	color1=purple
+	color2=white
+	color3=black
+	colored_emblem={
+		color1=black
+		texture="ce_cc_edain_border_09.dds"
+	}
+
+	colored_emblem={
+		color1=black
+		texture="ce_norse_tree_04.dds"
+		instance={
+			scale={ 0.700000 0.700000 }
+			depth=1.010000
+		}
+
+	}
+
+}
+
+dynasty_a_n_amb_u_ghi = {
+	pattern="pattern_solid.dds"
+	color1=rgb { 35 31 27 }
+	color2=red
+	color3=black
+	colored_emblem={
+		color1=red
+		texture="ce_iberian_sun_01.dds"
+	}
+
+}
+
+
+
+dynasty_a_n_sagh_a_n = {
+	pattern="pattern_solid.dds"
+	color1=rgb { 84 51 31 }
+	color2=white
+	color3=beige
+	colored_emblem={
+		color1=white
+		texture="ce_suomenusko_udmurt.dds"
+	}
+
+}
+
+
+house_z_i_ghra_i = {
+	pattern="pattern_solid.dds"
+	color1=red
+	color2=dark_green
+	color3=black
+	colored_emblem={
+		color1=green
+		texture="ce_suomenusko_udmurt.dds"
+		instance={
+			scale={ 0.440000 0.440000 }
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 123 114 101 }
+		color2=blue
+		texture="ce_nuragic_01.dds"
+		instance={
+			depth=1.010000
+		}
+
+	}
+
+}
+
+
+dynasty_onikanna = {
+	pattern="pattern_solid.dds"
+	color1=green
+	color2=blue
+	color3=black
+	colored_emblem={
+		color1=rgb { 8 37 11 }
+		texture="ce_circle_mask.dds"
+		instance={
+			scale={ 0.860000 0.860000 }
+			depth=2.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 170 87 41 }
+		color2=rgb { 170 87 41 }
+		texture="ce_polylobe_circle_frame.dds"
+		instance={
+			depth=3.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 8 37 11 }
+		color2=beige
+		texture="ce_nuragic_01.dds"
+	}
+
+	colored_emblem={
+		color1=rgb { 170 87 41 }
+		texture="ce_circle_mask.dds"
+		instance={
+			scale={ 0.835000 0.835000 }
+			depth=1.010000
+		}
+
+	}
+}
+
+dynasty_anedin = { # Alrain CoA
+	pattern="pattern_solid.dds"
+	color1=rgb { 90 68 55 }
+	color2=green_light
+	color3=white
+	colored_emblem={
+		color1=rgb { 114 90 76 }
+		texture="ce_celtic_knot_02.dds"
+		instance={
+			depth=2.010000
+		}
+	}
+	colored_emblem={
+		color1=rgb { 57 51 45 }
+		texture="ce_african_fern.dds"
+	}
+	colored_emblem={
+		color1=black
+		color2=green_light
+		texture="ce_hannunvaakuna.dds"
+		instance={
+			depth=1.010000
+		}
+	}
+}
+
+dynasty_ibanuburi = { # Alrain CoA
+	pattern="pattern_solid.dds"
+	color1=rgb { 79 111 82 }
+	color2=green_light
+	color3=white
+	colored_emblem={
+		color1=white
+		texture="ce_crescent_bone.dds"
+		instance={
+			position={ 0.500000 0.290000 }
+			scale={ 1.000000 -1.000000 }
+			depth=1.010000
+		}
+	}
+	colored_emblem={
+		color1=rgb { 33 28 23 }
+		texture="ce_cloud_swirl_nestorian.dds"
+		instance={
+			position={ 0.500000 0.740000 }
+			scale={ 0.760000 -0.760000 }
+		}
+	}
+	colored_emblem={
+		color1=black
+		color2=brown
+		texture="ce_norse_tree_11.dds"
+		instance={
+			position={ 0.500000 0.430000 }
+			depth=2.010000
+		}
+	}
+	colored_emblem={
+		color1=rgb { 96 143 101 }
+		texture="ce_sun_05.dds"
+		instance={
+			depth=3.010000
+		}
+	}
+}
+
+dynasty_honnanuru = { # Alrain CoA
+	pattern="pattern_solid.dds"
+	color1=rgb { 135 106 64 }
+	color2=beige
+	color3=white
+	colored_emblem={
+		color1=rgb { 183 152 105 }
+		texture="ce_india_small_ujjain.dds"
+		instance={
+			depth=2.010000
+			rotation=45
+		}
+	}
+	colored_emblem={
+		color1=rgb { 163 137 99 }
+		texture="ce_ermine_pattern.dds"
+		instance={
+			depth=3.010000
+		}
+	}
+	colored_emblem={
+		color1=black
+		texture="ce_cc_edain_stars_04.dds"
+		instance={
+			scale={ 0.550000 0.550000 }
+		}
+	}
+	colored_emblem={
+		color1=black
+		color2=black
+		texture="ce_cc_sun_harad_02.dds"
+		instance={
+			depth=1.010000
+		}
+	}
+}
+
+dynasty_narughas={ # Alrain CoA
+	pattern="pattern_solid.dds"
+	color1=desaturated_green
+	color2=beige
+	color3=white
+	colored_emblem={
+		color1=rgb { 72 110 75 }
+		texture="ce_african_karaka.dds"
+		instance={
+			position={ 0.500000 0.250000 }
+			scale={ 1.000000 -1.000000 }
+			depth=4.010000
+		}
+		instance={
+			position={ 0.500000 0.750000 }
+			depth=5.010000
+		}
+		instance={
+			position={ 0.250000 0.500000 }
+			scale={ 1.000000 -1.000000 }
+			depth=6.010000
+			rotation=90
+		}
+		instance={
+			position={ 0.750000 0.500000 }
+			scale={ 1.000000 -1.000000 }
+			depth=7.010000
+			rotation=270
+		}
+	}
+	colored_emblem={
+		color1=black
+		color2=rgb { 123 164 127 }
+		texture="ce_lotus_big.dds"
+		instance={
+			scale={ 0.333000 0.333000 }
+		}
+	}
+	colored_emblem={
+		color1=rgb { 31 53 34 }
+		texture="ce_sun_02.dds"
+		instance={
+			scale={ 0.666000 0.666000 }
+			depth=3.010000
+			rotation=30
+		}
+	}
+	colored_emblem={
+		color1=rgb { 40 69 42 }
+		texture="ce_sun_frame.dds"
+		instance={
+			scale={ 0.750000 0.750000 }
+			depth=1.010000
+			rotation=21
+		}
+	}
+	colored_emblem={
+		color1=black
+		color2=black
+		texture="ce_sun_08.dds"
+		instance={
+			scale={ 0.825000 0.825000 }
+			depth=2.010000
+		}
+	}
+}
+
+dynasty_whan={ # Alrain Coa
+	pattern="pattern_solid.dds"
+	color1=green_light
+	color2=blue
+	color3=white
+	colored_emblem={
+		color1=white
+		texture="ce_african_ceremonial_mask.dds"
+		instance={
+			scale={ 0.500000 0.500000 }
+			depth=4.010000
+		}
+	}
+	colored_emblem={
+		color1=green_light
+		color2=green_light
+		texture="ce_gotland_spiral.dds"
+		instance={
+			depth=5.010000
+		}
+	}
+	colored_emblem={
+		color1=rgb { 73 124 78 }
+		color2=white
+		texture="ce_polylobe_circle_frame.dds"
+		instance={
+			depth=6.010000
+		}
+	}
+	colored_emblem={
+		color1=white
+		texture="ce_border_iberian_sun_02.dds"
+		instance={
+			rotation=90
+		}
+		instance={
+			depth=1.010000
+			rotation=180
+		}
+		instance={
+			depth=2.010000
+		}
+		instance={
+			depth=3.010000
+			rotation=270
+		}
+	}
+}
+
+dynasty_burirhan={ # Alrain CoA
+	pattern="pattern_solid.dds"
+	color1=black
+	color2=blue
+	color3=white
+	colored_emblem={
+		color1=white
+		texture="ce_african_fern.dds"
+		instance={
+			position={ 0.000000 1.000000 }
+			rotation=45
+		}
+		instance={
+			position={ 1.000000 1.000000 }
+			depth=1.010000
+			rotation=315
+		}
+		instance={
+			position={ 1.000000 0.000000 }
+			depth=2.010000
+			rotation=225
+		}
+		instance={
+			position={ 0.000000 0.000000 }
+			depth=3.010000
+			rotation=135
+		}
+	}
+	colored_emblem={
+		color1=brown
+		color2=red
+		texture="ce_nuragic_03.dds"
+		instance={
+			depth=9.010000
+		}
+	}
+	colored_emblem={
+		color1=rgb { 135 77 45 }
+		texture="ce_african_takrur.dds"
+		instance={
+			position={ 0.250000 0.500000 }
+			scale={ 0.500000 -0.500000 }
+			depth=5.010000
+			rotation=90
+		}
+		instance={
+			position={ 0.750000 0.500000 }
+			scale={ -0.500000 0.500000 }
+			depth=6.010000
+			rotation=90
+		}
+		instance={
+			position={ 0.500000 0.750000 }
+			scale={ 0.500000 -0.500000 }
+			depth=7.010000
+		}
+		instance={
+			position={ 0.500000 0.250000 }
+			scale={ 0.500000 0.500000 }
+			depth=8.010000
+		}
+	}
+	colored_emblem={
+		color1=white
+		texture="ce_sun_03.dds"
+		instance={
+			scale={ 0.500000 0.500000 }
+			depth=4.010000
+		}
+	}
+	colored_emblem={
+		color1=rgb { 70 35 16 }
+		color2=yellow
+		texture="ce_african_star_igbo.dds"
+		instance={
+			depth=10.010000
+		}
+	}
+}

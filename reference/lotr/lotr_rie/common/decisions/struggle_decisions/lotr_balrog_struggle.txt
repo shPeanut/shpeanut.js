@@ -1,0 +1,614 @@
+﻿struggle_balrog_ending_kill_balrog = {
+
+	title = struggle_balrog_ending_kill_balrog
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/struggle_balrog_ending_kill_balrog.dds"
+	}
+	extra_picture = "gfx/interface/illustrations/struggle_decision_buttons/struggle_balrog_ending_kill_balrog_button.dds"
+	desc = struggle_balrog_ending_kill_balrog_desc
+	selection_tooltip = struggle_balrog_ending_kill_balrog_tooltip
+	confirm_click_sound = "event:/DLC/FP2/SFX/UI/fp2_struggle_ending_decision_confirm"
+	is_invisible = yes
+	sort_order = 80
+
+	is_valid = {
+		OR = {
+			prowess >= 30
+			custom_tooltip = {
+				text = struggle_balrog_ending_kill_balrog_strong_friend
+				any_relation = {
+					type = friend
+					OR = {
+						is_elf = yes
+						is_maiar = yes
+					}
+					is_in_valinor = no
+					prowess >= 55
+				}
+			}
+		}
+		custom_tooltip = {
+			text = struggle_balrog_ending_kill_balrog_decision_correct_phase_tt
+			any_character_struggle = {
+				involvement = involved
+				is_struggle_type = balrog_struggle
+				is_struggle_phase = struggle_balrog_phase_dormant
+			}
+		}
+	}
+
+	cost = {
+		prestige = 2000
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		custom_tooltip = struggle_balrog_ending_kill_balrog_decision_effect_1
+		custom_tooltip = struggle_balrog_ending_kill_balrog_decision_effect_2
+		custom_tooltip = struggle_balrog_ending_kill_balrog_decision_effect_3
+		if = {
+			limit = { is_landed = yes }
+			show_as_tooltip = {
+				kill_balrog_decision_effect = yes
+			}
+		}
+		else = { #LAAMP
+			show_as_tooltip = {
+				kill_balrog_decision_laamp_effect = yes
+			}
+		}
+		trigger_event = balrog_struggle.1011
+	}
+
+	ai_check_interval = 36
+	ai_potential = { always = no }
+	ai_will_do = { base = 100 }
+}
+
+struggle_balrog_ending_serve_balrog = {
+
+	title = struggle_balrog_ending_serve_balrog
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/struggle_balrog_ending_serve_balrog.dds"
+	}
+	extra_picture = "gfx/interface/illustrations/struggle_decision_buttons/struggle_balrog_ending_serve_balrog_button.dds"
+	desc = struggle_balrog_ending_serve_balrog_desc
+	selection_tooltip = struggle_balrog_ending_serve_balrog_tooltip
+	confirm_click_sound = "event:/DLC/FP2/SFX/UI/fp2_struggle_ending_decision_confirm"
+	is_invisible = yes
+	sort_order = 80
+
+	is_valid = {
+		is_orc = yes
+		NOT = {
+			has_title = title:e_servants_of_the_dark_flame
+		}
+		custom_tooltip = {
+			text = struggle_balrog_ending_serve_balrog_no_dwarf_counties
+			any_county_in_region = {
+				region = middleearth_mountains_misty_balrog_struggle_region
+				culture = {
+					is_dwarf_culture = yes
+				}
+				count = 0
+			}
+		}
+		any_county_in_region = {
+			region = middleearth_mountains_misty_khazad_dum
+			custom_tooltip = {
+				text = struggle_balrog_ending_serve_balrog_minimum_region_control
+				OR = {
+					holder.top_liege = root
+					holder = root
+				}
+			}
+			count > 17
+		}
+		any_independent_ruler = {
+			count = 1
+			custom_tooltip = {
+				text = struggle_balrog_ending_serve_balrog_decision_consolidated_realm
+				NOT = { has_culture = culture:wastelands }
+				is_orc = yes
+				primary_title = {
+					is_mercenary_company = no
+					is_holy_order = no
+					is_head_of_faith = no
+				}
+				# NOT = { this = root }
+				any_held_title = {
+					tier = tier_county
+					title_province = { geographical_region = middleearth_mountains_misty_khazad_dum }
+				}
+			}
+		}
+		has_faith = faith:faith_balrog_cult
+		custom_tooltip = {
+			text = struggle_balrog_ending_serve_balrog_minimum_piety
+			piety_level > 3
+		}
+		custom_tooltip = {
+			text = struggle_balrog_ending_serve_balrog_decision_correct_phase_tt
+			any_character_struggle = {
+				involvement = involved
+				is_struggle_type = balrog_struggle
+				is_struggle_phase = struggle_balrog_phase_active
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		trigger_event = balrog_struggle.1001
+		custom_tooltip = struggle_balrog_ending_serve_balrog_decision_effect_approach_balrog_1
+		custom_tooltip = struggle_balrog_ending_serve_balrog_decision_effect_approach_balrog_2
+		custom_tooltip = struggle_balrog_ending_serve_balrog_decision_effect_approach_balrog_3
+		custom_tooltip = struggle_balrog_ending_serve_balrog_decision_effect_approach_balrog_4
+	}
+
+	ai_check_interval = 36
+	ai_potential = { always = no }
+	ai_will_do = { base = 100 }
+}
+
+struggle_balrog_explore_moria = {
+	title = struggle_balrog_explore_moria
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dwarves_08.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	
+	cooldown = { years = 5 }
+	
+	selection_tooltip = struggle_balrog_explore_moria_tooltip
+	desc = struggle_balrog_explore_moria_desc
+	confirm_text = struggle_balrog_explore_moria_confirm
+
+	cost = {
+		prestige = {
+			value = 150
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+
+	decision_group_type = realms_in_exile_minor
+	sort_order = 95
+	
+	is_shown = {		
+		OR = {
+			any_character_struggle = {
+				involvement = involved
+				is_struggle_type = balrog_struggle
+			}
+			any_character_struggle = {
+				involvement = interloper
+				is_struggle_type = balrog_struggle
+			}		
+		}
+		NOR = {
+			any_character_struggle = {
+				involvement = involved
+				is_struggle_type = balrog_struggle
+				is_struggle_phase = struggle_balrog_phase_slumbering
+			}
+			any_character_struggle = {
+				involvement = interloper
+				is_struggle_type = balrog_struggle
+				is_struggle_phase = struggle_balrog_phase_slumbering
+			}
+		}
+	}
+	is_valid = {
+		OR = {
+			custom_tooltip = {
+				text = decision_explore_moria.tt
+				any_character_struggle = {
+					involvement = involved
+					is_struggle_type = balrog_struggle
+				}
+			}	
+			custom_tooltip = {
+				text = decision_explore_moria.tt_interloper
+				any_character_struggle = {
+					involvement = interloper
+					is_struggle_type = balrog_struggle
+				}
+			}
+			# AND = {
+				# is_landless_adventurer = yes
+				# custom_tooltip = {
+					# text = decision_explore_moria.tt3
+					# root.domicile.domicile_location.county = {
+						# geographical_region = middleearth_mountains_misty_khazad_dum
+					# }					
+				# }
+			# }
+		}
+		NOT = {
+			has_character_modifier = lotr_balrog_hiding_realm
+		}
+	}
+	
+	is_valid_showing_failures_only = {
+		is_at_war = no
+		NOT = { exists = involved_activity }
+		is_imprisoned = no
+		is_travelling = no
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = decision_explore_moria.tt2
+			random_province = {
+				limit = {
+					terrain = halls
+					geographical_region = middleearth_mountains_misty_balrog_struggle_region
+				}
+				save_scope_as = selected_province
+			}
+			if = {
+				limit = {
+					scope:selected_province = {	#don't travel if it's targeting your capital
+						this = root.capital_province	
+					}					
+				}
+				trigger_event = balrog_struggle.1020
+			}
+			else = {
+				start_travel_plan = {
+					destination = scope:selected_province
+					on_arrival_event = balrog_struggle.1020
+					return_trip = yes
+					players_use_planner = no
+					#on_arrival_destinations = all
+				}				
+			}
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+		modifier = { # AI will not attempt when Balrog is stomping around
+			add = -100
+			struggle:balrog_struggle = { is_struggle_phase = struggle_balrog_phase_armageddon }
+		}
+		modifier = { # AI are wary when the Balrog is active
+			add = -50
+			struggle:balrog_struggle = { is_struggle_phase = struggle_balrog_phase_active }
+		}
+		modifier = { # AI are cautious when the Balrog is wandering
+			add = -25
+			struggle:balrog_struggle = { is_struggle_phase = struggle_balrog_phase_wandering }
+		}
+		modifier = {
+			add = 25
+			has_trait = ambitious
+		}
+		modifier = {
+			add = 25
+			has_trait = greedy
+		}
+		modifier = {
+			add = 15
+			has_trait = arrogant
+		}
+		modifier = {
+			add = 15
+			has_trait = brave
+		}
+		modifier = {
+			add = -15
+			has_trait = content
+		}
+		modifier = {
+			add = -15
+			has_trait = humble
+		}
+		modifier = {
+			add = -25
+			has_trait = craven
+		}
+	}
+}
+
+struggle_balrog_hide_realm = {
+	title = struggle_balrog_hide_realm
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_thorins_tomb.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	
+	selection_tooltip = struggle_balrog_hide_realm_tooltip
+	desc = struggle_balrog_hide_realm_desc
+	confirm_text = struggle_balrog_hide_realm_confirm
+
+	cost = {
+		prestige = {
+			value = 100
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			multiply = 1
+		}
+	}
+
+	decision_group_type = realms_in_exile_minor
+	sort_order = 95
+	
+	is_shown = {		
+		OR = {
+			any_character_struggle = {
+				involvement = involved
+				is_struggle_type = balrog_struggle
+			}
+			any_character_struggle = {
+				involvement = interloper
+				is_struggle_type = balrog_struggle
+			}			
+		}
+		NOR = {
+			any_character_struggle = {
+				involvement = involved
+				is_struggle_type = balrog_struggle
+				is_struggle_phase = struggle_balrog_phase_slumbering
+			}
+			any_character_struggle = {
+				involvement = interloper
+				is_struggle_type = balrog_struggle
+				is_struggle_phase = struggle_balrog_phase_slumbering
+			}
+		}
+		NOT = {
+			has_character_modifier = lotr_balrog_hiding_realm
+		}
+		is_landed = yes
+	}
+	is_valid = {
+		OR = {
+			custom_tooltip = {
+				text = decision_explore_moria.tt
+				any_character_struggle = {
+					involvement = involved
+					is_struggle_type = balrog_struggle
+					}
+			}	
+			custom_tooltip = {
+				text = decision_explore_moria.tt_interloper
+				any_character_struggle = {
+					involvement = interloper
+					is_struggle_type = balrog_struggle
+				}
+			}			
+		}
+		highest_held_title_tier <= tier_duchy
+		realm_size < 6
+		is_independent_ruler = yes
+	}
+	is_valid_showing_failures_only = {
+		is_at_war = no
+		NOT = { exists = involved_activity }
+		is_imprisoned = no
+	}
+
+	effect = {
+		add_character_modifier = lotr_balrog_hiding_realm
+		custom_tooltip = travelling_will_break_isolation_tt
+		custom_tooltip = {
+			text = struggle_balrog_hide_realm.tt
+		}			
+		if = {
+			limit = { is_ai = no }
+			add_legitimacy = -20
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 0
+		modifier = { # AI dive for cover at armageddon
+			add = 75
+			struggle:balrog_struggle = { is_struggle_phase = struggle_balrog_phase_armageddon }
+		}
+		modifier = { # AI are wary when the Balrog is active
+			add = 50
+			struggle:balrog_struggle = { is_struggle_phase = struggle_balrog_phase_active }
+		}
+		modifier = { # AI mostly don't care in wandering, but might hide based on personality.
+			add = 0
+			struggle:balrog_struggle = { is_struggle_phase = struggle_balrog_phase_wandering }
+		}
+		modifier = { # AI are carefree in dormant
+			add = -100
+			struggle:balrog_struggle = { is_struggle_phase = struggle_balrog_phase_dormant }
+		}
+		modifier = {
+			add = -25
+			has_trait = ambitious
+		}
+		modifier = {
+			add = -25
+			has_trait = stubborn
+		}
+		modifier = {
+			add = -25
+			has_trait = arrogant
+		}
+		modifier = {
+			add = -25
+			has_trait = brave
+		}
+		modifier = {
+			add = -15
+			has_trait = trusting
+		}
+		modifier = {
+			add = 15
+			has_trait = content
+		}
+		modifier = {
+			add = 15
+			has_trait = humble
+		}
+		modifier = {
+			add = 25
+			has_trait = craven
+		}
+		modifier = {
+			add = 15
+			has_trait = shy
+		}
+		modifier = {
+			add = -25
+			has_trait = paranoid
+		}
+	}
+}
+
+struggle_balrog_hide_realm_end = {
+	title = struggle_balrog_hide_realm_end
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_thorins_tomb.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 120	#Fringe case where a duke takes the first decision, and then somehow becomes king or higher.
+		empire = 120
+		hegemony = 120
+	}
+	
+	selection_tooltip = struggle_balrog_hide_realm_end_tooltip
+	desc = struggle_balrog_hide_realm_end_desc
+	confirm_text = struggle_balrog_hide_realm_end_confirm
+
+	cost = {
+		
+	}
+
+	decision_group_type = realms_in_exile_minor
+	sort_order = 95
+	
+	is_shown = {		
+		has_character_modifier = lotr_balrog_hiding_realm
+	}
+	is_valid = {
+		has_character_modifier = lotr_balrog_hiding_realm
+	}
+	is_valid_showing_failures_only = {
+		is_at_war = no
+	}
+
+
+	effect = {
+		remove_character_modifier = lotr_balrog_hiding_realm
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+		modifier = { # AI don't want to come out during Armageddon
+			add = -100
+			struggle:balrog_struggle = { is_struggle_phase = struggle_balrog_phase_armageddon }
+		}
+		modifier = { # AI are wary to end this while the Balrog is active
+			add = -75
+			struggle:balrog_struggle = { is_struggle_phase = struggle_balrog_phase_active }
+		}
+		modifier = { # AI mostly don't care in wandering, but might hide based on personality.
+			add = -25
+			struggle:balrog_struggle = { is_struggle_phase = struggle_balrog_phase_wandering }
+		}
+		modifier = { # AI are carefree in dormant
+			add = 100
+			struggle:balrog_struggle = { is_struggle_phase = struggle_balrog_phase_dormant }
+		}
+		modifier = {
+			add = 15
+			has_trait = fickle
+		}
+		modifier = {
+			add = 25
+			has_trait = ambitious
+		}
+		modifier = {
+			add = 25
+			has_trait = arrogant
+		}
+		modifier = {
+			add = 25
+			has_trait = brave
+		}
+		modifier = {
+			add = 15
+			has_trait = trusting
+		}
+		modifier = {
+			add = -25
+			has_trait = stubborn
+		}
+		modifier = {
+			add = -25
+			has_trait = reclusive
+		}
+		modifier = {
+			add = -15
+			has_trait = content
+		}
+		modifier = {
+			add = -15
+			has_trait = humble
+		}
+		modifier = {
+			add = -25
+			has_trait = craven
+		}
+		modifier = {
+			add = -15
+			has_trait = shy
+		}
+		modifier = {
+			add = -25
+			has_trait = paranoid
+		}	
+	}
+}

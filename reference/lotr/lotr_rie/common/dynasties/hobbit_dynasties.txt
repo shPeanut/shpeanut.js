@@ -1,0 +1,285 @@
+﻿###################
+##### HOBBITS #####
+###################
+
+dynasty_baggins = {
+	name = "dynn_baggins"
+	culture = "hobbit"
+	motto = dynn_baggins_motto
+}
+
+dynasty_took = {
+	name = "dynn_took"
+	culture = "hobbit"
+	motto = dynn_took_motto
+}
+
+dynasty_oldbuck = {
+	name = "dynn_oldbuck"
+	culture = "hobbit"
+	motto = dynn_oldbuck_motto
+}
+
+dynasty_bolger = {
+	name = "dynn_bolger"
+	culture = "hobbit"
+	motto = dynn_bolger_motto
+}
+
+dynasty_hornblower = {
+	name = "dynn_hornblower"
+	culture = "hobbit"
+	motto = dynn_hornblower_motto
+}
+
+dynasty_boffin = {
+	name = "dynn_boffin"
+	culture = "hobbit"
+	motto = dynn_boffin_motto
+}
+
+dynasty_goodenough = {
+	name = "dynn_goodenough"
+	culture = "hobbit"
+	motto = dynn_goodenough_motto
+}
+
+dynasty_grubb = {
+	name = "dynn_grubb"
+	culture = "hobbit"
+	motto = dynn_grubb_motto
+}
+
+dynasty_bracegirdle = {
+	name = "dynn_bracegirdle"
+	culture = "hobbit"
+	motto = dynn_bracegirdle_motto
+}
+
+dynasty_sackville = {
+	name = "dynn_sackville"
+	culture = "hobbit"
+	motto = dynn_sackville_motto
+}
+
+dynasty_chubb = {
+	name = "dynn_chubb"
+	culture = "hobbit"
+	motto = dynn_chubb_motto
+}
+
+dynasty_bunce = {
+	name = "dynn_bunce"
+	culture = "hobbit"
+	motto = dynn_bunce_motto
+}
+
+dynasty_burrows = {
+	name = "dynn_burrows"
+	culture = "hobbit"
+	motto = dynn_burrows_motto
+}
+
+dynasty_clayhanger = {
+	name = "dynn_clayhanger"
+	culture = "hobbit"
+	motto = dynn_clayhanger_motto
+}
+
+dynasty_proudfoot = {
+	name = "dynn_proudfoot"
+	culture = "hobbit"
+	motto = dynn_proudfoot_motto
+}
+
+dynasty_banks = {
+	name = "dynn_banks"
+	culture = "hobbit"
+	motto = dynn_banks_motto
+}
+
+dynasty_headstrong = {
+	name = "dynn_headstrong"
+	culture = "hobbit"
+	motto = dynn_headstrong_motto
+}
+
+dynasty_goldworthy = {
+	name = "dynn_goldworthy"
+	culture = "hobbit"
+	motto = dynn_goldworthy_motto
+}
+
+dynasty_goold = {
+	name = "dynn_goold"
+	culture = "hobbit"
+	motto = dynn_goold_motto
+}
+
+dynasty_goodbody = {
+	name = "dynn_goodbody"
+	culture = "hobbit"
+	motto = dynn_goodbody_motto
+}
+
+dynasty_brownlock = {
+	name = "dynn_brownlock"
+	culture = "hobbit"
+	motto = dynn_brownlock_motto
+}
+
+dynasty_whitfoot = {
+	name = "dynn_whitfoot"
+	culture = "hobbit"
+	motto = dynn_whitfoot_motto
+}
+
+dynasty_gollum = {
+	name = "dynn_gollum"
+	culture = "stoors"
+	motto = dynn_gollum_motto
+}
+
+dynasty_cotton = {
+	name = "dynn_cotton"
+	culture = "hobbit"
+	motto = dynn_cotton_motto
+}
+
+dynasty_brockhouse = {
+	name = "dynn_brockhouse"
+	culture = "breelander"
+	motto = dynn_brockhouse_motto
+}
+
+dynasty_brown = {
+	name = "dynn_brown"
+	culture = "hobbit"
+	motto = dynn_brown_motto
+}
+
+dynasty_diggle = {
+	name = "dynn_diggle"
+	culture = "hobbit"
+	motto = dynn_diggle_motto
+}
+
+dynasty_lightfoot = {
+	name = "dynn_lightfoot"
+	culture = "hobbit"
+	motto = dynn_lightfoot_motto
+}
+
+dynasty_greenhand = {
+	name = "dynn_greenhand"
+	culture = "hobbit"
+	motto = dynn_greenhand_motto
+}
+
+dynasty_goodchild = {
+	name = "dynn_goodchild"
+	culture = "hobbit"
+	motto = dynn_goodchild_motto
+}
+
+dynasty_hayward = {
+	name = "dynn_hayward"
+	culture = "hobbit"
+	motto = dynn_hayward_motto
+}
+
+dynasty_maggot = {
+	name = "dynn_maggot"
+	culture = "hobbit"
+	motto = dynn_maggot_motto
+}
+
+dynasty_mago = { # Marcho and Blanco
+	name = "dynn_mago"
+	culture = "hobbit"
+	motto = dynn_mago_motto
+}
+
+dynasty_noakes = {
+	name = "dynn_noakes"
+	culture = "hobbit"
+	motto = dynn_noakes_motto
+}
+
+dynasty_sandyman = {
+	name = "dynn_sandyman"
+	culture = "hobbit"
+	motto = dynn_sandyman_motto
+}
+
+dynasty_twofoot = {
+	name = "dynn_twofoot"
+	culture = "hobbit"
+	motto = dynn_twofoot_motto
+}
+
+dynasty_gamwich = {
+	name = "dynn_gamwich"
+	culture = "hobbit"
+	motto = dynn_gamwich_motto
+}
+
+dynasty_greenholm = {
+	name = "dynn_greenholm"
+	culture = "hobbit"
+	motto = dynn_greenholm_motto
+}
+
+dynasty_grudd = {
+	name = "dynn_grudd"
+	culture = "stoors"
+	motto = dynn_grudd_motto
+}
+
+dynasty_ponyfoot = {
+	name = "dynn_ponyfoot"
+	culture = "hobbit"
+	motto = dynn_ponyfoot_motto
+}
+
+dynasty_lowbanks = {
+	name = "dynn_lowbanks"
+	culture = "breelander"
+	motto = dynn_lowbanks_motto
+}
+
+dynasty_smallburrow = {
+	name = "dynn_smallburrow"
+	culture = "hobbit"
+	motto = dynn_smallburrow_motto
+}
+
+dynasty_trodd = {
+	name = "dynn_trodd"
+	culture = "stoors"
+	motto = dynn_trodd_motto
+}
+
+dynasty_harvestgain = {
+	name = "dynn_harvestgain"
+	culture = "stoors"
+	motto = dynn_harvestgain_motto
+}
+
+dynasty_ferryman = {
+	name = "dynn_ferryman"
+	culture = "stoors"
+	motto = dynn_ferryman_motto
+}
+
+dynasty_underhill = {
+    name = "dynn_underhill"
+	culture = "breelander"
+	motto = dynn_underhill_motto
+}
+
+dynasty_westman = {
+	name = "dynn_westman"
+	culture = "hobbit"
+	motto = dynn_westman_motto
+}

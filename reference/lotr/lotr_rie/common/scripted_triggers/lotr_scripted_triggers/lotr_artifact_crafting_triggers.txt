@@ -1,0 +1,199 @@
+﻿contains_prospecting_modifier = {
+	trigger_if = {
+		limit = { is_landed = yes }
+		any_sub_realm_county = {
+	#		any_county_province = { title_province ?= { has_province_modifier = $PROSPECTING_MODIFIER$ } }
+			any_county_province = { has_province_modifier = $PROSPECTING_MODIFIER$ }
+		}
+	}
+	trigger_else = { always = no }
+}
+
+valid_increase_base_stat_modifier = {
+	OR = {
+		trigger_if = {
+			limit = { exists = var:$BASE_STAT$ }
+			var:$BASE_STAT$ < 5
+		}
+		NOT = {
+			exists = var:$BASE_STAT$
+		}
+	}
+}
+
+valid_decrease_base_stat_modifier = {
+	OR = {
+		trigger_if = {
+			limit = { exists = var:$BASE_STAT$ }
+			var:$BASE_STAT$ > 0
+		}
+	}
+}
+
+valid_increase_enchanting_modifier = {
+	OR = {
+		trigger_if = {
+			limit = { exists = var:$NAME$ }
+			var:$NAME$ >= $VALUE$
+		}
+	}
+}
+
+crafting_lifestyle_valid_tier = {
+	OR = {
+		trigger_if = { # Modifiers with more than 4 levels and below level 2 with enchanting track
+			limit = {
+				has_trait = lifestyle_artifact_crafting
+				has_trait_xp = {
+					trait = lifestyle_artifact_crafting
+					track = enchanting_smith
+					value < 65
+				}
+				exists = var:$NAME$
+				OR = {
+					$VALUE$ = 12
+					$VALUE$ = 6
+				}
+			}
+			var:$NAME$ >= $VALUE$.div3
+		}
+		trigger_else_if = {
+			limit = {
+				has_trait = lifestyle_artifact_crafting
+				has_trait_xp = {# Modifiers with more than 4 levels and below level 3 with enchanting track
+					trait = lifestyle_artifact_crafting
+					track = enchanting_smith
+					value < 100
+				}
+				exists = var:$NAME$
+				OR = {
+					$VALUE$ = 12
+					$VALUE$ = 8
+					$VALUE$ = 6
+				}
+			}
+			var:$NAME$ >= $VALUE$.div2
+		}
+		trigger_else_if = {
+			limit = {
+				has_trait = lifestyle_artifact_crafting
+				has_trait_xp = {# Modifiers with more than 4 levels and below level 3 with enchanting track
+					trait = lifestyle_artifact_crafting
+					track = enchanting_smith
+					value < 65
+				}
+				exists = var:$NAME$
+				$VALUE$ = 4
+			}
+			var:$NAME$ >= $VALUE$.div2
+		}
+		trigger_else_if = {
+			limit = {
+				has_trait = lifestyle_artifact_crafting
+				$VALUE$ = 3
+			}
+			always = yes
+		}
+		trigger_else = {
+			always = no
+		}
+	}
+}
+
+crafting_lifestyle_valid_tier_base_stat = {
+	OR = {
+		trigger_if = {
+			limit = {
+				has_trait = lifestyle_artifact_crafting
+				has_trait_xp = {# Modifiers with more than 4 levels and below level 3 with enchanting track
+					trait = lifestyle_artifact_crafting
+					track = enchanting_smith
+					value < 65
+				}
+				exists = var:$NAME$
+				$VALUE$ = 5
+			}
+			var:$NAME$ < 3
+		}
+		trigger_else_if = {
+			limit = {
+				has_trait = lifestyle_artifact_crafting
+				has_trait_xp = {# Modifiers with more than 4 levels and below level 3 with enchanting track
+					trait = lifestyle_artifact_crafting
+					track = enchanting_smith
+					value >= 65
+				}
+				exists = var:$NAME$
+				$VALUE$ = 5
+				var:$NAME$ < 5
+			}
+			always = yes
+		}
+		trigger_else = {
+			always = yes
+		}
+	}
+}
+
+crafting_lifestyle_material_potential_perk_trigger = {
+	trigger_if = {
+		limit = {
+			has_perk = material_potential_perk
+			exists = var:used_material
+		}
+		trigger_if = {
+			limit = {
+				OR = {
+					var:used_material = flag:mithril_crafting_modifier_prowess
+					var:used_material = flag:mithril_crafting_modifier_prestige
+				}
+			}
+			var:num_enchants_used > 2
+		}
+		trigger_else = {
+			trigger_if = {
+				limit = {
+					OR = {
+						var:used_material = flag:gold_crafting_modifier_prowess
+						var:used_material = flag:gold_crafting_modifier_prestige
+					}
+				}
+				var:num_enchants_used > 1
+			}
+		}
+	}
+	trigger_else = { var:num_enchants_used > 0 }
+}
+
+crafting_lifestyle_track_greater_equal_trigger = {
+	has_trait = lifestyle_artifact_crafting
+	has_trait_xp = {
+		trait = lifestyle_artifact_crafting
+		track = $TRACK$
+		value >= $GREATER_EQUAL$
+	}
+}
+
+lotr_crafting_legacy_trigger = {
+	OR = {
+		dynasty = {
+			dynast = {
+				culture = {
+					OR = {
+						has_cultural_tradition = tradition_miners #Has relevant mining or crafting tradition
+						has_cultural_tradition = tradition_legendary_artisans
+						has_cultural_tradition = tradition_metal_craftsmanship
+						has_cultural_tradition = tradition_mining_fervour
+						has_cultural_tradition = tradition_artisans
+						has_cultural_tradition = tradition_jewel_dwarves
+					}
+				}
+			}
+		}
+		has_trait = lifestyle_miner
+		has_trait = lifestyle_artifact_crafting
+		has_lifestyle = crafting_lifestyle
+		dynasty = { has_dynasty_perk = lotr_crafting_legacy_1 }
+	}
+	is_ai = no
+}

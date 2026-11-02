@@ -1,0 +1,1321 @@
+﻿namespace = skorgrim_dourhand
+
+### Skorgrim Dourhand Events ### Written by Jagua & JTorada
+#			skorgrim_dourhand.00XX		Setup
+#			skorgrim_dourhand.010X		Event chain 
+#			skorgrim_dourhand.1000		Events after getting both Dwarven Rings
+#			skorgrim_dourhand.2000		Skorgrim execution after being captured
+
+
+# Setup
+skorgrim_dourhand.0100 = {	# Khathza-zul conversion event
+	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.0100.t
+	desc = skorgrim_dourhand.0100.desc
+	theme = faith
+	override_background = {
+		reference = kitchen_dwarven
+	}
+
+	left_portrait = {
+		character = scope:skorgrim_dourhand
+		animation = rage
+	}
+	lower_left_portrait = scope:naugladur
+	lower_center_portrait = scope:elu_thingol
+	lower_right_portrait = scope:khathza_the_watcher
+	
+
+	immediate = {
+		play_music_cue = lotr_cue_dwarves
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:lineofuri3 = { save_scope_as = naugladur }
+		character:lineofelwe1 = { save_scope_as = elu_thingol }
+		character:lineofkhathzaibriz1 = { save_scope_as = khathza_the_watcher }	
+		character:nazgul1 = { save_scope_as = witch_king } #Added
+	}
+
+	option = {
+		name =  skorgrim_dourhand.0100.a
+		add_character_flag = {
+ 			flag = delay_player_faith_conversion_notification_event
+ 			weeks = 1
+ 		}
+ 		set_character_faith_with_conversion = faith:faith_firebeards
+		ai_chance = {
+			base = 100
+		}
+		scope:witch_king = {
+			trigger_event = { 
+				id = skorgrim_dourhand.0101
+				days =  7 
+			}
+		}
+	}
+
+	option = {
+		name =  skorgrim_dourhand.0100.b
+		# Do not convert and stop story content
+		custom_tooltip = opt_out_of_story_content
+		add_piety = 100
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+# Event chain
+
+skorgrim_dourhand.0101 = { #Witch-King heard about Skorgrim and sees a chance to expand his influence
+	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.0101.t
+	desc = skorgrim_dourhand.0101.desc
+	theme = intrigue_intimidation_focus
+
+	override_background = {
+		reference = throne_room_evil
+	}
+	
+	left_portrait = {
+		character = scope:witch_king
+		animation = spymaster
+	}
+
+	lower_center_portrait = scope:skorgrim_dourhand
+	
+	immediate = {
+		play_music_cue = lotr_cue_nazgul
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:nazgul1 = { save_scope_as = witch_king }
+		random_artifact = {
+			limit = { has_variable = ring_of_firebeards }
+			save_scope_as = ring_of_firebeards
+		}
+		random_artifact = {
+			limit = { has_variable = ring_of_broadbeams }
+			save_scope_as = ring_of_broadbeams
+		}
+	}
+	artifact = {
+		target = scope:ring_of_firebeards
+		position = lower_right_portrait
+		trigger = { exists = scope:ring_of_firebeards }
+	}
+	artifact = {
+		target = scope:ring_of_broadbeams
+		position = lower_left_portrait
+		trigger = { exists = scope:ring_of_broadbeams }
+	}
+	
+	option = { #Send the emissary
+		name =  skorgrim_dourhand.0101.a
+		ai_chance = {
+			base = 100 #He is evil and wants power
+		}
+		scope:skorgrim_dourhand = {
+			trigger_event = { 
+				id = skorgrim_dourhand.0102 #An offer 
+				days = 60
+			}
+		}
+	}
+
+	option = { # Not worthy
+		name =  skorgrim_dourhand.0101.b
+		# Do not send the offer and stop story content
+		custom_tooltip = opt_out_of_story_content
+		ai_chance = {
+			base = 0 #He is evil and wants power
+		}
+	}
+}
+
+skorgrim_dourhand.0102 = { # Witch-King's offer to Skorgrim
+	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.0102.t
+	desc = skorgrim_dourhand.0102.desc
+	theme = intrigue_intimidation_focus
+
+	override_background = {
+		reference = dwarven_gate
+	}
+
+	left_portrait = {
+		character = scope:skorgrim_dourhand
+		animation = personality_callous
+	}
+
+	lower_center_portrait = scope:witch_king
+	
+	immediate = {
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:nazgul1 = { save_scope_as = witch_king }
+		character:lineofdwalinV = { save_scope_as = dwalin_V }
+		random_artifact = {
+			limit = { has_variable = ring_of_firebeards }
+			save_scope_as = ring_of_firebeards
+		}
+		random_artifact = {
+			limit = { has_variable = ring_of_broadbeams }
+			save_scope_as = ring_of_broadbeams
+		}
+	}
+	artifact = {
+		target = scope:ring_of_firebeards
+		position = lower_right_portrait
+		trigger = { exists = scope:ring_of_firebeards }
+	}
+	artifact = {
+		target = scope:ring_of_broadbeams
+		position = lower_left_portrait
+		trigger = { exists = scope:ring_of_broadbeams }
+	}
+
+	option = { # Accept the offer
+		name =  skorgrim_dourhand.0102.a
+		ai_chance = {
+			base = 50 # He is ambitious and desires power / Needs modifiers for historical game_rule
+		}
+		scope:skorgrim_dourhand = {
+			trigger_event = { 
+				id = skorgrim_dourhand.0107 # Target Dwarven clans, first Broadbeams (presumably)
+				days = 14
+			}
+		}
+	}
+
+	option = { # Too risky, warn Dwálin V
+		name =  skorgrim_dourhand.0102.b
+		custom_tooltip = skorgrim_dourhand.0102.b.effects
+		ai_chance = {
+			base = 50 # Needs modifiers for historical game_rule
+		}
+		start_travel_plan = {
+			destination = title:c_manakhrrukul.title_province
+			on_arrival_event = skorgrim_dourhand.0103
+			return_trip = yes
+			players_use_planner = no
+			on_arrival_destinations = all_but_last
+		}
+		scope:dwalin_V = {
+			trigger_event = { 
+				id = skorgrim_dourhand.0104 # A warning about the Witch-King // I think this should be tied to skorgrim_dourhand.0103 event to pop at the same time 
+				days = 30
+			}
+		}
+	}
+}
+
+######################################################################################################
+### skorgrim_dourhand.0103 -> 0106 [LOYALTY TO DWÁLIN - NON HISTORICAL PATH] - by J.Torada & Jagua ###
+######################################################################################################
+
+skorgrim_dourhand.0103 = { # A Warning To Dwálin V
+	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.0103.t
+	desc = skorgrim_dourhand.0103.desc
+	theme = intrigue_intimidation_focus
+
+	override_background = {
+		reference = throne_room_dwarf
+	}
+
+	right_portrait = {
+		character = scope:dwalin_V 
+		animation = worry
+	}
+
+	left_portrait = {
+		character = scope:skorgrim_dourhand
+		animation = disbelief
+	}
+
+	lower_left_portrait = scope:witch_king
+	
+	immediate = {
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:nazgul1 = { save_scope_as = witch_king }
+		character:lineofdwalinV = { save_scope_as = dwalin_V }
+		scope:dwalin_V = {
+			add_opinion = {
+				target = scope:skorgrim_dourhand
+				modifier = grateful_opinion
+				opinion = 40
+			}
+		}
+		random_artifact = {
+			limit = { has_variable = ring_of_broadbeams }
+			save_scope_as = ring_of_broadbeams
+		}
+	}
+	artifact = {
+		target = scope:ring_of_broadbeams
+		position = lower_right_portrait
+		trigger = { exists = scope:ring_of_broadbeams }
+	}
+
+	option = { # I have done my duty. Dwálin will know what to do.
+		name =  skorgrim_dourhand.0103.a
+		custom_tooltip = skorgrim_dourhand.0103.a.tt
+		ai_chance = {
+			base = 100 # Add modifiers?
+		}
+	}
+}
+
+skorgrim_dourhand.0104 = { # A Warning From Skorgrím
+	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.0104.t
+	desc = skorgrim_dourhand.0104.desc
+	theme = realm
+
+	override_background = {
+		reference = throne_room_dwarf
+	}
+
+	left_portrait = {
+		character = scope:dwalin_V 
+		animation = worry
+	}
+
+	right_portrait = {
+		character = scope:skorgrim_dourhand
+		animation = disbelief
+	}
+
+	lower_right_portrait = scope:witch_king
+	
+	immediate = {
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:nazgul1 = { save_scope_as = witch_king }
+		character:lineofdwalinV = { save_scope_as = dwalin_V }
+		scope:dwalin_V = {
+			add_opinion = {
+				target = scope:skorgrim_dourhand
+				modifier = grateful_opinion
+				opinion = 40
+			}
+		}
+		random_artifact = {
+			limit = { has_variable = ring_of_broadbeams }
+			save_scope_as = ring_of_broadbeams
+		}
+	}
+	artifact = {
+		target = scope:ring_of_broadbeams
+		position = lower_left_portrait
+		trigger = { exists = scope:ring_of_broadbeams }
+	}
+
+	option = { # Do a preventive attack against Angmar? Remember to add something related to the ANGMAR SITUATION (In developing)
+		name =  skorgrim_dourhand.0104.a
+		ai_chance = {
+			base = 50 # Add modifiers?
+		}
+	}
+
+	option = { # Do nothing
+		name =  skorgrim_dourhand.0104.b
+		ai_chance = {
+			base = 50 # Add modifiers?
+		}
+	}
+
+	after = {
+    	hidden_effect = {
+			scope:dwalin_V = {
+				trigger_event = {
+              	 id = skorgrim_dourhand.0105
+              	 weeks = 2
+            	}
+			}
+        }
+	}
+}
+
+skorgrim_dourhand.0105 = { # A Reward For Loyalty
+	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.0105.t
+	desc = skorgrim_dourhand.0105.desc
+	theme = realm
+
+	override_background = {
+		reference = throne_room_dwarf
+	}
+
+	left_portrait = {
+		character = scope:dwalin_V 
+		animation = personality_rational
+	}
+
+	right_portrait = {
+		character = scope:skorgrim_dourhand
+		animation = happiness
+	}
+
+	immediate = {
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:lineofdwalinV = { save_scope_as = dwalin_V }
+
+		if = {
+			limit = {
+				exists = title:c_zillinakhur.holder
+			}
+			title:c_zillinakhur.holder = { save_scope_as = zillinakhurholder }
+		}
+	}
+
+	option = { # Offer help rebuilding Nogrod. Gold?
+		name = skorgrim_dourhand.0105.a
+		ai_chance = {
+			base = 25 # Add modifiers?
+		}
+	}
+
+	option = { # Alliance against Angmar (Only if intervention chosen) ANGMAR SITUATION
+		name = skorgrim_dourhand.0105.b
+		custom_tooltip = skorgrim_alliance_effect_tooltip #This tooltip does not work properly
+		create_alliance = {
+			target = scope:zillinakhurholder
+			allied_through_owner = root
+			allied_through_target = scope:zillinakhurholder
+		}
+		ai_chance = {
+			base = 25 # Add modifiers?
+		}
+	}
+
+	option = { # For a Hook
+		name = skorgrim_dourhand.0105.c
+		scope:skorgrim_dourhand = {
+			add_hook = {
+				target = scope:dwalin_V
+				type = favor_hook
+			}
+		}
+		ai_chance = {
+			base = 25 # Add modifiers?
+		}
+	}
+
+	option = { # My gratitude is enough. Add opinion??
+		name = skorgrim_dourhand.0105.d
+		ai_chance = {
+			base = 25 # Add modifiers?
+		}
+	}
+
+	after = {
+    	hidden_effect = {
+			scope:skorgrim_dourhand= {
+				trigger_event = {
+           	 		id = skorgrim_dourhand.0106
+           	 		weeks = 1
+        		}
+			}
+		}
+	}
+}
+
+skorgrim_dourhand.0106 = { # A King's Gratitude
+	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.0106.t
+	desc = skorgrim_dourhand.0106.desc # This should be adapted on which option does Dwálin choose on the prev event
+	theme = realm
+
+	override_background = {
+		reference = throne_room_dwarf
+	}
+
+	right_portrait = {
+		character = scope:dwalin_V 
+		animation = personality_rational
+	}
+
+	left_portrait = {
+		character = scope:skorgrim_dourhand
+		animation = happiness
+	}
+
+	lower_right_portrait = scope:witch_king
+
+	immediate = {
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:lineofdwalinV = { save_scope_as = dwalin_V }
+		character:nazgul1 = { save_scope_as = witch_king }
+
+		if = {
+			limit = {
+				exists = title:c_zillinakhur.holder
+			}
+			title:c_zillinakhur.holder = { save_scope_as = zillinakhurholder }
+		}
+	}
+
+	option = { # At the King's service // End of the story content
+		name = skorgrim_dourhand.0106.a
+		ai_chance = {
+			base = 100 # Add modifiers?
+		}
+	}
+}
+
+####################################################################################################
+### skorgrim_dourhand.0107 -> 0108 [BETRAYAL OF HIS KIN - HISTORICAL PATH] - by J.Torada & Jagua ###
+####################################################################################################
+
+skorgrim_dourhand.0107 = { # Preparing To Strike
+ 	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.0107.t
+	desc = skorgrim_dourhand.0107.desc
+	theme = intrigue_intimidation_focus
+
+	override_background = {
+		reference = dwarven_gate
+	}
+
+	left_portrait = {
+		character = scope:skorgrim_dourhand
+		animation = menacing
+	}
+
+	lower_left_portrait = scope:dwalin_V
+	lower_center_portrait = scope:witch_king
+	lower_right_portrait = scope:fror_II
+	
+	immediate = {
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:lineofuri67 = { save_scope_as = fror_II }
+		character:lineofdwalinV = { save_scope_as = dwalin_V }
+		character:nazgul1 = { save_scope_as = witch_king }
+	}
+
+	option = { # Broadbeams
+		trigger = { 
+			NOT = { has_character_flag = skorgrim_stole_ring_of_broadbeams } # This character_flag will be earned once the character gets the targeted ring
+		} 
+		name = skorgrim_dourhand.0107.a
+		custom_tooltip = skorgrim_broadbeam_choice_of_plan
+		scope:skorgrim_dourhand = {
+			add_character_flag = skorgrim_dourhand_target_broadbeams
+		}
+		ai_chance = {
+			base = 50 # historical target first broadbeams
+		}
+	}
+
+	option = { # Firebeards
+		trigger = { 
+			NOT = { has_character_flag = skorgrim_stole_ring_of_firebeards } # This character_flag will be earned once the character gets the targeted ring
+		} 
+		name = skorgrim_dourhand.0107.b
+		custom_tooltip = skorgrim_firebeard_choice_of_plan
+		scope:skorgrim_dourhand = {
+			add_character_flag = skorgrim_dourhand_target_firebeards
+		}
+		ai_chance = {
+			base = 50 # historical target first broadbeams
+		}
+	}
+
+	after = {
+   		hidden_effect = {
+			scope:skorgrim_dourhand= {
+				trigger_event = {
+          	 		id = skorgrim_dourhand.0108
+         	 		days = 1
+     			}
+			}
+		}
+	}
+}
+
+skorgrim_dourhand.0108 = { # Method of Acquisition
+
+	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.0108.t
+	desc = skorgrim_dourhand.0108.desc
+	theme = intrigue_intimidation_focus
+
+	override_background = {
+		reference = throne_room_dwarf
+	}
+
+	left_portrait = {
+		character = scope:skorgrim_dourhand
+		animation = personality_dishonorable
+	}
+
+	lower_center_portrait = scope:dwalin_V
+	lower_right_portrait = scope:fror_II
+
+	immediate = {
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		if = {
+			limit = {
+				scope:skorgrim_dourhand = {
+					has_character_flag = skorgrim_dourhand_target_broadbeams
+				}
+			}
+			character:lineofdwalinV = { save_scope_as = dwalin_V }
+		}
+		if = {
+			limit = {
+				scope:skorgrim_dourhand = {
+					has_character_flag = skorgrim_dourhand_target_firebeards
+				}
+			}
+			character:lineofuri67 = { save_scope_as = fror_II }
+		}
+	}
+
+	option = { # By Pen
+		name = skorgrim_dourhand.0108.a
+		custom_tooltip = skorgrim_dourhand_meeting
+		scope:skorgrim_dourhand = {
+			if = {
+				limit = {
+					has_character_flag = skorgrim_dourhand_target_broadbeams
+				}
+				add_character_flag = skorgrim_dourhand_feast_broadbeams
+			}
+			
+			else_if = {
+				limit = { 
+					has_character_flag = skorgrim_dourhand_target_firebeards
+				}
+				add_character_flag = skorgrim_dourhand_feast_firebeards
+			}
+		}
+		ai_chance = {
+			base = 50 # Needs modifiers
+		}
+	}
+
+	option = { # By War
+		name = skorgrim_dourhand.0108.b
+		custom_tooltip = skorgrim_dourhand_war
+		scope:skorgrim_dourhand = {
+			if = {
+				limit = {
+					has_character_flag = skorgrim_dourhand_target_broadbeams
+				}
+				add_character_flag = skorgrim_dourhand_war_broadbeams
+			}
+			
+			else_if = {
+				limit = { 
+					has_character_flag = skorgrim_dourhand_target_firebeards
+				}
+				add_character_flag = skorgrim_dourhand_war_firebeards
+			}
+		}
+		ai_chance = {
+			base = 50 # Needs modifiers
+		}
+	}
+}
+
+################################################################################
+### skorgrim_dourhand.0109 -> 0112 [Feast/Meeting to get both Dwarven Rings] ###
+################################################################################
+
+skorgrim_dourhand.0109 = {
+
+	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.0109.t
+	desc = skorgrim_dourhand.0109.desc
+	theme = realm
+
+	override_background = {
+		reference = throne_room_dwarf
+	}
+
+	left_portrait = {
+		character = scope:dwalin_V
+		animation = personality_rational
+	}
+
+	lower_center_portrait = scope:skorgrim_dourhand
+	lower_right_portrait = scope:fror_II
+
+	immediate = {
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:lineofuri67 = { save_scope_as = fror_II }
+		character:lineofdwalinV = { save_scope_as = dwalin_V }
+	}
+
+	option = { # Accept
+		name = skorgrim_dourhand.0109.a
+		custom_tooltip = skorgrim_dourhand_broadbeam_meeting
+
+		start_travel_plan = {
+			destination = title:c_zillinakhur.title_province
+			on_arrival_event = skorgrim_dourhand.0110
+			return_trip = yes
+			players_use_planner = no
+			on_arrival_destinations = all_but_last
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = { # Refuse - Skorgrim gets a CB / decision to declare War (WIP)
+		name =  skorgrim_dourhand.0109.b
+
+		scope:skorgrim_dourhand = {
+			custom_tooltip = skorgrim_dourhand_broadbeam_meeting_refusal
+			add_character_flag = skorgrim_dourhand_war_broadbeams
+			add_opinion = {
+				target = root
+				modifier = treachery_opinion
+			}
+			set_relation_rival = { reason = rival_age_old_rivalry target = root }
+		}
+
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+skorgrim_dourhand.0110 = { # King's Arrival to Zillinakhur
+	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.0110.t
+	desc = skorgrim_dourhand.0110.desc
+	theme = realm
+
+	override_background = {
+		reference = throne_room_dwarf
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+
+	lower_center_portrait = scope:skorgrim_dourhand
+
+	immediate = {
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:lineofuri67 = { save_scope_as = fror_II }
+		character:lineofdwalinV = { save_scope_as = dwalin_V }
+
+		random_character_artifact= {
+			limit = { has_variable = ring_of_firebeards }
+			save_scope_as = ring_of_firebeards
+		}
+		random_character_artifact = {
+			limit = { has_variable = ring_of_broadbeams }
+			save_scope_as = ring_of_broadbeams
+		}
+	}
+
+	artifact = {
+		target = scope:ring_of_firebeards
+		position = lower_right_portrait
+		trigger = { exists = scope:ring_of_firebeards }
+	}
+	artifact = {
+		target = scope:ring_of_broadbeams
+		position = lower_right_portrait
+		trigger = { exists = scope:ring_of_broadbeams }
+	}
+
+	option = { # Refuse - Skorgrim gets a CB / decision to declare War (WIP)
+		name =  skorgrim_dourhand.0110.a
+		custom_tooltip = king_received_by_skorgrim
+
+		#scope:skorgrim_dourhand = {
+		#	trigger_event = {
+		#		id = skorgrim_dourhand.0111
+        #	 	days = 3
+		#	}	
+		#}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+######################################################
+### skorgrim_dourhand.1000 ->  [Fate of the Rings] ###
+######################################################
+
+skorgrim_dourhand.1000 = { # Fate of the Rings
+	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.1000.t
+	desc = skorgrim_dourhand.1000.desc
+	theme = intrigue_intimidation_focus
+
+	override_background = {
+		reference = throne_room_dwarf
+	}
+
+	left_portrait = {
+		character = scope:skorgrim_dourhand
+		animation = personality_dishonorable
+	}
+
+	right_portrait = {
+		character = scope:witch_king
+		animation = personality_callous
+	}
+
+	immediate = {
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:nazgul1 = { save_scope_as = witch_king }
+		character:lineofdwalinV = { save_scope_as = dwalin_V }
+		random_artifact = {
+			limit = { has_variable = ring_of_firebeards }
+			save_scope_as = ring_of_firebeards
+		}
+		random_artifact = {
+			limit = { has_variable = ring_of_broadbeams }
+			save_scope_as = ring_of_broadbeams
+		}
+	}
+
+	artifact = {
+		target = scope:ring_of_firebeards
+		position = lower_right_portrait
+		trigger = { exists = scope:ring_of_firebeards }
+	}
+	artifact = {
+		target = scope:ring_of_broadbeams
+		position = lower_center_portrait
+		trigger = { exists = scope:ring_of_broadbeams }
+	}
+
+	option = { # Travel to Angmar and give the witch-King the Rings
+		name =  skorgrim_dourhand.1000.a
+
+		custom_tooltip = skorgrim_dourhand_travel_angmar
+		start_travel_plan = {
+			destination = title:c_carn_dum.title_province
+			on_arrival_event = skorgrim_dourhand.1001 # A Deal Fulfilled
+			return_trip = yes
+			players_use_planner = no
+			on_arrival_destinations = all_but_last
+		}
+
+		ai_chance = {
+			base = 100 # Needs mofidier for non-canon settings
+		}
+	}
+
+	option = { # Keep the Rings, get bonuses for building Nogrod
+		name =  skorgrim_dourhand.1000.b
+
+		custom_tooltip = skorgrim_dourhand_keep_rings
+
+		get_title = title:k_nogrod # You are the truly King
+
+		scope:witch_king = {
+			trigger_event = {
+				id = skorgrim_dourhand.1005 # WK informed for betrayal
+        	 	days = 3
+			}	
+		}
+
+		# TODO Bonuses for Rebuilding Nogrod
+
+		ai_chance = {
+			base = 0 # Needs mofidier for non-canon settings
+		}
+	}
+
+}
+
+skorgrim_dourhand.1001 = { # The Dark Throne of Carn Dum
+	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.1001.t
+	desc = skorgrim_dourhand.1001.desc
+	theme = dread
+
+	override_background = {
+		reference = throne_room_evil
+	}
+
+	left_portrait = {
+		character = scope:skorgrim_dourhand
+		animation = shame
+	}
+
+	right_portrait = {
+		character = scope:witch_king
+		animation = personality_callous
+	}
+
+	immediate = {
+		play_music_cue = lotr_cue_nazgul
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:nazgul1 = { save_scope_as = witch_king }
+		random_artifact = {
+			limit = { has_variable = ring_of_firebeards }
+			save_scope_as = ring_of_firebeards
+		}
+		random_artifact = {
+			limit = { has_variable = ring_of_broadbeams }
+			save_scope_as = ring_of_broadbeams
+		}
+	}
+
+	artifact = {
+		target = scope:ring_of_firebeards
+		position = lower_right_portrait
+		trigger = { exists = scope:ring_of_firebeards }
+	}
+	artifact = {
+		target = scope:ring_of_broadbeams
+		position = lower_center_portrait
+		trigger = { exists = scope:ring_of_broadbeams }
+	}
+
+	option = { # At your service, my Lord
+		name =  skorgrim_dourhand.1001.a
+		custom_tooltip = skorgrim_dourhand_carn_dum
+		scope:witch_king = {
+			add_character_flag = wk_got_dwarven_rings
+			trigger_event = {
+				id = skorgrim_dourhand.1002 # WK gets rings, decides what to do with Skorgrim
+        	 	days = 0
+			}	
+		}
+		scope:skorgrim_dourhand = {
+			every_character_artifact = {
+				limit = { has_variable = ring_of_dwarves }
+				set_owner = {
+					target = scope:witch_king
+					history = {
+						type = given
+						actor = scope:skorgrim_dourhand
+						recipient = scope:witch_king
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 100 
+		}
+	}
+}
+
+skorgrim_dourhand.1002 = { # A Pawn's Recompense
+	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.1002.t
+	desc = skorgrim_dourhand.1002.desc
+	theme = intrigue_intimidation_focus
+
+	override_background = {
+		reference = throne_room_evil
+	}
+
+	right_portrait = {
+		character = scope:skorgrim_dourhand
+		animation = shame
+	}
+
+	left_portrait = {
+		character = scope:witch_king
+		animation = personality_rational
+	}
+
+	lower_center_portrait = {
+		character = scope:sauron
+	}
+
+	immediate = {
+		play_music_cue = lotr_cue_nazgul
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:nazgul1 = { save_scope_as = witch_king }
+		character:lineofsauron = { save_scope_as = sauron }
+		random_artifact = {
+			limit = { has_variable = ring_of_firebeards }
+			save_scope_as = ring_of_firebeards
+		}
+		random_artifact = {
+			limit = { has_variable = ring_of_broadbeams }
+			save_scope_as = ring_of_broadbeams
+		}
+	}
+
+	artifact = {
+		target = scope:ring_of_firebeards
+		position = lower_right_portrait
+		trigger = { exists = scope:ring_of_firebeards }
+	}
+	artifact = {
+		target = scope:ring_of_broadbeams
+		position = lower_left_portrait
+		trigger = { exists = scope:ring_of_broadbeams }
+	}
+
+	option = { # Your service has come to an end, Skorgrim...
+		name =  skorgrim_dourhand.1002.a
+		custom_tooltip = skorgrim_dourhand_death_wk
+		scope:witch_king = {
+			add_dread = 30 #He technically gains 52 due to modifiers (at game start, event triggered via console)
+		}
+		scope:skorgrim_dourhand = {
+			trigger_event = {
+				id = skorgrim_dourhand.1003 # Skorgrim's death
+        	 	days = 0
+			}	
+		}
+		ai_chance = {
+			base = 100 # Needs modifiers
+		}
+	}
+
+	option = { # Offer vassalage via Gundabad/Nogrod
+		name =  skorgrim_dourhand.1002.b
+		custom_tooltip = skorgrim_dourhand_pact_wk
+		scope:skorgrim_dourhand = {
+			trigger_event = {
+				id = skorgrim_dourhand.1004 # A Throne of Shadows
+        	 	days = 0
+			}	
+		}
+		scope:witch_king = {
+			add_hook = {
+				target = scope:skorgrim_dourhand
+				type = strong_favor_hook
+			}
+		}
+
+		ai_chance = {
+			base = 0 # Needs modifiers
+		}
+	}
+}
+
+skorgrim_dourhand.1003 = { # Earning Immortality
+	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.1003.t
+	desc = skorgrim_dourhand.1003.desc
+	theme = death
+
+	override_background = {
+		reference = throne_room_evil
+	}
+
+	left_portrait = {
+		character = scope:skorgrim_dourhand
+		animation = pain
+	}
+
+	right_portrait = {
+		character = scope:witch_king
+		animation = menacing
+	}
+
+	immediate = {
+		play_music_cue = lotr_cue_nazgul
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:nazgul1 = { save_scope_as = witch_king }
+		random_artifact = {
+			limit = { has_variable = ring_of_firebeards }
+			save_scope_as = ring_of_firebeards
+		}
+		random_artifact = {
+			limit = { has_variable = ring_of_broadbeams }
+			save_scope_as = ring_of_broadbeams
+		}
+	}
+
+	artifact = {
+		target = scope:ring_of_firebeards
+		position = lower_right_portrait
+		trigger = { exists = scope:ring_of_firebeards }
+	}
+	artifact = {
+		target = scope:ring_of_broadbeams
+		position = lower_center_portrait
+		trigger = { exists = scope:ring_of_broadbeams }
+	}
+
+	option = { # You die
+		name =  skorgrim_dourhand.1003.a
+		death = {
+			killer = scope:witch_king
+			death_reason = death_execution
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+skorgrim_dourhand.1004 = { # A Throne of Shadows
+	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.1004.t
+	desc = skorgrim_dourhand.1004.desc
+	theme = intrigue_intimidation_focus
+
+	override_background = {
+		reference = throne_room_evil
+	}
+
+	right_portrait = {
+		character = scope:skorgrim_dourhand
+		animation = schadenfreude
+	}
+
+	left_portrait = {
+		character = scope:witch_king
+		animation = personality_rational
+	}
+
+	immediate = {
+		play_music_cue = lotr_cue_nazgul
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:nazgul1 = { save_scope_as = witch_king }
+		random_artifact = {
+			limit = { has_variable = ring_of_firebeards }
+			save_scope_as = ring_of_firebeards
+		}
+		random_artifact = {
+			limit = { has_variable = ring_of_broadbeams }
+			save_scope_as = ring_of_broadbeams
+		}
+	}
+
+	artifact = {
+		target = scope:ring_of_firebeards
+		position = lower_right_portrait
+		trigger = { exists = scope:ring_of_firebeards }
+	}
+	artifact = {
+		target = scope:ring_of_broadbeams
+		position = lower_left_portrait
+		trigger = { exists = scope:ring_of_broadbeams }
+	}
+
+	option = { # Choose Gundabad
+		name =  skorgrim_dourhand.1004.a
+		#custom_tooltip = skorgrim_dourhand_pact_gundabad
+		scope:skorgrim_dourhand = {
+			set_character_faith_with_conversion = faith:faith_angmar_evil
+			get_title = title:k_gundabad
+			title:d_gundabad = {
+				every_in_de_jure_hierarchy = { # Every county held by orcs, take it
+					limit = {
+						tier = tier_county
+						holder = { is_orc = yes }
+					}
+					create_title_and_vassal_change = {
+						type = conquest
+						save_scope_as = change
+						add_claim_on_loss = yes
+					}
+					change_title_holder = {
+						holder = root
+						change = scope:change
+					}
+					resolve_title_and_vassal_change = scope:change
+					# add_county_modifier = {
+					# 	modifier = puppet_ruler_modifier
+					# 	years = 25
+					# }
+				}
+				every_in_de_jure_hierarchy = { # Every wastelands county, make a colony
+					limit = {
+						tier = tier_county
+						holder = { is_wastelands = yes }
+					}
+					ai_colonisation_effect = { WASTELANDS = this.title_province ROOT_SCOPE = root }
+					# add_county_modifier = {
+					# 	modifier = puppet_ruler_modifier
+					# 	years = 25
+					# }
+				}
+			}
+			if = {
+				limit = {
+					NOT = { capital_county = title:c_mattugard }
+				}
+				set_realm_capital = title:c_mattugard
+			}
+			start_tributary = {
+				contract_group = tributary_subjugated
+				suzerain = scope:witch_king
+			}
+		}
+		title:d_gundalok.holder = {
+			becomes_independent = { change = scope:change }
+			change_liege = {
+				liege = title:k_gundabad.holder
+				change = scope:title_change
+			}
+		}
+		title:d_gunduz_mahab.holder = {
+			end_tributary = yes
+			becomes_independent = { change = scope:change }
+			change_liege = {
+				liege = title:k_gundabad.holder
+				change = scope:title_change
+			}
+		}
+		ai_chance = {
+			base = 50 # Needs modifiers
+		}
+	}
+
+	option = { # Choose Nogrod
+		name =  skorgrim_dourhand.1004.b
+		#custom_tooltip = skorgrim_dourhand_pact_nogrod
+		scope:skorgrim_dourhand = {
+			set_character_faith_with_conversion = faith:faith_angmar_evil
+			get_title = title:k_nogrod
+			title:d_nogrod = {
+				every_in_de_jure_hierarchy = { # Every pass county held by orcs, take it
+					limit = {
+						tier = tier_county
+						holder = { is_orc = yes }
+					}
+					create_title_and_vassal_change = {
+						type = conquest
+						save_scope_as = change
+						add_claim_on_loss = yes
+					}
+					change_title_holder = {
+						holder = root
+						change = scope:change
+					}
+					resolve_title_and_vassal_change = scope:change
+					# add_county_modifier = {
+					# 	modifier = puppet_ruler_modifier
+					# 	years = 25
+					# }
+				}
+				every_in_de_jure_hierarchy = { # Every pass wastelands county, make a colony
+					limit = {
+						tier = tier_county
+						holder = { is_wastelands = yes }
+					}
+					ai_colonisation_effect = { WASTELANDS = this.title_province ROOT_SCOPE = root }
+					# add_county_modifier = {
+					# 	modifier = puppet_ruler_modifier
+					# 	years = 25
+					# }
+				}
+			}
+			if = {
+				limit = {
+					NOT = { capital_county = title:c_luznakuz }
+				}
+				set_realm_capital = title:c_luznakuz
+			}
+			start_tributary = {
+				contract_group = tributary_subjugated
+				suzerain = scope:witch_king
+			}
+		}
+		
+		ai_chance = {
+			base = 50 # Needs modifiers
+		}
+	}
+	after = {
+		hidden_effect = {
+			scope:skorgrim_dourhand = {
+				every_held_title = { # Distribute excess non-capital counties to new characters
+					limit = { # For every non-capital county
+						tier = tier_county
+					}
+					set_county_faith = faith:faith_angmar_evil
+				}
+			}
+		}
+	}
+}
+
+skorgrim_dourhand.1005 = { # A deal Broken
+	content_source = realms_dlc
+	type = character_event
+	title = skorgrim_dourhand.1005.t
+	desc = skorgrim_dourhand.1005.desc
+	theme = intrigue_intimidation_focus
+
+	override_background = {
+		reference = throne_room_evil
+	}
+
+	right_portrait = {
+		character = scope:witch_king
+		animation = anger
+	}
+
+	left_portrait = {
+		character = scope:skorgrim_dourhand
+		animation = personality_greedy
+	}
+
+	immediate = {
+		play_music_cue = lotr_cue_nazgul
+		character:lineofdourhand17 = { save_scope_as = skorgrim_dourhand }
+		character:nazgul1 = { save_scope_as = witch_king }
+		random_artifact = {
+			limit = { has_variable = ring_of_firebeards }
+			save_scope_as = ring_of_firebeards
+		}
+		random_artifact = {
+			limit = { has_variable = ring_of_broadbeams }
+			save_scope_as = ring_of_broadbeams
+		}
+	}
+
+	artifact = {
+		target = scope:ring_of_firebeards
+		position = lower_right_portrait
+		trigger = { exists = scope:ring_of_firebeards }
+	}
+	artifact = {
+		target = scope:ring_of_broadbeams
+		position = lower_center_portrait
+		trigger = { exists = scope:ring_of_broadbeams }
+	}
+
+	option = { # This is insignificant - Get claims on rings
+		name =  skorgrim_dourhand.1005.a
+		scope:witch_king = {
+			add_personal_artifact_claim = scope:ring_of_firebeards
+			add_personal_artifact_claim = scope:ring_of_broadbeams
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+	option = { # He will learn Pain
+		name =  skorgrim_dourhand.1005.b
+		custom_tooltip = wk_devastates_nogrod
+		scope:witch_king = {
+			add_character_flag = wk_anger # unlock decision to devastate nogrod
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+#skorgrim_dourhand.1006 = { # Punish the Traitor

@@ -1,0 +1,568 @@
+﻿decision_recreate_zajantak = { #Recreate the kingdom of Zajantak w/ extra awesomeness
+	title = decision_recreate_zajantak
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_mumak_01.dds" }
+	
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 0
+		hegemony = 0
+	}
+	
+	decision_group_type = realms_in_exile_major
+
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_recreate_zajantak_tooltip
+	desc = decision_recreate_zajantak_desc
+	confirm_text = decision_recreate_zajantak_confirm
+	
+	is_shown = {
+		is_landed = yes
+		OR = {
+			culture = culture:fariyin
+			culture = { any_parent_culture_or_above = { this = culture:fariyin } } #account for divergent cultures
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:recreate_zajantak_decision
+			}
+		}
+	}
+	
+	is_valid = {
+		completely_controls = title:d_yeretik
+		completely_controls = title:d_mimita
+		completely_controls = title:d_qarneri
+		completely_controls = title:d_yasin
+		prestige_level >= high_prestige_level
+		is_independent_ruler = yes
+		OR = {
+			highest_held_title_tier <= tier_duchy
+			has_title = title:k_zajantak
+		}
+	}
+	
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	
+	effect = {
+		if = {
+			limit = { government_has_flag = government_is_tribal }
+			add_realm_law_skip_effects = tribal_authority_3
+			add_prestige_level = 1
+			add_piety = 1000
+			add_legitimacy = 100
+			dynasty = {
+				add_dynasty_prestige = 500
+			}
+			give_nickname = nick_the_war_king
+			hidden_effect = {
+				every_realm_province = {
+					add_province_modifier = {
+						modifier = renewed_fervor_of_zajantak 
+						years = 25
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_title = title:k_zajantak } 
+				}
+				#Create the title and make it primary
+				create_title_and_vassal_change = {
+					type = created
+					save_scope_as = title_change
+					add_claim_on_loss = yes
+				}
+				title:k_zajantak = {
+					change_title_holder = {
+						holder = root
+						change = scope:title_change
+					}
+				}
+				resolve_title_and_vassal_change = scope:title_change
+				set_primary_title_to = title:k_zajantak
+			}
+			add_character_modifier = {
+				modifier = zajantak_war_king
+				years = 10
+			}
+		}
+		else_if = {
+			limit = { 
+				OR = {
+					government_has_flag = government_is_clan
+					government_has_flag = government_is_feudal
+				}
+			}
+			add_prestige_level = 1
+			dynasty = {
+				add_dynasty_prestige = 500
+			}
+			give_nickname = nick_the_war_king
+			add_realm_law_skip_effects = crown_authority_3
+			add_piety = 1000
+			add_prestige = 1000
+			add_legitimacy = 100
+			hidden_effect = {
+				every_realm_province = {
+					add_province_modifier = {
+						modifier = renewed_fervor_of_zajantak 
+						years = 25 
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_title = title:k_zajantak } 
+				}
+				#Create the title and make it primary
+				create_title_and_vassal_change = {
+					type = created
+					save_scope_as = title_change
+					add_claim_on_loss = yes
+				}
+				title:k_zajantak = {
+					change_title_holder = {
+						holder = root
+						change = scope:title_change
+					}
+				}
+				resolve_title_and_vassal_change = scope:title_change
+				set_primary_title_to = title:k_zajantak
+			}
+
+			add_character_modifier = {
+				modifier = zajantak_war_king
+				years = 10
+			}
+		}
+		
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:recreate_zajantak_decision
+		}
+		save_scope_as = zajantak_restorer
+
+		if = {
+			limit = {
+				OR = {
+					culture = culture:tandi
+					culture = { any_parent_culture_or_above = { this = culture:tandi } }
+				}
+			}
+			trigger_event = lotr_bozisha_miraz.0102	# Zajantak reunited under Tandi
+		}
+		else_if = {
+			limit = {
+				OR = {
+					culture = culture:fariyin
+					culture = { any_parent_culture_or_above = { this = culture:fariyin } }
+				}
+			}
+			trigger_event = lotr_bozisha_miraz.0101	# Zajantak reunited
+		}
+		every_ruler = {
+			trigger_event = { id = lotr_bozisha_miraz.0103 days = { 1 2 } } #Stormhost/vassals begin to know...
+			trigger_event = { id = lotr_bozisha_miraz.0104 days = { 5 10 } } #Any theoretical tandi rulers under thon get to know...
+		}
+	}
+	
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_break_stormhost_power = { #Break the power of the Stormhost forever
+	title = decision_break_stormhost_power
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_mumak_01.dds" }
+
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	
+	decision_group_type = realms_in_exile_major
+	selection_tooltip = decision_break_stormhost_power_tooltip
+	desc = decision_break_stormhost_power_desc
+	confirm_text = decision_break_stormhost_power_confirm
+	
+	is_shown = {
+		has_title = title:k_zajantak
+		is_landed = yes
+		OR = {
+			culture = culture:fariyin
+			culture = { any_parent_culture_or_above = { this = culture:fariyin } } #account for divergent cultures
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:tandi_casus_belli
+			}
+		}
+	}
+	is_valid = {
+		completely_controls = title:k_zajantak
+		prestige_level >= very_high_prestige_level
+		is_independent_ruler = yes
+		exists = title:e_thon_an_kharlokh.holder
+	}
+	
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	
+	effect = {
+		trigger_event = lotr_bozisha_miraz.0200
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:tandi_casus_belli
+		}
+	}
+	
+	ai_will_do = {
+		base = 100
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+}
+
+decision_tandiland = { #Tandiland
+	title = decision_tandiland
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_mumak_01.dds" }
+
+	
+	decision_group_type = realms_in_exile_major
+
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_tandiland_tooltip
+	desc = decision_tandiland_desc
+	confirm_text = decision_tandiland_confirm
+	
+	is_shown = {
+		has_title = title:k_zajantak
+		is_landed = yes
+		OR = {
+			culture = culture:fariyin
+			culture = { any_parent_culture_or_above = { this = culture:fariyin } } #account for divergent cultures
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:tandiland_decision
+			}
+		}
+	}
+	
+	is_valid = {
+		has_title = title:d_aruzayan
+		completely_controls = title:d_sakya
+		completely_controls = title:d_dobaraka
+		completely_controls = title:d_benthani
+		completely_controls = title:d_velashar
+		is_independent_ruler = yes
+		prestige_level >= very_high_prestige_level
+	}
+	
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 250
+		prestige = 250
+	}
+	
+	effect = {
+		create_title_and_vassal_change = {
+			type = conquest
+			save_scope_as = title_change
+			add_claim_on_loss = yes
+		}
+		title:k_an_balkumagan = {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+			set_color_from_title = title:c_yakhi
+			holder = {
+				add_legitimacy = -100
+				add_prestige = -500
+			}
+		}
+
+		resolve_title_and_vassal_change = scope:title_change
+		add_legitimacy = 100
+		add_piety = 500
+		add_prestige = 500
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:tandiland_decision
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:tandiland_decision
+		}
+
+		trigger_event = lotr_bozisha_miraz.0204	# Tandiland vassal choice
+
+	}
+	
+	ai_will_do = {
+		base = 100
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+}
+
+decision_destroy_zajantak = { #Invade the kingdom of Zajantak, breaking it for good
+	title = decision_destroy_zajantak
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_mumak_01.dds" }
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	cooldown = { 
+		years = 10 
+	}
+	
+	decision_group_type = realms_in_exile_major
+	selection_tooltip = decision_destroy_zajantak_tooltip
+	desc = decision_destroy_zajantak_desc
+	confirm_text = decision_destroy_zajantak_confirm
+	
+	is_shown = {
+		has_title = title:e_thon_an_kharlokh
+		is_landed = yes
+		OR = {
+			culture = culture:anbalukkhori
+			culture = { any_parent_culture_or_above = { this = culture:anbalukkhori } } #account for divergent cultures
+		}
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:recreate_zajantak_decision
+		}
+	}
+	is_valid = {
+		prestige_level >= very_high_prestige_level
+		is_independent_ruler = yes
+		exists = title:k_zajantak
+		NOT = {
+			has_truce = title:k_zajantak.holder
+		}
+	}
+	
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	
+	effect = {
+		trigger_event = {id = lotr_bozisha_miraz.0300}
+	}
+	
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_fate_of_khorsaj = { # RoA corsair decision
+	title = decision_fate_of_khorsaj
+	selection_tooltip = decision_fate_of_khorsaj_tooltip
+	desc = decision_fate_of_khorsaj_desc
+	confirm_text = decision_fate_of_khorsaj_confirm
+	decision_group_type = realms_in_exile_major
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_corsair_02.dds"
+	}
+	
+	sort_order = 1000
+	
+	#AI
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 5
+		kingdom = 5
+		empire = 5
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 10000
+	}
+	
+	is_shown = {
+		has_character_flag = khorsaj_fate_open
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_fate_of_khorsaj
+			}
+		}
+	}
+	
+	is_valid = {
+		is_travelling = no
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_lotr_adult = yes
+		is_available = yes
+	}
+	
+	widget = {
+		gui = decision_view_widget_option_list_generic
+		controller = decision_option_list_controller
+		decision_to_second_step_button = decision_fate_of_khorsaj_confirm_selection
+
+		item = { # Bellakar
+			value = decision_fate_of_khorsaj_bellakar
+			current_description = decision_fate_of_khorsaj_bellakar_desc
+			localization = decision_fate_of_khorsaj_bellakar_loc
+			icon = gfx/interface/icons/message_feed/a_catch_all_councillor_icon.dds
+		}
+		item = { # An-Balkumagan
+			value = decision_fate_of_khorsaj_anballukhor
+			current_description = decision_fate_of_khorsaj_anballukhor_desc
+			localization = decision_fate_of_khorsaj_anballukhor_loc
+			icon = gfx/interface/icons/message_feed/county_corruption.dds
+		}
+		item = { # Rây
+			value = decision_fate_of_khorsaj_ray
+			current_description = decision_fate_of_khorsaj_ray_desc
+			localization = decision_fate_of_khorsaj_ray_loc
+			icon = gfx/interface/icons/message_feed/barter.dds
+		}
+		item = { # Corsairs
+			value = decision_fate_of_khorsaj_corsairs
+			current_description = decision_fate_of_khorsaj_corsairs_desc
+			localization = decision_fate_of_khorsaj_corsairs_loc
+			icon = gfx/interface/icons/message_feed/mercenary.dds
+		}
+	}
+
+	# EFFECT
+	effect = {
+		custom_tooltip = decision_fate_of_khorsaj_travel_tt
+		add_character_modifier = {
+			modifier = khorsaj_safe_travels
+			years = 2
+		}
+		hidden_effect = { #give free caravan master
+			if = {
+				limit = { NOT = { employs_court_position = travel_leader_court_position } }
+				create_character = {
+					template = travel_leader_court_position_template
+					employer = root
+					save_scope_as = caravan_master
+				}
+				appoint_court_position = {
+					recipient = scope:caravan_master
+					court_position = travel_leader_court_position
+				}
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = { scope:decision_fate_of_khorsaj_bellakar = yes }
+				custom_tooltip = decision_fate_of_khorsaj_bellakar_tt
+				start_travel_plan = {
+					destination = title:c_korlea.title_province
+					return_trip = yes
+					players_use_planner = no
+					on_arrival_event = lotr_bozisha_miraz.0501
+					on_arrival_destinations = all_but_last
+				}
+			}
+			if = {
+				limit = { scope:decision_fate_of_khorsaj_anballukhor = yes }
+				custom_tooltip = decision_fate_of_khorsaj_anballukhor_tt
+				start_travel_plan = {
+					destination = title:c_tariketh_an_kharat.title_province
+					return_trip = yes
+					players_use_planner = no
+					on_arrival_event = lotr_bozisha_miraz.0502
+					on_arrival_destinations = all_but_last
+				}
+			}
+			if = {
+				limit = { scope:decision_fate_of_khorsaj_ray = yes }
+				custom_tooltip = decision_fate_of_khorsaj_ray_tt
+				start_travel_plan = {
+					destination = title:c_bozisha_dar.title_province
+					return_trip = yes
+					players_use_planner = no
+					on_arrival_event = lotr_bozisha_miraz.0503
+					on_arrival_destinations = all_but_last
+				}
+			}
+			if = {
+				limit = { scope:decision_fate_of_khorsaj_corsairs = yes }
+				custom_tooltip = decision_fate_of_khorsaj_corsairs_tt
+				start_travel_plan = {
+					destination = title:c_sunira.title_province
+					return_trip = yes
+					players_use_planner = no
+					on_arrival_event = lotr_bozisha_miraz.0504
+					on_arrival_destinations = all_but_last
+				}
+			}
+		}
+		
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_fate_of_khorsaj
+		}
+	}
+}

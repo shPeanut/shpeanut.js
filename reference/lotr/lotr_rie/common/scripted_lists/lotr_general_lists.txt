@@ -1,0 +1,69 @@
+﻿#############################################
+#
+#	These are scripted lists. They allow us to make our own iterators that 
+#	can function with the 3 basic iterators, as far as I know
+#	i.e., every_XXX, any_XXX, random_XXX. Potentially ordered_XXX as-well, but not sure on thta
+#
+#############################################
+unplayable_race = {
+	base = living_character
+	conditions = { 
+		is_from_ruler_designer = no
+		OR = {
+			#not_valar = yes
+			not_nazgul = yes
+			not_istari = yes
+			not_istari_evil = yes
+			not_maiar = yes
+			not_maiar_fallen = yes
+		}
+	}
+}
+
+settlement_county = {
+	base = county
+	conditions = { 
+		title_province ?= { has_holding_type = settlement_holding }
+	}
+}
+
+# valinor_elf_culture = {
+# 	base = living_character
+# 	conditions = {
+# 		is_from_ruler_designer = no
+# 		OR = {
+# 			culture = culture:vanyar
+# 			culture = culture:teleri
+# 			culture ?= { has_cultural_pillar = heritage_quendi } # Original 3 tribes
+# 		}
+# 		is_in_valinor = no
+# 	}
+# }
+
+nazgul = {
+	base = living_character
+	conditions = {
+		is_nazgul = yes
+	}
+}
+
+istari = {
+	base = living_character
+	conditions = {
+		has_trait = istari
+	}
+}
+
+tamska_heir = {
+	base = living_character
+	conditions = {
+		has_trait = tamska_heir
+	}
+}
+
+excess_wasteland_character = {
+	base = living_character
+	conditions = { 
+		culture = culture:wastelands
+	}
+}

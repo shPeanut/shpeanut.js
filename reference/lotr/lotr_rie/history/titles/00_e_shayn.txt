@@ -1,0 +1,3850 @@
+#### Empire of Shayn ####
+
+# e_shayn = {
+# }
+
+### Kingdom of Lyneria ###
+
+k_lyneria = {
+	7032.12.20 = {
+		holder = 0
+	}
+}
+
+## Lynerian League City State Titulars ##
+
+#d_lyneria = {
+#	6711.05.20 = {
+#		holder = lineofcalynor1
+#		de_jure_liege = k_lyneria
+#		government = oligarchy_government
+#	}
+#	6796.04.06 = {
+#		holder = lineofcalynor4
+#	}
+#	6823.01.21 = {
+#		holder = lineofcalynor7
+#	}
+#	6877.10.04 = {
+#		holder = lineofcalynor8
+#	}
+#	6894.03.12 = {
+#		holder = lineofcalynor13
+#	}
+#	6917.04.04 = {
+#		holder = lineofcalynor18
+#	}
+#	6961.09.28 = {
+#		holder = lineofcalynor29
+#	}
+#	6967.10.14 = {
+#		holder = lineofcalynor42
+#	}
+#	7009.09.14 = {
+#		holder = lineofcalynor55
+#	}
+# }
+
+#d_twincities = {
+#	6500.1.1 = {
+#		de_jure_liege = k_lyneria
+#		government = oligarchy_government
+#	}
+#	6726.11.24 = {
+#		holder = lineofnymara1
+#	}
+#	6793.02.15 = {
+#		holder = lineofnymara3
+#	}
+#	6827.06.12 = {
+#		holder = lineofnymara8
+#	}
+#	6836.01.26 = {
+#		holder = lineofnymara11
+#	}
+#	6865.01.21 = {
+#		holder = lineofnymara13
+#	}
+#	6872.01.02 = {
+#		holder = lineofnymara24
+#	}
+#	6923.11.11 = {
+#		holder = lineofnymara34
+#	}
+#	6966.03.19 = {
+#		holder = lineofnymara45
+#	}
+#	6979.02.14 = {
+#		holder = lineofnymara53
+#	}
+#	7013.08.11 = {
+#		holder = lineofnymara63
+#	}
+# }
+
+#d_nymara = {
+#	6500.1.1 = {
+#		de_jure_liege = k_lyneria
+#		government = oligarchy_government
+#	}
+#	6691.01.01 = {
+#		holder = lineofsharynor1
+#	}
+#	6771.07.24 = {
+#		holder = lineofsharynor5
+#	}
+#	6800.05.09 = {
+#		holder = lineofsharynor8
+#	}
+#	6843.03.09 = {
+#		holder = lineofsharynor9
+#	}
+#	6850.06.02 = {
+#		holder = lineofsharynor14
+#	}
+#	6897.05.04 = {
+#		holder = lineofsharynor18
+#	}
+#	6920.06.02 = {
+#		holder = lineofsharynor33
+#	}
+#	6969.06.15 = {
+#		holder = lineofsharynor45
+#	}
+#	6990.09.08 = {
+#		holder = lineofsharynor67
+#	}
+#	7030.10.06 = {
+#		holder = lineofsharynor84
+#	}
+# }
+
+#d_murnak = {
+#	6500.1.1 = {
+#		de_jure_liege = k_lyneria
+#		government = oligarchy_government
+#	}
+#	6731.07.01 = {
+#		holder = lineoflyvara1
+#	}
+#	6797.01.28 = {
+#		holder = lineoflyvara3
+#	}
+#	6832.05.25 = {
+#		holder = lineoflyvara7
+#	}
+#	6875.09.14 = {
+#		holder = lineoflyvara9
+#	}
+#	6909.06.22 = {
+#		holder = lineoflyvara18
+#	}
+#	6954.02.12 = {
+#		holder = lineoflyvara34
+#	}
+#	6996.01.24 = {
+#		holder = lineoflyvara45
+#	}
+#	7027.04.11 = {
+#		holder = lineoflyvara56
+#	}
+# }
+
+## Duchy of Meloria ##
+
+d_meloria = {
+	6730.9.4 = { # Established as the puppet regime after the Lynerian revolt of 2697
+		holder = lineofprenymara5
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	6772.12.5 = {
+		holder = lineofnymara1
+	}
+	6793.02.15 = {
+		holder = lineofnymara3
+	}
+	6824.11.21 = { # Lyneria revolts again against Codya, this time sucessfully
+		holder = 0
+	}
+}
+
+c_lyneria = {
+	5000.1.1 = {
+		change_development_level = 26
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	5317.9.4 = {
+		holder = lineofrymara1 #Elyaar
+	}
+	5398.8.10 = {
+		holder = lineofrymara3 #Kal_krii
+	}
+	5402.5.23 = {
+		holder = lineofrymara5 #Vetheove
+	}
+	5448.11.18 = {
+		holder = lineofrymara8 #Amaar
+	}
+	5489.5.7 = {
+		holder = lineofrymara10 #Myrove
+	}
+
+	6711.05.20 = {
+		holder = lineofcalynor1
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	6730.9.4 = { # Established as the puppet regime after the Lynerian revolt of 2697
+		liege = d_meloria
+	}
+	6796.04.06 = {
+		holder = lineofcalynor4
+	}
+	6823.01.21 = {
+		holder = lineofcalynor7
+	}
+	6877.10.04 = {
+		holder = lineofcalynor8
+	}
+	6894.03.12 = {
+		holder = lineofcalynor13
+	}
+	6917.04.04 = {
+		holder = lineofcalynor18
+	}
+	6961.09.28 = {
+		holder = lineofcalynor29
+	}
+	6967.10.14 = {
+		holder = lineofcalynor42
+	}
+	7009.09.14 = {
+		holder = lineofcalynor55
+	}
+}
+
+c_talpharis = {
+	5000.1.1 = {
+		change_development_level = 20
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	5365.8.25 = {
+		holder = lineofthalyna1 #Lootima
+	}
+	5385.2.14 = {
+		holder = lineofthalyna3 #Shaymbam
+	}
+	5444.1.25 = {
+		holder = lineofthalyna6 #Zantara
+	}
+	5462.10.6 = {
+		holder = lineofthalyna9 #Pharambam
+	}
+
+	6700.01.25 = {
+		holder = lineofemayna1
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	6730.9.4 = { # Established as the puppet regime after the Lynerian revolt of 2697
+		liege = d_meloria
+	}
+	6782.09.01 = {
+		holder = lineofemayna3
+	}
+	6802.10.14 = {
+		holder = lineofemayna8
+	}
+	6836.08.11 = {
+		holder = lineofemayna13
+	}
+	6874.01.01 = {
+		holder = lineofemayna16
+	}
+	6884.05.18 = {
+		holder = lineofemayna21
+	}
+	6938.05.16 = {
+		holder = lineofemayna26
+	}
+	6978.09.03 = {
+		holder = lineofemayna39
+	}
+	7002.04.20 = {
+		holder = lineofemayna66
+	}
+	7030.09.16 = {
+		holder = lineofemayna84
+	}
+}
+
+c_lynhar = {
+	5000.1.1 = {
+		change_development_level = 25
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	5282.8.28 = {
+		holder = lineofelysar1 #Myrove
+	}
+	5346.10.17 = {
+		holder = lineofelysar3 #Orzandar
+	}
+	5401.9.26 = {
+		holder = lineofelysar5 #Ndaraa
+	}
+	5416.3.4 = {
+		holder = lineofelysar9 #Kaloyaar
+	}
+	5455.2.19 = {
+		holder = lineofelysar11 #Uyarenaar
+	}
+	5495.4.13 = {
+		holder = lineofelysar14 #Thaar
+	}
+
+	6680.1.1 = {
+		holder = lineofprenymara1
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	6723.02.15 = {
+		holder = lineofprenymara5
+	}
+	6730.9.4 = { # Established as the puppet regime after the Lynerian revolt of 2697
+		liege = d_meloria
+	}
+	6772.12.5 = {
+		holder = lineofnymara1
+	}
+	6793.02.15 = {
+		holder = lineofnymara3
+	}
+	6827.06.12 = {
+		holder = lineofnymara8
+	}
+	6836.01.26 = {
+		holder = lineofnymara11
+	}
+	6865.01.21 = {
+		holder = lineofnymara13
+	}
+	6872.01.02 = {
+		holder = lineofnymara24
+	}
+	6923.11.11 = {
+		holder = lineofnymara34
+	}
+	6966.03.19 = {
+		holder = lineofnymara45
+	}
+	6979.02.14 = {
+		holder = lineofnymara53
+	}
+	7013.08.11 = {
+		holder = lineofnymara63
+	}
+}
+
+c_lharan = {
+	5000.1.1 = {
+		change_development_level = 22
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	5226.11.9 = {
+		holder = lineofsylayna1 #Uyiihaym
+	}
+	5311.1.20 = {
+		holder = lineofsylayna3 #Haruunu
+	}
+	5347.7.2 = {
+		holder = lineofsylayna5 #Nylove
+	}
+	5391.2.12 = {
+		holder = lineofsylayna7 #Taalikaphar
+	}
+	5411.5.3 = {
+		holder = lineofsylayna10 #Lysiimbam
+	}
+	5443.9.11 = {
+		holder = lineofsylayna14 #Naktara
+	}
+	5479.4.9 = {
+		holder = lineofsylayna17 #Pharahaym
+	}
+
+	6709.06.16 = {
+		holder = lineofpharala1
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	6730.9.4 = { # Established as the puppet regime after the Lynerian revolt of 2697
+		liege = d_meloria
+	}
+	6793.10.11 = {
+		holder = lineofpharala3
+	}
+	6816.07.09 = {
+		holder = lineofpharala5
+	}
+	6831.07.21 = {
+		holder = lineofpharala7
+	}
+	6871.05.19 = {
+		holder = lineofpharala11
+	}
+	6883.05.26 = {
+		holder = lineofpharala18
+	}
+	6938.02.11 = {
+		holder = lineofpharala40
+	}
+	6986.07.07 = {
+		holder = lineofpharala42
+	}
+	6998.07.24 = {
+		holder = lineofpharala44
+	}
+	7010.03.11 = {
+		holder = lineofnymara55
+	}
+	7026.03.27 = {
+		holder = lineofsharynor60
+	}
+	7027.11.05 = {
+		holder = lineofnymara71
+	}
+}
+
+c_nymara = {
+	5000.1.1 = {
+		change_development_level = 24
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	5232.9.5 = {
+		holder = lineofbelara1 #Haayaar
+	}
+	5293.11.12 = {
+		holder = lineofbelara3 #Enaama
+	}
+	5355.1.23 = {
+		holder = lineofbelara5 #Zaranataar
+	}
+	5392.11.10 = {
+		holder = lineofbelara7 #Taalikaphar
+	}
+	5436.7.21 = {
+		holder = lineofbelara9 #Elyaar
+	}
+	5447.2.26 = {
+		holder = lineofbelara11 #Uyiihaym
+	}
+	5479.5.17 = {
+		holder = lineofbelara15 #Zantara
+	}
+
+	6691.01.01 = {
+		holder = lineofsharynor1
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	6730.9.4 = { # Established as the puppet regime after the Lynerian revolt of 2697
+		liege = d_meloria
+	}
+	6771.07.24 = {
+		holder = lineofsharynor5
+	}
+	6800.05.09 = {
+		holder = lineofsharynor8
+	}
+	6843.03.09 = {
+		holder = lineofsharynor9
+	}
+	6850.06.02 = {
+		holder = lineofsharynor14
+	}
+	6897.05.04 = {
+		holder = lineofsharynor18
+	}
+	6920.06.02 = {
+		holder = lineofsharynor33
+	}
+	6969.06.15 = {
+		holder = lineofsharynor45
+	}
+	6990.09.08 = {
+		holder = lineofsharynor67
+	}
+	7030.10.06 = {
+		holder = lineofsharynor84
+	}
+}
+
+## Duchy of Sylara ##
+
+d_sylara = {
+	7032.12.20 = {
+		holder = 0
+	}
+}
+
+c_pelorna = {
+	5000.1.1 = {
+		change_development_level = 16
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	5344.8.5 = {
+		holder = lineofcalisra1 #Naktara
+	}
+	5412.5.16 = {
+		holder = lineofcalisra3 #Eelchini
+	}
+	5444.3.13 = {
+		holder = lineofcalisra6 #Thatahaym
+	}
+	5497.9.23 = {
+		holder = lineofcalisra8 #Shiiba
+	}
+
+	6720.06.25 = {
+		holder = lineofsylara1
+		government = oligarchy_government
+		liege = e_codya
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	6804.07.17 = {
+		holder = lineofsylara3
+	}
+	6812.07.08 = {
+		holder = lineofsylara4
+	}
+	6825.08.20 = {
+		holder = lineofsylara7
+	}
+	6872.03.01 = {
+		holder = lineofsylara12
+	}
+	6931.02.26 = {
+		holder = lineofsylara20
+	}
+	6952.08.06 = {
+		holder = lineofsylara26
+	}
+	6959.04.22 = {
+		holder = lineofsylara33
+	}
+	6970.03.08 = {
+		holder = lineofsylara43
+	}
+	7011.03.14 = {
+		holder = lineofsylara53
+	}
+	7026.11.14 = {
+		holder = lineofsylara59
+	}
+	7032.12.29 = { # Zatanka Coup
+		holder = lineofzantaka1
+	}
+}
+
+c_emelcyn = {
+	5000.1.1 = {
+		change_development_level = 20
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	5244.9.1 = {
+		holder = lineofolenor1 #Uyiihaym
+	}
+	5311.7.24 = {
+		holder = lineofolenor3 #Veshamba
+	}
+	5372.3.5 = {
+		holder = lineofolenor5 #Chaasiyand
+	}
+	5394.11.7 = {
+		holder = lineofolenor7 #Lynnyra
+	}
+	5399.10.28 = {
+		holder = lineofolenor9 #Taalambam
+	}
+	5444.8.16 = {
+		holder = lineofolenor11 #Avarynam
+	}
+	5502.8.27 = {
+		holder = lineofolenor14 #Mbuguumar
+	}
+
+	6712.12.14 = {
+		holder = lineofmurnakor1
+		government = oligarchy_government
+		liege = e_codya
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	6790.05.23 = {
+		holder = lineofmurnakor3
+	}
+	6814.08.23 = {
+		holder = lineofmurnakor9
+	}
+	6857.09.07 = {
+		holder = lineofmurnakor15
+	}
+	6882.12.15 = {
+		holder = lineofnymara12
+	}
+	6883.06.03 = {
+		holder = lineofnymara14
+	}
+	6901.01.23 = {
+		holder = lineofsylara13
+	}
+	6913.06.14 = {
+		holder = lineofsylara21
+	}
+	6947.10.11 = {
+		holder = lineofsylara32
+	}
+	6984.01.28 = {
+		holder = lineofsylara48
+	}
+	7013.09.28 = {
+		holder = lineofsylara47
+	}
+	7021.09.22 = {
+		holder = lineofpharala57
+	}
+}
+
+c_murnak = {
+	5000.1.1 = {
+		change_development_level = 14
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	5222.11.5 = {
+		holder = lineofvylara1 #Vaariiyar
+	}
+	5298.7.18 = {
+		holder = lineofvylara3 #Aykaafahaym
+	}
+	5331.9.17 = {
+		holder = lineofvylara5 #Ndakar
+	}
+	5358.6.19 = {
+		holder = lineofvylara7 #Zaranataar
+	}
+	5380.8.4 = {
+		holder = lineofvylara9 #Uyiihaym
+	}
+	5420.6.27 = {
+		holder = lineofvylara13 #Enakyn
+	}
+	5471.6.14 = {
+		holder = lineofvylara15 #Veshamba
+	}
+
+	6731.07.01 = {
+		holder = lineoflyvara1
+		government = oligarchy_government
+		liege = e_codya
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	6797.01.28 = {
+		holder = lineoflyvara3
+	}
+	6832.05.25 = {
+		holder = lineoflyvara7
+	}
+	6875.09.14 = {
+		holder = lineoflyvara9
+	}
+	6909.06.22 = {
+		holder = lineoflyvara18
+	}
+	6954.02.12 = {
+		holder = lineoflyvara34
+	}
+	6996.01.24 = {
+		holder = lineoflyvara45
+	}
+	7027.04.11 = {
+		holder = lineoflyvara56
+	}
+}
+
+c_calora = {
+	1000.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -3
+		government = wastelands_government
+	}
+}
+
+c_caryalon = {
+	5000.1.1 = {
+		change_development_level = 12
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	5257.7.11 = {
+		holder = lineofthalasor1 #Andazandam
+	}
+	5323.8.1 = {
+		holder = lineofthalasor3 #Cod_krii
+	}
+	5359.9.25 = {
+		holder = lineofthalasor5 #Faazantar
+	}
+	5398.9.21 = {
+		holder = lineofthalasor7 #Lootima
+	}
+	5431.5.20 = {
+		holder = lineofthalasor9 #Myraolyar
+	}
+	5485.10.26 = {
+		holder = lineofthalasor11 #Thayanar
+	}
+
+
+	6712.12.14 = {
+		holder = lineofmurnakor1
+		liege = e_codya
+	}
+	6790.05.23 = {
+		holder = lineofmurnakor3
+	}
+	6814.08.23 = {
+		holder = lineofmurnakor9
+	}
+	6857.09.07 = {
+		holder = lineofmurnakor15
+	}
+	6882.12.15 = {
+		holder = lineofnymara12
+	}
+	6883.06.03 = {
+		holder = lineofnymara14
+	}
+	6901.01.23 = {
+		holder = lineofsylara13
+	}
+	6913.06.14 = {
+		holder = lineofsylara21
+	}
+	6947.10.11 = {
+		holder = lineofsylara32
+	}
+	6984.01.28 = {
+		holder = lineofsylara48
+	}
+	7013.09.28 = {
+		holder = lineofsylara47
+	}
+	7021.09.22 = {
+		holder = lineofpharala57
+	}
+}
+
+c_nymia = {
+	4000.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+b_melynar = {
+	7020.1.1 = {
+		holder = lineofmelynar1
+	}
+}
+
+b_phariel = {
+	7020.1.1 = {
+		holder = lineofelynda92
+	}
+}
+
+## Duchy of Bhal Ghur ##
+
+d_bhal_ghur = {
+	4533.10.10 = {
+		holder = lineoftighan1 #
+	}
+	4594.3.17 = {
+		holder = lineoftighan3 #
+	}
+	4615.11.15 = {
+		holder = lineoftighan5 #
+	}
+	4664.3.10 = {
+		holder = lineoftighan7 #
+	}
+	4695.6.3 = {
+		holder = lineoftighan9 #
+	}
+	4718.11.18 = {
+		holder = lineoftighan11 #
+	}
+	4745.6.24 = {
+		holder = lineoftighan13 #
+	}
+	4757.8.1 = {
+		holder = lineoftighan15 #
+	}
+	4808.3.15 = {
+		holder = lineoftighan17 #
+	}
+	4848.6.7 = {
+		holder = lineoftighan19 #
+	}
+	4887.12.7 = {
+		holder = lineoftighan21 #
+	}
+	4919.4.26 = {
+		holder = lineoftighan23 #
+	}
+	4935.9.25 = {
+		holder = lineoftighan25 #
+	}
+	4973.5.9 = {
+		holder = lineoftighan27 #
+	}
+	5022.11.14 = {
+		holder = lineoftighan29 #
+	}
+	5048.6.18 = {
+		holder = lineoftighan31 #
+	}
+	5079.5.15 = {
+		holder = lineoftighan33 #
+	}
+	5110.7.25 = {
+		holder = lineoftighan35 #
+	}
+	5161.3.2 = {
+		holder = lineoftighan37 #
+	}
+	5179.10.19 = {
+		holder = lineoftighan39 #
+	}
+	5199.8.18 = {
+		holder = lineoftighan41 #
+	}
+	5245.6.19 = {
+		holder = lineoftighan43 #
+	}
+	5267.10.20 = {
+		holder = lineoftighan45 #
+	}
+	5313.9.4 = {
+		holder = lineoftighan47 #
+	}
+	5338.1.1 = {
+		holder = lineoftighan49 #
+	}
+	5345.1.19 = {
+		holder = lineoftighan51 #
+	}
+	5391.5.16 = {
+		holder = lineoftighan53 #
+	}
+	5434.10.8 = {
+		holder = lineoftighan55 #
+	}
+	5800.1.1 = {
+		holder = 0
+	}
+}
+
+c_dru_buta = {
+	4533.10.10 = {
+		holder = lineoftighan1 #
+		change_development_level = 5
+		government = tribal_government
+	}
+	4594.3.17 = {
+		holder = lineoftighan3 #
+	}
+	4615.11.15 = {
+		holder = lineoftighan5 #
+	}
+	4664.3.10 = {
+		holder = lineoftighan7 #
+	}
+	4695.6.3 = {
+		holder = lineoftighan9 #
+	}
+	4718.11.18 = {
+		holder = lineoftighan11 #
+	}
+	4745.6.24 = {
+		holder = lineoftighan13 #
+	}
+	4757.8.1 = {
+		holder = lineoftighan15 #
+	}
+	4808.3.15 = {
+		holder = lineoftighan17 #
+	}
+	4848.6.7 = {
+		holder = lineoftighan19 #
+	}
+	4887.12.7 = {
+		holder = lineoftighan21 #
+	}
+	4919.4.26 = {
+		holder = lineoftighan23 #
+	}
+	4935.9.25 = {
+		holder = lineoftighan25 #
+	}
+	4973.5.9 = {
+		holder = lineoftighan27 #
+	}
+	5022.11.14 = {
+		holder = lineoftighan29 #
+	}
+	5048.6.18 = {
+		holder = lineoftighan31 #
+	}
+	5079.5.15 = {
+		holder = lineoftighan33 #
+	}
+	5110.7.25 = {
+		holder = lineoftighan35 #
+	}
+	5161.3.2 = {
+		holder = lineoftighan37 #
+	}
+	5179.10.19 = {
+		holder = lineoftighan39 #
+	}
+	5199.8.18 = {
+		holder = lineoftighan41 #
+	}
+	5245.6.19 = {
+		holder = lineoftighan43 #
+	}
+	5267.10.20 = {
+		holder = lineoftighan45 #
+	}
+	5313.9.4 = {
+		holder = lineoftighan47 #
+	}
+	5338.1.1 = {
+		holder = lineoftighan49 #
+	}
+	5345.1.19 = {
+		holder = lineoftighan51 #
+	}
+	5391.5.16 = {
+		holder = lineoftighan53 #
+	}
+	5434.10.8 = {
+		holder = lineoftighan55 #
+	}
+	5800.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -3
+		government = wastelands_government
+	}
+}
+
+c_bhu_rha = {
+	1000.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -3
+		government = wastelands_government
+	}
+}
+
+c_bru_kha = {
+	4533.10.10 = {
+		holder = lineoftighan1 #
+		change_development_level = 7
+		government = tribal_government
+	}
+	4594.3.17 = {
+		holder = lineoftighan3 #
+	}
+	4615.11.15 = {
+		holder = lineoftighan5 #
+	}
+	4664.3.10 = {
+		holder = lineoftighan7 #
+	}
+	4695.6.3 = {
+		holder = lineoftighan9 #
+	}
+	4718.11.18 = {
+		holder = lineoftighan11 #
+	}
+	4745.6.24 = {
+		holder = lineoftighan13 #
+	}
+	4757.8.1 = {
+		holder = lineoftighan15 #
+	}
+	4808.3.15 = {
+		holder = lineoftighan17 #
+	}
+	4848.6.7 = {
+		holder = lineoftighan19 #
+	}
+	4887.12.7 = {
+		holder = lineoftighan21 #
+	}
+	4919.4.26 = {
+		holder = lineoftighan23 #
+	}
+	4935.9.25 = {
+		holder = lineoftighan25 #
+	}
+	4973.5.9 = {
+		holder = lineoftighan27 #
+	}
+	5022.11.14 = {
+		holder = lineoftighan29 #
+	}
+	5048.6.18 = {
+		holder = lineoftighan31 #
+	}
+	5079.5.15 = {
+		holder = lineoftighan33 #
+	}
+	5110.7.25 = {
+		holder = lineoftighan35 #
+	}
+	5161.3.2 = {
+		holder = lineoftighan37 #
+	}
+	5179.10.19 = {
+		holder = lineoftighan39 #
+	}
+	5199.8.18 = {
+		holder = lineoftighan41 #
+	}
+	5245.6.19 = {
+		holder = lineoftighan43 #
+	}
+	5267.10.20 = {
+		holder = lineoftighan45 #
+	}
+	5313.9.4 = {
+		holder = lineoftighan47 #
+	}
+	5338.1.1 = {
+		holder = lineoftighan49 #
+	}
+	5345.1.19 = {
+		holder = lineoftighan51 #
+	}
+	5391.5.16 = {
+		holder = lineoftighan53 #
+	}
+	5434.10.8 = {
+		holder = lineoftighan55 #
+	}
+	6133.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -3
+		government = wastelands_government
+	}
+}
+
+c_gal_zu = {
+	1000.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -3
+		government = wastelands_government
+	}
+}
+
+c_tu_tha = {
+	1000.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -3
+		government = wastelands_government
+	}
+}
+
+c_tha_gan = {
+	1000.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -3
+		government = wastelands_government
+	}
+}
+
+### Kingdom of Gan ###
+
+k_gan = {
+	5371.9.12 = {
+		holder = lineofganaseeyim1 #Enaama # Unites the tribes of Gân into one solid block against the Nazgul threats
+	}
+	5397.4.5 = {
+		holder = lineofganaseeyim4 #Elyaar
+	}
+	5431.2.28 = {
+		holder = lineofganaseeyim8 #Shayag
+	}
+	5458.1.6 = {
+		holder = lineofganaseeyim10 #Thayanag
+	}
+	5462.8.20 = { # Kingdom of Gân collapses
+		holder = 0
+	}
+}
+
+## Duchy of Gan ##
+
+d_gan = {
+	5311.6.21 = {
+		holder = lineofganaseeyim0 #Araaraam # Father of Enaama, a weak ruler, prone to heavy drinking and violent outbursts
+	}
+	5350.6.19 = {
+		holder = lineofganaseeyim1 #Enaama # Unites the tribes of Gân into one solid block against the Nazgul threats
+	}
+	5397.4.5 = {
+		holder = lineofganaseeyim4 #Elyaar
+	}
+	5431.2.28 = {
+		holder = lineofganaseeyim8 #Shayag
+	}
+	5458.1.6 = {
+		holder = lineofganaseeyim10 #Thayanag
+	}
+	5498.1.27 = {
+		holder = 0
+	}
+
+	6927.05.28 = {
+		holder = lineofzaandaoveim8
+	}
+	6969.08.05 = {
+		holder = lineofzaandaoveim16
+	}
+	6996.08.05 = {
+		holder = lineofzaandaoveim20
+	}
+	7025.10.27 = {
+		holder = lineofzaandaoveim22
+	}
+	7037.08.06 = {
+		holder = lineofzaandaoveim26
+	}
+}
+
+c_sengan = {
+	5000.1.1 = {
+		change_development_level = 6
+	}
+	5311.6.21 = {
+		holder = lineofganaseeyim0 #Araaraam # Father of Enaama, a weak ruler, prone to heavy drinking and violent outbursts
+	}
+	5350.6.19 = {
+		holder = lineofganaseeyim1 #Enaama # Unites the tribes of Gân into one solid block against the Nazgul threats
+	}
+	5397.4.5 = {
+		holder = lineofganaseeyim4 #Elyaar
+	}
+	5431.2.28 = {
+		holder = lineofganaseeyim8 #Shayag
+	}
+	5458.1.6 = {
+		holder = lineofganaseeyim10 #Thayanag
+	}
+
+	6650.06.21 = {
+		holder = lineofnginaraaim1
+	}
+	6705.11.27 = {
+		holder = lineofnginaraaim3
+	}
+	6722.08.13 = {
+		holder = lineofnginaraaim11
+	}
+	6781.08.20 = {
+		holder = lineoftalooyazandim10
+	}
+	6797.06.18 = {
+		holder = lineoftalooyazandim18
+	}
+	6811.07.25 = {
+		holder = lineoftalooyazandim24
+	}
+	6820.05.07 = {
+		holder = lineoftalooyazandim25
+	}
+	6850.10.01 = {
+		holder = lineofvetheoveim1
+	}
+	6926.01.10 = {
+		holder = lineofvetheoveim3
+	}
+	6953.03.19 = {
+		holder = lineofvetheoveim8
+	}
+	6968.05.10 = {
+		holder = lineofvetheoveim13
+	}
+	6996.08.05 = {
+		liege = d_gan
+	}
+	7013.04.15 = {
+		holder = lineofvetheoveim21
+	}
+	7026.09.09 = {
+		holder = lineofvetheoveim28
+	}
+	7082.03.26 = {
+		holder = lineofvetheoveim35
+	}
+	7092.09.07 = {
+		holder = lineofvetheoveim36
+	}
+	7094.06.01 = {
+		holder = lineofvetheoveim38
+	}
+}
+
+c_logan = {
+	1000.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -3
+		government = wastelands_government
+	}
+}
+
+c_neruaka = {
+	5000.1.1 = {
+		change_development_level = 5
+	}
+	5311.6.21 = {
+		holder = lineofganaseeyim0 #Araaraam # Father of Enaama, a weak ruler, prone to heavy drinking and violent outbursts
+	}
+	5350.6.19 = {
+		holder = lineofganaseeyim1 #Enaama # Unites the tribes of Gân into one solid block against the Nazgul threats
+	}
+	5397.4.5 = {
+		holder = lineofganaseeyim4 #Elyaar
+	}
+	5431.2.28 = {
+		holder = lineofganaseeyim8 #Shayag
+	}
+	5458.1.6 = {
+		holder = lineofganaseeyim10 #Thayanag
+	}
+
+	6650.07.02 = {
+		holder = lineoftalooyazandim1
+	}
+	6785.01.01 = {
+		tributary_of = {
+			suzerain = e_mumakan
+			contract_group = tributary_subjugated
+		}
+	}
+	6716.08.01 = {
+		holder = lineoftalooyazandim3
+	}
+	6730.07.27 = {
+		holder = lineoftalooyazandim5
+	}
+	6751.06.22 = {
+		holder = lineoftalooyazandim12
+	}
+	6781.08.20 = {
+		holder = lineoftalooyazandim10
+	}
+	6797.06.18 = {
+		holder = lineoftalooyazandim18
+	}
+	6811.07.25 = {
+		holder = lineoftalooyazandim24
+	}
+	6820.05.07 = {
+		holder = lineoftalooyazandim25
+	}
+	6850.03.19 = {
+		holder = lineofzaandaoveim1
+	}
+	6907.02.02 = {
+		holder = lineofzaandaoveim3
+	}
+	6927.05.28 = {
+		holder = lineofzaandaoveim8
+	}
+	6969.08.05 = {
+		holder = lineofzaandaoveim16
+	}
+	6996.08.05 = {
+		holder = lineofzaandaoveim20
+	}
+	7025.10.27 = {
+		holder = lineofzaandaoveim22
+	}
+	7037.08.06 = {
+		holder = lineofzaandaoveim26
+	}
+}
+
+c_thathase = {
+	5000.1.1 = {
+		change_development_level = 3
+	}
+	5311.6.21 = {
+		holder = lineofganaseeyim0 #Araaraam # Father of Enaama, a weak ruler, prone to heavy drinking and violent outbursts
+	}
+	5350.6.19 = {
+		holder = lineofganaseeyim1 #Enaama # Unites the tribes of Gân into one solid block against the Nazgul threats
+	}
+	5397.4.5 = {
+		holder = lineofganaseeyim4 #Elyaar
+	}
+	5431.2.28 = {
+		holder = lineofganaseeyim8 #Shayag
+	}
+	5458.1.6 = {
+		holder = lineofganaseeyim10 #Thayanag
+	}
+
+	6650.07.01 = {
+		holder = lineofuyaruyiraim1
+	}
+	6785.01.01 = {
+		tributary_of = {
+			suzerain = e_mumakan
+			contract_group = tributary_subjugated
+		}
+	}
+	6704.11.19 = {
+		holder = lineofuyaruyiraim4
+	}
+	6726.01.15 = {
+		holder = lineofuyaruyiraim6
+	}
+	6776.09.08 = {
+		holder = lineofuyaruyiraim9
+	}
+	6808.10.23 = {
+		holder = lineofuyaruyiraim18
+	}
+	6850.03.19 = {
+		holder = lineofzaandaoveim1
+	}
+	6907.02.02 = {
+		holder = lineofzaandaoveim3
+	}
+	6927.05.28 = {
+		holder = lineofzaandaoveim8
+	}
+	6969.08.05 = {
+		holder = lineofzaandaoveim16
+	}
+	6996.08.05 = {
+		holder = lineofzaandaoveim20
+	}
+	7025.10.27 = {
+		holder = lineofzaandaoveim22
+	}
+	7037.08.06 = {
+		holder = lineofzaandaoveim26
+	}
+}
+
+c_andaham = {
+	5000.1.1 = {
+		change_development_level = 6
+	}
+	5278.7.27 = {
+		holder = lineofvetheozandim1 #Lhavetheve
+	}
+	5355.7.28 = {
+		holder = lineofvetheozandim3 #Ndeenar
+	}
+	5371.9.12 = {
+		liege = k_gan
+	}
+	5405.11.21 = {
+		holder = lineofvetheozandim5 #Haayaarma
+	}
+	5435.1.21 = {
+		holder = lineofvetheozandim7 #Zaandaove
+	}
+	5462.8.20 = { # Kingdom of Gân collapses
+		liege = 0
+	}
+	5471.4.27 = {
+		holder = lineofvetheozandim11 #Zantara
+	}
+
+	6650.08.06 = {
+		holder = lineoflysiihaykim1
+		liege = 0
+	}
+	6785.01.01 = {
+		liege = e_mumakan
+	}
+	6727.12.04 = {
+		holder = lineoflysiihaykim3
+	}
+	6752.07.14 = {
+		holder = lineoflysiihaykim14
+	}
+	6773.01.16 = {
+		holder = lineoflysiihaykim15
+	}
+	6798.02.06 = {
+		holder = lineoflysiihaykim31
+	}
+	6806.08.06 = {
+		holder = lineoflysiihaykim55
+	}
+	6827.1.1 = { # Tributaries break away after coup
+		liege = 0
+	}
+	6844.12.13 = {
+		holder = lineoflysiihaykim41
+	}
+	6850.02.24 = {
+		holder = lineofusaraetheim1
+	}
+	6936.07.05 = {
+		holder = lineofusaraetheim3
+	}
+	6942.07.09 = {
+		holder = lineofusaraetheim7
+	}
+	6953.07.06 = {
+		holder = lineofusaraetheim11
+	}
+	6994.11.05 = {
+		holder = lineofusaraetheim22
+	}
+	6996.08.05 = {
+		liege = d_gan
+	}
+	7017.04.26 = {
+		holder = lineofusaraetheim27
+	}
+}
+
+c_mocharak = {
+	5000.1.1 = {
+		change_development_level = 3
+	}
+	5224.1.9 = {
+		holder = lineofnginaveovim1 #Marak_mbam
+	}
+	5287.8.16 = {
+		holder = lineofnginaveovim3 #Orzandar
+	}
+	5337.10.28 = {
+		holder = lineofnginaveovim5 #Myrove
+	}
+	5369.12.11 = {
+		holder = lineofnginaveovim7 #Aavoyr_mbam
+	}
+	5371.9.12 = {
+		liege = k_gan
+	}
+	5414.3.15 = {
+		holder = lineofnginaveovim9 #Kallyram
+	}
+	5462.8.20 = { # Kingdom of Gân collapses
+		liege = 0
+	}
+	5478.9.7 = {
+		holder = lineofnginaveovim13 #Kantir
+	}
+	5515.2.19 = {
+		holder = lineofnginaveovim15 #Kal_eel
+	}
+
+	6650.01.08 = {
+		holder = lineofaykaafahaymim1
+		liege = 0
+	}
+	6722.08.06 = {
+		holder = lineofaykaafahaymim3
+	}
+	6748.10.27 = {
+		holder = lineofaykaafahaymim9
+	}
+	6766.08.03 = {
+		holder = lineofaykaafahaymim21
+	}
+	6777.09.11 = {
+		holder = lineofaykaafahaymim39
+	}
+	6825.12.16 = {
+		holder = lineofaykaafahaymim44
+	}
+	6833.12.11 = {
+		holder = lineofaykaafahaymim57
+	}
+	6835.01.06 = {
+		holder = lineofaykaafahaymim51
+	}
+	6850.01.22 = {
+		holder = lineoftahmoyaaim1
+	}
+	6924.12.22 = {
+		holder = lineoftahmoyaaim3
+	}
+	6947.05.13 = {
+		holder = lineoftahmoyaaim9
+	}
+	6968.11.12 = {
+		holder = lineoftahmoyaaim28
+	}
+	7013.01.20 = {
+		holder = lineoftahmoyaaim31
+	}
+	7031.12.20 = {
+		holder = lineoftahmoyaaim36
+	}
+	7050.10.13 = {
+		holder = lineoftahmoyaaim44
+	}
+	7063.12.05 = {
+		holder = lineoftahmoyaaim51
+	}
+	7090.01.19 = {
+		holder = lineoftahmoyaaim54
+	}
+}
+
+## Duchy of Drenikan ##
+
+d_drenikan = {
+	5246.4.20 = {
+		holder = lineofmyrohaymim1 #Aykaafar
+	}
+	5314.1.18 = {
+		holder = lineofmyrohaymim3 #Haruunu
+	}
+	5332.7.23 = {
+		holder = lineofmyrohaymim5 #Lootima
+	}
+	5371.9.12 = {
+		liege = k_gan
+	}
+	5395.7.14 = {
+		holder = lineofmyrohaymim7 #Mbuan
+	}
+	5401.5.20 = {
+		holder = lineofmyrohaymim10 #Loovyrkrii
+	}
+	5416.3.9 = {
+		liege = 0 # Gân ruler fails to consolidate his inherited realm
+	}
+	5480.11.16 = {
+		holder = lineofmyrohaymim13 #Aykaafahaym
+	}
+	5501.7.2 = {
+		holder = 0
+	}
+}
+
+c_taru_makar = {
+	5000.1.1 = {
+		change_development_level = 5
+	}
+	5246.4.20 = {
+		holder = lineofmyrohaymim1 #Aykaafar
+	}
+	5314.1.18 = {
+		holder = lineofmyrohaymim3 #Haruunu
+	}
+	5332.7.23 = {
+		holder = lineofmyrohaymim5 #Lootima
+	}
+	5395.7.14 = {
+		holder = lineofmyrohaymim7 #Mbuan
+	}
+	5401.5.20 = {
+		holder = lineofmyrohaymim10 #Loovyrkrii
+	}
+	5480.11.16 = {
+		holder = lineofmyrohaymim13 #Aykaafahaym
+	}
+
+	6650.08.21 = {
+		holder = lineofelyaarim1
+		liege = e_mumakan
+	}
+	6703.03.22 = {
+		holder = lineofelyaarim4
+	}
+	6749.08.14 = {
+		holder = lineofelyaarim8
+	}
+	6775.12.13 = {
+		holder = lineofelyaarim15
+	}
+	6794.07.20 = {
+		holder = lineofelyaarim17
+	}
+	6804.04.12 = {
+		holder = lineofelyaarim24
+	}
+	6809.10.25 = {
+		holder = lineofelyaarim33
+	}
+	6827.1.1 = { # Tributaries break away after coup
+		liege = 0
+	}
+	6846.01.15 = {
+		holder = lineofelyaarim35
+	}
+	6850.12.10 = {
+		holder = lineofuyarazandim1
+	}
+	6930.04.16 = {
+		holder = lineofuyarazandim3
+	}
+	6943.11.12 = {
+		holder = lineofuyarazandim8
+	}
+	6957.11.21 = {
+		holder = lineofuyarazandim13
+	}
+	7011.05.11 = {
+		holder = lineofuyarazandim25
+	}
+	7025.1.1 = { # Nafarati sack the city
+		liege = d_sara
+		holder = lineofyuugertenes9
+		effect = {
+			add_county_modifier = {
+				modifier = sack_of_taru_makar
+				years = 50
+			}
+		}
+	}
+	7031.01.05 = {
+		holder = lineofyuugertenes13
+	}
+	7047.11.19 = {
+		holder = lineofyuugertenes23
+	}
+	7054.08.06 = {
+		holder = lineofyuugertenes27
+	}
+	7073.10.06 = {
+		holder = lineofyuugertenes34
+	}
+	7097.02.05 = {
+		holder = lineofyuugertenes32
+	}
+	7100.08.01 = {
+		holder = lineofyuugertenes36
+	}
+
+}
+
+c_ethekanim = {
+	5000.1.1 = {
+		change_development_level = 4
+	}
+	5246.4.20 = {
+		holder = lineofmyrohaymim1 #Aykaafar
+	}
+	5314.1.18 = {
+		holder = lineofmyrohaymim3 #Haruunu
+	}
+	5332.7.23 = {
+		holder = lineofmyrohaymim5 #Lootima
+	}
+	5395.7.14 = {
+		holder = lineofmyrohaymim7 #Mbuan
+	}
+	5401.5.20 = {
+		holder = lineofmyrohaymim10 #Loovyrkrii
+	}
+	5480.11.16 = {
+		holder = lineofmyrohaymim13 #Aykaafahaym
+	}
+
+	6650.07.03 = {
+		holder = lineofkihauraymim1
+		liege = 0
+	}
+	6785.01.01 = {
+		tributary_of = {
+			suzerain = e_mumakan
+			contract_group = tributary_subjugated
+		}
+	}
+	6722.07.19 = {
+		holder = lineofkihauraymim5
+		tributary_of = {
+			suzerain = e_mumakan
+			contract_group = tributary_subjugated
+		}
+	}
+	6747.09.11 = {
+		holder = lineofkihauraymim10
+		tributary_of = {
+			suzerain = e_mumakan
+			contract_group = tributary_subjugated
+		}
+	}
+	6768.04.16 = {
+		holder = lineofkihauraymim13
+		tributary_of = {
+			suzerain = e_mumakan
+			contract_group = tributary_subjugated
+		}
+	}
+	6805.11.28 = {
+		holder = lineofkihauraymim34
+		tributary_of = {
+			suzerain = e_mumakan
+			contract_group = tributary_subjugated
+		}
+	}
+	6827.1.1 = { # Tributaries break away after coup
+		# liege = 0
+	}
+	6840.01.04 = {
+		holder = lineofkihauraymim38
+	}
+	6850.09.14 = {
+		holder = lineoflokalim1
+	}
+	6927.10.17 = {
+		holder = lineoflokalim6
+	}
+	6962.02.03 = {
+		holder = lineoflokalim9
+	}
+	6977.07.26 = {
+		holder = lineoflokalim11
+	}
+	7012.04.02 = {
+		holder = lineoflokalim13
+	}
+	7014.02.02 = {
+		holder = lineoflokalim23
+	}
+	7025.1.1 = { # Nafarati sack Taru Makar and sieze the surrounding lands
+		liege = d_sara
+	}
+	7080.09.16 = {
+		holder = lineoflokalim25
+	}
+	7091.07.06 = {
+		holder = lineoflokalim26
+	}
+}
+
+c_drekal_tal = {
+	5000.1.1 = {
+		change_development_level = 5
+	}
+	5246.4.20 = {
+		holder = lineofmyrohaymim1 #Aykaafar
+	}
+	5314.1.18 = {
+		holder = lineofmyrohaymim3 #Haruunu
+	}
+	5332.7.23 = {
+		holder = lineofmyrohaymim5 #Lootima
+	}
+	5395.7.14 = {
+		holder = lineofmyrohaymim7 #Mbuan
+	}
+	5401.5.20 = {
+		holder = lineofmyrohaymim10 #Loovyrkrii
+	}
+	5480.11.16 = {
+		holder = lineofmyrohaymim13 #Aykaafahaym
+	}
+
+	6650.08.26 = {
+		holder = lineofchichiromim1
+		liege = e_mumakan
+	}
+	6730.03.24 = {
+		holder = lineofchichiromim12
+	}
+	6745.09.03 = {
+		holder = lineofchichiromim19
+	}
+	6762.06.08 = {
+		holder = lineofchichiromim18
+	}
+	6795.04.19 = {
+		holder = lineofchichiromim21
+	}
+	6823.08.14 = {
+		holder = lineofchichiromim23
+	}
+	6827.1.1 = { # Tributaries break away after coup
+		liege = 0
+	}
+	6845.02.27 = {
+		holder = lineofchichiromim25
+	}
+	# 6847.10.08 = {
+	#	holder = 0
+	# }
+
+	6900.07.08 = { # Drenim expand slightly
+		holder = lineofmuumaim1
+	}
+	6928.01.03 = {
+		holder = lineofmuumaim3
+	}
+	6931.12.24 = {
+		holder = lineofmuumaim13
+	}
+	6971.07.04 = {
+		holder = lineofmuumaim23
+	}
+	6994.06.08 = {
+		holder = lineofmuumaim33
+	}
+	7021.11.09 = {
+		holder = lineofmuumaim45
+	}
+	7055.06.20 = {
+		holder = lineofmuumaim55
+	}
+	7067.02.02 = {
+		holder = lineofmuumaim67
+	}
+}
+
+c_ru_ena = {
+	5000.1.1 = {
+		change_development_level = 4
+	}
+	5301.12.21 = {
+		holder = lineofsylatharaim1 #Ndakal
+	}
+	5367.4.11 = {
+		holder = lineofsylatharaim3 #Ovenuukal
+	}
+	5371.9.12 = {
+		liege = k_gan
+	}
+	5427.9.25 = {
+		holder = lineofsylatharaim7 #Haayaarma
+	}
+	5462.8.20 = { # Kingdom of Gân collapses
+		liege = 0
+	}
+	5446.3.18 = {
+		holder = lineofsylatharaim10 #Kriima
+	}
+
+	6650.06.11 = {
+		holder = lineofarazaandarim1
+		liege = 0
+	}
+	6785.01.01 = {
+		tributary_of = {
+			suzerain = e_mumakan
+			contract_group = tributary_subjugated
+		}
+	}
+	6710.02.10 = {
+		holder = lineofarazaandarim3
+	}
+	6725.02.03 = {
+		holder = lineofarazaandarim6
+	}
+	6755.10.25 = {
+		holder = lineofarazaandarim15
+	}
+	6780.07.14 = {
+		holder = lineofarazaandarim17
+	}
+	6781.02.27 = {
+		holder = lineofarazaandarim54
+	}
+	6850.02.15 = {
+		holder = lineofenakynim1
+	}
+	6926.05.07 = {
+		holder = lineofenakynim3
+	}
+	6943.06.09 = {
+		holder = lineofenakynim4
+	}
+	6949.10.03 = {
+		holder = lineofenakynim9
+	}
+	6981.05.11 = {
+		holder = lineofenakynim14
+	}
+	7021.02.05 = {
+		holder = lineofenakynim21
+	}
+	7049.03.28 = {
+		holder = lineofenakynim26
+	}
+	7050.04.08 = {
+		holder = lineofenakynim34
+	}
+	7067.08.26 = {
+		holder = lineofenakynim43
+	}
+}
+
+c_nungidisa = {
+	5000.1.1 = {
+		change_development_level = 3
+	}
+	5145.8.16 = {
+		holder = lineoftahmelyaarim1 #Usaraethe
+	}
+	5173.11.27 = {
+		holder = lineoftahmelyaarim3 #Marak_mbam
+	}
+	5223.7.15 = {
+		holder = lineoftahmelyaarim5 #Aneimbam
+	}
+	5272.11.24 = {
+		holder = lineoftahmelyaarim7 #Lynnyra
+	}
+	5309.10.6 = {
+		holder = lineoftahmelyaarim9 #Mbuan
+	}
+	5311.1.10 = {
+		holder = lineoftahmelyaarim11 #Melzandar
+	}
+	5372.4.13 = {
+		holder = lineoftahmelyaarim14 #Myraayaar
+	}
+	5393.12.26 = {
+		holder = lineoftahmelyaarim16 #Ovenar
+	}
+	5396.2.1 = {
+		holder = lineoftahmelyaarim19 #Zantara
+	}
+	5451.7.9 = {
+		holder = lineoftahmelyaarim22 #Thatahaym
+	}
+	5490.5.24 = {
+		holder = lineoftahmelyaarim24 #Taahamataal
+	}
+
+	6650.01.05 = {
+		holder = lineoftarasari1
+		liege = e_mumakan
+	}
+	6728.10.18 = {
+		holder = lineoftarasari3
+	}
+	6742.05.21 = {
+		holder = lineoftarasari6
+	}
+	6768.09.12 = {
+		holder = lineoftarasari9
+	}
+	6795.07.25 = {
+		holder = lineoftarasari12
+	}
+	6819.04.07 = {
+		holder = lineoftarasari16
+	}
+	6827.1.1 = { # Tributaries break away after coup
+		liege = 0
+	}
+	6828.10.17 = {
+		holder = lineoftarasari15
+	}
+	6850.01.22 = {
+		holder = lineofhaayaarim1
+	}
+	6906.10.09 = {
+		holder = lineofhaayaarim3
+	}
+	6952.12.15 = {
+		holder = lineofhaayaarim11
+	}
+	6984.11.11 = {
+		holder = lineofhaayaarim28
+	}
+	7004.02.14 = {
+		holder = lineofhaayaarim39
+	}
+	7005.1.1 = { # Nafarati campaign northwards
+		liege = d_sara
+		holder = lineofghuumeres13
+	}
+	7048.02.21 = {
+		holder = lineofghuumeres19
+	}
+	7052.07.12 = {
+		holder = lineofghuumeres26
+	}
+	7081.10.24 = {
+		holder = lineofghuumeres45
+	}
+	7101.03.19 = {
+		holder = lineofghuumeres41
+	}
+}
+
+## Duchy of Kurulin
+
+d_kurulin = {
+	5266.5.2 = {
+		holder = lineofzaandaetheim1 #Shayar
+	}
+	5345.3.10 = {
+		holder = lineofzaandaetheim3 #Naktara
+	}
+	5371.9.12 = {
+		liege = k_gan
+	}
+	5375.5.23 = {
+		holder = lineofzaandaetheim5 #Talooyazand
+	}
+	5416.3.9 = {
+		holder = lineofzaandaetheim7 #Krifaarazand
+		liege = 0 # Gân ruler fails to consolidate his inherited realm
+	}
+	5460.12.19 = {
+		holder = lineofzaandaetheim9 #Maakantar
+	}
+	5481.10.23 = {
+		holder = lineofzaandaetheim13 #Tahmoyaa
+	}
+	5527.10.7 = {
+		holder = 0
+	}
+}
+
+c_seka_kuru = {
+	5000.1.1 = {
+		change_development_level = 5
+	}
+	5266.5.2 = {
+		holder = lineofzaandaetheim1 #Shayar
+	}
+	5345.3.10 = {
+		holder = lineofzaandaetheim3 #Naktara
+	}
+	5375.5.23 = {
+		holder = lineofzaandaetheim5 #Talooyazand
+	}
+	5416.3.9 = {
+		holder = lineofzaandaetheim7 #Krifaarazand
+	}
+	5460.12.19 = {
+		holder = lineofzaandaetheim9 #Maakantar
+	}
+	5481.10.23 = {
+		holder = lineofzaandaetheim13 #Tahmoyaa
+	}
+
+	6650.10.11 = {
+		holder = lineofmaakantarim1
+		liege = 0
+	}
+	6709.12.17 = {
+		holder = lineofmaakantarim3
+	}
+	6758.12.03 = {
+		holder = lineofmaakantarim11
+	}
+	6776.02.23 = {
+		holder = lineofmaakantarim29
+	}
+	6785.01.01 = {
+		tributary_of = {
+			suzerain = e_mumakan
+			contract_group = tributary_subjugated
+		}
+	}
+	6821.07.01 = {
+		holder = lineofmaakantarim42
+	}
+	6825.06.21 = {
+		holder = lineofmaakantarim34
+	}
+	6831.04.22 = {
+		holder = lineofmaakantarim38
+	}
+	6878.04.05 = {
+		holder = lineofshiibaim1
+	}
+	6948.04.06 = {
+		holder = lineofshiibaim6
+	}
+	6982.04.24 = {
+		holder = lineofshiibaim8
+	}
+	7000.01.02 = {
+		holder = lineofshiibaim20
+	}
+	7024.01.18 = {
+		holder = lineofshiibaim31
+	}
+	7047.12.11 = {
+		holder = lineofshiibaim49
+	}
+	7074.11.25 = {
+		holder = lineofshiibaim51
+	}
+	7081.01.22 = {
+		holder = lineofshiibaim67
+	}
+	7092.04.19 = {
+		holder = lineofshiibaim63
+	}
+}
+
+c_ora_orna = {
+	1000.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -3
+		government = wastelands_government
+	}
+}
+
+c_zantaeri = {
+	5000.1.1 = {
+		change_development_level = 4
+	}
+	5266.5.2 = {
+		holder = lineofzaandaetheim1 #Shayar
+	}
+	5345.3.10 = {
+		holder = lineofzaandaetheim3 #Naktara
+	}
+	5375.5.23 = {
+		holder = lineofzaandaetheim5 #Talooyazand
+	}
+	5416.3.9 = {
+		holder = lineofzaandaetheim7 #Krifaarazand
+	}
+	5460.12.19 = {
+		holder = lineofzaandaetheim9 #Maakantar
+	}
+	5481.10.23 = {
+		holder = lineofzaandaetheim13 #Tahmoyaa
+	}
+
+	6650.09.02 = {
+		holder = lineofemeviiyarim1
+		liege = 0
+	}
+	6711.03.20 = {
+		holder = lineofemeviiyarim3
+	}
+	6724.03.19 = {
+		holder = lineofemeviiyarim6
+	}
+	6757.10.12 = {
+		holder = lineofemeviiyarim9
+	}
+	6769.09.15 = {
+		holder = lineofemeviiyarim15
+	}
+	6785.01.01 = {
+		tributary_of = {
+			suzerain = e_mumakan
+			contract_group = tributary_subjugated
+		}
+	}
+	6813.02.17 = {
+		holder = lineofemeviiyarim16
+	}
+	6816.05.21 = {
+		holder = lineofemeviiyarim18
+	}
+
+	6878.04.05 = {
+		holder = lineofshiibaim1
+	}
+	6948.04.06 = {
+		holder = lineofshiibaim6
+	}
+	6982.04.24 = {
+		holder = lineofshiibaim8
+	}
+	7000.01.02 = {
+		holder = lineofshiibaim20
+	}
+	7024.01.18 = {
+		holder = lineofshiibaim31
+	}
+	7047.12.11 = {
+		holder = lineofshiibaim49
+	}
+	7074.11.25 = {
+		holder = lineofshiibaim51
+	}
+	7081.01.22 = {
+		holder = lineofshiibaim67
+	}
+	7092.04.19 = {
+		holder = lineofshiibaim63
+	}
+}
+
+c_mutakak = {
+	5000.1.1 = {
+		change_development_level = 3
+	}
+	5266.5.2 = {
+		holder = lineofzaandaetheim1 #Shayar
+	}
+	5345.3.10 = {
+		holder = lineofzaandaetheim3 #Naktara
+	}
+	5375.5.23 = {
+		holder = lineofzaandaetheim5 #Talooyazand
+	}
+	5416.3.9 = {
+		holder = lineofzaandaetheim7 #Krifaarazand
+	}
+	5460.12.19 = {
+		holder = lineofzaandaetheim9 #Maakantar
+	}
+	5481.10.23 = {
+		holder = lineofzaandaetheim13 #Tahmoyaa
+	}
+
+	6650.09.02 = {
+		holder = lineofemeviiyarim1
+		liege = 0
+	}
+	6711.03.20 = {
+		holder = lineofemeviiyarim3
+	}
+	6724.03.19 = {
+		holder = lineofemeviiyarim6
+	}
+	6757.10.12 = {
+		holder = lineofemeviiyarim9
+	}
+	6769.09.15 = {
+		holder = lineofemeviiyarim15
+	}
+	6785.01.01 = {
+		tributary_of = {
+			suzerain = e_mumakan
+			contract_group = tributary_subjugated
+		}
+	}
+	6813.02.17 = {
+		holder = lineofemeviiyarim16
+	}
+	6816.05.21 = {
+		holder = lineofemeviiyarim18
+	}
+
+	6878.04.05 = {
+		holder = lineofshiibaim1
+	}
+	6948.04.06 = {
+		holder = lineofshiibaim6
+	}
+	6982.04.24 = {
+		holder = lineofshiibaim8
+	}
+	7000.01.02 = {
+		holder = lineofshiibaim20
+	}
+	7024.01.18 = {
+		holder = lineofshiibaim31
+	}
+	7047.12.11 = {
+		holder = lineofshiibaim49
+	}
+	7074.11.25 = {
+		holder = lineofshiibaim51
+	}
+	7081.01.22 = {
+		holder = lineofshiibaim67
+	}
+	7092.04.19 = {
+		holder = lineofshiibaim63
+	}
+}
+
+## Duchy of Eluakrifar ##
+
+#d_eluakrifar = {
+#}
+
+c_eluakrifar = {
+	5067.7.14 = {
+		change_development_level = 6
+		government = theocracy_government
+	}
+	5067.7.14 = {
+		holder = lineofmajaraveovim1 #Nakantima
+	}
+	5150.10.9 = {
+		holder = lineofmajaraveovim3 #Olyaanam
+	}
+	5174.9.5 = {
+		holder = lineofmajaraveovim5 #Zaandaove
+	}
+	5220.2.17 = {
+		holder = lineofmajaraveovim7 #Muraazand
+	}
+	5257.6.27 = {
+		holder = lineofmajaraveovim9 #Daalahaym
+	}
+	5286.1.1 = {
+		holder = lineofmajaraveovim11 #Lootima
+	}
+	5317.2.26 = {
+		holder = lineofmajaraveovim13 #Eelchini
+	}
+	5378.2.10 = {
+		holder = lineofmajaraveovim15 #Loshayd_aar
+	}
+	5384.7.1 = {
+		holder = lineofmajaraveovim17 #Mbuguumar
+	}
+	5393.7.27 = {
+		holder = lineofmajaraveovim19 #Kriima
+	}
+	5448.7.21 = {
+		holder = lineofmajaraveovim21 #Kihaukar
+	}
+
+	6650.10.18 = {
+		holder = lineofmyroveim1
+	}
+	6714.06.12 = {
+		holder = lineofmyroveim3
+	}
+	6743.04.03 = {
+		holder = lineofmyroveim5
+	}
+	6758.10.21 = {
+		holder = lineofmyroveim12
+	}
+	6776.11.17 = {
+		holder = lineofmyroveim16
+	}
+	6785.01.01 = {
+		tributary_of = {
+			suzerain = e_mumakan
+			contract_group = tributary_subjugated
+		}
+	}
+	6788.03.28 = {
+		holder = lineofmyroveim17
+	}
+	6800.07.26 = {
+		holder = lineofmyroveim19
+	}
+	6800.09.03 = {
+		holder = lineofmyroveim27
+	}
+	6880.10.08 = {
+		holder = lineofndalynim1
+	}
+	6939.02.21 = {
+		holder = lineofndalynim3
+	}
+	6974.07.21 = {
+		holder = lineofndalynim8
+	}
+	7001.01.05 = {
+		holder = lineofndalynim14
+	}
+	7038.08.14 = {
+		holder = lineofndalynim23
+	}
+	7052.07.10 = {
+		holder = lineofndalynim27
+	}
+	7069.06.09 = {
+		holder = lineofndalynim34
+	}
+	7080.08.16 = {
+		holder = lineofndalynim39
+	}
+}
+
+c_kiyavere = {
+	1000.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -3
+		government = wastelands_government
+	}
+}
+
+c_mumakris = {
+	1000.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -3
+		government = wastelands_government
+	}
+}
+
+c_lhaulohar = {
+	5067.7.14 = {
+		change_development_level = 6
+		holder = lineofmajaraveovim1 #Nakantima
+		government = theocracy_government
+	}
+	5150.10.9 = {
+		holder = lineofmajaraveovim3 #Olyaanam
+	}
+	5174.9.5 = {
+		holder = lineofmajaraveovim5 #Zaandaove
+	}
+	5220.2.17 = {
+		holder = lineofmajaraveovim7 #Muraazand
+	}
+	5257.6.27 = {
+		holder = lineofmajaraveovim9 #Daalahaym
+	}
+	5286.1.1 = {
+		holder = lineofmajaraveovim11 #Lootima
+	}
+	5317.2.26 = {
+		holder = lineofmajaraveovim13 #Eelchini
+	}
+	5378.2.10 = {
+		holder = lineofmajaraveovim15 #Loshayd_aar
+	}
+	5384.7.1 = {
+		holder = lineofmajaraveovim17 #Mbuguumar
+	}
+	5393.7.27 = {
+		holder = lineofmajaraveovim19 #Kriima
+	}
+	5448.7.21 = {
+		holder = lineofmajaraveovim21 #Kihaukar
+	}
+
+	6650.03.19 = {
+		holder = lineoftaalambamim1
+		government = tribal_government
+		liege = 0
+	}
+	6723.11.20 = {
+		holder = lineoftaalambamim3
+	}
+	6736.03.23 = {
+		holder = lineoftaalambamim9
+	}
+	6767.11.14 = {
+		holder = lineoftaalambamim33
+	}
+	6785.01.01 = {
+		tributary_of = {
+			suzerain = e_mumakan
+			contract_group = tributary_subjugated
+		}
+	}
+	6795.06.25 = {
+		holder = lineoftaalambamim67
+	}
+	6824.08.18 = {
+		holder = lineoftaalambamim50
+	}
+	6828.07.04 = {
+		holder = lineoftaalambamim72
+	}
+	6831.08.07 = {
+		holder = lineoftaalambamim59
+	}
+	6880.10.09 = {
+		holder = lineofsylalenim1
+	}
+	6953.12.21 = {
+		holder = lineofsylalenim4
+	}
+	6967.12.11 = {
+		holder = lineofsylalenim6
+	}
+	6996.10.14 = {
+		holder = lineofsylalenim9
+	}
+	7037.06.18 = {
+		holder = lineofsylalenim13
+	}
+	7066.10.18 = {
+		holder = lineofsylalenim20
+	}
+	7072.05.13 = {
+		holder = lineofsylalenim28
+	}
+}
+
+## Duchy of Matathayan ##
+
+d_matathayan = {
+	5216.12.17 = {
+		holder = lineofuyaromulaeim1 #Maane
+	}
+	5305.8.21 = {
+		holder = lineofuyaromulaeim3 #Neenyr
+	}
+	5335.10.3 = {
+		holder = lineofuyaromulaeim5 #Thaar
+	}
+	5398.1.28 = {
+		holder = lineofuyaromulaeim7 #Vaariiyar
+	}
+	5412.4.5 = {
+		liege = k_gan
+	}
+	5429.2.18 = {
+		holder = lineofuyaromulaeim9 #Harunyaar
+	}
+	5434.2.10 = {
+		holder = lineofuyaromulaeim13 #Maakantar
+		liege = 0
+	}
+	5469.9.13 = {
+		holder = lineofuyaromulaeim15 #Marak_mbam
+	}
+	5496.6.7 = {
+		holder = 0
+	}
+
+	6650.04.06 = {
+		holder = lineofakaleema1
+	}
+	6727.07.14 = {
+		holder = lineofakaleema3
+	}
+	6748.10.27 = {
+		holder = lineofakaleema7
+	}
+	6751.06.04 = {
+		holder = lineofakaleema10
+	}
+	6753.11.04 = {
+		holder = lineofakaleema21
+	}
+	6793.08.14 = {
+		holder = lineofakaleema28
+	}
+	6829.03.06 = {
+		holder = 0
+	}
+}
+
+c_matathayan = {
+	5000.1.1 = {
+		change_development_level = 6
+	}
+	5216.12.17 = {
+		holder = lineofuyaromulaeim1 #Maane
+	}
+	5305.8.21 = {
+		holder = lineofuyaromulaeim3 #Neenyr
+	}
+	5335.10.3 = {
+		holder = lineofuyaromulaeim5 #Thaar
+	}
+	5398.1.28 = {
+		holder = lineofuyaromulaeim7 #Vaariiyar
+	}
+	5429.2.18 = {
+		holder = lineofuyaromulaeim9 #Harunyaar
+	}
+	5434.2.10 = {
+		holder = lineofuyaromulaeim13 #Maakantar
+	}
+	5469.9.13 = {
+		holder = lineofuyaromulaeim15 #Marak_mbam
+	}
+
+	6650.04.06 = {
+		holder = lineofakaleema1
+	}
+	6727.07.14 = {
+		holder = lineofakaleema3
+	}
+	6748.10.27 = {
+		holder = lineofakaleema7
+	}
+	6751.06.04 = {
+		holder = lineofakaleema10
+	}
+	6753.11.04 = {
+		holder = lineofakaleema21
+	}
+	6793.08.14 = {
+		holder = lineofakaleema28
+	}
+
+	6850.06.10 = {
+		holder = lineofemeeliramim1
+	}
+	6923.07.16 = {
+		holder = lineofemeeliramim3
+	}
+	6947.01.14 = {
+		holder = lineofemeeliramim8
+	}
+	6969.04.20 = {
+		holder = lineofemeeliramim16
+	}
+	6971.03.06 = {
+		holder = lineofemeeliramim30
+	}
+	6998.01.08 = {
+		holder = lineofemeeliramim51
+	}
+	7047.07.15 = {
+		holder = lineofemeeliramim88
+	}
+	7081.06.17 = {
+		holder = lineofemeeliramim90
+	}
+	7093.12.04 = {
+		holder = lineofemeeliramim85
+	}
+}
+
+c_tamangosi = {
+	1000.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -3
+		government = wastelands_government
+	}
+}
+
+c_emelantose = {
+	5000.1.1 = {
+		change_development_level = 4
+	}
+	5216.12.17 = {
+		holder = lineofuyaromulaeim1 #Maane
+	}
+	5305.8.21 = {
+		holder = lineofuyaromulaeim3 #Neenyr
+	}
+	5335.10.3 = {
+		holder = lineofuyaromulaeim5 #Thaar
+	}
+	5398.1.28 = {
+		holder = lineofuyaromulaeim7 #Vaariiyar
+	}
+	5429.2.18 = {
+		holder = lineofuyaromulaeim9 #Harunyaar
+	}
+	5434.2.10 = {
+		holder = lineofuyaromulaeim13 #Maakantar
+	}
+	5469.9.13 = {
+		holder = lineofuyaromulaeim15 #Marak_mbam
+	}
+
+	6650.09.01 = {
+		holder = lineofbaakakambam1
+	}
+	6727.11.21 = {
+		holder = lineofbaakakambam3
+	}
+	6739.12.23 = {
+		holder = lineofbaakakambam10
+	}
+	6774.10.20 = {
+		holder = lineofbaakakambam13
+		liege = d_matathayan
+	}
+	6817.07.03 = {
+		holder = lineofbaakakambam17
+	}
+	6827.11.17 = {
+		holder = lineofbaakakambam21
+	}
+
+	6850.06.10 = {
+		holder = lineofemeeliramim1
+	}
+	6923.07.16 = {
+		holder = lineofemeeliramim3
+	}
+	6947.01.14 = {
+		holder = lineofemeeliramim8
+	}
+	6969.04.20 = {
+		holder = lineofemeeliramim16
+	}
+	6971.03.06 = {
+		holder = lineofemeeliramim30
+	}
+	6998.01.08 = {
+		holder = lineofemeeliramim51
+	}
+	7047.07.15 = {
+		holder = lineofemeeliramim88
+	}
+	7081.06.17 = {
+		holder = lineofemeeliramim90
+	}
+	7093.12.04 = {
+		holder = lineofemeeliramim85
+	}
+}
+
+c_kirimugum = {
+	1000.1.1 = {
+		change_development_level = 5
+	}
+
+	5216.12.17 = {
+		holder = lineofuyaromulaeim1 #Maane
+	}
+	5305.8.21 = {
+		holder = lineofuyaromulaeim3 #Neenyr
+	}
+	5335.10.3 = {
+		holder = lineofuyaromulaeim5 #Thaar
+	}
+	5398.1.28 = {
+		holder = lineofuyaromulaeim7 #Vaariiyar
+	}
+	5429.2.18 = {
+		holder = lineofuyaromulaeim9 #Harunyaar
+	}
+	5434.2.10 = {
+		holder = lineofuyaromulaeim13 #Maakantar
+	}
+	5469.9.13 = {
+		holder = lineofuyaromulaeim15 #Marak_mbam
+	}
+
+	6650.03.07 = {
+		holder = lineofuyarenaarim1
+	}
+	6719.05.02 = {
+		holder = lineofuyarenaarim3
+	}
+	6729.08.20 = {
+		holder = lineofuyarenaarim10
+	}
+	6774.05.11 = {
+		holder = lineofuyarenaarim15
+	}
+	6786.04.14 = {
+		holder = lineofuyarenaarim17
+	}
+	6800.1.1 = { # TEMP DATE - Ravaged by wars of the expanding Sekak realm
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	# 6818.05.24 = {
+	#	holder = lineofuyarenaarim33
+	# }
+	# 6845.05.08 = {
+	#	holder = lineofuyarenaarim38
+	# }
+	# 6880.02.05 = {
+	#	holder = lineofthatahaymim1
+	# }
+	# 6953.11.27 = {
+	#	holder = lineofthatahaymim3
+	# }
+	# 6963.09.15 = {
+	#	holder = lineofthatahaymim8
+	# }
+	# 6996.01.14 = {
+	#	holder = lineofthatahaymim17
+	# }
+	# 7018.07.15 = {
+	#	holder = lineofthatahaymim21
+	# }
+	# 7034.10.05 = {
+	#	holder = lineofthatahaymim22
+	# }
+	# 7035.08.19 = {
+	#	holder = lineofthatahaymim28
+	# }
+	# 7051.10.04 = {
+	#	holder = lineofthatahaymim44
+	# }
+	# 7069.07.24 = {
+	#	holder = lineofthatahaymim52
+	# }
+}
+
+c_mpelomel = {
+	5000.1.1 = {
+		change_development_level = 6
+	}
+	5278.8.6 = {
+		holder = lineofshiibaarim1 #Lysiove
+	}
+	5412.4.5 = { # the Father of Gân unifies all of Gân
+		liege = k_gan
+	}
+	5364.10.19 = {
+		holder = lineofshiibaarim3 #Thaar
+	}
+	5365.2.19 = {
+		holder = lineofshiibaarim6 #Ndakar
+	}
+	5439.2.7 = {
+		holder = lineofshiibaarim8 #Loavethe
+		liege = 0 # Gân ruler fails to consolidate his inherited realm
+	}
+	5470.9.25 = {
+		holder = lineofshiibaarim10 #Elyaar
+	}
+
+	6650.07.27 = {
+		holder = lineofeelchini1
+	}
+	6724.12.19 = {
+		holder = lineofeelchini3
+	}
+	6752.12.23 = {
+		holder = lineofeelchini11
+		liege = d_matathayan
+	}
+	6782.05.12 = {
+		holder = lineofeelchini15
+	}
+	6803.12.27 = {
+		holder = lineofeelchini27
+	}
+	6817.01.06 = {
+		holder = lineofeelchini33
+	}
+	6820.02.23 = {
+		holder = lineofeelchini36
+	}
+	6850.04.07 = {
+		holder = lineofmarakhaymim1
+		liege = 0
+	}
+	6914.04.28 = {
+		holder = lineofmarakhaymim3
+	}
+	6936.09.06 = {
+		holder = lineofmarakhaymim8
+	}
+	6968.12.17 = {
+		holder = lineofmarakhaymim11
+	}
+	6993.06.07 = {
+		holder = lineofmarakhaymim20
+	}
+	7003.04.03 = {
+		holder = lineofmarakhaymim24
+	}
+}
+
+c_tanganik = {
+	5000.1.1 = {
+		change_development_level = 5
+	}
+	5278.8.6 = {
+		holder = lineofshiibaarim1 #Lysiove
+	}
+	5364.10.19 = {
+		holder = lineofshiibaarim3 #Thaar
+	}
+	5365.2.19 = {
+		holder = lineofshiibaarim6 #Ndakar
+	}
+	5412.4.5 = { # the Father of Gân unifies all of Gân
+		liege = k_gan
+	}
+	5439.2.7 = {
+		holder = lineofshiibaarim8 #Loavethe
+		liege = 0 # Gân ruler fails to consolidate his inherited realm
+	}
+	5470.9.25 = {
+		holder = lineofshiibaarim10 #Elyaar
+	}
+
+	6650.11.09 = {
+		holder = lineofkrifaarazand1
+	}
+	6704.08.05 = {
+		holder = lineofkrifaarazand3
+	}
+	6723.12.22 = {
+		holder = lineofkrifaarazand9
+	}
+	6758.04.10 = {
+		holder = lineofkrifaarazand15
+		liege = d_matathayan
+	}
+	6797.12.10 = {
+		holder = lineofkrifaarazand25
+	}
+	6813.02.01 = {
+		holder = lineofkrifaarazand26
+	}
+	6824.08.20 = {
+		holder = lineofkrifaarazand30
+	}
+	6850.10.08 = {
+		holder = lineofneevetheim1
+	}
+	6915.12.16 = {
+		holder = lineofneevetheim3
+	}
+	6926.03.15 = {
+		holder = lineofneevetheim7
+	}
+	6953.06.17 = {
+		holder = lineofneevetheim10
+	}
+	6989.09.25 = {
+		holder = lineofneevetheim14
+	}
+	7003.02.20 = {
+		holder = lineofneevetheim17
+	}
+	7003.06.01 = {
+		holder = lineofneevetheim19
+	}
+	7052.12.26 = {
+		holder = lineofneevetheim22
+	}
+	7066.01.11 = {
+		holder = lineofneevetheim27
+	}
+}
+
+
+### Kingdom of Senga Muta ###
+
+## Duchy of Mutayiisi Sengani ##
+
+d_mutayiisi_sengani = {
+	6824.11.21 = { # Fall of Codyan Yoke
+		holder = lineofakaleemai38
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	6839.11.09 = {
+		holder = lineofthayanari40
+	}
+	6851.10.17 = {
+		holder = lineofthayanari45
+	}
+	6855.12.05 = {
+		holder = lineofmbaakamai38
+	}
+	6870.04.06 = {
+		holder = lineofmbaakamai40
+	}
+	6873.02.19 = {
+		holder = lineofmbaakamai49
+	}
+	6882.08.03 = {
+		holder = lineofmbaakamai54
+	}
+	6891.12.28 = {
+		holder = lineofthayanari60
+	}
+	6896.04.08 = {
+		holder = lineofmbaakamai56
+	}
+	6912.07.17 = {
+		holder = lineofakaleemai102
+	}
+	6950.01.27 = {
+		holder = lineofakaleemai107
+	}
+	6956.03.18 = {
+		holder = lineofakaleemai129
+	}
+	6973.09.10 = {
+		holder = lineofakaleemai144
+	}
+	7014.11.22 = {
+		holder = lineofakaleemai154
+	}
+	7033.12.25 = {
+		holder = lineofakaleemai162
+	}
+	7053.01.23 = {
+		holder = lineofsylaleni37
+	}
+	7061.05.06 = {
+		holder = lineofsylaleni39
+	}
+	7062.12.20 = {
+		holder = lineofsylaleni41
+	}
+	7069.01.21 = {
+		holder = lineofusaatham28
+	}
+	7076.10.21 = {
+		holder = lineofusaatham34
+	}
+	7110.07.20 = {
+		holder = lineofusaatham43
+	}
+	7131.08.15 = {
+		holder = lineofusaatham44
+	}
+	7136.07.05 = {
+		holder = lineofusaatham52
+	}
+	7152.06.24 = {
+		holder = lineofsylaleni53
+	}
+}
+
+c_thaamutasenga = {
+	5334.3.11 = {
+		holder = lineofakvulmes1 #Lyniiyaar
+		change_development_level = 7
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	5405.9.18 = {
+		holder = lineofakvulmes3 #Taalikaphar
+	}
+
+	# 6000.1.1 = {
+	#	change_development_level = 15
+	#	government = oligarchy_government
+	#	succession_laws = { oligarchic_elective_succession_law }
+	# }
+	6637.9.11 = {
+		liege = e_codya
+	}
+	6651.08.26 = {
+		holder = lineofchiinzai1
+	}
+	6719.08.09 = {
+		holder = lineofchiinzai3
+	}
+	6733.12.27 = {
+		holder = lineofchiinzai7
+	}
+	6752.06.08 = {
+		holder = lineofchiinzai10
+	}
+	6799.05.20 = {
+		holder = lineofchiinzai12
+	}
+	6808.09.10 = {
+		holder = lineofchiinzai27
+	}
+	6824.11.21 = { # Fall of Codyan Yoke
+		liege = d_mutayiisi_sengani
+		holder = lineofakaleemai38
+	}
+	6839.11.09 = {
+		holder = lineofthayanari40
+	}
+	6851.10.17 = {
+		holder = lineofthayanari45
+	}
+	6855.12.05 = {
+		holder = lineofmbaakamai38
+	}
+	6870.04.06 = {
+		holder = lineofmbaakamai40
+	}
+	6873.02.19 = {
+		holder = lineofmbaakamai49
+	}
+	6882.08.03 = {
+		holder = lineofmbaakamai54
+	}
+	6891.12.28 = {
+		holder = lineofthayanari60
+	}
+	6896.04.08 = {
+		holder = lineofmbaakamai56
+	}
+	6912.07.17 = {
+		holder = lineofakaleemai102
+	}
+	6950.01.27 = {
+		holder = lineofakaleemai107
+	}
+	6956.03.18 = {
+		holder = lineofakaleemai129
+	}
+	6973.09.10 = {
+		holder = lineofakaleemai144
+	}
+	7014.11.22 = {
+		holder = lineofakaleemai154
+	}
+	7033.12.25 = {
+		holder = lineofakaleemai162
+	}
+	7053.01.23 = {
+		holder = lineofsylaleni37
+	}
+	7061.05.06 = {
+		holder = lineofsylaleni39
+	}
+	7062.12.20 = {
+		holder = lineofsylaleni41
+	}
+	7069.01.21 = {
+		holder = lineofusaatham28
+	}
+	7076.10.21 = {
+		holder = lineofusaatham34
+	}
+	7110.07.20 = {
+		holder = lineofusaatham43
+	}
+	7131.08.15 = {
+		holder = lineofusaatham44
+	}
+	7136.07.05 = {
+		holder = lineofusaatham52
+	}
+	7152.06.24 = {
+		holder = lineofsylaleni53
+	}
+}
+
+c_thaalarakan = {
+	5334.3.11 = {
+		holder = lineofakvulmes1 #Lyniiyaar
+		change_development_level = 8
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	5405.9.18 = {
+		holder = lineofakvulmes3 #Taalikaphar
+	}
+
+	# 6000.1.1 = {
+	#	change_development_level = 8
+	#	government = oligarchy_government
+	#	succession_laws = { oligarchic_elective_succession_law }
+	# }
+	6637.9.11 = {
+		liege = e_codya
+	}
+	6675.01.18 = {
+		holder = lineofusaatham1
+	}
+	6755.08.05 = {
+		holder = lineofusaatham3
+	}
+	6779.07.16 = {
+		holder = lineofusaatham6
+	}
+	6802.06.22 = {
+		holder = lineofusaatham7
+	}
+	6807.02.07 = {
+		holder = lineofusaatham8
+	}
+	6824.11.21 = { # Fall of Codyan Yoke
+		liege = d_mutayiisi_sengani
+	}
+	6858.03.15 = {
+		holder = lineofusaatham9
+	}
+	6870.03.13 = {
+		holder = lineofusaatham11
+	}
+	6902.09.07 = {
+		holder = lineofusaatham14
+	}
+	6917.12.16 = {
+		holder = lineofusaatham17
+	}
+	6972.04.04 = {
+		holder = lineofusaatham19
+	}
+	6988.08.08 = {
+		holder = lineofakaleemai149
+	}
+	7004.04.18 = {
+		holder = lineofakaleemai157
+	}
+	7032.06.19 = {
+		holder = lineofsylaleni37
+	}
+	7061.05.06 = {
+		holder = lineofsylaleni39
+	}
+	7062.12.20 = {
+		holder = lineofsylaleni41
+	}
+	7069.01.21 = {
+		holder = lineofusaatham28
+	}
+	7076.10.21 = {
+		holder = lineofusaatham34
+	}
+	7110.07.20 = {
+		holder = lineofusaatham43
+	}
+	7131.08.15 = {
+		holder = lineofusaatham44
+	}
+	7136.07.05 = {
+		holder = lineofusaatham52
+	}
+	7152.06.24 = {
+		holder = lineofsylaleni53
+	}
+}
+
+c_sengamuumayaar = {
+	5000.1.1 = {
+		change_development_level = 5
+	}
+	5289.6.19 = {
+		holder = lineofzaandaalambai1 #Maavethe
+	}
+	5345.4.25 = {
+		holder = lineofzaandaalambai3 #Orzandar
+	}
+	5400.11.16 = {
+		holder = lineofzaandaalambai5 #Zaandaove
+	}
+	5431.5.28 = {
+		holder = lineofzaandaalambai9 #Ndakal
+	}
+	5475.12.18 = {
+		holder = lineofzaandaalambai11 #Ndakar
+	}
+
+	6662.02.14 = {
+		holder = lineofzaandaovi1
+	}
+	6715.07.23 = {
+		holder = lineofzaandaovi3
+	}
+	6728.06.22 = {
+		holder = lineofzaandaovi8
+	}
+	6762.05.24 = { # Codya vassalizes the Ahava
+		holder = lineofpharambami1
+		liege = e_codya
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	6821.09.17 = {
+		holder = lineofpharambami3
+	}
+	6832.07.02 = {
+		holder = lineofpharambami4
+	}
+	6824.11.21 = { # Fall of Codyan Yoke
+		liege = 0
+	}
+
+	6864.01.19 = { # Ahava reclaim independence
+		holder = lineofkriima1 #Lysiihayk
+		government = tribal_government
+	}
+	6865.8.26 = {
+		holder = lineofkriima3 #Cod_lalen
+	}
+	6926.3.23 = {
+		holder = lineofkriima82
+	}
+	6995.5.15 = {
+		holder = lineofkriima84
+	}
+	7020.1.6 = {
+		holder = lineofkriima86
+	}
+	7037.8.17 = {
+		holder = lineofkriima88
+	}
+}
+
+c_maabichisa = {
+	5000.1.1 = {
+		change_development_level = 6
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	5228.10.8 = {
+		holder = lineofthataveovi1 #Avarynam
+	}
+	5312.2.11 = {
+		holder = lineofthataveovi3 #Uyarenaar
+	}
+	5367.2.10 = {
+		holder = lineofthataveovi5 #Vaariiyar
+	}
+	5377.8.17 = {
+		holder = lineofthataveovi7 #Lynnyra
+	}
+	5430.9.26 = {
+		holder = lineofthataveovi11 #Krifaarazand
+	}
+	5464.8.23 = {
+		holder = lineofthataveovi13 #Neenyr
+	}
+	5502.8.21 = {
+		holder = lineofthataveovi15 #Kal_eel
+	}
+
+	6662.02.14 = {
+		holder = lineofzaandaovi1
+	}
+	6715.07.23 = {
+		holder = lineofzaandaovi3
+	}
+	6728.06.22 = {
+		holder = lineofzaandaovi8
+	}
+	6762.05.24 = { # Codya vassalizes the Ahava
+		holder = lineofpharambami1
+		liege = e_codya
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	6821.09.17 = {
+		holder = lineofpharambami3
+	}
+	6832.07.02 = {
+		holder = lineofpharambami4
+	}
+	6836.03.20 = { # Last Codyan loyalists conquered
+		holder = lineofakaleemai38
+		liege = d_mutayiisi_sengani
+	}
+	6839.11.09 = {
+		holder = lineofthayanari40
+	}
+	6851.10.17 = {
+		holder = lineofthayanari45
+	}
+	6855.12.05 = {
+		holder = lineofmbaakamai38
+	}
+	6870.04.06 = {
+		holder = lineofmbaakamai40
+	}
+	6873.02.19 = {
+		holder = lineofmbaakamai49
+	}
+	6882.08.03 = {
+		holder = lineofmbaakamai54
+	}
+	6891.12.28 = {
+		holder = lineofthayanari60
+	}
+	6896.04.08 = {
+		holder = lineofmbaakamai56
+	}
+	6912.07.17 = {
+		holder = lineofakaleemai102
+	}
+	6950.01.27 = {
+		holder = lineofakaleemai107
+	}
+	6956.03.18 = {
+		holder = lineofakaleemai129
+	}
+	6973.09.10 = {
+		holder = lineofakaleemai144
+	}
+	7014.11.22 = {
+		holder = lineofakaleemai154
+	}
+	7033.12.25 = {
+		holder = lineofakaleemai162
+	}
+	7053.01.23 = {
+		holder = lineofsylaleni37
+	}
+	7061.05.06 = {
+		holder = lineofsylaleni39
+	}
+	7062.12.20 = {
+		holder = lineofsylaleni41
+	}
+	7069.01.21 = {
+		holder = lineofusaatham28
+	}
+	7076.10.21 = {
+		holder = lineofusaatham34
+	}
+	7110.07.20 = {
+		holder = lineofusaatham43
+	}
+	7131.08.15 = {
+		holder = lineofusaatham44
+	}
+	7136.07.05 = {
+		holder = lineofusaatham52
+	}
+	7152.06.24 = {
+		holder = lineofsylaleni53
+	}
+}
+
+c_nakuuka = {
+	5000.1.1 = {
+		change_development_level = 10
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	5232.2.3 = {
+		holder = lineofmajimakuuyi1 #Voonoor
+	}
+	5292.8.4 = {
+		holder = lineofmajimakuuyi3 #Loovyrkrii
+	}
+	5329.1.8 = {
+		holder = lineofmajimakuuyi5 #Shiimba
+	}
+	5374.7.7 = {
+		holder = lineofmajimakuuyi7 #Emeviiyar
+	}
+	5388.9.8 = {
+		holder = lineofmajimakuuyi9 #Aaraaram
+	}
+	5434.4.19 = {
+		holder = lineofmajimakuuyi13 #Eelchini
+	}
+	5488.12.19 = {
+		holder = lineofmajimakuuyi15 #Ndalyn
+	}
+
+	6000.1.1 = {
+		change_development_level = 10
+		government = oligarchy_government
+		succession_laws = { oligarchic_elective_succession_law }
+	}
+	6637.9.11 = {
+		liege = e_codya
+	}
+	6650.07.10 = {
+		holder = lineofthayanari1
+	}
+	6717.08.14 = {
+		holder = lineofthayanari3
+	}
+	6744.07.22 = {
+		holder = lineofthayanari11
+	}
+	6770.07.17 = {
+		holder = lineofthayanari14
+	}
+	6798.06.06 = {
+		holder = lineofthayanari16
+	}
+	6801.05.02 = {
+		holder = lineofthayanari28
+	}
+	6824.11.21 = { # Fall of Codyan Yoke
+		liege = d_mutayiisi_sengani
+	}
+	6854.10.23 = {
+		holder = lineofthayanari41
+	}
+	6880.08.14 = {
+		holder = lineofthayanari46
+	}
+	6887.10.28 = {
+		holder = lineofthayanari57
+	}
+	6913.02.20 = {
+		holder = lineofakaleemai114
+	}
+	6976.01.27 = {
+		holder = lineofsylaleni31
+	}
+	6983.07.08 = {
+		holder = lineofsylaleni33
+	}
+	6991.08.12 = {
+		holder = lineofsylaleni34
+	}
+	7024.12.10 = {
+		holder = lineofsylaleni37
+	}
+	7061.05.06 = {
+		holder = lineofsylaleni39
+	}
+	7062.12.20 = {
+		holder = lineofsylaleni41
+	}
+	7069.01.21 = {
+		holder = lineofusaatham28
+	}
+	7076.10.21 = {
+		holder = lineofusaatham34
+	}
+	7110.07.20 = {
+		holder = lineofusaatham43
+	}
+	7131.08.15 = {
+		holder = lineofusaatham44
+	}
+	7136.07.05 = {
+		holder = lineofusaatham52
+	}
+	7152.06.24 = {
+		holder = lineofsylaleni53
+	}
+}
+
+## Duchy of Sekasenaak ##
+
+#d_sekasenaak = {}
+
+c_sekasenaak = {
+	5000.1.1 = {
+		change_development_level = 6
+	}
+	5248.7.10 = {
+		holder = lineofemeviinaraim1 #Mbuguumar
+	}
+	5329.5.28 = {
+		holder = lineofemeviinaraim3 #Kihauraym
+	}
+	5367.4.19 = {
+		holder = lineofemeviinaraim5 #Sylalen
+	}
+	5404.7.18 = {
+		holder = lineofemeviinaraim7 #Cod_krii
+	}
+	5437.12.16 = {
+		holder = lineofemeviinaraim9 #Lysiihayk
+	}
+	5466.3.1 = {
+		holder = lineofemeviinaraim12 #Nduraara
+	}
+	5487.12.20 = {
+		holder = lineofemeviinaraim14 #Elyaar
+	}
+
+	6650.05.06 = {
+		holder = lineofnuunove1
+	}
+	6725.03.04 = {
+		holder = lineofnuunove3
+	}
+	6747.08.16 = {
+		holder = lineofnuunove8
+	}
+	6850.06.12 = {
+		holder = lineofrokoohyrim1
+	}
+	6917.11.25 = {
+		holder = lineofrokoohyrim3
+	}
+	6949.03.21 = {
+		holder = lineofrokoohyrim16
+	}
+	6986.07.06 = {
+		holder = lineofrokoohyrim20
+	}
+	7007.12.17 = {
+		holder = lineofrokoohyrim27
+	}
+	7052.02.02 = {
+		holder = lineofrokoohyrim30
+	}
+	7052.09.28 = {
+		holder = lineofrokoohyrim36
+	}
+}
+
+c_phariiyar = {
+	5000.1.1 = {
+		change_development_level = 7
+	}
+	5269.3.9 = {
+		holder = lineofmaakantaim1 #Neenyr
+	}
+	5338.2.22 = {
+		holder = lineofmaakantaim3 #Oyahaym
+	}
+	5384.2.22 = {
+		holder = lineofmaakantaim5 #Aavoyr_mbam
+	}
+	5427.3.16 = {
+		holder = lineofmaakantaim7 #Lokal
+	}
+	5458.6.7 = {
+		holder = lineofmaakantaim9 #Akaleema
+	}
+	5490.9.21 = {
+		holder = lineofmaakantaim13 #Thatahaym
+	}
+
+	6650.10.03 = {
+		holder = lineofthaar1
+		liege = e_codya
+	}
+	6725.02.03 = {
+		holder = lineofthaar3
+	}
+	6740.06.24 = {
+		holder = lineofthaar8
+	}
+	6749.07.25 = {
+		holder = lineofthaar19
+	}
+	6787.07.19 = {
+		holder = lineofthaar32
+	}
+	6802.10.09 = {
+		holder = lineofthaar66
+	}
+
+	6850.06.21 = {
+		holder = lineofovenarim1
+		liege = 0
+	}
+	6919.05.13 = {
+		holder = lineofovenarim3
+	}
+	6939.03.26 = {
+		holder = lineofovenarim9
+	}
+	6985.11.05 = {
+		holder = lineofovenarim12
+	}
+	7021.07.27 = {
+		holder = lineofovenarim14
+	}
+	7030.10.21 = {
+		holder = lineofovenarim22
+	}
+	7045.02.09 = {
+		holder = lineofovenarim34
+	}
+	7071.04.07 = {
+		holder = lineofovenarim42
+	}
+}
+
+c_lysiinakar = {
+	5000.1.1 = {
+		change_development_level = 5
+	}
+	5248.7.10 = {
+		holder = lineofemeviinaraim1 #Mbuguumar
+	}
+	5329.5.28 = {
+		holder = lineofemeviinaraim3 #Kihauraym
+	}
+	5367.4.19 = {
+		holder = lineofemeviinaraim5 #Sylalen
+	}
+	5404.7.18 = {
+		holder = lineofemeviinaraim7 #Cod_krii
+	}
+	5437.12.16 = {
+		holder = lineofemeviinaraim9 #Lysiihayk
+	}
+	5466.3.1 = {
+		holder = lineofemeviinaraim12 #Nduraara
+	}
+	5487.12.20 = {
+		holder = lineofemeviinaraim14 #Elyaar
+	}
+
+	6650.11.18 = {
+		holder = lineoflyniiyaar1
+	}
+	6705.02.05 = {
+		holder = lineoflyniiyaar7
+	}
+	6766.05.06 = {
+		holder = lineoflyniiyaar8
+		liege = d_matathayan
+	}
+	6789.03.28 = {
+		holder = lineoflyniiyaar9
+	}
+	6802.02.07 = {
+		holder = lineoflyniiyaar15
+	}
+	6820.04.27 = {
+		holder = lineoflyniiyaar26
+	}
+	6834.03.24 = {
+		holder = lineoflyniiyaar25
+	}
+
+	6850.06.12 = {
+		holder = lineofrokoohyrim1
+	}
+	6917.11.25 = {
+		holder = lineofrokoohyrim3
+	}
+	6949.03.21 = {
+		holder = lineofrokoohyrim16
+	}
+	6986.07.06 = {
+		holder = lineofrokoohyrim20
+	}
+	7007.12.17 = {
+		holder = lineofrokoohyrim27
+	}
+	7052.02.02 = {
+		holder = lineofrokoohyrim30
+	}
+	7052.09.28 = {
+		holder = lineofrokoohyrim36
+	}
+}
+
+## Duchy of Ahavayiisi ##
+
+#d_ahavayiisi = { }
+
+c_maakahava = {
+	5000.1.1 = {
+		change_development_level = 4
+	}
+	5289.6.19 = {
+		holder = lineofzaandaalambai1 #Maavethe
+	}
+	5345.4.25 = {
+		holder = lineofzaandaalambai3 #Orzandar
+	}
+	5400.11.16 = {
+		holder = lineofzaandaalambai5 #Zaandaove
+	}
+	5431.5.28 = {
+		holder = lineofzaandaalambai9 #Ndakal
+	}
+	5475.12.18 = {
+		holder = lineofzaandaalambai11 #Ndakar
+	}
+
+	6656.09.16 = {
+		holder = lineofndakari1
+	}
+	6732.03.02 = {
+		holder = lineofndakari4
+	}
+	6762.05.24 = {
+		holder = lineoforaahaymi1
+	}
+	6840.02.21 = {
+		holder = lineoforaahaymi3
+	}
+	6841.12.25 = {
+		holder = lineoforaahaymi4
+	}
+	6864.01.19 = {
+		holder = lineofkriima1 #Lysiihayk
+	}
+	6865.8.26 = {
+		holder = lineofkriima3 #Cod_lalen
+	}
+	6926.3.23 = {
+		holder = lineofkriima8 #E_thelweard
+	}
+	6991.12.6 = {
+		holder = lineofkriima10 #Olyaanam
+	}
+	7010.5.6 = {
+		holder = lineofkriima16 #Aykaafar
+	}
+	7054.6.28 = {
+		holder = lineofkriima18 #Myraolyar
+	}
+	7078.3.9 = {
+		holder = lineofkriima20 #Mbalyn
+	}
+
+}
+
+c_skazantar = {
+	1000.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -3
+		government = wastelands_government
+	}
+}
+
+c_ambason = {
+	5000.1.1 = {
+		change_development_level = 5
+	}
+	5289.8.15 = {
+		holder = lineofandobai1 #Mbuan
+	}
+	5374.10.13 = {
+		holder = lineofandobai3 #Mbaakaga
+	}
+	5385.11.11 = {
+		holder = lineofandobai5 #Faazantak
+	}
+	5432.11.14 = {
+		holder = lineofandobai7 #Haayaar
+	}
+	5457.5.20 = {
+		holder = lineofandobai10 #Valorirag
+	}
+
+	6690.08.19 = {
+		holder = lineofnuunmuri1
+	}
+	6761.07.09 = {
+		holder = lineofnuunmuri3
+	}
+	6794.01.01 = {
+		holder = lineofnuunmuri4
+	}
+	6814.08.02 = {
+		holder = lineofnuunmuri6
+	}
+	6815.11.18 = {
+		holder = lineofzaandaovi16
+	}
+	6839.06.19 = {
+		holder = lineofnuunmuri8
+	}
+	6855.10.12 = {
+		holder = lineofnuunmuri10
+	}
+	6872.07.16 = {
+		holder = lineofamba1 #Thathaayak
+	}
+	6876.9.14 = {
+		holder = lineofamba3 #Uyarenaag
+	}
+	6919.2.17 = {
+		holder = lineofamba5 #Nuun_mur
+	}
+	6949.11.9 = {
+		holder = lineofamba7 #Kallyrak
+	}
+	7001.5.12 = {
+		holder = lineofamba9 #Arazaandak
+	}
+	7020.9.5 = {
+		holder = lineofamba11 #Aykaafak
+	}
+	7035.8.17 = {
+		holder = lineofamba13 #Voonook
+	}
+}
+
+c_duuribaatha = {
+	1000.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -3
+		government = wastelands_government
+	}
+}

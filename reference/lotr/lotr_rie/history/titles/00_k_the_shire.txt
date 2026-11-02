@@ -1,0 +1,1267 @@
+﻿#### Empire of Arnor
+
+k_shire = {
+	6008.11.20 = {
+		holder = lineofoldbuck1 # Bucca I
+	}
+	6056.4.22 = {
+		holder = lineofoldbuck2 # Bledda
+	}
+	6086.8.27 = {
+		holder = lineofoldbuck3 # Buckfast
+	}
+	6113.12.5 = {
+		holder = lineofoldbuck4 # Lofast
+	}
+	6158.7.14 = {
+		holder = lineofoldbuck5 # Bucca II
+	}
+	6186.1.13 = {
+		holder = lineofoldbuck6 # Boladoc
+	}
+	6222.3.10 = {
+		holder = lineofoldbuck7 # Auradoc
+	}
+	6264.2.3 = {
+		holder = lineofoldbuck8 # Baramac
+	}
+	6292.9.27 = {
+		holder = lineofoldbuck9 # Tristdad
+	}
+	6318.2.3 = {
+		holder = lineofoldbuck10 # Blaidoc
+	}
+	6343.2.10 = {
+		holder = lineofoldbuck11 # Marmadoc
+	}
+	6356.9.25 = {
+		holder = lineofbrandybuck1 # Gorhendad
+	}
+	6373.2.13 = { # Gorhendad abdicates the Mayoralty of the Shire, Isumbras I of House Took is elected
+		holder = prelineoftook1 #Isumbras I
+	}
+	6421.8.26 = {
+		holder = prelineoftook3 #Isengrim I
+	}
+	6462.12.14 = {
+		holder = prelineoftook5 #Hildigrim I
+	}
+	6511.1.28 = {
+		holder = prelineoftook7 #Adalgrim I
+	}
+	6545.7.18 = {
+		holder = prelineoftook9 #Paladin I
+	}
+	6581.6.16 = {
+		holder = prelineoftook11 #Adalgrim II
+	}
+	6617.3.1 = {
+		holder = prelineoftook13 #Isumbras II
+	}
+	6654.4.18 = {
+		holder = prelineoftook15 #Hildigrim II
+	}
+	6681.9.22 = {
+		holder = prelineoftook17 #Ferumbras I
+	}
+	6714.5.12 = {
+		holder = lineoftook1 # Isengrim II
+	}
+	6755.11.10 = { #Long winter start date ruler
+		holder = lineoftook2 # Isumbras III
+	}
+	6792.6.21 = {
+		holder = lineoftook3 # Ferumbras II
+	}
+	6834.12.25 = {
+		holder = lineoftook5 # Fortinbras I
+	}
+	6881.9.6 = {
+		holder = lineoftook6 # Gerontius (the Old Took)
+	}
+	6953.10.4 = {
+		holder = lineoftook7 # Isengrim III
+	}
+	6963.7.27 = {
+		holder = lineoftook9 # Isumbras IV
+	}
+	6972.8.2 = {
+		holder = lineoftook19 # Fortinbras II
+	}
+	7013.2.12 = {
+		holder = lineoftook20 # Ferumbras III
+	}
+	7048.6.3 = {
+		holder = lineoftook25 # Paladin II
+	}
+	7067.4.18 = {
+		holder = lineoftook30 #Peregrin (Pippin)
+	}
+	7117.4.4 = { #Pippin resigns
+		holder = lineoftook82 #Faramir
+	}
+	7153.11.4 = {
+		holder = lineoftook83 #Bilbo
+	}
+}
+
+d_shire = {
+	# Arnorian House of Ananpâden
+	4033.8.26 = {
+		holder = lineofananpaden1 #Curimardin
+		liege = e_arnor
+	}
+	4252.12.16 = {
+		holder = lineofananpaden3 #Valamir
+	}
+	4330.10.20 = {
+		holder = lineofananpaden6 #Saerod
+	}
+	4423.5.24 = {
+		holder = lineofananpaden9 #Oluchil
+	}
+	4518.9.5 = {
+		holder = lineofananpaden13 #Elrohir
+	}
+	4585.8.8 = {
+		holder = lineofananpaden15 #Cemendil
+	}
+	# Arnorian House of Celeberyn
+	4676.2.26 = {
+		holder = lineofceleberyn1 #Earnur
+	}
+	4711.9.10 = {
+		holder = lineofceleberyn4 #Aulendur
+	}
+	4810.3.18 = {
+		holder = lineofceleberyn8 #Minalcar
+	}
+	4892.6.21 = {
+		holder = lineofceleberyn12 #Feandur
+	}
+	4894.7.12 = {
+		liege = k_arthedain
+	}
+	5017.11.14 = {
+		holder = lineofceleberyn17 #Nendur
+	}
+	5143.11.6 = {
+		holder = lineofceleberyn19 #Borodir
+	}
+	# Arnorian House of Lûthcelos
+	5192.1.27 = {
+		holder = lineofluthcelos1 #Tuor
+	}
+	5309.6.12 = {
+		holder = lineofluthcelos6 #Eldarion
+	}
+	5449.8.16 = {
+		holder = lineofluthcelos9 #Targon
+	}
+	5542.11.10 = {
+		holder = lineisildur20 # Luthceleos line dies out, land returns to King Araphor
+	}
+	5622.9.29 = {
+		holder = lineisildur21 # Argeleb II
+	}
+
+	# Hobbits #
+
+	5634.6.1 = { # Marcho and Blanco cross the Brandywine on Midsummer's Day, SR 1
+		holder = lineofmarcho2 # Marcho
+	}
+	5670.2.1 = { # Marcho dies to the plague, SR 37
+		holder = lineofmarcho3 # Blanco
+	}
+	5711.2.12 = { # Cavallo inherits after his father, SR 78
+		holder = lineofmarcho4 # Cavallo
+	}
+	5743.11.11 = { # Cavallo dies without an heir, SR 110
+		holder = 0
+	}
+	#5744.6.1 = { # The Free Fair is conveened early (by 2 years) the next summer, and the first elected Mayor is appointed, SR 111
+	#	holder =
+	#}
+
+	#####################################################################
+	### HELD BY THAINS TO CLEAN UP HISTORY UNTIL MAYORS ARE SPECIFIED ###
+	#####################################################################
+	6008.11.20 = {
+		holder = lineofoldbuck1 # Bucca I
+		effect = {
+			if = {
+				limit = {
+					holder.liege != holder
+				}
+				holder ?= {
+					vassal_contract_set_obligation_level = {
+						type = title_revocation_rights
+						level = 1
+					}
+				}
+			}
+		}
+	}
+	6056.4.22 = {
+		holder = lineofoldbuck2 # Bledda
+	}
+	6086.8.27 = {
+		holder = lineofoldbuck3 # Buckfast
+	}
+	6113.12.5 = {
+		holder = lineofoldbuck4 # Lofast
+	}
+	6158.7.14 = {
+		holder = lineofoldbuck5 # Bucca II
+	}
+	6186.1.13 = {
+		holder = lineofoldbuck6 # Boladoc
+	}
+	6222.3.10 = {
+		holder = lineofoldbuck7 # Auradoc
+	}
+	6264.2.3 = {
+		holder = lineofoldbuck8 # Baramac
+	}
+	6292.9.27 = {
+		holder = lineofoldbuck9 # Tristdad
+	}
+	6318.2.3 = {
+		holder = lineofoldbuck10 # Blaidoc
+	}
+	6343.2.10 = {
+		holder = lineofoldbuck11 # Marmadoc
+	}
+	6356.9.25 = {
+		holder = lineofbrandybuck1 # Gorhendad
+	}
+	6373.2.13 = { # Gorhendad abdicates the Mayoralty of the Shire, Isumbras I of House Took is elected
+		holder = prelineoftook1 #Isumbras I
+	}
+	6421.8.26 = {
+		holder = prelineoftook3 #Isengrim I
+	}
+	6462.12.14 = {
+		holder = prelineoftook5 #Hildigrim I
+	}
+	6511.1.28 = {
+		holder = prelineoftook7 #Adalgrim I
+	}
+	6545.7.18 = {
+		holder = prelineoftook9 #Paladin I
+	}
+	6581.6.16 = {
+		holder = prelineoftook11 #Adalgrim II
+	}
+	6617.3.1 = {
+		holder = prelineoftook13 #Isumbras II
+	}
+	6654.4.18 = {
+		holder = prelineoftook15 #Hildigrim II
+	}
+	6681.9.22 = {
+		holder = prelineoftook17 #Ferumbras I
+	}
+	6714.5.12 = {
+		holder = lineoftook1 # Isengrim II
+	}
+	6653.12.21 = {
+		holder = lineoftook1 # Isengrim II
+	}
+	6755.11.10 = { # Long Winter start date ruler
+		holder = lineoftook2 # Isumbras III
+	}
+	6792.6.21 = {
+		holder = lineoftook3 # Ferumbras II
+	}
+	6834.12.25 = {
+		holder = lineoftook5 # Fortinbras I
+	}
+	6881.9.6 = {
+		holder = lineoftook6 # Gerontius (the Old Took)
+	}
+	6953.10.4 = {
+		holder = lineoftook7 # Isengrim III
+	}
+	6963.7.27 = {
+		holder = lineoftook9 # Isumbras IV
+	}
+	6972.8.2 = {
+		holder = lineoftook19 # Fortinbras II
+	}
+	7013.2.12 = {
+		holder = lineoftook20 # Ferumbras III
+	}
+	######################################################################
+
+	7032.3.24 = { # T.A. 2999 - Free Fair first elects Will Whitfoot. He'll be reelected in 3006 and 3013.
+		holder = lineofwhitfoot1 # Will
+		liege = k_shire
+		government = hobbit_government
+	}
+	7051.12.11 = {
+		holder = lineofbaggins14 # Lotho
+		liege = 0
+	}
+	7052.9.11 = {
+		holder = lineofsaruman # Sharkey (Saruman)
+	}
+	7052.11.3 = {
+		holder = lineofbaggins29 # Frodo (as Deputy)
+		liege = k_shire
+	}
+	7053.6.1 = { # Will is restored on Midyear's Day 1420
+		holder = lineofwhitfoot1 # Will (Recovered from Scouring of the Shire)
+	}
+	7060.6.1 = { # Will resigns and Sam is elected mayor in 1427/3027
+		holder = lineofgamgee10 # Samwise
+	}
+	7109.6.1 = { # Samwise completes his seventh and last term in 1476
+		holder = lineofroper2 #Sadoc Roper
+	}
+	7116.6.1 = {
+		holder = lineofgardner2 #Frodo Gardener
+	}
+	7130.6.1 = {
+		holder = lineoftook90 #Bandogrim II North-Took
+	}
+	7137.6.1 = {
+		holder = lineofroper2 #Sadoc Roper
+	}
+	7144.6.1 = {
+		holder = lineofcotton10 # Uffo Cotton
+	}
+	7165.6.1 = {
+		holder = lineofgardner13 #Holfast Gardener
+	}
+	7172.6.1 = {
+		holder = lineofwestman1 #Carl Westman
+	}
+}
+
+c_tookland = {
+	# Arnorian House of Ananpâden
+	4033.8.26 = {
+		holder = lineofananpaden1 #Curimardin
+		liege = e_arnor
+		change_development_level = 4
+	}
+	4252.12.16 = {
+		holder = lineofananpaden3 #Valamir
+	}
+	4330.10.20 = {
+		holder = lineofananpaden6 #Saerod
+	}
+	4423.5.24 = {
+		holder = lineofananpaden9 #Oluchil
+	}
+	4518.9.5 = {
+		holder = lineofananpaden13 #Elrohir
+	}
+	4585.8.8 = {
+		holder = lineofananpaden15 #Cemendil
+	}
+	# Arnorian House of Celeberyn
+	4676.2.26 = {
+		holder = lineofceleberyn1 #Earnur
+	}
+	4711.9.10 = {
+		holder = lineofceleberyn4 #Aulendur
+	}
+	4810.3.18 = {
+		holder = lineofceleberyn8 #Minalcar
+	}
+	4892.6.21 = {
+		holder = lineofceleberyn12 #Feandur
+	}
+	5017.11.14 = {
+		holder = lineofceleberyn17 #Nendur
+	}
+	5143.11.6 = {
+		holder = lineofceleberyn19 #Borodir
+	}
+	# Arnorian House of Lûthcelos
+	5192.1.27 = {
+		holder = lineofluthcelos1 #Tuor
+	}
+	5309.6.12 = {
+		holder = lineofluthcelos6 #Eldarion
+	}
+	5449.8.16 = {
+		holder = lineofluthcelos9 #Targon
+	}
+	5542.11.10 = {
+		holder = lineisildur20 # Luthceleos line dies out, land returns to King Araphor
+	}
+	5622.9.29 = {
+		holder = lineisildur21 # Argeleb II
+	}
+
+	#5542.3.10 = {
+	#	# holder = 0 #Land abandoned by the Arnorians
+	#	holder = k_wastelands_holder
+	#	change_development_level = -100
+	#	government = wastelands_government
+	#}
+
+	6653.12.21 = {
+		holder = lineoftook1 #Isengrim II
+		change_development_level = 10
+		government = hobbit_government
+	}
+	6755.11.10 = { #Long winter start date ruler
+		holder = lineoftook2 #Isumbras III
+	}
+	6792.6.21 = {
+		holder = lineoftook3 #Ferumbras II
+	}
+	6834.12.25 = {
+		holder = lineoftook5 #Fortinbras I
+	}
+	6881.9.6 = {
+		holder = lineoftook6 #Gerontius (the Old Took)
+	}
+	6953.10.4 = {
+		holder = lineoftook7 #Isengrim III
+	}
+	6963.7.27 = {
+		holder = lineoftook9 #Isumbras IV
+	}
+	6972.8.2 = {
+		holder = lineoftook19 #Fortinbras II
+	}
+	7013.2.12 = {
+		holder = lineoftook20 #Ferumbras III
+	}
+	7048.6.3 = {
+		holder = lineoftook25 #Paladin II
+	}
+	7067.4.18 = {
+		holder = lineoftook30 #Peregrin
+	}
+	7117.4.4 = { #Pippin resigns
+		holder = lineoftook82 #Faramir
+	}
+	7153.11.4 = {
+		holder = lineoftook83 #Bilbo
+	}
+}
+
+b_tookbank = {
+	6930.5.5 = {
+		holder = lineoftook6 #Gerontius (the Old Took)
+	}
+	6953.10.4 = {
+		holder = lineoftook10 #Hildigrim
+	}
+	6974.1.20 = {
+		holder = lineoftook21 #Adalgrim I
+	}
+	7015.5.20 = {
+		holder = lineoftook25 #Paladin
+	}
+	7067.4.18 = {
+		holder = lineoftook30 #Peregrin
+	}
+	7117.4.4 = { #Pippin resigns
+		holder = lineoftook82 #Faramir
+	}
+	7153.11.4 = {
+		holder = lineoftook84 #Adalgrim II
+	}
+}
+
+c_hobbiton = {
+	# Arnorian House of Ananpâden
+	4033.8.26 = {
+		holder = lineofananpaden1 #Curimardin
+		liege = e_arnor
+		change_development_level = 5
+	}
+	4252.12.16 = {
+		holder = lineofananpaden3 #Valamir
+	}
+	4330.10.20 = {
+		holder = lineofananpaden6 #Saerod
+	}
+	4423.5.24 = {
+		holder = lineofananpaden9 #Oluchil
+	}
+	4518.9.5 = {
+		holder = lineofananpaden13 #Elrohir
+	}
+	4585.8.8 = {
+		holder = lineofananpaden15 #Cemendil
+	}
+	# Arnorian House of Celeberyn
+	4676.2.26 = {
+		holder = lineofceleberyn1 #Earnur
+	}
+	4711.9.10 = {
+		holder = lineofceleberyn4 #Aulendur
+	}
+	4810.3.18 = {
+		holder = lineofceleberyn8 #Minalcar
+	}
+	4892.6.21 = {
+		holder = lineofceleberyn12 #Feandur
+	}
+	5017.11.14 = {
+		holder = lineofceleberyn17 #Nendur
+	}
+	5143.11.6 = {
+		holder = lineofceleberyn19 #Borodir
+	}
+	# Arnorian House of Lûthcelos
+	5192.1.27 = {
+		holder = lineofluthcelos1 #Tuor
+	}
+	5309.6.12 = {
+		holder = lineofluthcelos6 #Eldarion
+	}
+	5449.8.16 = {
+		holder = lineofluthcelos9 #Targon
+	}
+	5542.11.10 = {
+		holder = lineisildur20 # Luthceleos line dies out, land returns to King Araphor
+	}
+	5622.9.29 = {
+		holder = lineisildur21 # Argeleb II
+	}
+
+	#5542.3.10 = {
+	#	# holder = 0 #Land abandoned by the Arnorians
+	#	holder = k_wastelands_holder
+	#	change_development_level = -100
+	#	government = wastelands_government
+	#}
+	6752.12.2 = {
+		holder = lineofbaggins01 # Basso
+		liege = d_shire
+		change_development_level = 7
+		government = hobbit_government
+	}
+	6779.9.29 = { # Long Winter Start Date Ruler
+		holder = lineofbaggins03 # Bingo
+	}
+	6844.4.24 = {
+		holder = lineofbaggins1 # Balbo
+	}
+	6891.8.23 = {
+		holder = lineofbaggins2 # Mungo
+	}
+	6933.11.27 = {
+		holder = lineofbaggins7 # Bungo
+	}
+	6959.2.26 = {
+		holder = lineofbaggins12 # Bilbo
+	}
+	7034.9.22 = {
+		holder = lineofbaggins29 #Frodo I (THE Frodo)
+	}
+	7051.9.23 = {
+		holder = lineofbaggins14 # Lotho
+	}
+	7052.9.11 = {
+		holder = lineofsaruman # Sharkey (Saruman)
+	}
+	7052.11.3 = {
+		holder = lineofbaggins29 # Frodo
+	}
+	7054.9.29 = {
+		holder = lineofgamgee10 #Samwise
+	}
+	7115.9.22 = {
+		holder = lineofgardner2 #Frodo II
+	}
+	7156.8.1 = {
+		holder = lineofgardner13 #Holfast
+	}
+}
+
+c_buckland = {
+	3922.7.12 = { # Hirgond is appointed castellan of the Barrow-downs by Elendil
+		holder = lineofcerentir1 #Hirgond
+		change_development_level = 3
+	}
+	4153.8.16 = {
+		holder = lineofcerentir3 #Raenar
+	}
+	4219.1.10 = {
+		holder = lineofcerentir5 #Haldamir
+	}
+	4338.11.20 = {
+		holder = lineofcerentir7 #Culfin
+	}
+	4466.12.8 = {
+		holder = lineofcerentir9 #Telegorn
+	}
+	4535.3.13 = {
+		holder = lineofcerentir11 #Linhir
+	}
+	4573.3.16 = {
+		holder = lineofcerentir13 #Celebduin
+	}
+	4596.1.24 = {
+		holder = lineofcerentir15 #Aragost
+	}
+	4698.3.21 = {
+		holder = lineofcerentir17 #Cambre
+	}
+	4761.9.23 = {
+		holder = lineofcerentir19 #Elberin
+	}
+	4798.12.16 = {
+		holder = lineofcerentir21 #Eranoth
+	}
+	4875.3.14 = {
+		holder = lineofcerentir23 #Anboron
+	}
+	4894.7.12 = {
+		liege = k_cardolan
+	}
+	4938.9.28 = {
+		holder = lineofcerentir25 #Edhelmir
+	}
+	5032.1.18 = {
+		holder = lineofcerentir29 #Feren
+	}
+	5132.7.15 = {
+		holder = lineofcerentir31 #Amras
+	}
+	5138.1.10 = {
+		holder = lineofcerentir33 #Gilim
+	}
+	5281.9.21 = {
+		holder = lineofcerentir37 #Ceren
+	}
+	5353.5.6 = {
+		holder = lineofcerentir41 #Meladorn
+	}
+	5417.11.23 = {
+		holder = lineofcerentir43 #Celebrin
+	}
+	5533.1.22 = {
+		holder = lineofcerentir45 #Egthelion
+	}
+	5670.3.10 = { # The Great Plague
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+
+	6373.2.13 = {
+		holder = lineofbrandybuck1 # Gorhendad
+		#liege = k_shire # Buckland was not technically within the bounds of the Shire, and was technically a small independent country, albeit tightly interwoven still with the Shire
+		change_development_level = 5
+		government = hobbit_government
+	}
+	6406.9.25 = {
+		holder = lineofbrandybuck2 # Goradoc
+	}
+	6456.1.1 = {
+		holder = lineofbrandybuck3 # Gundamac
+	}
+	6472.4.4 = {
+		holder = lineofbrandybuck4 # Doradoc
+	}
+	6528.4.25 = {
+		holder = lineofbrandybuck5 # Dinolas
+	}
+	6560.10.8 = {
+		holder = lineofbrandybuck6 # Drogodoc
+	}
+	6586.2.24 = {
+		holder = lineofbrandybuck7 # Gorimac
+	}
+	6622.9.19 = {
+		holder = lineofbrandybuck8 # Menedoc
+	}
+	6658.2.23 = {
+		holder = lineofbrandybuck9 # Menadad
+	}
+	6700.4.9 = {
+		holder = lineofbrandybuck10 # Menamac
+	}
+	6735.7.24 = {
+		holder = lineofbrandybuck11 # Gormabald
+	}
+	6783.9.4 = { # Long Winter Start date ruler
+		holder = lineofbrandybuck12 # Gormadas
+	}
+	6822.7.15 = {
+		holder = lineofbrandybuck13 # Gormadoc
+	}
+	6869.8.15 = {
+		holder = lineofbrandybuck14 # Madoc
+	}
+	6910.2.23 = {
+		holder = lineofbrandybuck17 # Marmadoc
+	}
+	6943.6.24 = {
+		holder = lineofbrandybuck18 # Gorbadoc
+	}
+	6996.5.26 = {
+		holder = lineofbrandybuck22 # Rorimac
+	}
+	7041.5.2 = {
+		holder = lineofbrandybuck29 # Rorimac
+	}
+	7065.12.5 = {
+		holder = lineofbrandybuck31 # Meriadoc
+	}
+	7117.4.4 = { #Merry resigns
+		holder = lineofbrandybuck47 #Th_eoden
+	}
+}
+
+c_eastfarthing = {
+	# Arnorian House of Ananpâden
+	4033.8.26 = {
+		holder = lineofananpaden1 #Curimardin
+		liege = e_arnor
+		change_development_level = 5
+	}
+	4252.12.16 = {
+		holder = lineofananpaden3 #Valamir
+	}
+	4330.10.20 = {
+		holder = lineofananpaden6 #Saerod
+	}
+	4423.5.24 = {
+		holder = lineofananpaden9 #Oluchil
+	}
+	4518.9.5 = {
+		holder = lineofananpaden13 #Elrohir
+	}
+	4585.8.8 = {
+		holder = lineofananpaden15 #Cemendil
+	}
+	# Arnorian House of Celeberyn
+	4676.2.26 = {
+		holder = lineofceleberyn1 #Earnur
+	}
+	4711.9.10 = {
+		holder = lineofceleberyn4 #Aulendur
+	}
+	4810.3.18 = {
+		holder = lineofceleberyn8 #Minalcar
+	}
+	4892.6.21 = {
+		holder = lineofceleberyn12 #Feandur
+	}
+	5017.11.14 = {
+		holder = lineofceleberyn17 #Nendur
+	}
+	5143.11.6 = {
+		holder = lineofceleberyn19 #Borodir
+	}
+	# Arnorian House of Lûthcelos
+	5192.1.27 = {
+		holder = lineofluthcelos1 #Tuor
+	}
+	5309.6.12 = {
+		holder = lineofluthcelos6 #Eldarion
+	}
+	5449.8.16 = {
+		holder = lineofluthcelos9 #Targon
+	}
+	5542.11.10 = {
+		holder = lineisildur20 # Luthceleos line dies out, land returns to King Araphor
+	}
+	5622.9.29 = {
+		holder = lineisildur21 # Argeleb II
+	}
+
+	#5542.3.10 = {
+	#	holder = k_wastelands_holder
+	#	change_development_level = -100
+	#	government = wastelands_government
+	#}
+
+	6786.12.14 = { # Long Winter Start Date Ruler
+		holder = lineofbolger1 #Gundolpho
+		liege = k_shire
+		change_development_level = 5
+		government = hobbit_government
+	}
+	6863.5.9 = {
+		holder = lineofbolger3 #Gundahar
+	}
+	6908.12.20 = {
+		holder = lineofbolger4 #Adalgar I
+	}
+	6947.7.10 = {
+		holder = lineofbolger5 #Rudigar
+	}
+	6981.2.1 = {
+		holder = lineofbolger6 #Herugar
+	}
+	7023.5.3 = {
+		holder = lineofbolger7 #Odovacar
+		liege = d_shire
+	}
+	7064.9.20 = {
+		holder = lineofbolger8 #Fredegar
+	}
+	7108.8.18 = {
+		holder = lineofbolger25 #Theobald
+	}
+	7172.12.26 = {
+		holder = lineofbolger27 #Adalgar II
+	}
+}
+
+c_southfarthing = {
+	# Arnorian House of Ananpâden
+	4033.8.26 = {
+		holder = lineofananpaden1 #Curimardin
+		liege = e_arnor
+		change_development_level = 5
+	}
+	4252.12.16 = {
+		holder = lineofananpaden3 #Valamir
+	}
+	4330.10.20 = {
+		holder = lineofananpaden6 #Saerod
+	}
+	4423.5.24 = {
+		holder = lineofananpaden9 #Oluchil
+	}
+	4518.9.5 = {
+		holder = lineofananpaden13 #Elrohir
+	}
+	4585.8.8 = {
+		holder = lineofananpaden15 #Cemendil
+	}
+	# Arnorian House of Celeberyn
+	4676.2.26 = {
+		holder = lineofceleberyn1 #Earnur
+	}
+	4711.9.10 = {
+		holder = lineofceleberyn4 #Aulendur
+	}
+	4810.3.18 = {
+		holder = lineofceleberyn8 #Minalcar
+	}
+	4892.6.21 = {
+		holder = lineofceleberyn12 #Feandur
+	}
+	5017.11.14 = {
+		holder = lineofceleberyn17 #Nendur
+	}
+	5143.11.6 = {
+		holder = lineofceleberyn19 #Borodir
+	}
+	# Arnorian House of Lûthcelos
+	5192.1.27 = {
+		holder = lineofluthcelos1 #Tuor
+	}
+	5309.6.12 = {
+		holder = lineofluthcelos6brother # Daeron
+		liege = d_shire
+	}
+	5461.6.10 = {
+		holder = lineofluthcelos6brother1 # Torrandir
+	}
+	#5542.3.10 = {
+	#	holder = k_wastelands_holder
+	#	change_development_level = -100
+	#	government = wastelands_government
+	#}
+
+	6703.1.15 = {
+		holder = lineofhornblower1 #Tobold I 'Old Toby'
+		liege = k_shire
+		change_development_level = 5
+		government = hobbit_government
+	}
+	6753.12.1 = { # Long Winter Start Date ruler
+		holder = lineofhornblower2 #Tobrand I
+	}
+	6775.3.17 = {
+		holder = lineofhornblower3 #Tobard I
+	}
+	6826.9.7 = {
+		holder = lineofhornblower4 #Tobald I
+	}
+	6869.12.14 = {
+		holder = lineofhornblower5 #Tobagar
+	}
+	6901.6.8 = {
+		holder = lineofhornblower6 #Toffo
+	}
+	6943.1.12 = {
+		holder = lineofhornblower7 #Tongo
+	}
+	6981.4.19 = {
+		holder = lineofhornblower8 #Tobahar
+	}
+	7022.9.27 = {
+		holder = lineofhornblower9 #Tobold II
+		liege = d_shire
+	}
+	7051.9.23 = {
+		holder = lineofbaggins14 # Lotho
+	}
+	7052.9.11 = {
+		holder = lineofsaruman # Sharkey (Saruman)
+	}
+	7052.11.3 = {
+		holder = lineofhornblower9 #Tobold II
+	}
+	7069.4.23 = {
+		holder = lineofhornblower10 #Tobrand II
+	}
+	7105.3.3 = {
+		holder = lineofhornblower34 #Tobard II
+	}
+	7160.4.30 = {
+		holder = lineofhornblower36 #Tobald II
+	}
+}
+
+b_sackville = {
+	6982.6.15 = {
+		holder = lineofbaggins13 #Otho
+	}
+	7045.10.11 = {
+		holder = lineofbaggins14 #Lotho
+	}
+	7052.9.11 = {
+		holder = lineofsaruman # Sharkey (Saruman)
+	}
+	7052.11.3 = {
+		holder = lineofhornblower9 #Tobold
+	}
+	7052.11.4 = {
+		holder = lineofproudfoot4 #Sancho
+	}
+	7120.1.20 = {
+		holder = lineofproudfoot5 #Odo
+	}
+	7140.1.20 = {
+		holder = lineofproudfoot6 #Balbo
+	}
+	7169.1.30 = {
+		holder = lineofproudfoot7 #Madoc
+	}
+}
+
+c_northfarthing = {
+	# Arnorian House of Ananpâden
+	4033.8.26 = {
+		holder = lineofananpaden1 #Curimardin
+		liege = e_arnor
+		change_development_level = 4
+	}
+	4252.12.16 = {
+		holder = lineofananpaden3 #Valamir
+	}
+	4330.10.20 = {
+		holder = lineofananpaden6 #Saerod
+	}
+	4423.5.24 = {
+		holder = lineofananpaden9 #Oluchil
+	}
+	4518.9.5 = {
+		holder = lineofananpaden13 #Elrohir
+	}
+	4585.8.8 = {
+		holder = lineofananpaden15 #Cemendil
+	}
+	# Arnorian House of Celeberyn
+	4676.2.26 = {
+		holder = lineofceleberyn1 #Earnur
+	}
+	4711.9.10 = {
+		holder = lineofceleberyn4 #Aulendur
+	}
+	4810.3.18 = {
+		holder = lineofceleberyn8 #Minalcar
+	}
+	4892.6.21 = {
+		holder = lineofceleberyn12 #Feandur
+	}
+	5017.11.14 = {
+		holder = lineofceleberyn17 #Nendur
+	}
+	5143.11.6 = {
+		holder = lineofceleberyn19 #Borodir
+	}
+	# Arnorian House of Lûthcelos
+	5192.1.27 = {
+		holder = lineofluthcelos1 #Tuor
+	}
+	5309.6.12 = {
+		holder = lineofluthcelos6 #Eldarion
+	}
+	5449.8.16 = {
+		holder = lineofluthcelos9 #Targon
+	}
+	5542.11.10 = {
+		holder = lineisildur20 # Luthceleos line dies out, land returns to King Araphor
+	}
+	5622.9.29 = {
+		holder = lineisildur21 # Argeleb II
+	}
+
+	#5542.3.10 = {
+	#	holder = k_wastelands_holder
+	#	change_development_level = -100
+	#	government = wastelands_government
+	#}
+
+	6783.5.2 = {
+		holder = lineoftook4 #Bandobras - for heroics at Battle of Greenfields
+		liege = k_shire
+		change_development_level = 5
+		government = hobbit_government
+	}
+	6839.5.22 = {
+		holder = lineoftook55 #Bandogrim I
+	}
+	6879.7.27 = {
+		holder = lineoftook57 #Bandomond
+	}
+	6939.8.3 = {
+		holder = lineoftook60 #Bandogar
+	}
+	6979.11.3 = {
+		holder = lineoftook62 #Bandobras II
+	}
+	7005.10.16 = {
+		holder = lineoftook64 #Bandogar II
+		liege = d_shire
+	}
+	7040.4.26 = {
+		holder = lineoftook66 #Bandobard
+	}
+	7076.3.25 = {
+		holder = lineoftook90 #Bandogrim II
+	}
+	7160.5.17 = {
+		holder = lineoftook91 #Bandobras III
+	}
+}
+
+b_hardbottle = {
+	6918.1.1 = {
+		holder = lineofbracegirdle1 #Blanco
+	}
+	6998.4.6 = {
+		holder = lineofbracegirdle2 #Bruno
+	}
+	7043.12.22 = {
+		holder = lineofbracegirdle4 #Hugo
+	}
+	7074.9.5 = {
+		holder = lineofbracegirdle6 #Bingo
+	}
+	7100.1.1 = {
+		holder = lineofbracegirdle7 #Bandogar
+	}
+	7172.3.12 = {
+		holder = lineofbracegirdle8 #Berilac
+	}
+	7172.3.5 = {
+		holder = lineofbracegirdle9 #Balbo
+	}
+}
+
+c_westfarthing = {
+	# Arnorian House of Ananpâden
+	4033.8.26 = {
+		holder = lineofananpaden1 #Curimardin
+		liege = e_arnor
+		change_development_level = 6
+	}
+	4252.12.16 = {
+		holder = lineofananpaden3 #Valamir
+	}
+	4330.10.20 = {
+		holder = lineofananpaden6 #Saerod
+	}
+	4423.5.24 = {
+		holder = lineofananpaden9 #Oluchil
+	}
+	4518.9.5 = {
+		holder = lineofananpaden13 #Elrohir
+	}
+	4585.8.8 = {
+		holder = lineofananpaden15 #Cemendil
+	}
+	# Arnorian House of Celeberyn
+	4676.2.26 = {
+		holder = lineofceleberyn1 #Earnur
+	}
+	4711.9.10 = {
+		holder = lineofceleberyn4 #Aulendur
+	}
+	4810.3.18 = {
+		holder = lineofceleberyn8 #Minalcar
+	}
+	4892.6.21 = {
+		holder = lineofceleberyn12 #Feandur
+	}
+	5017.11.14 = {
+		holder = lineofceleberyn17 #Nendur
+	}
+	5143.11.6 = {
+		holder = lineofceleberyn19 #Borodir
+	}
+	# Arnorian House of Lûthcelos
+	5192.1.27 = {
+		holder = lineofluthcelos1 #Tuor
+	}
+	5309.6.12 = {
+		holder = lineofluthcelos6 #Eldarion
+	}
+	5449.8.16 = {
+		holder = lineofluthcelos9 #Targon
+	}
+	5542.11.10 = {
+		holder = lineisildur20 # Luthceleos line dies out, land returns to King Araphor
+	}
+	5622.9.29 = {
+		holder = lineisildur21 # Argeleb II
+	}
+
+	# Hobbits #
+
+	5634.6.1 = { # Marcho and Blanco cross the Brandywine on Midsummer's Day, SR 1
+		holder = lineofmarcho2 # Marcho
+	}
+	5670.2.1 = { # Marcho dies to the plague, SR 37
+		holder = lineofmarcho3 # Blanco
+	}
+	5711.2.12 = { # Cavallo inherits after his father, SR 78
+		holder = lineofmarcho4 # Cavallo
+	}
+	#5743.11.11 = { # Cavallo dies without an heir, SR 110
+	#	holder = 0
+	#}
+	#5744.6.1 = { # The Free Fair is conveened early (by 2 years) the next summer, and the first elected Mayor is appointed, SR 111
+	#	holder =
+	#}
+
+	6653.12.21 = {
+		holder = lineoftook1 #Isengrim II
+		change_development_level = 10
+		government = hobbit_government
+	}
+	6755.11.10 = { #Long winter start date ruler
+		holder = lineoftook2 #Isumbras III
+	}
+	6792.6.21 = {
+		holder = lineoftook3 #Ferumbras II
+	}
+	6834.12.25 = {
+		holder = lineoftook5 #Fortinbras I
+	}
+	6881.9.6 = {
+		holder = lineoftook6 #Gerontius (the Old Took)
+	}
+	6953.10.4 = {
+		holder = lineoftook7 #Isengrim III
+	}
+	6963.7.27 = {
+		holder = lineoftook9 #Isumbras IV
+	}
+	6972.8.2 = {
+		holder = lineoftook19 # Fortinbras II
+	}
+	7013.2.12 = {
+		holder = lineoftook20 # granted
+	}
+
+	7032.3.24 = { # T.A. 2999 - Free Fair first elects Will Whitfoot. He'll be reelected in 3006 and 3013.
+		holder = lineofwhitfoot1 # Will
+		liege = k_shire
+		government = hobbit_government
+	}
+	7051.12.11 = {
+		holder = lineofbaggins14 # Lotho
+		liege = 0
+	}
+	7052.9.11 = {
+		holder = lineofsaruman # Sharkey (Saruman)
+	}
+	7052.11.3 = {
+		holder = lineofbaggins29 # Frodo (as Deputy)
+		liege = k_shire
+	}
+	7053.6.1 = { # Will is restored on Midyear's Day 1420
+		holder = lineofwhitfoot1 # Will (Recovered from Scouring of the Shire)
+	}
+	7060.6.1 = { # Will resigns and Sam is elected mayor in 1427/3027
+		holder = lineofgamgee10 # Samwise
+	}
+	7075.1.1 = { #Samwise leaves deputy in charge, goes on a trip to Gondor
+		holder = lineofcotton2 # Tolman (Jr.)
+	}
+	7076.1.1 = {#Samwise, back from his trip to Gondor
+		holder = lineofgamgee10 #Samwise
+	}
+	7109.6.1 = { # Samwise completes his seventh and last term in 1476
+		holder = lineofroper2 #Sadoc Roper
+	}
+	7116.6.1 = {
+		holder = lineofgardner2 #Frodo Gardener
+	}
+	7130.6.1 = {
+		holder = lineoftook90 #Bandogrim II North-Took
+	}
+	7137.6.1 = {
+		holder = lineofroper2 #Sadoc Roper
+	}
+	7144.6.1 = {
+		holder = lineofcotton10 # Uffo Cotton
+	}
+	7165.6.1 = {
+		holder = lineofgardner13 #Holfast Gardener
+	}
+	7172.6.1 = {
+		holder = lineofwestman1 #Carl Westman
+	}
+}
+
+b_white_downs = {
+
+	6900.1.1 = {
+		holder = lineofgamwich3 #Hob the Old Gammidgy Gammidge
+	}
+	6989.6.11 = {
+		holder = lineofgamgee1 #Hobson Ropemaker
+	}
+	7016.2.27 = {
+		holder = lineofgamgee2 #Andwise Roper
+	}
+	7039.7.15 = {
+		holder = lineofroper1 #Anson
+	}
+	7099.8.5 = {
+		holder = lineofroper2 #Sadoc
+	}
+	7152.4.24 = {
+		holder = lineofroper3 #Fredegar
+	}
+}
+
+b_bywater = {
+	6965.1.1 = {
+		holder = lineofcotton0c #Holman I 'Long Hom Cotton'
+	}
+	7029.5.2 = {
+		holder = lineofcotton1 #Tolman Cotton
+	}
+	7072.9.22 = {
+		holder = lineofcotton2 #Tolman Cotton Jr
+	}
+	7113.6.1 = {
+		holder = lineofcotton7 #Samwise
+	}
+	7144.6.1 = {
+		holder = lineofcotton8 #Holman II
+	}
+}

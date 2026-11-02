@@ -1,0 +1,89 @@
+﻿#####################################
+############ Thani-Hazad ############
+#####################################
+
+house_gimilthori = { # Ro_o_ttho_o_ri_i_
+	name = dynn_gimilthori
+	dynasty = dynasty_rotthori
+	motto = dynn_gimilthori_motto
+}
+house_nolondur = { # Sakaltud
+	name = "dynn_nolundur"
+	dynasty = dynasty_anballukkhorohin
+	motto = dynn_nolundur_motto
+}
+house_kastaphel = {
+	name = "dynn_kastaphel"
+	dynasty = dynasty_erimrazor
+	motto = dynn_kastaphel_motto
+}
+house_kaldur = {
+	name = "dynn_kaldur"
+	dynasty = dynasty_erimrazor
+	motto = dynn_kaldur_motto
+}
+house_khori_an_daladlai = {
+	name = "dynn_khori_an_daladlai"
+	dynasty = dynasty_zimrakhor
+	motto = dynn_khori_an_daladlai_motto
+}
+house_zagarhammerdel = {
+	name = "dynn_hammerdel"
+	dynasty = dynasty_erimrazor
+	motto = dynn_hammerdel_motto
+}
+house_hammerdelgeneralstwo = {
+	name = "dynn_hammerdelgentwo"
+	dynasty = dynasty_hammerdelgenerals
+	motto = dynn_hammerdelgentwo_motto
+}
+house_gimilethone = {
+	name = "dynn_gimilethone"
+	dynasty = dynasty_erimrazor
+	motto = dynn_gimilethone_motto
+}
+house_dairukhorazar = {
+	name = "dynn_dairukhorazar"
+	dynasty = dynasty_erimrazor
+	motto = dynn_dairukhorazar_motto
+}
+house_cadetrotharana = {
+	name = "dynn_cadetrotharana"
+	dynasty = dynasty_erimrazor
+	motto = dynn_cadetrotharana_motto
+}
+house_belzirani = {
+	name = "dynn_belzirani"
+	dynasty = dynasty_erimrazor
+	motto = dynn_belzirani_motto
+}
+house_alsariaszimra = {
+	name = "dynn_alsariaszimra"
+	dynasty = dynasty_erimrazor
+	motto = dynn_alsariaszimra_motto
+}
+house_gimilurushonecadet = {
+	name = "dynn_gimilurushonecadet"
+	dynasty = dynasty_gimilurushone
+	motto = dynn_gimilurushonecadet_motto
+}
+house_nilozir = {
+	name = "dynn_nilozir"
+	dynasty = dynasty_dulgu
+	motto = dynn_nilozir_motto
+}
+house_zaradancadet = {
+	name = "dynn_zaradancadet"
+	dynasty = dynasty_zaradan
+	motto = dynn_zaradancadet_motto
+}
+house_zornitir = {
+	name = "dynn_zornitir"
+	dynasty = dynasty_arunnardu
+	motto = dynn_zornitir_motto
+}
+house_azgarakhor = {
+	name = "dynn_azgarakhor"
+	dynasty = dynasty_bar_erranu
+	motto = dynn_azgarakhor_motto
+}

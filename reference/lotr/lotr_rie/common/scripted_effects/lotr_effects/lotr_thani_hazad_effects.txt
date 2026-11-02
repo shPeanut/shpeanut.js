@@ -1,0 +1,37 @@
+﻿lotr_balan_lai_list_potential_princes_effect = { 
+    every_dynasty = {
+        limit = {
+            any_dynasty_member = {
+                percent > 0.5
+                culture = { 
+                    OR = {
+                        this = culture:kharadunaim
+                        any_parent_culture_or_above = { this = culture:kharadunaim }
+                    }
+                }
+            }
+            any_dynasty_member = { count > 3 }
+        }
+        every_dynasty_house = {
+            limit = { NOT = { any_house_member = { highest_held_title_tier > tier_county } } }
+            every_house_member ?= {
+                limit = { 
+                    is_landed = no 
+                    any_close_family_member = { NOT = { highest_held_title_tier >= tier_county } }
+                    culture = {
+                        OR = {
+                            this = culture:kharadunaim
+                            any_parent_culture_or_above = { this = culture:kharadunaim }
+                        }
+                    }
+                    is_male = yes
+                    OR = {
+                        is_married = yes
+                        can_marry_trigger = yes
+                    }
+                }
+                add_to_list ?= potential_prince
+            }
+        }
+    }
+}

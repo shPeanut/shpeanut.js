@@ -1,0 +1,190 @@
+﻿############################################
+# Decisions roughly at the top
+# (201-300 )
+
+mardat_purge_of_ray = {
+	sort_order = 1200
+	gui_tags = { big_button }
+	important_decision_group = yes
+}
+
+mardat_coup = {
+	sort_order = 1100
+	gui_tags = { big_button }
+	important_decision_group = yes
+}
+
+mardat_civil_war = {
+	sort_order = 1010
+	gui_tags = { big_button }
+	important_decision_group = yes
+}
+
+vatalinar_story_decisions = {
+	sort_order = 1009
+	gui_tags = { big_button }
+}
+
+bellakar_northward_decisions = {
+	sort_order = 1006
+	gui_tags = { big_button }
+}
+
+bellakar_southward_decisions = {
+	sort_order = 1005
+	gui_tags = { big_button }
+	important_decision_group = yes
+}
+
+zantaka_story_decisions = {
+	sort_order = 1004
+	gui_tags = { big_button }
+	important_decision_group = yes
+}
+
+realms_in_exile_major = {
+	sort_order = 1000
+	gui_tags = { big_button }
+	important_decision_group = yes
+}
+
+realms_in_exile_minor = {
+	sort_order = 900
+	gui_tags = { big_button }
+	#important_decision_group = yes
+}
+
+realms_in_exile_qol = {
+	sort_order = 0
+	gui_tags = { big_button }
+}
+
+war_of_the_rohirrim_wulf_war_for_rohan = {
+	sort_order = 810
+	gui_tags = { big_button }
+	important_decision_group = yes
+}
+
+war_of_the_rohirrim_wulf_unite_dunland = {
+	sort_order = 800
+	gui_tags = { big_button }
+	important_decision_group = yes
+}
+
+war_of_the_rohirrim_wulf_marriage = {
+	sort_order = 790
+	gui_tags = { big_button }
+	important_decision_group = yes
+}
+
+skorgrim_dourhand_rings = {
+	sort_order = 780
+}
+
+dol_amroth_decisions = {
+	sort_order = 1001
+	gui_tags = { big_button }
+	important_decision_group = yes
+}
+
+appearance = {
+	sort_order = 790
+	gui_tags = { big_button }
+}
+
+############################################
+# Decisions roughly at the top
+# (201-300 )
+
+oaths = { # Try to keep this one at the top, as they are unique and rare
+	sort_order = 400
+	gui_tags = { extra_big_button oath_decision }
+	important_decision_group = yes
+}
+
+dynastic_cycle = {
+	sort_order = 300
+	gui_tags = { big_button }	
+}
+
+story_cycle_hasan = {
+	sort_order = 300
+	gui_tags = { big_button }
+}
+
+adventurer = {
+	sort_order = 250
+	gui_tags = { big_button }
+}
+
+nomad_major = {
+	sort_order = 225
+	gui_tags = { big_button }
+	important_decision_group = yes
+}
+
+roman = {
+	sort_order = 225
+	gui_tags = { big_button }
+}
+
+tutorial_objectives = {
+	sort_order = 210
+	gui_tags = { big_button }	
+}
+
+major = {
+	sort_order = 200
+	gui_tags = { big_button }
+	important_decision_group = yes
+}
+
+############################################
+# Decisions roughly in the middle
+# (101-200 )
+
+realm = {
+	sort_order = 100
+	gui_tags = { big_button }
+}
+
+struggle = {
+	sort_order = 101
+	gui_tags = { big_button }
+}
+
+############################################
+# Decisions roughly at the bottom
+# (001-100 )
+
+admin = {
+	sort_order = 50
+	gui_tags = { big_button }
+}
+
+house_unity = {
+	sort_order = 50
+	gui_tags = { big_button }
+}
+
+adventurer_minor = {
+	sort_order = 50
+	gui_tags = { big_button }
+}
+
+nomad_minor = {
+	sort_order = 102
+	gui_tags = { big_button }
+}
+
+courtier = {
+	sort_order = 1
+}
+
+decisions = {
+	sort_order = 10
+}
+
+debug = {
+	sort_order = -1
+}

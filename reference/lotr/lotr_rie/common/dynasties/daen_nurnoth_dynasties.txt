@@ -1,0 +1,63 @@
+﻿###############
+### Nurnoth ###
+###############
+
+dynasty_haldor = {
+	name = dynn_haldor
+	culture = nurnoth
+	motto = dynn_haldor_motto
+}
+
+dynasty_tukrath = {
+	name = dynn_tukrath
+	culture = nurnoth
+	motto = dynn_tukrath_motto
+}
+
+dynasty_molwan = {
+	name = dynn_molwan
+	culture = nurnoth
+	motto = dynn_molwan_motto
+}
+
+dynasty_hearon = {
+	name = dynn_hearon
+	culture = nurnoth
+	motto = dynn_hearon_motto
+}
+
+dynasty_brynja = {
+	name = dynn_brynja
+	culture = nurnoth
+	motto = dynn_brynja_motto
+}
+
+dynasty_nurnbrand = {
+	name = dynn_nurnbrand
+	culture = nurnoth
+	motto = dynn_nurnbrand_motto
+}
+
+dynasty_ketil = {
+	name = dynn_ketil
+	culture = nurnoth
+	motto = dynn_ketil_motto 
+}
+
+dynasty_skardi = {
+	name = dynn_skardi
+	culture = nurnoth
+	motto = dynn_skardi_motto
+}
+
+dynasty_spider = {
+	name = dynn_spider
+	culture = nurnoth
+	motto = dynn_spider_motto
+}
+
+dynasty_kidjun = {
+    name = dynn_kidjun
+    culture = nurnoth
+    motto = dynn_kidjun_motto
+}

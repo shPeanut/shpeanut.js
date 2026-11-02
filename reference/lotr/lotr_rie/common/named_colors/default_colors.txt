@@ -1,0 +1,203 @@
+﻿colors = {
+	# used by coat of arms
+	red 		= hsv {		0.02 	0.8 	0.45 	}
+	blue 		= hsv {		0.58 	0.8 	0.4 	}
+	yellow		= hsv {		0.1 	0.75 	0.75 	}
+	green		= hsv {		0.35 	0.6 	0.30 	}
+	black		= hsv {		0.1 	0.25 	0.10 	}
+	white		= hsv {		0.08 	0.02 	0.8 	}
+	purple 		= hsv {		0.9 	0.7 	0.35 	}
+	orange 		= hsv {		0.064 	1 	0.6 	}
+	
+	grey 		= hsv {		0.0 	0.0 	0.50 	}
+	brown 		= hsv360 {	021 	074 	045		}
+	
+	blue_light	= hsv {		0.58 	0.70 	0.55 	}
+	green_light	= hsv {		0.35 	0.50 	0.40 	}
+	yellow_light= hsv {		0.1 	0.80 	1.0 	}
+	red_dark	= hsv {		0.0 	0.8 	0.30 	}
+
+	# Realms in Exile
+	maroon					= rgb { 56 8 0 }
+
+	gondor_blue				= rgb { 1 40 106 }
+	gondor_gold				= rgb { 160 130 90 }
+	arnor_blue				= rgb { 0 40 90 }
+	arthedain_grey			= rgb { 80 75 70 }
+	arthedain_dark_grey		= rgb { 35 30 25 }
+	arthedain_blue			= rgb { 30 110 140 }
+	cardolan_green			= rgb { 49 72 33 }
+	cardolan_green_2		= rgb { 60 120 0 }
+	cardolan_light_green	= rgb { 160 160 100 }
+	rhudaur_red				= rgb { 140 0 30 }
+	rhudaur_rust			= rgb { 96 0 0 } # { 130 30 30 }
+	rhudaur_yellow			= rgb { 198 177 89 }
+	
+	amroth_blue				= rgb { 90 120 160 }
+	amroth_dark_blue		= rgb { 40 50 70 }
+	amroth_grey				= rgb { 75 80 100 }
+	amroth_dark_grey		= rgb { 40 45 55 }
+	amroth_marine			= rgb { 10 86 159 }
+	anfalas_orange			= rgb { 200 140 0 }
+	lebennin_blue			= rgb { 60 70 160 }
+	gelin_green				= rgb { 24 73 14 }
+	minas_ithil_colour		= rgb { 150 40 50 }
+	lossarnach_green		= rgb { 88 98 40 }
+	lamedon_blue			= rgb {64 73 96}
+	lamedon_red				= rgb { 127 20 34 }
+
+	rohan_green01			= rgb { 24 71 53 }
+	rohan_green02			= rgb { 74 108 49 }
+	rohan_white				= rgb { 254 253 250 }
+	rohan_gold				= rgb { 213 182 98 }
+	rohan_red				= rgb { 134 29 36 }
+	rohan_blue				= rgb { 0 14 111 }
+	vale_green				= rgb { 35 153 0}
+	vale_brown				= rgb { 94 57 52}
+	
+	necromancer_green		= rgb {200 230 210}
+	flame_orange			= rgb {195 75 0}
+	flame_red				= rgb {190 0 0}
+	mordor_red				= rgb {110 24 10}
+
+	erebor_green			= rgb {110 204 10}
+	erebor_red				= rgb {115 41 19}
+	erebor_gold				= rgb {162 161 121}
+	moria_blue				= rgb {15 41 73}
+	moria_grey_blue			= rgb {60 64 77}
+	moria_mithril			= rgb {239 243 239}
+	iron_hills_color		= rgb {153 25 177} #{145 7 107}
+	iron_hills_red			= rgb {138 39 13}
+	iron_hills_rust			= rgb {158 118 66}
+	blue_mountains_blue		= rgb {39 94 216}
+	blue_mountains_silver	= rgb {200 219 228}
+	blue_mountains_brass	= rgb {234 200 100}
+
+	blacklock_brown_dark	= rgb { 50 20 0 }
+	
+	umbar_gold				= rgb { 222 192 134 }
+	umbar_dark_gold			= rgb { 172 128 48 }
+	
+	abrakhan_gold			= rgb { 156 116 85 }
+	abrakhan_black			= rgb { 33 32 35 }
+
+	bellakari_purple_light		= rgb { 132 64 105 }
+	bellakari_purple_deep		= rgb { 134 9 84 }
+	bellakari_gold				= rgb { 191 133 47 }
+	bellakari_gold_dark			= rgb { 108 81 42 }
+	#bellakari_green_light		= rgb { 94 130 93 }
+
+	anbaluk_blue_dark			= rgb { 0 0 40 }
+	anbaluk_blue				= rgb { 2 0 71 }
+	anbaluk_blue_light			= rgb { 21 21 86 }
+	anbaluk_red					= rgb { 86 10 0 }
+	anbaluk_red_light			= rgb { 142 62 51 }
+	anbaluk_gold				= rgb { 166 149 115 }
+	anbaluk_gold_light			= rgb { 222 192 134 }
+
+	tulwangi_dark_gold			= rgb { 184 142 11 }
+	tulwangi_dark_yellow		= rgb { 158 121 0 }
+	tulwangi_deep_blue			= rgb { 0 45 85 }
+	tulwangi_light_blue			= rgb { 0 106 151 }
+	tulwangi_dark_purple		= rgb { 50 20 70 }
+	tulwangi_light_purple		= rgb { 95 56 116 }
+	tulwangi_dark_brown			= rgb { 89 55 17 }
+	tulwangi_light_brown		= rgb { 145 97 45 }
+	tulwangi_deep_green			= rgb { 68 92 0 }
+	tulwangi_dark_green			= rgb { 5 32 8 }
+	tulwangi_green				= rgb { 45 92 20 }
+
+	sirayn_dark_brown			= rgb { 64 33 16 }
+	sirayn_dark_yellow			= rgb { 79 76 48 }
+	sirayn_dull_dark_green		= rgb { 86 93 55 }
+	sirayn_dull_dark_dark_green	= rgb { 71 79 59 }
+	sirayn_green_light			= rgb { 160 156 71 }
+	sirayn_red_light			= rgb { 207 127 116 }
+	sirayn_orange_light			= rgb { 187 137 107 }
+
+	# Imperator: Rome
+	roman_red = hsv { 0 0.91 0.55 }
+	roman_gold = hsv { 0.09 0.76 0.98 }
+	syracuse_yellow = hsv { 0.15 0.95 0.89 }
+
+	albion_blue = rgb { 198 201 229 }
+	parthia_blue = rgb { 11 6 112 }
+
+	# Imperator generic colours
+	bone_white = hsv { 0.11 0.09 0.96 }
+	offwhite = hsv { 0.09 0.11 0.94 }
+	yellowish_grey = hsv { 0.14 0.11 0.44 }
+	pitch_black = hsv { 0 0 0.16 }
+
+	dark_chocolate = hsv { 0.03 0.55 0.22 }
+	red_nougat = hsv { 0.04 0.28 0.58 }
+	dark_rust = hsv { 0.04 0.9 0.4 }
+	burned_red = hsv { 0.05 0.77 0.76 }
+	rust_brown = hsv { 0.06 1 0.39 }
+	pink_skin = hsv { 0.07 0.37 1 }
+	beige = hsv { 0.13 0.25 0.6 }
+	light_gold = hsv { 0.13 0.35 0.95 }
+	light_yellow = hsv { 0.14 0.59 0.99 }
+
+	ck2_green = hsv { 0.28 0.60 0.40 }
+	imperator_green = hsv { 0.3 0.9 0.38 }
+
+	light_green = hsv { 0.31 0.32 0.63 }
+	mint_green = hsv { 0.31 0.14 0.75 }
+	desaturated_green = hsv { 0.33 0.28 0.51 }
+	dark_green = hsv { 0.35 0.7 0.38 }
+	light_blue = hsv { 0.55 0.43 0.61 }
+	ocean_blue = hsv { 0.57 0.77 0.68 }
+	frost_blue = hsv { 0.6 0.10 1.00 }
+	navy_blue = hsv { 0.62 0.60 0.41 }
+	light_purple = hsv { 0.65 0.29 0.73 }
+	dark_purple = hsv { 0.81 0.27 0.42 }
+	pink = hsv { 0.92 0.32 0.81 }
+	dark_burgundy = hsv { 0.99 0.42 0.36 }
+	
+	### Gúrzyul Coat of Arms ###
+	# Symbol
+	evil_black					= rgb { 14 14 14 }
+	evil_white_1				= rgb { 227 225 215 }
+	evil_white_2				= rgb { 182 182 180 }
+	evil_grey_1					= rgb { 66 61 67 }
+	evil_metallic_grey_1		= rgb { 52 55 71 }
+	evil_red_2					= rgb { 113 18 18 }
+	evil_rust					= rgb { 88 76 66 }
+	evil_gold					= rgb { 174 124 1 }
+	# Background
+	evil_black					= rgb { 14 14 14 }
+	evil_white_2				= rgb { 182 182 180 }
+	evil_grey_1					= rgb { 66 61 67 }
+	evil_grey_2					= rgb { 102 102 100 }
+	evil_grey_3					= rgb { 64 64 64 }
+	evil_gunpowder_1			= rgb { 44 57 65 }
+	evil_gunpowder_2			= rgb { 49 53 66 }
+	evil_metallic_grey_2		= rgb { 29 33 46 }
+	evil_purple_1				= rgb { 45 27 46 }
+	evil_purple_2				= rgb { 73 60 80 }
+	evil_red_1					= rgb {	113 66 66 }
+	evil_red_2					= rgb { 113 18 18 }
+	evil_brown_1				= rgb { 83 73 63 }
+	evil_brown_2				= rgb { 194 171 146 }
+	evil_gold					= rgb { 174 124 1 }
+
+	# Rhûn
+	rhun_purple					= rgb { 88 78 130 }
+	rhun_maroon					= rgb { 81 27 53 }
+	rhun_lightgold				= rgb { 255 193 125 }
+	rhun_blue					= rgb { 109 143 164 }
+	rhun_red					= rgb { 109 13 13 }
+	rhun_darkgold				= rgb { 204 136 47 }
+	rhun_gold					= rgb { 178 142 80 }
+	rhun_brown					= rgb { 53 30 31 }
+	rhun_gold2					= rgb { 218 156 63 }
+	rhun_lightmaroon			= rgb { 110 41 44 }
+	rhun_green					= rgb { 9 39 9 }
+	rhun_cream					= rgb { 230 220 195 }
+	rhun_red2					= rgb { 140 35 45 }
+	rhun_gold3					= rgb { 212 152 52 }
+
+	# Wilderness
+	wilderness_color		    = rgb { 0 0 0 }
+}

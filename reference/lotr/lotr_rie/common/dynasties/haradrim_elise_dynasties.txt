@@ -1,0 +1,10 @@
+﻿################################
+############ Elinse ############
+################################
+
+dynasty_talvidar = {
+	name = "dynn_talvidar"
+	culture = "elinse"
+	motto = "dynn_talvidar_motto"
+}
+

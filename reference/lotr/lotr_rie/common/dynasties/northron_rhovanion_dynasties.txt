@@ -1,0 +1,664 @@
+﻿###########################
+### Rhovanion Dynasties ###
+###########################
+
+##################################
+### Royal Dynasty of Rhovanion ###
+##################################
+
+dynasty_rhovanion = {
+	name = "dynn_rhovanion"
+	culture = "northron"
+	motto = dynn_rhovanion_motto
+}
+
+dynasty_framling = { # Bastard line which remained in the north in Framsburg
+	name = "dynn_framling"
+	culture = "framling"
+	motto = dynn_framling_motto
+}
+
+
+###########################
+### Dorwinion Dynasties ###
+###########################
+
+dynasty_koldana = {
+	name = "dynn_koldana"
+	culture = "dorwinionrim"
+	motto = dynn_koldana_motto
+}
+
+dynasty_aldiana = {
+	name = "dynn_aldiana"
+	culture = "dorwinionrim"
+	motto = dynn_aldiana_motto
+}
+
+# dynasty_herian = {
+# 	name = "dynn_herian"
+# 	culture = "dorwinionrim"
+# 	motto = dynn_herian_motto
+# }
+
+dynasty_ilasarian = {
+	name = "dynn_ilasarian"
+	culture = "dorwinionrim"
+	motto = dynn_ilasarian_motto
+}
+
+dynasty_capariana = {
+	name = "dynn_capariana"
+	culture = "dorwinionrim"
+	motto = dynn_capariana_motto
+}
+
+dynasty_garmeniana = {
+	name = "dynn_garmeniana"
+	culture = "dorwinionrim"
+	motto = dynn_garmeniana_motto
+}
+
+dynasty_ilian = {
+	name = "dynn_ilian"
+	culture = "dorwinionrim"
+	motto = dynn_ilian_motto
+}
+
+dynasty_maleniana = {
+	name = "dynn_maleniana"
+	culture = "dorwinionrim"
+	motto = dynn_maleniana_motto
+}
+
+dynasty_vieriana = {
+	name = "dynn_vieriana"
+	culture = "dorwinionrim"
+	motto = dynn_vieriana_motto
+}
+
+dynasty_raudbarad = {
+	name = "dynn_raudbarad"
+	culture = "dorwinionrim"
+	motto = dynn_raudbarad_motto
+}
+
+dynasty_steining = {
+	name = "dynn_steining"
+	culture = "dalemen"
+	motto = dynn_steining_motto
+}
+
+dynasty_aldian = {
+	name = "dynn_aldian"
+	culture = "dorwinionrim"
+	motto = dynn_aldian_motto
+}
+
+dynasty_variana = {
+	name = "dynn_variana"
+	culture = "dorwinionrim"
+	motto = dynn_variana_motto
+}
+
+dynasty_logian = {
+	name = "dynn_logian"
+	culture = "dorwinionrim"
+	motto = dynn_logian_motto
+}
+
+dynasty_barvadinian = {
+	name = "dynn_barvadinian"
+	culture = "dorwinionrim"
+	motto = dynn_barvadinian_motto
+}
+
+#dynasty_aicathin = { # Not currently used
+#	name = "dynn_aicathin"
+#	culture = "dorwinionrim"
+#	motto = dynn_aicathin_motto
+#}
+
+dynasty_jauffring = {
+	name = "dynn_jauffring"
+	culture = "dorwinionrim"
+	motto = dynn_jauffring_motto
+}
+
+dynasty_rudolf = {
+	name = "dynn_rudolf"
+	culture = "dorwinionrim"
+	motto = dynn_rudolf_motto
+}
+
+dynasty_athareik = {
+	name = "dynn_athareik"
+	culture = "dorwinionrim"
+	motto = dynn_athareik_motto
+}
+
+dynasty_kelpering = {
+	name = "dynn_kelpering"
+	culture = "dorwinionrim"
+	motto = dynn_kelpering_motto
+}
+
+dynasty_hjaldan = {
+	name = "dynn_hjaldan"
+	culture = "dorwinionrim"
+	motto = dynn_hjaldan_motto
+}
+
+dynasty_gaumar = {
+	name = "dynn_gaumar"
+	culture = "dorwinionrim"
+	motto = dynn_gaumar_motto
+}
+
+dynasty_brynjorg = {
+	name = "dynn_brynjorg"
+	culture = "dorwinionrim"
+	motto = dynn_brynjorg_motto
+}
+
+dynasty_wilreik = {
+	name = "dynn_wilreik"
+	culture = "dorwinionrim"
+	motto = dynn_wilreik_motto
+}
+
+dynasty_ranald = {
+	name = "dynn_ranald"
+	culture = "dorwinionrim"
+	motto = dynn_ranald_motto
+}
+
+dynasty_ekoning = {
+	name = "dynn_ekoning"
+	culture = "dorwinionrim"
+	motto = dynn_ekoning_motto
+}
+
+dynasty_brydgar = {
+	name = "dynn_brydgar"
+	culture = "dorwinionrim"
+	motto = dynn_brydgar_motto
+}
+
+dynasty_rothar = {
+	name = "dynn_rothar"
+	culture = "dorwinionrim"
+	motto = dynn_rothar_motto
+}
+
+dynasty_minoreik = {
+	name = "dynn_minoreik"
+	culture = "dorwinionrim"
+	motto = dynn_minoreik_motto
+}
+
+###########################
+### Dalelands Dynasties ###
+###########################
+
+dynasty_aivadiuria = { # Aivadiuria of Celduin, unifier of the Dale-lands, ancestor of the Lords of Dale. The House of Bard is a cadet branch of this
+	name = "dynn_aivadiuria"
+	culture = "northron"
+	motto = dynn_aivadiuria_motto
+}
+
+dynasty_wolffort = {
+	name = "dynn_wolffort"
+	culture = "dalemen"
+	motto = dynn_wolffort_motto
+}
+
+dynasty_glenbrook = {
+	name = "dynn_glenbrook"
+	culture = "dalemen"
+	motto = dynn_glenbrook_motto
+}
+
+dynasty_falkes = {
+	name = "dynn_falkes"
+	culture = "dalemen"
+	motto = dynn_falkes_motto
+}
+
+dynasty_telliore = {
+	name = "dynn_telliore"
+	culture = "dalemen"
+	motto = dynn_telliore_motto
+}
+
+dynasty_hill = {
+	name = "dynn_hill"
+	culture = "dalemen"
+}
+
+dynasty_arnstyr = {
+	name = "dynn_arnstyr"
+	culture = "dalemen"
+	motto = dynn_arnstyr_motto
+}
+
+dynasty_floki = {
+	name = "dynn_floki"
+	culture = "dalemen"
+	motto = dynn_floki_motto
+}
+
+dynasty_pedermoor = {
+	name = "dynn_pedermoor"
+	culture = "dalemen"
+}
+
+dynasty_andersson = {
+	name = "dynn_andersson"
+	culture = "dalemen"
+}
+
+dynasty_fortinbras = {
+	name = "dynn_fortinbras"
+	culture = "dalemen"
+}
+
+dynasty_henkild = {
+	name = "dynn_henkild"
+	culture = "dalemen"
+}
+
+dynasty_frygar = {
+	name = "dynn_frygar"
+	culture = "dalemen"
+	motto = dynn_frygar_motto
+}
+
+dynasty_velstand = {
+	name = "dynn_velstand"
+	culture = "dalemen"
+	motto = dynn_velstand_motto
+}
+
+dynasty_forrik = {
+	name = "dynn_forrik"
+	culture = "dalemen"
+	motto = dynn_forrik_motto
+}
+
+dynasty_norling = {
+	name = "dynn_norling"
+	culture = "dalemen"
+	motto = dynn_norling_motto
+}
+
+dynasty_snarkning = {
+	name = "dynn_snarkning"
+	culture = "dalemen"
+	motto = dynn_snarkning_motto
+}
+
+dynasty_girig = {
+	name = "dynn_girig"
+	culture = "dalemen"
+	motto = dynn_girig_motto
+}
+
+dynasty_capon = {
+	name = "dynn_capon"
+	culture = "dalemen"
+	motto = dynn_capon_motto
+}
+
+dynasty_kobyla = {
+	name = "dynn_kobyla"
+	culture = "dalemen"
+	motto = dynn_kobyla_motto
+}
+
+dynasty_oderin = {
+	name = "dynn_oderin"
+	culture = "dalemen"
+	motto = dynn_oderin_motto
+}
+
+dynasty_hugining = {
+	name = "dynn_hugining"
+	culture = "dalemen"
+	motto = dynn_hugining_motto
+}
+
+dynasty_jarnsmiding = {
+	name = "dynn_jarnsmiding"
+	culture = "dalemen"
+	motto = dynn_jarnsmiding_motto
+}
+
+dynasty_hargar = {
+	name = "dynn_hargar"
+	culture = "dalemen"
+	motto = dynn_hargar_motto
+}
+
+#############################
+### S Rhovanion Dynasties ###
+#############################
+
+dynasty_akhevian = {
+	name = "dynn_akhevian"
+	culture = "magriag"
+	motto = dynn_akhevian_motto
+}
+
+dynasty_khurshian = {
+	name = "dynn_khurshian"
+	culture = "magriag"
+	motto = dynn_khurshian_motto
+}
+
+dynasty_mashakian = {
+	name = "dynn_mashakian"
+	culture = "asdriag"
+	motto = dynn_mashakian_motto
+}
+
+dynasty_vazevian = {
+	name = "dynn_vazevian"
+	culture = "asdriag"
+	motto = dynn_vazevian_motto
+}
+
+dynasty_zorian = {
+	name = "dynn_zorian"
+	culture = "asdriag"
+	motto = dynn_zorian_motto
+}
+
+dynasty_shakhalian = {
+	name = "dynn_shakhalian"
+	culture = "odhriag"
+	motto = dynn_shakhalian_motto
+}
+
+dynasty_nikathian = {
+	name = "dynn_nikathian"
+	culture = "odhriag"
+	motto = dynn_nikathian_motto
+}
+
+dynasty_karmian = {
+	name = "dynn_karmian"
+	culture = "magriag"
+	motto = dynn_karmian_motto
+}
+
+dynasty_mollukian = {
+	name = "dynn_mollukian"
+	culture = "magriag"
+	motto = dynn_mollukian_motto
+}
+
+## Rhovanorim tribes
+
+dynasty_toki = {
+	name = "dynn_toki"
+	culture = "rhovanorim"
+	motto = dynn_toki_motto
+}
+
+dynasty_orming = {
+	name = "dynn_orming"
+	culture = "rhovanorim"
+	motto = dynn_orming_motto
+}
+
+dynasty_lucrecea = {
+	name = "dynn_lucrecea"
+	culture = "rhovanorim"
+	motto = dynn_lucrecea_motto
+}
+
+dynasty_runrik = {
+	name = "dynn_runrik"
+	culture = "rhovanorim"
+	motto = dynn_runrik_motto
+}
+
+dynasty_rowalrik = {
+	name = "dynn_rowalrik"
+	culture = "rhovanorim"
+	motto = dynn_rowalrik_motto
+}
+
+dynasty_wirgand = {
+	name = "dynn_wirgand"
+	culture = "rhovanorim"
+	motto = dynn_wirgand_motto
+}
+
+dynasty_thiudhiri = {
+	name = "dynn_thiudhiri"
+	culture = "rhovanorim"
+	motto = dynn_thiudhiri_motto
+}
+
+dynasty_vethiar = {
+	name = "dynn_vethiar"
+	culture = "rhovanorim"
+	motto = dynn_vethiar_motto
+}
+
+dynasty_hunulf = {
+	name = "dynn_hunulf"
+	culture = "rhovanorim"
+	motto = dynn_hunulf_motto
+}
+
+dynasty_briudwini = {
+	name = "dynn_briudwini"
+	culture = "ebnathiuda"
+	motto = dynn_briudwini_motto
+}
+
+dynasty_athalberd = {
+	name = "dynn_athalberd"
+	culture = "ebnathiuda"
+	motto = dynn_athalberd_motto
+}
+
+dynasty_frendavia = {
+	name = "dynn_frendavia"
+	culture = "rhovanorim"
+	motto = dynn_frendavia_motto
+}
+
+dynasty_moridred = {
+	name = "dynn_moridred"
+	culture = "rhovanorim"
+	motto = dynn_moridred_motto
+}
+
+dynasty_sudhigar = {
+	name = "dynn_sudhigar"
+	culture = "rhovanorim"
+	motto = dynn_sudhigar_motto
+}
+
+dynasty_parigar = {
+	name = "dynn_parigar"
+	culture = "rhovanorim"
+	motto = dynn_parigar_motto
+}
+
+dynasty_medeling = {
+	name = "dynn_medeling"
+	culture = "rhovanorim"
+	motto = dynn_medeling_motto
+}
+
+dynasty_aldoring = {
+	name = "dynn_aldoring"
+	culture = "rhovanorim"
+	motto = dynn_aldoring_motto
+}
+
+dynasty_urusigi = {
+	name = "dynn_urusigi"
+	culture = "rhovanorim"
+	motto = dynn_urusigi_motto
+}
+
+dynasty_scathing = {
+	name = "dynn_scathing"
+	culture = "rhovanorim"
+	motto = dynn_scathing_motto
+}
+
+dynasty_ciuldwini = {
+	name = "dynn_ciuldwini"
+	culture = "rhovanorim"
+	motto = dynn_ciuldwini_motto
+}
+
+dynasty_feordan = {
+	name = "dynn_feordan"
+	culture = "rhovanorim"
+	motto = dynn_feordan_motto
+}
+
+################################
+### RHOVANION PRINCELY LINES ###
+################################
+# Various Rhovanion Principalities in earlier start dates
+
+dynasty_oerstedning = { # House of Awuning
+	name = "dynn_oerstedning"
+	culture = "northron"
+	motto = dynn_oerstedning_motto
+}
+
+dynasty_lucidwinia = { # House of Lucidio
+	name = "dynn_lucidwinia"
+	culture = "northron"
+	motto = dynn_lucidwinia_motto
+}
+
+dynasty_theodring = { # House of Theodefredo
+	name = "dynn_theodring"
+	culture = "ebnathiuda"
+	motto = dynn_theodring_motto
+}
+
+dynasty_theudrea = { # House of Theudigislo
+	name = "dynn_theudrea"
+	culture = "rhovanorim"
+	motto = dynn_theudrea_motto
+}
+
+dynasty_liuthwig = { # House of Líuthwig
+	name = "dynn_liuthwig"
+	culture = "rhovanorim"
+	motto = dynn_liuthwig_motto
+}
+
+dynasty_jothivian = { #House of Jothivia
+	name = "dynn_jothivian"
+	culture = "rhovanorim"
+	motto = dynn_jothivian_motto
+}
+
+### Northmen Gondorian dynasty Subset
+
+dynasty_solvarding = {
+	name = "dynn_solvarding"
+	culture = "rhovanorim"
+	motto = dynn_solvarding_motto
+}
+
+dynasty_ostharing = {
+	name = "dynn_ostharing"
+	culture = "rhovanorim"
+	motto = dynn_ostharing_motto	
+}
+
+dynasty_sunnoebna = {
+	name = "dynn_sunnoebna"
+	culture = "ebnathiuda"
+	motto = dynn_sunnoebna_motto
+}
+
+# dynasty_thainingas = {
+# 	name = "dynn_thainingas"
+# 	culture = "rhovanorim"
+# 	motto = dynn_thainingas_motto		
+# }
+
+dynasty_erodering = {
+	name = "dynn_erodering"
+	culture = "rhovanorim"
+	motto = dynn_erodering_motto
+}
+
+dynasty_eodoricing = {
+	name = "dynn_eodoricing"
+	culture = "rhovanorim"
+	motto = dynn_eodoricing_motto
+}
+
+########################
+### GRAMAS DYNASTIES ###
+########################
+
+dynasty_sunnthila = { # House of Suinthila
+	name = "dynn_sunnthila"
+	culture = "gramas"
+	motto = dynn_sunnthila_motto
+}
+
+dynasty_tulgwerdia = { # House of Tulga
+	name = "dynn_tulgwerdia"
+	culture = "gramas"
+	motto = dynn_tulgwerdia_motto
+}
+
+dynasty_gudemar = {
+	name = "dynn_gudemar"
+	culture = "gramas"
+	motto = dynn_gudemar_motto
+}
+
+dynasty_baldgar = {
+	name = "dynn_baldgar"
+	culture = "gramas"
+	motto = dynn_baldgar_motto
+}
+
+dynasty_skyllud = {
+	name = "dynn_skyllud"
+	culture = "gramas" 
+	motto = dynn_skyllud_motto
+}
+
+dynasty_dagrun = {
+	name = "dynn_dagrun"
+	culture = "gramas"
+	motto = dynn_dagrun_motto
+}
+
+dynasty_rikolf = {
+	name = "dynn_rikolf"
+	culture = "gramas"
+	motto = dynn_rikolf_motto
+}
+
+dynasty_dunling = {
+	name = "dynn_dunling"
+	culture = "gramas"
+	motto = dynn_dunling_motto
+}
+
+dynasty_swithring = {
+	name = "dynn_swithring"
+	culture = "gramas"
+	motto = dynn_swithring_motto
+}

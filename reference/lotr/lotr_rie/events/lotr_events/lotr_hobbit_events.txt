@@ -1,0 +1,799 @@
+﻿namespace = hobbit
+
+### HOBBIT EVENTS
+# 0001			Forced government conversion
+# 0002-0010		Pipeweed Stress Loss
+# 0100          Decision events
+# 0300			Event to swap out Bilbo's modifiers
+
+hobbit.0001 = { # Forced conversion to hobbit government type
+	hidden = yes
+	
+	trigger = {
+		is_hobbit = yes
+		NOT = { government_has_flag = government_is_hobbit }
+		is_landless_adventurer = no
+		NOT = { government_has_flag = government_is_administrative }
+	}
+
+	immediate = {
+		change_government = hobbit_government
+	}
+}
+
+scripted_effect pipeweed_decision_effect = {
+		add_stress = medium_stress_loss
+		add_character_modifier = {
+			modifier = stress_hashish_stupor # Blowing smoke-rings
+			years = 2
+		}
+}
+
+############################################
+### PIPEWEED STRESS LOSS DECISION EVENTS ###
+############################################
+# by Juke
+# Updated to account for LAAMP and nomad (dont have gardens, etc)
+
+hobbit.0002 = { # Smoking Pipe: A Good Morning
+	type = character_event
+	title = {
+		first_valid = {
+			#Underground
+			triggered_desc = {
+				trigger = {
+					location ?= { terrain = halls }
+				}
+				desc = hobbit.0002.t.subterranean # Calm Tunnels
+			}
+			desc = hobbit.0002.t
+		}
+	}
+	desc = {
+		first_valid = {
+			#Underground
+			triggered_desc = {
+				trigger = {
+					location ?= { terrain = halls }
+				}
+				desc = hobbit.0002.desc.subterranean
+			}
+			#Unlanded Adventurer
+			triggered_desc = {
+				trigger = {
+					OR = {
+						is_landless_adventurer = yes
+						government_has_flag = government_is_nomadic
+					}
+				}
+				desc = hobbit.0002.desc.adventurer
+			}
+			desc = hobbit.0002.desc
+		}
+	}
+	theme = stewardship_duty_focus
+	override_background = {
+		trigger = {
+			is_landed = yes
+			is_hobbit = yes
+		}
+		reference = hills_hobbit
+	}
+	override_background = {
+		trigger = {
+			is_landless_adventurer = yes
+		}
+		reference = terrain_travel
+	}
+	override_background = { reference = garden }
+	
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+
+	option = { # Good Morning!
+		name = {
+			text = {
+				first_valid = {
+					#Orc
+					triggered_desc = {
+						trigger = {
+							is_orc = yes
+						}
+						desc = hobbit.0002.a.orc
+					}
+					#Underground
+					triggered_desc = {
+						trigger = {
+							location ?= { terrain = halls }
+						}
+						desc = hobbit.0002.a.subterranean
+					}
+					desc = hobbit.0002.a
+				}
+			}
+		}
+		flavor = {
+			random_valid = {
+				triggered_desc = {
+					trigger = {
+						NOT = { location ?= { terrain = halls } }
+						is_orc = no
+					}
+					desc = hobbit_gm1
+				}
+				triggered_desc = {
+					trigger = {
+						NOT = { location ?= { terrain = halls } }
+						is_orc = no
+					}
+					desc = hobbit_gm2
+				}
+				triggered_desc = {
+					trigger = {
+						NOT = { location ?= { terrain = halls } }
+						is_orc = no
+					}
+					desc = hobbit_gm3
+				}
+				triggered_desc = {
+					trigger = {
+						NOT = { location ?= { terrain = halls } }
+						is_orc = no
+					}
+					desc = hobbit_gm4
+				}
+				triggered_desc = {
+					trigger = {
+						location ?= { terrain = halls }
+						is_orc = no
+					}
+					desc = hobbit_gm_ho
+				}
+				triggered_desc = {
+					trigger = { is_orc = yes }
+					desc = hobbit_gm_orc
+				}
+			}
+		}
+		trait = hashishiyah
+		pipeweed_decision_effect = yes
+	}
+}
+
+hobbit.0003 = { # Smoking Pipe: The Munchies
+	type = character_event
+	title = hobbit.0003.t
+	desc = {
+		first_valid = {
+			#Unlanded Adventurer
+			triggered_desc = {
+				trigger = {
+					is_landless_adventurer = yes
+				}
+				desc = hobbit.0003.desc.adventurer
+			}
+			desc = hobbit.0003.desc
+		}
+	}
+	theme = stewardship_duty_focus
+	override_background = { reference = bp1_kitchen_western }
+	
+	left_portrait = {
+		character = root
+		animation = boredom
+	}
+	
+	right_portrait = {
+		character ?= scope:kitchen_savior
+		animation = disapproval
+	}
+	
+	immediate = {
+		pipeweed_decision_effect = yes
+		random_courtier = {
+			limit = { 
+				basic_is_available_ai = yes
+				is_lotr_adult = yes
+				location = root.location
+			}
+			save_scope_as = kitchen_savior
+			weight = {
+				base = 1
+				modifier = {
+					add = 2
+					OR = { #Family of monarchs dont do kitchen work
+						ROOT = { highest_held_title_tier < tier_kingdom }
+						is_hobbit = yes
+					}
+					OR = {
+						is_spouse_of = ROOT
+						is_close_family_of = ROOT
+					}
+				}
+				modifier = {
+					add = 9
+					has_court_position = camp_cook_camp_officer
+				}
+			}
+		}
+	}
+
+	option = { # Char, help me!
+		name = hobbit.0003.a
+		trait = hashishiyah
+		trigger = { exists = scope:kitchen_savior }
+		scope:kitchen_savior = {
+			add_opinion = {
+				target = ROOT
+				modifier = disappointed_opinion
+				opinion = -20
+			}
+		}
+		target_weight_modifier_effect = {
+			VALUE = 3
+		}
+		add_character_modifier = {
+			modifier = lotr_munchies_sated_modifier
+			years = 1
+		}
+		stress_impact = {
+			gluttonous = minor_stress_impact_loss
+			comfort_eater = minor_stress_impact_loss
+			temperate = minor_stress_impact_gain
+		}
+	}
+
+	option = { # Guess I'll have to get up myself...
+		name = {
+			text = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							# These cook for themselves
+							is_hobbit = no
+							is_landless_adventurer = no
+							#Kings dont cook themselves
+							highest_held_title_tier >= tier_kingdom
+							trigger_if = {
+								limit = { has_royal_court = yes }
+								amenity_level = {
+									target = court_servants
+									value >= 3
+								}
+							}
+						}
+						desc = hobbit.0003.b.servants # Servants!
+					}
+					desc = hobbit.0003.b # Ill cook myself...
+				}
+			}
+		}
+		trait = hashishiyah
+		add_prestige = -50
+		target_weight_modifier_effect = {
+			VALUE = 2
+		}
+		add_character_modifier = {
+			modifier = lotr_munchies_sated_modifier
+			years = 1
+		}
+		stress_impact = {
+			lazy = minor_stress_impact_gain
+		}
+	}
+}
+
+scripted_trigger pipeweed_cloudgazing_kid_trigger = {
+	age >= 2
+	age < 12
+	is_available = yes
+	is_ai = yes
+	location = root.location
+	opinion = {
+		target = root
+		value > 0
+	}
+}
+hobbit.0004 = { # Smoking Pipe: Cloudgazing
+	type = character_event
+	title = hobbit.0004.t
+	desc = hobbit.0004.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = terrain_travel }
+	
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	
+	right_portrait = {
+		character ?= scope:cloudgazing_kid
+		animation = happiness
+	}
+
+	trigger = {
+		# No clouds underground, duh
+		NOT = { location.county ?= { is_underground_county = yes } }
+		NOR = {
+			location = { terrain = jungle }
+			location = { terrain = deep_forest }
+		}
+		is_lotr_adult = yes
+		OR = {
+			any_child = { pipeweed_cloudgazing_kid_trigger = yes }
+			any_sibling = { pipeweed_cloudgazing_kid_trigger = yes }
+			any_courtier = {
+				OR = {
+					is_grandchild_of = ROOT
+					is_great_grandchild_of = ROOT
+					is_nibling_of = ROOT
+				}
+				pipeweed_cloudgazing_kid_trigger = yes
+			}
+			any_relation = {
+				type = ward
+				pipeweed_cloudgazing_kid_trigger = yes
+			}
+			any_warden_hostage = {
+				pipeweed_cloudgazing_kid_trigger = yes
+			}
+		}
+	}
+	
+	immediate = {
+		random_list = {
+			40 = { # Child
+				trigger = { any_child = { pipeweed_cloudgazing_kid_trigger = yes } }
+				random_child = {
+					limit = { pipeweed_cloudgazing_kid_trigger = yes }
+					save_scope_as = cloudgazing_kid
+				}
+			}
+			30 = { # Sibling
+				trigger = { any_sibling = { pipeweed_cloudgazing_kid_trigger = yes } }
+				random_sibling = {
+					limit = { pipeweed_cloudgazing_kid_trigger = yes }
+					save_scope_as = cloudgazing_kid
+				}
+			}
+			20 = { # Close relative, but not kid or sibling
+				trigger = {
+					any_courtier = {
+						OR = {
+							is_grandchild_of = ROOT
+							is_great_grandchild_of = ROOT
+							is_nibling_of = ROOT
+						}
+						pipeweed_cloudgazing_kid_trigger = yes
+					}
+				}
+				random_courtier = {
+					limit = { pipeweed_cloudgazing_kid_trigger = yes }
+					save_scope_as = cloudgazing_kid
+				}
+			}
+			20 = {
+				trigger = {
+					any_relation = {
+						type = ward
+						pipeweed_cloudgazing_kid_trigger = yes
+					}
+				}
+				random_relation = {
+					type = ward
+					limit = { pipeweed_cloudgazing_kid_trigger = yes }
+					save_scope_as = cloudgazing_kid
+				}
+			}
+			20 = {
+				trigger = { any_warden_hostage = { pipeweed_cloudgazing_kid_trigger = yes } }
+				random_warden_hostage = {
+					limit = { pipeweed_cloudgazing_kid_trigger = yes }
+					save_scope_as = cloudgazing_kid
+				}
+			}
+		}
+		pipeweed_decision_effect = yes
+		scope:cloudgazing_kid = {
+			add_opinion = {
+				modifier = happy_opinion
+				opinion = 5
+				target = root
+			}
+		}
+	}
+
+	option = { # That one looks like a X!
+		name = hobbit.0004.a
+		flavor = hobbit.0004.a.tt
+		trait = hashishiyah
+	}
+}
+
+##########################################
+# HOBBIT INTRODUCTION
+# by Jagua
+# 0010
+##########################################
+
+hobbit.0010 = { #Introduction to Hobbit characters
+	title = hobbit.0010.t
+	desc = hobbit.0010.desc
+	content_source = realms_dlc
+	theme = realm
+
+	override_background = {
+		reference = hills_hobbit
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+
+	trigger = { is_hobbit = yes }
+
+	option = { # All right, I get it
+		name = hobbit.0010.a
+	}
+}
+
+### DECISION-BASED ###
+
+hobbit.0100 = { # Integrate the Westmarch
+	type = character_event
+	content_source = realms_dlc
+	title = hobbit.0100.t
+	desc = hobbit.0100.desc
+	theme = realm
+	override_background = {
+		reference = hills_hobbit
+	}
+	
+	left_portrait = {
+		character = root
+		animation = dancing
+	}
+	
+	immediate = {
+		title:c_dunglan = {
+			set_de_jure_liege_title = title:d_shire
+			change_development_level = 2
+		}
+		dynasty = { add_dynasty_prestige = 300 }
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:integrate_westmarch_decision_shire
+		}
+	}
+	option = {
+		name = hobbit.0100.a
+	}
+}
+
+hobbit.0101 = { # Integrate Buckland
+	type = character_event
+	content_source = realms_dlc
+	title = hobbit.0101.t
+	desc = hobbit.0101.desc
+	theme = realm
+	override_background = {
+		reference = hills_hobbit
+	}
+	
+	left_portrait = {
+		character = root
+		animation = dancing
+	}
+
+	immediate = {
+		title:c_buckland = {
+			set_de_jure_liege_title = title:d_shire
+			change_development_level = 2
+		}
+		dynasty = { add_dynasty_prestige = 300 }
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:integrate_buckland_decision_shire
+		}
+	}
+
+	option = {
+		name = hobbit.0101.a
+	}
+}
+
+hobbit.0102 = { # Seize Bag End
+	content_source = realms_dlc
+	type = character_event
+	title = hobbit.0102.t
+	desc = hobbit.0102.desc
+	theme = war
+	override_background = { reference = burning_building }
+
+	left_portrait = {
+		character = root
+		animation = schadenfreude
+	}
+	immediate = {
+		show_as_tooltip = {
+			add_piety = massive_piety_gain
+			dynasty = {
+				add_dynasty_prestige = medium_dynasty_prestige_value
+			}
+			title:c_hobbiton = { 
+				title_province = {
+				remove_building = wonder_bag_end_03
+				add_special_building = wonder_bag_end_02
+				}
+			}
+		}
+	}
+	option = { 
+		name = hobbit.0102.a
+	}
+}
+
+
+#### Flavour Events ####
+
+hobbit.200 = { # No Second Breakfast
+	type = character_event
+	content_source = realms_dlc
+	title = hobbit.200.t
+	desc = hobbit.200.desc
+	theme = stewardship_duty_focus
+	override_background = {
+		reference = study
+	}
+	
+	left_portrait = {
+		character = root
+		animation = shock
+	}
+
+	trigger = {
+		NOT = { has_character_flag = event_hobbit_nosecondbreakfast }
+		is_hobbit = yes
+		is_lotr_adult = yes
+	}
+
+	option = { # Leave the book
+		name = hobbit.200.a
+		add_character_flag = {
+			flag = event_hobbit_nosecondbreakfast
+			
+		}
+		ai_chance = {
+			base = 42
+		}
+	}
+
+	option = { # No Second Breakfast?? HERESY!
+		name = hobbit.200.b
+		add_character_flag = {
+			flag = event_hobbit_nosecondbreakfast
+			
+		}
+		add_piety = 100
+		
+		ai_chance = {
+			base = 42
+			modifier = {
+				add = 50
+				OR = {
+					has_trait = wrathful
+					has_trait = zealous
+					has_trait = vengeful
+					has_trait = gluttonous
+				}
+			}
+			modifier = {
+				add = -50
+				OR = {
+					has_trait = calm
+					has_trait = forgiving
+					has_trait = temperate
+					has_trait = stubborn 
+				}
+			}
+		}
+		stress_impact = {
+			calm = medium_stress_impact_gain
+			
+		}
+	}
+	
+	option = { # Maybe I stand to lose some weight
+		name = hobbit.200.c
+		add_character_flag = {
+			flag = event_hobbit_nosecondbreakfast }
+		ai_chance = {
+			base = 15
+			modifier = {
+				add = 50
+				OR = {
+					has_trait = temperate
+				}
+			}
+			modifier = {
+				add = -50
+				OR = {
+					has_trait = gluttonous
+					has_trait = gregarious
+					has_trait = lazy
+				}
+			}
+		}
+		stress_impact = {
+			gluttonous = major_stress_impact_gain
+			lazy = major_stress_impact_gain
+			stubborn = minor_stress_impact_gain
+		}
+
+		random_list = {
+			25 = {
+				desc = hobbit.200.c.success.critical
+				add_stress = -35
+				add_character_modifier = {
+					modifier = hobbit_no_secondbreakfast_positive
+					years = 15
+				}
+			}
+			25 = {
+				desc = hobbit.200.c.success
+				add_stress = -35
+			}	
+			25 = {
+				desc = hobbit.200.c.failure
+				add_stress = 35
+			}
+			25 = {
+				desc = hobbit.200.c.failure.critical
+				add_trait = ill
+				add_stress = 35
+				add_character_modifier = {
+					modifier = hobbit_no_secondbreakfast_negative
+					years = 15
+				}
+
+			}
+			
+		}
+			
+		
+	}
+
+	option = { #Everyone must know of this!
+		name = hobbit.200.d
+		trigger = {
+			has_trait = eccentric
+		}
+		add_character_flag = {
+			flag = event_hobbit_nosecondbreakfast
+			
+		}
+		ai_chance = {
+			base = 15
+			modifier = {
+				add = 50
+				OR = {
+					has_trait = temperate
+					has_trait = eccentric
+					
+
+				}
+			}
+			modifier = {
+				add = -50
+				OR = {
+					has_trait = gluttonous
+					has_trait = lazy
+					has_trait = craven
+					
+				}
+			}
+		}
+
+		custom_tooltip = hobbit.200.d.tt
+
+		add_prestige = medium_prestige_loss
+		every_vassal = {
+		 limit = { is_hobbit = yes }
+			add_opinion = {
+				modifier = angry_opinion
+				opinion = -15
+				target = root
+			}
+		}
+		add_character_modifier = {
+					modifier = hobbit_laughingstock_modifier
+				}
+		stress_impact = {
+			gluttonous = major_stress_impact_gain
+			lazy = major_stress_impact_gain
+			stubborn = minor_stress_impact_gain
+		}
+		
+	}
+}
+
+hobbit.201 = { # Lalia's Last Outing
+	type = character_event
+	content_source = realms_dlc
+	title = hobbit.201.t
+	desc = hobbit.201.desc
+	theme = intrigue
+
+	override_background = {
+		reference = study
+	}
+
+	immediate = {
+		character:lineofclayhanger1 = { save_scope_as = lalia }
+		character:lineoftook27 = { save_scope_as = pearl }
+	}
+	
+	left_portrait = {
+		character = root
+		animation = shock
+	}
+
+	right_portrait = {
+		character = scope:lalia
+		animation = pain
+	}
+
+	lower_center_portrait = {
+		character = scope:pearl
+	}
+
+	option = { # Perhaps I can now finally marry?
+		name = hobbit.201.a
+		remove_trait = cannot_marry
+		scope:lalia = {
+			death = { killer = scope:pearl death_reason = death_fall }
+		}
+		hidden_effect = {
+			scope:pearl = {
+				add_secret = {
+					type = secret_murder
+					target = scope:lalia
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+	
+	option = { # Rest well, mother.
+		name = hobbit.201.b
+		scope:lalia = {
+			death = { killer = scope:pearl death_reason = death_fall }
+		}
+		hidden_effect = {
+			scope:pearl = {
+				add_secret = {
+					type = secret_murder
+					target = scope:lalia
+				}
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+hobbit.300 = {
+	scope = none
+	hidden = yes
+
+	immediate = {
+		remove_character_modifier = ringbearer_health_modifier
+		add_character_modifier = former_ringbearer_health_modifier
+	}
+}

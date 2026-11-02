@@ -1,0 +1,1005 @@
+﻿################################
+### Rohan Specific Decisions ###
+################################
+
+decision_westmarch_integration = {
+	title = decision_westmarch_integration
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_theoden_01.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_westmarch_integration_tooltip
+	desc = decision_westmarch_integration_desc
+	confirm_text = decision_westmarch_integration_confirm
+	
+	decision_group_type = realms_in_exile_major
+	
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		OR = {
+			culture = { has_cultural_pillar = heritage_eotheod }
+			culture = { has_cultural_pillar = heritage_northron }
+		}
+		has_title = title:k_rohan
+		NOT = {
+			title:d_westmarches.kingdom = title:k_rohan
+		}
+	}
+	
+	is_valid = {
+		completely_controls = title:d_westmarches
+		prestige_level >= 2
+	}
+	
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	
+	effect = {
+		title:d_westmarches = {
+			set_de_jure_liege_title = title:k_rohan
+		}
+		title:c_westmarches.title_province = {
+			add_province_modifier = { modifier = rohirrim_settlement years = 15 }
+		}
+		title:c_valesoftheadorn.title_province = {
+			add_province_modifier = { modifier = rohirrim_settlement years = 15 }
+		}
+		title:c_emyndunendor.title_province = {
+			add_province_modifier = { modifier = rohirrim_settlement years = 15 }
+		}
+		title:c_gaetir.title_province = {
+			add_province_modifier = { modifier = rohirrim_settlement years = 15 }
+		}
+	}
+}
+
+# decision_invite_dwarves_whitemountains_northern = {
+	# title = decision_invite_dwarves_whitemountains_northern
+	# picture = {
+		# reference = "gfx/interface/illustrations/decisions/decision_dwarves_01.dds"
+	# }
+	
+	# ai_check_interval = 50
+	# ai_potential = {
+		# always = yes
+	# }
+	# ai_will_do = {
+		# base = 15
+	# }
+	# selection_tooltip = decision_invite_dwarves_whitemountains_northern_tooltip
+	# desc = decision_invite_dwarves_whitemountains_desc
+	# confirm_text = decision_invite_dwarves_whitemountains_confirm
+	
+	# decision_group_type = realms_in_exile_major
+	
+	# is_shown = {
+		# is_ruler = yes
+		# is_landed = yes
+		# #is_landless_adventurer = yes  
+		# NOT = { is_dwarf = yes } #Settle them yourself, you lazy git
+		# OR = {
+			# faith_is_good = yes
+			# faith_is_neutral = yes
+		# }
+		
+		# completely_controls = title:c_helmsdeep
+		# NOR = {
+			# exists = title:k_eastern_white_mountains.holder
+			# exists = title:k_western_white_mountains.holder
+			# is_target_in_global_variable_list = {
+				# name = unavailable_unique_decisions
+				# target = flag:decision_invite_dwarves_whitemountains_northern
+			# }
+		# }
+	# }
+	
+	# is_valid = {
+		# highest_held_title_tier >= tier_duchy
+		# completely_controls = title:c_helmsdeep
+		# prestige_level >= 3
+	# }
+
+	# is_valid_showing_failures_only = {
+		# is_imprisoned = no
+		# is_lotr_adult = yes
+		# is_at_war = no
+	# }
+	
+	# cost = {
+		# prestige = minor_prestige_value
+	# }
+	
+	# effect = {
+		# custom_tooltip = decision_invite_dwarves_whitemountains_northern_tt
+		# trigger_event = dwarven.2000 # Decide which dwarf-realm to contact
+		# add_to_global_variable_list = {
+			# name = unavailable_unique_decisions
+			# target = flag:decision_invite_dwarves_whitemountains_northern
+		# }
+	# }
+# }
+
+# decision_invite_dwarves_whitemountains_southern = {
+	# title = decision_invite_dwarves_whitemountains_southern
+	# picture = {
+		# reference = "gfx/interface/illustrations/decisions/decision_dwarves_01.dds"
+	# }
+	
+	# ai_check_interval = 50
+	# ai_potential = {
+		# always = yes
+	# }
+	# ai_will_do = {
+		# base = 15
+	# }
+	# selection_tooltip = decision_invite_dwarves_whitemountains_southern_tooltip
+	# desc = decision_invite_dwarves_whitemountains_desc
+	# confirm_text = decision_invite_dwarves_whitemountains_confirm
+	
+	# decision_group_type = realms_in_exile_major
+	
+	# is_shown = {
+		# is_ruler = yes
+		# is_landed = yes
+		# #is_landless_adventurer = yes 
+		# NOT = { is_dwarf = yes } #Settle them yourself, you lazy git
+		# OR = {
+			# faith_is_good = yes
+			# faith_is_neutral = yes
+		# }
+		
+		# OR = {
+			# completely_controls = title:c_emyn_glaur
+			# #completely_controls = title:c_helmsdeep
+			# completely_controls = title:c_imrathion
+		# }
+		# NOR = {
+			# exists = title:k_eastern_white_mountains.holder
+			# exists = title:k_western_white_mountains.holder
+			# is_target_in_global_variable_list = {
+				# name = unavailable_unique_decisions
+				# target = flag:decision_invite_dwarves_whitemountains_southern
+			# }
+		# }
+	# }
+	
+	# is_valid = {
+		# highest_held_title_tier >= tier_duchy
+		# OR = {
+			# completely_controls = title:c_emyn_glaur
+			# #completely_controls = title:c_helmsdeep
+			# completely_controls = title:c_imrathion
+		# }
+		# prestige_level >= 3
+	# }
+	
+	# is_valid_showing_failures_only = {
+		# is_imprisoned = no
+		# is_lotr_adult = yes
+		# is_at_war = no
+	# }
+	
+	# cost = {
+		# prestige = minor_prestige_value
+	# }
+	
+	# effect = {
+		# custom_tooltip = decision_invite_dwarves_whitemountains_southern_tt
+		# trigger_event = dwarven.2000 # Decide which dwarf-realm to contact
+		# add_to_global_variable_list = {
+			# name = unavailable_unique_decisions
+			# target = flag:decision_invite_dwarves_whitemountains_southern
+		# }
+	# }
+# }
+
+decision_train_mounted_combat = {
+	title = decision_train_mounted_combat
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_rhovanion_02.dds"
+	}
+	desc = decision_train_mounted_combat_desc
+	selection_tooltip = decision_train_mounted_combat_tooltip
+	cooldown = { years = 10 }
+	sort_order = 100
+
+	is_shown = {
+		NOT = {
+			has_trait_xp = {
+				trait = cavalry_leader
+				value = 100
+			}
+		}
+		OR = {
+			is_human = yes 
+			is_orc = yes 
+			is_elf = yes
+		}
+		OR = {
+			employs_court_position = master_of_horse_court_position
+			AND = {
+				government_has_flag = government_is_landless_adventurer
+				OR = {
+					employs_court_position = light_cavalry_captain_camp_officer
+					employs_court_position = heavy_cavalry_captain_camp_officer
+					employs_court_position = camelry_captain_camp_officer
+				}
+			}
+			government_has_flag = government_is_nomadic
+		}
+	}
+	
+	is_valid = {
+		OR = {
+			employs_court_position = master_of_horse_court_position
+			AND = {
+				government_has_flag = government_is_landless_adventurer
+				OR = {
+					employs_court_position = light_cavalry_captain_camp_officer
+					employs_court_position = heavy_cavalry_captain_camp_officer
+					employs_court_position = camelry_captain_camp_officer
+				}
+			}
+			government_has_flag = government_is_nomadic
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		show_as_tooltip = {
+			if = {
+				limit = { NOT = { has_trait = cavalry_leader } }
+				add_trait = cavalry_leader 
+			}
+			else = {
+				add_trait_xp = {
+					trait = cavalry_leader
+					value = 15 
+				}
+			}
+		}
+		trigger_event = rohan.2650
+	}
+
+	cost = {
+		prestige = {
+			value = { 
+				value = medium_prestige_value
+				max = 150
+			}
+		}
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 60
+		duchy = 60
+		kingdom = 60
+		empire = 60
+		hegemony = 60
+	}
+	
+	ai_potential = {
+		# Has enough prestige.
+		prestige >= medium_prestige_value
+		NOR = {
+			has_trait = lazy
+			has_trait = humble
+			has_trait = craven
+		}
+		ai_energy > 0
+	}
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = ai_boldness
+		}
+		modifier = {
+			add = 50
+			has_trait = arrogant
+		}
+		modifier = {
+			add = 100
+			culture = {
+				OR = {
+					has_cultural_tradition = tradition_chivalry
+					has_cultural_tradition = tradition_warrior_culture
+					has_cultural_tradition = tradition_martial_admiration
+					has_cultural_tradition = tradition_riders_of_the_mark
+					has_cultural_tradition = tradition_a_people_reunited
+				}
+			}
+		}
+		modifier = {
+			add = 200
+			has_focus_or_focus_trait_trigger = { FOCUS = martial_chivalry_focus }
+		}
+	}
+}
+
+#################################
+### General Eotheod Decisions ###
+#################################
+
+decision_reunite_the_eotheod = {
+	title = decision_reunite_the_eotheod
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_reunite_the_eotheod.dds"
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 12
+		hegemony = 12
+	}
+	selection_tooltip = decision_reunite_the_eotheod_tooltip
+	desc = decision_reunite_the_eotheod_desc
+	confirm_text = decision_reunite_the_eotheod_confirm
+
+	decision_group_type = realms_in_exile_major
+	
+	is_shown = {
+		culture = { has_cultural_pillar = heritage_eotheod }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_reunite_the_eotheod
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		completely_controls_region = middleearth_west_rohan
+		OR = {
+			completely_controls_region = middleearth_west_rhovanion_anduin
+			AND = {
+				has_title = title:e_anduin_vale
+				has_relation_friend = title:k_lothlorien.holder
+			}
+		}
+		highest_held_title_tier >= tier_empire
+		# any_county_in_region = {  Need to clarify this as it's really not transparent
+			# region = middleearth_west
+			# count = 0
+			# custom_tooltip = {
+				# text = "reunite_the_eotheod_eotheod_heritage_counties_outside_realm"
+				# culture = { has_cultural_pillar = heritage_eotheod }
+				# NOT = { holder.top_liege = root }
+			# }
+		# }
+	}
+	
+	effect = {
+		dynasty = { add_dynasty_prestige_level = 1 }
+		give_nickname = nick_the_unifier
+		save_scope_as = unifier
+
+		if = {
+			limit = { # Major News
+				NOT = { has_game_rule = no_news }
+			}
+			every_player = { #Global News Announcement
+				trigger_event = news_event.0021
+			}
+		}
+
+		# Effect on elven hope
+		if = {
+			limit = {
+				faith_is_good = yes
+			}
+			add_elven_hope_global_effect = { VALUE = medium_elven_hope_gain HOPE_EFFECT = effect_elven_hope_good_realm_rises }
+		}
+
+		culture:eotheod = {
+			custom_tooltip = decision_embrace_eotheod_culture_get_innovations
+			hidden_effect = {
+				reset_culture_creation_date = yes
+				every_culture_global = {
+					limit = { has_cultural_pillar = heritage_eotheod }
+					culture:eotheod = {
+						get_all_innovations_from ?= prev
+					}
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				culture:eotheod = {
+					has_cultural_tradition = tradition_riders_of_the_mark
+				}
+			}
+			hidden_effect = { culture:eotheod = { remove_culture_tradition = tradition_riders_of_the_mark } }
+		}
+
+		culture:eotheod = {
+			custom_tooltip = {
+				text = decision_eotheod_new_tradition
+				add_culture_tradition = tradition_a_people_reunited
+			}
+		}
+
+		#Convert your, and your whole family's, culture
+		set_culture = culture:eotheod
+		if = {
+			limit = { 
+				any_spouse = { 
+					is_landed = no 
+					culture = { has_cultural_pillar = heritage_eotheod }
+				} 
+			}
+			every_spouse = {
+				limit = {
+					is_landed = no
+					culture = { has_cultural_pillar = heritage_eotheod }
+				}
+				if = {
+					limit = { is_ai = yes }
+					set_culture = culture:eotheod
+				}
+				else = { trigger_event = rohan.0002 }
+			}
+		}
+		if = {
+			limit = {
+				any_close_family_member = {
+					is_landed = no
+					NOT = { is_spouse_of = root }
+					culture = { has_cultural_pillar = heritage_eotheod }
+				}
+			}
+			every_close_family_member = {
+				limit = {
+					is_landed = no
+					NOT = { is_spouse_of = root }
+					culture = { has_cultural_pillar = heritage_eotheod }
+				}
+				custom = all_unlanded_family_members
+				if = {
+					limit = { is_ai = yes }
+					set_culture = culture:eotheod
+				}
+				else = { trigger_event = rohan.0002 }
+			}
+		}
+		if = {
+			limit = {
+				any_child = {
+					culture = { has_cultural_pillar = heritage_eotheod }
+				}
+			}
+			every_child = {
+				limit = {
+					NOT = { 
+						culture = { has_cultural_pillar = heritage_eotheod }
+					}
+				}
+				custom = all_children_custom
+				if = {
+					limit = { is_ai = yes }
+					set_culture = culture:eotheod
+				}
+				else = { trigger_event = rohan.0002 }
+			}
+		}
+
+		#Convert appropriate vassals, and their family
+		if = {
+			limit = {
+				any_vassal_or_below = {
+					culture = { has_cultural_pillar = heritage_eotheod }
+				}
+			}
+			every_vassal_or_below = {
+				custom = embrace_eotheod_culture_vassals_custom
+				limit = {
+					culture = { has_cultural_pillar = heritage_eotheod }
+				}
+				if = {
+					limit = { is_ai = yes }
+					set_culture = culture:eotheod
+				}
+				else = { trigger_event = rohan.0002 }
+				hidden_effect = {
+					if = {
+						limit = { 
+							any_spouse = { 
+								is_landed = no
+								culture = { has_cultural_pillar = heritage_eotheod }
+							} 
+						}
+						every_spouse = {
+							limit = {
+								is_landed = no
+								culture = { has_cultural_pillar = heritage_eotheod }
+							}
+							if = {
+								limit = { is_ai = yes }
+								set_culture = culture:eotheod
+							}
+							else = { trigger_event = rohan.0002 }
+						}
+					}
+					if = {
+						limit = {
+							any_close_family_member = {
+								is_landed = no
+								NOT = { is_spouse_of = prev }
+								culture = { has_cultural_pillar = heritage_eotheod }
+							}
+						}
+						every_close_family_member = {
+							limit = {
+								is_landed = no
+								NOT = { is_spouse_of = prev }
+								culture = { has_cultural_pillar = heritage_eotheod }
+							}
+							custom = all_unlanded_family_members
+							if = {
+								limit = { is_ai = yes }
+								set_culture = culture:eotheod
+							}
+							else = { trigger_event = rohan.0002 }
+						}
+					}
+					if = {
+						limit = {
+							any_child = {
+								culture = { has_cultural_pillar = heritage_eotheod }
+							}
+						}
+						every_child = {
+							limit = {
+								culture = { has_cultural_pillar = heritage_eotheod }
+							}
+							custom = all_children_custom
+							if = {
+								limit = { is_ai = yes }
+								set_culture = culture:eotheod
+							}
+							else = { trigger_event = rohan.0002 }
+						}
+					}
+					if = {
+						limit = {
+							any_vassal_or_below = {
+								culture = { has_cultural_pillar = heritage_eotheod }
+							}
+						}
+						every_vassal_or_below = {
+							custom = embrace_eotheod_culture_vassals_custom
+							limit = {
+								culture = { has_cultural_pillar = heritage_eotheod }
+							}
+							if = {
+								limit = { is_ai = yes }
+								set_culture = culture:eotheod
+							}
+							else = { trigger_event = rohan.0002 }
+							hidden_effect = {
+								if = {
+									limit = { 
+										any_spouse = { 
+											is_landed = no 
+											culture = { has_cultural_pillar = heritage_eotheod }
+										} 
+									}
+									every_spouse = {
+										limit = {
+											is_landed = no
+											culture = { has_cultural_pillar = heritage_eotheod }
+										}
+										if = {
+											limit = { is_ai = yes }
+											set_culture = culture:eotheod
+										}
+										else = { trigger_event = rohan.0002 }
+									}
+								}
+								if = {
+									limit = {
+										any_close_family_member = {
+											is_landed = no
+											NOT = { is_spouse_of = prev }
+											culture = { has_cultural_pillar = heritage_eotheod }
+										}
+									}
+									every_close_family_member = {
+										limit = {
+											is_landed = no
+											NOT = { is_spouse_of = prev }
+											culture = { has_cultural_pillar = heritage_eotheod }
+										}
+										custom = all_unlanded_family_members
+										if = {
+											limit = { is_ai = yes }
+											set_culture = culture:eotheod
+										}
+										else = { trigger_event = rohan.0002 }
+									}
+								}
+								if = {
+									limit = {
+										any_child = {
+											culture = { has_cultural_pillar = heritage_eotheod }
+										}
+									}
+									every_child = {
+										limit = {
+											culture = { has_cultural_pillar = heritage_eotheod }
+										}
+										custom = all_children_custom
+										if = {
+											limit = { is_ai = yes }
+											set_culture = culture:eotheod
+										}
+										else = { trigger_event = rohan.0002 }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		#Flip Counties
+		every_county = {
+			custom = embrace_eotheod_culture_counties_custom
+			limit = {
+				OR = {
+					holder = root
+					holder.top_liege = root
+				}
+			}
+			random = {
+				chance = 60
+				set_county_culture = culture:eotheod
+			}
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_reunite_the_eotheod
+		}
+
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_roam_rohan = {
+	title = decision_roam_rohan
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_edoras_01.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	decision_group_type = realms_in_exile_major
+
+	selection_tooltip = decision_roam_rohan_tooltip
+	desc = decision_roam_rohan_desc
+	confirm_text = decision_roam_rohan_confirm
+	
+	is_shown = {
+		exists = character:lineofeofor17
+		this = character:lineofeofor17
+		has_character_flag = banished_from_rohan_court
+		NOR = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_roam_rohan
+			}
+		}
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		prestige = 200
+	}
+
+	effect = {
+		# custom_tooltip = decision_roam_rohan_effect
+		trigger_event = saruman_event_chain.2073
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_roam_rohan
+		}
+	}
+}
+
+decision_civil_war_support = {
+	title = decision_civil_war_support
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_edoras_01.dds"
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	decision_group_type = realms_in_exile_major
+
+	selection_tooltip = decision_civil_war_support_tooltip
+	desc = decision_civil_war_support_desc
+	confirm_text = decision_civil_war_support_confirm
+	
+	is_shown = {
+		has_character_flag = rohan_civil_war_candidate
+		NOR = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_civil_war_support
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_civil_war_support_effect
+		custom_tooltip = decision_civil_war_support_effect_positive
+		custom_tooltip = decision_civil_war_support_effect_negative
+		#save_agent_in_edoras_scope = yes
+		title:k_rohan.holder = {
+			save_scope_as = rohanking
+			every_vassal = {
+				limit = { 
+					highest_held_title_tier >= tier_county
+					NOT = { this = root }
+					NOT = { this = scope:agent }
+				}
+				save_scope_as = recipient
+				root = {
+					save_scope_as = petitioner
+					trigger_event = {
+						id = saruman_event_chain.2110
+						days = { 30 300 }
+					}
+				}
+			}
+		}
+		trigger_event = {
+			id = saruman_event_chain.2112
+			days = 301
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_civil_war_support
+		}
+	}
+}
+
+###############################
+### Request Keys to Orthanc ###
+###############################
+
+decision_request_orthanc_keys = {
+	title = decision_request_orthanc_keys
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_isengard.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 0
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_request_orthanc_keys_tooltip
+	desc = decision_request_orthanc_keys_desc
+	confirm_text = decision_request_orthanc_keys_confirm
+	
+	decision_group_type = realms_in_exile_minor
+	
+	is_shown = {
+		is_landed = yes
+		has_title = title:c_isengard
+		NOT = { is_gondor = yes }
+		has_character_flag = is_saruman
+		faith_is_good = yes 
+		game_start_date < 6792.1.1 # Only before Saruman gets the Keys
+		title:c_minas_tirith.empire.holder = { faith_is_good = yes }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_request_orthanc_keys
+			}
+		}
+	}
+
+	is_valid = {
+		prestige_level >= 3
+		custom_tooltip = {
+			text = "LOTR_AT_PEACE_WITH_GONDOR_TRIGGER"
+			lotr_at_peace_with_gondor = yes
+		}
+		OR = {
+			has_relation_friend = title:c_minas_tirith.empire.holder
+			is_allied_to = title:c_minas_tirith.empire.holder
+		}
+	}
+	
+	is_valid_showing_failures_only = {
+		is_at_war = no
+		is_available_adult = yes 
+		is_imprisoned = no 
+	}
+
+	effect = {
+		play_music_cue = lotr_cue_beacons
+		custom_tooltip = decision_request_orthanc_keys_tt
+		trigger_event = rohan.2600
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_request_orthanc_keys
+		}
+	}
+}
+
+# Reorganise the Marshals
+
+decision_reorganize_the_marshals = {
+	title = decision_reorganize_the_marshals
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_isengard.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip =decision_reorganize_the_marshals_tooltip
+	desc = decision_reorganize_the_marshals_desc
+	confirm_text = decision_reorganize_the_marshals_confirm
+	
+	decision_group_type = realms_in_exile_minor
+	
+	is_shown = {
+		NOT = { government_has_flag = government_is_landless_adventurer }
+		OR = {
+			primary_title = title:k_rohan
+			primary_title = title:e_calenardhon
+		}
+		is_human = yes
+		culture = {
+			OR = {
+				has_cultural_pillar = heritage_northron
+				has_cultural_pillar = heritage_eotheod
+			}
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:reorganize_the_marshals
+			}
+		}
+	}
+
+	is_valid = {
+		employs_court_position = second_marshal_of_rohan_court_position
+		employs_court_position = third_marshal_of_rohan_court_position
+		prestige_level >= 4
+		martial >= 25
+	}
+	
+	is_valid_showing_failures_only = {
+		is_at_war = no
+		is_available_adult = yes 
+		is_imprisoned = no 
+	}
+
+	cost = {
+		prestige = 250
+	}
+
+	effect = {
+		play_music_cue = lotr_cue_rohan
+		custom_tooltip = decision_reorganize_the_marshals_tt
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:reorganize_the_marshals
+		}
+		hidden_effect = {
+			if = {
+				limit = { exists = court_position:second_marshal_of_rohan_court_position }
+				appoint_court_position = {
+					recipient = court_position:second_marshal_of_rohan_court_position
+					court_position = marshal_of_the_eastmark_court_position
+				}
+				revoke_court_position = {
+					recipient = court_position:second_marshal_of_rohan_court_position
+					court_position = second_marshal_of_rohan_court_position
+				}
+			}
+			if = { limit = { exists = court_position:third_marshal_of_rohan_court_position }
+				appoint_court_position = {
+					recipient = court_position:third_marshal_of_rohan_court_position
+					court_position = marshal_of_the_westmark_court_position
+				}
+				revoke_court_position = {
+					recipient = court_position:third_marshal_of_rohan_court_position
+					court_position = third_marshal_of_rohan_court_position
+				}
+			}
+		}
+	}
+}

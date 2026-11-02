@@ -1,0 +1,3233 @@
+﻿# Used in definition order
+
+nomadic_house_name_hybrid = {
+	trigger = {
+		government_has_flag = government_is_nomadic
+	}
+	hybrid = yes
+}
+
+#newname = { # Generic FIRST-SECOND Fusion
+#	trigger = {
+#		OR = { # Ensures it can be formed in either direction
+#			AND = {
+#				scope:culture = {
+#					has_cultural_pillar = heritage_FIRST
+#				}
+#				scope:other_culture = {
+#					has_cultural_pillar = heritage_SECOND
+#				}
+#			}
+#			AND = {
+#				scope:culture = {
+#					has_cultural_pillar = heritage_SECOND
+#				}
+#				scope:other_culture = {
+#					has_cultural_pillar = heritage_FIRST
+#				}
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+
+###############
+#### ELVEN ####
+###############
+
+
+###############
+### DWARVEN ###
+###############
+
+# Broadbeam
+broadbeard = { # Broadbeam-Longbeard Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_longbeard }
+				scope:other_culture = { has_cultural_pillar = heritage_broadbeam }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_broadbeam }
+				scope:other_culture = { has_cultural_pillar = heritage_longbeard }
+			}
+		}
+	}
+	hybrid = yes
+}
+broadlock = { # Broadbeam-Blacklock Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_blacklock }
+				scope:other_culture = { has_cultural_pillar = heritage_broadbeam }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_broadbeam }
+				scope:other_culture = { has_cultural_pillar = heritage_blacklock }
+			}
+		}
+	}
+	hybrid = yes
+}
+firebeam = { # Broadbeam-Firebeard Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_firebeard }
+				scope:other_culture = { has_cultural_pillar = heritage_broadbeam }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_broadbeam }
+				scope:other_culture = { has_cultural_pillar = heritage_firebeard }
+			}
+		}
+	}
+	hybrid = yes
+}
+stiffbeam = { # Broadbeam-Stiffbeard Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_stiffbeard }
+				scope:other_culture = { has_cultural_pillar = heritage_broadbeam }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_broadbeam }
+				scope:other_culture = { has_cultural_pillar = heritage_stiffbeard }
+			}
+		}
+	}
+	hybrid = yes
+}
+ironbeam = { # Broadbeam-Ironfist Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_ironfist }
+				scope:other_culture = { has_cultural_pillar = heritage_broadbeam }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_broadbeam }
+				scope:other_culture = { has_cultural_pillar = heritage_ironfist }
+			}
+		}
+	}
+	hybrid = yes
+}
+stonebeam = { # Broadbeam-Stonefoot Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_stonefoot }
+				scope:other_culture = { has_cultural_pillar = heritage_broadbeam }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_broadbeam }
+				scope:other_culture = { has_cultural_pillar = heritage_stonefoot }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+# Longbeard 
+longlock = { # Longbeard-Blacklock Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_longbeard }
+				scope:other_culture = { has_cultural_pillar = heritage_blacklock }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_blacklock }
+				scope:other_culture = { has_cultural_pillar = heritage_longbeard }
+			}
+		}
+	}
+	hybrid = yes
+}
+flamebeard = { # Longbeard-Firebeard Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_firebeard }
+				scope:other_culture = { has_cultural_pillar = heritage_longbeard }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_longbeard }
+				scope:other_culture = { has_cultural_pillar = heritage_firebeard }
+			}
+		}
+	}
+	hybrid = yes
+}
+toughbeard = { # Longbeard-Stiffbeard Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_stiffbeard }
+				scope:other_culture = { has_cultural_pillar = heritage_longbeard }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_longbeard }
+				scope:other_culture = { has_cultural_pillar = heritage_stiffbeard }
+			}
+		}
+	}
+	hybrid = yes
+}
+ironbeard = { # Longbeard-Ironfist Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_ironfist }
+				scope:other_culture = { has_cultural_pillar = heritage_longbeard }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_longbeard }
+				scope:other_culture = { has_cultural_pillar = heritage_ironfist }
+			}
+		}
+	}
+	hybrid = yes
+}
+longfoot = { # Longbeard-Stonefoot Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_stonefoot }
+				scope:other_culture = { has_cultural_pillar = heritage_longbeard }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_longbeard }
+				scope:other_culture = { has_cultural_pillar = heritage_stonefoot }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+# Firebeard
+firelock = { # Firebeard-Blacklock Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_firebeard }
+				scope:other_culture = { has_cultural_pillar = heritage_blacklock }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_blacklock }
+				scope:other_culture = { has_cultural_pillar = heritage_firebeard }
+			}
+		}
+	}
+	hybrid = yes
+}
+emberbeard = { # Firebeard-Stiffbeard Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_stiffbeard }
+				scope:other_culture = { has_cultural_pillar = heritage_firebeard }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_firebeard }
+				scope:other_culture = { has_cultural_pillar = heritage_stiffbeard }
+			}
+		}
+	}
+	hybrid = yes
+}
+firefist = { # Firebeard-Ironfist Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_ironfist }
+				scope:other_culture = { has_cultural_pillar = heritage_firebeard }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_firebeard }
+				scope:other_culture = { has_cultural_pillar = heritage_ironfist }
+			}
+		}
+	}
+	hybrid = yes
+}
+firefoot = { # Firebeard-Stonefoot Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_stonefoot }
+				scope:other_culture = { has_cultural_pillar = heritage_firebeard }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_firebeard }
+				scope:other_culture = { has_cultural_pillar = heritage_stonefoot }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+# Blacklock
+stifflock = { # Blacklock-Stiffbeard Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_stiffbeard }
+				scope:other_culture = { has_cultural_pillar = heritage_blacklock }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_blacklock }
+				scope:other_culture = { has_cultural_pillar = heritage_stiffbeard }
+			}
+		}
+	}
+	hybrid = yes
+}
+blackfist = { # Blacklock-Ironfist Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_ironfist }
+				scope:other_culture = { has_cultural_pillar = heritage_blacklock }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_blacklock }
+				scope:other_culture = { has_cultural_pillar = heritage_ironfist }
+			}
+		}
+	}
+	hybrid = yes
+}
+stonelock = { # Blacklock-Stonefoot Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_stonefoot }
+				scope:other_culture = { has_cultural_pillar = heritage_blacklock }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_blacklock }
+				scope:other_culture = { has_cultural_pillar = heritage_stonefoot }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+# Ironfist
+stifffist = { # Ironfist-Stiffbeard Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_stiffbeard }
+				scope:other_culture = { has_cultural_pillar = heritage_ironfist }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_ironfist }
+				scope:other_culture = { has_cultural_pillar = heritage_stiffbeard }
+			}
+		}
+	}
+	hybrid = yes
+}
+stonefist = { # Ironfist-Stonefoot Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_stonefoot }
+				scope:other_culture = { has_cultural_pillar = heritage_ironfist }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_ironfist }
+				scope:other_culture = { has_cultural_pillar = heritage_stonefoot }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+# Stiffbeard
+stifffoot = { # Stiffbeard-Stonefoot Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_stonefoot }
+				scope:other_culture = { has_cultural_pillar = heritage_stiffbeard }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_stiffbeard }
+				scope:other_culture = { has_cultural_pillar = heritage_stonefoot }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+
+
+###########
+### MEN ###
+###########
+calenardhrim = {
+	trigger = {
+		capital_county = {
+			title_province = { geographical_region = custom_gondor_calenardhon  }
+		}
+		any_sub_realm_county = {
+			scope:other_culture = { has_cultural_pillar = heritage_eotheod	}
+			title_province = {
+				geographical_region = custom_gondor_calenardhon
+			}
+		}
+		scope:culture = { has_cultural_pillar = heritage_dunedain }
+	}
+	hybrid = yes
+}
+
+rhovandorian = { # Theoretical fusion culture for Dúnedain settling the plains of Rhovanion west of Rhun
+	trigger = {
+		capital_county = {
+			title_province = { geographical_region = middleearth_west_rhovanion  }
+		}
+		any_sub_realm_county = {
+			culture = scope:other_culture
+			title_province = {
+				geographical_region = middleearth_west_rhovanion
+			}
+		}
+		scope:culture = { has_cultural_pillar = heritage_dunedain }
+	}
+	hybrid = yes
+}
+
+mundburgian = {
+	trigger = {
+		any_sub_realm_county = {
+			scope:other_culture = { has_cultural_pillar = heritage_dunedain	}
+			title_province = {
+				geographical_region = middleearth_west_gondor
+			}
+		}
+		scope:culture = { has_cultural_pillar = heritage_eotheod }
+	}
+	hybrid = yes
+}
+
+eredain = { # Dúnedain-White Mountain fusion
+	trigger = {
+		capital_county = {
+			title_province = { geographical_region = middleearth_west_gondor_highlands  }
+		}
+		any_sub_realm_county = {
+			OR = {
+				culture = scope:culture
+				culture = scope:other_culture
+			}
+			title_province = {
+				geographical_region = middleearth_west_gondor_highlands 
+			}
+		}
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_daen_coentis }
+				scope:other_culture = { has_cultural_pillar = heritage_dunedain }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_dunedain }
+				scope:other_culture = { has_cultural_pillar = heritage_daen_coentis }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+andradain = { # Dúnedain-Andrathrim fusion
+	trigger = {
+		capital_county = { # If capital is in Andrast
+			title_province = { geographical_region = middleearth_west_gondor_andrast  }
+		}
+		any_sub_realm_county = { # If culture is present in Andrast
+			OR = {
+				culture = scope:culture
+				culture = scope:other_culture
+			}
+			title_province = {
+				geographical_region = middleearth_west_gondor_andrast 
+			}
+		}
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_daen_coentis }
+				scope:other_culture = { has_cultural_pillar = heritage_dunedain }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_dunedain }
+				scope:other_culture = { has_cultural_pillar = heritage_daen_coentis }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+rhudauredain  = { # Dúnedain-Noi Trevan (Hillmen)
+	trigger = {
+		AND = {
+			scope:culture = { has_cultural_pillar = heritage_dunedain }
+			scope:other_culture =  { has_cultural_pillar = heritage_hillmen }
+		}
+	}
+	hybrid = yes
+}
+
+rhudaurrim  = { # Dúnedain-Noi Trevan (Hillmen)
+	trigger = {
+		AND = {
+			scope:culture = { has_cultural_pillar = heritage_hillmen }
+			scope:other_culture =  { has_cultural_pillar = heritage_dunedain }
+		}
+	}
+	hybrid = yes
+}
+
+cardolain  = { # Dúnedain-Saralain
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = culture:saralain
+				scope:other_culture =  { has_cultural_pillar = heritage_dunedain }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_dunedain }
+				scope:other_culture =  culture:saralain
+			}
+			AND = {
+				scope:culture = {
+					any_parent_culture_or_above = { this = culture:saralain }
+				}
+				scope:other_culture =  { has_cultural_pillar = heritage_dunedain }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_dunedain }
+				scope:other_culture = {
+					any_parent_culture_or_above = { this = culture:saralain }
+				}
+			}
+		}
+	}
+	hybrid = yes
+}
+
+arnoredain  = { # Dúnedain-Eriadorim
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_dunedain }
+				scope:other_culture =  { has_cultural_pillar = heritage_eriadorim }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_eriadorim }
+				scope:other_culture =  { has_cultural_pillar = heritage_dunedain }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+andrunai = { # Adûnaic-Andrathrim fusion
+	trigger = {
+		capital_county = { # If capital is in Andrast
+			title_province = { geographical_region = middleearth_west_gondor_andrast  }
+		}
+		any_sub_realm_county = { # If culture is present in Andrast
+			OR = {
+				culture = scope:culture
+				culture = scope:other_culture
+			}
+			title_province = {
+				geographical_region = middleearth_west_gondor_andrast 
+			}
+		}
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_daen_coentis }
+				scope:other_culture = { has_cultural_pillar = heritage_northern_adunaic }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_northern_adunaic }
+				scope:other_culture = { has_cultural_pillar = heritage_daen_coentis }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_daen_coentis }
+				scope:other_culture = { has_cultural_pillar = heritage_southern_adunaic }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_southern_adunaic }
+				scope:other_culture = { has_cultural_pillar = heritage_daen_coentis }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+nimraisorim = { # Those of the White Mountains - fallback for fusion between Dúnedain and Daen if capital is not in the White Mountains or Andrast regions
+	trigger = {
+		any_sub_realm_county = { 
+			OR = {
+				culture = scope:culture
+				culture = scope:other_culture
+			}
+			title_province = {
+				OR = {
+					geographical_region = middleearth_west_gondor_andrast 
+					geographical_region = middleearth_west_gondor_highlands
+				}
+			}
+		}
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_daen_coentis }
+				scope:other_culture = { has_cultural_pillar = heritage_dunedain }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_dunedain }
+				scope:other_culture = { has_cultural_pillar = heritage_daen_coentis }
+			}
+		}
+	}
+	hybrid = yes
+
+}
+
+ciryatanorean = {
+	trigger = {
+		any_sub_realm_county = { # If culture is in An-Balkumagan
+			OR = {
+				culture = scope:culture
+				culture = scope:other_culture
+			}
+			title_province = { geographical_region = custom_anbalkumagan }
+		}
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_dunedain }
+				scope:other_culture = { has_cultural_pillar = heritage_southern_adunaic }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_southern_adunaic }
+				scope:other_culture = { has_cultural_pillar = heritage_dunedain }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+hyarmenedain = { # Dúnedain of the Far South
+	trigger = {
+		capital_county = {
+			title_province = { # Capital is in southern Middle-earth (Umbar or South)
+				OR = {
+					geographical_region = middleearth_harad_far
+					geographical_region = middleearth_harad_near_umbar 
+				}
+			}
+		}
+		any_sub_realm_county = { 
+			OR = {
+				culture = scope:culture
+				culture = scope:other_culture
+			}
+			title_province = {
+				OR = {
+					geographical_region = middleearth_harad_far
+					geographical_region = middleearth_harad_near_umbar 
+				}
+			}
+		} 
+		scope:culture = { has_cultural_pillar = heritage_dunedain } # Only formed by Dúnedain - it's "South" only in relation to Arnor+Gondor
+		OR = {
+			scope:other_culture = { has_cultural_pillar = heritage_northern_adunaic }
+			scope:other_culture = { has_cultural_pillar = heritage_bellakari }
+			scope:other_culture = { has_cultural_pillar = heritage_southern_adunaic }
+			scope:other_culture = { has_cultural_pillar = heritage_eastern_adunaic }
+		}
+	}
+	hybrid = yes
+}
+
+phurutunaim = { # "North-Adunai", a broad term for a fusion culture between any southern Numenorean culture and the Dúnedain
+	trigger = {
+		any_sub_realm_county = { 
+			scope:other_culture = { has_cultural_pillar = heritage_dunedain	}
+		}
+		scope:culture = { 
+			OR = {
+				has_cultural_pillar = heritage_bellakari 
+				has_cultural_pillar = heritage_southern_adunaic
+			}
+		}
+	}
+	hybrid = yes
+}
+
+chennacari  = { # Nafarati-Chennacatta
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { 
+					OR = {
+						this = culture:nafarati
+						any_parent_culture_or_above = {
+							this = culture:nafarati
+						}
+					}
+				}
+				scope:other_culture =  { has_cultural_pillar = heritage_new_sirayni }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_new_sirayni }
+				scope:other_culture = { 
+					OR = {
+						this = culture:nafarati
+						any_parent_culture_or_above = {
+							this = culture:nafarati
+						}
+					}
+				}
+			}
+		}
+		OR = {
+			capital_county ?= { title:k_chennacatt = { is_de_jure_liege_or_above_target = prev } }
+			has_primary_title = title:k_chennacatt
+		}
+	}
+	hybrid = yes
+}
+
+nafarnarud  = { # Nafarati-Râyan
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = {
+					OR = {
+						this = culture:nafarati
+						any_parent_culture_or_above = {
+							this = culture:nafarati
+						}
+					}
+				}
+				scope:other_culture =  { has_cultural_pillar = heritage_southern_apysaic }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_southern_apysaic }
+				scope:other_culture = {
+					OR = {
+						this = culture:nafarati
+						any_parent_culture_or_above = {
+							this = culture:nafarati
+						}
+					}
+				}
+			}
+		}
+	}
+	hybrid = yes
+}
+
+nafarani  = { # Nafarati-Abrakhan/dune sea
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = {
+					OR = {
+						this = culture:nafarati
+						any_parent_culture_or_above = {
+							this = culture:nafarati
+						}
+					}
+				}
+				scope:other_culture =  { has_cultural_pillar = heritage_middle_apysaic }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_middle_apysaic }
+				scope:other_culture = {
+					OR = {
+						this = culture:nafarati
+						any_parent_culture_or_above = {
+							this = culture:nafarati
+						}
+					}
+				}
+			}
+		}
+	}
+	hybrid = yes
+}
+
+bellakarsag  = { # bellakar-middle apysaic
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_bellakari }
+				scope:other_culture =  { has_cultural_pillar = heritage_middle_apysaic }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_middle_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_bellakari }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+bellaruze  = { # bellakar-northern apysaic
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_bellakari }
+				scope:other_culture =  { has_cultural_pillar = heritage_northern_apysaic }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_northern_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_bellakari }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+bozisharani  = { # bellakar-southern apysaic
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_bellakari }
+				scope:other_culture =  { has_cultural_pillar = heritage_southern_apysaic }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_southern_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_bellakari }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+kindinarud  = { # Kindilár-Râyan
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = culture:kindilar
+				scope:other_culture =  { has_cultural_pillar = heritage_southern_apysaic }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_southern_apysaic }
+				scope:other_culture = culture:kindilar
+			}
+			AND = {
+				scope:culture = {
+					any_parent_culture_or_above = { this = culture:kindilar }
+				}
+				scope:other_culture =  { has_cultural_pillar = heritage_southern_apysaic }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_southern_apysaic }
+				scope:other_culture = {
+					any_parent_culture_or_above = { this = culture:kindilar }
+				}
+			}
+		}
+	}
+	hybrid = yes
+}
+
+sargoan  = { # Pôwa-Gái
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = culture:gai
+				scope:other_culture =  { has_cultural_pillar = heritage_new_sirayni }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_new_sirayni }
+				scope:other_culture = culture:gai
+			}
+			AND = {
+				scope:culture = {
+					any_parent_culture_or_above = { this = culture:gai }
+				}
+				scope:other_culture =  { has_cultural_pillar = heritage_new_sirayni }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_new_sirayni }
+				scope:other_culture = {
+					any_parent_culture_or_above = { this = culture:gai }
+				}
+			}
+		}
+	}
+	hybrid = yes
+}
+
+powarnarud  = { # Pôwa-Râyan
+	trigger = {
+		scope:culture =  { has_cultural_pillar = heritage_southern_apysaic }
+		OR = {
+			scope:other_culture = culture:poan
+			scope:other_culture = {
+				any_parent_culture_or_above = { this = culture:poan }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+bozishpowa  = { # Râya-Pôwan
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = culture:poan
+				scope:other_culture =  { has_cultural_pillar = heritage_southern_apysaic }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_southern_apysaic }
+				scope:other_culture = culture:poan
+			}
+			AND = {
+				scope:culture = {
+					any_parent_culture_or_above = { this = culture:poan }
+				}
+				scope:other_culture =  { has_cultural_pillar = heritage_southern_apysaic }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_southern_apysaic }
+				scope:other_culture = {
+					any_parent_culture_or_above = { this = culture:poan }
+				}
+			}
+		}
+	}
+	hybrid = yes
+}
+
+sireshnarud  = { # Sîreshni + Râyan Fusion
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_old_sirayni }
+				scope:other_culture =  { has_cultural_pillar = heritage_southern_apysaic }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_southern_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_old_sirayni }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+siraynarud  = { # Sîraynê + Râyan Fusion
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_new_sirayni }
+				scope:other_culture =  { has_cultural_pillar = heritage_southern_apysaic }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_southern_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_new_sirayni }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+miraznarud = { # Default for any fusion with a Rayan culture in the Bôzisha-Mîraz
+	trigger = {
+		any_sub_realm_county = { 
+			scope:other_culture = { has_cultural_pillar = heritage_southern_apysaic }
+			title_province = { geographical_region = custom_greater_ray }
+		}
+	}
+	hybrid = yes
+}
+
+sireshnyen  = { # Sîreshni Khyan
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_south_khailuza }
+				scope:other_culture =  { has_cultural_pillar = heritage_old_sirayni }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_old_sirayni }
+				scope:other_culture = { has_cultural_pillar = heritage_south_khailuza }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+siraniyen  = { # Sîraynê Khyan
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_south_khailuza }
+				scope:other_culture =  { has_cultural_pillar = heritage_new_sirayni }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_new_sirayni }
+				scope:other_culture = { has_cultural_pillar = heritage_south_khailuza }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+muranhyan  = { # Harshandatt Khyan
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_south_khailuza }
+				scope:other_culture =  { has_cultural_pillar = heritage_harshandatt }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_harshandatt }
+				scope:other_culture = { has_cultural_pillar = heritage_south_khailuza }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+nuarian  = { # Harshandatt Sirayn
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_new_sirayni }
+				scope:other_culture =  { has_cultural_pillar = heritage_harshandatt }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_harshandatt }
+				scope:other_culture = { has_cultural_pillar = heritage_new_sirayni }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_old_sirayni }
+				scope:other_culture =  { has_cultural_pillar = heritage_harshandatt }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_harshandatt }
+				scope:other_culture = { has_cultural_pillar = heritage_old_sirayni }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+anarikarne = { # Elinse Khyan
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_south_khailuza }
+				scope:other_culture =  { has_cultural_pillar = heritage_elinse }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_elinse }
+				scope:other_culture = { has_cultural_pillar = heritage_south_khailuza }
+			}
+		}
+		OR = {
+			capital_county ?= { title:k_anarike = { is_de_jure_liege_or_above_target = prev } }
+			has_primary_title = title:k_anarike
+		}
+		any_sub_realm_county = { # Culture present in Anarikê
+			OR = {
+				culture = scope:culture
+				culture = scope:other_culture
+			}
+			title:k_anarike = { is_de_jure_liege_or_above_target = prev }
+		}
+	}
+	hybrid = yes
+}
+
+narikyan = { # Codyan Khyan
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_south_khailuza }
+				scope:other_culture =  { has_cultural_pillar = heritage_womaw }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_womaw }
+				scope:other_culture = { has_cultural_pillar = heritage_south_khailuza }
+			}
+		}
+		OR = {
+			capital_county ?= { title:k_anarike = { is_de_jure_liege_or_above_target = prev } }
+			has_primary_title = title:k_anarike
+		}
+		any_sub_realm_county = { # Culture present in Anarikê
+			OR = {
+				culture = scope:culture
+				culture = scope:other_culture
+			}
+			title:k_anarike = { is_de_jure_liege_or_above_target = prev }
+		}
+	}
+	hybrid = yes
+}
+
+asharysor  = { # Arysis Ashanûr
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_south_khailuza }
+				scope:other_culture =  { has_cultural_pillar = heritage_middle_apysaic }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_middle_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_south_khailuza }
+			}
+		}
+		OR = {
+			capital_county ?= { title:k_ashanur = { is_de_jure_liege_or_above_target = prev } }
+			has_primary_title = title:k_ashanur
+		}
+		any_sub_realm_county = { # Culture present in Arysis
+			OR = {
+				culture = scope:culture
+				culture = scope:other_culture
+			}
+			title:k_ashanur = { is_de_jure_liege_or_above_target = prev }
+		}
+	}
+	hybrid = yes
+}
+
+rysisan  = { # Arysis Khyan
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_south_khailuza }
+				scope:other_culture =  { has_cultural_pillar = heritage_middle_apysaic }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_middle_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_south_khailuza }
+			}
+		}
+		capital_county = { # Capital is in Arysis
+			title_province = { geographical_region = middleearth_harad_dunesea_arysis  }
+		}
+		any_sub_realm_county = { # Culture present in Arysis
+			OR = {
+				culture = scope:culture
+				culture = scope:other_culture
+			}
+			title_province = { geographical_region = middleearth_harad_dunesea_arysis }
+		}
+	}
+	hybrid = yes
+}
+
+eshnya = { # Both Sîrayni Fusion
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_old_sirayni }
+				scope:other_culture =  { has_cultural_pillar = heritage_new_sirayni }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_new_sirayni }
+				scope:other_culture = { has_cultural_pillar = heritage_old_sirayni }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+tyrnak  = { # Sîrayn Danak Fusion
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = culture:danak
+				scope:other_culture =  { has_cultural_pillar = heritage_new_sirayni }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_new_sirayni }
+				scope:other_culture = culture:danak
+			}
+			AND = {
+				scope:culture = {
+					any_parent_culture_or_above = { this = culture:danak }
+				}
+				scope:other_culture =  { has_cultural_pillar = heritage_new_sirayni }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_new_sirayni }
+				scope:other_culture = {
+					any_parent_culture_or_above = { this = culture:danak }
+				}
+			}
+		}
+	}
+	hybrid = yes
+}
+
+siroyaarna  = { # Sîrayn Lyneria Fusion
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_old_sirayni }
+				scope:other_culture =  { has_cultural_pillar = heritage_shayn }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_shayn }
+				scope:other_culture = { has_cultural_pillar = heritage_old_sirayni }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_new_sirayni }
+				scope:other_culture = { has_cultural_pillar = heritage_shayn }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_shayn }
+				scope:other_culture = { has_cultural_pillar = heritage_new_sirayni }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+sirakani  = { # Sîrayn Mumakani Fusion
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_old_sirayni }
+				scope:other_culture =  { has_cultural_parameter = heritage_group_mumakani }
+			}
+			AND = {
+				scope:culture =  { has_cultural_parameter = heritage_group_mumakani }
+				scope:other_culture = { has_cultural_pillar = heritage_old_sirayni }
+			}
+			AND = {
+				scope:culture =  { has_cultural_pillar = heritage_new_sirayni }
+				scope:other_culture = { has_cultural_parameter = heritage_group_mumakani }
+			}
+			AND = {
+				scope:culture =  { has_cultural_parameter = heritage_group_mumakani }
+				scope:other_culture = { has_cultural_pillar = heritage_new_sirayni }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+haradain = { # Dúnedain-Haradrim culture of the River Harnen and Near Harad
+	trigger = {
+		any_sub_realm_county = { # If culture is present in Near Harad
+			OR = {
+				culture = scope:culture
+				culture = scope:other_culture
+			}
+			title_province = { geographical_region = custom_larger_near_harad }
+		}
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_northern_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_dunedain }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_dunedain }
+				scope:other_culture = { has_cultural_pillar = heritage_northern_apysaic }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+sakalaze = { # Haruze-Northern Adunaic fusion
+	trigger = {
+		any_sub_realm_county = { # If culture is present in Near Harad
+			OR = {
+				culture = scope:culture
+				culture = scope:other_culture
+			}
+			title_province = { geographical_region = custom_larger_near_harad }
+		}
+		AND = {
+				scope:culture = { has_cultural_pillar = heritage_northern_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_northern_adunaic }
+			}
+	}
+	hybrid = yes
+}
+
+sarominan = { # Daen/Haradrim fusion for Near Harad
+	trigger = {
+		capital_county = { # If capital is in Near Harad or Harondor
+			title_province = { geographical_region = custom_larger_near_harad  }
+		}
+		any_sub_realm_county = { # If capital is in Near Harad or Harondor
+			OR = {
+				culture = scope:culture
+				culture = scope:other_culture
+			}
+			title_province = { geographical_region = custom_larger_near_harad }
+		}
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_northern_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_danan_lin }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_danan_lin }
+				scope:other_culture = { has_cultural_pillar = heritage_northern_apysaic }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+neudaen = { # Daen-Dunlending Fusion (Reunification of branches)
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_daen_coentis }
+				scope:other_culture = { has_cultural_pillar = heritage_daen_lintis }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_daen_lintis }
+				scope:other_culture = { has_cultural_pillar = heritage_daen_coentis }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_danan_lin }
+				scope:other_culture = { has_cultural_pillar = heritage_daen_lintis }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_daen_lintis }
+				scope:other_culture = { has_cultural_pillar = heritage_danan_lin }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_danan_lin }
+				scope:other_culture = { has_cultural_pillar = heritage_daen_coentis }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_daen_coentis }
+				scope:other_culture = { has_cultural_pillar = heritage_danan_lin }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+pharazaini = { # Alternate Adunai name for the Bellakareans
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_bellakari }
+				scope:other_culture = { has_cultural_pillar = heritage_northern_adunaic }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_northern_adunaic }
+				scope:other_culture = { has_cultural_pillar = heritage_bellakari }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_bellakari }
+				scope:other_culture = { has_cultural_pillar = heritage_southern_adunaic }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_southern_adunaic }
+				scope:other_culture = { has_cultural_pillar = heritage_bellakari }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+frecalings = { # Northmen (Rohirrim)-Dunlending Fusion
+	trigger = {
+		scope:culture = { has_cultural_pillar = heritage_daen_lintis }
+		scope:other_culture = { has_cultural_pillar = heritage_eotheod }
+	}
+	hybrid = yes
+}
+
+eodaen = { # Hadorrim-Daen fusion
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_daen_coentis }
+				scope:other_culture = { has_cultural_pillar = heritage_eotheod }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_eotheod }
+				scope:other_culture = { has_cultural_pillar = heritage_daen_coentis }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_danan_lin }
+				scope:other_culture = { has_cultural_pillar = heritage_eotheod }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_eotheod }
+				scope:other_culture = { has_cultural_pillar = heritage_danan_lin }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+tedyin = { # Haradrim-Tedjin Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = {
+					has_cultural_pillar = heritage_tedjin
+				}
+				scope:other_culture = {
+					has_cultural_pillar = heritage_northern_apysaic
+				}
+			}
+			AND = {
+				scope:culture = {
+					has_cultural_pillar = heritage_northern_apysaic
+				}
+				scope:other_culture = {
+					has_cultural_pillar = heritage_tedjin
+				}
+			}
+			AND = {
+				scope:culture = {
+					has_cultural_pillar = heritage_tedjin
+				}
+				scope:other_culture = {
+					has_cultural_pillar = heritage_middle_apysaic
+				}
+			}
+			AND = {
+				scope:culture = {
+					has_cultural_pillar = heritage_middle_apysaic
+				}
+				scope:other_culture = {
+					has_cultural_pillar = heritage_tedjin
+				}
+			}
+		}
+	}
+	hybrid = yes
+}
+
+
+newapysaic = { # Reunification of any two types of Apysaic cultures
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_southern_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_northern_apysaic }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_northern_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_southern_apysaic }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_southern_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_middle_apysaic }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_northern_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_middle_apysaic }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_middle_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_northern_apysaic }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_middle_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_southern_apysaic }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+lithaerean = { # Dúnedainic-Dune Sea fusion, based on the Dúnedain name for the Dune Sea, Lithaer
+	trigger = {
+		capital_county = { # If capital is in Dune Sea
+			title_province = { geographical_region = middleearth_harad_dunesea  }
+		}
+		OR = {
+			AND = {
+				any_sub_realm_county = {
+					scope:other_culture = { has_cultural_pillar = heritage_middle_apysaic }
+					title_province = { geographical_region = middleearth_harad_dunesea }
+				}
+				scope:culture = { has_cultural_pillar = heritage_dunedain }
+			}
+			AND = {
+				any_sub_realm_county = { # If there is a Dúnedain province in the Dune Sea, then trigger for an Arani culture
+					scope:other_culture = { has_cultural_pillar = heritage_dunedain }
+					title_province = { geographical_region = middleearth_harad_dunesea }
+				}
+				scope:culture = { has_cultural_pillar = heritage_middle_apysaic }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+danizkarean = { # Named based on 'Daniz Ekesebi', a native name for the Dune Sea
+	trigger = {
+		any_sub_realm_county = { 
+			scope:other_culture = { has_cultural_pillar = heritage_middle_apysaic }
+			title_province = { geographical_region = middleearth_harad_dunesea }
+		}
+	}
+	hybrid = yes
+}
+
+saroniags = { # Saroniags, Ioriag-Haradrim fusion culture
+	trigger = {
+		any_sub_realm_county = { # If culture is present in Near Harad
+			OR = {
+				culture = scope:culture
+				culture = scope:other_culture
+			}
+			title_province = { geographical_region = custom_larger_near_harad }
+		}
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_northern_apysaic }
+				scope:other_culture = { has_cultural_pillar = heritage_ioriag }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_ioriag }
+				scope:other_culture = { has_cultural_pillar = heritage_northern_apysaic }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+widurim  = { # woodmen-eotheod hybrid
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_eotheod }
+				scope:other_culture = culture:woodmen
+			}
+			AND = {
+				scope:culture = culture:woodmen
+				scope:other_culture = { has_cultural_pillar = heritage_eotheod }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+annutheod  = { # valemen-eotheod hybrid
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_eotheod }
+				scope:other_culture =  culture:valemen 
+			}
+			AND = {
+				scope:culture =  culture:valemen 
+				scope:other_culture = { has_cultural_pillar = heritage_eotheod }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+aitheirim  = { # Ioriag-Rhovanion fusion (Dominant Rhovanion)
+	trigger = {
+		AND = {
+				scope:culture =  culture:rhovanorim 
+				scope:other_culture = { has_cultural_pillar = heritage_ioriag }
+			}
+	}
+	hybrid = yes
+}
+
+iorgath  = { # Ioriag-Igath fusion	#think of a better name plz
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_ioriag }
+				scope:other_culture = { has_cultural_pillar = heritage_igath }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_igath }
+				scope:other_culture = { has_cultural_pillar = heritage_ioriag }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+gramriag  = { # Ioriag-Rhovanionrim fusion (Dominant Ioriags)
+	trigger = {
+		AND = {
+				scope:culture = { has_cultural_pillar = heritage_ioriag }
+				scope:other_culture =  culture:rhovanorim 
+			}
+	}
+	hybrid = yes
+}
+
+dorwinriag  = { # Ioriag-Dorwinionrim fusion
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_ioriag }
+				scope:other_culture =  culture:dorwinionrim 
+			}
+			AND = {
+				scope:culture =  culture:dorwinionrim 
+				scope:other_culture = { has_cultural_pillar = heritage_ioriag }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+dorwiniath  = { # Igath-Dorwinionrim fusion
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_igath }
+				scope:other_culture =  culture:dorwinionrim 
+			}
+			AND = {
+				scope:culture =  culture:dorwinionrim 
+				scope:other_culture = { has_cultural_pillar = heritage_igath }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+dalriag  = { # Ioriag-Dalemen fusion
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_ioriag }
+				scope:other_culture =  culture:dalemen 
+			}
+			AND = {
+				scope:culture =  culture:dalemen 
+				scope:other_culture = { has_cultural_pillar = heritage_ioriag }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+dalgath  = { # Igath-Dalemen fusion
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_igath }
+				scope:other_culture =  culture:dalemen 
+			}
+			AND = {
+				scope:culture =  culture:dalemen 
+				scope:other_culture = { has_cultural_pillar = heritage_igath }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+gargath  = { # More Generic Igath-Northmen fusion
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_northron }
+				scope:other_culture = { has_cultural_pillar = heritage_igath }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_igath }
+				scope:other_culture = { has_cultural_pillar = heritage_northron }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+nurnen = { # Nurniag-Nurnoth fusion, please come up with a better name
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture =  culture:nurnoth
+				scope:other_culture =  culture:nurniag
+			}
+			AND = {
+				scope:culture =  culture:nurniag 
+				scope:other_culture =  culture:nurnoth
+			}
+		}
+	}
+	hybrid = yes
+}
+
+fulcagrim  = { # Generic Gwathuirim-Northmen fusion
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_northron }
+				scope:other_culture = { has_cultural_pillar = heritage_daen_lintis }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_daen_lintis }
+				scope:other_culture = { has_cultural_pillar = heritage_northron }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+bairgathrim  = { # Generic Daen-Northmen fusion
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_northron }
+				scope:other_culture = { has_cultural_pillar = heritage_daen_coentis }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_daen_coentis }
+				scope:other_culture = { has_cultural_pillar = heritage_northron }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_northron }
+				scope:other_culture = { has_cultural_pillar = heritage_danan_lin }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_danan_lin }
+				scope:other_culture = { has_cultural_pillar = heritage_northron }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+adurim  = { # Generic Adunaic-Northmen fusion
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_northern_adunaic }
+				scope:other_culture =  { has_cultural_pillar = heritage_northron }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_northron }
+				scope:other_culture =  { has_cultural_pillar = heritage_northern_adunaic }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_southern_adunaic }
+				scope:other_culture =  { has_cultural_pillar = heritage_northron }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_northron }
+				scope:other_culture =  { has_cultural_pillar = heritage_southern_adunaic }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+anadrim = { # Generic Adunaic-Eotheod fusion
+	trigger = {
+		OR = {
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_northern_adunaic }
+				scope:other_culture =  { has_cultural_pillar = heritage_eotheod }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_eotheod }
+				scope:other_culture =  { has_cultural_pillar = heritage_northern_adunaic }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_southern_adunaic }
+				scope:other_culture =  { has_cultural_pillar = heritage_eotheod }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_eotheod }
+				scope:other_culture =  { has_cultural_pillar = heritage_southern_adunaic }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+tuladunai = { # South Adunai-Tulwangi Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = {
+					has_cultural_pillar = heritage_tulwangi
+				}
+				scope:other_culture = {
+					has_cultural_pillar = heritage_southern_adunaic
+				}
+			}
+			AND = {
+				scope:culture = {
+					has_cultural_pillar = heritage_southern_adunaic
+				}
+				scope:other_culture = {
+					has_cultural_pillar = heritage_tulwangi
+				}
+			}
+		}
+	}
+	hybrid = yes
+}
+
+adasari = { # Adena-Sederi Fusion
+	trigger = {
+		AND = {
+			scope:culture = {
+				has_cultural_pillar = heritage_thani_native
+			}
+			scope:other_culture = {
+				has_cultural_pillar = heritage_kirani
+			}
+		}
+	}
+	hybrid = yes
+}
+
+kiratani = { # Sederi-Adena Fusion
+	trigger = {
+		AND = {
+			scope:culture = {
+				has_cultural_pillar = heritage_kirani
+			}
+			scope:other_culture = {
+				has_cultural_pillar = heritage_thani_native
+			}
+		}
+	}
+	hybrid = yes
+}
+
+kiradunai = { # South Adunai-Sederi Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = {
+					has_cultural_pillar = heritage_kirani
+				}
+				scope:other_culture = {
+					has_cultural_pillar = heritage_southern_adunaic
+				}
+			}
+			AND = {
+				scope:culture = {
+					has_cultural_pillar = heritage_southern_adunaic
+				}
+				scope:other_culture = {
+					has_cultural_pillar = heritage_kirani
+				}
+			}
+		}
+	}
+	hybrid = yes
+}
+
+zimraden = { # Adena-South Adunai Fusion (Zimrathâni)
+	trigger = {
+		AND = {
+			scope:culture = {
+				has_cultural_pillar = heritage_thani_native
+			}
+			scope:other_culture = {
+				has_cultural_pillar = heritage_southern_adunaic
+			}
+		}
+		OR = {
+			capital_county = { title:k_zimrathani = { is_de_jure_liege_or_above_target = prev } }
+			has_primary_title = title:k_zimrathani
+		}
+	}
+	hybrid = yes
+}
+
+gimiladen = { # Adena-South Adunai Fusion (Gimilthâni)
+	trigger = {
+		AND = {
+			scope:culture = {
+				has_cultural_pillar = heritage_thani_native
+			}
+			scope:other_culture = {
+				has_cultural_pillar = heritage_southern_adunaic
+			}
+		}
+		OR = {
+			capital_county = { title:k_gimilthani = { is_de_jure_liege_or_above_target = prev } }
+			has_primary_title = title:k_gimilthani
+		}
+	}
+	hybrid = yes
+}
+
+kharaden = { # Generic Adena-South Adunai Fusion
+	trigger = {
+		AND = {
+			scope:culture = {
+				has_cultural_pillar = heritage_thani_native
+			}
+			scope:other_culture = {
+				has_cultural_pillar = heritage_southern_adunaic
+			}
+		}
+	}
+	hybrid = yes
+}
+
+amutadunai = { # Generic South Adunai-Adena Fusion
+	trigger = {
+		AND = {
+			scope:culture = {
+				has_cultural_pillar = heritage_southern_adunaic
+			}
+			scope:other_culture = {
+				has_cultural_pillar = heritage_thani_native
+			}
+		}
+	}
+	hybrid = yes
+}
+
+pelmag = { # Pel-Mag Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = {
+					has_cultural_pillar = heritage_thani_native
+				}
+				scope:other_culture = {
+					has_cultural_pillar = heritage_magri
+				}
+			}
+			AND = {
+				scope:culture = {
+					has_cultural_pillar = heritage_magri
+				}
+				scope:other_culture = {
+					has_cultural_pillar = heritage_thani_native
+				}
+			}
+		}
+		OR = {
+			capital_county = { title:k_pel = { is_de_jure_liege_or_above_target = prev } }
+			has_primary_title = title:k_pel
+		}
+	}
+	hybrid = yes
+}
+
+drelmag = { # Drel-Mag Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = {
+					has_cultural_pillar = heritage_thani_native
+				}
+				scope:other_culture = {
+					has_cultural_pillar = heritage_magri
+				}
+			}
+			AND = {
+				scope:culture = {
+					has_cultural_pillar = heritage_magri
+				}
+				scope:other_culture = {
+					has_cultural_pillar = heritage_thani_native
+				}
+			}
+		}
+		OR = {
+			capital_county = { title:k_drel = { is_de_jure_liege_or_above_target = prev } }
+			has_primary_title = title:k_drel
+		}
+	}
+	hybrid = yes
+}
+
+usamag = { # Ûsakani-Mag Fusion
+	trigger = {
+		OR = { # Ensures it can be formed in either direction
+			AND = {
+				scope:culture = {
+					has_cultural_pillar = heritage_kirani
+				}
+				scope:other_culture = {
+					has_cultural_pillar = heritage_magri
+				}
+			}
+			AND = {
+				scope:culture = {
+					has_cultural_pillar = heritage_magri
+				}
+				scope:other_culture = {
+					has_cultural_pillar = heritage_kirani
+				}
+			}
+		}
+		OR = {
+			capital_county = { title:e_usakan = { is_de_jure_liege_or_above_target = prev } }
+			has_primary_title = title:e_usakan
+		}
+	}
+	hybrid = yes
+}
+
+edledhrim = { #Fall-back Dunedain-Adunaic Hybrid Name
+	trigger = {
+		any_sub_realm_county = {
+			OR = {
+				culture = scope:culture
+				culture = scope:other_culture
+			}
+		}
+		OR = { # Ensures it can be formed in any direction
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_northern_adunaic }
+				scope:other_culture = { has_cultural_pillar = heritage_dunedain }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_dunedain }
+				scope:other_culture = { has_cultural_pillar = heritage_northern_adunaic }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_southern_adunaic }
+				scope:other_culture = { has_cultural_pillar = heritage_dunedain }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_dunedain }
+				scope:other_culture = { has_cultural_pillar = heritage_southern_adunaic }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_eastern_adunaic }
+				scope:other_culture = { has_cultural_pillar = heritage_dunedain }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_dunedain }
+				scope:other_culture = { has_cultural_pillar = heritage_eastern_adunaic }
+			}
+			AND = {
+				scope:other_culture = { has_cultural_pillar = heritage_bellakari }
+				scope:other_culture = { has_cultural_pillar = heritage_dunedain }
+			}
+			AND = {
+				scope:culture = { has_cultural_pillar = heritage_dunedain }
+				scope:other_culture = { has_cultural_pillar = heritage_bellakari }
+			}
+		}
+	}
+	hybrid = yes
+}
+
+azralai = { # Adunai of the East - hybrid with Anarikean
+	trigger = {
+		capital_county = {
+			title_province = { # Capital is in the Bay of Ormal
+				geographical_region = middleearth_harad_bayoformal
+			}
+		}
+		any_sub_realm_county = { 
+			OR = {
+				culture = scope:culture
+				culture = scope:other_culture
+			}
+			title_province = {
+				geographical_region = middleearth_harad_bayoformal
+			}
+		} 
+		scope:culture = { has_cultural_pillar = heritage_eastern_adunaic } # Only formed by Eastern Adunaic Cultures
+		scope:other_culture = { has_cultural_pillar = heritage_south_khailuza }
+	}
+	hybrid = yes
+}
+
+#danelander = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				OR = {
+#					scope:culture = culture:saxon
+#					scope:culture = culture:english
+#				}
+#				scope:other_culture = { has_cultural_pillar = heritage_north_germanic }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_north_germanic }
+#				OR = {
+#					scope:other_culture = culture:saxon
+#					scope:other_culture = culture:english
+#				}
+#			}
+#		}
+#		OR = {
+#			capital_county = {
+#				title:k_danelaw = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#			capital_county = {
+#				title:k_daneland = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#			primary_title = title:k_danelaw
+#			primary_title = title:k_daneland
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#engelsk = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = culture:saxon
+#				scope:other_culture = culture:norwegian
+#			}
+#			AND = {
+#				scope:culture = culture:norwegian
+#				scope:other_culture = culture:saxon
+#			}
+#		}
+#		NOT = { religion = religion:germanic_religion } # Norse followers should become Anglo-Norse
+#	}
+#	hybrid = yes
+#}
+#
+#anglo_norse = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				OR = {
+#					scope:culture = culture:saxon
+#					scope:culture = culture:english
+#				}
+#				scope:other_culture = { has_cultural_pillar = heritage_north_germanic }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_north_germanic }
+#				OR = {
+#					scope:other_culture = culture:saxon
+#					scope:other_culture = culture:english
+#				}
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#hindustani_proper = {
+#	trigger = {
+#		capital_county = {
+#			title_province = { geographical_region = ghw_region_northern_india }
+#		}
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_iranian }
+#				scope:other_culture = { has_cultural_pillar = heritage_indo_aryan }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_turkic }
+#				scope:other_culture = { has_cultural_pillar = heritage_indo_aryan }
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#			title_province = {
+#				geographical_region = ghw_region_northern_india
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#rhinelander = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_frankish }
+#				scope:other_culture = { has_cultural_pillar = heritage_central_germanic }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_central_germanic }
+#				scope:other_culture = { has_cultural_pillar = heritage_frankish }
+#			}
+#		}
+#		capital_county = {
+#			title_province = { geographical_region = custom_rhineland }
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#			title_province = {
+#				geographical_region = custom_rhineland
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#turko_iranian = { #Just making sure we get a pretty name for Oghuz+Persian regardless of who hybridizes who.
+#	trigger = {
+#		scope:culture = culture:turkish
+#		scope:other_culture = culture:persian
+#	}
+#	hybrid = yes
+#}
+#
+#turko_afghan = { #Just making sure we get a pretty name for Afghan+Oghuz regardless of who hybridizes who.
+#	trigger = {
+#		scope:culture = culture:turkish
+#		scope:other_culture = culture:afghan
+#	}
+#	hybrid = yes
+#}
+#
+#ulster_scots = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = culture:scottish
+#				scope:other_culture = culture:irish
+#			}
+#			AND = {
+#				scope:culture = culture:irish
+#				scope:other_culture = culture:scottish
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#			title_province = {
+#				duchy = title:d_ulster
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#swiss = {
+#	trigger = {
+#		OR = {
+#			capital_county = {
+#				title:k_switzerland = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#			has_primary_title = title:k_switzerland
+#		}
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_frankish }
+#				scope:other_culture = { has_cultural_pillar = heritage_central_germanic }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_frankish }
+#				scope:other_culture = { has_cultural_pillar = heritage_latin }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_central_germanic }
+#				scope:other_culture = { has_cultural_pillar = heritage_frankish }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_central_germanic }
+#				scope:other_culture = { has_cultural_pillar = heritage_latin }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_latin }
+#				scope:other_culture = { has_cultural_pillar = heritage_central_germanic }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_latin }
+#				scope:other_culture = { has_cultural_pillar = heritage_frankish }
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#transylvanian = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_magyar }
+#				scope:other_culture = { has_cultural_pillar = heritage_vlach }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_vlach }
+#				scope:other_culture = { has_cultural_pillar = heritage_magyar }
+#			}
+#		}
+#		OR = {
+#			capital_county = {
+#				title:d_transylvania = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#			capital_county = {
+#				title:d_transylvanian_alps = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#			has_primary_title = title:d_transylvania
+#			has_primary_title = title:d_transylvanian_alps
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				duchy = title:d_transylvania
+#				duchy = title:d_transylvanian_alps
+#			}
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#alsatian = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_frankish }
+#				scope:other_culture = { has_cultural_pillar = heritage_central_germanic }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_central_germanic }
+#				scope:other_culture = { has_cultural_pillar = heritage_frankish }
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				duchy = title:d_alsace
+#				duchy = title:d_upper_lorraine
+#			}
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#vlaemsch = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_frankish }
+#				scope:other_culture = culture:dutch
+#			}
+#			AND = {
+#				scope:culture = culture:dutch
+#				scope:other_culture = { has_cultural_pillar = heritage_frankish }
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#khalkha = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_tibetan }
+#				scope:other_culture = { has_cultural_pillar = heritage_mongolic }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_mongolic }
+#				scope:other_culture = { has_cultural_pillar = heritage_tibetan }
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#himalayan = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_tibetan }
+#				scope:other_culture = culture:nepali
+#			}
+#			AND = {
+#				scope:culture = culture:nepali
+#				scope:other_culture = { has_cultural_pillar = heritage_tibetan }
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#angevin_hybrid = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_frankish }
+#				scope:other_culture = { has_cultural_pillar = heritage_west_germanic }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_west_germanic }
+#				scope:other_culture = { has_cultural_pillar = heritage_frankish }
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#kazakh = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_mongolic }
+#				scope:other_culture = { has_cultural_pillar = heritage_turkic }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_turkic }
+#				scope:other_culture = { has_cultural_pillar = heritage_mongolic }
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#kurlander = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_central_germanic }
+#				scope:other_culture = { has_cultural_pillar = heritage_baltic }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_central_germanic }
+#				scope:other_culture = { has_cultural_pillar = heritage_balto_finnic }
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#			duchy = title:d_courland
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#livonian = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_balto_finnic }
+#				scope:other_culture = { has_cultural_pillar = heritage_baltic }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_baltic }
+#				scope:other_culture = { has_cultural_pillar = heritage_balto_finnic }
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#moroccan_hybrid = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				OR = { # Arabic language to make Andalusian valid
+#					scope:culture = { has_cultural_pillar = heritage_arabic }
+#					scope:culture = { has_cultural_pillar = language_arabic }
+#				}
+#				scope:other_culture = { has_cultural_pillar = heritage_berber }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_berber }
+#				OR = {
+#					scope:other_culture = { has_cultural_pillar = heritage_arabic }
+#					scope:other_culture = { has_cultural_pillar = language_arabic }
+#				}
+#			}
+#		}
+#		OR = {
+#			capital_county = {
+#				title:k_maghreb = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#			primary_title = title:k_maghreb
+#			# You are an Andalusian expanding into Africa
+#			AND = {
+#				OR = {
+#					scope:culture = culture:andalusian
+#					scope:other_culture = culture:andalusian
+#				}
+#				has_title = title:k_maghreb
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#algerian_hybrid = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				OR = {
+#					scope:culture = { has_cultural_pillar = heritage_arabic }
+#					scope:culture = { has_cultural_pillar = language_arabic }
+#				}
+#				scope:other_culture = { has_cultural_pillar = heritage_berber }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_berber }
+#				OR = {
+#					scope:other_culture = { has_cultural_pillar = heritage_arabic }
+#					scope:other_culture = { has_cultural_pillar = language_arabic }
+#				}
+#			}
+#		}
+#		OR = {
+#			capital_county = {
+#				title:k_tahert = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#			primary_title = title:k_tahert
+#			# You are an Andalusian expanding into Africa
+#			AND = {
+#				OR = {
+#					scope:culture = culture:andalusian
+#					scope:other_culture = culture:andalusian
+#				}
+#				has_title = title:k_tahert
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#tripolitanian_hybrid = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				OR = {
+#					scope:culture = { has_cultural_pillar = heritage_arabic }
+#					scope:culture = { has_cultural_pillar = language_arabic }
+#				}
+#				scope:other_culture = { has_cultural_pillar = heritage_berber }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_berber }
+#				OR = {
+#					scope:other_culture = { has_cultural_pillar = heritage_arabic }
+#					scope:other_culture = { has_cultural_pillar = language_arabic }
+#				}
+#			}
+#		}
+#		OR = {
+#			capital_county = {
+#				title:d_syrte = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#			capital_county = {
+#				title:d_fezzan = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#			capital_county = {
+#				title:d_cyrenaica = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#			primary_title = title:d_syrte
+#			primary_title = title:d_fezzan
+#			primary_title = title:d_cyrenaica
+#			# You are an Andalusian expanding into Africa
+#			AND = {
+#				OR = {
+#					scope:culture = culture:andalusian
+#					scope:other_culture = culture:andalusian
+#				}
+#				OR = {
+#					has_title = title:d_syrte
+#					has_title = title:d_fezzan
+#					has_title = title:d_cyrenaica
+#				}
+#				NOT = { has_title = title:k_africa }
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#tunisian_hybrid = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				OR = {
+#					scope:culture = { has_cultural_pillar = heritage_arabic }
+#					scope:culture = { has_cultural_pillar = language_arabic }
+#				}
+#				scope:other_culture = { has_cultural_pillar = heritage_berber }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_berber }
+#				OR = {
+#					scope:other_culture = { has_cultural_pillar = heritage_arabic }
+#					scope:other_culture = { has_cultural_pillar = language_arabic }
+#				}
+#			}
+#		}
+#		OR = {
+#			capital_county = {
+#				title:k_africa = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#			primary_title = title:k_africa
+#			# You are an Andalusian expanding into Africa
+#			AND = {
+#				OR = {
+#					scope:culture = culture:andalusian
+#					scope:other_culture = culture:andalusian
+#				}
+#				has_title = title:k_tahert
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#kuzarim = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = culture:khazar
+#				scope:other_culture = { has_cultural_pillar = heritage_israelite }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_israelite }
+#				scope:other_culture = culture:khazar
+#			}
+#		}
+#		faith = { religion_tag = judaism_religion }
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#siddi = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				OR = {
+#					scope:culture = { has_cultural_pillar = heritage_east_african }
+#					scope:culture = { has_cultural_pillar = heritage_somalian }
+#				}
+#				OR = {
+#					scope:other_culture = { has_cultural_pillar = heritage_indo_aryan }
+#					scope:other_culture = { has_cultural_pillar = heritage_dravidian }
+#				}
+#			}
+#			AND = {
+#				OR = {
+#					scope:culture = { has_cultural_pillar = heritage_indo_aryan }
+#					scope:culture = { has_cultural_pillar = heritage_dravidian }
+#				}
+#				OR = {
+#					scope:other_culture = { has_cultural_pillar = heritage_east_african }
+#					scope:other_culture = { has_cultural_pillar = heritage_somalian }
+#				}
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#bari = { # Emirate of Bari
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_berber }
+#				OR = {
+#					scope:other_culture = { has_cultural_pillar = heritage_latin }
+#					scope:other_culture = { has_cultural_pillar = heritage_frankish }
+#				}
+#			}
+#			AND = {
+#				OR = {
+#					scope:culture = { has_cultural_pillar = heritage_latin }
+#					scope:culture = { has_cultural_pillar = heritage_frankish }
+#				}
+#				scope:other_culture = { has_cultural_pillar = heritage_berber }
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#gyalrong = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_tibetan }
+#				scope:other_culture = { has_cultural_pillar = heritage_qiangic }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_qiangic }
+#				scope:other_culture = { has_cultural_pillar = heritage_tibetan }
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#lebanese_hybrid = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_byzantine }
+#				scope:other_culture = { has_cultural_pillar = heritage_arabic }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_arabic }
+#				scope:other_culture = { has_cultural_pillar = heritage_byzantine }
+#			}
+#		}
+#		OR = {
+#			capital_county = {
+#				title:k_syria = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#			primary_title = title:k_syria
+#		}
+#		any_sub_realm_county = {
+#			title:k_syria = {
+#				is_de_jure_liege_or_above_target = prev
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#outremer = {
+#	trigger = {
+#		scope:culture = { has_cultural_pillar = heritage_frankish }
+#		scope:other_culture = { has_cultural_pillar = heritage_arabic }
+#		any_sub_realm_county = {
+#			title_province = { geographical_region = world_middle_east_jerusalem }
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#oltremare = {
+#	trigger = {
+#		scope:culture = { has_cultural_pillar = heritage_latin }
+#		scope:other_culture = { has_cultural_pillar = heritage_arabic }
+#		any_sub_realm_county = {
+#			title_province = { geographical_region = world_middle_east_jerusalem }
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#ultramar = {
+#	trigger = {
+#		scope:culture = { has_cultural_pillar = heritage_iberian }
+#		scope:other_culture = { has_cultural_pillar = heritage_arabic }
+#		faith.religion = religion:christianity_religion # Prevents Andalusians from becoming Ultramar
+#		any_sub_realm_county = {
+#			title_province = { geographical_region = world_middle_east_jerusalem }
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#jerusalemer = {
+#	trigger = {
+#		OR = {
+#			scope:culture = { has_cultural_pillar = heritage_north_germanic }
+#			scope:culture = { has_cultural_pillar = heritage_central_germanic }
+#			scope:culture = { has_cultural_pillar = heritage_west_germanic }
+#		}
+#		scope:other_culture = { has_cultural_pillar = heritage_arabic }
+#		any_sub_realm_county = {
+#			title_province = { geographical_region = world_middle_east_jerusalem }
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#jeruzaleman = {
+#	trigger = {
+#		OR = {
+#			scope:culture = { has_cultural_pillar = heritage_south_slavic }
+#			scope:culture = { has_cultural_pillar = heritage_west_slavic }
+#			scope:culture = { has_cultural_pillar = heritage_east_slavic }
+#		}
+#		scope:other_culture = { has_cultural_pillar = heritage_arabic }
+#		any_sub_realm_county = {
+#			title_province = { geographical_region = world_middle_east_jerusalem }
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#kulfoldi = {
+#	trigger = {
+#		scope:culture = { has_cultural_pillar = heritage_magyar }
+#		scope:other_culture = { has_cultural_pillar = heritage_arabic }
+#		any_sub_realm_county = {
+#			title_province = { geographical_region = world_middle_east_jerusalem }
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#dramor = {
+#	trigger = {
+#		scope:culture = { has_cultural_pillar = heritage_brythonic }
+#		scope:other_culture = { has_cultural_pillar = heritage_arabic }
+#		any_sub_realm_county = {
+#			title_province = { geographical_region = world_middle_east_jerusalem }
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#coigriche = {
+#	trigger = {
+#		scope:culture = { has_cultural_pillar = heritage_goidelic }
+#		scope:other_culture = { has_cultural_pillar = heritage_arabic }
+#		any_sub_realm_county = {
+#			title_province = { geographical_region = world_middle_east_jerusalem }
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#arpitan_hybrid = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_frankish }
+#				scope:other_culture = { has_cultural_pillar = heritage_latin }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_latin }
+#				scope:other_culture = { has_cultural_pillar = heritage_frankish }
+#			}
+#		}
+#		OR = {
+#			capital_county = {
+#				title:d_dauphine = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#			capital_county = {
+#				title:d_savoie = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#			capital_county = {
+#				title:d_anjou = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#			has_primary_title = title:d_dauphine
+#			has_primary_title = title:d_savoie
+#			has_primary_title = title:d_anjou
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#			OR = {
+#				duchy = title:d_dauphine
+#				duchy = title:d_savoie
+#				duchy = title:d_provence
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#new_english_hybrid = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_west_germanic }
+#				OR = {
+#					scope:other_culture = { has_cultural_pillar = heritage_mongolic }
+#					scope:other_culture = { has_cultural_pillar = heritage_turkic }
+#				}
+#			}
+#			AND = {
+#				OR = {
+#					scope:culture = { has_cultural_pillar = heritage_mongolic }
+#					scope:culture = { has_cultural_pillar = heritage_turkic }
+#				}
+#				scope:other_culture = { has_cultural_pillar = heritage_west_germanic }
+#			}
+#		}
+#		capital_county = {
+#			title_province = {
+#				geographical_region = world_steppe
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#			title_province = {
+#				geographical_region = world_steppe
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#upper_saxon_hybrid = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = culture:saxon
+#				scope:other_culture = culture:polabian
+#			}
+#			AND = {
+#				scope:culture = culture:polabian
+#				scope:other_culture = culture:saxon
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#dobrujan = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_vlach }
+#				scope:other_culture = { has_cultural_pillar = heritage_turkic }
+#			}
+#			AND = {
+#				scope:culture = { has_cultural_pillar = heritage_turkic }
+#				scope:other_culture = { has_cultural_pillar = heritage_vlach }
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#			title_province = {
+#				OR = {
+#					duchy = title:d_dobrudja
+#					duchy = title:d_bugeac
+#				}
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#aromanian = {
+#	trigger = {
+#		OR = {
+#			AND = {
+#				scope:culture = {
+#					OR = {
+#						this = { has_cultural_pillar = heritage_vlach }
+#						any_parent_culture_or_above = { this = { has_cultural_pillar = heritage_vlach } }
+#					}
+#				}
+#				scope:other_culture = {
+#					has_cultural_pillar = heritage_byzantine
+#				}
+#			}
+#			AND = {
+#				scope:culture = {
+#					has_cultural_pillar = heritage_byzantine
+#				}
+#				scope:other_culture = {
+#					OR = {
+#						this = { has_cultural_pillar = heritage_vlach }
+#						any_parent_culture_or_above = { this = { has_cultural_pillar = heritage_vlach } }
+#					}
+#				}
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#dalmatian_hybrid = {
+#	trigger = {
+#		capital_county = {
+#			# Is in the Balkans but not Greece, Bulgaria, or Romania
+#			title_province = {
+#				geographical_region = custom_south_slavia
+#			}
+#			NOR = {
+#				title:k_dacia = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#				title:k_moldavia = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#				title:k_bulgaria = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#		}
+#		scope:culture = {
+#			OR = {
+#				has_cultural_pillar = heritage_south_slavic
+#				has_cultural_pillar = heritage_byzantine
+#				has_cultural_pillar = heritage_latin
+#			}
+#		}
+#		scope:other_culture = {
+#			OR = {
+#				has_cultural_pillar = heritage_south_slavic
+#				has_cultural_pillar = heritage_byzantine
+#				has_cultural_pillar = heritage_latin
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#			any_county_province = { is_coastal = yes }
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#neapolitan_hybrid = {
+#	trigger = {
+#		capital_county = {
+#			title:k_sicily = {
+#				is_de_jure_liege_or_above_target = prev
+#			}
+#			NOT = {
+#				title:d_sicily = {
+#					is_de_jure_liege_or_above_target = prev
+#				}
+#			}
+#		}
+#		scope:culture = {
+#			OR = {
+#				has_cultural_pillar = heritage_latin
+#				has_cultural_pillar = heritage_byzantine
+#				has_cultural_pillar = heritage_berber
+#			}
+#		}
+#		scope:other_culture = {
+#			OR = {
+#				has_cultural_pillar = heritage_latin
+#				has_cultural_pillar = heritage_byzantine
+#				has_cultural_pillar = heritage_berber
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#			title:d_capua = {
+#				is_de_jure_liege_or_above_target = prev
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#siculo_norman = {
+#	trigger = {
+#		capital_county = {
+#			title:k_sicily = {
+#				is_de_jure_liege_or_above_target = prev
+#			}
+#		}
+#		scope:culture = culture:norman
+#		scope:other_culture = {
+#			OR = {
+#				has_cultural_pillar = heritage_latin
+#				has_cultural_pillar = heritage_byzantine
+#				has_cultural_pillar = heritage_berber
+#			}
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#arvorigeg = {
+#	trigger = {
+#		scope:culture = {
+#			has_cultural_pillar = heritage_brythonic
+#		}
+#		scope:other_culture = {
+#			has_cultural_pillar = heritage_frankish
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}
+#
+#gallo = {
+#	trigger = {
+#		scope:culture = {
+#			has_cultural_pillar = heritage_frankish
+#		}
+#		scope:other_culture = {
+#			has_cultural_pillar = heritage_brythonic
+#		}
+#		any_sub_realm_county = {
+#			OR = {
+#				culture = scope:culture
+#				culture = scope:other_culture
+#			}
+#		}
+#	}
+#	hybrid = yes
+#}

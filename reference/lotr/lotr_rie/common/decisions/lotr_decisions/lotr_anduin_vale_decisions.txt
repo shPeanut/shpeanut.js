@@ -1,0 +1,1536 @@
+﻿#############################
+### Anduin Vale Decisions ###
+#############################
+
+# Become the All-thane
+decision_aladegana = {
+	title = decision_aladegana
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_shire_01.dds"
+	}
+
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_aladegana_tooltip
+	desc = decision_aladegana_desc
+	confirm_text = decision_aladegana_confirm
+	decision_group_type = realms_in_exile_major
+	
+	sort_order = 1000
+
+	is_shown = {
+		exists = capital_province
+		capital_province = {
+			OR = {
+				geographical_region = middleearth_west_rhovanion_anduin
+				geographical_region = middleearth_west_rhovanion_mirkwood
+			}
+		}
+
+		OR = {
+			culture = culture:woodmen
+			culture = culture:valemen
+			culture = culture:flodufulka
+			culture = culture:gargath
+            culture = { any_parent_culture_or_above = { this = culture:woodmen } }
+            culture = { any_parent_culture_or_above = { this = culture:valemen } }
+			culture = { any_parent_culture_or_above = { this = culture:flodufulka } }
+			culture = { any_parent_culture_or_above = { this = culture:gargath } }
+		}
+		OR = {
+			culture = { has_cultural_pillar = heritage_northron }
+			culture = { has_cultural_pillar = heritage_igath }
+		}
+		is_independent_ruler = yes
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_aladegana
+			}
+		}
+
+	}
+
+	is_valid = {
+		trigger_if = {
+			limit = {
+				is_ai = no
+			}
+			prestige_level >= very_high_prestige_level
+			exists = title:d_west_bight
+			OR = {
+				has_title = title:d_west_bight
+				any_vassal_or_below = {
+					has_title = title:d_west_bight
+				}
+			}
+			completely_controls = title:k_angaladh
+			completely_controls = title:k_langwell
+		}
+
+		has_title = title:k_anduin_vale
+		completely_controls = title:d_nivrim
+		completely_controls = title:d_carrock_vale
+		completely_controls = title:d_warnelath
+		completely_controls = title:d_ronen_in_anduin
+		OR = {
+			completely_controls = title:d_men_i_naugrim
+			completely_controls = title:d_angaladh_rhunen
+		}
+
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	cost = {
+		prestige = 450
+	}
+	effect = {
+		#Create the title and make it primary
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = title_change
+			add_claim_on_loss = yes
+		}
+		title:e_anduin_vale = {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		set_primary_title_to = title:e_anduin_vale
+
+		root.dynasty = {
+			add_dynasty_modifier = aladegan
+			add_dynasty_prestige = 500
+		}
+
+		title:e_anduin_vale = { set_title_name = e_aladegana }
+
+		hidden_effect = {
+			every_realm_de_jure_kingdom = {
+				if = {
+					limit = {
+						OR = {
+							kingdom = title:k_anduin_vale
+							kingdom = title:k_langwell
+							kingdom = title:k_angaladh
+							# duchy = title:d_nivrim
+						}
+					}
+					set_de_jure_liege_title = title:e_anduin_vale
+				}
+			}
+			every_realm_de_jure_duchy = {
+				if = {
+					limit = {
+						duchy = title:d_nivrim
+					}
+					set_de_jure_liege_title = title:k_angaladh
+				}
+			}
+		}
+		trigger_event = {
+			id = anduin_vale.0102
+			days = 1
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_aladegana
+		}
+
+		if = {
+			limit = { # Major News
+				NOT = { has_game_rule = no_news }
+			}
+			every_player = { #Global News Announcement
+				trigger_event = news_event.0018
+			}
+		}
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 36
+		empire = 24
+		hegemony = 12
+	}
+}
+
+# Secure the High Pass
+decision_secure_the_high_pass = {
+	title = decision_secure_the_high_pass
+	desc = decision_secure_the_high_pass_desc
+	confirm_text = decision_secure_the_high_pass_confirm
+	selection_tooltip = decision_secure_the_high_pass_tooltip
+	picture = {
+		reference = gfx/interface/illustrations/decisions/decision_blue_mountains_01.dds
+	}
+
+	# AI
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 25
+		duchy = 10
+		kingdom = 5
+		empire = 5
+		hegemony = 5
+	}
+
+	sort_order = 400
+
+	# IS SHOWN
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		exists = capital_province
+		NOT = { faith_is_evil = yes }
+		capital_province = {
+			geographical_region = middleearth_west_rhovanion_anduin
+		}
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_secure_the_high_pass
+			}
+		}
+		# NOT = {
+			# title:d_high_pass.holder ?= { faith_is_good = yes }
+		# }
+	}
+
+	# IS VALID
+	is_valid = {
+		custom_tooltip = {
+			text = must_hold_one_county_high_pass
+			title:d_high_pass = {
+				any_de_jure_county = {
+					OR = {
+						holder = root
+						holder = { is_vassal_or_below_of = root }
+					}
+				}
+			}
+		}
+		OR = {
+			title:c_goblin_town.title_province = { has_holding_type = wastelands_holding }
+			title:c_goblin_town.holder.top_liege ?= { is_dwarf = yes }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 150
+		prestige = 500
+	}
+
+	# EFFECT
+	effect = {
+		title:d_high_pass = {
+			every_in_de_jure_hierarchy = { # Every pass county held by orcs, take it
+				limit = {
+					tier = tier_county
+					holder = { is_orc = yes }
+				}
+				create_title_and_vassal_change = {
+					type = conquest
+					save_scope_as = change
+					add_claim_on_loss = yes
+				}
+				change_title_holder = {
+					holder = root
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
+			every_in_de_jure_hierarchy = { # Every pass wastelands county, make a colony
+				limit = {
+					tier = tier_county
+					holder = { is_wastelands = yes }
+				}
+				ai_colonisation_effect = { WASTELANDS = this.title_province ROOT_SCOPE = root }
+			}
+		}
+		custom_tooltip = {
+			text = get_high_pass_secured_modifier
+			title:d_high_pass = {
+				every_in_de_jure_hierarchy = {
+					add_county_modifier = {
+						modifier = secured_high_pass_modifier
+						years = 25
+					}
+				}
+			}
+		}
+		send_interface_toast = {
+			type = event_toast_effect_good
+			title = decision_secure_the_high_pass_tt
+			left_icon = root
+			root.dynasty = { add_dynasty_prestige = 300 }
+			add_legitimacy = major_legitimacy_gain
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_secure_the_high_pass
+		}
+	}
+}
+
+# Reunite the Éothéod
+decision_eotheod = {
+	title = decision_eotheod
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_rohan_04.dds"
+	}
+
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_eotheod_tooltip
+	desc = decision_eotheod_desc
+	confirm_text = decision_eotheod_confirm
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_independent_ruler = yes
+		# OR = { # Make it visible earlier as a goal to work towards
+			# has_title = title:d_ronen_in_anduin
+			# has_title = title:d_carrock_vale
+			# has_title = title:k_anduin_vale
+			# has_title = title:k_langwell
+		# }
+		OR = {
+			culture = culture:framling
+            culture = { any_parent_culture_or_above = { this = culture:framling } }
+			culture = culture:leofring
+			culture = { any_parent_culture_or_above = { this = culture:leofring } }
+		}
+		culture = { has_cultural_pillar = heritage_eotheod }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_eotheod
+			}
+		}
+		NOT = {
+			has_title = title:k_rohan
+		}
+	}
+
+	cost = {
+		gold = 200
+	}
+
+	is_valid = {
+		prestige_level >= high_prestige_level
+		has_government = feudal_government
+		OR = {
+			completely_controls = title:k_langwell
+			completely_controls = title:k_anduin_vale
+		}
+		calc_true_if = {
+				amount >= 2
+			OR = {
+				has_title = title:d_suflond
+				any_vassal_or_below = {
+					has_title = title:d_suflond
+				}
+			}
+			OR = {
+				has_title = title:d_carrock_vale
+				any_vassal_or_below = {
+					has_title = title:d_carrock_vale
+				}
+			}
+			OR = {
+				has_title = title:d_warnelath
+				any_vassal_or_below = {
+					has_title = title:d_warnelath
+				}
+			}
+		}
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	effect = {
+		get_title = title:k_eotheod
+		hidden_effect = {
+			set_primary_title_to = title:k_eotheod
+		}
+
+		title:k_eotheod = { set_de_jure_liege_title = title:e_anduin_vale }
+		every_realm_de_jure_duchy = {
+			limit = {
+				empire = title:k_eotheod.empire
+			}
+			set_de_jure_liege_title = title:k_eotheod
+		}
+		
+		every_realm_county = {
+			add_county_modifier = {
+				modifier = resurgent_eotheod
+				years = 50
+			}
+		}
+		
+		if = {
+			limit = { completely_controls = title:k_langwell }
+			destroy_title = title:k_langwell
+		}
+		
+		if = {
+			limit = { completely_controls = title:k_anduin_vale }
+			destroy_title = title:k_anduin_vale
+		}
+
+		if = {
+			limit ={
+				NOR = {
+					has_realm_law = crown_authority_2
+					has_realm_law = crown_authority_3
+				}
+			}
+			add_realm_law_skip_effects = crown_authority_2
+		}
+		title:k_anduin_vale = { set_capital_county = title:c_gladden_fields }
+
+		trigger_event = {
+			id = anduin_vale.0106
+			days = 1
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_eotheod
+		}
+
+		if = {
+			limit = { # Major News
+				NOT = { has_game_rule = no_news }
+			}
+			every_player = { #Global News Announcement
+				trigger_event = news_event.0019
+			}
+		}
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 48
+		empire = 36
+		hegemony = 24
+	}
+}
+
+# Integrate the Pass of Gundabad #
+decision_integrate_gundalok = {
+	title = decision_integrate_gundalok
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_gundabad_grey_mountains.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_integrate_gundalok_tooltip
+	desc = decision_integrate_gundalok_desc
+	confirm_text = decision_integrate_gundalok_confirm
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		capital_province = { geographical_region = middleearth_west_rhovanion_anduin_north }
+		is_human = yes
+		NOT = { faith_is_evil = yes }
+
+		NOR = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_integrate_gundalok
+			}
+		}
+	}
+
+	is_valid = {
+		OR = {
+			has_title = title:k_langwell
+			any_vassal_or_below = { has_title = title:k_langwell }
+			has_title = title:k_eotheod
+			any_vassal_or_below = { has_title = title:k_eotheod }
+		}
+		completely_controls = title:d_gundalok
+		# OR = {
+			# culture = { has_cultural_pillar = heritage_eotheod }
+			# culture = { has_cultural_pillar = heritage_northron }
+		# }
+		is_independent_ruler = yes
+		trigger_if = {
+			limit = { exists = title:k_gundabad.holder }
+			custom_tooltip = {
+				text = gundabad_kingdom_doesnt_exist_or_is_dwarven
+				title:k_gundabad.holder ?= { is_dwarf = yes }
+			}
+		}
+		title:c_gundalok.title_province = { has_building_or_higher = castle_03 }
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		gold = medium_gold_value
+	}
+
+	effect = {
+		send_interface_toast = {
+			type = event_toast_effect_good
+			title = decision_integrate_gundalok_tt
+			left_icon = root
+			if = { 
+				limit = { 
+					OR = { 
+						has_title = title:k_eotheod 
+						any_vassal_or_below = { has_title = title:k_eotheod }
+					}
+				}
+				title:d_gundalok = { set_de_jure_liege_title = title:k_eotheod }
+			}
+			else = {
+				title:d_gundalok = {
+					set_de_jure_liege_title = title:k_langwell
+				}
+			}
+			dynasty = { add_dynasty_prestige = 400 }
+			add_legitimacy = major_legitimacy_gain
+			add_prestige = major_prestige_gain
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_integrate_gundalok
+		}
+	}
+}
+
+# Trade with Khazad-dûm
+decision_khazad_dum_trade = {
+	title = decision_khazad_dum_trade
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_durins_door.dds"
+	}
+
+	sort_order = 75
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 15
+		kingdom = 10
+		empire = 10
+		hegemony = 10
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	selection_tooltip = decision_khazad_dum_trade_tooltip
+	desc = decision_khazad_dum_trade_desc
+	confirm_text = decision_khazad_dum_trade_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		NOT = { faith_is_evil = yes }
+		is_elf = no # Elves have their own separate version of this decision
+		exists = capital_province
+		NOT = { faith_is_evil = yes }
+		capital_province = {
+			OR = {
+				geographical_region = middleearth_west_rhovanion_anduin
+				geographical_region = middleearth_west_eregion
+			}
+		}
+		exists = title:k_khazad_dum.holder
+		title:k_khazad_dum.holder ?= { is_dwarf = yes }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_khazad_dum_trade
+			}
+		}
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = decision_moria_trade_border_moria_or_lorien
+			OR = {
+				any_sub_realm_county = { is_neighbor_to_realm = title:k_khazad_dum.holder }
+				any_sub_realm_county = { is_neighbor_to_realm = title:k_lothlorien.holder }
+			}
+		}
+		prestige_level >= 3
+		legitimacy_level >= 4
+		title:k_khazad_dum.holder ?= {
+			opinion = {
+				target = root
+				value >= high_positive_opinion
+			}
+		}
+		OR = {
+			is_allied_to = title:k_khazad_dum.holder
+			custom_tooltip = {
+				text = decision_moria_trade_defensively_allied
+				is_defensive_allied_to = { RECIPIENT = title:k_khazad_dum.holder }
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_lotr_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 200
+		prestige = 500
+	}
+
+	effect = {
+		send_interface_toast = {
+			title = decision_moria_trade_toast
+			left_icon = root
+			right_icon = title:k_khazad_dum.holder
+			title:k_khazad_dum.holder = {
+				add_opinion = {
+					target = root
+					opinion = 40
+					modifier = pleased_opinion
+				}
+			}
+			add_character_modifier = lorien_dwarven_trade_modifier
+			add_legitimacy = medium_legitimacy_gain
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_khazad_dum_trade
+		}
+	}
+}
+
+# Reopen the Old Forest Road
+decision_old_forest_road = {
+	title = decision_old_forest_road
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_elves_05.dds"
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	selection_tooltip = decision_old_forest_road_tooltip
+	desc = decision_old_forest_road_desc
+	confirm_text = decision_old_forest_road_confirm
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		OR = {
+			completely_controls = title:c_banimyrr
+			completely_controls = title:c_senn_i_naugrim
+			completely_controls = title:c_rhumen_i_naugrim
+			completely_controls = title:c_enedhmen_i_naugrim
+			completely_controls = title:c_dunmen_i_naugrim
+			completely_controls = title:c_aldford
+			has_title = title:k_lasgalen
+			has_title = title:k_angaladh
+			has_title = title:d_men_i_naugrim
+			has_title = title:d_dundaedelu
+		}
+		NOT = { faith_is_evil = yes }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_old_forest_road
+			}
+		}
+	}
+
+	is_valid = {
+		highest_held_title_tier >= tier_duchy
+		prestige_level >= 3
+		is_independent_ruler = yes
+		custom_tooltip = {
+			text = old_forest_road_county_req
+			OR = {
+				completely_controls = title:c_banimyrr
+				any_tributary = { completely_controls = title:c_banimyrr }
+				any_ally = { completely_controls = title:c_banimyrr }
+			}
+			OR = {
+				completely_controls = title:c_senn_i_naugrim
+				any_tributary = { completely_controls = title:c_senn_i_naugrim }
+				any_ally = { completely_controls = title:c_senn_i_naugrim }
+			}
+			OR = {
+				completely_controls = title:c_rhumen_i_naugrim
+				any_tributary = { completely_controls = title:c_rhumen_i_naugrim }
+				any_ally = { completely_controls = title:c_rhumen_i_naugrim }
+			}
+			OR = {
+				completely_controls = title:c_enedhmen_i_naugrim
+				any_tributary = { completely_controls = title:c_enedhmen_i_naugrim }
+				any_ally = { completely_controls = title:c_enedhmen_i_naugrim }
+			}
+			OR = {
+				completely_controls = title:c_dunmen_i_naugrim
+				any_tributary = { completely_controls = title:c_dunmen_i_naugrim }
+				any_ally = { completely_controls = title:c_dunmen_i_naugrim }
+			}
+			OR = {
+				completely_controls = title:c_aldford
+				any_tributary = { completely_controls = title:c_aldford }
+				any_ally = { completely_controls = title:c_aldford }
+			}
+		}
+		custom_tooltip = {
+			text = old_forest_road_evil_defeated
+			title:c_nidurn.holder = { faith_is_evil ?= no }
+			title:c_medelarnis.holder = { faith_is_evil = no }
+			title:c_carag_thoroth.holder = { faith_is_evil = no }
+		}	
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 500
+		prestige = 750
+	}
+
+	effect = {
+		send_interface_toast = {
+			type = event_toast_effect_good
+			title = decision_old_forest_road
+			left_icon = root
+			right_icon = title:d_men_i_naugrim
+			dynasty = { add_dynasty_prestige = 200 }
+			add_legitimacy = medium_legitimacy_gain
+			if = {
+				limit = { is_good_undying = yes }
+				add_elven_hope_effect = { VALUE = medium_elven_hope_gain HOPE_EFFECT = effect_elven_hope_positive_event_choice }
+			}
+		}
+		title:c_banimyrr = { add_county_modifier = { modifier = old_forest_road_trade years = 40 } }
+		title:c_senn_i_naugrim = { add_county_modifier = { modifier = old_forest_road_trade years = 40 } }
+		title:c_rhumen_i_naugrim = { add_county_modifier = { modifier = old_forest_road_trade years = 40 } }
+		title:c_enedhmen_i_naugrim = { add_county_modifier = { modifier = old_forest_road_trade years = 40 } }
+		title:c_dunmen_i_naugrim = { add_county_modifier = { modifier = old_forest_road_trade years = 40 } }
+		title:c_aldford = { add_county_modifier = { modifier = old_forest_road_trade years = 40 } }
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_old_forest_road
+		}
+		title:k_wastelands.holder = { # Fire an event on Tom that reenables the decision after 40 years
+			trigger_event = { 
+				id = anduin_vale.0108
+				years = 40 
+			}
+		}
+	}
+}
+
+# Go see the pretty elf lady
+decision_visit_dwimordene = {
+	title = decision_visit_dwimordene
+	picture = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_forest_mallorn.dds"
+	}
+
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+
+	selection_tooltip = decision_visit_dwimordene_tooltip
+	desc = decision_visit_dwimordene_desc
+	confirm_text = decision_visit_dwimordene_confirm
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		OR = {
+			culture = culture:eotheod
+			culture = { any_parent_culture_or_above = { this = culture:eotheod } }
+		}
+		culture = { has_cultural_pillar = heritage_eotheod }
+
+		is_ai = no
+
+		title:c_thorlorien.holder = {
+			is_ai = yes
+		}
+		title:k_lothlorien.holder = {
+			is_ai = yes
+		}
+
+		NOR = {
+			has_title = title:c_thorlorien
+			has_title = title:d_drownholt
+		}
+
+		highest_held_title_tier <= tier_duchy
+
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_visit_dwimordene
+			}
+		}
+
+	}
+
+	is_valid = {
+		OR = {
+			has_faith = faith:faith_fey_court
+			has_faith = faith:faith_midde_court
+			has_faith = faith:faith_rohan_yavanna
+		}
+		highest_held_title_tier <= tier_duchy
+		culture = { has_cultural_pillar = heritage_eotheod }
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+		is_ai = no
+	}
+	cost = {
+
+	}
+	effect = {
+		trigger_event = {
+			id = leofring_event_chain.0001
+			days = 1
+		}
+		custom_tooltip = decision_visit_dwimordene_tt
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_visit_dwimordene
+		}
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+}
+
+# Integrate Twainmantle
+decision_integrate_twainmantle = {
+	title = decision_integrate_twainmantle
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_castle.dds"
+	}
+
+	selection_tooltip = decision_integrate_twainmantle_tooltip
+	desc = decision_integrate_twainmantle_desc
+	confirm_text = decision_integrate_twainmantle_confirm
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		capital_province = { geographical_region = middleearth_west_rhovanion_anduin_north }
+		is_human = yes
+		NOR = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_integrate_twainmantle
+			}
+		}
+	}
+
+	is_valid = {
+		OR = {
+			has_title = title:k_langwell
+			has_title = title:k_eotheod
+		}
+		completely_controls = title:c_twainmantle
+		title:c_twainmantle.title_province = {
+			has_holding_type = castle_holding
+		}
+		# OR = {
+			# culture = culture:framling
+			# culture = culture:eotheod
+		# }
+		is_independent_ruler = yes
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		gold = minor_gold_value
+		prestige = minor_prestige_value
+	}
+
+	effect = {
+		add_legitimacy = medium_legitimacy_gain
+		title:c_twainmantle = {
+			set_de_jure_liege_title = title:d_ronen_in_anduin
+			change_development_level = 3
+		}
+		trigger_event = anduin_vale.0107
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_integrate_twainmantle
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 36
+		duchy = 36
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
+}
+
+# Find out the truth about the Necromancer
+decision_reveal_necromancer_woodmen = {
+	title = decision_reveal_necromancer_woodmen
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_mordor_02.dds"
+	}
+
+	selection_tooltip = decision_reveal_necromancer_woodmen_tooltip
+	desc = decision_reveal_necromancer_woodmen_desc
+	confirm_text = decision_reveal_necromancer_woodmen_confirm
+	decision_group_type = realms_in_exile_minor
+
+	is_shown = {
+		is_independent_ruler = yes
+		title:c_amon_lanc.holder = { has_character_flag = unknown_sauron_flag }
+		NOT = { faith_is_evil = yes }
+		is_elf = no
+		OR = {
+			exists = title:k_lasgalen.holder 
+			exists = title:k_lothlorien.holder 
+		}
+		OR = {
+			title:k_amon_lanc = {
+				is_neighbor_to_realm = root
+			}
+			title:d_amon_lanc = {
+				is_neighbor_to_realm = root
+			}
+			title:c_amon_lanc = {
+				is_neighbor_to_realm = root
+			}
+			capital_province = {
+				geographical_region = middleearth_west_rhovanion
+			}
+		}
+	}
+
+	is_valid = {
+		highest_held_title_tier >= tier_kingdom
+		is_independent_ruler = yes
+		faith_is_good = yes
+		OR = {
+			title:k_lothlorien.holder ?= { is_elf = yes }
+			title:k_lasgalen.holder ?= { is_elf = yes }
+		}
+		custom_tooltip = {
+			text = decision_reveal_necromancer_tt_2
+			title:c_amon_lanc.holder = {
+				has_character_flag = unknown_sauron_flag
+			}
+		}
+		custom_tooltip = {
+			text = decision_reveal_necromancer_tt
+			title:c_amon_lanc = {
+				is_neighbor_to_realm = root
+			}
+		}
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		gold = medium_gold_value
+	}
+
+	effect = {
+		character:lineofsauron = { remove_character_flag = unknown_sauron_flag }
+		if = {
+			limit = { title:k_lothlorien.holder = { is_elf = yes } }
+			title:k_lothlorien.holder = {
+				start_war = {
+					cb = elven_homelands_county_conquest_cb
+					target = character:lineofsauron
+					target_title = title:c_amon_lanc
+				}
+			}
+		}
+		else_if = {
+			limit = { title:k_lasgalen.holder = { is_elf = yes } }
+			title:k_lasgalen.holder = {
+				start_war = {
+					cb = elven_homelands_county_conquest_cb
+					target = character:lineofsauron
+					target_title = title:c_amon_lanc
+				}
+			}
+		}
+		custom_tooltip = {
+			text = decision_reveal_necromancer_woodmen_tt
+			title:c_amon_lanc.holder = {
+				every_character_war = {
+					limit = {
+						primary_defender = title:c_amon_lanc.holder
+						using_cb = elven_homelands_county_conquest_cb
+					}
+					add_attacker = root
+				}
+			}
+		}
+		trigger_event =  mordor.1022 # Info event about Sauron being revealed
+	}
+
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 36
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
+}
+
+### Langwell RoA Decisions ###
+# Get rid of the Langwell Confederation
+decision_dissolve_langwell_confederation = {
+	title = decision_dissolve_langwell_confederation
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_shire_01.dds"
+	}
+
+	selection_tooltip = decision_dissolve_langwell_confederation_tooltip
+	desc = decision_dissolve_langwell_confederation_desc
+	confirm_text = decision_dissolve_langwell_confederation_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 99
+
+	is_shown = {
+		has_character_flag = is_kultamieli
+		NOR = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_dissolve_langwell_confederation
+			}
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_strengthen_langwell_confederation
+			}
+		}
+		title:c_framsburg.holder = {
+			is_confederation_member = yes
+		}
+	}
+	is_valid = {
+		AND = {
+			custom_tooltip = {
+				text = holden_riculfo_harkind_deceased
+				character:lineedelgar9 ?= { is_alive = no } #Riculfo is dead
+				character:linegarsind7 ?= { is_alive = no } #Holden is dead
+				character:linegisilher7 ?= { is_alive = no } #Harkind is dead
+			}
+		}
+
+	}
+
+	effect = {
+		trigger_event = anduin_vale.0110
+		title:k_langwell = {
+			random_de_jure_county_holder = {
+				limit = {
+					is_landed = yes
+					NOT = { this = root }
+					is_confederation_member = yes
+				}
+				confederation ?= {
+					disband_confederation = yes
+				}
+				set_variable = {
+					name = left_confederation
+					value = root.confederation
+					years = 5
+				}
+			}
+
+		}
+		title:k_langwell = {
+			every_de_jure_county_holder = {
+				limit = {
+					is_landed = yes
+					NOT = { this = root }
+					is_confederation_member = yes
+				}
+				trigger_event = {
+					id = anduin_vale.0111
+					days = 1
+				}
+			}
+
+		}
+		custom_description_no_bullet = {
+			text = effect_decision_dissolve_langwell_confederation
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_dissolve_langwell_confederation
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 48
+		duchy = 48
+		kingdom = 48
+		empire = 0
+		hegemony = 0
+	}
+}
+
+# Empower the Langwell Confederation
+decision_strengthen_langwell_confederation = {
+	title = decision_strengthen_langwell_confederation
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_shire_01.dds"
+	}
+
+	selection_tooltip = decision_strengthen_langwell_confederation_tooltip
+	desc = decision_strengthen_langwell_confederation_desc
+	confirm_text = decision_strengthen_langwell_confederation_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 99
+
+	is_shown = {
+		has_character_flag = is_holden_of_framsburg
+		NOR = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_dissolve_langwell_confederation
+			}
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_strengthen_langwell_confederation
+			}
+		}
+	}
+	is_valid = {
+		OR = {
+			AND = {
+				title:c_taurau.holder.top_liege = {
+					opinion = {
+						target = root
+						value > 85
+					}
+				}
+				title:c_langburg.holder.top_liege = {
+					has_relation_friend = root
+				}
+				title:c_feorlond.holder.top_liege = {
+					has_relation_friend = root
+				}
+			}
+
+			AND = {
+				title:c_marsham.holder.top_liege = {
+					opinion = {
+						target = root
+						value > 85
+					}
+				}
+				title:c_mithlin_vale.holder.top_liege = {
+					has_relation_friend = root
+				}
+			}
+		}
+	}
+
+	effect = {
+		trigger_event = anduin_vale.0112
+		custom_tooltip = decision_strengthen_langwell_confederation_effect_1
+		custom_tooltip = decision_strengthen_langwell_confederation_effect_2
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_strengthen_langwell_confederation
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 48
+		duchy = 48
+		kingdom = 48
+		empire = 0
+		hegemony = 0
+	}
+}
+
+# Stick it to the horselords
+decision_angmar_dominion_over_langwell = {
+	title = decision_angmar_dominion_over_langwell
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_burning_framlings.dds"
+	}
+
+	selection_tooltip = decision_angmar_dominion_over_langwell_tooltip
+	desc = decision_angmar_dominion_over_langwell_desc
+	confirm_text = decision_angmar_dominion_over_langwell_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_landed = yes
+		has_character_flag = is_kultamieli
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_angmar_dominion_over_langwell
+			}
+		}
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = decision_angmar_dominion_over_langwell_requirement
+			title:k_langwell = {
+				NOT = {
+					any_in_de_jure_hierarchy = {
+						tier = tier_county
+						NOT = {
+							holder = root
+							holder = title:k_wastelands.holder
+							holder = { is_vassal_or_below_of = root }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+	effect = {
+		add_prestige = 400
+		dynasty = { add_dynasty_prestige = 150 }
+		custom_tooltip = decision_angmar_dominion_over_langwell_effect_tt
+		custom_tooltip = unlock_anduin_lowlands_decision
+		trigger_event = {
+			id = anduin_vale.0114
+		}
+
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_angmar_dominion_over_langwell
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 36
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
+}
+
+# Raid Tarau as Angmarrim
+decision_kultamieli_raid_taurau = {
+	title = decision_kultamieli_raid_taurau
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/decision_raiding.dds"
+	}
+	selection_tooltip = decision_kultamieli_raid_taurau_tooltip
+	desc = decision_kultamieli_raid_taurau_desc
+	confirm_text = decision_kultamieli_raid_taurau_confirm
+	decision_group_type = realms_in_exile_major
+	sort_order = 92
+
+	is_shown = {
+		is_landed = yes
+		has_character_flag = is_kultamieli
+		NOR = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_kultamieli_raid_taurau
+			}
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_dissolve_langwell_confederation
+			}
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_strengthen_langwell_confederation
+			}
+		}
+		character:lineedelgar9 = { is_alive = yes } #Riculfo is alive
+	}
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	is_valid = {
+		character:lineedelgar9 = { is_alive = yes } #Riculfo is alive
+	}
+	effect = {
+		custom_tooltip = decision_kultamieli_raid_taurau_positive
+		custom_tooltip = decision_kultamieli_raid_taurau_negative
+		add_gold = 15
+		trigger_event = anduin_vale.0116
+		character:lineedelgar9 = {
+			trigger_event = {
+				id = anduin_vale.0117
+				days = 5
+			}
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_kultamieli_raid_taurau
+		}
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 36
+		duchy = 36
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+# Claim Anduin Lowlands
+decision_angmar_anduin_lowlands = {
+	title = decision_angmar_anduin_lowlands
+	picture = {
+		reference = "gfx/interface/illustrations/event_scenes/lotr_carrock.dds"
+	}
+
+	selection_tooltip = decision_angmar_anduin_lowlands_tooltip
+	desc = decision_angmar_anduin_lowlands_desc
+	confirm_text = decision_angmar_anduin_lowlands_confirm
+
+	decision_group_type = realms_in_exile_major
+
+	is_shown = {
+		is_landed = yes
+		has_character_flag = is_kultamieli
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_angmar_anduin_lowlands
+			}
+		}
+		is_target_in_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_angmar_dominion_over_langwell
+		}
+	}
+
+	is_valid = {
+		OR = {
+			has_title = title:k_anduin_vale
+			AND = {
+				completely_controls = title:d_carrock_vale
+				completely_controls = title:d_west_bight
+				custom_tooltip = {
+					text = nobody_holds_anduin_vale_kingdom
+					NOT = { exists = title:k_anduin_vale.holder }
+				}
+			}
+		}
+		prestige_level >= 4
+		legitimacy_level >= 4
+		piety_level >= 3
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+	
+	cost = {
+		gold = 500
+	}
+
+	effect = {
+		add_prestige = 500
+		dynasty = { add_dynasty_prestige = 250 }
+		add_piety = major_piety_gain
+		if = {
+			limit = { NOT = { has_title = title:k_anduin_vale } }
+			get_title = title:k_anduin_vale
+		}
+		custom_tooltip = {
+			text = decision_angmar_anduin_lowlands_convert_counties
+			title:k_anduin_vale = {
+				every_in_de_jure_hierarchy = {
+					limit = {
+						tier = tier_county
+						OR = {
+							holder = root
+							holder.top_liege ?= root
+						}
+						faith = { NOT = { this = root.faith } }
+					}
+					random = {
+						chance = 50
+						set_county_faith = root.faith
+					}
+				}
+				add_to_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:decision_angmar_anduin_lowlands
+				}
+			}
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 36
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
+}

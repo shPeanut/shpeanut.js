@@ -1,0 +1,91 @@
+﻿# On actions for the Sailing activity
+
+#To call a random dock event
+sailing_dockyard_events = {
+	random_events = {
+		10 = sailing.1005
+		10 = sailing.1007
+		10 = sailing.1008
+		10 = sailing.1009
+		10 = sailing.1010
+		10 = sailing.1011
+		10 = sailing.1012
+		10 = sailing.1013
+		10 = sailing.1014
+		10 = sailing.1015
+	}
+}
+
+#To call a random sea event
+sailing_at_sea_events = {
+	random_events = {
+		10 = sailing.2002
+		10 = sailing.2003
+		10 = sailing.2004
+		10 = sailing.2005
+		10 = sailing.2006
+		10 = sailing.2007
+		10 = sailing.2008
+		10 = sailing.2009
+		10 = sailing.2010
+		10 = sailing.2011
+		10 = sailing.2012
+	}
+}
+
+#To call a random exploration event
+sailing_exploration_events = {
+	random_events = {
+		10 = sailing.4000 # Eryn Vorn
+		10 = sailing.4013 # Forochel
+		10 = sailing.4020 # Tol Fuin
+		10 = sailing.6001 # Ras Morthil and Druwaith Iaur
+		10 = sailing.6100 # Bay of Tulwang
+		10 = sailing.6200 # Bay of Ormal
+		1 = sailing.4999 # Explored everything
+	}
+	fallback = sailing_end_pulse #To complete the activity if no valid events exists
+}
+
+#To call a random piracy event
+first_random_piracy_events_at_sea = {
+	random_events = {
+		50 = sailing.9120		
+		50 = sailing.9130
+	}
+	fallback = sailing_end_pulse #To complete the activity if no valid events exists
+}
+
+#To call a random piracy event
+following_random_piracy_events_at_sea = {
+	random_events = {
+		25 = sailing.9120		
+		25 = sailing.9130
+		25 = sailing.9001
+	}
+	fallback = sailing_end_pulse #To complete the activity if no valid events exists
+}
+
+coastal_piracy_events = {
+	random_events = {
+		50 = sailing.9111
+		10 = sailing.9114		
+	}
+	fallback = sailing_end_pulse #To complete the activity if no valid events exists
+}
+
+## RANDOM PULSE #
+## For events that can be used in any pulse.
+sailing_random_pulse = {
+	random_events = {
+		100 = sailing.2001
+	}
+	fallback = sailing_end_pulse #To complete the activity if no valid events exists
+}
+
+sailing_end_pulse = {
+	events = {
+		sailing.9002
+	}
+}
+

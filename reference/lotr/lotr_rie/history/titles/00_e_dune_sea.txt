@@ -1,0 +1,7954 @@
+#### The Dune Sea ####
+
+### Kingdom of the Dune Sea ###
+k_koanoz = {
+	6550.1.1 = { # legendary dune sea king
+		holder = linekoanoz1 #Vese_e_lko
+	}
+	6596.10.24 = {
+		holder = 0
+	}
+}
+
+## Duchy of Koanoz ##
+d_koanoz = {
+	5182.1.1 = {
+		holder = lineofpeduag1 #Peduag
+	}
+	5227.1.1 = {
+		holder = lineofpeduag3 #Ozo
+	}
+	5268.1.1 = {
+		holder = lineofpeduag5 #Vatrak
+	}
+	5272.1.1 = {
+		holder = lineofpeduag7 #Veonomirh
+	}
+	5310.1.1 = {
+		holder = lineofpeduag9 #Liuadikirh
+	}
+	5321.1.1 = {
+		holder = lineofpeduag11 #Gouad
+	}
+	5362.1.1 = {
+		holder = lineofpeduag13 #Berrivoz
+	}
+	5365.1.1 = {
+		holder = 0
+	}
+
+	5410.6.8 = { #Seized by Jelut host
+		holder = linegholit5
+	}
+	5428.1.19 = {
+		holder = linegholit7 # Kuan Salt-Tarb
+	}
+	5453.8.10 = {
+		holder = linegholit15
+	}
+	5465.2.10 = {
+		holder = linegholit18
+	}
+	5469.6.12 = {
+		holder = 0
+	}
+
+
+
+	6550.1.1 = { # legendary dune sea king
+		holder = linekoanoz1 #Vese_e_lko
+	}
+	6596.10.24 = { # His brothers rebell
+		holder = 0
+	}
+
+	6720.1.1 = { #founds Ezarkia clan, claims descent from legendary dune sea king
+		holder = lineofezarkia1 #Vese_e_lko
+	}
+	6776.9.1 = { # Long winter start date ruler
+		holder = lineofezarkia3 #Lasim
+	}
+	6824.4.5 = {
+		holder = lineofezarkia4
+	}
+	6825.1.27= {
+		holder = lineofezarkia5 #Tiasimirh
+	}
+	6869.10.27 = {
+		holder = lineofezarkia7 #Zirra_a_na
+	}
+	6889.3.11 = {
+		holder = lineofezarkia9 #Pinak
+	}
+	6957.11.12 = {
+		holder = lineofezarkia15 #Isa_a_lin
+	}
+	7021.4.5 = {
+		holder = lineofezarkia18 #Ruado_o_mirh
+	}
+	7062.10.8 = {
+		holder = lineofezarkia20 #Qa_a_nafu
+	}
+}
+c_mazharath = {
+	1000.1.3 = {
+		change_development_level = 6
+	}
+	5182.1.1 = {
+		holder = lineofpeduag1 #Peduag
+	}
+	5227.1.1 = {
+		holder = lineofpeduag3 #Ozo
+	}
+	5268.1.1 = {
+		holder = lineofpeduag5 #Vatrak
+	}
+	5272.1.1 = {
+		holder = lineofpeduag7 #Veonomirh
+	}
+	5310.1.1 = {
+		holder = lineofpeduag9 #Liuadikirh
+	}
+	5321.1.1 = {
+		holder = lineofpeduag11 #Gouad
+	}
+	5362.1.1 = {
+		holder = lineofpeduag13 #Berrivoz
+	}
+	5365.1.1 = {
+		holder = lineofdobarruadish1 #Dobarruadish
+	}
+	5368.1.1 = {
+		holder = lineofqandorro5 #Asumani
+	}
+	5373.1.1 = {
+		holder = lineofqandorro7 #Penharh
+	}
+	5405.1.1 = {
+		holder = lineofqandorro9 #Zal
+	}
+
+	5410.6.8 = { #Seized by Jelut host
+		holder = linegholit5
+	}
+	5428.1.19 = {
+		holder = linegholit7 # Kuan Salt-Tarb
+	}
+	5453.8.10 = {
+		holder = linegholit15
+	}
+	5465.2.10 = {
+		holder = linegholit18
+	}
+	5472.5.21 = {
+		holder = linegholit22
+	}
+	5474.5.21 = {
+		holder = linegholit20
+	}
+
+	6550.1.1 = { # legendary dune sea king
+		holder = linekoanoz1 #Vese_e_lko
+	}
+
+	6720.1.1 = { #founds Ezarkia clan, claims descent from legendary dune sea king
+		holder = lineofezarkia1 #Vese_e_lko
+	}
+	6776.9.1 = { # Long winter start date ruler
+		holder = lineofezarkia3 #Lasim
+	}
+	6824.4.5 = {
+		holder = lineofezarkia4
+	}
+	6825.1.27= {
+		holder = lineofezarkia5 #Tiasimirh
+	}
+	6869.10.27 = {
+		holder = lineofezarkia7 #Zirra_a_na
+	}
+	6889.3.11 = {
+		holder = lineofezarkia9 #Pinak
+	}
+	6957.11.12 = {
+		holder = lineofezarkia15 #Isa_a_lin
+	}
+	7021.4.5 = {
+		holder = lineofezarkia18 #Ruado_o_mirh
+	}
+	7062.10.8 = {
+		holder = lineofezarkia20 #Qa_a_nafu
+	}
+}
+c_khaliri = {
+	5182.1.1 = {
+		holder = lineofpeduag1 #Peduag
+		change_development_level = 5
+	}
+	5227.1.1 = {
+		holder = lineofpeduag3 #Ozo
+	}
+	5268.1.1 = {
+		holder = lineofpeduag5 #Vatrak
+	}
+	5272.1.1 = {
+		holder = lineofpeduag7 #Veonomirh
+	}
+	5310.1.1 = {
+		holder = lineofpeduag9 #Liuadikirh
+	}
+	5321.1.1 = {
+		holder = lineofpeduag11 #Gouad
+	}
+	5362.1.1 = {
+		holder = lineofpeduag13 #Berrivoz
+	}
+	5365.1.1 = {
+		holder = lineofdobarruadish1 #Dobarruadish
+	}
+	5369.1.1 = {
+		holder = lineofuhurra7 #Ambarh
+	}
+	5390.1.1 = {
+		holder = lineofuhurra9 #Pinak
+	}
+
+	5410.6.8 = { #Seized by Jelut host
+		holder = linegholit5
+	}
+	5428.1.19 = {
+		holder = linegholit7 # Kuan Salt-Tarb
+	}
+	5453.8.10 = {
+		holder = linegholit15
+	}
+	5465.2.10 = {
+		holder = linegholit18
+	}
+	5472.5.21 = {
+		holder = linegholit22
+	}
+	5474.5.21 = {
+		holder = linegholit20
+	}
+
+	6720.1.1 = { #founds Ezarkia clan, claims descent from legendary dune sea king
+		holder = lineofezarkia1 #Vese_e_lko
+	}
+	6776.9.1 = { # Long winter start date ruler
+		holder = lineofezarkia3 #Lasim
+	}
+	6824.4.5 = {
+		holder = lineofezarkia4
+	}
+	6825.1.27= {
+		holder = lineofezarkia5 #Tiasimirh
+	}
+	6869.10.27 = {
+		holder = lineofezarkia7 #Zirra_a_na
+	}
+	6889.3.11 = {
+		holder = lineofezarkia9 #Pinak
+	}
+	6957.11.12 = {
+		holder = lineofezarkia15 #Isa_a_lin
+	}
+	7021.4.5 = {
+		holder = lineofezarkia18 #Ruado_o_mirh
+	}
+	7062.10.8 = {
+		holder = lineofezarkia20 #Qa_a_nafu
+	}
+}
+c_khazho = {
+	5182.1.1 = {
+		holder = lineofpeduag1 #Peduag
+		change_development_level = 5
+	}
+	5227.1.1 = {
+		holder = lineofpeduag3 #Ozo
+	}
+	5268.1.1 = {
+		holder = lineofpeduag5 #Vatrak
+	}
+	5272.1.1 = {
+		holder = lineofpeduag7 #Veonomirh
+	}
+	5310.1.1 = {
+		holder = lineofpeduag9 #Liuadikirh
+	}
+	5321.1.1 = {
+		holder = lineofpeduag11 #Gouad
+	}
+	5362.1.1 = {
+		holder = lineofpeduag13 #Berrivoz
+	}
+	5365.1.1 = {
+		holder = lineofdobarruadish1 #Dobarruadish
+	}
+
+	5410.6.8 = { #Seized by Jelut host
+		holder = linegholit5
+	}
+	5428.1.19 = {
+		holder = linegholit7 # Kuan Salt-Tarb
+	}
+	5453.8.10 = {
+		holder = linegholit15
+	}
+	5465.2.10 = {
+		holder = linegholit22
+	}
+	5474.5.21 = {
+		holder = linegholit20
+	}
+
+	6670.9.10 = {
+		holder = linesafarhiz1
+	}
+	6735.11.5 = {
+		holder = linesafarhiz3
+	}
+	6748.7.26 = {
+		holder = linesafarhiz5
+	}
+	6759.4.13 = {
+		holder = linesafarhiz6
+	}
+	6786.8.12 = {
+		holder = linesafarhiz8
+	}
+	6829.10.23 = {
+		holder = lineofezarkia5 #Tiasimirh
+	}
+	6869.10.27 = {
+		holder = lineofezarkia7 #Zirra_a_na
+	}
+	6889.3.11 = {
+		holder = lineofezarkia9 #Pinak
+	}
+	6957.11.12 = {
+		holder = lineofezarkia15 #Isa_a_lin
+	}
+	7021.4.5 = {
+		holder = lineofezarkia18 #Ruado_o_mirh
+	}
+	7062.10.8 = {
+		holder = lineofezarkia20 #Qa_a_nafu
+	}
+}
+c_rakhumar = {
+	5182.1.1 = {
+		holder = lineofpeduag1 #Peduag
+		change_development_level = 4
+	}
+	5227.1.1 = {
+		holder = lineofpeduag3 #Ozo
+	}
+	5268.1.1 = {
+		holder = lineofpeduag5 #Vatrak
+	}
+	5272.1.1 = {
+		holder = lineofpeduag7 #Veonomirh
+	}
+	5310.1.1 = {
+		holder = lineofpeduag9 #Liuadikirh
+	}
+	5321.1.1 = {
+		holder = lineofpeduag11 #Gouad
+	}
+	5362.1.1 = {
+		holder = lineofpeduag13 #Berrivoz
+	}
+	5365.1.1 = {
+		holder = lineofdobarruadish1 #Dobarruadish
+	}
+
+	5410.6.8 = { #Seized by Jelut host
+		holder = linegholit5
+	}
+	5428.1.19 = {
+		holder = linegholit7 # Kuan Salt-Tarb
+	}
+	5453.8.10 = {
+		holder = linegholit15
+	}
+	5460.6.1 = { #Granted
+		holder = linegholit20
+		liege = d_koanoz
+	}
+	5469.6.12 = {
+		liege = 0
+	}
+
+	6670.9.10 = {
+		holder = linesafarhiz1
+	}
+	6735.11.5 = {
+		holder = linesafarhiz3
+	}
+	6748.7.26 = {
+		holder = linesafarhiz5
+	}
+	6759.4.13 = {
+		holder = linesafarhiz6
+	}
+	6786.8.12 = {
+		holder = linesafarhiz8
+	}
+	6829.10.23 = {
+		holder = lineofezarkia5 #Tiasimirh
+	}
+	6869.10.27 = {
+		holder = lineofezarkia7 #Zirra_a_na
+	}
+	6889.3.11 = {
+		holder = lineofezarkia9 #Pinak
+	}
+	6957.11.12 = {
+		holder = lineofsintal1 #Mirre_e_no
+		liege = d_koanoz
+	}
+	6993.4.1 = {
+		holder = lineofsintal5 #Bozisharh
+	}
+	7051.7.26 = {
+		holder = lineofsintal7 #Zakarra_a_n
+	}
+}
+c_jargith = {
+	5182.1.1 = {
+		holder = lineofpeduag1 #Peduag
+		change_development_level = 4
+	}
+	5227.1.1 = {
+		holder = lineofpeduag3 #Ozo
+	}
+	5268.1.1 = {
+		holder = lineofpeduag5 #Vatrak
+	}
+	5272.1.1 = {
+		holder = lineofpeduag7 #Veonomirh
+	}
+	5310.1.1 = {
+		holder = lineofpeduag9 #Liuadikirh
+	}
+	5321.1.1 = {
+		holder = lineofpeduag11 #Gouad
+	}
+	5362.1.1 = {
+		holder = lineofpeduag13 #Berrivoz
+	}
+	5403.1.1 = {
+		holder = lineofpeduag15 #Druagii
+	}
+
+	5410.6.8 = { #Seized by Jelut host
+		holder = linegholit5
+	}
+	5428.1.19 = {
+		holder = linegholit7 # Kuan Salt-Tarb
+	}
+	5453.8.10 = {
+		holder = linegholit15
+	}
+	5460.6.1 = { #Granted
+		holder = linegholit22
+		liege = d_koanoz
+	}
+	5469.6.12 = {
+		liege = 0
+	}
+	5474.5.21 = {
+		holder = linegholit20
+	}
+
+	6720.1.1 = { #founds Ezarkia clan, claims descent from legendary dune sea king
+		holder = lineofezarkia1 #Vese_e_lko
+	}
+	6776.9.1 = { # Long winter start date ruler
+		holder = lineofezarkia3 #Lasim
+	}
+	6824.4.5 = {
+		holder = lineofezarkia4
+	}
+	6825.1.27= {
+		holder = lineofezarkia5 #Tiasimirh
+	}
+	6869.10.27 = {
+		holder = lineofezarkia7 #Zirra_a_na
+	}
+	6889.3.11 = {
+		holder = lineofezarkia9 #Pinak
+	}
+	6957.11.12 = {
+		holder = lineofsintal1 #Mirre_e_no
+		liege = d_koanoz
+	}
+	6993.4.1 = {
+		holder = lineofsintal5 #Bozisharh
+	}
+	7051.7.26 = {
+		holder = lineofsintal7 #Zakarra_a_n
+	}
+}
+
+## Duchy of Jel-Daniz ##
+d_jel_daniz = {
+	5330.1.1 = {#created duchy
+		holder = lineofozrenes1 #Ozre_e_n 1
+	}
+	5338.6.18 = {
+		holder = lineofozrenes3 #Ozre_e_n 2
+	}
+	5377.12.14 = {
+		holder = lineofozrenes10 #Ozre_e_n 3
+	}
+	5421.1.1 = {
+		holder = linejelut1 #Kuan
+		liege = k_narak
+	}
+	5429.6.23 = {
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linejelut12 #Borga_a_l
+		liege = 0
+	}
+	5468.6.19 = {
+		holder = linejelut14 #Biorna
+	}
+	5482.7.15 = {
+		holder = 0
+	}
+
+	6905.1.1 = {#creates duchy
+		holder = linefatrakes7 #Huagos
+	}
+	6923.10.26 = {
+		holder = linefatrakes9 #Qa_a_ngo
+	}
+	6952.9.1 = {
+		holder = 0
+	}
+	7044.6.14 = {
+		holder = linetezara7 #Ma_a_na_a_n
+	}
+	7087.11.9 = {
+		holder = linetezara8 #Qa_a_laterrarh
+	}
+	7115.5.11 = {
+		holder = linetezara10 #Isak
+	}
+	7135.3.28 = {
+		holder = linetezara12 #Nyoka
+	}
+	7159.1.27 = {
+		holder = linetezara15 #Brayko
+	}
+}
+c_jetin = {
+	5330.1.1 = {
+		holder = lineofozrenes1 #Ozre_e_n 1
+		change_development_level = 5
+	}
+	5338.6.18 = {
+		holder = lineofozrenes3 #Ozre_e_n 2
+	}
+	5377.12.14 = {
+		holder = lineofozrenes10 #Ozre_e_n 3
+	}
+	5421.1.1 = {
+		holder = linejelut1 #Kuan
+		liege = k_narak
+	}
+	5429.6.23 = {
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linejelut12 #Borga_a_l
+		liege = 0
+	}
+	5468.6.19 = {
+		holder = linejelut14 #Biorna
+	}
+
+	6758.4.2 = { # Long winter start date ruler
+		holder = linefatrakes1 #Fatrak
+	}
+	6835.10.9 = {
+		holder = linefatrakes3 #O_O_latarh
+	}
+	6877.12.17 = {
+		holder = linefatrakes5 #Qa_a_laterrarh
+	}
+	6891.1.9 = {
+		holder = linefatrakes7 #Huagos
+	}
+	6923.10.26 = {
+		holder = linefatrakes9 #Qa_a_ngo
+	}
+	6952.9.1 = {
+		holder = linefatrakes11 #Qa_a_linarh
+	}
+	6987.1.15 = {
+		holder = linefatrakes13 #Kyatikarh
+	}
+	7021.1.23 = {
+		holder = linefatrakes15 #Mo_o_mirh
+	}
+	7040.6.19 = {
+		holder = linetezara7 #Ma_a_na_a_n
+	}
+	7087.11.9 = {
+		holder = linetezara8 #Qa_a_laterrarh
+	}
+	7115.5.11 = {
+		holder = linetezara10 #Isak
+	}
+	7135.3.28 = {
+		holder = linetezara12 #Nyoka
+	}
+	7159.1.27 = {
+		holder = linetezara15 #Brayko
+	}
+}
+c_berifar = {
+	5330.1.1 = {
+		holder = lineofozrenes1 #Ozre_e_n 1
+	}
+	5338.6.18 = {
+		holder = lineofozrenes3 #Ozre_e_n 2
+	}
+	5377.12.14 = {
+		holder = lineofozrenes11 #Dru_u_lsafruad
+		liege = d_jel_daniz
+	}
+	6500.1.1 = { # Big sandstorm and following drought drives out the local tribes
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	6905.1.1 = {#creates duchy
+		holder = linefatrakes7 #Huagos
+		government = tribal_government
+		change_development_level = 2
+		liege = d_jel_daniz
+	}
+	6923.10.26 = {
+		holder = linefatrakes9 #Qa_a_ngo
+	}
+	6952.9.1 = { #sub-tribe splits off
+		holder = linebraykhona1 #Brayko
+	}
+	6989.9.14 = {
+		holder = linebraykhona3 #Zasa_a_n
+	}
+	7018.2.13 = {
+		holder = linebraykhona5 #Sa_a_lave_e_n
+	}
+	7044.6.14 = {
+		holder = linebraykhona7 #Liuadikirh
+		liege = d_jel_daniz
+	}
+	7069.12.17 = {
+		holder = linebraykhona9 #Kyetika_a_nd
+	}
+	7083.6.6 = {
+		holder = linebraykhona11 #Qa_a_ndorro
+	}
+	7128.2.22 = {
+		holder = linebraykhona13 #Kreirh
+	}
+	7164.7.8 = {
+		holder = linebraykhona15 #Ra_a_nko
+	}
+	7167.3.4 = {
+		holder = linebraykhona20 #Lasim
+	}
+}
+c_pidija = {
+	5287.1.1 = {
+		holder = lineofqandorro1 #Qandorro
+		government = tribal_government
+		change_development_level = 3
+	}
+	5321.1.1 = {
+		holder = lineofqandorro3 #Nedelko
+	}
+	5339.1.1 = {
+		holder = lineofqandorro5 #Asumani
+	}
+	5340.4.7 = { # Proto-Jelut tribes migrate northward
+		holder = lineprejelut5 #A_A_lu
+	}
+	5373.8.24 = {
+		holder = lineprejelut7 #Vese_e_lko
+	}
+	5381.9.3 = {
+		holder = linejelut1 #Kuan
+	}
+	5429.6.23 = {
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linejelut12 #Borga_a_l
+	}
+	5468.6.19 = {
+		holder = linejelut14 #Biorna
+	}
+
+	5600.1.1 = { # Jelut migrate further north
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+
+	6906.2.2 = {
+		holder = lineacammes1 #A_A_lu
+		government = tribal_government
+		change_development_level = 3
+	}
+	6974.2.9 = {
+		holder = lineacammes3 #Druagii
+	}
+	7017.12.3 = {
+		holder = lineacammes5 #Sa_a_lu
+	}
+	7065.5.20 = {
+		holder = lineacammes8 #Na_a_ma_a_ndia
+	}
+	7074.1.1 = { # Desertification of the Dune Sea drives inhabitants further out in the Fourth Age
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_delala = {
+	5330.1.1 = {
+		holder = lineofozrenes1 #Ozre_e_n 1
+		change_development_level = 3
+	}
+	5338.6.18 = {
+		holder = lineofozrenes4 #Dye_e_nebahr (faith is equal)
+		liege = d_jel_daniz
+	}
+	5418.1.1 = {
+		holder = lineofozrenes10 #Ozre_e_n 3
+	}
+	6758.4.2 = { # Long winter start date ruler
+		holder = linefatrakes1 #Fatrak
+	}
+	6835.10.9 = {
+		holder = linefatrakes3 #O_O_latarh
+	}
+	6877.12.17 = {
+		holder = linefatrakes5 #Qa_a_laterrarh
+	}
+	6891.1.9 = {
+		holder = linefatrakes7 #Huagos
+	}
+	6923.10.26 = {
+		holder = linefatrakes9 #Qa_a_ngo
+	}
+	6952.9.1 = {
+		holder = linefatrakes11 #Qa_a_linarh
+	}
+	6987.1.15 = {
+		holder = linefatrakes13 #Kyatikarh
+	}
+	7021.1.23 = {
+		holder = linefatrakes15 #Mo_o_mirh
+	}
+	7040.6.19 = {
+		holder = linetezara7 #Ma_a_na_a_n
+	}
+	7074.1.1 = { # Desertification of the Dune Sea drives inhabitants further out in the Fourth Age
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_olatin = {
+	5330.1.1 = {
+		holder = lineofozrenes1 #Ozre_e_n 1
+		change_development_level = 3
+	}
+	5338.6.18 = {
+		holder = lineofozrenes6 #Isa_a_lin
+		liege = d_jel_daniz
+	}
+	6758.4.2 = { # Long winter start date ruler
+		holder = linefatrakes1 #Fatrak
+	}
+	6835.10.9 = {
+		holder = linefatrakes3 #O_O_latarh
+	}
+	6840.1.1 = { #Draharh leads a small sub-tribe here
+		holder = linedrahar1 #Draharh
+	}
+	6862.5.8 = {
+		holder = linedrahar3 #Asu_u_ma_a_ni
+	}
+	6883.12.22 = {
+		holder = linedrahar5 #Boa_a_n
+	}
+	6948.9.10 = {
+		holder = linedrahar7 #Berris
+	}
+	6977.10.9 = {
+		holder = linedrahar9 #Darh
+	}
+	6981.6.27 = {
+		holder = linedrahar11 #Ima_a_n
+	}
+	7040.5.22 = {
+		holder = linefatrakes15 #Mo_o_mirh
+	}
+	7052.8.5 = {
+		holder = linefatrakes17 #Terko
+	}
+	7055.12.16 = {
+		liege = d_jel_daniz
+	}
+	7076.1.22 = {
+		holder = lineatrakes19 #Isa_a_lin
+	}
+	7126.8.7 = {
+		holder = lineatrakes21 #Ailuk
+	}
+	7161.11.11 = {
+		holder = lineatrakes23 #Darh
+	}
+}
+c_bilashar = {
+	5330.1.1 = {
+		holder = lineofozrenes1 #Ozre_e_n 1
+	}
+	5338.6.18 = {
+		holder = lineofozrenes5 #Qa_a_ndorro
+		liege = d_jel_daniz
+	}
+	6500.1.1 = { # Big sandstorm and following drought drives out the local tribes
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	6960.1.1 = {
+		holder = linetezara3 #Pe_e_nharh
+		government = tribal_government
+		change_development_level = 3
+	}
+	6979.1.5 = {
+		holder = linetezara5 #Qa_a_laterrarh
+	}
+	7037.12.23 = {
+		holder = linetezara7 #Ma_a_na_a_n
+	}
+	7087.11.9 = {
+		holder = linetezara8 #Qa_a_laterrarh
+	}
+	7115.5.11 = {
+		holder = linetezara10 #Isak
+	}
+	7135.3.28 = {
+		holder = linetezara12 #Nyoka
+	}
+	7159.1.27 = {
+		holder = linetezara15 #Brayko
+	}
+}
+
+## Duchy of Sâr-Daniz ##
+d_sar_daniz = {
+	6599.5.19 = {
+		holder = lineanlamani1 #Jasikho
+	}
+	6679.9.12 = {
+		holder = lineanlamani3 #Kha_a_lo_o_nimmir
+	}
+	6714.7.26 = {
+		holder = lineanlamani5 #Kjatikhar
+	}
+	6732.3.9 = {
+		holder = lineanlamani7 #Kha_a_ndoro
+	}
+	6780.3.19 = { # Long winter start date ruler
+		holder = lineanlamani9 #A_A_lu
+	}
+	6811.10.18 = {
+		holder = lineanlamani11 #Zirinkho
+	}
+	6854.9.18 = {
+		holder = lineanlamani13 #Rajlo
+	}
+	6891.3.5 = {
+		holder = lineanlamani15 #Krejir
+	}
+	6920.1.1 = {
+		holder = 0
+	}
+}
+c_khanat = {
+	5273.8.5 = {
+		holder = lineprejelut1 #Boa_a_n
+		government = tribal_government
+	}
+	5315.10.7 = {
+		holder = lineprejelut3 #A_A_mbarh
+	}
+	5336.2.24 = {
+		holder = lineprejelut5 #A_A_lu
+	}
+	5340.4.7 = { # Proto-Jelut tribes migrate northward
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+
+	6599.5.19 = {
+		change_development_level = 3
+		government = tribal_government
+		holder = lineanlamani1 #Jasikho
+	}
+	6679.9.12 = {
+		holder = lineanlamani3 #Kha_a_lo_o_nimmir
+	}
+	6714.7.26 = {
+		holder = lineanlamani5 #Kjatikhar
+	}
+	6732.3.9 = {
+		holder = lineanlamani7 #Kha_a_ndoro
+	}
+	6780.3.19 = { # Long winter start date ruler
+		holder = lineanlamani9 #A_A_lu
+	}
+	6811.10.18 = {
+		holder = lineanlamani11 #Zirinkho
+	}
+	6854.9.18 = {
+		holder = lineanlamani13 #Rajlo
+	}
+	6891.3.5 = {
+		holder = lineanlamani15 #Krejir
+	}
+	6920.1.1 = {
+		holder = lineselarkes1 #Harrarh
+	}
+	6967.12.3 = {
+		holder = lineselarkes3 #Nediyko
+	}
+	7028.10.3 = {
+		holder = lineselarkes5 #Pravak
+	}
+	7067.7.21 = {
+		holder = lineselarkes7 #Da_a_liyaut
+	}
+}
+c_zhorath = {
+	5273.8.5 = {
+		holder = lineprejelut1 #Boa_a_n
+		government = tribal_government
+	}
+	5315.10.7 = {
+		holder = lineprejelut3 #A_A_mbarh
+	}
+	5336.2.24 = {
+		holder = lineprejelut5 #A_A_lu
+	}
+	5340.4.7 = { # Proto-Jelut tribes migrate northward
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+
+	6599.5.19 = {
+		holder = lineanlamani1 #Jasikho
+		government = tribal_government
+		change_development_level = 3
+	}
+	6679.9.12 = {
+		holder = lineanlamani3 #Kha_a_lo_o_nimmir
+	}
+	6714.7.26 = {
+		holder = lineanlamani5 #Kjatikhar
+	}
+	6732.3.9 = {
+		holder = lineanlamani7 #Kha_a_ndoro
+	}
+	6780.3.19 = { # Long winter start date ruler
+		holder = lineanlamani9 #A_A_lu
+	}
+	6811.10.18 = {
+		holder = lineanlamani11 #Zirinkho
+	}
+	6854.9.18 = {
+		holder = lineanlamani13 #Rajlo
+	}
+	6891.3.5 = {
+		holder = lineanlamani15 #Krejir
+	}
+	7028.10.3 = {
+		holder = lineselarkes5 #Pravak
+	}
+	7067.7.21 = {
+		holder = lineselarkes7 #Da_a_liyaut
+	}
+}
+c_raton = {
+	5273.8.5 = {
+		holder = lineprejelut1 #Boa_a_n
+		government = tribal_government
+	}
+	5315.10.7 = {
+		holder = lineprejelut3 #A_A_mbarh
+	}
+	5336.2.24 = {
+		holder = lineprejelut5 #A_A_lu
+	}
+	5340.4.7 = { # Proto-Jelut tribes migrate northward
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+
+	6599.5.19 = {
+		holder = lineanlamani1 #Jasikho
+	}
+	6679.9.12 = {
+		holder = lineanlamani3 #Kha_a_lo_o_nimmir
+	}
+	6714.7.26 = {
+		holder = lineanlamani5 #Kjatikhar
+	}
+	6732.3.9 = {
+		holder = lineanlamani7 #Kha_a_ndoro
+	}
+	6780.3.19 = { # Long winter start date ruler
+		holder = lineanlamani9 #A_A_lu
+	}
+	6811.10.18 = {
+		holder = lineanlamani11 #Zirinkho
+	}
+	6854.9.18 = {
+		holder = lineanlamani13 #Rajlo
+	}
+	6891.3.5 = {
+		holder = lineanlamani15 #Krejir
+	}
+	6925.12.25 = {
+		holder = lineuzhares1 #Rayko
+	}
+	7003.4.2 = {
+		holder = lineuzhares3 #Sha_a_lin
+	}
+	7043.5.18 = {
+		holder = lineuzhares5 #Veas
+	}
+}
+c_isarkha = {
+	5273.8.5 = {
+		holder = lineprejelut1 #Boa_a_n
+		government = tribal_government
+	}
+	5315.10.7 = {
+		holder = lineprejelut3 #A_A_mbarh
+	}
+	5336.2.24 = {
+		holder = lineprejelut5 #A_A_lu
+	}
+	5340.4.7 = { # Proto-Jelut tribes migrate northward
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+
+	6666.6.5 = {
+		holder = linemisrakid1
+		change_development_level = 3
+		government = tribal_government
+	}
+	6725.6.16 = {
+		holder = linemisrakid5
+	}
+	6776.5.12 = {
+		holder = linemisrakid7
+	}
+	6821.7.18 = {
+		holder = linemisrakid10
+	}
+	6844.10.26 = {
+		holder = linemisrakid14
+	}
+	6876.8.25 = {
+		holder = linemisrakid16
+	}
+	6892.7.16 = { #Conquered by the Kordaka
+		holder = linekordaka1 #Bozidarh
+	}
+	6964.12.13 = {
+		holder = linekordaka3 #Nyoka
+	}
+	6986.3.8 = {
+		holder = linekordaka5 #Mu_u_la_a_no
+	}
+	7005.3.22 = {
+		holder = linekordaka7 #Zete_e_limirh
+	}
+	7043.10.26 = {
+		holder = linekordaka9 #Dobarruadish
+	}
+	7074.1.1 = { # Desertification of the Dune Sea drives inhabitants further out in the Fourth Age
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+## Duchy of Hari-Daniz ##
+d_hari_daniz = {
+	5363.3.4 = {
+		holder = lineofadrais1 # Lavorraz - Dune reference
+		change_development_level = 3
+	}
+	5380.4.6 = {
+		holder = lineofharruaban1 # Vatrad Harruaban conquers Jel Daniz - Dune reference
+	}
+	5435.9.3 = { #Installed by Jelut to control dune sea trade route
+		holder = linediyat1 #Zorra_a_n
+	}
+	5444.4.24 = { # Slain in aftermath of Jelut Empire collapse
+		holder = 0
+	}
+
+	6720.1.1 = {
+		holder = lineadara0
+	}
+	6791.7.25 = {
+		holder = 0
+	}
+}
+c_saluren = {
+	5435.9.3 = { #Installed by Jelut to control dune sea trade route
+		holder = linediyat1 #Zorra_a_n
+	}
+	5444.4.24 = { # Slain in aftermath of Jelut Empire collapse
+		holder = linediyat4 #Virratay
+	}
+	5498.2.7 = {
+		holder = linediyat7 #O_O_latarh
+	}
+	5516.10.13 = {
+		liege = 0
+	}
+
+	# Once tribe of Adya
+	5363.3.4 = {
+		holder = lineofadrais1 # Lavorraz - Dune reference
+		change_development_level = 3
+	}
+	5380.4.6 = {
+		holder = lineofharruaban1 # Vatrad Harruaban conquers Jel Daniz - Dune reference
+	}
+	6720.1.1 = {
+		holder = lineadara0
+		succession_laws = { female_only_law }
+		change_development_level = 4
+	}
+	6791.7.25 = {
+		holder = lineshazares1
+	}
+	6793.1.5 = {
+		holder = linedruages1
+	}
+	6796.12.27 = { # the old crone - became 99 years old
+		holder = linedruages3
+	}
+	6857.10.24 = {
+		holder = lineshazares8
+	}
+	6879.2.12 = {
+		holder = lineshazares12
+	}
+	6904.6.1 = { # murders and usurps sister
+		holder = lineshazares16
+	}
+	6912.1.2 = {
+		holder = lineshazares23
+	}
+	6928.3.6 = {
+		holder = lineshazares25
+	}
+	6985.12.14 = {
+		holder = lineshazares27
+	}
+	7009.12.10 = {
+		holder = lineshazares30
+		succession_laws = { female_only_law }
+	}
+	7058.11.22 = {
+		holder = lineshazares32
+	}
+}
+c_jagan = {
+	5363.3.4 = {
+		holder = lineofadrais1 # Lavorraz - Dune reference
+		change_development_level = 3
+	}
+	5380.4.6 = {
+		holder = lineofharruaban1 # Vatrad Harruaban conquers Jel Daniz - Dune reference
+	}
+	5435.9.3 = { #Installed by Jelut to control dune sea trade route
+		holder = linediyat1 #Zorra_a_n
+	}
+	5444.4.24 = { # Slain in aftermath of Jelut Empire collapse
+		holder = linediyat4 #Virratay
+	}
+	5456.3.7 = { # Conquered
+		holder = linesarezh33
+		liege = d_darsalan
+	}
+	5458.5.16 = {
+		holder = linesarezh70
+	}
+	5460.3.28 = {
+		holder = linesarezh72
+	}
+	5506.11.22 = {
+		liege = 0
+	}
+
+	6731.6.6 = {
+		holder = linedruages1
+		succession_laws = { female_only_law }
+		liege = d_hari_daniz
+		change_development_level = 3
+	}
+	6796.12.27 = {
+		holder = linedruages3 #A_A_minata
+	}
+	6857.10.24 = {
+		holder = linedruages5 #Ava_a_na
+	}
+	6878.9.28 = {
+		holder = linedruages7 #Safia
+	}
+	6890.1.1 = { #conquered
+		holder = lineshazares12
+	}
+	6904.6.1 = { # murders and usurps sister
+		holder = lineshazares16
+	}
+	6912.1.2 = {
+		holder = lineshazares23
+	}
+	6928.3.6 = {
+		holder = lineshazares25
+	}
+	6985.12.14 = {
+		holder = lineshazares27
+	}
+	7009.12.10 = {
+		holder = lineshazares30
+		succession_laws = { female_only_law }
+	}
+	7058.11.22 = {
+		holder = lineshazares32
+	}
+}
+c_rajlima = {
+	5363.3.4 = {
+		holder = lineofadrais1 # Lavorraz - Dune reference
+		change_development_level = 3
+	}
+	5380.4.6 = {
+		holder = lineofharruaban1 # Vatrad Harruaban conquers Jel Daniz - Dune reference
+	}
+	5435.9.3 = { #Installed by Jelut to control dune sea trade route
+		holder = linediyat1 #Zorra_a_n
+	}
+	5444.4.24 = { # Slain in aftermath of Jelut Empire collapse
+		holder = linediyat7 #O_O_latarh
+	}
+	5516.10.13 = {
+		liege = 0
+	}
+
+	6748.1.26 = {
+		holder = linezayares1
+		succession_laws = { female_only_law }
+		liege = d_hari_daniz
+		change_development_level = 3
+	}
+	6831.4.1 = {
+		holder = linezayares3 #Harra
+	}
+	6865.7.17 = {
+		holder = linezayares5 #Zudita
+	}
+	6891.6.6 = {
+		holder = linezayares7 #Adina
+	}
+	6922.9.22 = {
+		holder = linezayares9 #Dila
+	}
+	6952.5.16 = {
+		holder = linezayares11 #Sa_a_limata
+	}
+	6978.2.6 = {
+		holder = linezayares16 #Debterra
+	}
+	7006.11.11 = {
+		holder = linezayares18 #Abriet
+		succession_laws = { female_only_law }
+	}
+}
+c_mirakor = {
+	5363.3.4 = {
+		holder = lineofadrais1 # Lavorraz - Dune reference
+		change_development_level = 3
+	}
+	5380.4.6 = {
+		holder = lineofharruaban1 # Vatrad Harruaban conquers Jel Daniz - Dune reference
+	}
+	5435.9.3 = { #Installed by Jelut to control dune sea trade route
+		holder = linediyat1 #Zorra_a_n
+	}
+	5444.4.24 = { # Slain in aftermath of Jelut Empire collapse
+		holder = linediyat4 #Virratay
+	}
+	5498.2.7 = {
+		holder = linediyat7 #O_O_latarh
+	}
+
+	6750.1.1 = {
+		holder = linemirakes1
+		succession_laws = { female_only_law }
+		liege = d_hari_daniz
+		change_development_level = 3
+	}
+	6787.5.24 = {
+		holder = linemirakes3
+	}
+	6842.7.26 = {
+		holder = linemirakes5
+	}
+	6843.10.15 = {
+		holder = linemirakes7
+	}
+	6892.2.4 = {
+		holder = linemirakes9
+	}
+	6930.9.2 = {
+		holder = linemirakes11
+	}
+	6959.2.28 = {
+		holder = linemirakes13
+	}
+	7002.2.14 = {
+		holder = linemirakes16
+	}
+	7008.2.12 = { #murders sister and seizes tribe
+		holder = linemirakes46
+		succession_laws = { female_only_law }
+	}
+}
+c_ladija = {
+	5265.3.9 = {
+		holder = linesarezh1 #Akubarh
+		change_development_level = 3
+	}
+	5333.1.13 = {
+		holder = linesarezh3 #Lasim
+	}
+	5351.11.27 = {
+		holder = linesarezh5 #Maksin
+	}
+	5363.3.4 = {
+		holder = lineofadrais1 # Lavorraz - Dune reference
+		change_development_level = 3
+	}
+	5380.4.6 = {
+		holder = lineofharruaban1 # Vatrad Harruaban conquers Jel Daniz - Dune reference
+	}
+	5435.9.3 = { #Installed by Jelut to control dune sea trade route
+		holder = linediyat1 #Zorra_a_n
+	}
+	5444.4.24 = { # Slain in aftermath of Jelut Empire collapse
+		holder = linediyat4 #Virratay
+	}
+	5456.3.7 = { # Conquered
+		holder = linesarezh33
+		liege = d_darsalan
+	}
+	5458.5.16 = {
+		holder = linesarezh70
+	}
+	5460.3.28 = {
+		holder = linesarezh72
+	}
+	5506.11.22 = {
+		liege = 0
+	}
+
+	6500.1.1 = { # Abandoned as trade into Abrakhan slows and turns southwards.
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	6874.3.23 = {
+		holder = lineberika1 #Raydahn
+		government = tribal_government
+		change_development_level = 3
+	}
+	6943.11.26 = {
+		holder = lineberika3 #Sha_a_lirrik
+	}
+	6992.2.5 = {
+		holder = lineberika5 #Darh
+	}
+	7023.12.12 = {
+		holder = lineberika7 #Mo_o_mirh
+		succession_laws = { female_only_law }
+	}
+	7083.3.28 = {
+		holder = lineberika9 #Druagautin
+	}
+}
+
+## Duchy of Zhar-Daniz ##
+d_zhar_daniz = {
+	5426.2.17 = { # Installed by jelut to control trade route
+		holder = linetuabas4 #Raku_u_mirh
+	}
+	5461.3.1 = {
+		holder = linetuabas6 #Pe_e_nharh
+	}
+
+	6558.4.3 = {
+		holder = linebanugand1
+		government = tribal_government
+	}
+	6599.1.4 = {
+		holder = linebanugand3
+	}
+	6651.11.11 = {
+		holder = linebanugand5
+	}
+	6698.12.6 = {
+		holder = linebanugand7
+	}
+	6717.8.14 = {
+		holder = linebanugand9
+	}
+	6749.1.19 = { # Long Winter start date ruler
+		holder = linebanugand11
+	}
+	6800.10.8 = {
+		holder = linebanugand13
+	}
+	6820.4.19 = {
+		holder = linebanugand15
+	}
+	6866.11.26 = {
+		holder = linebanugand17
+	}
+	6882.5.14 = {
+		holder = linebanugand19
+	}
+	6920.1.9 = {
+		holder = linebanugand21
+	}
+	6951.7.6 = {
+		holder = linebanugand23
+	}
+	6954.5.3 = {
+		holder = linebanugand25
+	}
+	7016.9.7 = { # WotR ruler
+		holder = linebanugand27
+	}
+	7049.1.10 = {
+		holder = linebanugand29
+	}
+}
+c_draghusha = {
+	500.1.1 = {
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+
+	5300.1.1 = {
+		holder = lineofuhurra3 #Tihomo
+		government = tribal_government
+		change_development_level = 5
+	}
+	5316.1.1 = {
+		holder = lineofuhurra5 #Qolonkan
+	}
+	5352.1.1 = {
+		holder = lineofuhurra11 #Mirraykan
+	}
+	5371.1.1 = {
+		holder = lineofuhurra13 #Bozetye
+	}
+	5376.6.17 = {
+		holder = lineofyozirh1 #Yorizh
+	}
+	5381.1.1 = {
+		holder = lineofyozirh5 #Zerran
+	}
+	5426.2.17 = { # Installed by jelut to control trade route
+		holder = linetuabas4 #Raku_u_mirh
+	}
+	5461.3.1 = {
+		holder = linetuabas6 #Pe_e_nharh
+	}
+
+	5500.1.1 = {
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+}
+c_oghakho = {
+	100.1.1 = {
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	5300.1.1 = {
+		holder = lineofuhurra3 #Tihomo
+		government = tribal_government
+		change_development_level = 5
+	}
+	5316.1.1 = {
+		holder = lineofuhurra5 #Qolonkan
+	}
+	5352.1.1 = {
+		holder = lineofuhurra11 #Mirraykan
+	}
+	5371.1.1 = {
+		holder = lineofuhurra13 #Bozetye
+	}
+	5376.6.17 = {
+		holder = lineofyozirh1 #Yorizh
+	}
+	5381.1.1 = {
+		holder = lineofyozirh5 #Zerran
+	}
+	5426.2.17 = { # Installed by jelut to control trade route
+		holder = linetuabas4 #Raku_u_mirh
+	}
+	5461.3.1 = {
+		holder = linetuabas6 #Pe_e_nharh
+	}
+	5500.1.1 = {
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+}
+c_tarukhis = {
+	5300.1.1 = {
+		holder = lineofuhurra3 #Tihomo
+		government = tribal_government
+		change_development_level = 5
+	}
+	5316.1.1 = {
+		holder = lineofuhurra5 #Qolonkan
+	}
+	5352.1.1 = {
+		holder = lineofuhurra11 #Mirraykan
+	}
+	5371.1.1 = {
+		holder = lineofuhurra13 #Bozetye
+	}
+	5376.6.17 = {
+		holder = lineofyozirh1 #Yorizh
+	}
+	5381.1.1 = {
+		holder = lineofyozirh5 #Zerran
+	}
+	5426.2.17 = { # Installed by jelut to control trade route
+		holder = linetuabas4 #Raku_u_mirh
+	}
+	5461.3.1 = {
+		holder = linetuabas6 #Pe_e_nharh
+	}
+
+	6558.4.3 = {
+		holder = linebanugand1
+		change_development_level = 11
+		government = tribal_government
+	}
+	6599.1.4 = {
+		holder = linebanugand3
+	}
+	6651.11.11 = {
+		holder = linebanugand5
+	}
+	6698.12.6 = {
+		holder = linebanugand7
+	}
+	6717.8.14 = {
+		holder = linebanugand9
+	}
+	6749.1.19 = { # Long Winter start date ruler
+		holder = linebanugand11
+	}
+	6800.10.8 = {
+		holder = linebanugand13
+	}
+	6820.4.19 = {
+		holder = linebanugand15
+	}
+	6866.11.26 = {
+		holder = linebanugand17
+	}
+	6882.5.14 = {
+		holder = linebanugand19
+	}
+	6920.1.9 = {
+		holder = linebanugand21
+	}
+	6951.7.6 = {
+		holder = linebanugand23
+	}
+	6954.5.3 = {
+		holder = linebanugand25
+	}
+	7016.9.7 = { # WotR ruler
+		holder = linebanugand27
+	}
+	7049.1.10 = {
+		holder = linebanugand29
+	}
+}
+c_mulanat = {
+	5312.8.26 = {
+		holder = lineofghalibes1 #Halak
+		change_development_level = 7
+	}
+	5400.8.9 = {
+		holder = lineofghalibes3 #Ghurin_Halak
+	}
+	5422.8.14 = {
+		holder = lineofghalibes5 #Draharh
+	}
+	5445.11.4 = {
+		holder = lineofghalibes8 #Ostoa
+	}
+	5492.9.22 = {
+		holder = lineofghalibes10 #Bra_a_nko
+	}
+
+	6558.4.3 = {
+		holder = linebanugand1
+		change_development_level = 9
+		government = tribal_government
+	}
+	6599.1.4 = {
+		holder = linebanugand3
+	}
+	6651.11.11 = {
+		holder = linebanugand5
+	}
+	6698.12.6 = {
+		holder = linebanugand7
+	}
+	6710.1.21 = { # Granted
+		holder = linefejarand1
+		liege = d_zhar_daniz
+	}
+	6754.2.10 = {
+		holder = linefejarand3
+	}
+	6786.5.9 = { # Long Winter start date ruler
+		holder = linefejarand5
+	}
+	6814.4.28 = {
+		holder = linefejarand7
+	}
+	6833.2.24 = {
+		holder = linefejarand9
+	}
+	6884.2.21 = {
+		holder = linefejarand11
+	}
+	6918.7.5 = {
+		holder = linefejarand12
+	}
+	6951.5.15 = {
+		holder = linefejarand13
+	}
+	6978.8.17 = {
+		holder = linefejarand14
+	}
+	7007.11.27 = {
+		holder = linefejarand15
+	}
+	7028.2.20 = { # WotR ruler
+		holder = linefejarand16
+	}
+	7089.8.19 = {
+		holder = linefejarand17
+	}
+}
+c_dartofar = {
+	5100.1.1 = {
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	5426.2.17 = { # Installed by the Jelut to control trade route
+		holder = linetuabas4 #Raku_u_mirh
+		government = tribal_government
+		change_development_level = 5
+	}
+	5461.3.1 = {
+		holder = linetuabas6 #Pe_e_nharh
+	}
+
+	6558.4.3 = {
+		holder = linebanugand1
+		change_development_level = 9
+		government = tribal_government
+	}
+	6599.1.4 = {
+		holder = linebanugand3
+	}
+	6651.11.11 = {
+		holder = linebanugand5
+	}
+	6698.12.6 = {
+		holder = linebanugand7
+	}
+	6717.8.14 = {
+		holder = linebanugand9
+	}
+	6749.1.19 = { # Long Winter start date ruler
+		holder = linebanugand11
+	}
+	6800.10.8 = {
+		holder = linebanugand13
+	}
+	6820.4.19 = {
+		holder = linebanugand15
+	}
+	6866.11.26 = {
+		holder = linebanugand17
+	}
+	6882.5.14 = {
+		holder = linebanugand19
+	}
+	6920.1.9 = {
+		holder = linebanugand21
+	}
+	6951.7.6 = {
+		holder = linebanugand23
+	}
+	6954.5.3 = {
+		holder = linebanugand25
+	}
+	7016.9.7 = { # WotR ruler
+		holder = linebanugand27
+	}
+	7049.1.10 = {
+		holder = linebanugand29
+	}
+	7074.1.1 = { # Desertification of the Dune Sea drives inhabitants further out in the Fourth Age
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+##### Empire of Qadjajar ####
+e_tedjin = {
+	4922.1.1 = { # Assault of the Tedjin-Qarsag host - foundation of Qadjajar
+		holder = lineofjoamtuv1
+	}
+	4930.1.12 = {
+		holder = lineofjoamtuv2
+	}
+	4962.11.13 = {
+		holder = lineofjoamtuv3
+	}
+	4974.1.1 = { # Qadjajar destroyed
+		holder = 0
+	}
+}
+
+### Kingdom of Tedja ###
+k_tedja = {
+	1000.1.1 = {
+		de_jure_liege = e_umbar
+	}
+
+	4548.1.1 = {
+		holder = lineofbatoujoche1 #Batou Joche
+	}
+	4573.9.22 = {
+		holder = 0 #Batou Joche dies
+	}
+
+	4966.1.1 = { # Gondorian Conquest of Umbar under King Eärnil I
+		de_jure_liege = e_dune_sea
+	}
+}
+
+## Duchy of Kref Nilja ##
+d_kref_nilja = {
+	1000.1.1 = {
+		de_jure_liege = k_narak
+		NAME = cn_zar_kalan
+	}
+	4300.1.1 = { # First Tedjin Migration
+		de_jure_liege = k_tedja
+		effect = {
+			lotr_move_dejure_capital_effect = { COUNTY = c_arka }
+		}
+	}
+	5212.8.10 = {
+		holder = lineofazumenakhad1 #Azumen
+	}
+	5302.6.16 = {
+		holder = lineofazumenakhad3 #Itâna
+	}
+	5336.12.16 = {
+		holder = lineofazumenakhad5 #Ûvatha
+	}
+	5412.7.10 = {
+		holder = lineofazumenakhad7 #Ôvag
+	}
+	5457.1.17 = {
+		holder = lineofazumenakhad9 #Joam-tuv
+	}
+	5472.2.10 = {
+		holder = lineofazumenakhad11 #Eneköl
+	}
+	5494.8.4 = {
+		holder = lineofazumenakhad13 #Ardatha
+	}
+	5500.1.1 = { # Old Name becomes increasingly obscure
+		NAME = d_kref_nilja
+	}
+	5527.10.18 = {
+		holder = lineofazumenakhad15 #Dauthar
+	}
+	5613.11.4 = {
+		holder = lineofazumenakhad17 #Ôvatha
+	}
+	5660.12.9 = {
+		holder = lineofazumenakhad19 #Tarôk
+	}
+	5714.9.17 = {
+		holder = lineofazumenakhad21 #Lûthku
+	}
+	5749.1.21 = {
+		holder = lineofazumenakhad23 #Jotaeseimu
+	}
+	5812.1.2 = {
+		holder = lineofazumenakhad25 #Irbô
+	}
+	5829.11.8 = {
+		holder = lineofazumenakhad27 #Akhiz
+	}
+	5882.1.7 = {
+		holder = lineofazumenakhad29 #Joam-tuv
+	}
+	5929.8.26 = {
+		holder = lineofazumenakhad31 #Borlach
+	}
+	5943.12.13 = {
+		holder = lineofazumenakhad33 #Lûthku
+	}
+	6000.6.16 = {
+		holder = lineofazumenakhad35 #Gyürüchill
+	}
+	6066.8.17 = {
+		holder = lineofazumenakhad37 #Ban
+	}
+	6124.8.11 = {
+		holder = lineofazumenakhad39 #Ûrpof
+	}
+	6159.1.11 = {
+		holder = lineofazumenakhad41 #Sacal
+	}
+	6223.12.9 = {
+		holder = lineofazumenakhad43 #Ûvatha
+	}
+	6244.10.12 = {
+		holder = lineofazumenakhad45 #Ulfast
+	}
+	6329.8.25 = {
+		holder = lineofazumenakhad47 #Tarôk
+	}
+	6377.4.27 = {
+		holder = lineofazumenakhad49 #Markova
+	}
+	6430.9.24 = {
+		holder = lineofazumenakhad51 #Itô
+	}
+	6488.1.15 = {
+		holder = lineofazumenakhad53 #Lûthkan
+	}
+	6521.4.28 = {
+		holder = lineofazumenakhad55 #Akhiz
+	}
+	6573.3.23 = {
+		holder = lineofazumenakhad57 #Vangariz
+	}
+	6658.10.27 = {
+		holder = lineofazumenakhad59 #Ishtiran
+	}
+	6665.6.1 = {
+		holder = lineofazumenakhad61 #Hargrog
+	}
+	6710.12.2 = {
+		holder = lineofazumenakhad63 #Uldor
+	}
+	6762.10.28 = {
+		holder = lineofazumenakhad65 #Ôldur
+	}
+	6802.5.28 = {
+		holder = lineofazumenakhad67 #Azzad
+	}
+	6821.12.1 = {
+		holder = lineofazumenakhad67 #Azzad
+		liege = k_tedjin
+	}
+	6856.12.13 = {
+		holder = lineofazumenakhad69 #Ûrig
+	}
+	6894.5.28 = {
+		holder = lineofazumenakhad75 #Vrakya
+	}
+	6935.12.26 = {
+		holder = lineofazumenakhad77 #Itô
+	}
+	7004.4.7 = {
+		holder = lineofazumenakhad79 #Gyürüchill
+	}
+	7037.12.22 = {
+		holder = lineofazumenakhad81 #Azumen
+	}
+	7041.8.24 = {
+		holder = lineofazumenakhad91 #Ôthour
+	}
+	7064.10.1 = {
+		holder = lineofazumenakhad173 #Khûrsh
+	}
+	7091.10.5 = {
+		holder = lineofazumenakhad176 #Vangariz
+	}
+	7142.7.11 = {
+		holder = lineofazumenakhad182 #Hazishtu
+	}
+}
+c_asteruzad = {
+	1000.1.1 = {
+		NAME = cn_kala
+		effect = {
+			title_province.barony = { set_title_name = cn_kala }
+		}
+	}
+
+	4300.1.1 = { # First Tedjin Migration
+		NAME = c_asteruzad
+		effect = {
+			title_province.barony = { set_title_name = b_kalonhad }
+		}
+	}
+
+	5212.8.10 = {
+		holder = lineofazumenakhad1 #Azumen
+		change_development_level = 8
+	}
+	5302.6.16 = {
+		holder = lineofazumenakhad3 #Itâna
+	}
+	5336.12.16 = {
+		holder = lineofazumenakhad5 #Ûvatha
+	}
+	5412.7.10 = {
+		holder = lineofazumenakhad7 #Ôvag
+	}
+	5457.1.17 = {
+		holder = lineofazumenakhad9 #Joam-tuv
+	}
+	5472.2.10 = {
+		holder = lineofazumenakhad11 #Eneköl
+	}
+	5494.8.4 = {
+		holder = lineofazumenakhad13 #Ardatha
+	}
+	5527.10.18 = {
+		holder = lineofazumenakhad15 #Dauthar
+	}
+	5613.11.4 = {
+		holder = lineofazumenakhad17 #Ôvatha
+	}
+	5660.12.9 = {
+		holder = lineofazumenakhad19 #Tarôk
+	}
+	5714.9.17 = {
+		holder = lineofazumenakhad21 #Lûthku
+	}
+	5749.1.21 = {
+		holder = lineofazumenakhad23 #Jotaeseimu
+	}
+	5812.1.2 = {
+		holder = lineofazumenakhad25 #Irbô
+	}
+	5829.11.8 = {
+		holder = lineofazumenakhad27 #Akhiz
+	}
+	5882.1.7 = {
+		holder = lineofazumenakhad29 #Joam-tuv
+	}
+	5929.8.26 = {
+		holder = lineofazumenakhad31 #Borlach
+	}
+	5943.12.13 = {
+		holder = lineofazumenakhad33 #Lûthku
+	}
+	6000.6.16 = {
+		holder = lineofazumenakhad35 #Gyürüchill
+	}
+	6066.8.17 = {
+		holder = lineofazumenakhad37 #Ban
+	}
+	6124.8.11 = {
+		holder = lineofazumenakhad39 #Ûrpof
+	}
+	6159.1.11 = {
+		holder = lineofazumenakhad41 #Sacal
+	}
+	6223.12.9 = {
+		holder = lineofazumenakhad43 #Ûvatha
+	}
+	6244.10.12 = {
+		holder = lineofazumenakhad45 #Ulfast
+	}
+	6329.8.25 = {
+		holder = lineofazumenakhad47 #Tarôk
+	}
+	6377.4.27 = {
+		holder = lineofazumenakhad49 #Markova
+	}
+	6430.9.24 = {
+		holder = lineofazumenakhad51 #Itô
+	}
+	6488.1.15 = {
+		holder = lineofazumenakhad53 #Lûthkan
+	}
+	6521.4.28 = {
+		holder = lineofazumenakhad55 #Akhiz
+	}
+	6573.3.23 = {
+		holder = lineofazumenakhad57 #Vangariz
+	}
+	6658.10.27 = {
+		holder = lineofazumenakhad59 #Ishtiran
+	}
+	6665.6.1 = {
+		holder = lineofazumenakhad61 #Hargrog
+	}
+	6710.12.2 = {
+		holder = lineofazumenakhad63 #Uldor
+	}
+	6762.10.28 = {
+		holder = lineofazumenakhad65 #Ôldur
+	}
+	6802.5.28 = {
+		holder = lineofazumenakhad67 #Azzad
+	}
+	6856.12.13 = {
+		holder = lineofazumenakhad69 #Ûrig
+	}
+	6894.5.28 = {
+		holder = lineofazumenakhad75 #Vrakya
+	}
+	6935.12.26 = {
+		holder = lineofazumenakhad77 #Itô
+	}
+	7004.4.7 = {
+		holder = lineofazumenakhad79 #Gyürüchill
+	}
+	7037.12.22 = {
+		holder = lineofazumenakhad81 #Azumen
+	}
+	7041.8.24 = {
+		holder = lineofazumenakhad91 #Ôthour
+	}
+	7069.5.25 = {
+		holder = lineofazumenakhad185 #Atej
+	}
+	7136.12.21 = {
+		holder = lineofazumenakhad187 #Gurthilm
+	}
+	7149.10.16 = {
+		holder = lineofazumenakhad189 #Djataï
+	}
+}
+c_arka = {
+	5212.8.10 = {
+		holder = lineofazumenakhad1 #Azumen
+		change_development_level = 10
+	}
+	5302.6.16 = {
+		holder = lineofazumenakhad3 #Itâna
+	}
+	5336.12.16 = {
+		holder = lineofazumenakhad5 #Ûvatha
+	}
+	5412.7.10 = {
+		holder = lineofazumenakhad7 #Ôvag
+	}
+	5457.1.17 = {
+		holder = lineofazumenakhad9 #Joam-tuv
+	}
+	5472.2.10 = {
+		holder = lineofazumenakhad11 #Eneköl
+	}
+	5494.8.4 = {
+		holder = lineofazumenakhad13 #Ardatha
+	}
+	5527.10.18 = {
+		holder = lineofazumenakhad15 #Dauthar
+	}
+	5613.11.4 = {
+		holder = lineofazumenakhad17 #Ôvatha
+	}
+	5660.12.9 = {
+		holder = lineofazumenakhad19 #Tarôk
+	}
+	5714.9.17 = {
+		holder = lineofazumenakhad21 #Lûthku
+	}
+	5749.1.21 = {
+		holder = lineofazumenakhad23 #Jotaeseimu
+	}
+	5812.1.2 = {
+		holder = lineofazumenakhad25 #Irbô
+	}
+	5829.11.8 = {
+		holder = lineofazumenakhad27 #Akhiz
+	}
+	5882.1.7 = {
+		holder = lineofazumenakhad29 #Joam-tuv
+	}
+	5929.8.26 = {
+		holder = lineofazumenakhad31 #Borlach
+	}
+	5943.12.13 = {
+		holder = lineofazumenakhad33 #Lûthku
+	}
+	6000.6.16 = {
+		holder = lineofazumenakhad35 #Gyürüchill
+	}
+	6066.8.17 = {
+		holder = lineofazumenakhad37 #Ban
+	}
+	6124.8.11 = {
+		holder = lineofazumenakhad39 #Ûrpof
+	}
+	6159.1.11 = {
+		holder = lineofazumenakhad41 #Sacal
+	}
+	6223.12.9 = {
+		holder = lineofazumenakhad43 #Ûvatha
+	}
+	6244.10.12 = {
+		holder = lineofazumenakhad45 #Ulfast
+	}
+	6329.8.25 = {
+		holder = lineofazumenakhad47 #Tarôk
+	}
+	6377.4.27 = {
+		holder = lineofazumenakhad49 #Markova
+	}
+	6430.9.24 = {
+		holder = lineofazumenakhad51 #Itô
+	}
+	6488.1.15 = {
+		holder = lineofazumenakhad53 #Lûthkan
+	}
+	6521.4.28 = {
+		holder = lineofazumenakhad55 #Akhiz
+	}
+	6573.3.23 = {
+		holder = lineofazumenakhad57 #Vangariz
+	}
+	6658.10.27 = {
+		holder = lineofazumenakhad59 #Ishtiran
+	}
+	6665.6.1 = {
+		holder = lineofazumenakhad61 #Hargrog
+	}
+	6710.12.2 = {
+		holder = lineofazumenakhad63 #Uldor
+	}
+	6762.10.28 = {
+		holder = lineofazumenakhad65 #Ôldur
+	}
+	6802.5.28 = {
+		holder = lineofazumenakhad67 #Azzad
+	}
+	6856.12.13 = {
+		holder = lineofazumenakhad69 #Ûrig
+	}
+	6894.5.28 = {
+		holder = lineofazumenakhad75 #Vrakya
+	}
+	6935.12.26 = {
+		holder = lineofazumenakhad77 #Itô
+	}
+	7004.4.7 = {
+		holder = lineofazumenakhad79 #Gyürüchill
+	}
+	7037.12.22 = {
+		holder = lineofazumenakhad81 #Azumen
+	}
+	7041.8.24 = {
+		holder = lineofazumenakhad91 #Ôthour
+	}
+	7069.5.25 = {
+		holder = lineofazumenakhad93 #Maladran
+		liege = 0
+	}
+	7069.5.25 = {
+		holder = lineofazumenakhad185 #Atej
+	}
+	7136.12.21 = {
+		holder = lineofazumenakhad187 #Gurthilm
+	}
+	7149.10.16 = {
+		holder = lineofazumenakhad189 #Djataï
+	}
+}
+c_ovonid = {
+	5212.8.10 = {
+		holder = lineofazumenakhad1 #Azumen
+		change_development_level = 8
+	}
+	5302.6.16 = {
+		holder = lineofazumenakhad3 #Itâna
+	}
+	5336.12.16 = {
+		holder = lineofazumenakhad5 #Ûvatha
+	}
+	5412.7.10 = {
+		holder = lineofazumenakhad7 #Ôvag
+	}
+	5457.1.17 = {
+		holder = lineofazumenakhad9 #Joam-tuv
+	}
+	5472.2.10 = {
+		holder = lineofazumenakhad11 #Eneköl
+	}
+	5494.8.4 = {
+		holder = lineofazumenakhad13 #Ardatha
+	}
+	5527.10.18 = {
+		holder = lineofazumenakhad15 #Dauthar
+	}
+	5613.11.4 = {
+		holder = lineofazumenakhad17 #Ôvatha
+	}
+	5660.12.9 = {
+		holder = lineofazumenakhad19 #Tarôk
+	}
+	5714.9.17 = {
+		holder = lineofazumenakhad21 #Lûthku
+	}
+	5749.1.21 = {
+		holder = lineofazumenakhad23 #Jotaeseimu
+	}
+	5812.1.2 = {
+		holder = lineofazumenakhad25 #Irbô
+	}
+	5829.11.8 = {
+		holder = lineofazumenakhad27 #Akhiz
+	}
+	5882.1.7 = {
+		holder = lineofazumenakhad29 #Joam-tuv
+	}
+	5929.8.26 = {
+		holder = lineofazumenakhad31 #Borlach
+	}
+	5943.12.13 = {
+		holder = lineofazumenakhad33 #Lûthku
+	}
+	6000.6.16 = {
+		holder = lineofazumenakhad35 #Gyürüchill
+	}
+	6066.8.17 = {
+		holder = lineofazumenakhad37 #Ban
+	}
+	6124.8.11 = {
+		holder = lineofazumenakhad39 #Ûrpof
+	}
+	6159.1.11 = {
+		holder = lineofazumenakhad41 #Sacal
+	}
+	6223.12.9 = {
+		holder = lineofazumenakhad43 #Ûvatha
+	}
+	6244.10.12 = {
+		holder = lineofazumenakhad45 #Ulfast
+	}
+	6329.8.25 = {
+		holder = lineofazumenakhad47 #Tarôk
+	}
+	6377.4.27 = {
+		holder = lineofazumenakhad49 #Markova
+	}
+	6430.9.24 = {
+		holder = lineofazumenakhad51 #Itô
+	}
+	6488.1.15 = {
+		holder = lineofazumenakhad53 #Lûthkan
+	}
+	6521.4.28 = {
+		holder = lineofazumenakhad55 #Akhiz
+	}
+	6573.3.23 = {
+		holder = lineofazumenakhad57 #Vangariz
+	}
+	6658.10.27 = {
+		holder = lineofazumenakhad59 #Ishtiran
+	}
+	6665.6.1 = {
+		holder = lineofazumenakhad61 #Hargrog
+	}
+	6710.12.2 = {
+		holder = lineofazumenakhad63 #Uldor
+	}
+	6762.10.28 = {
+		holder = lineofazumenakhad65 #Ôldur
+	}
+	6802.5.28 = {
+		holder = lineofazumenakhad67 #Azzad
+	}
+	6856.12.13 = {
+		holder = lineofazumenakhad69 #Ûrig
+	}
+	6894.5.28 = {
+		holder = lineofazumenakhad75 #Vrakya
+	}
+	6935.12.26 = {
+		holder = lineofazumenakhad77 #Itô
+	}
+	7004.4.7 = {
+		holder = lineofazumenakhad79 #Gyürüchill
+	}
+	7037.12.22 = {
+		holder = lineofazumenakhad81 #Azumen
+	}
+	7041.8.24 = {
+		holder = lineofazumenakhad91 #Ôthour
+	}
+	7064.10.1 = {
+		holder = lineofsurakari1 #Surakaris
+		liege = d_kref_nilja
+	}
+	7108.7.9 = {
+		holder = lineofsurakari2 #Vrakya
+	}
+	7148.2.15 = {
+		holder = lineofsurakari3 #Azzad
+	}
+	7167.7.1 = {
+		holder = lineofsurakari4 #Tejhazor
+
+	}
+}
+c_nomuzad = {
+	5212.8.10 = {
+		holder = lineofazumenakhad1 #Azumen
+		change_development_level = 10
+	}
+	5302.6.16 = {
+		holder = lineofazumenakhad3 #Itâna
+	}
+	5336.12.16 = {
+		holder = lineofazumenakhad5 #Ûvatha
+	}
+	5412.7.10 = {
+		holder = lineofazumenakhad7 #Ôvag
+	}
+	5457.1.17 = {
+		holder = lineofazumenakhad9 #Joam-tuv
+	}
+	5472.2.10 = {
+		holder = lineofazumenakhad11 #Eneköl
+	}
+	5494.8.4 = {
+		holder = lineofazumenakhad13 #Ardatha
+	}
+	5527.10.18 = {
+		holder = lineofazumenakhad15 #Dauthar
+	}
+	5613.11.4 = {
+		holder = lineofazumenakhad17 #Ôvatha
+	}
+	5660.12.9 = {
+		holder = lineofazumenakhad19 #Tarôk
+	}
+	5714.9.17 = {
+		holder = lineofazumenakhad21 #Lûthku
+	}
+	5749.1.21 = {
+		holder = lineofazumenakhad23 #Jotaeseimu
+	}
+	5812.1.2 = {
+		holder = lineofazumenakhad25 #Irbô
+	}
+	5829.11.8 = {
+		holder = lineofazumenakhad27 #Akhiz
+	}
+	5882.1.7 = {
+		holder = lineofazumenakhad29 #Joam-tuv
+	}
+	5929.8.26 = {
+		holder = lineofazumenakhad31 #Borlach
+	}
+	5943.12.13 = {
+		holder = lineofazumenakhad33 #Lûthku
+	}
+	6000.6.16 = {
+		holder = lineofazumenakhad35 #Gyürüchill
+	}
+	6066.8.17 = {
+		holder = lineofazumenakhad37 #Ban
+	}
+	6124.8.11 = {
+		holder = lineofazumenakhad39 #Ûrpof
+	}
+	6159.1.11 = {
+		holder = lineofazumenakhad41 #Sacal
+	}
+	6223.12.9 = {
+		holder = lineofazumenakhad43 #Ûvatha
+	}
+	6244.10.12 = {
+		holder = lineofazumenakhad45 #Ulfast
+	}
+	6329.8.25 = {
+		holder = lineofazumenakhad47 #Tarôk
+	}
+	6377.4.27 = {
+		holder = lineofazumenakhad49 #Markova
+	}
+	6430.9.24 = {
+		holder = lineofazumenakhad51 #Itô
+	}
+	6488.1.15 = {
+		holder = lineofazumenakhad53 #Lûthkan
+	}
+	6521.4.28 = {
+		holder = lineofazumenakhad55 #Akhiz
+	}
+	6573.3.23 = {
+		holder = lineofazumenakhad57 #Vangariz
+	}
+	6658.10.27 = {
+		holder = lineofazumenakhad59 #Ishtiran
+	}
+	6665.6.1 = {
+		holder = lineofazumenakhad61 #Hargrog
+	}
+	6710.12.2 = {
+		holder = lineofazumenakhad63 #Uldor
+	}
+	6762.10.28 = {
+		holder = lineofazumenakhad65b #Ardatha
+		liege = d_kref_nilja
+	}
+	6776.7.27 = {
+		holder = lineofazumenakhad65b1 #Sakali
+	}
+	6789.7.18 = {
+		holder = lineofazumenakhad69 #Ûrig
+	}
+	6856.12.13 = {
+		holder = lineofazumenakhad162 #Bór
+		liege = 0
+		change_development_level = 7
+	}
+	6918.8.12 = {
+		holder = lineofazumenakhad165 #Ôthour
+	}
+	6964.8.21 = {
+		holder = lineofazumenakhad169 #Tûlimizîr
+	}
+	7007.12.18 = {
+		holder = lineofazumenakhad171 #Khôdid
+	}
+	7041.8.24 = {
+		holder = lineofazumenakhad91 #Ôthour
+	}
+	7064.10.1 = {
+		holder = lineofazumenakhad173 #Khûrsh
+	}
+	7091.10.5 = {
+		holder = lineofazumenakhad176 #Vangariz
+	}
+	7142.7.11 = {
+		holder = lineofazumenakhad182 #Hazishtu
+	}
+}
+c_qajazan = {
+	5212.8.10 = {
+		holder = lineofazumenakhad1 #Azumen
+		change_development_level = 8
+	}
+	5302.6.16 = {
+		holder = lineofazumenakhad3 #Itâna
+	}
+	5336.12.16 = {
+		holder = lineofazumenakhad5 #Ûvatha
+	}
+	5412.7.10 = {
+		holder = lineofazumenakhad7 #Ôvag
+	}
+	5457.1.17 = {
+		holder = lineofazumenakhad9 #Joam-tuv
+	}
+	5472.2.10 = {
+		holder = lineofazumenakhad11 #Eneköl
+	}
+	5494.8.4 = {
+		holder = lineofazumenakhad13 #Ardatha
+	}
+	5527.10.18 = {
+		holder = lineofazumenakhad15 #Dauthar
+	}
+	5613.11.4 = {
+		holder = lineofazumenakhad17 #Ôvatha
+	}
+	5660.12.9 = {
+		holder = lineofazumenakhad19 #Tarôk
+	}
+	5714.9.17 = {
+		holder = lineofazumenakhad21 #Lûthku
+	}
+	5749.1.21 = {
+		holder = lineofazumenakhad23 #Jotaeseimu
+	}
+	5812.1.2 = {
+		holder = lineofazumenakhad25 #Irbô
+	}
+	5829.11.8 = {
+		holder = lineofazumenakhad27 #Akhiz
+	}
+	5882.1.7 = {
+		holder = lineofazumenakhad29 #Joam-tuv
+	}
+	5929.8.26 = {
+		holder = lineofazumenakhad31 #Borlach
+	}
+	5943.12.13 = {
+		holder = lineofazumenakhad33 #Lûthku
+	}
+	6000.6.16 = {
+		holder = lineofazumenakhad35 #Gyürüchill
+	}
+	6066.8.17 = {
+		holder = lineofazumenakhad37 #Ban
+	}
+	6124.8.11 = {
+		holder = lineofazumenakhad39 #Ûrpof
+	}
+	6159.1.11 = {
+		holder = lineofazumenakhad41 #Sacal
+	}
+	6223.12.9 = {
+		holder = lineofazumenakhad43 #Ûvatha
+	}
+	6244.10.12 = {
+		holder = lineofazumenakhad45 #Ulfast
+	}
+	6329.8.25 = {
+		holder = lineofazumenakhad47 #Tarôk
+	}
+	6377.4.27 = {
+		holder = lineofazumenakhad49 #Markova
+	}
+	6430.9.24 = {
+		holder = lineofazumenakhad51 #Itô
+	}
+	6488.1.15 = {
+		holder = lineofazumenakhad53 #Lûthkan
+	}
+	6521.4.28 = {
+		holder = lineofazumenakhad55 #Akhiz
+	}
+	6573.3.23 = {
+		holder = lineofazumenakhad57 #Vangariz
+	}
+	6658.10.27 = {
+		holder = lineofazumenakhad59 #Ishtiran
+	}
+	6665.6.1 = {
+		holder = lineofazumenakhad61 #Hargrog
+	}
+	6710.12.2 = {
+		holder = lineofazumenakhad63 #Uldor
+	}
+	6762.10.28 = {
+		holder = lineofazumenakhad65b #Ardatha
+		liege = d_kref_nilja
+	}
+	6776.7.27 = {
+		holder = lineofazumenakhad65b1 #Sakali
+	}
+	6789.7.18 = {
+		holder = lineofazumenakhad69 #Ûrig
+	}
+	6894.5.28 = {
+		holder = lineofazumenakhad75 #Vrakya
+	}
+	6935.12.26 = {
+		holder = lineofazumenakhad77 #Itô
+	}
+	7004.4.7 = {
+		holder = lineofazumenakhad79 #Gyürüchill
+	}
+	7037.12.22 = {
+		holder = lineofazumenakhad81 #Azumen
+	}
+	7041.8.24 = {
+		holder = lineofazumenakhad91 #Ôthour
+	}
+	7064.10.1 = {
+		holder = lineofjotaenukhad1 #Jotaen
+	}
+	7094.7.9 = {
+		holder = lineofjotaenukhad2 #Ishtiran
+	}
+	7138.6.3 = {
+		holder = lineofjotaenukhad3 #Hazishtu
+	}
+}
+
+# Titular Duchy of Kes Javvad
+d_kes_yavvad = { #Titular Tribe for newly established Jelut clan of northern Tedja
+	6976.6.9 = { # Founded by Jelut
+		holder = lineofketomin3 #Akhubar
+		de_jure_liege = k_narak
+	}
+	7024.9.28 = {
+		holder = lineofketomin5 #Mitar
+	}
+	7072.1.22 = {
+		holder = lineofketomin7 #Bozetjeg
+	}
+}
+
+# Duchy of Kref Urt
+d_kref_urt = {
+	1000.1.1 = {
+		de_jure_liege = k_narak
+		NAME = cn_zar_karan
+	}
+
+	4300.1.1 = { # First Tedjin Migration
+		de_jure_liege = k_tedja
+		effect = { # The City of Kârna falls to the Tedjin
+			lotr_move_dejure_capital_effect = { COUNTY = c_ayalid }
+		}
+	}
+
+	5202.9.15 = {
+		holder = linekhureshid1 #Asternakh
+	}
+	5279.2.16 = {
+		holder = linekhureshid3 #Yuktir
+	}
+	5330.6.6 = {
+		holder = linekhureshid5 #Tukhik
+	}
+	5354.8.16 = { # RoA ruler
+		holder = linekhureshid7 #Harva_a_l
+	}
+	5391.2.18 = {
+		holder = linekhureshid9 #Azdrioni_i_d
+	}
+
+	5410.5.7 = { # Jelut Conquer part of Tedja
+		holder = linejelut1 #Kuan
+		NAME = d_kref_urt
+	}
+	5429.6.23 = {
+		holder = linejelut3 #Kuesh
+	}
+	5443.7.21 = { # Kuesh slain in Siege of Umbar
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = 0
+		liege = 0
+	}
+
+	6380.10.11 = {
+		holder = lineofseramij1 #Borlad
+	}
+	6449.9.28 = {
+		holder = lineofseramij3 #Lojnar
+	}
+	6472.8.6 = {
+		holder = lineofseramij5 #Akhev
+	}
+	6526.6.11 = {
+		holder = lineofseramij7 #Akhev
+	}
+	6529.3.27 = {
+		holder = lineofseramij9 #Djata_i_i
+	}
+	6554.4.21 = {
+		holder = lineofseramij11 #O_O_lriag
+	}
+	6591.11.20 = {
+		holder = lineofseramij13 #Lorgan
+	}
+	6647.4.7 = {
+		holder = lineofseramij15 #Asternak
+	}
+	6680.3.19 = {
+		holder = lineofseramij19 #U_U_rdrath
+	}
+	6733.4.11 = {
+		holder = lineofseramij21 #Djata_i_i
+	}
+	6768.4.11 = {
+		holder = lineofseramij23 #Blodren
+	}
+	6809.10.16 = {
+		holder = 0
+	}
+
+	6812.3.16 = {
+		holder = lineofdriond1 #Ûrdrath
+		liege = k_tedjin
+	}
+	6891.7.22 = {
+		holder = lineofdriond3 #Warlôg
+	}
+	6939.4.13 = {
+		holder = lineofdriond5 #Vrônkhar
+	}
+	6974.3.21 = { #Defeated by Jelut in single combat
+		holder = 0
+		liege = 0
+	}
+	7043.9.30 = {
+		holder = lineofdriond20 #Ûrdrath
+	}
+	7061.9.20 = {
+		holder = 0
+	}
+}
+c_ayalid = {
+	5202.9.15 = {
+		holder = linekhureshid1 #Asternakh
+	}
+	5279.2.16 = {
+		holder = linekhureshid3 #Yuktir
+	}
+	5330.6.6 = {
+		holder = linekhureshid5 #Tukhik
+	}
+	5354.8.16 = { # RoA ruler
+		holder = linekhureshid7 #Harva_a_l
+	}
+	5391.2.18 = {
+		holder = linekhureshid9 #Azdrioni_i_d
+	}
+	6380.10.11 = {
+		holder = lineofseramij1 #Borlad
+		change_development_level = 6
+	}
+	6449.9.28 = {
+		holder = lineofseramij3 #Lojnar
+	}
+	6472.8.6 = {
+		holder = lineofseramij5 #Akhev
+	}
+	6526.6.11 = {
+		holder = lineofseramij7 #Akhev
+	}
+	6529.3.27 = {
+		holder = lineofseramij9 #Djata_i_i
+	}
+	6554.4.21 = {
+		holder = lineofseramij11 #O_O_lriag
+	}
+	6591.11.20 = {
+		holder = lineofseramij13 #Lorgan
+	}
+	6647.4.7 = {
+		holder = lineofseramij15 #Asternak
+	}
+	6680.3.19 = {
+		holder = lineofseramij19 #U_U_rdrath
+	}
+	6733.4.11 = {
+		holder = lineofseramij21 #Djata_i_i
+	}
+	6768.4.11 = {
+		holder = lineofseramij23 #Blodren
+	}
+
+	6812.3.16 = {
+		holder = lineofdriond1 #Ûrdrath
+		liege = k_tedjin
+		change_development_level = 6
+	}
+	6891.7.22 = {
+		holder = lineofdriond3 #Warlôg
+	}
+	6939.4.13 = {
+		holder = lineofdriond5 #Vrônkhar
+	}
+	6996.5.13 = {
+		holder = lineofdriond7 #Curuband
+	}
+	7041.8.24 = {
+		holder = lineofdriond20 #Ûrdrath
+	}
+	7061.9.20 = {
+		holder = lineofazumenakhad81 #Azumen
+	}
+	7092.1.15 = {
+		holder = lineofazumenakhad85 #Brôdvaga
+	}
+	7128.9.23 = {
+		holder = lineofazumenakhad193 #Azumen
+	}
+	7144.3.2 = {
+		holder = lineofazumenakhad195 #Jotaeseimu
+	}
+}
+c_tarokad = {
+	1000.1.1 = { # Earlier known as Kârna
+		NAME = cn_karna
+		effect = {
+			title_province.barony = { set_title_name = cn_karna }
+		}
+		change_development_level = 18 # Important center of Karrani civilization in SA
+	}
+
+	4300.1.1 = { # First Tedjin Migration
+		change_development_level = 3 # Falls into decline and looses relevance after Tedjin migration
+	}
+
+
+	4600.1.1 = { #City of Kârna falls into ruin entirely, rumored to be haunted
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+		liege = 0
+	}
+
+	5500.1.1 = { # Old Name becomes increasingly obscure
+		NAME = c_tarokad
+		effect = {
+			title_province.barony = { set_title_name = b_jotaethar }
+		}
+	}
+
+	6380.10.11 = { #Tedjin settle sparsely
+		holder = lineofseramij1 #Borlad
+		change_development_level = 5
+		government = tribal_government
+	}
+	6449.9.28 = {
+		holder = lineofseramij3 #Lojnar
+	}
+	6472.8.6 = {
+		holder = lineofseramij5 #Akhev
+	}
+	6526.6.11 = {
+		holder = lineofseramij7 #Akhev
+	}
+	6529.3.27 = {
+		holder = lineofseramij9 #Djata_i_i
+	}
+	6554.4.21 = {
+		holder = lineofseramij11 #O_O_lriag
+	}
+	6591.11.20 = {
+		holder = lineofseramij13 #Lorgan
+	}
+	6647.4.7 = {
+		holder = lineofseramij15 #Asternak
+	}
+	6680.3.19 = {
+		holder = lineofseramij19 #U_U_rdrath
+	}
+	6733.4.11 = {
+		holder = lineofseramij21 #Djata_i_i
+	}
+	6768.4.11 = {
+		holder = lineofseramij33 #Ban
+		liege = d_kref_urt
+	}
+	6781.11.27 = {
+		holder = lineofseramij35 #Dashanjal
+	}
+
+	6899.2.18 = {
+		holder = lineofdriond3 #Warlôg
+		change_development_level = 5
+		liege = k_tedjin
+	}
+	6939.4.13 = {
+		holder = lineofdriond48 #Ulfang
+		liege = 0
+	}
+	6995.10.1 = {
+		holder = lineofdriond51 #Ôvan
+	}
+	7040.12.6 = {
+		holder = lineofdriond53 #Olirag
+	}
+	7045.7.4 = {
+		holder = lineofdriond20 #Ûrdrath
+	}
+	7061.9.20 = {
+		holder = lineofdriond53 #Olirag
+	}
+	7065.7.25 = {
+		holder = lineofdriond88 #Brodda
+	}
+	7109.1.4 = {
+		holder = lineofdriond90 #Gormok
+	}
+	7150.12.5 = {
+		holder = lineofdriond92 #Baltab
+	}
+	7168.6.11 = {
+		holder = lineofdriond96 #Dashanjal
+	}
+}
+c_shaval = {
+	5202.7.15 = {
+		holder = lineyavvadid1 #Retvir
+	}
+	5276.9.11 = {
+		holder = lineyavvadid3 #Kadon
+	}
+	5313.2.25 = {
+		holder = lineyavvadid5 #Sakun
+	}
+	5331.4.11 = {
+		holder = lineyavvadid7 #Mioni_i_d
+	}
+	5353.1.13 = { # RoA ruler
+		holder = lineyavvadid9 #Nikath
+	}
+
+	5410.5.7 = { # Jelut Conquer part of Tedja
+		holder = linejelut1 #Kuan
+	}
+	5429.6.23 = {
+		holder = linejelut3 #Kuesh
+	}
+	5443.7.21 = { # Kuesh slain in Siege of Umbar
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linejelut6 #Ozre_e_n
+	}
+	5473.1.25 = {
+		holder = linejelut8 #Za_a_l
+	}
+
+	5850.1.1 = {
+		holder = linezhajomin1 #Da_a_mir
+		change_development_level = 4
+	}
+	5881.7.2 = {
+		holder = linezhajomin3 #Sha_a_lirik
+	}
+	5928.3.22 = {
+		holder = linezhajomin5 #Zirinkho
+	}
+	5957.3.12 = {
+		holder = linezhajomin7 #Tiho_o_mmo
+	}
+	6002.6.5 = {
+		holder = linezhajomin9 #Kha_a_linar
+	}
+	6034.5.27 = {
+		holder = linezhajomin11 #Khaba_a_li
+	}
+	6053.12.15 = {
+		holder = linezhajomin13 #Fejas
+	}
+	6105.7.20 = {
+		holder = linezhajomin15 #Tabu
+	}
+	6136.3.20 = {
+		holder = linezhajomin17 #Radofa_a_n
+	}
+	6632.2.21 = {
+		holder = lineofsuabel1 #Suabe_e_l
+	}
+	6707.4.6 = {
+		holder = lineofsuabel3 #Isa_a_lin
+	}
+	6728.5.14 = { # Long winter start date ruler
+		holder = lineofsuabel5 #Vese_e_lko
+	}
+	6791.2.14 = {
+		holder = lineofsuabel7 #Zae
+	}
+	6805.5.22 = {
+		holder = lineofsuabel9 #Qa_a_lfa_a_n
+	}
+	6919.5.17 = {
+		holder = lineofketomin1 #Keto
+	}
+	6969.12.17 = {
+		holder = lineofketomin3 #Akhubar
+	}
+	7024.9.28 = {
+		holder = lineofketomin5 #Mitar
+	}
+	7026.3.7 = { # Conquered
+		holder = linemelenkoud3 # Kenan
+	}
+	7029.1.1 = {
+		holder = linemelenkoud4 # Mezwar
+	}
+	7049.1.1 = {
+		holder = linemelenkoud5 # Gildun
+	}
+	7080.1.1 = {
+		holder = linemelenkoud12 # Lasim
+	}
+	7102.1.1 = {
+		holder = linemelenkoud14 # Ruadova_a_n
+	}
+	7159.12.19 = {
+		holder = linemelenkoud16 # Boa_a_n
+	}
+}
+c_gyurothar = {
+	5202.9.15 = {
+		holder = linekhureshid1 #Asternakh
+	}
+	5279.2.16 = {
+		holder = linekhureshid3 #Yuktir
+	}
+	5330.6.6 = {
+		holder = linekhureshid5 #Tukhik
+	}
+	5354.8.16 = { # RoA ruler
+		holder = linekhureshid7 #Harva_a_l
+	}
+	5391.2.18 = {
+		holder = linekhureshid9 #Azdrioni_i_d
+	}
+
+	6603.10.24 = {
+		holder = lineofkrauka1 #Sa_a_mirh
+		change_development_level = 4
+	}
+	6668.9.27 = {
+		holder = lineofkrauka3 #Terko
+	}
+	6732.11.2 = {
+		holder = lineofkrauka5 #Harsa_a_l
+	}
+	6756.2.4 = {
+		holder = lineofkrauka7 #Lavorraz
+		}
+	6779.8.7 = { # Long winter start date ruler
+		holder = lineofkrauka22 #Torna
+		liege = d_kref_tuvvaj
+	}
+	6823.4.19 = {
+		holder = lineofkrauka24 #Krauko
+	}
+	6812.3.16 = {
+		holder = lineofdriond1 #Ûrdrath
+		liege = k_tedjin
+	}
+	6891.7.22 = {
+		holder = lineofdriond3 #Warlôg
+	}
+	6939.4.13 = {
+		holder = lineofdriond29 #Goûr
+	}
+	6976.6.9 = { #Defeated by Jelut in single combat
+		holder = lineofketomin3 #Akhubar
+		liege = 0
+	}
+	7024.9.28 = {
+		holder = lineofketomin5 #Mitar
+	}
+	7072.1.22 = {
+		holder = lineofketomin7 #Bozetjeg
+	}
+	7043.9.30 = {
+		holder = lineofdriond20 #Ûrdrath
+	}
+	7087.4.17 = {
+		holder = lineofdriond69 #Curuband
+	}
+	7120.12.3 = {
+		holder = lineofdriond72 #Dauthar
+	}
+	7163.1.9 = {
+		holder = lineofdriond75 #Crazkham
+	}
+}
+c_yavvad = {
+	5202.9.15 = {
+		holder = linekhureshid1 #Asternakh
+	}
+	5279.2.16 = {
+		holder = linekhureshid3 #Yuktir
+	}
+	5330.6.6 = {
+		holder = linekhureshid5 #Tukhik
+	}
+	5354.8.16 = { # RoA ruler
+		holder = linekhureshid7 #Harva_a_l
+	}
+	5391.2.18 = {
+		holder = linekhureshid9 #Azdrioni_i_d
+	}
+
+	6380.10.11 = {
+		holder = lineofseramij1 #Borlad
+		change_development_level = 5
+	}
+	6449.9.28 = {
+		holder = lineofseramij3 #Lojnar
+	}
+	6472.8.6 = {
+		holder = lineofseramij5 #Akhev
+	}
+	6526.6.11 = {
+		holder = lineofseramij7 #Akhev
+	}
+	6529.3.27 = {
+		holder = lineofseramij9 #Djata_i_i
+	}
+	6554.4.21 = {
+		holder = lineofseramij11 #O_O_lriag
+	}
+	6591.11.20 = {
+		holder = lineofseramij13 #Lorgan
+	}
+	6647.4.7 = {
+		holder = lineofseramij15 #Asternak
+	}
+	6680.3.19 = {
+		holder = lineofseramij19 #U_U_rdrath
+	}
+	6733.4.11 = {
+		holder = lineofseramij21 #Djata_i_i
+	}
+	6768.4.11 = {
+		holder = lineofseramij33 #Ban
+		liege = d_kref_urt
+	}
+	6781.11.27 = { # Long winter start date ruler
+		holder = lineofseramij35 #Dashanjal
+	}
+	6812.3.16 = {
+		holder = lineofdriond1 #Ûrdrath
+		liege = k_tedjin
+	}
+	6891.7.22 = {
+		holder = lineofdriond3 #Warlôg
+	}
+	6939.4.13 = {
+		holder = lineofdriond13 #Ômad
+	}
+	6974.3.21 = { #Defeated by Jelut
+		holder = lineofketomin3 #Akhubar
+		liege = 0
+	}
+	7024.9.28 = {
+		holder = lineofketomin5 #Mitar
+	}
+	7072.1.22 = {
+		holder = lineofketomin7 #Bozetjeg
+	}
+	7043.9.30 = {
+		holder = lineofdriond20 #Ûrdrath
+	}
+	7087.4.17 = {
+		holder = lineofdriond69 #Curuband
+	}
+	7120.12.3 = {
+		holder = lineofdriond72 #Dauthar
+	}
+	7163.1.9 = {
+		holder = lineofdriond75 #Crazkham
+	}
+}
+c_harizad = {
+	5202.7.15 = {
+		holder = lineyavvadid1 #Retvir
+	}
+	5276.9.11 = {
+		holder = lineyavvadid3 #Kadon
+	}
+	5313.2.25 = {
+		holder = lineyavvadid5 #Sakun
+	}
+	5331.4.11 = {
+		holder = lineyavvadid7 #Mioni_i_d
+	}
+	5353.1.13 = { # RoA ruler
+		holder = lineyavvadid9 #Nikath
+	}
+	5410.5.7 = { # Jelut Conquer part of Tedja
+		holder = linejelut1 #Kuan
+	}
+	5429.6.23 = {
+		holder = linejelut3 #Kuesh
+	}
+	5443.7.21 = { # Kuesh slain in Siege of Umbar
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linejelut12 #Borga_a_l
+	}
+	5468.6.19 = {
+		holder = linejelut14 #Biorna
+	}
+
+	6500.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6978.3.7 = {
+		holder = lineofmisrakim6 #Ozre_e_n
+		change_development_level = 3
+		government = tribal_government
+		liege = 0
+	}
+	7009.3.26 = {
+		holder = lineofmisrakim10 #Da_a_mirh
+	}
+	7010.4.17 = {
+		holder = lineofmisrakim24 #Zakarran
+		liege = d_kref_tuvvaj
+	}
+	7042.4.18 = {
+		holder = lineofmisrakim27 #Liuadikirh
+	}
+	7069.1.22 = {
+		holder = lineofmisrakim39 #Tiho_o_mi
+	}
+	7102.9.19 = {
+		holder = lineofmisrakim41 #Pe_e_nharh
+	}
+	7165.11.19 = {
+		holder = lineofmisrakim43 #Saut
+	}
+}
+
+## Duchy of Kref Tuvvaj ##
+d_kref_tuvvaj = {
+	1000.1.1 = {
+		de_jure_liege = k_narak
+		NAME = cn_zar_tarran
+	}
+
+	4300.1.1 = { # First Tedjin Migration
+		de_jure_liege = k_tedja
+	}
+
+	5500.1.1 = { # Old Name becomes increasingly obscure
+		NAME = d_kref_tuvvaj
+	}
+
+	6603.10.24 = {
+		holder = lineofkrauka1 #Sa_a_mirh
+	}
+	6668.9.27 = {
+		holder = lineofkrauka3 #Terko
+	}
+	6732.11.2 = {
+		holder = lineofkrauka5 #Harsa_a_l
+	}
+	6756.2.4 = {
+		holder = lineofkrauka7 #Lavorraz
+	}
+	6779.8.7 = { # Long winter start date ruler
+		holder = lineofkrauka9 #Mo_o_mirh
+	}
+	6807.3.3 = {
+		holder = lineofkrauka11 #Ruado_o_mirh
+	}
+	6978.3.7 = {
+		holder = lineofmisrakim6 #Ozre_e_n
+	}
+	7009.3.26 = {
+		holder = lineofmisrakim10 #Da_a_mirh
+	}
+	7010.4.17 = {
+		holder = lineofmisrakim12 #Qa_a_lfa_a_n
+	}
+	7050.11.14 = {
+		holder = lineofmisrakim14 #Lasim
+	}
+	7067.10.4 = {
+		holder = lineofmisrakim29 #A_A_ndrimirh
+	}
+	7087.2.17 = {
+		holder = lineofmisrakim31 #Ima_a_n
+	}
+	7134.2.27 = {
+		holder = lineofmisrakim33 #Drayze_e_n
+	}
+	7153.2.28 = {
+		holder = lineofmisrakim35 #Ruado_o_mirh
+	}
+}
+c_itashtun = {
+	1000.1.1 = {
+		NAME = cn_tarn
+		effect = {
+			title_province.barony = { set_title_name = cn_tarn }
+		}
+	}
+	5202.5.10 = {
+		holder = linetarkhad1 #Ari_i_g
+		change_development_level = 6
+	}
+	5274.6.16 = {
+		holder = linetarkhad3 #Kadon
+	}
+	5342.10.6 = {
+		holder = linetarkhad5 #Vaugan
+	}
+	5359.3.23 = {
+		holder = linetarkhad7 #Vaugan
+	}
+	5380.12.19 = { # RoA ruler
+		holder = linetarkhad9 #Azdrioni_i_d
+	}
+	5432.1.1 = { # Negotiations with Kuesh
+		holder = lineofazumenakhad7 #Ôvag
+		change_development_level = 7
+	}
+	5457.1.17 = {
+		holder = lineofazumenakhad9 #Joam-tuv
+	}
+	5472.2.10 = {
+		holder = lineofazumenakhad11 #Eneköl
+	}
+	5494.8.4 = {
+		holder = lineofazumenakhad13 #Ardatha
+	}
+	5500.1.1 = { # Old Name becomes increasingly obscure
+		NAME = c_itashtun
+		effect = {
+			title_province.barony = { set_title_name = b_qalram }
+		}
+	}
+	5527.10.18 = {
+		holder = lineofazumenakhad15 #Dauthar
+	}
+
+	6526.8.12 = {
+		holder = lineofcrazkhad1 #Le_idan
+		change_development_level = 8
+	}
+	6586.1.5 = {
+		holder = lineofcrazkhad3 #Mi_i_onid
+	}
+	6625.7.2 = {
+		holder = lineofcrazkhad5 #Yukti_i_r
+	}
+	6664.5.15 = {
+		holder = lineofcrazkhad7 #Jotaen
+	}
+	6688.7.19 = {
+		holder = lineofcrazkhad9 #Mardrash
+	}
+	6719.8.17 = {
+		holder = lineofcrazkhad11 #Tejhazor
+	}
+	6746.2.16 = {
+		holder = lineofcrazkhad13 #Wastaph
+	}
+	6780.3.3 = { # Long winter start date ruler
+		holder = lineofcrazkhad15 #Surakaris
+	}
+	6804.9.11 = {
+		holder = lineofcrazkhad17 #Joam
+	}
+	6856.12.13 = {
+		holder = lineofazumenakhad162 #Bór
+		change_development_level = 7
+	}
+	6918.8.12 = {
+		holder = lineofazumenakhad165 #Ôthour
+	}
+	6964.8.21 = {
+		holder = lineofazumenakhad169 #Tûlimizîr
+	}
+	7007.12.18 = {
+		holder = lineofazumenakhad171 #Khôdid
+	}
+	7041.8.24 = {
+		holder = lineofdriond7 #Curuband
+	}
+	7045.10.14 = {
+		holder = lineofdriond10 #Ûlruth
+	}
+	7064.10.1 = {
+		holder = lineofazumenakhad173 #Khûrsh
+	}
+	7091.10.5 = {
+		holder = lineofazumenakhad176 #Vangariz
+	}
+	7142.7.11 = {
+		holder = lineofazumenakhad182 #Hazishtu
+	}
+}
+c_vragun = {
+	5202.5.10 = {
+		holder = linetarkhad1 #Ari_i_g
+		change_development_level = 6
+	}
+	5274.6.16 = {
+		holder = linetarkhad3 #Kadon
+	}
+	5342.10.6 = {
+		holder = linetarkhad5 #Vaugan
+	}
+	5359.3.23 = {
+		holder = linetarkhad7 #Vaugan
+	}
+	5380.12.19 = { # RoA ruler
+		holder = linetarkhad9 #Azdrioni_i_d
+	}
+	5412.7.10 = {
+		holder = lineofazumenakhad7 #Ôvag
+	}
+	5457.1.17 = {
+		holder = lineofazumenakhad9 #Joam-tuv
+	}
+	5472.2.10 = {
+		holder = lineofazumenakhad11 #Eneköl
+	}
+	5494.8.4 = {
+		holder = lineofazumenakhad13 #Ardatha
+	}
+	5527.10.18 = {
+		holder = lineofazumenakhad15 #Dauthar
+	}
+
+	6526.8.12 = {
+		holder = lineofcrazkhad1 #Le_idan
+		change_development_level = 7
+	}
+	6586.1.5 = {
+		holder = lineofcrazkhad3 #Mi_i_onid
+	}
+	6625.7.2 = {
+		holder = lineofcrazkhad5 #Yukti_i_r
+	}
+	6664.5.15 = {
+		holder = lineofcrazkhad7 #Jotaen
+	}
+	6688.7.19 = {
+		holder = lineofcrazkhad9 #Mardrash
+	}
+	6719.8.17 = {
+		holder = lineofcrazkhad11 #Tejhazor
+	}
+	6746.2.16 = {
+		holder = lineofcrazkhad13 #Wastaph
+	}
+	6780.3.3 = { # Long winter start date ruler
+		holder = lineofcrazkhad15 #Surakaris
+	}
+	6804.9.11 = {
+		holder = lineofcrazkhad17 #Joam
+	}
+	6856.12.13 = {
+		holder = lineofazumenakhad162 #Bór
+		change_development_level = 6
+	}
+	6918.8.12 = {
+		holder = lineofazumenakhad165 #Ôthour
+	}
+	6964.8.21 = {
+		holder = lineofazumenakhad169 #Tûlimizîr
+	}
+	7007.12.18 = {
+		holder = lineofazumenakhad171 #Khôdid
+	}
+	7041.8.24 = {
+		holder = lineofdriond7 #Curuband
+	}
+	7045.10.14 = {
+		holder = lineofdriond10 #Ûlruth
+	}
+	7064.10.1 = {
+		holder = lineofazumenakhad173 #Khûrsh
+	}
+	7091.10.5 = {
+		holder = lineofazumenakhad176 #Vangariz
+	}
+	7142.7.11 = {
+		holder = lineofazumenakhad182 #Hazishtu
+	}
+}
+c_raisodun = {
+	5212.8.10 = {
+		holder = lineofazumenakhad1 #Azumen
+		change_development_level = 8
+	}
+	5302.6.16 = {
+		holder = lineofazumenakhad3 #Itâna
+	}
+	5336.12.16 = {
+		holder = lineofazumenakhad5 #Ûvatha
+	}
+	5412.7.10 = {
+		holder = lineofazumenakhad7 #Ôvag
+	}
+	5457.1.17 = {
+		holder = lineofazumenakhad9 #Joam-tuv
+	}
+	5472.2.10 = {
+		holder = lineofazumenakhad11 #Eneköl
+	}
+	5494.8.4 = {
+		holder = lineofazumenakhad13 #Ardatha
+	}
+	5527.10.18 = {
+		holder = lineofazumenakhad15 #Dauthar
+	}
+
+	6526.8.12 = {
+		holder = lineofcrazkhad1 #Le_idan
+		change_development_level = 5
+	}
+	6586.1.5 = {
+		holder = lineofcrazkhad3 #Mi_i_onid
+	}
+	6625.7.2 = {
+		holder = lineofcrazkhad5 #Yukti_i_r
+	}
+	6664.5.15 = {
+		holder = lineofcrazkhad7 #Jotaen
+	}
+	6688.7.19 = {
+		holder = lineofcrazkhad9 #Mardrash
+	}
+	6719.8.17 = {
+		holder = lineofcrazkhad11 #Tejhazor
+	}
+	6746.2.16 = {
+		holder = lineofcrazkhad13 #Wastaph
+	}
+	6780.3.3 = { # Long winter start date ruler
+		holder = lineofcrazkhad15 #Surakaris
+	}
+	6804.9.11 = {
+		holder = lineofcrazkhad17 #Joam
+	}
+	6899.2.18 = {
+		holder = lineofdriond3 #Warlôg
+		liege = k_tedjin
+	}
+	6939.4.13 = {
+		holder = lineofdriond5 #Vrônkhar
+	}
+	6996.5.13 = {
+		holder = lineofdriond7 #Curuband
+	}
+	7045.10.14 = {
+		holder = lineofdriond10 #Ûlruth
+	}
+	7073.11.26 = {
+		holder = lineofdriond58 #Dashanjal
+	}
+	7111.8.1 = {
+		holder = lineofdriond60 #Keiseimu
+	}
+	7133.10.27 = {
+		holder = lineofdriond62 #Arjagar
+	}
+	7158.6.4 = {
+		holder = lineofdriond64 #Akhiz
+	}
+}
+c_uonia = {
+	5202.4.4 = {
+		holder = linevrazalid1 #Daio
+	}
+	5263.12.2 = {
+		holder = linevrazalid3 #Khongiu
+	}
+	5329.1.11 = {
+		holder = linevrazalid5 #Gu_u_rtilm
+	}
+	5338.2.15 = { # RoA ruler
+		holder = linevrazalid7 #Daio
+	}
+	5389.6.27 = {
+		holder = linevrazalid9 #Irbo
+	}
+	5410.5.7 = { # Jelut Conquer part of Tedja
+		holder = linejelut1 #Kuan
+	}
+	5429.6.23 = {
+		holder = linejelut3 #Kuesh
+	}
+	5443.7.21 = { # Kuesh slain in Siege of Umbar
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+
+	6603.10.24 = {
+		change_development_level = 4
+		holder = lineofkrauka1 #Sa_a_mirh
+	}
+	6668.9.27 = {
+		holder = lineofkrauka3 #Terko
+	}
+	6732.11.2 = {
+		holder = lineofkrauka5 #Harsa_a_l
+	}
+	6756.2.4 = {
+		holder = lineofkrauka7 #Lavorraz
+	}
+	6779.8.7 = { # Long winter start date ruler
+		holder = lineofkrauka9 #Mo_o_mirh
+	}
+	6807.3.3 = {
+		holder = lineofkrauka11 #Ruado_o_mirh
+	}
+	6978.3.7 = {
+		holder = lineofmisrakim6 #Ozre_e_n
+	}
+	7009.3.26 = {
+		holder = lineofmisrakim10 #Da_a_mirh
+	}
+	7010.4.17 = {
+		holder = lineofmisrakim12 #Qa_a_lfa_a_n
+	}
+	7050.11.14 = {
+		holder = lineofmisrakim14 #Lasim
+	}
+	7067.10.4 = {
+		holder = lineofmisrakim29 #A_A_ndrimirh
+	}
+	7087.2.17 = {
+		holder = lineofmisrakim31 #Ima_a_n
+	}
+	7134.2.27 = {
+		holder = lineofmisrakim33 #Drayze_e_n
+	}
+	7153.2.28 = {
+		holder = lineofmisrakim35 #Ruado_o_mirh
+	}
+}
+c_usried = {
+	5202.4.4 = {
+		holder = linevrazalid1 #Daio
+	}
+	5263.12.2 = {
+		holder = linevrazalid3 #Khongiu
+	}
+	5329.1.11 = {
+		holder = linevrazalid5 #Gu_u_rtilm
+	}
+	5338.2.15 = { # RoA ruler
+		holder = linevrazalid7 #Daio
+	}
+	5389.6.27 = {
+		holder = linevrazalid9 #Irbo
+	}
+	5410.5.7 = { # Jelut Conquer part of Tedja
+		holder = linejelut1 #Kuan
+	}
+	5429.6.23 = {
+		holder = linejelut3 #Kuesh
+	}
+	5443.7.21 = { # Kuesh slain in Siege of Umbar
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+
+	6603.10.24 = {
+		holder = lineofkrauka1 #Sa_a_mirh
+		change_development_level = 4
+	}
+	6668.9.27 = {
+		holder = lineofkrauka3 #Terko
+	}
+	6732.11.2 = {
+		holder = lineofkrauka5 #Harsa_a_l
+	}
+	6756.2.4 = {
+		holder = lineofkrauka7 #Lavorraz
+	}
+	6779.8.7 = { # Long winter start date ruler
+		holder = lineofkrauka14 #Vise_e_lak
+		liege = d_kref_tuvvaj
+	}
+	6978.3.7 = {
+		holder = lineofmisrakim6 #Ozre_e_n
+		liege = 0
+	}
+	7009.3.26 = {
+		holder = lineofmisrakim10 #Da_a_mirh
+	}
+	7010.4.17 = {
+		holder = lineofmisrakim12 #Qa_a_lfa_a_n
+	}
+	7050.11.14 = {
+		holder = lineofmisrakim14 #Lasim
+	}
+	7067.10.4 = {
+		holder = lineofmisrakim29 #A_A_ndrimirh
+	}
+	7087.2.17 = {
+		holder = lineofmisrakim31 #Ima_a_n
+	}
+	7134.2.27 = {
+		holder = lineofmisrakim33 #Drayze_e_n
+	}
+	7153.2.28 = {
+		holder = lineofmisrakim35 #Ruado_o_mirh
+	}
+}
+c_tain = {
+	5202.4.4 = {
+		holder = linevrazalid1 #Daio
+	}
+	5263.12.2 = {
+		holder = linevrazalid3 #Khongiu
+	}
+	5329.1.11 = {
+		holder = linevrazalid5 #Gu_u_rtilm
+	}
+	5338.2.15 = { # RoA ruler
+		holder = linevrazalid7 #Daio
+	}
+	5389.6.27 = {
+		holder = linevrazalid9 #Irbo
+	}
+	5410.5.7 = { # Jelut Conquer part of Tedja
+		holder = linejelut1 #Kuan
+	}
+	5429.6.23 = {
+		holder = linejelut3 #Kuesh
+	}
+	5443.7.21 = { # Kuesh slain in Siege of Umbar
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linejelut12 #Borga_a_l
+	}
+	5468.6.19 = {
+		holder = linejelut14 #Biorna
+	}
+
+	6603.9.26 = {
+		holder = lineofkrauka1 #Brayko
+		change_development_level = 3
+	}
+	6664.4.26 = {
+		holder = lineofkrauka3 #Quado_o_mearh
+	}
+	6712.7.7 = {
+		holder = lineofkrauka5 #Pinak
+	}
+	6742.1.26 = {
+		holder = lineofkrauka7 #Rayo
+	}
+	6763.7.1 = { # Long winter start date ruler
+		holder = lineofkrauka9 #Timirh
+	}
+	6793.9.18 = {
+		holder = lineofkrauka11 #Yasiko
+	}
+	6813.3.4 = {
+		holder = lineofkrauka13 #Nafasirh
+	}
+	6978.3.7 = {
+		holder = lineofmisrakim6 #Ozre_e_n
+		liege = 0
+	}
+	7009.3.26 = {
+		holder = lineofmisrakim10 #Da_a_mirh
+	}
+	7010.4.17 = {
+		holder = lineofmisrakim12 #Qa_a_lfa_a_n
+	}
+	7050.11.14 = {
+		holder = lineofmisrakim14 #Lasim
+	}
+	7067.10.4 = {
+		holder = lineofmisrakim29 #A_A_ndrimirh
+	}
+	7087.2.17 = {
+		holder = lineofmisrakim31 #Ima_a_n
+	}
+	7134.2.27 = {
+		holder = lineofmisrakim33 #Drayze_e_n
+	}
+	7153.2.28 = {
+		holder = lineofmisrakim35 #Ruado_o_mirh
+	}
+}
+
+### Kingdom of Quarsa ###
+k_qarsa = {
+	4872.11.23 = {
+		holder = lineofkhuarsed1
+	}
+	4910.8.12 = {
+		holder = lineofkhuarsed2
+		liege = e_tedjin
+	}
+	4935.8.12 = {
+		holder = lineofkhuarsed4
+		liege = e_tedjin
+	}
+	4970.8.12 = {
+		holder = lineofkhuarsed5
+	}
+	4984.8.1 = {
+		holder = 0
+	}
+	5368.6.10 = { # RoA ruler
+		holder = lineyanales9 #Milhe_e_nkho
+	}
+	5386.8.28 = {
+		holder = lineyanales11 #Pakir
+	}
+	5445.4.15 = {
+		holder = 0
+	}
+}
+
+## Duchy of Kes Weza ##
+d_kes_weza = {
+	6807.10.6 = {
+		holder = lineofzakirhim1 #Zakirh
+	}
+	6892.4.3 = {
+		holder = lineofzakirhim3 #Bozat
+	}
+	6922.2.1 = {
+		holder = lineofzakirhim5 #Zakirh
+	}
+	6949.5.14 = {
+		holder = lineofzakirhim10 #Quaba_a_li
+	}
+	7015.6.8 = {
+		holder = lineofzakirhim12 #Rayo
+	}
+	7047.1.21 = {
+		holder = lineofzakirhim14 #Nurru
+	}
+	7074.3.1 = {
+		holder = lineofzakirhim82 #Yargize_e_n
+	}
+	7088.6.6 = {
+		holder = lineofzakirhim84 #A_A_ndria
+	}
+	7147.8.25 = {
+		holder = lineofzakirhim86 #Da_a_liyaumirh
+	}
+	7148.5.27 = {
+		holder = lineofzakirhim88 #Zirra_a_na
+	}
+}
+c_weza = {
+	5206.12.14 = {
+		holder = linecassida1 #Je_e_ngho
+		change_development_level = 5
+	}
+	5272.3.22 = {
+		holder = linecassida3 #Nede_e_lkho
+	}
+	5312.10.9 = {
+		holder = linecassida5 #Boja_a_n
+	}
+	5337.9.3 = { # RoA ruler
+		holder = linecassida9 #Jerek
+	}
+	5393.5.10 = {
+		holder = linecassida11 #Jerek
+	}
+
+	6694.10.8 = {
+		holder = lineofzalatkes1 #Berrivoz
+		change_development_level = 6
+	}
+	6770.6.14 = { # Long winter start date ruler
+		holder = lineofzalatkes3 #Sa_a_milya_a_n
+	}
+	6800.9.7 = {
+		holder = lineofzalatkes5 #Ima_a_n
+	}
+	6825.9.11 = {
+		holder = lineofzalatkes7 #Nediyko
+	}
+	6807.10.6 = {
+		holder = lineofzakirhim1 #Zakirh
+		change_development_level = 7
+	}
+	6892.4.3 = {
+		holder = lineofzakirhim3 #Bozat
+	}
+	6922.2.1 = {
+		holder = lineofzakirhim5 #Zakirh
+	}
+	6949.5.14 = {
+		holder = lineofzakirhim45 #Bogo
+		liege = d_auz_bekar
+	}
+	6986.1.8 = {
+		holder = lineofzakirhim54 #Harrarh
+	}
+	7034.1.19 = {
+		holder = lineofzakirhim60 #De_e_lasimirh
+	}
+	7059.4.28 = {
+		holder = lineofzakirhim63 #Tuabu
+	}
+	7085.6.9 = {
+		holder = lineofzakirhim107 #Bozetye
+	}
+	7111.11.24 = {
+		holder = lineofzakirhim109 #Kyatikarh
+	}
+	7152.1.26 = {
+		holder = lineofzakirhim111 #Lavorraz
+	}
+	7171.9.3 = {
+		holder = lineofzakirhim113 #Virratay
+	}
+}
+c_zunzun = {
+	5206.12.14 = {
+		holder = linecassida1 #Je_e_ngho
+		change_development_level = 5
+	}
+	5272.3.22 = {
+		holder = linecassida3 #Nede_e_lkho
+	}
+	5312.10.9 = {
+		holder = linecassida5 #Boja_a_n
+	}
+	5337.9.3 = { # RoA ruler
+		holder = linecassida9 #Jerek
+	}
+	5393.5.10 = {
+		holder = linecassida11 #Jerek
+	}
+
+	6674.9.3 = {
+		holder = lineoftarraukin1 #Zete_e_limirh
+		change_development_level = 5
+	}
+	6714.5.20 = {
+		holder = lineoftarraukin3 #Zevo_o_nko
+	}
+	6784.2.26 = { # Long winter start date ruler
+		holder = lineoftarraukin5 #Yasiko
+	}
+	6807.10.6 = {
+		holder = lineofzakirhim1 #Zakirh
+		change_development_level = 6
+	}
+	6892.4.3 = {
+		holder = lineofzakirhim3 #Bozat
+	}
+	6922.2.1 = {
+		holder = lineofzakirhim5 #Zakirh
+	}
+	6949.5.14 = {
+		holder = lineofzakirhim52 #Kreirh
+		liege = d_auz_bekar
+	}
+	6976.6.21 = {
+		holder = lineofzakirhim54 #Harrarh
+	}
+	7034.1.19 = {
+		holder = lineofzakirhim60 #De_e_lasimirh
+	}
+	7059.4.28 = {
+		holder = lineofzakirhim63 #Tuabu
+	}
+	7085.6.9 = {
+		holder = lineofzakirhim107 #Bozetye
+	}
+	7111.11.24 = {
+		holder = lineofzakirhim109 #Kyatikarh
+	}
+	7152.1.26 = {
+		holder = lineofzakirhim111 #Lavorraz
+	}
+	7171.9.3 = {
+		holder = lineofzakirhim113 #Virratay
+	}
+}
+c_tarmur = {
+	5210.1.18 = {
+		holder = linesatyani1 #Pe_e_nhar
+		change_development_level = 7
+	}
+	5286.12.22 = {
+		holder = linesatyani3 #Boja_a_n
+	}
+	5322.2.22 = {
+		holder = linesatyani5 #Ne_e_nad
+	}
+	5346.4.14 = {
+		holder = linesatyani7 #Jozir
+	}
+	5373.1.25 = { # RoA Ruler
+		holder = linesatyani9 #Fareeha
+	}
+	5416.2.15 = {
+		holder = linesatyani11 #Sa_alya
+	}
+
+	6617.1.3 = {
+		holder = lineofratka1 #Nurru
+		change_development_level = 8
+	}
+	6690.2.22 = {
+		holder = lineofratka3 #Timbahr
+	}
+	6724.9.8 = {
+		holder = lineofratka5 #Torna
+	}
+	6771.4.12 = { # Long winter start date ruler
+		holder = lineofratka7 #Pakirh
+	}
+	6796.11.12 = {
+		holder = lineofratka9 #Bogo
+	}
+	6807.10.6 = {
+		holder = lineofzakirhim1 #Zakirh
+	}
+	6892.4.3 = {
+		holder = lineofzakirhim3 #Bozat
+	}
+	6922.2.1 = {
+		holder = lineofzakirhim5 #Zakirh
+	}
+	6949.5.14 = {
+		holder = lineofzakirhim18 #Nyoka
+		liege = d_auz_bekar
+	}
+	6990.5.6 = {
+		holder = lineofzakirhim20 #Saut
+	}
+	7047.7.22 = {
+		holder = lineofzakirhim22 #Bozat
+	}
+	7066.7.25 = {
+		holder = lineofzakirhim95 #Asu_u_ma_a_ni
+	}
+	7095.6.16 = {
+		holder = lineofzakirhim97 #Nurru
+	}
+	7143.1.7 = {
+		holder = lineofzakirhim99 #Zimbo
+	}
+}
+c_kalijoa = {
+	5210.1.18 = {
+		holder = linesatyani1 #Pe_e_nhar
+		change_development_level = 7
+	}
+	5286.12.22 = {
+		holder = linesatyani3 #Boja_a_n
+	}
+	5322.2.22 = {
+		holder = linesatyani5 #Ne_e_nad
+	}
+	5346.4.14 = {
+		holder = linesatyani7 #Jozir
+	}
+	5373.1.25 = { # RoA Ruler
+		holder = linesatyani9 #Fareeha
+	}
+	5416.2.15 = {
+		holder = linesatyani11 #Sa_alya
+	}
+
+	6694.10.8 = {
+		holder = lineofzalatkes1 #Berrivoz
+		change_development_level = 8
+	}
+	6770.6.14 = { # Long Winter start date ruler
+		holder = lineofzalatkes3 #Sa_a_milya_a_n
+	}
+	6800.9.7 = {
+		holder = lineofzalatkes5 #Ima_a_n
+	}
+	6807.10.6 = {
+		holder = lineofzakirhim1 #Zakirh
+	}
+	6892.4.3 = {
+		holder = lineofzakirhim3 #Bozat
+	}
+	6922.2.1 = {
+		holder = lineofzakirhim5 #Zakirh
+	}
+	6949.5.14 = {
+		holder = lineofzakirhim18 #Nyoka
+		liege = d_auz_bekar
+	}
+	6990.5.6 = {
+		holder = lineofzakirhim31 #Huagos
+	}
+	7032.12.17 = {
+		holder = lineofzakirhim33 #Uhurro
+	}
+	7073.6.16 = {
+		holder = lineofzakirhim37 #Mautimirh
+	}
+	7093.11.20 = {
+		holder = lineofzakirhim95 #Asu_u_ma_a_ni
+	}
+	7095.6.16 = {
+		holder = lineofzakirhim97 #Nurru
+	}
+	7143.1.7 = {
+		holder = lineofzakirhim99 #Zimbo
+	}
+}
+
+## Duchy of Auz Bekar ##
+d_auz_bekar = {
+	5300.3.5 = {
+		holder = linemarzani1 #Da_a_nikha
+	}
+	5382.2.1 = { # RoA ruler
+		holder = linemarzani3 #Marzani
+	}
+	5433.5.11 = {
+		holder = linemarzani5 # Nedelkha
+	}
+	5455.2.15 = {
+		holder = 0
+	}
+	6617.1.3 = {
+		holder = lineofratka1 #Nurru
+	}
+	6690.2.22 = {
+		holder = lineofratka3 #Timbahr
+	}
+	6724.9.8 = {
+		holder = lineofratka5 #Torna
+	}
+	6771.4.12 = { # Long winter start date ruler
+		holder = lineofratka7 #Pakirh
+	}
+	6796.11.12 = {
+		holder = lineofratka9 #Bogo
+	}
+	6807.10.6 = {
+		holder = lineofzakirhim1 #Zakirh
+	}
+	6892.4.3 = {
+		holder = lineofzakirhim3 #Bozat
+	}
+	6922.2.1 = {
+		holder = lineofzakirhim5 #Zakirh
+	}
+	6949.5.14 = {
+		holder = lineofzakirhim10 #Quaba_a_li
+	}
+	7015.6.8 = {
+		holder = lineofzakirhim12 #Rayo
+	}
+	7047.1.21 = {
+		holder = lineofzakirhim14 #Nurru
+	}
+	7074.3.1 = {
+		holder = lineofzakirhim82 #Yargize_e_n
+	}
+	7088.6.6 = {
+		holder = lineofzakirhim84 #A_A_ndria
+	}
+	7147.8.25 = {
+		holder = lineofzakirhim86 #Da_a_liyaumirh
+	}
+	7148.5.27 = {
+		holder = lineofzakirhim88 #Zirra_a_na
+	}
+}
+c_temelahi = {
+	5300.3.5 = {
+		holder = linemarzani1 #Da_a_nikha
+		change_development_level = 8
+	}
+	5382.2.1 = { # RoA ruler
+		holder = linemarzani3 #Marzani
+	}
+	5433.5.11 = {
+		holder = linemarzani5 # Nedelkha
+	}
+
+	6617.1.3 = {
+		holder = lineofratka1 #Nurru
+		change_development_level = 9
+	}
+	6690.2.22 = {
+		holder = lineofratka3 #Timbahr
+	}
+	6724.9.8 = {
+		holder = lineofratka5 #Torna
+	}
+	6771.4.12 = { # Long winter start date ruler
+		holder = lineofratka7 #Pakirh
+	}
+	6796.11.12 = {
+		holder = lineofratka9 #Bogo
+	}
+	6807.10.6 = {
+		holder = lineofzakirhim1 #Zakirh
+		change_development_level = 10
+	}
+	6892.4.3 = {
+		holder = lineofzakirhim3 #Bozat
+	}
+	6922.2.1 = {
+		holder = lineofzakirhim5 #Zakirh
+	}
+	6949.5.14 = {
+		holder = lineofzakirhim10 #Quaba_a_li
+	}
+	7015.6.8 = {
+		holder = lineofzakirhim12 #Rayo
+	}
+	7047.1.21 = {
+		holder = lineofzakirhim14 #Nurru
+	}
+	7074.3.1 = {
+		holder = lineofzakirhim82 #Yargize_e_n
+	}
+	7088.6.6 = {
+		holder = lineofzakirhim84 #A_A_ndria
+	}
+	7147.8.25 = {
+		holder = lineofzakirhim86 #Da_a_liyaumirh
+	}
+	7148.5.27 = {
+		holder = lineofzakirhim88 #Zirra_a_na
+	}
+}
+c_ephalak = {
+	5300.3.5 = {
+		holder = linemarzani1 #Da_a_nikha
+		change_development_level = 8
+	}
+	5382.2.1 = { # RoA ruler
+		holder = linemarzani3 #Marzani
+	}
+	5433.5.11 = {
+		holder = linemarzani5 # Nedelkha
+	}
+
+	6617.1.3 = {
+		holder = lineofratka1 #Nurru
+		change_development_level = 10
+	}
+	6690.2.22 = {
+		holder = lineofratka3 #Timbahr
+	}
+	6724.9.8 = {
+		holder = lineofratka5 #Torna
+	}
+	6771.4.12 = { # Long winter start date ruler
+		holder = lineofratka7 #Pakirh
+	}
+	6796.11.12 = {
+		holder = lineofratka9 #Bogo
+	}
+	6807.10.6 = {
+		holder = lineofzakirhim1 #Zakirh
+		change_development_level = 12
+	}
+	6892.4.3 = {
+		holder = lineofzakirhim3 #Bozat
+	}
+	6922.2.1 = {
+		holder = lineofzakirhim5 #Zakirh
+	}
+	6949.5.14 = {
+		holder = lineofzakirhim10 #Quaba_a_li
+	}
+	7015.6.8 = {
+		holder = lineofzakirhim12 #Rayo
+	}
+	7047.1.21 = {
+		holder = lineofzakirhim14 #Nurru
+	}
+	7074.3.1 = {
+		holder = lineofzakirhim82 #Yargize_e_n
+	}
+	7088.6.6 = {
+		holder = lineofzakirhim84 #A_A_ndria
+	}
+	7147.8.25 = {
+		holder = lineofzakirhim86 #Da_a_liyaumirh
+	}
+	7148.5.27 = {
+		holder = lineofzakirhim88 #Zirra_a_na
+	}
+}
+c_menaja = {
+	5210.5.18 = {
+		holder = linetrakheri1 #Ne_e_nad
+		change_development_level = 6
+	}
+	5275.5.21 = {
+		holder = linetrakheri3 #Brajkho
+	}
+	5311.6.9 = {
+		holder = linetrakheri5 #Pe_e_nhar
+	}
+	5380.11.13 = { # RoA ruler
+		holder = linetrakheri7 #De_e_lasimmir
+	}
+	5414.2.1 = {
+		holder = linetrakheri9 #Radofa_a_n
+	}
+	5458.2.18 = {
+		holder = linetrakheri11 #Asu_u_ma_a_ni
+	}
+
+	6674.9.3 = {
+		holder = lineoftarraukin1 #Zete_e_limirh
+		change_development_level = 5
+	}
+	6714.5.20 = {
+		holder = lineoftarraukin3 #Zevo_o_nko
+	}
+	6784.2.26 = { # Long winter start date ruler
+		holder = lineoftarraukin10 #Veas
+		liege = d_kes_kriz
+	}
+	6807.10.6 = {
+		holder = lineofzakirhim1 #Zakirh
+		liege = 0
+		change_development_level = 9
+	}
+	6892.4.3 = {
+		holder = lineofzakirhim3 #Bozat
+	}
+	6922.2.1 = {
+		holder = lineofzakirhim5 #Zakirh
+	}
+	6949.5.14 = {
+		holder = lineofzakirhim10 #Quaba_a_li
+	}
+	7015.6.8 = {
+		holder = lineofzakirhim12 #Rayo
+	}
+	7047.1.21 = {
+		holder = lineofzakirhim14 #Nurru
+	}
+	7074.3.1 = {
+		holder = lineofzakirhim82 #Yargize_e_n
+	}
+	7088.6.6 = {
+		holder = lineofzakirhim84 #A_A_ndria
+	}
+	7147.8.25 = {
+		holder = lineofzakirhim86 #Da_a_liyaumirh
+	}
+	7148.5.27 = {
+		holder = lineofzakirhim88 #Zirra_a_na
+	}
+}
+
+## Duchy of Kes Susad ##
+d_kes_susad = {
+	6882.10.26 = {
+		holder = lineofqarsatim1 #Qarsat
+	}
+	6952.8.12 = {
+		holder = lineofqarsatim3 #Krauko
+	}
+	6988.6.20 = {
+		holder = lineofqarsatim5 #Da_a_liyaut
+	}
+	7022.12.2 = {
+		holder = lineofqarsatim7 #Zaik
+	}
+	7057.3.6 = {
+		holder = lineofqarsatim9 #Zevo_o_n
+	}
+	7079.7.27 = {
+		holder = lineofqarsatim41 #Zete_e_limirh
+	}
+	7105.10.12 = {
+		holder = lineofqarsatim43 #Nafasirh
+	}
+	7154.11.27 = {
+		holder = lineofqarsatim45 #Rato
+	}
+}
+c_sazat = { # Sazat
+	5200.2.7 = {
+		holder = linorisa1 #Je_e_ngho
+		change_development_level = 7
+	}
+	5261.11.1 = {
+		holder = linorisa3 #Borgha_a_l
+	}
+	5304.1.26 = {
+		holder = linorisa5 #Malt_o_e_k
+	}
+	5330.5.6 = {
+		holder = linorisa7 #Zirinkho
+	}
+	5377.8.19 = { # RoA ruler
+		holder = linorisa9 #Bra_a_nkho
+	}
+
+	6617.1.3 = {
+		holder = lineofratka1 #Nurru
+		change_development_level = 6
+	}
+	6690.2.22 = {
+		holder = lineofratka3 #Timbahr
+	}
+	6724.9.8 = {
+		holder = lineofratka5 #Torna
+	}
+	6771.4.12 = {
+		holder = lineofratka11 #Ozo
+		liege = d_auz_bekar
+	}
+	6786.11.7 = { # Long winter start date ruler
+		holder = lineofratka13 #Dobarruadish
+	}
+	6882.10.26 = {
+		holder = lineofqarsatim1 #Qarsat
+		liege = 0
+		change_development_level = 7
+	}
+	6952.8.12 = {
+		holder = lineofqarsatim3 #Krauko
+	}
+	6988.6.20 = {
+		holder = lineofqarsatim5 #Da_a_liyaut
+	}
+	7022.12.2 = {
+		holder = lineofqarsatim7 #Zaik
+	}
+	7057.3.6 = {
+		holder = lineofqarsatim9 #Zevo_o_n
+	}
+	7079.7.27 = {
+		holder = lineofqarsatim41 #Zete_e_limirh
+	}
+	7105.10.12 = {
+		holder = lineofqarsatim43 #Nafasirh
+	}
+	7154.11.27 = {
+		holder = lineofqarsatim45 #Rato
+	}
+}
+c_zatay = { # Zatay
+	5200.3.16 = {
+		holder = lineakandig1 #Boja_a_n
+		change_development_level = 4
+	}
+	5262.9.14 = {
+		holder = lineakandig3 #Je_e_ngho
+	}
+	5312.4.12 = {
+		holder = lineakandig5 #Darijkho
+	}
+	5333.11.10 = {
+		holder = lineakandig7 #Jasikho
+	}
+	5374.12.17 = { # RoA ruler
+		holder = lineakandig9 #Brajkho
+	}
+	5393.5.12 = {
+		holder = lineakandig11 #Farisi
+	}
+
+	6683.11.20 = {
+		holder = lineoflavorres1 #Mek
+		change_development_level = 5
+	}
+	6764.3.27 = { # Long winter start date ruler
+		holder = lineoflavorres3 #Bogo
+	}
+	6806.7.27 = {
+		holder = lineoflavorres5 #Qa_a_lfa_a_n
+	}
+	6882.10.26 = {
+		holder = lineofqarsatim1 #Qarsat
+		change_development_level = 7
+	}
+	6952.8.12 = {
+		holder = lineofqarsatim3 #Krauko
+	}
+	6988.6.20 = {
+		holder = lineofqarsatim5 #Da_a_liyaut
+	}
+	7022.12.2 = {
+		holder = lineofqarsatim7 #Zaik
+	}
+	7057.3.6 = {
+		holder = lineofqarsatim9 #Zevo_o_n
+	}
+	7079.7.27 = {
+		holder = lineofqarsatim41 #Zete_e_limirh
+	}
+	7105.10.12 = {
+		holder = lineofqarsatim43 #Nafasirh
+	}
+	7154.11.27 = {
+		holder = lineofqarsatim45 #Rato
+	}
+}
+c_tofarh = { # Tofarh
+	5200.3.16 = {
+		holder = lineakandig1 #Boja_a_n
+		change_development_level = 5
+	}
+	5262.9.14 = {
+		holder = lineakandig3 #Je_e_ngho
+	}
+	5312.4.12 = {
+		holder = lineakandig5 #Darijkho
+	}
+	5333.11.10 = {
+		holder = lineakandig7 #Jasikho
+	}
+	5374.12.17 = { # RoA ruler
+		holder = lineakandig9 #Brajkho
+	}
+	5393.5.12 = {
+		holder = lineakandig11 #Farisi
+	}
+
+	6617.1.3 = {
+		holder = lineofratka1 #Nurru
+		change_development_level = 5
+	}
+	6690.2.22 = {
+		holder = lineofratka3 #Timbahr
+	}
+	6724.9.8 = {
+		holder = lineofratka5 #Torna
+	}
+	6771.4.12 = { # Long winter start date ruler
+		holder = lineofratka11 #Ozo
+		liege = d_auz_bekar
+	}
+	6786.11.7 = {
+		holder = lineofratka13 #Dobarruadish
+	}
+	6882.10.26 = {
+		holder = lineofqarsatim1 #Qarsat
+		liege = 0
+		change_development_level = 8
+	}
+	6952.8.12 = {
+		holder = lineofqarsatim3 #Krauko
+	}
+	6988.6.20 = {
+		holder = lineofqarsatim5 #Da_a_liyaut
+	}
+	7022.12.2 = {
+		holder = lineofqarsatim7 #Zaik
+	}
+	7057.3.6 = {
+		holder = lineofqarsatim9 #Zevo_o_n
+	}
+	7079.7.27 = {
+		holder = lineofqarsatim41 #Zete_e_limirh
+	}
+	7105.10.12 = {
+		holder = lineofqarsatim43 #Nafasirh
+	}
+	7154.11.27 = {
+		holder = lineofqarsatim45 #Rato
+	}
+}
+
+## Duchy of Kes Arik ##
+d_kes_arik = {
+	7002.10.26 = {
+		holder = lineofqarsatim24 #Isalan
+	}
+	7067.7.8 = {
+		holder = lineofqarsatim53 #Aniri_i_k
+	}
+	7101.9.9 = {
+		holder = lineofqarsatim55 #Asu_u_ma_a_ni
+	}
+	7139.4.24 = {
+		holder = lineofqarsatim57 #Zirrinko
+	}
+	7156.7.16 = {
+		holder = lineofqarsatim61 #Qa_a_lo_o_nimirh
+	}
+}
+c_tiazen = { # Tiazen
+	5200.5.5 = {
+		holder = linfreyanid1 #De_e_lasimmir
+		change_development_level = 2
+	}
+	5272.6.1 = {
+		holder = linfreyanid3 #A_A_mbar
+	}
+	5328.2.3 = {
+		holder = linfreyanid5 #Jerek
+	}
+	5333.9.11 = {
+		holder = linfreyanid7 #Bra_a_limar
+	}
+	5346.1.24 = { # RoA ruler
+		holder = linfreyanid9 #Krukho
+	}
+	5406.7.6 = {
+		holder = linfreyanid11 #Kha_a_lo_o_nimmir
+	}
+
+	6683.11.20 = {
+		holder = lineoflavorres1 #Mek
+		change_development_level = 3
+	}
+	6764.3.27 = { # Long winter start date ruler
+		holder = lineoflavorres3 #Bogo
+	}
+	6806.7.27 = {
+		holder = lineoflavorres5 #Qa_a_lfa_a_n
+	}
+	6882.10.26 = {
+		holder = lineofqarsatim1 #Qarsat
+		change_development_level = 5
+	}
+	6952.8.12 = {
+		holder = lineofqarsatim3 #Krauko
+	}
+	6988.6.20 = {
+		holder = lineofqarsatim5 #Da_a_liyaut
+	}
+	7022.12.2 = {
+		holder = lineofqarsatim7 #Zaik
+	}
+	7057.3.6 = {
+		holder = lineofqarsatim9 #Zevo_o_n
+	}
+	7074.3.19 = {
+		holder = lineofqarsatim53 #Aniri_i_k
+	}
+	7101.9.9 = {
+		holder = lineofqarsatim55 #Asu_u_ma_a_ni
+	}
+	7139.4.24 = {
+		holder = lineofqarsatim57 #Zirrinko
+	}
+	7156.7.16 = {
+		holder = lineofqarsatim61 #Qa_a_lo_o_nimirh
+	}
+}
+c_sarri = { # Sarri
+	3500.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	7002.10.26 = {
+		holder = lineofqarsatim24 #Isalan
+		change_development_level = 4
+		government = tribal_government
+	}
+	7067.7.8 = {
+		holder = lineofqarsatim53 #Aniri_i_k
+	}
+	7101.9.9 = {
+		holder = lineofqarsatim55 #Asu_u_ma_a_ni
+	}
+	7139.4.24 = {
+		holder = lineofqarsatim57 #Zirrinko
+	}
+	7156.7.16 = {
+		holder = lineofqarsatim61 #Qa_a_lo_o_nimirh
+	}
+}
+c_ramirh = { # Ramirh
+	5200.5.5 = {
+		holder = linfreyanid1 #De_e_lasimmir
+		change_development_level = 2
+	}
+	5272.6.1 = {
+		holder = linfreyanid3 #A_A_mbar
+	}
+	5328.2.3 = {
+		holder = linfreyanid5 #Jerek
+	}
+	5333.9.11 = {
+		holder = linfreyanid7 #Bra_a_limar
+	}
+	5346.1.24 = { # RoA ruler
+		holder = linfreyanid9 #Krukho
+	}
+	5406.7.6 = {
+		holder = linfreyanid11 #Kha_a_lo_o_nimmir
+	}
+
+	5500.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	7002.10.26 = {
+		holder = lineofqarsatim24 #Isalan
+		change_development_level = 3
+		government = tribal_government
+	}
+	7067.7.8 = {
+		holder = lineofqarsatim53 #Aniri_i_k
+	}
+	7101.9.9 = {
+		holder = lineofqarsatim55 #Asu_u_ma_a_ni
+	}
+	7139.4.24 = {
+		holder = lineofqarsatim57 #Zirrinko
+	}
+	7156.7.16 = {
+		holder = lineofqarsatim61 #Qa_a_lo_o_nimirh
+	}
+}
+c_tuazat = { # Tuazat
+	5210.5.18 = {
+		holder = linetrakheri1 #Ne_e_nad
+		change_development_level = 5
+	}
+	5275.5.21 = {
+		holder = linetrakheri3 #Brajkho
+	}
+	5311.6.9 = {
+		holder = linetrakheri5 #Pe_e_nhar
+	}
+	5380.11.13 = { # RoA ruler
+		holder = linetrakheri7 #De_e_lasimmir
+	}
+	5414.2.1 = {
+		holder = linetrakheri9 #Radofa_a_n
+	}
+	5458.2.18 = {
+		holder = linetrakheri11 #Asu_u_ma_a_ni
+	}
+
+	6674.9.3 = {
+		holder = lineoftarraukin1 #Zete_e_limirh
+		change_development_level = 4
+	}
+	6714.5.20 = {
+		holder = lineoftarraukin3 #Zevo_o_nko
+	}
+	6784.2.26 = { # Long winter start date ruler
+		holder = lineoftarraukin10 #Veas
+		liege = d_kes_kriz
+	}
+	7002.10.26 = {
+		holder = lineofqarsatim24 #Isalan
+		liege = 0
+		change_development_level = 7
+	}
+	7067.7.8 = {
+		holder = lineofqarsatim53 #Aniri_i_k
+	}
+	7101.9.9 = {
+		holder = lineofqarsatim55 #Asu_u_ma_a_ni
+	}
+	7139.4.24 = {
+		holder = lineofqarsatim57 #Zirrinko
+	}
+	7156.7.16 = {
+		holder = lineofqarsatim61 #Qa_a_lo_o_nimirh
+	}
+}
+
+## Duchy of Kes Kriz ##
+d_kes_kriz = {
+	5201.1.8 = {
+		holder = lineyanales1 #Ne_e_nad
+	}
+	5264.4.10 = {
+		holder = lineyanales3 #Krejir
+	}
+	5304.6.23 = {
+		holder = lineyanales5 #Arajar
+	}
+	5350.2.1 = {
+		holder = lineyanales7 #Arajar
+	}
+	5368.6.10 = { # RoA ruler
+		holder = lineyanales9 #Milhe_e_nkho
+	}
+	5386.8.28 = {
+		holder = lineyanales11 #Pakir
+	}
+	5445.4.15 = {
+		holder = 0
+	}
+
+	6674.9.3 = {
+		holder = lineoftarraukin1 #Zete_e_limirh
+	}
+	6714.5.20 = {
+		holder = lineoftarraukin3 #Zevo_o_nko
+	}
+	6784.2.26 = {
+		holder = lineoftarraukin5 #Yasiko
+	}
+	6821.7.18 = {
+		holder = 0
+	}
+
+	6871.7.16 = {
+		holder = lineoffirhunes1 #Sa_a_milya_a_n
+	}
+	6948.2.21 = {
+		holder = lineoffirhunes3 #Bra_a_nko
+	}
+	6982.9.24 = {
+		holder = lineoffirhunes5 #Gyorruad
+	}
+	7023.9.6 = {
+		holder = lineoffirhunes7 #Qo_o_lo_o_nka_a_n
+	}
+	7034.11.13 = {
+		holder = lineoffirhunes9 #Zaik
+	}
+	7082.9.16 = {
+		holder = lineoffirhunes33 #Pravak
+	}
+	7103.2.28 = {
+		holder = lineoffirhunes35 #Qo_o_lo_o_nka_a_n
+	}
+	7134.10.15 = {
+		holder = lineoffirhunes37 #Akubarh
+		liege = k_aukar
+	}
+}
+c_asud = {
+	5201.1.8 = {
+		holder = lineyanales1 #Ne_e_nad
+		change_development_level = 12
+	}
+	5264.4.10 = {
+		holder = lineyanales3 #Krejir
+	}
+	5304.6.23 = {
+		holder = lineyanales5 #Arajar
+	}
+	5350.2.1 = {
+		holder = lineyanales7 #Arajar
+	}
+	5368.6.10 = { # RoA ruler
+		holder = lineyanales9 #Milhe_e_nkho
+	}
+	5386.8.28 = {
+		holder = lineyanales11 #Pakir
+	}
+
+	6674.9.3 = {
+		holder = lineoftarraukin1 #Zete_e_limirh
+		change_development_level = 6
+	}
+	6714.5.20 = {
+		holder = lineoftarraukin3 #Zevo_o_nko
+	}
+	6784.2.26 = {
+		holder = lineoftarraukin5 #Yasiko
+	}
+
+	6871.7.16 = {
+		holder = lineoffirhunes1 #Sa_a_milya_a_n
+	}
+	6948.2.21 = {
+		holder = lineoffirhunes3 #Bra_a_nko
+	}
+	6982.9.24 = {
+		holder = lineoffirhunes5 #Gyorruad
+	}
+	7023.9.6 = {
+		holder = lineoffirhunes7 #Qo_o_lo_o_nka_a_n
+	}
+	7034.11.13 = {
+		holder = lineoffirhunes9 #Zaik
+	}
+	7082.9.16 = {
+		holder = lineoffirhunes33 #Pravak
+	}
+	7103.2.28 = {
+		holder = lineoffirhunes35 #Qo_o_lo_o_nka_a_n
+	}
+	7134.10.15 = {
+		holder = lineoffirhunes37 #Akubarh
+	}
+}
+c_akuman = {
+	5100.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6666.6.5 = {
+		holder = linemisrakid1
+		change_development_level = 5
+		government = tribal_government
+	}
+	6725.6.16 = {
+		holder = linemisrakid5
+	}
+	6776.5.12 = {
+		holder = linemisrakid7
+	}
+	6821.7.18 = {
+		holder = linemisrakid10
+	}
+	6844.10.26 = {
+		holder = linemisrakid14
+	}
+	6876.8.25 = {
+		holder = linemisrakid16
+	}
+	6892.7.16 = { #Conquered by the Aukari
+		holder = lineoffirhunes1 #Sa_a_milya_a_n
+	}
+	6948.2.21 = {
+		holder = lineoffirhunes3 #Bra_a_nko
+	}
+	6982.9.24 = {
+		holder = lineoffirhunes5 #Gyorruad
+	}
+	7023.9.6 = {
+		holder = lineoffirhunes7 #Qo_o_lo_o_nka_a_n
+	}
+	7034.11.13 = {
+		holder = lineoffirhunes9 #Zaik
+	}
+	7082.9.16 = {
+		holder = lineoffirhunes33 #Pravak
+	}
+	7103.2.28 = {
+		holder = lineoffirhunes35 #Qo_o_lo_o_nka_a_n
+	}
+	7134.10.15 = {
+		holder = lineoffirhunes37 #Akubarh
+	}
+}
+c_haman = {
+	5100.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	5500.1.1 = {
+		government = tribal_government
+		change_development_level = 2
+	}
+	6674.9.3 = {
+		holder = lineoftarraukin1 #Zete_e_limirh
+		change_development_level = 4
+	}
+	6714.5.20 = {
+		holder = lineoftarraukin3 #Zevo_o_nko
+	}
+	6784.2.26 = {
+		holder = lineoftarraukin5 #Yasiko
+	}
+
+	6871.7.16 = {
+		holder = lineoffirhunes1 #Sa_a_milya_a_n
+	}
+	6948.2.21 = {
+		holder = lineoffirhunes3 #Bra_a_nko
+	}
+	6982.9.24 = {
+		holder = lineoffirhunes5 #Gyorruad
+	}
+	7023.9.6 = {
+		holder = lineoffirhunes7 #Qo_o_lo_o_nka_a_n
+	}
+	7034.11.13 = {
+		holder = lineoffirhunes9 #Zaik
+	}
+	7082.9.16 = {
+		holder = lineoffirhunes33 #Pravak
+	}
+	7103.2.28 = {
+		holder = lineoffirhunes35 #Qo_o_lo_o_nka_a_n
+	}
+	7134.10.15 = {
+		holder = lineoffirhunes37 #Akubarh
+	}
+}
+
+### Kingdom of Aukar ###
+k_aukar = {
+	1000.1.1 = {
+		change_development_level = 6
+	}
+	6359.1.20 = {
+		holder = lineofaukarmenes17 #Ratko
+	}
+	6363.3.27 = {
+		holder = lineofaukarmenes19 #Mautimirh
+	}
+	6405.1.9 = {
+		holder = lineofaukarmenes21 #Draharh
+	}
+	6433.12.6 = {
+		holder = lineofaukarmenes23 #Zete_e_limirh
+	}
+	6472.4.24 = {
+		holder = lineofaukarmenes25 #Ruado_o_mirh
+	}
+	6504.7.1 = {
+		holder = lineofaukarmenes27 #Qia_a_no
+	}
+	6525.2.27 = {
+		holder = lineofaukarmenes29 #Timirh
+	}
+	6579.4.1 = {
+		holder = lineofaukarmenes31 #Safarh
+	}
+	6610.4.3 = {
+		holder = lineofaukarmenes33 #Sa_a_lu
+	}
+	6639.2.15 = {
+		holder = lineofaukarmenes35 #Vatrak
+	}
+	6685.8.13 = {
+		holder = lineofaukarmenes37 #Kyetika_a_nd
+	}
+	6701.11.17 = {
+		holder = lineofaukarmenes39 #Pe_e_nharh
+	}
+	6750.2.14 = {
+		holder = lineofaukarmenes41 #Drayze_e_n
+	}
+	6780.2.2 = {
+		holder = lineofaukarmenes43 #Ozo
+	}
+	6809.7.12 = {
+		holder = lineofaukarmenes45 #Mirre_e_no
+	}
+	6822.12.20 = {
+		holder = lineofaukarmenes47 #O_O_latarh
+	}
+	6875.4.23 = {
+		holder = lineofaukarmenes49 #Rato
+	}
+	6911.3.7 = {
+		holder = lineofaukarmenes51 #Milye_e_nko
+	}
+	6943.12.10 = {
+		holder = lineofaukarmenes53 #Vatrak
+	}
+	6987.1.7 = {
+		holder = lineofaukarmenes55 #Gouad
+	}
+	7013.7.1 = {
+		holder = lineofaukarmenes59 #Misrak
+	}
+	7018.1.16 = {
+		holder = lineofaukarmenes62 #Qa_a_laterrarh
+	}
+	7025.10.4 = {
+		holder = lineofaukarmenes64 #Sa_a_mirh
+	}
+	7054.3.28 = {
+		holder = lineofaukarmenes77 #Terko
+	}
+	7111.11.15 = {
+		holder = lineofaukarmenes79 #Bozat
+	}
+	7133.7.6 = {
+		holder = lineofaukarmenes81 #Mirre_e_no
+	}
+	7153.9.17 = {
+		holder = lineofaukarmenes83 #Brayko
+	}
+	7173.4.20 = {
+		holder = lineofaukarmenes86 #A_A_lu
+	}
+}
+
+## Duchy of Kes Zum ##
+d_kes_zum = {
+	# Aukarmenes Tribe
+	6229.6.5 = {
+		holder = lineofaukarmenes11 #Boa_a_n
+	}
+	6257.1.20 = {
+		holder = lineofaukarmenes13 #Veo_o_no_o_mirh
+	}
+	6305.6.8 = {
+		holder = lineofaukarmenes15 #Zakarra_a_n
+	}
+	6359.1.20 = {
+		holder = lineofaukarmenes17 #Ratko
+	}
+	6363.3.27 = {
+		holder = lineofaukarmenes19 #Mautimirh
+	}
+	6405.1.9 = {
+		holder = lineofaukarmenes21 #Draharh
+	}
+	6433.12.6 = {
+		holder = lineofaukarmenes23 #Zete_e_limirh
+	}
+	6472.4.24 = {
+		holder = lineofaukarmenes25 #Ruado_o_mirh
+	}
+	6504.7.1 = {
+		holder = lineofaukarmenes27 #Qia_a_no
+	}
+	6525.2.27 = {
+		holder = lineofaukarmenes29 #Timirh
+	}
+	6579.4.1 = {
+		holder = lineofaukarmenes31 #Safarh
+	}
+	6610.4.3 = {
+		holder = lineofaukarmenes33 #Sa_a_lu
+	}
+	6639.2.15 = {
+		holder = lineofaukarmenes35 #Vatrak
+	}
+	6685.8.13 = {
+		holder = lineofaukarmenes37 #Kyetika_a_nd
+	}
+	6701.11.17 = {
+		holder = lineofaukarmenes39 #Pe_e_nharh
+	}
+	6750.2.14 = {
+		holder = lineofaukarmenes41 #Drayze_e_n
+	}
+	6780.2.2 = {
+		holder = lineofaukarmenes43 #Ozo
+	}
+	6809.7.12 = {
+		holder = lineofaukarmenes45 #Mirre_e_no
+	}
+	6822.12.20 = {
+		holder = lineofaukarmenes47 #O_O_latarh
+	}
+	6875.4.23 = {
+		holder = lineofaukarmenes49 #Rato
+	}
+	6911.3.7 = {
+		holder = lineofaukarmenes51 #Milye_e_nko
+	}
+	6943.12.10 = {
+		holder = lineofaukarmenes53 #Vatrak
+	}
+	6987.1.7 = {
+		holder = lineofaukarmenes55 #Gouad
+	}
+	7013.7.1 = {
+		holder = lineofaukarmenes59 #Misrak
+	}
+	7018.1.16 = {
+		holder = lineofaukarmenes62 #Qa_a_laterrarh
+	}
+	7025.10.4 = {
+		holder = lineofaukarmenes64 #Sa_a_mirh
+	}
+	7054.3.28 = {
+		holder = lineofaukarmenes77 #Terko
+	}
+	7111.11.15 = {
+		holder = lineofaukarmenes79 #Bozat
+	}
+	7133.7.6 = {
+		holder = lineofaukarmenes81 #Mirre_e_no
+	}
+	7153.9.17 = {
+		holder = lineofaukarmenes83 #Brayko
+	}
+	7173.4.20 = {
+		holder = lineofaukarmenes86 #A_A_lu
+	}
+}
+c_hafarh = {
+	5215.8.21 = {
+		holder = linewinasto1 #Arsa_a_l
+		change_development_level = 4
+	}
+	5295.9.13 = {
+		holder = linewinasto3 #Kha_a_ndoro
+	}
+	5322.2.16 = {
+		holder = linewinasto5 #Terkho
+	}
+	5374.2.19 = { # RoA ruler
+		holder = linewinasto7 #Terkho
+	}
+	5394.11.28 = {
+		holder = linewinasto9 #A_A_lu
+	}
+	5425.3.25 = {
+		holder = linewinasto11
+	}
+	5494.6.11 = { # Sarbil Tribe
+		holder = linesarbil1
+	}
+	5576.5.28 = {
+		holder = linesarbil3
+	}
+	5598.3.3 = {
+		holder = linesarbil5
+	}
+	5639.4.23 = {
+		holder = linesarbil7
+	}
+	5664.12.20 = {
+		holder = linesarbil9
+	}
+	5992.2.23 = { # Aukarmenes Tribe
+		holder = lineofaukarmenes1 #Aukarmenes
+		change_development_level = 8
+	}
+	6052.6.13 = {
+		holder = lineofaukarmenes3 #Sa_a_mirh
+	}
+	6120.8.18 = {
+		holder = lineofaukarmenes5 #Kra_a_mo
+	}
+	6160.12.4 = {
+		holder = lineofaukarmenes7 #Kyetika_a_nd
+	}
+	6166.3.8 = {
+		holder = lineofaukarmenes9 #Bozisharh
+	}
+	6229.6.5 = {
+		holder = lineofaukarmenes11 #Boa_a_n
+	}
+	6257.1.20 = {
+		holder = lineofaukarmenes13 #Veo_o_no_o_mirh
+	}
+	6305.6.8 = {
+		holder = lineofaukarmenes15 #Zakarra_a_n
+	}
+	6359.1.20 = {
+		holder = lineofaukarmenes17 #Ratko
+	}
+	6363.3.27 = {
+		holder = lineofaukarmenes19 #Mautimirh
+	}
+	6405.1.9 = {
+		holder = lineofaukarmenes21 #Draharh
+	}
+	6433.12.6 = {
+		holder = lineofaukarmenes23 #Zete_e_limirh
+	}
+	6472.4.24 = {
+		holder = lineofaukarmenes25 #Ruado_o_mirh
+	}
+	6504.7.1 = {
+		holder = lineofaukarmenes27 #Qia_a_no
+	}
+	6525.2.27 = {
+		holder = lineofaukarmenes29 #Timirh
+	}
+	6579.4.1 = {
+		holder = lineofaukarmenes31 #Safarh
+	}
+	6610.4.3 = {
+		holder = lineofaukarmenes33 #Sa_a_lu
+	}
+	6639.2.15 = {
+		holder = lineofaukarmenes35 #Vatrak
+	}
+	6685.8.13 = {
+		holder = lineofaukarmenes37 #Kyetika_a_nd
+	}
+	6701.11.17 = {
+		holder = lineofaukarmenes39 #Pe_e_nharh
+	}
+	6750.2.14 = {
+		holder = lineofaukarmenes41 #Drayze_e_n
+	}
+	6780.2.2 = { # Long winter start date ruler
+		holder = lineofaukarmenes43 #Ozo
+	}
+	6809.7.12 = {
+		holder = lineofaukarmenes45 #Mirre_e_no
+	}
+	6822.12.20 = {
+		holder = lineofaukarmenes47 #O_O_latarh
+	}
+	6875.4.23 = {
+		holder = lineofaukarmenes49 #Rato
+	}
+	6911.3.7 = {
+		holder = lineofaukarmenes51 #Milye_e_nko
+	}
+	6943.12.10 = {
+		holder = lineofaukarmenes53 #Vatrak
+	}
+	6987.1.7 = {
+		holder = lineofaukarmenes55 #Gouad
+	}
+	7013.7.1 = {
+		holder = lineofaukarmenes59 #Misrak
+	}
+	7018.1.16 = {
+		holder = lineofaukarmenes62 #Qa_a_laterrarh
+	}
+	7025.10.4 = {
+		holder = lineofaukarmenes64 #Sa_a_mirh
+	}
+	7054.3.28 = {
+		holder = lineofaukarmenes77 #Terko
+	}
+	7111.11.15 = {
+		holder = lineofaukarmenes79 #Bozat
+	}
+	7133.7.6 = {
+		holder = lineofaukarmenes81 #Mirre_e_no
+	}
+	7153.9.17 = {
+		holder = lineofaukarmenes83 #Brayko
+	}
+	7173.4.20 = {
+		holder = lineofaukarmenes86 #A_A_lu
+	}
+}
+c_tan = {
+	5207.3.16 = {
+		holder = lineamella1 #Zhasa_a_n
+		change_development_level = 6
+	}
+	5271.9.13 = {
+		holder = lineamella3 #Nede_e_lkho
+	}
+	5318.5.12 = {
+		holder = lineamella5 #Malt_o_e_k
+	}
+	5322.3.14 = {
+		holder = lineamella7 #Je_e_ngho
+	}
+	5381.5.16 = {
+		holder = lineamella9 #Krejir
+	}
+	5393.2.6 = {
+		holder = lineamella13
+	}
+
+	6120.8.18 = { # Aukarmenes Tribe
+		holder = lineofaukarmenes5 #Kra_a_mo
+	}
+	6160.12.4 = {
+		holder = lineofaukarmenes7 #Kyetika_a_nd
+	}
+	6166.3.8 = {
+		holder = lineofaukarmenes9 #Bozisharh
+	}
+	6229.6.5 = {
+		holder = lineofaukarmenes11 #Boa_a_n
+	}
+	6257.1.20 = {
+		holder = lineofaukarmenes13 #Veo_o_no_o_mirh
+	}
+	6305.6.8 = {
+		holder = lineofaukarmenes15 #Zakarra_a_n
+	}
+	6359.1.20 = {
+		holder = lineofaukarmenes17 #Ratko
+	}
+	6363.3.27 = {
+		holder = lineofaukarmenes19 #Mautimirh
+	}
+	6405.1.9 = {
+		holder = lineofaukarmenes21 #Draharh
+	}
+	6433.12.6 = {
+		holder = lineofaukarmenes23 #Zete_e_limirh
+	}
+	6472.4.24 = {
+		holder = lineofaukarmenes25 #Ruado_o_mirh
+	}
+	6504.7.1 = {
+		holder = lineofaukarmenes27 #Qia_a_no
+	}
+	6525.2.27 = {
+		holder = lineofaukarmenes29 #Timirh
+	}
+	6579.4.1 = {
+		holder = lineofaukarmenes31 #Safarh
+	}
+	6610.4.3 = {
+		holder = lineofaukarmenes33 #Sa_a_lu
+	}
+	6639.2.15 = {
+		holder = lineofaukarmenes35 #Vatrak
+	}
+	6685.8.13 = {
+		holder = lineofaukarmenes37 #Kyetika_a_nd
+	}
+	6701.11.17 = {
+		holder = lineofaukarmenes39 #Pe_e_nharh
+	}
+	6750.2.14 = {
+		holder = lineofaukarmenes41 #Drayze_e_n
+	}
+	6780.2.2 = { # Long winter start date ruler
+		holder = lineofaukarmenes43 #Ozo
+	}
+	6809.7.12 = {
+		holder = lineofaukarmenes45 #Mirre_e_no
+	}
+	6822.12.20 = {
+		holder = lineofaukarmenes47 #O_O_latarh
+	}
+	6875.4.23 = {
+		holder = lineofaukarmenes49 #Rato
+	}
+	6911.3.7 = {
+		holder = lineofaukarmenes51 #Milye_e_nko
+	}
+	6943.12.10 = {
+		holder = lineofaukarmenes53 #Vatrak
+	}
+	6987.1.7 = {
+		holder = lineofaukarmenes55 #Gouad
+	}
+	7013.7.1 = {
+		holder = lineofaukarmenes59 #Misrak
+	}
+	7018.1.16 = {
+		holder = lineofaukarmenes62 #Qa_a_laterrarh
+	}
+	7025.10.4 = {
+		holder = lineofaukarmenes64 #Sa_a_mirh
+	}
+	7054.3.28 = {
+		holder = lineofaukarmenes77 #Terko
+	}
+	7111.11.15 = {
+		holder = lineofaukarmenes79 #Bozat
+	}
+	7133.7.6 = {
+		holder = lineofaukarmenes81 #Mirre_e_no
+	}
+	7153.9.17 = {
+		holder = lineofaukarmenes83 #Brayko
+	}
+	7173.4.20 = {
+		holder = lineofaukarmenes86 #A_A_lu
+	}
+}
+c_tasak = {
+	5207.3.16 = {
+		holder = lineamella1 #Zhasa_a_n
+		change_development_level = 5
+	}
+	5271.9.13 = {
+		holder = lineamella3 #Nede_e_lkho
+	}
+	5318.5.12 = {
+		holder = lineamella5 #Malt_o_e_k
+	}
+	5322.3.14 = {
+		holder = lineamella7 #Je_e_ngho
+	}
+	5381.5.16 = {
+		holder = lineamella9 #Krejir
+	}
+	5393.2.6 = {
+		holder = lineamella13
+	}
+
+	6160.12.4 = { # Aukarmenes Tribe
+		holder = lineofaukarmenes7 #Kyetika_a_nd
+	}
+	6166.3.8 = {
+		holder = lineofaukarmenes9 #Bozisharh
+	}
+	6229.6.5 = {
+		holder = lineofaukarmenes11 #Boa_a_n
+	}
+	6257.1.20 = {
+		holder = lineofaukarmenes13 #Veo_o_no_o_mirh
+	}
+	6305.6.8 = {
+		holder = lineofaukarmenes15 #Zakarra_a_n
+	}
+	6359.1.20 = {
+		holder = lineofaukarmenes17 #Ratko
+	}
+	6363.3.27 = {
+		holder = lineofaukarmenes19 #Mautimirh
+	}
+	6405.1.9 = {
+		holder = lineofaukarmenes21 #Draharh
+	}
+	6433.12.6 = {
+		holder = lineofaukarmenes23 #Zete_e_limirh
+	}
+	6472.4.24 = {
+		holder = lineofaukarmenes25 #Ruado_o_mirh
+	}
+	6504.7.1 = {
+		holder = lineofaukarmenes27 #Qia_a_no
+	}
+	6525.2.27 = {
+		holder = lineofaukarmenes29 #Timirh
+	}
+	6579.4.1 = {
+		holder = lineofaukarmenes31 #Safarh
+	}
+	6610.4.3 = {
+		holder = lineofaukarmenes33 #Sa_a_lu
+	}
+	6639.2.15 = {
+		holder = lineofaukarmenes35 #Vatrak
+	}
+	6685.8.13 = {
+		holder = lineofaukarmenes37 #Kyetika_a_nd
+	}
+	6701.11.17 = {
+		holder = lineofaukarmenes39 #Pe_e_nharh
+	}
+	6750.2.14 = {
+		holder = lineofaukarmenes41 #Drayze_e_n
+	}
+	6780.2.2 = { # Long winter start date ruler
+		holder = lineofaukarmenes43 #Ozo
+	}
+	6809.7.12 = {
+		holder = lineofaukarmenes45 #Mirre_e_no
+	}
+	6822.12.20 = {
+		holder = lineofaukarmenes47 #O_O_latarh
+	}
+	6875.4.23 = {
+		holder = lineofaukarmenes49 #Rato
+	}
+	6911.3.7 = {
+		holder = lineofaukarmenes51 #Milye_e_nko
+	}
+	6943.12.10 = {
+		holder = lineofaukarmenes53 #Vatrak
+	}
+	6987.1.7 = {
+		holder = lineofaukarmenes55 #Gouad
+	}
+	7013.7.1 = {
+		holder = lineofaukarmenes59 #Misrak
+	}
+	7018.1.16 = {
+		holder = lineofaukarmenes62 #Qa_a_laterrarh
+	}
+	7025.10.4 = {
+		holder = lineofaukarmenes64 #Sa_a_mirh
+	}
+	7054.3.28 = {
+		holder = lineofaukarmenes77 #Terko
+	}
+	7111.11.15 = {
+		holder = lineofaukarmenes79 #Bozat
+	}
+	7133.7.6 = {
+		holder = lineofaukarmenes81 #Mirre_e_no
+	}
+	7153.9.17 = {
+		holder = lineofaukarmenes83 #Brayko
+	}
+	7173.4.20 = {
+		holder = lineofaukarmenes86 #A_A_lu
+	}
+}
+c_ostozo = {
+	5215.8.21 = {
+		holder = linewinasto1 #Arsa_a_l
+		change_development_level = 4
+	}
+	5295.9.13 = {
+		holder = linewinasto3 #Kha_a_ndoro
+	}
+	5322.2.16 = {
+		holder = linewinasto5 #Terkho
+	}
+	5374.2.19 = { # RoA ruler
+		holder = linewinasto7 #Terkho
+	}
+	5394.11.28 = {
+		holder = linewinasto9 #A_A_lu
+	}
+	5425.3.25 = {
+		holder = linewinasto11
+	}
+	5494.6.11 = { # Sarbil Tribe
+		holder = linesarbil1
+	}
+	5576.5.28 = {
+		holder = linesarbil3
+	}
+	5598.3.3 = {
+		holder = linesarbil5
+	}
+	5639.4.23 = {
+		holder = linesarbil7
+	}
+	5664.12.20 = {
+		holder = linesarbil9
+	}
+	6257.1.20 = { # Aukarmenes Tribe
+		holder = lineofaukarmenes13 #Veo_o_no_o_mirh
+	}
+	6305.6.8 = {
+		holder = lineofaukarmenes15 #Zakarra_a_n
+	}
+	6359.1.20 = {
+		holder = lineofaukarmenes17 #Ratko
+	}
+	6363.3.27 = {
+		holder = lineofaukarmenes19 #Mautimirh
+	}
+	6405.1.9 = {
+		holder = lineofaukarmenes21 #Draharh
+	}
+	6433.12.6 = {
+		holder = lineofaukarmenes23 #Zete_e_limirh
+	}
+	6472.4.24 = {
+		holder = lineofaukarmenes25 #Ruado_o_mirh
+	}
+	6504.7.1 = {
+		holder = lineofaukarmenes27 #Qia_a_no
+	}
+	6525.2.27 = {
+		holder = lineofaukarmenes29 #Timirh
+	}
+	6579.4.1 = {
+		holder = lineofaukarmenes31 #Safarh
+	}
+	6610.4.3 = {
+		holder = lineofaukarmenes33 #Sa_a_lu
+	}
+	6639.2.15 = {
+		holder = lineofaukarmenes35 #Vatrak
+	}
+	6685.8.13 = {
+		holder = lineofaukarmenes37 #Kyetika_a_nd
+	}
+	6701.11.17 = {
+		holder = lineofaukarmenes39 #Pe_e_nharh
+	}
+	6750.2.14 = {
+		holder = lineofaukarmenes41 #Drayze_e_n
+	}
+	6780.2.2 = { # Long winter start date ruler
+		holder = lineofaukarmenes43 #Ozo
+	}
+	6809.7.12 = {
+		holder = lineofaukarmenes45 #Mirre_e_no
+	}
+	6822.12.20 = {
+		holder = lineofaukarmenes47 #O_O_latarh
+	}
+	6875.4.23 = {
+		holder = lineofaukarmenes49 #Rato
+	}
+	6911.3.7 = {
+		holder = lineofaukarmenes51 #Milye_e_nko
+	}
+	6943.12.10 = {
+		holder = lineofaukarmenes53 #Vatrak
+	}
+	6987.1.7 = {
+		holder = lineofaukarmenes55 #Gouad
+	}
+	7013.7.1 = {
+		holder = lineofaukarmenes59 #Misrak
+	}
+	7018.1.16 = {
+		holder = lineofaukarmenes62 #Qa_a_laterrarh
+	}
+	7025.10.4 = {
+		holder = lineofaukarmenes64 #Sa_a_mirh
+	}
+	7054.3.28 = {
+		holder = lineofaukarmenes77 #Terko
+	}
+	7111.11.15 = {
+		holder = lineofaukarmenes79 #Bozat
+	}
+	7133.7.6 = {
+		holder = lineofaukarmenes81 #Mirre_e_no
+	}
+	7153.9.17 = {
+		holder = lineofaukarmenes83 #Brayko
+	}
+	7173.4.20 = {
+		holder = lineofaukarmenes86 #A_A_lu
+	}
+}
+
+## Duchy of Auz Triha ##
+d_auz_triha = {
+	6305.6.8 = { # Aukarmenes Tribe
+		holder = lineofaukarmenes15 #Zakarra_a_n
+	}
+	6359.1.20 = {
+		holder = lineofaukarmenes17 #Ratko
+	}
+	6363.3.27 = {
+		holder = lineofaukarmenes19 #Mautimirh
+	}
+	6405.1.9 = {
+		holder = lineofaukarmenes21 #Draharh
+	}
+	6433.12.6 = {
+		holder = lineofaukarmenes23 #Zete_e_limirh
+	}
+	6472.4.24 = {
+		holder = lineofalumenes1 #Kyatikarh
+		liege = k_aukar
+	}
+	6502.6.11 = {
+		holder = lineofalumenes3 #Qo_o_ndo
+	}
+	6550.6.14 = {
+		holder = lineofalumenes5 #Sha_a_lin
+	}
+	6568.8.9 = {
+		holder = lineofalumenes7 #Drayze_e_n
+	}
+	6617.5.10 = {
+		holder = lineofalumenes9 #Ye_e_ngo
+	}
+	6641.10.9 = {
+		holder = lineofalumenes11 #Zerra_a_n
+	}
+	6687.10.15 = {
+		holder = lineofalumenes13 #Torna
+	}
+	6720.7.28 = {
+		holder = lineofalumenes15 #Yakubu
+	}
+	6773.1.21 = { # Long winter start date ruler
+		holder = lineofalumenes17 #Dru_u_lsafruad
+	}
+	6819.12.2 = {
+		holder = lineofalumenes19 #Misrak
+	}
+	6890.3.17 = {
+		holder = lineofalumenes21 #Yozirh
+	}
+	6903.12.23 = {
+		holder = lineofalumenes23 #Tarrauk
+	}
+	6973.6.11 = {
+		holder = lineofalumenes25 #Su_u_luadahn
+	}
+	7018.9.16 = {
+		holder = lineofalumenes27 #Dobarruadish
+	}
+	7040.6.5 = {
+		holder = lineofalumenes29 #Ra_a_nko
+	}
+	7097.12.21 = {
+		holder = lineofalumenes31 #Harsa_a_l
+	}
+	7100.2.11 = {
+		holder = lineofalumenes33 #Vatrak
+	}
+	7144.11.14 = {
+		holder = lineofalumenes37 #Zakirh
+	}
+}
+c_durwal = {
+	5217.10.6 = {
+		holder = linereinardin1 #Pe_e_nhar
+		change_development_level = 8
+	}
+	5248.10.11 = {
+		holder = linereinardin3 #Nede_e_lkho
+	}
+	5313.6.14 = {
+		holder = linereinardin5 #Zirinkho
+	}
+	5338.3.7 = {
+		holder = linereinardin7 #Drajze_e_n
+	}
+	5376.5.17 = { #Roa Ruler
+		holder = linereinardin9 #De_e_lasimmir
+	}
+	5415.7.18 = {
+		holder = linereinardin11
+	}
+
+	6305.6.8 = { # Aukarmenes Tribe
+		holder = lineofaukarmenes15 #Zakarra_a_n
+	}
+	6359.1.20 = {
+		holder = lineofaukarmenes17 #Ratko
+	}
+	6363.3.27 = {
+		holder = lineofaukarmenes19 #Mautimirh
+	}
+	6405.1.9 = {
+		holder = lineofaukarmenes21 #Draharh
+	}
+	6433.12.6 = {
+		holder = lineofaukarmenes23 #Zete_e_limirh
+	}
+	6472.4.24 = {
+		holder = lineofalumenes1 #Kyatikarh
+		liege = k_aukar
+	}
+	6502.6.11 = {
+		holder = lineofalumenes3 #Qo_o_ndo
+	}
+	6550.6.14 = {
+		holder = lineofalumenes5 #Sha_a_lin
+	}
+	6568.8.9 = {
+		holder = lineofalumenes7 #Drayze_e_n
+	}
+	6617.5.10 = {
+		holder = lineofalumenes9 #Ye_e_ngo
+	}
+	6641.10.9 = {
+		holder = lineofalumenes11 #Zerra_a_n
+	}
+	6687.10.15 = {
+		holder = lineofalumenes13 #Torna
+	}
+	6720.7.28 = {
+		holder = lineofalumenes15 #Yakubu
+	}
+	6773.1.21 = { # Long winter start date ruler
+		holder = lineofalumenes17 #Dru_u_lsafruad
+	}
+	6819.12.2 = {
+		holder = lineofalumenes19 #Misrak
+	}
+	6890.3.17 = {
+		holder = lineofalumenes21 #Yozirh
+	}
+	6903.12.23 = {
+		holder = lineofalumenes23 #Tarrauk
+	}
+	6973.6.11 = {
+		holder = lineofalumenes25 #Su_u_luadahn
+	}
+	7018.9.16 = {
+		holder = lineofalumenes27 #Dobarruadish
+	}
+	7040.6.5 = {
+		holder = lineofalumenes29 #Ra_a_nko
+	}
+	7097.12.21 = {
+		holder = lineofalumenes31 #Harsa_a_l
+	}
+	7100.2.11 = {
+		holder = lineofalumenes33 #Vatrak
+	}
+	7144.11.14 = {
+		holder = lineofalumenes37 #Zakirh
+	}
+}
+c_sarmur = {
+	5209.9.15 = {
+		holder = linepharanid1 #Zirinkho
+		change_development_level = 8
+	}
+	5294.6.23 = {
+		holder = linepharanid3 #Bozidar
+	}
+	5307.4.14 = {
+		holder = linepharanid5 #Krukho
+	}
+	5328.2.1 = {
+		holder = linepharanid7 #Je_e_ngho
+	}
+	5370.12.15 = { # RoA ruler
+		holder = linepharanid9 #Kjatikhar
+	}
+	5408.4.28 = {
+		holder = linepharanid11
+	}
+
+	5523.11.27 = { # Yerrag Tribe
+		holder = lineyerrag1
+	}
+	5598.11.2 = {
+		holder = lineyerrag3
+	}
+	5640.7.4 = {
+		holder = lineyerrag5
+	}
+	5644.10.2 = {
+		holder = lineyerrag7
+	}
+	5677.3.25 = {
+		holder = lineyerrag9
+	}
+	6305.6.8 = { # Aukarmenes Tribe
+		holder = lineofaukarmenes15 #Zakarra_a_n
+	}
+	6359.1.20 = {
+		holder = lineofaukarmenes17 #Ratko
+	}
+	6363.3.27 = {
+		holder = lineofaukarmenes19 #Mautimirh
+	}
+	6405.1.9 = {
+		holder = lineofaukarmenes21 #Draharh
+	}
+	6433.12.6 = {
+		holder = lineofaukarmenes23 #Zete_e_limirh
+	}
+	6472.4.24 = {
+		holder = lineofalumenes1 #Kyatikarh
+		liege = k_aukar
+	}
+	6502.6.11 = {
+		holder = lineofalumenes3 #Qo_o_ndo
+	}
+	6550.6.14 = {
+		holder = lineofalumenes5 #Sha_a_lin
+	}
+	6568.8.9 = {
+		holder = lineofalumenes7 #Drayze_e_n
+	}
+	6617.5.10 = {
+		holder = lineofalumenes9 #Ye_e_ngo
+	}
+	6641.10.9 = {
+		holder = lineofalumenes11 #Zerra_a_n
+	}
+	6687.10.15 = {
+		holder = lineofalumenes13 #Torna
+	}
+	6720.7.28 = {
+		holder = lineofalumenes15 #Yakubu
+	}
+	6773.1.21 = { # Long winter start date ruler
+		holder = lineofalumenes17 #Dru_u_lsafruad
+	}
+	6819.12.2 = {
+		holder = lineofalumenes19 #Misrak
+	}
+	6890.3.17 = {
+		holder = lineofalumenes21 #Yozirh
+	}
+	6903.12.23 = {
+		holder = lineofalumenes23 #Tarrauk
+	}
+	6973.6.11 = {
+		holder = lineofalumenes25 #Su_u_luadahn
+	}
+	7018.9.16 = {
+		holder = lineofalumenes27 #Dobarruadish
+	}
+	7040.6.5 = {
+		holder = lineofalumenes29 #Ra_a_nko
+	}
+	7097.12.21 = {
+		holder = lineofalumenes31 #Harsa_a_l
+	}
+	7100.2.11 = {
+		holder = lineofalumenes33 #Vatrak
+	}
+	7144.11.14 = {
+		holder = lineofalumenes37 #Zakirh
+	}
+}
+c_agawar = {
+	5209.9.15 = {
+		holder = linepharanid1 #Zirinkho
+		change_development_level = 7
+	}
+	5294.6.23 = {
+		holder = linepharanid3 #Bozidar
+	}
+	5307.4.14 = {
+		holder = linepharanid5 #Krukho
+	}
+	5328.2.1 = {
+		holder = linepharanid7 #Je_e_ngho
+	}
+	5370.12.15 = { # RoA ruler
+		holder = linepharanid9 #Kjatikhar
+	}
+	5408.4.28 = {
+		holder = linepharanid11
+	}
+
+	6305.6.8 = { # Aukarmenes Tribe
+		holder = lineofaukarmenes15 #Zakarra_a_n
+	}
+	6359.1.20 = {
+		holder = lineofaukarmenes17 #Ratko
+	}
+	6363.3.27 = {
+		holder = lineofaukarmenes19 #Mautimirh
+	}
+	6405.1.9 = {
+		holder = lineofaukarmenes21 #Draharh
+	}
+	6433.12.6 = {
+		holder = lineofaukarmenes23 #Zete_e_limirh
+	}
+	6472.4.24 = {
+		holder = lineofalumenes1 #Kyatikarh
+		liege = k_aukar
+	}
+	6502.6.11 = {
+		holder = lineofalumenes3 #Qo_o_ndo
+	}
+	6550.6.14 = {
+		holder = lineofalumenes5 #Sha_a_lin
+	}
+	6568.8.9 = {
+		holder = lineofalumenes7 #Drayze_e_n
+	}
+	6617.5.10 = {
+		holder = lineofalumenes9 #Ye_e_ngo
+	}
+	6641.10.9 = {
+		holder = lineofalumenes11 #Zerra_a_n
+	}
+	6687.10.15 = {
+		holder = lineofalumenes13 #Torna
+	}
+	6720.7.28 = {
+		holder = lineofalumenes15 #Yakubu
+	}
+	6773.1.21 = {
+		holder = lineofalumenes17 #Dru_u_lsafruad
+	}
+	6819.12.2 = {
+		holder = lineofalumenes19 #Misrak
+	}
+	6890.3.17 = {
+		holder = lineofalumenes21 #Yozirh
+	}
+	6903.12.23 = {
+		holder = lineofalumenes23 #Tarrauk
+	}
+	6973.6.11 = {
+		holder = lineofalumenes25 #Su_u_luadahn
+	}
+	7018.9.16 = {
+		holder = lineofalumenes27 #Dobarruadish
+	}
+	7040.6.5 = {
+		holder = lineofalumenes29 #Ra_a_nko
+	}
+	7097.12.21 = {
+		holder = lineofalumenes31 #Harsa_a_l
+	}
+	7100.2.11 = {
+		holder = lineofalumenes33 #Vatrak
+	}
+	7144.11.14 = {
+		holder = lineofalumenes37 #Zakirh
+	}
+}
+c_tedjizan = {
+	5217.10.6 = {
+		holder = linereinardin1 #Pe_e_nhar
+		change_development_level = 7
+	}
+	5248.10.11 = {
+		holder = linereinardin3 #Nede_e_lkho
+	}
+	5313.6.14 = {
+		holder = linereinardin5 #Zirinkho
+	}
+	5338.3.7 = {
+		holder = linereinardin7 #Drajze_e_n
+	}
+	5376.5.17 = { #Roa Ruler
+		holder = linereinardin9 #De_e_lasimmir
+	}
+	5415.7.18 = {
+		holder = linereinardin11
+	}
+
+	# Aukarmenes Tribe
+	6305.6.8 = {
+		holder = lineofaukarmenes15 #Zakarra_a_n
+	}
+	6359.1.20 = {
+		holder = lineofaukarmenes17 #Ratko
+	}
+	6363.3.27 = {
+		holder = lineofaukarmenes19 #Mautimirh
+	}
+	6405.1.9 = {
+		holder = lineofaukarmenes21 #Draharh
+	}
+	6433.12.6 = {
+		holder = lineofaukarmenes23 #Zete_e_limirh
+	}
+	6472.4.24 = {
+		holder = lineofalumenes1 #Kyatikarh
+		liege = k_aukar
+	}
+	6502.6.11 = {
+		holder = lineofalumenes3 #Qo_o_ndo
+	}
+	6550.6.14 = {
+		holder = lineofalumenes5 #Sha_a_lin
+	}
+	6568.8.9 = {
+		holder = lineofalumenes7 #Drayze_e_n
+	}
+	6617.5.10 = {
+		holder = lineofalumenes9 #Ye_e_ngo
+	}
+	6641.10.9 = {
+		holder = lineofalumenes11 #Zerra_a_n
+	}
+	6687.10.15 = {
+		holder = lineofalumenes13 #Torna
+	}
+	6720.7.28 = {
+		holder = lineofalumenes15 #Yakubu
+	}
+	6773.1.21 = {
+		holder = lineofalumenes17 #Dru_u_lsafruad
+	}
+	6819.12.2 = {
+		holder = lineofalumenes19 #Misrak
+	}
+	6890.3.17 = {
+		holder = lineofalumenes21 #Yozirh
+	}
+	6903.12.23 = {
+		holder = lineofalumenes23 #Tarrauk
+	}
+	6973.6.11 = {
+		holder = lineofalumenes25 #Su_u_luadahn
+	}
+	7018.9.16 = {
+		holder = lineofalumenes27 #Dobarruadish
+	}
+	7040.6.5 = {
+		holder = lineofalumenes29 #Ra_a_nko
+	}
+	7097.12.21 = {
+		holder = lineofalumenes31 #Harsa_a_l
+	}
+	7100.2.11 = {
+		holder = lineofalumenes33 #Vatrak
+	}
+	7144.11.14 = {
+		holder = lineofalumenes37 #Zakirh
+	}
+}
+
+## Duchy of Kes Triha ##
+d_kes_triha = {
+	# Kindilár Tribe
+	5657.4.28 = {
+		holder = linekindilar9
+	}
+	5671.10.23 = {
+		holder = linekindilar11
+	}
+	5678.7.13 = {
+		holder = linekindilar13
+	}
+	5682.6.23 = { # Mass Migration into the Rây
+		holder = 0
+	}
+
+	# Yugertenes Tribe
+	6622.4.22 = {
+		holder = lineofyugertenes1 #Ye_e_la
+	}
+	6696.12.5 = {
+		holder = lineofyugertenes3 #Zakirh
+	}
+	6741.4.17 = {
+		holder = lineofyugertenes5 #Torna
+	}
+	6757.11.25 = { # Long winter start date ruler
+		holder = lineofyugertenes7 #Bra_a_limarh
+	}
+	6831.6.22 = {
+		holder = lineofyugertenes9 #Kyetika_a_nd
+	}
+	6848.2.2 = {
+		holder = lineofyugertenes11 #Veo_o_no_o_mirh
+	}
+	6892.8.12 = {
+		holder = lineofyugertenes13 #Quado_o_mearh
+	}
+	6945.6.20 = {
+		holder = lineofyugertenes15 #Kyatikarh
+	}
+	6964.4.19 = {
+		holder = lineofyugertenes18 #Yozirh
+	}
+	7001.3.7 = {
+		holder = lineofyugertenes20 #Virratay
+	}
+	7040.10.15 = {
+		holder = lineofyugertenes23 #Qa_a_ngo
+		liege = k_aukar
+	}
+	7074.9.3 = {
+		holder = lineofyugertenes47 #Su_u_luadahn
+	}
+	7098.12.5 = {
+		holder = lineofyugertenes49 #Da_a_liyaumirh
+	}
+	7143.5.15 = {
+		holder = lineofyugertenes51 #Yozirh
+	}
+	7171.5.10 = {
+		holder = lineofyugertenes56 #Tiho_o_mo
+	}
+}
+c_draman = {
+	5207.7.27 = {
+		holder = linedivanid1 #Rajlo
+		change_development_level = 6
+	}
+	5290.3.13 = {
+		holder = linedivanid3 #Gjorad
+	}
+	5301.3.23 = {
+		holder = linedivanid5 #Jozir
+	}
+	5339.12.8 = {
+		holder = linedivanid7 #Krejir
+		liege = d_sarwa
+	}
+	5382.1.21 = { # RoA ruler
+		holder = linedivanid9 #Milhe_e_nkho
+	}
+	5408.6.14 = {
+		holder = linedivanid12
+	}
+
+	# Kindilár Tribe
+	5515.2.7 = {
+		holder = linekindilar1
+		liege = 0
+	}
+	5567.7.14 = {
+		holder = linekindilar3
+	}
+	5579.12.25 = {
+		holder = linekindilar5
+	}
+	5612.12.3 = {
+		holder = linekindilar7
+	}
+	5657.4.28 = {
+		holder = linekindilar9
+	}
+	5671.10.23 = {
+		holder = linekindilar11
+	}
+	5678.7.13 = {
+		holder = linekindilar13
+	}
+
+	# Yugertenes Tribe
+	6622.4.22 = {
+		holder = lineofyugertenes1 #Ye_e_la
+	}
+	6696.12.5 = {
+		holder = lineofyugertenes3 #Zakirh
+	}
+	6741.4.17 = {
+		holder = lineofyugertenes5 #Torna
+	}
+	6757.11.25 = { # Long winter start date ruler
+		holder = lineofyugertenes7 #Bra_a_limarh
+	}
+	6831.6.22 = {
+		holder = lineofyugertenes9 #Kyetika_a_nd
+	}
+	6848.2.2 = {
+		holder = lineofyugertenes11 #Veo_o_no_o_mirh
+	}
+	6892.8.12 = {
+		holder = lineofyugertenes13 #Quado_o_mearh
+	}
+	6945.6.20 = {
+		holder = lineofyugertenes15 #Kyatikarh
+	}
+	6964.4.19 = {
+		holder = lineofyugertenes18 #Yozirh
+	}
+	7001.3.7 = {
+		holder = lineofyugertenes20 #Virratay
+	}
+	7040.10.15 = {
+		holder = lineofyugertenes23 #Qa_a_ngo
+	}
+	7074.9.3 = {
+		holder = lineofyugertenes47 #Su_u_luadahn
+	}
+	7098.12.5 = {
+		holder = lineofyugertenes49 #Da_a_liyaumirh
+	}
+	7143.5.15 = {
+		holder = lineofyugertenes51 #Yozirh
+	}
+	7171.5.10 = {
+		holder = lineofyugertenes56 #Tiho_o_mo
+	}
+}
+c_marh = {
+	5196.3.17 = {
+		holder = lineofrado1 # Rado_o_ I
+		liege = d_sarwa
+	}
+	5249.8.29 = {
+		holder = lineofrado2 # Raku_u_mor
+	}
+	5262.3.4 = {
+		holder = lineofrado2a1 # Ozre_e_n
+	}
+	5302.8.20 = {
+		holder = lineofrado2a2 # Ozo
+	}
+	5326.9.15 = {
+		holder = lineofrado2a3 # A_A_lu
+	}
+	5356.1.20 = {
+		holder = lineofrado2a4 # Asu_u_ma_a_ni
+	}
+	5380.9.11 = {
+		holder = lineofrado2a5 # A_A_mbarh
+	}
+	5401.1.18 = {
+		holder = lineofrado2a5a1 # Ozo
+	}
+
+	# Kindilár Tribe
+	5657.4.28 = {
+		holder = linekindilar9
+	}
+	5671.10.23 = {
+		holder = linekindilar11
+	}
+	5678.7.13 = {
+		holder = linekindilar13
+	}
+	# Yugertenes Tribe
+	6622.4.22 = {
+		holder = lineofyugertenes1 #Ye_e_la
+	}
+	6696.12.5 = {
+		holder = lineofyugertenes3 #Zakirh
+	}
+	6741.4.17 = {
+		holder = lineofyugertenes5 #Torna
+	}
+	6757.11.25 = { # Long winter start date ruler
+		holder = lineofyugertenes7 #Bra_a_limarh
+	}
+	6831.6.22 = {
+		holder = lineofyugertenes9 #Kyetika_a_nd
+	}
+	6848.2.2 = {
+		holder = lineofyugertenes11 #Veo_o_no_o_mirh
+	}
+	6892.8.12 = {
+		holder = lineofyugertenes13 #Quado_o_mearh
+	}
+	6945.6.20 = {
+		holder = lineofyugertenes15 #Kyatikarh
+	}
+	6964.4.19 = {
+		holder = lineofyugertenes18 #Yozirh
+	}
+	7001.3.7 = {
+		holder = lineofyugertenes20 #Virratay
+	}
+	7040.10.15 = {
+		holder = lineofyugertenes23 #Qa_a_ngo
+	}
+	7074.9.3 = {
+		holder = lineofyugertenes47 #Su_u_luadahn
+	}
+	7098.12.5 = {
+		holder = lineofyugertenes49 #Da_a_liyaumirh
+	}
+	7143.5.15 = {
+		holder = lineofyugertenes51 #Yozirh
+	}
+	7171.5.10 = {
+		holder = lineofyugertenes56 #Tiho_o_mo
+	}
+}
+c_rakutin = {
+	5196.3.17 = {
+		holder = lineofrado1 # Rado_o_ I
+		liege = d_sarwa
+	}
+	5249.8.29 = {
+		holder = lineofrado2 # Raku_u_mor
+	}
+	5262.3.4 = {
+		holder = lineofrado3 # Re_e_lko
+	}
+	5301.1.16 = {
+		holder = lineofrado4 # Yerrek
+	}
+	5310.9.18 = {
+		holder = lineofrado5 # Berris
+	}
+	5321.1.23 = {
+		holder = lineofrado6 # Bozidarh
+	}
+	5369.3.14 = {
+		holder = lineofrado7 # Raydahn
+	}
+	5380.9.20 = {
+		holder = lineofrado8 # Rado_o_ II
+	}
+
+	# Ûbruag Tribe
+	5601.12.15 = {
+		holder = llineubruag1
+	}
+	5664.11.2 = {
+		holder = llineubruag3
+	}
+	# Yugertenes Tribe
+	6622.4.22 = {
+		holder = lineofyugertenes1 #Ye_e_la
+	}
+	6696.12.5 = {
+		holder = lineofyugertenes3 #Zakirh
+	}
+	6741.4.17 = {
+		holder = lineofyugertenes5 #Torna
+	}
+	6757.11.25 = { # Long winter start date ruler
+		holder = lineofyugertenes7 #Bra_a_limarh
+	}
+	6831.6.22 = {
+		holder = lineofyugertenes9 #Kyetika_a_nd
+	}
+	6848.2.2 = {
+		holder = lineofyugertenes11 #Veo_o_no_o_mirh
+	}
+	6892.8.12 = {
+		holder = lineofyugertenes13 #Quado_o_mearh
+	}
+	6945.6.20 = {
+		holder = lineofyugertenes15 #Kyatikarh
+	}
+	6964.4.19 = {
+		holder = lineofyugertenes18 #Yozirh
+	}
+	7001.3.7 = {
+		holder = lineofyugertenes20 #Virratay
+	}
+	7040.10.15 = {
+		holder = lineofyugertenes23 #Qa_a_ngo
+	}
+	7074.9.3 = {
+		holder = lineofyugertenes47 #Su_u_luadahn
+	}
+	7098.12.5 = {
+		holder = lineofyugertenes49 #Da_a_liyaumirh
+	}
+	7143.5.15 = {
+		holder = lineofyugertenes51 #Yozirh
+	}
+	7171.5.10 = {
+		holder = lineofyugertenes56 #Tiho_o_mo
+	}
+}
+
+### Kingdom of Abrakhân ###
+# Uhtyārâ lakemen and Kanrâ mountainmen.
+#k_abrakhan = {
+#}
+
+k_darsalan = { # Titular Kingdom-Level Darsalan
+	6587.9.4 = { # the Kingdom of Darsalan is formed
+		holder = linenardegan1 #Kha_a_lo_o_nimmir
+		de_jure_liege = e_dune_sea
+	}
+	6662.1.21 = {
+		holder = linenardegan3 #Borgha_a_l
+	}
+	6700.1.13 = {
+		holder = linenardegan5 #Ozho
+	}
+	6730.12.25 = {
+		holder = linenardegan7 #Zhasa_a_n
+	}
+	6757.2.15 = { # Long Winter start date ruler - the Tempest of Darsalan
+		holder = linenardegan9 #Bogho
+	}
+	6802.4.11 = {
+		holder = linenardegan11 #Kha_a_lo_o_nimmir
+	}
+	6848.7.6 = {
+		holder = linenardegan13 #Nede_e_lkho
+	}
+	6870.11.19 = {
+		holder = linenardegan15 #Borgha_a_l
+	}
+	6907.6.3 = { # Fractures
+		holder = 0
+	}
+}
+
+## Duchy of Abrakhân ##
+#d_abrakhan = {
+#}
+c_abrashadorh = {
+	3500.1.1 = { # Abrakhân Civilization around the Salt Lake
+		change_development_level = 20
+	}
+
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_tahni = {
+	3500.1.1 = { # Abrakhân Civilization around the Salt Lake
+		change_development_level = 16
+	}
+
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_uhtyara = {
+	3500.1.1 = { # Abrakhân Civilization around the Salt Lake
+		change_development_level = 14
+	}
+
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_scheatorh = {
+	3500.1.1 = { # Abrakhân Civilization around the Salt Lake
+		change_development_level = 15
+	}
+
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6737.4.21 = { # Darsalani Resettle
+		holder = linenardegan7 #Zhasa_a_n
+		change_development_level = 4
+		government = clan_government
+	}
+	6757.2.15 = { # Long Winter start date ruler - the Tempest of Darsalan
+		holder = linenardegan9 #Bogho
+	}
+	6802.4.11 = {
+		holder = linenardegan11 #Kha_a_lo_o_nimmir
+	}
+	6848.7.6 = {
+		holder = linenardegan13 #Nede_e_lkho
+	}
+	6870.11.19 = {
+		holder = linenardegan15 #Borgha_a_l
+	}
+	6907.6.3 = {
+		holder = linenardegan19 #Rajkho
+	}
+	6937.4.25 = {
+		holder = linenardegan21 #Jerek
+	}
+	7002.2.2 = { # The Last Scion of Nardegand
+		holder = linenardegan25 #Shahrn
+	}
+}
+c_irhishadorh = {
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+
+	6701.12.5 = {
+		holder = linetaresi1 #Brajkho
+		liege = d_darsalan
+		change_development_level = 5
+		government = clan_government
+	}
+	6753.12.15 = { # Long Winter start date ruler
+		holder = linetaresi3 #Ne_e_nad
+	}
+	6807.9.26 = {
+		holder = linetaresi5 #Mire_e_no
+	}
+	6845.6.11 = {
+		holder = linetaresi7 #Zhasa_a_n
+	}
+	6878.1.26 = {
+		holder = linetaresi9 #Malt_o_e_k
+	}
+	6919.1.28 = {
+		holder = linetaresi11 #Darijkho
+	}
+	6933.8.2 = {
+		holder = linetaresi13 #Ne_e_nad
+	}
+	6966.8.14 = {
+		holder = azgarabanvanda1
+	}
+}
+c_zaikhandorh = {
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+
+	6655.8.1 = {
+		holder = linezaikhandri1 #Arsa_a_l
+		liege = d_darsalan
+		change_development_level = 6
+		government = clan_government
+	}
+	6733.11.5 = {
+		holder = linezaikhandri3 #Je_e_ngho
+	}
+	6771.7.4 = { # Long Winter start date ruler
+		holder = linezaikhandri5 #Bra_a_limar
+	}
+	6804.7.21 = {
+		holder = linezaikhandri7 #Kha_a_lo_o_nimmir
+	}
+	6840.4.7 = {
+		holder = linezaikhandri9 #Malt_o_e_k
+	}
+	6869.12.12 = {
+		holder = linezaikhandri11 #Drajze_e_n
+	}
+	6900.4.26 = {
+		holder = linezaikhandri13 #Brajkho
+	}
+	6943.3.26 = {
+		holder = linezaikhandri15 #Mire_e_no
+	}
+	6948.5.19 = {
+		holder = linezaikhandri17 #Jerek
+	}
+	7000.1.1 = {
+		holder = azgarabanvanda1
+	}
+}
+
+## Duchy of Darsalan ##
+d_darsalan = {
+	3000.1.1 = { # Zehr Abrakhân, older name for the region
+		NAME = cn_zehr_abrakhan
+	}
+
+	4400.1.1 = { # Becomes known as Darsalan
+		NAME = d_darsalan
+	}
+
+	5390.4.4 = { # Conquer oasis of Hidar
+		holder = linesarezh5 #Maksin
+	}
+	5395.11.4 = {
+		holder = linesarezh7 #Kreirh
+	}
+	5428.7.24 = {
+		holder = linesarezh9 #Qiyu
+	}
+	5447.10.16 = { # Dies as Jelut trade network collapses
+		holder = linesarezh20 #Zimbo
+	}
+	5452.3.16 = {
+		holder = linesarezh33
+	}
+	5477.2.9 = {
+		holder = linesarezh36
+	}
+	5527.12.11 = {
+		holder = linesarezh42
+	}
+	5531.12.16 = {
+		holder = 0
+		liege = 0
+	}
+
+	6587.9.4 = { # the Kingdom of Darsalan is formed
+		holder = linenardegan1 #Kha_a_lo_o_nimmir
+	}
+	6662.1.21 = {
+		holder = linenardegan3 #Borgha_a_l
+	}
+	6700.1.13 = {
+		holder = linenardegan5 #Ozho
+	}
+	6730.12.25 = {
+		holder = linenardegan7 #Zhasa_a_n
+	}
+	6757.2.15 = { # Long Winter start date ruler - the Tempest of Darsalan
+		holder = linenardegan9 #Bogho
+	}
+	6802.4.11 = {
+		holder = linenardegan11 #Kha_a_lo_o_nimmir
+	}
+	6848.7.6 = {
+		holder = linenardegan13 #Nede_e_lkho
+	}
+	6870.11.19 = {
+		holder = linenardegan15 #Borgha_a_l
+	}
+	6896.10.11 = {
+		holder = lineofhidar3
+	}
+	6913.5.17 = {
+		holder = lineofhidar5
+	}
+	6966.8.14 = {
+		holder = lineofhidar7
+	}
+	7022.1.1 = {
+		holder = lineofhidar11
+	}
+}
+c_hidar = {
+	# Rasayni Priesthood of Lijazat
+	5318.8.5 = {
+		holder = hidarpriest1
+		change_development_level = 5
+		government = theocracy_government
+	}
+	5339.3.22 = {
+		holder = hidarpriest2
+	}
+	5365.6.17 = {
+		holder = hidarpriest3
+	}
+
+	5390.4.4 = { # Conquer oasis of Hidar
+		holder = linesarezh5 #Maksin
+		government = tribal_government
+		liege = d_darsalan
+	}
+	5395.11.4 = {
+		holder = linesarezh7 #Kreirh
+	}
+	5428.7.24 = {
+		holder = linesarezh9 #Qiyu
+	}
+	5447.10.16 = { # Dies as Jelut trade network collapses
+		holder = linesarezh20 #Zimbo
+	}
+	5452.3.16 = {
+		holder = linesarezh22 #Nediyko
+	}
+	5506.12.26 = {
+		liege = 0
+	}
+
+	6587.9.4 = { # the Kingdom of Darsalan is formed
+		holder = linenardegan1 #Kha_a_lo_o_nimmir
+		change_development_level = 10
+	}
+	6662.1.21 = {
+		holder = linenardegan3 #Borgha_a_l
+	}
+	6700.1.13 = {
+		holder = linenardegan5 #Ozho
+	}
+	6730.12.25 = {
+		holder = linenardegan7 #Zhasa_a_n
+	}
+	6757.2.15 = { # Long Winter start date ruler - the Tempest of Darsalan
+		holder = linenardegan9 #Bogho
+	}
+	6802.4.11 = {
+		holder = linenardegan11 #Kha_a_lo_o_nimmir
+	}
+	6845.11.4 = {
+		holder = lineofhidar1
+		change_development_level = 14
+	}
+	6896.10.11 = {
+		holder = lineofhidar3
+	}
+	6913.5.17 = {
+		holder = lineofhidar5
+	}
+	6966.8.14 = {
+		holder = lineofhidar7
+	}
+	7022.1.1 = {
+		holder = lineofhidar11
+	}
+}
+c_azkahar_abrakhan = {
+	5342.8.28 = {
+		holder = lineofgharmut1 #Ruadova_a_n
+	}
+	5388.12.6 = { # Conquered
+		holder = linesarezh5 #Maksin
+		change_development_level = 2
+		liege = d_darsalan
+	}
+	5395.11.4 = {
+		holder = linesarezh7 #Kreirh
+	}
+	5428.7.24 = {
+		holder = linesarezh9 #Qiyu
+	}
+	5440.4.16 = {
+		holder = linesarezh53
+	}
+	5484.7.7 = {
+		holder = linesarezh57
+	}
+	5519.7.9 = {
+		holder = linesarezh59
+	}
+	5523.1.9 = {
+		holder = linesarezh61
+	}
+
+	6587.9.4 = { # the Kingdom of Darsalan is formed
+		holder = linenardegan1 #Kha_a_lo_o_nimmir
+		change_development_level = 9
+	}
+	6662.1.21 = {
+		holder = linenardegan3 #Borgha_a_l
+	}
+	6700.1.13 = {
+		holder = linenardegan5 #Ozho
+	}
+	6730.12.25 = {
+		holder = linenardegan7 #Zhasa_a_n
+	}
+	6757.2.15 = { # Long Winter start date ruler - the Tempest of Darsalan
+		holder = linenardegan9 #Bogho
+	}
+	6802.4.11 = {
+		holder = linenardegan11 #Kha_a_lo_o_nimmir
+	}
+	6848.7.6 = {
+		holder = linenardegan13 #Nede_e_lkho
+	}
+	6870.11.19 = {
+		holder = linenardegan15 #Borgha_a_l
+	}
+	6907.6.3 = {
+		holder = linenardegan17
+	}
+	7022.1.1 = {
+		holder = lineofhidar11
+		change_development_level = 9
+	}
+}
+c_avarhna = {
+	5354.7.15 = { # Leads a wave of Arani migration into Darsalan
+		holder = linesarezh5 #Maksin
+		change_development_level = 3
+	}
+	5395.11.4 = {
+		holder = linesarezh7 #Kreirh
+		liege = d_darsalan
+	}
+	5428.7.24 = {
+		holder = linesarezh31
+	}
+	5439.5.3 = {
+		holder = linesarezh33
+	}
+	5477.2.9 = {
+		holder = linesarezh36
+	}
+	5527.12.11 = {
+		holder = linesarezh42
+	}
+	5531.12.16 = {
+		liege = 0
+	}
+
+	6587.9.4 = { # the Kingdom of Darsalan is formed
+		holder = linenardegan1 #Kha_a_lo_o_nimmir
+		change_development_level = 7
+	}
+	6662.1.21 = {
+		holder = linenardegan3 #Borgha_a_l
+	}
+	6700.1.13 = {
+		holder = linenardegan5 #Ozho
+	}
+	6730.12.25 = {
+		holder = linenardegan7 #Zhasa_a_n
+	}
+	6757.2.15 = { # Long Winter start date ruler - the Tempest of Darsalan
+		holder = linenardegan9 #Bogho
+	}
+	6802.4.11 = {
+		holder = linenardegan11 #Kha_a_lo_o_nimmir
+	}
+	6845.11.4 = {
+		holder = lineofhidar1
+	}
+	6896.10.11 = {
+		holder = lineofhidar3
+	}
+	6913.5.17 = {
+		holder = lineofhidar5
+	}
+	6966.8.14 = {
+		holder = lineofhidar7
+	}
+	7022.1.1 = {
+		holder = lineofhidar11
+		change_development_level = 8
+	}
+}
+c_larna = {
+	5354.7.15 = { # Leads a wave of Arani migration into Darsalan
+		holder = linesarezh5 #Maksin
+		change_development_level = 3
+		liege = d_darsalan
+	}
+	5395.11.4 = {
+		holder = linesarezh7 #Kreirh
+	}
+	5428.7.24 = {
+		holder = linesarezh31
+	}
+	5439.5.3 = {
+		holder = linesarezh33
+	}
+	5477.2.9 = {
+		holder = linesarezh36
+	}
+	5527.12.11 = {
+		holder = linesarezh42
+	}
+	5531.12.16 = {
+		liege = 0
+	}
+
+	6688.9.7 = {
+		holder = lineasuriand1 #Kha_a_ndoro
+		change_development_level = 5
+		liege = d_darsalan
+	}
+	6768.9.25 = {
+		holder = lineasuriand3 #Borgha_a_l
+	}
+	6812.11.22 = {
+		holder = lineasuriand5 #Jozir
+	}
+	6838.11.14 = {
+		holder = lineasuriand7 #Jerek
+	}
+	6881.8.1 = {
+		holder = lineasuriand9 #Da_a_mir
+	}
+	6902.6.19 = {
+		holder = lineasuriand11 #Jozir
+	}
+	6944.8.17 = {
+		holder = lineasuriand13 #Gjorad
+	}
+	6966.8.14 = {
+		holder = lineofhidar12
+	}
+	7034.5.25 = {
+		holder = lineofhidar15
+	}
+}
+c_sazata = {
+	5354.7.15 = { # Leads a wave of Arani migration into Darsalan
+		holder = linesarezh5 #Maksin
+		change_development_level = 4
+		liege = d_darsalan
+	}
+	5395.11.4 = {
+		holder = linesarezh7 #Kreirh
+	}
+	5428.7.24 = {
+		holder = linesarezh11
+	}
+	5443.9.6 = {
+		holder = linesarezh27
+	}
+	5494.6.1 = {
+		holder = linesarezh29
+	}
+	5504.7.10 = {
+		liege = 0
+	}
+
+	6688.9.7 = {
+		holder = lineasuriand1 #Kha_a_ndoro
+		change_development_level = 8
+		liege = d_darsalan
+	}
+	6768.9.25 = {
+		holder = lineasuriand3 #Borgha_a_l
+	}
+	6812.11.22 = {
+		holder = lineasuriand5 #Jozir
+	}
+	6838.11.14 = {
+		holder = lineasuriand7 #Jerek
+	}
+	6881.8.1 = {
+		holder = lineasuriand9 #Da_a_mir
+	}
+	6902.6.19 = {
+		holder = lineasuriand11 #Jozir
+	}
+	6944.8.17 = {
+		holder = lineasuriand13 #Gjorad
+	}
+	7024.1.1 = {
+		holder = hidarlord3
+		change_development_level = 9
+	}
+}
+c_dtatradorh = {
+	5273.1.3 = {
+		holder = lineofyulbaras1 #Tuala_a_d
+		change_development_level = 7
+	}
+	5361.4.14 = {
+		holder = lineofyulbaras3 #Mek
+	}
+	5390.4.4 = { # Conquer oasis of Hidar
+		holder = linesarezh5 #Maksin
+		government = tribal_government
+		liege = d_darsalan
+	}
+	5395.11.4 = {
+		holder = linesarezh7 #Kreirh
+	}
+	5428.7.24 = {
+		holder = linesarezh9 #Qiyu
+	}
+	5447.10.16 = { # Dies as Jelut trade network collapses
+		holder = linesarezh20 #Zimbo
+	}
+	5452.3.16 = {
+		holder = linesarezh22 #Nediyko
+	}
+	5506.12.26 = {
+		liege = 0
+	}
+
+	6655.8.1 = {
+		holder = linezaikhandri1 #Arsa_a_l
+		liege = d_darsalan
+		change_development_level = 7
+	}
+	6733.11.5 = {
+		holder = linezaikhandri3 #Je_e_ngho
+	}
+	6771.7.4 = { # Long Winter start date ruler
+		holder = linezaikhandri5 #Bra_a_limar
+	}
+	6804.7.21 = {
+		holder = linezaikhandri7 #Kha_a_lo_o_nimmir
+	}
+	6840.4.7 = {
+		holder = linezaikhandri9 #Malt_o_e_k
+	}
+	6869.12.12 = {
+		holder = linezaikhandri11 #Drajze_e_n
+	}
+	6900.4.26 = {
+		holder = linezaikhandri13 #Brajkho
+	}
+	6943.3.26 = {
+		holder = linezaikhandri15 #Mire_e_no
+	}
+	6948.5.19 = {
+		holder = linezaikhandri17 #Jerek
+	}
+	7000.1.1 = {
+		holder = azgarabanvanda1
+	}
+}
+
+## Duchy of Tarsesh Raahr ##
+d_tarsesh_abrakhan = {
+	4000.1.1 = {
+		change_development_level = 10
+	}
+	6600.6.18 = {
+		holder = linerenegand1 #Zhasa_a_n
+	}
+	6672.3.2 = {
+		holder = linerenegand3 #Kha_a_lo_o_nimmir
+	}
+	6689.5.11 = {
+		holder = linerenegand5 #Milhe_e_nkho
+	}
+	6740.4.26 = {
+		holder = linerenegand7 #Drajze_e_n
+	}
+	6767.9.6 = {
+		holder = linerenegand9 #Asu_u_ma_a_ni
+	}
+	6776.6.11 = { # Long Winter start date ruler
+		holder = linerenegand11 #Pe_e_nhar
+	}
+	6820.3.9 = {
+		holder = linerenegand13 #Jozir
+	}
+	6857.4.24 = {
+		holder = linerenegand15 #Kha_a_lo_o_nimmir
+	}
+	6906.9.13 = {
+		holder = linerenegand17 #Drajze_e_n
+	}
+	7000.1.1 = {
+		holder = southkanalord2
+	}
+}
+c_raahr = {
+	2.1.1 = {
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		change_development_level = 4
+		government = tribal_government
+	}
+
+	5276.9.20 = {
+		holder = lineofhuzhares1 #Usl
+	}
+	5355.11.13 = {
+		holder = lineofhuzhares3 #Druagautin
+	}
+	5382.7.10 = {
+		holder = lineofhuzhares5 #Tulakar
+	}
+	5426.2.27 = {
+		holder = lineofhuzhares8 #Zasa_a_n
+	}
+	5471.3.1 = {
+		holder = lineofhuzhares10 #Huad
+	}
+
+	6600.6.18 = {
+		holder = linerenegand1 #Zhasa_a_n
+		government = tribal_government
+	}
+	6672.3.2 = {
+		holder = linerenegand3 #Kha_a_lo_o_nimmir
+	}
+	6689.5.11 = {
+		holder = linerenegand5 #Milhe_e_nkho
+	}
+	6740.4.26 = {
+		holder = linerenegand7 #Drajze_e_n
+	}
+	6767.9.6 = {
+		holder = linerenegand9 #Asu_u_ma_a_ni
+	}
+	6776.6.11 = { # Long Winter start date ruler
+		holder = linerenegand11 #Pe_e_nhar
+	}
+	6820.3.9 = {
+		holder = linerenegand13 #Jozir
+	}
+	6857.4.24 = {
+		holder = linerenegand15 #Kha_a_lo_o_nimmir
+	}
+	6906.9.13 = {
+		holder = linerenegand17 #Drajze_e_n
+	}
+	7000.1.1 = {
+		holder = southkanalord2
+		liege = d_tarsesh_abrakhan
+	}
+}
+c_ghaesch_shadorh = {
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+
+	5600.1.1 = { # Pust resettle Tarseh Abrakhan
+		change_development_level = 5
+		government = tribal_government
+	}
+
+	6600.6.18 = {
+		holder = linerenegand1 #Zhasa_a_n
+	}
+	6672.3.2 = {
+		holder = linerenegand3 #Kha_a_lo_o_nimmir
+	}
+	6675.5.11 = {
+		holder = lineiztachin1 #Krejir
+		liege = d_tarsesh_abrakhan
+	}
+	6760.4.17 = {
+		holder = lineiztachin3 #De_e_lasimmir
+	}
+	6768.6.11 = {
+		holder = lineiztachin5 #Pakir
+	}
+	6782.2.3 = { # Long Winter start date ruler
+		holder = lineiztachin7 #Arsa_a_l
+	}
+	6848.8.27 = {
+		holder = lineiztachin9 #Mire_e_no
+	}
+	6880.9.15 = {
+		holder = lineiztachin11 #Krukho
+	}
+	6857.4.24 = {
+		holder = linerenegand15 #Kha_a_lo_o_nimmir
+	}
+	6906.9.13 = {
+		holder = linerenegand17 #Drajze_e_n
+	}
+	7000.1.1 = {
+		holder = southkanalord2
+	}
+}
+c_ahrayhiradorh = {
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+
+	6800.1.1 = { # Pust resettle Tarseh Abrakhan
+		holder = lineiztachin7 #Arsa_a_l
+		liege = d_tarsesh_abrakhan
+		change_development_level = 6
+		government = tribal_government
+	}
+	6848.8.27 = {
+		holder = lineiztachin9 #Mire_e_no
+	}
+	6880.9.15 = {
+		holder = lineiztachin11 #Krukho
+	}
+	7000.1.1 = {
+		holder = southkanalord2
+	}
+}
+c_karhrykh = {
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+
+	6906.9.13 = { # Pust resettle Tarseh Abrakhan
+		holder = linerenegand17 #Drajze_e_n
+		liege = d_tarsesh_abrakhan
+		change_development_level = 4
+		government = tribal_government
+	}
+	7000.1.1 = {
+		holder = southkanalord1
+		liege = d_zhar_daniz
+	}
+}
+
+## Duchy of Tahbr ##
+d_tahbr_abrakhan = {
+	5276.9.20 = {
+		holder = lineofhuzhares1 #Usl
+	}
+	5355.11.13 = {
+		holder = lineofhuzhares3 #Druagautin
+	}
+	5382.7.10 = {
+		holder = lineofhuzhares5 #Tulakar
+	}
+	5426.2.27 = {
+		holder = lineofhuzhares8 #Zasa_a_n
+	}
+	5471.3.1 = {
+		holder = lineofhuzhares10 #Huad
+	}
+	5487.10.27 = {
+		holder = 0
+	}
+
+	6687.1.5 = {
+		holder = linetahbrani1 #Borgha_a_l
+		liege = k_abrakhan
+	}
+	6756.10.3 = { # Long Winter start date ruler
+		holder = linetahbrani3 #Bogho
+	}
+	6801.10.17 = {
+		holder = linetahbrani5 #Terkho
+	}
+	6829.11.6 = {
+		holder = linetahbrani7 #A_A_mbar
+	}
+	6877.11.6 = {
+		holder = linetahbrani9 #Borgha_a_l
+	}
+	6904.5.7 = {
+		holder = linetahbrani11 #Ozho
+	}
+	6907.10.17 = {
+		holder = linetahbrani13 #De_e_lasimmir
+	}
+	6973.10.12 = {
+		holder = linetahbrani15 #Ne_e_nad
+	}
+	7000.1.1 = {
+		holder = eastkanalord1
+		liege = 0
+	}
+}
+c_kanra = {
+	3500.1.1 = {
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		change_development_level = 7
+		government = tribal_government
+	}
+
+	5276.9.20 = {
+		holder = lineofhuzhares1 #Usl
+	}
+	5355.11.13 = {
+		holder = lineofhuzhares3 #Druagautin
+	}
+	5382.7.10 = {
+		holder = lineofhuzhares5 #Tulakar
+	}
+	5426.2.27 = {
+		holder = lineofhuzhares8 #Zasa_a_n
+	}
+	5471.3.1 = {
+		holder = lineofhuzhares10 #Huad
+	}
+
+	6687.1.5 = {
+		holder = linetahbrani1 #Borgha_a_l
+	}
+	6756.10.3 = { # Long Winter start date ruler
+		holder = linetahbrani3 #Bogho
+	}
+	6801.10.17 = {
+		holder = linetahbrani5 #Terkho
+	}
+	6829.11.6 = {
+		holder = linetahbrani7 #A_A_mbar
+	}
+	6877.11.6 = {
+		holder = linetahbrani9 #Borgha_a_l
+	}
+	6904.5.7 = {
+		holder = linetahbrani11 #Ozho
+	}
+	6907.10.17 = {
+		holder = linetahbrani13 #De_e_lasimmir
+	}
+	6973.10.12 = {
+		holder = linetahbrani15 #Ne_e_nad
+	}
+	7000.1.1 = {
+		holder = eastkanalord1
+	}
+}
+c_palahkaydorh = {
+	3500.1.1 = { # Abrakhân Civilization around the Salt Lake
+		change_development_level = 14
+	}
+
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_saikhan = {
+	3500.1.1 = { # Abrakhân Civilization around the Salt Lake
+		change_development_level = 14
+	}
+
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+c_zadefarr = {
+	3500.1.1 = {
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		change_development_level = 5
+		government = tribal_government
+	}
+
+	5276.9.20 = {
+		holder = lineofhuzhares1 #Usl
+	}
+	5355.11.13 = {
+		holder = lineofhuzhares3 #Druagautin
+	}
+	5382.7.10 = {
+		holder = lineofhuzhares5 #Tulakar
+	}
+	5426.2.27 = {
+		holder = lineofhuzhares8 #Zasa_a_n
+	}
+	5471.3.1 = {
+		holder = lineofhuzhares10 #Huad
+	}
+
+	6600.6.18 = {
+		holder = linerenegand1 #Zhasa_a_n
+	}
+	6672.3.2 = {
+		holder = linerenegand3 #Kha_a_lo_o_nimmir
+	}
+	6689.5.11 = {
+		holder = linerenegand5 #Milhe_e_nkho
+	}
+	6740.4.26 = {
+		holder = linerenegand7 #Drajze_e_n
+	}
+	6767.9.6 = {
+		holder = linerenegand9 #Asu_u_ma_a_ni
+	}
+	6776.6.11 = { # Long Winter start date ruler
+		holder = linerenegand11 #Pe_e_nhar
+	}
+	6820.3.9 = {
+		holder = linerenegand13 #Jozir
+	}
+	6857.4.24 = {
+		holder = linerenegand15 #Kha_a_lo_o_nimmir
+	}
+	6859.12.20 = { # Granted
+		holder = lineizrissin1
+		liege = d_tarsesh_abrakhan
+	}
+	6903.9.10 = {
+		holder = lineizrissin3
+	}
+	6915.4.22 = { # successful rebellion
+		liege = 0
+	}
+	6948.1.24 = {
+		holder = lineizrissin5
+	}
+	6964.12.6 = {
+		holder = lineizrissin7
+	}
+	7004.1.2 = { # WotR ruler
+		holder = lineizrissin9
+	}
+	7047.3.16 = {
+		holder = lineizrissin11
+	}
+}
+c_zeratayadorh = {
+	3500.1.1 = { # Abrakhân Civilization around the Salt Lake
+		change_development_level = 13
+	}
+
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		change_development_level = 4
+		government = tribal_government
+	}
+
+	5276.9.20 = {
+		holder = lineofhuzhares1 #Usl
+	}
+	5355.11.13 = {
+		holder = lineofhuzhares3 #Druagautin
+	}
+	5382.7.10 = {
+		holder = lineofhuzhares5 #Tulakar
+	}
+	5426.2.27 = {
+		holder = lineofhuzhares8 #Zasa_a_n
+	}
+	5471.3.1 = {
+		holder = lineofhuzhares10 #Huad
+	}
+
+	6600.6.18 = {
+		holder = linerenegand1 #Zhasa_a_n
+		change_development_level = 6
+	}
+	6672.3.2 = {
+		holder = linerenegand3 #Kha_a_lo_o_nimmir
+	}
+	6689.5.11 = {
+		holder = linerenegand5 #Milhe_e_nkho
+	}
+	6740.4.26 = {
+		holder = linerenegand7 #Drajze_e_n
+	}
+	6767.9.6 = {
+		holder = linerenegand9 #Asu_u_ma_a_ni
+	}
+	6776.6.11 = { # Long Winter start date ruler
+		holder = linerenegand11 #Pe_e_nhar
+	}
+	6820.3.9 = {
+		holder = linerenegand13 #Jozir
+	}
+	6857.4.24 = {
+		holder = linerenegand15 #Kha_a_lo_o_nimmir
+	}
+	6859.12.20 = { # Granted
+		holder = lineizrissin1
+		liege = d_tarsesh_abrakhan
+	}
+	6903.9.10 = {
+		holder = lineizrissin3
+	}
+	6915.4.22 = { # successful rebellion
+		liege = 0
+	}
+	6948.1.24 = {
+		holder = lineizrissin5
+	}
+	6964.12.6 = {
+		holder = lineizrissin7
+	}
+	7004.1.2 = { # WotR ruler
+		holder = lineizrissin9
+	}
+	7047.3.16 = {
+		holder = lineizrissin11
+	}
+}
+
+## Duchy of Sarysis ##
+d_sarysis = {
+	3000.1.1 = { # Nêrasan, older name as Sarysis doesnt make sense this early
+		NAME = cn_nerasan
+	}
+
+	5600.1.1 = { # Becomes known as Sarysis as Arysori move in
+		NAME = d_sarysis
+	}
+
+	6679.5.25 = {
+		holder = linesarisand1 #Ne_e_nad
+	}
+	6746.9.2 = {
+		holder = linesarisand3 #Ozho
+	}
+	6797.1.3 = {
+		holder = linesarisand5 #Brajkho
+	}
+	6825.1.22 = {
+		holder = linesarisand7 #Rajlo
+	}
+	6857.8.16 = {
+		holder = linesarisand9 #Bra_a_nkho
+	}
+	6900.7.9 = {
+		holder = linesarisand11 #Terkho
+	}
+	6902.11.3 = {
+		holder = linesarisand13 #A_A_lu
+	}
+	6943.9.16 = {
+		holder = linesarisand15 #Shina
+	}
+	6956.7.21 = {
+		holder = lineofharratesh39 #Qasila_a_n
+	}
+	7010.11.1 = {
+		holder = lineofharratesh41 #O_O_latarh
+	}
+	7040.9.17 = {
+		holder = lineofharratesh44 #Krauko
+	}
+	7063.2.9 = {
+		holder = lineofharratesh47 #Beke_e_le
+	}
+	7067.5.15 = { # Accords of Ankruz
+		government = administrative_government
+		effect = {
+			administrative_government_dlc_check = { REPLACEMENT = clan_government }
+			set_administrative_themes_type = { LEVEL = 3 } # Frontier
+		}
+	}
+	7080.12.4 = {
+		holder = lineoftarrahan1 #Tarra
+	}
+	7102.6.23 = {
+		holder = lineoftarrahan3 #Hoshedar
+	}
+	7125.5.15 = {
+		holder = lineoftarrahan6 #Dastan
+	}
+	7149.12.4 = {
+		holder = lineoftarrahan9 #Dastan
+	}
+	7204.11.26 = {
+		holder = lineoftarrahan12 #Harrat
+	}
+	7245.3.16 = {
+		holder = lineoftarrahan15 #Krauko
+	}
+	7174.3.2 = { # As agreed in the Accords of Ankruz
+		effect = {
+			set_variable = {
+				name = petition_house_rights
+				value = house:house_tarrahan
+				years = 100 #Note: Counts 100 years from gamestart
+			}
+		}
+	}
+	7178.9.9 = {
+		holder = lineoftarrahan17 #Bennar
+	}
+	7193.12.12 = {
+		holder = lineoftarrahan19 #Isak
+	}
+	7206.6.14 = {
+		holder = lineoftarrahan21 #Druagii
+	}
+}
+c_jasifan = {
+	5298.4.23 = {
+		holder = lineofqaswaras1 #Sha_a_lirrik
+		change_development_level = 8
+	}
+	5372.7.1 = {
+		holder = lineofqaswaras3 #Pastaz
+	}
+	5432.10.24 = {
+		holder = lineofqaswaras5 #Berris
+	}
+	5456.7.18 = {
+		holder = lineofqaswaras9 #Dru_u_lsafruad
+	}
+	5504.2.15 = {
+		holder = lineofqaswaras11 #Zimbo
+	}
+
+	6678.9.3 = {
+		holder = lineofyerrekesh1 #Yerrek
+		change_development_level = 14
+	}
+	6751.9.7 = {
+		holder = lineofyerrekesh3 #Ratko
+	}
+	6772.1.23 = {
+		holder = lineofyerrekesh5 #Darh
+	}
+	6776.6.16 = { #Couped
+		holder = lineofyerrekesh5brother # Fese_e_lkho
+	}
+	6823.6.2 = {
+		holder = lineofyerrekesh7 #Harrat
+	}
+	6844.1.13 = {
+		holder = lineofyerrekesh9 #Zorra_a_n
+	}
+	6865.2.2 = {
+		holder = lineofharratesh1 #Harrat
+	}
+	6924.10.7 = {
+		holder = lineofharratesh3 #Zakarra_a_n
+	}
+	6965.7.3 = {
+		holder = lineofharratesh6 #Sa_a_milya_a_n
+	}
+	6975.7.4 = {
+		holder = lineofharratesh8 #Bra_a_nko
+	}
+	6989.3.2 = {
+		holder = lineofharratesh41 #Olatarh
+	}
+	7040.9.17 = {
+		holder = lineofharratesh44 #Krauko
+	}
+	7063.2.9 = {
+		holder = lineofharratesh47 #Beke_e_le
+	}
+	7080.12.4 = {
+		holder = lineoftarrahan1 #Tarra
+	}
+	7102.6.23 = {
+		holder = lineoftarrahan3 #Hoshedar
+	}
+	7125.5.15 = {
+		holder = lineoftarrahan6 #Dastan
+	}
+	7149.12.4 = {
+		holder = lineoftarrahan9 #Dastan
+	}
+	7204.11.26 = {
+		holder = lineoftarrahan12 #Harrat
+	}
+	7245.3.16 = {
+		holder = lineoftarrahan15 #Krauko
+	}
+	7178.9.9 = {
+		holder = lineoftarrahan17 #Bennar
+	}
+	7193.12.12 = {
+		holder = lineoftarrahan19 #Isak
+	}
+	7206.6.14 = {
+		holder = lineoftarrahan21 #Druagii
+	}
+}
+c_nenaghos = {
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6500.1.1 = { # Arysori settle Sarysis
+		change_development_level = 7
+		government = clan_government
+	}
+	6679.5.25 = {
+		holder = linesarisand1 #Ne_e_nad
+	}
+	6746.9.2 = {
+		holder = linesarisand3 #Ozho
+	}
+	6797.1.3 = {
+		holder = linesarisand5 #Brajkho
+	}
+	6825.1.22 = {
+		holder = linesarisand7 #Rajlo
+	}
+	6857.8.16 = {
+		holder = linesarisand9 #Bra_a_nkho
+	}
+	6900.7.9 = {
+		holder = linesarisand11 #Terkho
+	}
+	6902.11.3 = {
+		holder = linesarisand13 #A_A_lu
+	}
+	6943.9.16 = {
+		holder = linesarisand15 #Shina
+		change_development_level = 7
+	}
+	6956.7.21 = {
+		holder = lineofharratesh39 #Qasila_a_n
+	}
+	7010.11.1 = {
+		holder = lineofharratesh41 #O_O_latarh
+	}
+	7040.9.17 = {
+		holder = lineofharratesh44 #Krauko
+	}
+	7063.2.9 = {
+		holder = lineofharratesh47 #Beke_e_le
+	}
+
+	7125.12.1 = {
+		holder = lineofharratesh92 #Ye_e_ngo
+		liege = d_sarysis
+		government = administrative_government
+		effect = {
+			administrative_government_dlc_check = { REPLACEMENT = clan_government }
+		}
+	}
+}
+c_khadorkha = {
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+
+	6500.1.1 = { # Darsalan resettle western Sarysis
+		change_development_level = 5
+		liege = d_darsalan
+		government = tribal_government
+	}
+
+	6500.1.1 = { # Arysori settle Sarysis
+		change_development_level = 9
+		government = clan_government
+	}
+	6679.5.25 = {
+		holder = linesarisand1 #Ne_e_nad
+	}
+	6746.9.2 = {
+		holder = linesarisand3 #Ozho
+	}
+	6797.1.3 = {
+		holder = linesarisand5 #Brajkho
+	}
+	6825.1.22 = {
+		holder = linesarisand7 #Rajlo
+		change_development_level = 7
+	}
+	6857.8.16 = {
+		holder = linesarisand9 #Bra_a_nkho
+	}
+	6900.7.9 = {
+		holder = linesarisand11 #Terkho
+	}
+	6902.11.3 = {
+		holder = linesarisand13 #A_A_lu
+	}
+	6943.9.16 = {
+		holder = linesarisand15 #Shina
+	}
+	6956.7.21 = {
+		holder = lineofharratesh39 #Qasila_a_n
+	}
+	7010.11.1 = {
+		holder = lineofharratesh41 #O_O_latarh
+	}
+	7040.9.17 = {
+		holder = lineofharratesh44 #Krauko
+	}
+	7063.2.9 = {
+		holder = lineofharratesh47 #Beke_e_le
+	}
+}
+c_petera = {
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6500.1.1 = { # Arysori settle Sarysis
+		change_development_level = 4
+		government = clan_government
+	}
+	6679.5.25 = {
+		holder = linesarisand1 #Ne_e_nad
+	}
+	6746.9.2 = {
+		holder = linesarisand3 #Ozho
+	}
+	6797.1.3 = {
+		holder = linesarisand5 #Brajkho
+	}
+	6825.1.22 = {
+		holder = linesarisand7 #Rajlo
+		change_development_level = 7
+	}
+	6857.8.16 = {
+		holder = linesarisand9 #Bra_a_nkho
+	}
+	6900.7.9 = {
+		holder = linesarisand11 #Terkho
+	}
+	6902.11.3 = {
+		holder = linesarisand13 #A_A_lu
+	}
+	6943.9.16 = {
+		holder = linesarisand15 #Shina
+	}
+	6956.7.21 = {
+		holder = lineofharratesh39 #Qasila_a_n
+	}
+	7010.11.1 = {
+		holder = lineofharratesh41 #O_O_latarh
+	}
+	7040.9.17 = {
+		holder = lineofharratesh44 #Krauko
+	}
+	7063.2.9 = {
+		holder = lineofharratesh47 #Beke_e_le
+	}
+}
+c_chikara = {
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holder = k_wastelands_holder
+		liege = 0
+		change_development_level = -100
+		government = wastelands_government
+	}
+
+	7134.3.12 = { # Resettled
+		holder = lineofharratesh92 #Ye_e_ngo
+		liege = d_sarysis
+		change_development_level = 4
+		government = administrative_government
+		effect = {
+			administrative_government_dlc_check = { REPLACEMENT = clan_government }
+		}
+	}
+}

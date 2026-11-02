@@ -1,0 +1,60 @@
+﻿culture_in_dune_sea_desc = {
+	third_not = culture_in_dune_sea_desc
+}
+
+culture_in_red_desert_desc = {
+	third_not = culture_in_red_desert_desc
+}
+
+culture_in_deep_desc = {
+	third_not = culture_in_deep_desc
+}
+
+culture_has_riders_of_the_mark_desc = {
+	third_not = tradition_riders_of_the_mark_name
+}
+
+culture_has_a_people_reunited_desc = {
+	third_not = tradition_a_people_reunited_name
+}
+
+culture_has_the_people_of_the_plains_desc = {
+	third_not = tradition_the_people_of_the_plains_name
+}
+
+culture_has_tales_of_great_deeds_desc = {
+	third_not = tradition_tales_of_great_deeds_name
+}
+
+culture_has_warriors_of_rhun_desc = {
+	third_not = tradition_warriors_of_rhun_name
+}
+
+culture_has_belfalathrim_chivalry_desc = {
+	third_not = tradition_belfalathrim_chivalry_name
+}
+
+#culture_has_warriors_of_fame_and_field_desc = {
+#	third_not = tradition_warriors_of_fame_and_field_name
+#}
+
+culture_has_variag_horse_lords_desc = {
+	third_not = tradition_variag_horse_lords_name
+}
+
+fewer_that_20_culture_counties = {
+	third_not = fewer_that_20_culture_counties
+}
+
+culture_surface_dweller_desc = {
+	third_not = culture_surface_dweller_desc
+}
+
+innovation_human_trigger_req = {
+	global = INNOVATION_HUMAN_RACE_TRIGGER_GLOBAL
+	global_not = INNOVATION_HUMAN_RACE_TRIGGER_GLOBAL_NOT
+}
+innovation_human_or_dwarf_trigger_req = {
+	global = INNOVATION_HUMAN_OR_DWARF_RACE_TRIGGER_GLOBAL
+	global_not = INNOVATION_HUMAN_OR_DWARF_RACE_TRIGGER_GLOBAL_NOT
+}

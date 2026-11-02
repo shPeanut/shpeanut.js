@@ -1,0 +1,257 @@
+﻿lotr_can_declare_war = {	
+	NOR = {
+		has_culture = culture:wastelands
+		AND = {
+			exists = primary_title.empire
+			primary_title.empire = title:e_valinor
+		}
+	}
+	# The Necromancer is hidden
+	NOT = { has_character_flag = unknown_sauron_flag } # LOTR
+}
+
+dwarf_and_goblin_underground_county_cb_trigger = {
+	trigger_if = {
+		limit = { 
+			scope:target ?= {
+				tier = tier_county
+			 	is_underground_county = yes 
+			}
+		}
+		scope:attacker ?= {
+			OR = {
+				is_underground_race = yes
+				cannot_be_killed = yes
+			}
+		}
+		scope:defender ?= {
+			OR = {
+				is_underground_race = yes
+				cannot_be_killed = yes
+			}
+		}
+	}
+}
+
+dwarf_and_goblin_underground_duchy_cb_trigger = {
+	trigger_if = {
+		limit = {
+			OR = {
+				scope:target ?= { any_de_jure_county = { holder.top_liege = scope:defender } }
+				scope:target.holder ?= scope:defender
+			}
+			scope:target ?= {
+				any_de_jure_county ?= {	is_underground_county = yes } #Duchy has underground counties
+				NOT = { #Duchy doesn't have overground counties held by the defender
+					any_de_jure_county ?= {
+						is_underground_county = no
+						OR = {
+							holder = scope:defender
+							holder.top_liege = scope:defender
+						}
+					}
+				}
+			}
+		}
+		scope:attacker ?= {
+			OR = {
+				is_underground_race = yes
+				cannot_be_killed = yes
+			}
+		}
+		scope:defender ?= {
+			OR = {
+				is_underground_race = yes
+				cannot_be_killed = yes
+			}
+		}
+	}
+}
+
+underground_cb_trigger = {
+	scope:attacker ?= {
+		any_sub_realm_county ?= {
+			any_neighboring_county ?= {
+				OR = {
+					holder = scope:defender
+					holder = { is_vassal_or_below_of = scope:defender }
+				}
+			}
+		}
+	}
+}
+
+lotr_TH_struggle_balan_lai_defend_other_balan_lai = {
+	trigger_if = {
+		limit = {
+			scope:defender = { has_trait = balan_lai_member }
+		}
+		always = yes
+	}
+	trigger_else = { always = no }
+}
+
+lotr_TH_struggle_not_at_war_with_scoped_balan_lai_member = {
+	NOT = {
+		this = scope:attacker
+		is_vassal_or_below_of = scope:attacker
+		is_at_war_with = scope:attacker
+	}
+}
+
+lotr_hostile_holy_wars_allowed_trigger = {
+	OR = {
+		has_game_rule = hostile_holy_wars_unrestricted
+		scope:defender.faith = {
+			faith_hostility_level = {
+				target = scope:attacker.faith
+				value = faith_evil_level
+			}
+		}
+		scope:attacker.faith = { has_doctrine = doctrine_pluralism_fundamentalist }
+	}
+}
+
+is_berserker = {	#to unify all three traits for event code
+	OR = {
+		has_trait = berserker
+		has_trait = urukhai_berserker
+	}
+}
+
+lotr_can_be_berserker_trigger = { #These are the ways you can get Berserker
+	OR = {
+		faith = {
+			has_doctrine_parameter = allows_berserkers
+		}
+		culture = culture:isengard_urukhai
+	}
+	NOR = {
+		has_trait = craven
+		has_trait = calm	
+	}
+	is_berserker = no
+	is_elf = no
+	cannot_be_killed = no
+}
+
+################################
+### Sunset Invasion Triggers ###
+################################
+
+lotr_holds_land_in_middle_earth_trigger = {
+	OR = {
+		holder.top_overlord = scope:largest_realm_ruler
+		holder.top_overlord = title:k_wastelands.holder
+	}
+}
+
+sunset_invasion_subject_has_opposite_alignment_and_land_in_region = {
+	is_wastelands = no
+	# Check Alignment
+	opposite_alignment = { TARGET = scope:attacker }
+
+	# Check for any held counties inside the region
+	any_sub_realm_county = {
+		any_in_list = {
+			list = initial_invasion_titles
+			this = prev
+		}
+		NOT = {
+			any_in_list = {
+				list = targeted_titles
+				this = prev
+			}
+		}
+	}
+}
+
+sunset_invasion_subject_has_same_alignment_and_land_in_region = {
+	is_wastelands = no
+	# Check Alignment
+	same_alignment = { TARGET = scope:attacker }
+	
+	# Check for any held counties inside the region
+	any_sub_realm_county = {
+		any_in_list = {
+			list = initial_invasion_titles
+			this = prev
+		}
+		NOT = {
+			any_in_list = {
+				list = targeted_titles
+				this = prev
+			}
+		}
+	}
+}
+
+######################################
+### Pharazon Invasion Sub-triggers ###
+######################################
+
+##########################################
+### Join War Interaction LotR Triggers ###
+##########################################
+
+lotr_TH_involved_rulers_can_join_each_others_wars = {
+	$ACTOR$ = {
+		any_character_struggle = { 
+			is_struggle_type = thani_hazad_struggle 
+			involvement = involved
+			has_struggle_phase_parameter = involved_rulers_can_join_other_involved_rulers
+		} 
+	}
+	$RECIPIENT$ = {
+		is_independent_ruler = yes
+		any_character_struggle = {
+			is_struggle_type = thani_hazad_struggle 
+			involvement = involved
+			has_struggle_phase_parameter = involved_rulers_can_join_other_involved_rulers
+		} 
+	}
+}
+
+lotr_elves_can_join_wars_against_shadow_limit = {
+	$ACTOR$ = {
+		is_elf = yes
+		is_ai = no
+		faith_is_good = yes
+		NOT = { target_is_vassal_or_below = $RECIPIENT$ }
+
+	}
+	$RECIPIENT$ = { faith_is_good = yes }
+	primary_defender = { this = $RECIPIENT$ }
+}
+
+lotr_elves_can_join_wars_against_shadow = {
+	trigger_if = {
+		limit = { $RECIPIENT$ = { character_is_realm_neighbor = $ACTOR$ } }
+		primary_attacker = { 
+			highest_held_title_tier >= tier_duchy 
+			faith_is_evil = yes
+		}
+	}
+	trigger_else = {
+		$RECIPIENT$ = { highest_held_title_tier >= tier_kingdom }
+		primary_attacker = { 
+			highest_held_title_tier >= tier_duchy
+			faith_is_evil = yes
+		}
+	}
+}
+
+lotr_fi_elf_can_declare_war = {
+	trigger_if = {
+		limit = {
+			scope:attacker = { is_elf = yes }
+			has_game_rule = apocalyptic_conqueror_good_strength
+			has_game_rule = limited_elven_expansion
+		}
+		scope:defender ?= {
+			NOT = {
+				faith_is_good = yes
+			}
+		}
+	}
+}

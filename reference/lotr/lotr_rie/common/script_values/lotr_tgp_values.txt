@@ -1,0 +1,7 @@
+﻿#AGOT House Relation Modifiers
+lotr_house_relation_improve_mini_value = 0.05 #LOTR
+#Negative Values
+lotr_house_relation_damage_mini_value = { # Same as above, but negative
+	value = lotr_house_relation_improve_mini_value
+	multiply = -1
+}

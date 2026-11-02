@@ -1,0 +1,919 @@
+﻿# The entry should be named in the same way that the elective succession law is named to define it's voter's logic.
+# Root scope - Elector, the character voting in the election.
+# scope:candidate scope - Candidate, Character considered for the title.
+# scope:title scope - Title, The title the nomination is for.
+# scope:holder scope - Ruler, The ruler currently holding the title.
+# scope:holder_candidate scope - Favored Candidate, The title owner's candidate.
+# The voter will vote for the top score candidate calculated from this script.
+
+aristocratic_elective = {
+	elector_vote_strength = {
+		base = 1
+
+		modifier = { #Incumbant
+			desc = tooltip_aristocratic_elective_is_incumbant
+			add = 3
+			this = scope:holder
+		}
+		modifier = { #Powerful Vassal
+			desc = tooltip_aristocratic_elective_powerful_vassal
+			add = 2
+			NOT = { this = scope:holder }
+			is_powerful_vassal = yes
+			liege = scope:holder
+		}
+		modifier = { #Established Military
+			desc = tooltip_aristocratic_elective_military_1
+			add = 1
+			max_military_strength > 2000
+			max_military_strength <= 5000
+		}
+		modifier = { #Notable Military
+			desc = tooltip_aristocratic_elective_military_2
+			add = 2
+			max_military_strength > 5000
+			max_military_strength <= 10000
+		}
+		modifier = { # Significant Military
+			desc = tooltip_aristocratic_elective_military_3
+			add = 3
+			max_military_strength > 10000
+		}
+		modifier = { #Fame - Illustrious
+			desc = tooltip_aristocratic_elective_fame_3
+			add = 1
+			prestige_level = 3
+		}
+		modifier = { #Fame - Exalted among Men
+			desc = tooltip_aristocratic_elective_fame_4
+			add = 2
+			prestige_level = 4
+		}
+		modifier = { #Fame - Living Legend
+			desc = tooltip_aristocratic_elective_fame_5
+			add = 3
+			prestige_level = 5
+		}
+		modifier = { #Diplomacy Education - Charismatic Negotiator
+			desc = tooltip_aristocratic_elective_diplo_education_3
+			add = 1
+			has_trait = education_diplomacy_3
+		}
+		modifier = { #Diplomacy Education - Grey Eminence
+			desc = tooltip_aristocratic_elective_diplo_education_4
+			add = 2
+			has_trait = education_diplomacy_4
+		}
+		modifier = { #Councillor
+			desc = tooltip_aristocratic_elective_is_councillor
+			add = 1
+			is_councillor_of = scope:holder
+		}
+		modifier = { #Historic Rhunic Dynasty
+			desc = tooltip_aristocratic_elective_historic_rhunic_dynasty
+			add = 1
+			dynasty = { has_variable = historic_rhunic_dynasty }
+		}		
+	}
+	
+	electors = {
+		add = holder
+		add = {
+			type = holder_direct_vassals
+			limit = {
+				highest_held_title_tier >= 1
+			}				
+		}
+	}
+
+	candidate_score = {
+		base = 0
+		######################	Elector self-voting pattern	##########################
+		elector_self_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Holder voting pattern	##########################
+		holder_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (circumstances)	##########################
+		elector_voting_pattern_circumstances_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (prestige/piety)	##########################
+		elector_voting_pattern_prestige_piety_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (traits)	##########################
+		elector_voting_pattern_traits_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (opinion)	##########################
+		elector_voting_pattern_opinion_feudal_elective_modifier = yes
+	}
+	
+	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
+	candidates = {
+		add = {
+			type = holder_direct_vassals
+			limit = {
+				feudal_elective_potential_landed_candidate_trigger = yes
+			}
+		}
+		add = {
+			type = title_claimants
+			limit = {
+				feudal_elective_potential_landless_claimant_candidate_trigger = yes
+			}
+		}
+		add = {
+			type = holder_close_family
+			limit = {
+				is_close_family_of = scope:holder
+				feudal_elective_potential_landless_dynastic_candidate_trigger = yes
+			}
+		}
+	}
+}
+
+oligarchic_elective = {
+	elector_vote_strength = {
+		base = 1
+
+		modifier = { #Development
+			desc = tooltip_oligarchic_elective_development
+			add = total_county_development
+		}
+		
+		modifier = { #Master Merchants - Master Merchant dynast wealth 1
+			desc = tooltip_oligarchic_merchant_dynast_wealth_1
+			add = 5
+			exists = dynasty
+			dynasty = { 
+				has_dynasty_modifier = master_merchants
+				dynast = {
+					monthly_character_income > 5
+					monthly_character_income <= 10
+				}
+			}			
+		}
+		
+		modifier = { #Master Merchants - Master Merchant dynast wealth 2
+			desc = tooltip_oligarchic_merchant_dynast_wealth_2
+			add = 10
+			exists = dynasty
+			dynasty = { 
+				has_dynasty_modifier = master_merchants
+				dynast = {
+					monthly_character_income > 10
+					monthly_character_income <= 20
+				}
+			}			
+		}
+		
+		modifier = { #Master Merchants - Master Merchant dynast wealth 3
+			desc = tooltip_oligarchic_merchant_dynast_wealth_3
+			add = 15
+			exists = dynasty
+			dynasty = { 
+				has_dynasty_modifier = master_merchants
+				dynast = {
+					monthly_character_income > 20
+				}
+			}			
+		}
+		
+		modifier = { #Master Merchants - Master Merchant dynast fame 1
+			desc = tooltip_oligarchic_merchant_dynast_fame_2
+			add = 5
+			exists = dynasty
+			dynasty = { 
+				has_dynasty_modifier = master_merchants
+				dynast = {
+					prestige_level = 2
+				}
+			}			
+		}
+		
+		modifier = { #Master Merchants - Master Merchant dynast fame 2
+			desc = tooltip_oligarchic_merchant_dynast_fame_3
+			add = 10
+			exists = dynasty
+			dynasty = { 
+				has_dynasty_modifier = master_merchants
+				dynast = {
+					prestige_level = 3
+				}
+			}			
+		}
+		
+		modifier = { #Master Merchants - Master Merchant dynast fame 3
+			desc = tooltip_oligarchic_merchant_dynast_fame_4
+			add = 15
+			exists = dynasty
+			dynasty = { 
+				has_dynasty_modifier = master_merchants
+				dynast = {
+					prestige_level >= 4
+				}
+			}			
+		}
+		
+		modifier = { #Master Merchants - Master Merchant Stewardship
+			desc = tooltip_oligarchic_merchant_dynast_stewardship
+			add = stewardship
+			exists = dynasty
+			dynasty = {
+				has_dynasty_modifier = master_merchants
+			}			
+		}
+	}
+	
+	electors = {
+		add = holder
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				highest_held_title_tier >= 1
+				target_is_liege_or_above = scope:holder
+			}	
+		}
+	}
+
+	candidate_score = {
+		base = 0
+		######################	Elector self-voting pattern	##########################
+		elector_self_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Holder voting pattern	##########################
+		holder_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (circumstances)	##########################
+		elector_voting_pattern_circumstances_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (prestige/piety)	##########################
+		elector_voting_pattern_prestige_piety_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (traits)	##########################
+		elector_voting_pattern_traits_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (opinion)	##########################
+		elector_voting_pattern_opinion_feudal_elective_modifier = yes
+		
+		###Dorwinion Factionalism - needs a fix
+		modifier = { #Master Merchants hate Winelords
+			desc = tooltip_oligarchic_merchants_hate_winelords
+			add = -75
+			NOT = { scope:candidate = root }
+			exists = this.dynasty
+			this.dynasty = {
+				has_dynasty_modifier = master_merchants
+			}
+			exists = scope:candidate.dynasty
+			scope:candidate.dynasty = {
+				has_dynasty_modifier = winelords
+			}
+		}
+		
+		modifier = { #Winelords hate Master Merchants
+			desc = tooltip_oligarchic_winelords_hate_merchants
+			add = -75
+			NOT = { scope:candidate = root }
+			exists = this.dynasty
+			this.dynasty = {
+				has_dynasty_modifier = winelords
+			}
+			exists = scope:candidate.dynasty
+			scope:candidate.dynasty = {
+				has_dynasty_modifier = master_merchants
+			}
+		}
+		
+		modifier = { #Winelords like Winelords
+			desc = tooltip_oligarchic_winelords_like_winelords
+			add = 75
+			NOT = { scope:candidate = root }
+			exists = this.dynasty
+			this.dynasty = {
+				has_dynasty_modifier = winelords
+			}
+			exists = scope:candidate.dynasty
+			scope:candidate.dynasty = {
+				has_dynasty_modifier = winelords
+			}
+		}
+		
+		modifier = { #Master Merchants like Master Merchants
+			desc = tooltip_oligarchic_merchants_like_merchants
+			add = 75
+			NOT = { scope:candidate = root }
+			exists = root.dynasty
+			this.dynasty = {
+				has_dynasty_modifier = master_merchants
+			}
+			exists = scope:candidate.dynasty
+			scope:candidate.dynasty = {
+				has_dynasty_modifier = master_merchants
+			}
+		}
+	}
+	
+	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
+	candidates = {
+		add = {
+			type = holder_direct_vassals
+			limit = {
+				feudal_elective_potential_landed_candidate_trigger = yes
+			}
+		}
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				is_independent_ruler = yes #De jure vassals of the title who are not de facto vassals of the current ruler.
+				feudal_elective_potential_landed_candidate_trigger = yes
+			}
+		}
+		add = {
+			type = title_claimants
+			limit = {
+				feudal_elective_potential_landless_claimant_candidate_trigger = yes
+			}
+		}
+		add = {
+			type = holder_close_or_extended_family
+			limit = {
+				is_close_family_of = scope:holder
+				feudal_elective_potential_landless_dynastic_candidate_trigger = yes
+			}
+		}
+	}
+}
+
+vassal_conclave_dynastic_elective = {
+	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
+	candidates = {
+		add = {
+			type = holder_dynasty
+			limit = {
+				feudal_elective_potential_landless_dynastic_candidate_trigger = yes
+			}
+		}
+	}
+
+	electors = {
+		add = holder
+		add = { # De Jure Vassals in Realm
+			type = title_dejure_vassals
+			limit = {
+				highest_held_title_tier >= tier_county
+				target_is_liege_or_above = scope:holder
+				NOT = { dynasty = scope:holder.dynasty }
+			}	
+		}
+	}
+	
+	elector_vote_strength = {
+		base = 0
+
+		modifier = { #Ruler's limited vote strength is tied to their legitimacy
+			desc = tooltip_vassal_conclave_dynastic_elective_votes_ruler_legitimacy
+			this = scope:holder
+			add = legitimacy_level
+		}
+
+		modifier = { #Ruler's limited vote strength is tied to their legitimacy
+			desc = tooltip_vassal_conclave_dynastic_elective_votes_ruler_any_same_heritage_vassals
+			this = scope:holder
+			add = {
+				value = legitimacy_level
+				multiply = -1
+				add = 1
+			}
+		}
+
+		modifier = { #Each voter is the "representative" of all the people they rule over. The larger the domain, the more voting power he has.
+			desc = tooltip_vassal_conclave_dynastic_elective_votes_vassal_total_development
+			NOT = { this = scope:holder }
+			is_landed = yes
+			domain_size >= 1
+			any_held_title = {
+				tier = tier_county
+				development_level > 0
+				target_is_de_jure_liege_or_above = scope:title
+			}
+			add = {
+				every_held_title = {
+					limit = {
+						tier = tier_county
+						development_level > 0
+						target_is_de_jure_liege_or_above = scope:title
+					}
+					add = {
+						value = this.development_level
+						min = 1
+					}
+				}
+			}
+		}
+
+	}
+	
+	candidate_score = {
+		base = 0
+		######################	Elector self-voting pattern	##########################
+		elector_self_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Holder voting pattern	##########################
+		holder_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (circumstances)	##########################
+		elector_voting_pattern_circumstances_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (prestige/piety)	##########################
+		elector_voting_pattern_prestige_piety_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (traits)	##########################
+		elector_voting_pattern_traits_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (opinion)	##########################
+		elector_voting_pattern_opinion_feudal_elective_modifier = yes
+	}
+	
+	
+}
+
+balan_lai_leader_elective = {
+	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
+	candidates = {
+		add = {
+			type = holder_dynasty
+			limit = { # Direct heir of the current holder of correct culture
+				is_primary_heir_of = scope:holder
+				OR = { # Kharadunaim or Kharadunaim-descendant
+					culture = culture:kharadunaim
+					culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
+				}
+			}
+		}
+		add = {
+			type = title_claimants
+			limit = { # Any landed Balan lai members of the correct culture (with claims - handled separately)
+				top_liege = root
+				has_trait = balan_lai_member
+				OR = { # Kharadunaim or Kharadunaim-descendant
+					culture = culture:kharadunaim
+					culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
+				}
+			}
+		}
+	}
+
+	electors = {
+		add = holder
+		add = {
+			type = title_claimants
+			limit = { # Any landed Balan lai members of the correct culture (with claims - handled separately)
+				top_liege = root
+				has_trait = balan_lai_member
+				OR = { # Kharadunaim or Kharadunaim-descendant
+					culture = culture:kharadunaim
+					culture = { any_parent_culture_or_above = { this = culture:kharadunaim } }
+				}
+			}
+		}
+	}
+	
+	elector_vote_strength = { # All Balan lai members are equal
+		base = 1
+	}
+	
+	candidate_score = {
+		base = 0
+		######################	Elector self-voting pattern	##########################
+		elector_self_voting_pattern_balan_lai_leader_elective_modifier = yes
+
+		##########################	Holder voting pattern	##########################
+		holder_voting_pattern_balan_lai_leader_elective_modifier = yes
+
+		# ##########################	Elector voting patterns (prestige)	##########################
+		elector_voting_pattern_prestige_balan_lai_leader_elective_modifier = yes
+
+		# ##########################	Elector voting patterns (circumstances)	##########################
+		elector_voting_pattern_circumstances_balan_lai_leader_elective_modifier = yes
+
+		# ##########################	Elector voting patterns (traits)	##########################
+		elector_voting_pattern_traits_balan_lai_leader_elective_modifier = yes
+
+		# ##########################	Elector voting patterns (opinion)	##########################
+		elector_voting_pattern_opinion_balan_lai_leader_elective_modifier = yes
+	}
+	
+	
+}
+
+tamska_elective = {
+	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
+	candidates = {
+		add = {
+			type = holder_dynasty
+			limit = { # Daughters of the current Tamska
+				is_child_of = scope:holder
+				is_female = yes
+				faith = { has_doctrine = tenet_tamska_main }
+			}
+		}
+		add = {
+			type = holder_direct_vassals
+			limit = { # Where no children of the Tamska or anti-Tamska exist - go to female vassals
+				trigger_if = {
+					limit = {
+						any_tamska_heir = {
+							count = 0
+							is_alive = yes
+							faith = scope:holder.faith
+							mother = scope:holder
+						}
+						scope:holder = {
+							any_child = {
+								count = 0
+								is_alive = yes
+								is_female = yes
+								faith = scope:holder.faith
+							}
+						}
+					}
+					is_female = yes
+					faith = {
+						has_doctrine = tenet_tamska_main
+					}
+				}
+				trigger_else = {
+					always = no
+				}
+			}
+		}
+	}
+
+	electors = {
+		add = holder
+		add = {
+			type = holder_direct_vassals
+			limit = {
+				faith = {
+					has_doctrine = tenet_tamska_main
+				}
+			}
+		}
+	}
+	
+	elector_vote_strength = {
+		base = 0
+		modifier = { #Level of Devotion
+			desc = tooltip_tamska_elective_level_of_devotion
+			add = piety_level
+		}
+		modifier = { #Powerful Vassal
+			desc = tooltip_feudal_vote_strength_powerful_vassal
+			add = {
+				value = 1
+				if = { #Additional point if the vassal is more powerful than the current ruler (Vassal King who meets this condition will have more voting power than the Emperor himself (1+1+1+2 = 5))
+					limit = {
+						max_military_strength > scope:holder.max_military_strength
+					}
+					add = 1
+				}
+			}
+			NOT = { this = scope:holder }
+			is_powerful_vassal = yes
+			liege = scope:holder
+		}
+		modifier = { #Clerical Influence
+			desc = tooltip_feudal_vote_strength_theocrat
+			add = 2
+			NOT = { this = scope:holder }
+			OR = {
+				government_has_flag = government_is_theocracy
+				has_council_position = councillor_court_chaplain
+			}
+			faith = scope:holder.faith
+			faith = { has_doctrine = doctrine_theocracy_lay_clergy }
+		}
+		modifier = { #Regent Influence
+			desc = tooltip_feudal_vote_strength_is_diarch
+			add = 1
+			is_diarch_of_target = scope:holder
+		}
+	}
+	
+	candidate_score = {
+		base = 1
+		# ######################	Elector self-voting pattern	##########################
+		tamska_heir_trait_elective_modifier = yes
+
+		# ######################	Elector self-voting pattern	##########################
+		elector_self_voting_pattern_tamska_elective_modifier = yes
+
+		# # ##########################	Elector voting patterns (prestige)	##########################
+		elector_voting_pattern_prestige_tamska_elective_modifier = yes
+
+		# # ##########################	Elector voting patterns (circumstances)	##########################
+		elector_voting_pattern_circumstances_tamska_elective_modifier = yes
+
+		# # ##########################	Elector voting patterns (traits)	##########################
+		elector_voting_pattern_traits_tamska_elective_modifier = yes
+
+		# # ##########################	Elector voting patterns (opinion)	##########################
+		elector_voting_pattern_opinion_tamska_elective_modifier = yes
+	}
+	
+	
+}
+
+dwarven_hegemonic_elective = {
+	elector_vote_strength = {
+		base = 1
+		modifier = { #Imperial Dignity
+			desc = tooltip_feudal_vote_strength_emperor_tier
+			add = 3
+			highest_held_title_tier = tier_hegemony
+		}
+		modifier = { #Imperial Dignity
+			desc = tooltip_feudal_vote_strength_emperor_tier
+			add = 2
+			highest_held_title_tier = tier_empire
+		}
+		modifier = { #Royal Dignity
+			desc = tooltip_feudal_vote_strength_king_tier
+			add = 1
+			highest_held_title_tier = tier_kingdom
+		}
+		modifier = { #Powerful Vassal
+			desc = tooltip_feudal_vote_strength_powerful_vassal
+			add = {
+				value = 1
+				if = { #Additional point if the vassal is more powerful than the current ruler (Vassal King who meets this condition will have more voting power than the Emperor himself (1+1+1+2 = 5))
+					limit = {
+						max_military_strength > scope:holder.max_military_strength
+					}
+					add = 2
+				}
+			}
+			this != scope:holder
+			is_powerful_vassal = yes
+			liege = scope:holder
+		}
+		modifier = { #Clerical Influence
+			desc = tooltip_feudal_vote_strength_theocrat
+			add = 2
+			this != scope:holder
+			OR = {
+				government_has_flag = government_is_theocracy
+				has_council_position = councillor_court_chaplain
+			}
+			faith = scope:holder.faith
+			faith = { has_doctrine = doctrine_theocracy_lay_clergy }
+			root != scope:holder.faith.religious_head
+		}
+		modifier = { #Papal Influence
+			desc = tooltip_feudal_vote_strength_pope
+			add = 4 #If the Pope is an elector, his vote is the most important of all.
+			this != scope:holder
+			root = scope:holder.faith.religious_head
+		}
+		modifier = { #Regent Influence
+			desc = tooltip_feudal_vote_strength_is_diarch
+			add = 1
+			is_diarch_of_target = scope:holder
+		}
+		modifier = {
+			desc = tooltip_dwarven_vote_strength_is_father
+			add = 3
+			has_trait = dwarf_father
+		}
+	}
+	
+	electors = {
+		max = 7
+		add = holder #The Emperor
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				scope:title = { #Either title is higher than Duke-tier, or must be primary.
+					OR = {
+						tier >= tier_kingdom
+						holder = { has_primary_title = prev }
+					}
+				}
+				OR = { #Either de facto direct vassal, or independent ruler who is de jure vassal. (no sub-vassals)
+					is_vassal_or_below_of = scope:holder
+					top_liege = this
+				}
+			}
+		}
+		priority = {
+			base = 1
+			modifier = { # The Emperor is always picked.
+				add = 800
+				this = scope:holder
+			}
+			modifier = { # The Fathers
+				add = 600
+				this != scope:holder
+				any_held_title = {
+					is_dwarven_dynasty_title = yes
+				}
+			}
+			modifier = { #Fallback Electors
+				add = {
+					value = 10
+					if = {
+						limit = {
+							culture = { has_same_culture_heritage = culture:longbeards }
+							culture.culture_head = this
+							NOR = {
+								exists = title:e_durins_folk.holder
+								exists = title:k_durins_folk.holder
+							}
+						}
+						add = 200
+					}
+					if = {
+						limit = {
+							culture = { has_same_culture_heritage = culture:firebeards }
+							culture.culture_head = this
+							NOR = {
+								exists = title:e_uris_folk.holder
+								exists = title:k_uris_folk.holder
+							}
+						}
+						add = 200
+					}
+					if = {
+						limit = {
+							culture = { has_same_culture_heritage = culture:broadbeams }
+							culture.culture_head = this
+							NOR = {
+								exists = title:e_dwalins_folk.holder
+								exists = title:k_dwalins_folk.holder
+							}
+						}
+						add = 200
+					}
+					if = {
+						limit = {
+							culture = { has_same_culture_heritage = culture:blacklocks }
+							culture.culture_head = this
+							NOR = {
+								exists = title:e_thrars_folk.holder
+								exists = title:k_thrars_folk.holder
+							}
+						}
+						add = 200
+					}
+					if = {
+						limit = {
+							culture = { has_same_culture_heritage = culture:stiffbeards }
+							culture.culture_head = this
+							NOR = {
+								exists = title:e_thulins_folk.holder
+								exists = title:k_thulins_folk.holder
+							}
+						}
+						add = 200
+					}
+					if = {
+						limit = {
+							culture = { has_same_culture_heritage = culture:stonefoots }
+							culture.culture_head = this
+							NOR = {
+								exists = title:e_bavors_folk.holder
+								exists = title:k_bavors_folk.holder
+							}
+						}
+						add = 200
+					}
+					if = {
+						limit = {
+							culture = { has_same_culture_heritage = culture:ironfists }
+							culture.culture_head = this
+							NOR = {
+								exists = title:e_sindris_folk.holder
+								exists = title:k_sindris_folk.holder
+							}
+						}
+						add = 200
+					}
+					if = {
+						limit = {
+							is_powerful_vassal = yes
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							faith.religion = { is_in_family = rf_eruhini }
+							religion = religion:dwarven_religion
+						}
+						add = 15
+					}
+					if = { #Or compatible faith at least.
+						limit = {
+							faith = {
+								faith_hostility_level = {
+									target = scope:holder.faith
+									value = faith_fully_accepted_level
+								}
+							}
+						}
+						add = 5
+					}
+					if = { #Malus for other governments.
+						limit = {
+							OR = {
+								government_has_flag = government_is_tribal
+								government_has_flag = government_is_clan
+								government_has_flag = government_is_mercenary
+								government_has_flag = government_is_holy_order
+							}
+						}
+						subtract = 4
+					}
+					# Favor higher tier titles
+					if = {
+						limit = {
+							highest_held_title_tier >= tier_kingdom
+						}
+						add = 5
+					}
+				}
+			}
+		}
+	}
+
+	candidate_score = {
+		base = 0
+		#Princely Elective uses very similar behavior to Feudal Elective. The few changes to the modifiers are already accounted for in the scripted_modifiers themselves.
+		######################	Elector self-voting pattern	##########################
+		elector_self_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Holder voting pattern	##########################
+		holder_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (circumstances)	##########################
+		elector_voting_pattern_circumstances_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (prestige/piety)	##########################
+		elector_voting_pattern_prestige_piety_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (traits)	##########################
+		elector_voting_pattern_traits_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (opinion)	##########################
+		elector_voting_pattern_opinion_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (misc)	##########################
+		elector_voting_pattern_circumstances_misc_elective_modifier = yes
+	}
+	
+	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
+	candidates = {
+		add = {
+			type = title_claimants
+			limit = {
+				feudal_elective_potential_landless_claimant_candidate_trigger = yes
+				trigger_if = {
+					limit = { has_game_rule = inversed_gender_equality }
+					is_female = yes
+				}
+				trigger_else = {
+					is_male = yes
+				}
+			}
+		}
+		add = {
+			type = holder_close_or_extended_family
+			limit = {
+				is_close_family_of = scope:holder
+				feudal_elective_potential_landless_dynastic_candidate_trigger = yes
+				trigger_if = {
+					limit = { has_game_rule = inversed_gender_equality }
+					is_female = yes
+				}
+				trigger_else = {
+					is_male = yes
+				}
+			}
+		}
+		add = {
+			type = holder_direct_vassals
+			limit = {
+				any_held_title = {
+					is_dwarven_dynasty_title = yes
+				}
+			}
+		}
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				any_held_title = {
+					is_dwarven_dynasty_title = yes
+				}
+			}
+		}
+	}
+}

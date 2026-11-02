@@ -1,0 +1,264 @@
+﻿#Triggers for great buildings of LOTR
+#these should work for character scopes
+
+has_miner_trait_level_trigger = {
+	trigger_if = {
+		limit = { $TIER$ = 05 }
+		custom_tooltip = {
+			text = rite_of_mahal_tier_5_miner
+			has_trait_xp = {
+				trait = lifestyle_miner
+				track = prospector
+				value >= mandala_pilgrim_xp_last_tier_value
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = { $TIER$ = 04 }
+		custom_tooltip = {
+			text = rite_of_mahal_tier_4_miner
+			has_trait_xp = {
+				trait = lifestyle_miner
+				track = prospector
+				value >= mandala_pilgrim_xp_third_tier_value
+			}
+		}	
+	}
+	trigger_else_if = {
+		limit = { $TIER$ = 03 }
+		custom_tooltip = {
+			text = rite_of_mahal_tier_3_miner
+			has_trait_xp = {
+				trait = lifestyle_miner
+				track = prospector
+				value >= mandala_pilgrim_xp_second_tier_value
+			}
+		}	
+	}
+	trigger_else = {
+		custom_tooltip = {
+			text = rite_of_mahal_tier_2_miner
+			has_trait_xp = {
+				trait = lifestyle_miner
+				track = prospector
+				value >= mandala_pilgrim_xp_first_tier_value
+			}
+		}	
+	}
+}
+
+dwarven_second_tier_trigger = {
+	has_miner_trait_level_trigger = { TIER = 02 }
+	trigger_if = {
+		limit = { is_ai = no }
+		gold >= 250
+		custom_tooltip = {
+			text = rite_of_mahal_creation_artifacts_t2
+			has_variable = num_commissioned_artifacts_dwarf
+			var:num_commissioned_artifacts_dwarf >= num_creation_dwarven_commissioned_artifacts_t2
+		}
+	}	
+}
+
+dwarven_third_tier_trigger = {
+	has_miner_trait_level_trigger = { TIER = 03 }
+	trigger_if = {
+		limit = { is_ai = no }
+		gold >= 500
+		custom_tooltip = {
+			text = rite_of_mahal_creation_artifacts_t3
+			has_variable = num_commissioned_artifacts_dwarf
+			var:num_commissioned_artifacts_dwarf >= num_creation_dwarven_commissioned_artifacts_t3
+		}
+		custom_tooltip = {
+			text = rite_of_mahal_landed_dynasty_t3
+			dynasty ?= {
+				any_dynasty_member = {
+					any_liege_or_above = { this = root }
+					highest_held_title_tier >= tier_county
+					count >= num_rite_of_mahal_landed_dynasty_t3 
+				}
+			}
+		}
+	}
+}
+
+dwarven_fourth_tier_trigger = {
+	has_miner_trait_level_trigger = { TIER = 04 }
+	trigger_if = {
+		limit = { is_ai = no }
+		gold >= 750
+		custom_tooltip = {
+			text = rite_of_mahal_creation_artifacts_t4
+			has_variable = num_commissioned_artifacts_dwarf
+			var:num_commissioned_artifacts_dwarf >= num_creation_dwarven_commissioned_artifacts_t4
+		}
+		custom_tooltip = {
+			text = rite_of_mahal_landed_dynasty_t4
+			dynasty ?= {
+				any_dynasty_member = {
+					any_liege_or_above = { this = root }
+					highest_held_title_tier >= tier_county
+					count >= num_rite_of_mahal_landed_dynasty_t4 
+				}
+			}
+		}
+	}
+}
+
+dwarven_fifth_tier_trigger = {
+	has_miner_trait_level_trigger = { TIER = 05 }
+	trigger_if = {
+		limit = { is_ai = no }
+		gold >= 1000
+		custom_tooltip = {
+			text = rite_of_mahal_creation_artifacts_t5
+			has_variable = num_commissioned_artifacts_dwarf
+			var:num_commissioned_artifacts_dwarf >= num_creation_dwarven_commissioned_artifacts_t5
+		}
+		custom_tooltip = {
+			text = rite_of_mahal_landed_dynasty_t5
+			dynasty ?= {
+				any_dynasty_member = {
+					any_liege_or_above = { this = root }
+					highest_held_title_tier >= tier_county
+					count >= num_rite_of_mahal_landed_dynasty_t5
+				}
+			}
+		}
+	}
+}
+
+has_crafting_trait_level_trigger = {
+	trigger_if = {
+		limit = { $TIER$ = 05 }
+		custom_tooltip = {
+			text = mirdan_tier_5_crafting
+			has_trait_xp = {
+				trait = lifestyle_artifact_crafting
+				track = jewel_smith
+				value >= 65
+			}
+			has_trait_xp = {
+				trait = lifestyle_artifact_crafting
+				track = weapon_smith
+				value >= 65
+			}
+			has_trait_xp = {
+				trait = lifestyle_artifact_crafting
+				track = enchanting_smith
+				value >= 65
+			}
+			has_trait_xp = {
+				trait = lifestyle_artifact_crafting
+				track = armour_smith
+				value >= 65
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = { $TIER$ = 04 }
+		custom_tooltip = {
+			text = mirdan_tier_4_crafting
+			has_trait_xp = {
+				trait = lifestyle_artifact_crafting
+				track = jewel_smith
+				value >= 30
+			}
+			has_trait_xp = {
+				trait = lifestyle_artifact_crafting
+				track = weapon_smith
+				value >= 30
+			}
+			has_trait_xp = {
+				trait = lifestyle_artifact_crafting
+				track = enchanting_smith
+				value >= 30
+			}
+			has_trait_xp = {
+				trait = lifestyle_artifact_crafting
+				track = armour_smith
+				value >= 30
+			}
+		}	
+	}
+	trigger_else_if = {
+		limit = { $TIER$ = 03 }
+		custom_tooltip = {
+			text = mirdan_tier_3_crafting
+			has_trait_xp = {
+				trait = lifestyle_artifact_crafting
+				track = jewel_smith
+				value >= 30
+			}
+			has_trait_xp = {
+				trait = lifestyle_artifact_crafting
+				track = enchanting_smith
+				value >= 30
+			}
+		}	
+	}
+	trigger_else_if = {
+		limit = { $TIER$ = 02 }
+		custom_tooltip = {
+			text = mirdan_tier_2_crafting
+			has_trait_xp = {
+				trait = lifestyle_artifact_crafting
+				track = jewel_smith
+				value >= 30
+			}
+		}	
+	}
+	trigger_else = {
+		has_trait = lifestyle_artifact_crafting
+	}
+}
+
+ost_in_edhil_first_tier_trigger = {
+	has_crafting_trait_level_trigger = { TIER = 01 }
+	trigger_if = {
+		limit = { is_ai = no }
+		gold >= 125
+	}
+	has_medium_hope_or_higher = yes
+}
+
+ost_in_edhil_second_tier_trigger = {
+	has_crafting_trait_level_trigger = { TIER = 02 }
+	trigger_if = {
+		limit = { is_ai = no }
+		gold >= 250
+	}
+	province:4351 = { has_building_or_higher = elven_settlement_02 }
+	has_medium_hope_or_higher = yes
+}
+
+ost_in_edhil_third_tier_trigger = {
+	has_crafting_trait_level_trigger = { TIER = 03 }
+	trigger_if = {
+		limit = { is_ai = no }
+		gold >= 500
+	}
+	province:4351 = { has_building_or_higher = elven_settlement_04 }
+	has_high_hope_or_higher = yes
+}
+
+ost_in_edhil_fourth_tier_trigger = {
+	has_crafting_trait_level_trigger = { TIER = 04 }
+	trigger_if = {
+		limit = { is_ai = no }
+		gold >= 750
+	}
+	province:4351 = { has_building_or_higher = elven_settlement_06 }
+	has_high_hope_or_higher = yes
+}
+
+ost_in_edhil_final_tier_trigger = {
+	has_crafting_trait_level_trigger = { TIER = 05 }
+	trigger_if = {
+		limit = { is_ai = no }
+		gold >= 1000
+	}
+	province:4351 = { has_building_or_higher = elven_settlement_07 }
+	has_highest_hope = yes
+}

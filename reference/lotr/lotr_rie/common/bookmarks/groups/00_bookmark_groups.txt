@@ -1,0 +1,76 @@
+﻿#################################
+
+# 3320 S.A. Realms in Exile
+bm_group_3320SA = { # Realms in Exile
+	default_start_date = 3912.1.1
+}
+
+# 3430 S.A. Last Alliance
+bm_group_3430SA = { # Last Alliance
+	default_start_date = 4022.1.1
+}
+
+# 2 T.A. Disaster of the Gladden Fields
+bm_group_2TA = { # Disaster of the Gladden Fields
+	default_start_date = 4035.1.1
+}
+
+# 861 T.A. Arnor Broken
+bm_group_861TA = { # Arnor Broken
+	default_start_date = 4894.7.13
+}
+
+# 1349 T.A. Rise of Angmar
+bm_group_1349TA = { # Rise of Angmar
+	default_start_date = 5382.5.1
+}
+
+# 1409 T.A. Fall of Amon Sul
+bm_group_1409TA = { # Fall of Amon-Sul
+	default_start_date = 5442.1.1
+}
+
+# 1432 T.A. Kin-Strife
+bm_group_1432TA = { # Kin-Strife
+	default_start_date = 5465.1.1
+}
+
+# 1634 T.A. The Great Plague
+bm_group_1634TA = { # The Great Plague
+	default_start_date = 5667.1.1
+}
+
+# 1944 T.A. Disaster of the Morannon
+bm_group_1944TA = { # Disaster of the Morannon
+	default_start_date = 5977.1.1
+}
+
+# 2510 T.A. Ride of Eorl
+bm_group_2510TA = { # Ride of Eorl
+	default_start_date = 6543.1.1
+}
+
+# 2754 T.A. Last Winter
+bm_group_2754TA = { # Last Winter
+	default_start_date = 6787.1.1
+}
+
+# 2793 T.A. War of Dwarves and Orcs
+bm_group_2793TA = { # War of Dwarves and Orcs
+	default_start_date = 6826.1.1
+}
+
+# 2941 T.A. Quest for Erebor
+bm_group_2941TA = { # Quest for Erebor
+	default_start_date = 6974.1.1
+}
+
+# 3000 T.A. War of the Ring
+bm_group_3000TA = { # War of the Ring
+	default_start_date = 7033.1.1
+}
+
+# 120 FO.A. Dominion of Men
+bm_group_120FA = { # Dominion of Men
+	default_start_date = 7174.3.2
+}

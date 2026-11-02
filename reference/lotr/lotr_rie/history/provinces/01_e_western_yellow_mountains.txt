@@ -1,0 +1,637 @@
+﻿#####	Western Yellow Mountains (e_western_yellow_mountains)
+####	Narâgarasi (k_blackflame)
+###		Kurdûrasi (d_kurdurasi)
+##		Kurdûrasi (c_kurdurasi)
+
+5560 = {	#Kurdûrasi (b_kurdurasi)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	6479.10.8 = { #Bruni delves his mines
+		culture = blacklocks_nargubraz
+		religion = faith_blacklocks
+		holding = dwarven_holding
+		special_building_slot = wonder_mines_of_bruni
+		special_building = wonder_mines_of_bruni
+		buildings = {
+			dwarven_depths_03
+			dwarven_quarry_03
+			diamond_mines_02
+		}
+	}
+	6634.3.8 = {
+		culture = blacklocks
+		religion = faith_eastern_khazad
+	}
+}
+
+
+##	Khebabarsâ (c_khebabarsa)
+
+5561 = {	#Khebabarsâ (b_khebabarsa)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	6479.10.8 = {
+		culture = blacklocks_nargubraz
+		religion = faith_blacklocks
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_02
+			dwarven_quarry_02
+			dwarven_vaults_02
+		}
+	}
+	6634.3.8 = {
+		culture = blacklocks
+		religion = faith_eastern_khazad
+	}
+}
+
+##	Nudmekhêm (c_nudmekhem)
+
+5562 = {	#Nudmekhêm (b_nudmekhem)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	6479.10.8 = {
+		culture = blacklocks_nargubraz
+		religion = faith_blacklocks
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_02
+			dwarven_quarry_02
+			onyx_mines_02
+		}
+	}
+	6634.3.8 = {
+		culture = blacklocks
+		religion = faith_eastern_khazad
+	}
+}
+
+##	Buzrâminâm (c_buzraminam)
+
+5563 = {	#Buzrâminâm (b_buzraminam)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	6479.10.8 = {
+		culture = blacklocks_nargubraz
+		religion = faith_blacklocks
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_02
+			dwarven_quarry_02
+			dwarven_terrace_farm_02
+		}
+	}
+	6634.3.8 = {
+		culture = blacklocks
+		religion = faith_eastern_khazad
+	}
+}
+
+##	Zelemekhêm (c_zelemekhem)
+
+5564 = {	#Zelemekhêm (b_zelemekhem)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	6479.10.8 = {
+		culture = blacklocks_nargubraz
+		religion = faith_blacklocks
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_02
+			dwarven_quarry_02
+			dwarven_vaults_02
+		}
+	}
+	6634.3.8 = {
+		culture = blacklocks
+		religion = faith_eastern_khazad
+	}
+}
+
+##	Hailîn (c_hailin)
+
+5569 = {	#Zê-Nurtazhâr (b_ze_nurtazhar)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	6479.10.8 = {
+		culture = blacklocks_nargubraz
+		religion = faith_blacklocks
+		holding = castle_holding
+		buildings = {
+			castle_01
+			dwarven_outpost_02
+			dwarven_market_02
+		}
+	}
+	6634.3.8 = {
+		culture = blacklocks
+		religion = faith_eastern_khazad
+	}
+}
+
+5570 = {	#Nuttâshmur (b_nuttashmur)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+	6479.10.8 = {
+		culture = blacklocks_nargubraz
+		religion = faith_blacklocks
+		holding = none
+	}
+	6634.3.8 = {
+		culture = blacklocks
+		religion = faith_eastern_khazad
+	}
+}
+
+5565 = {	#Lakhdâmanar (b_lakhdamanar)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+	6479.10.8 = {
+		culture = blacklocks_nargubraz
+		religion = faith_blacklocks
+		holding = none
+	}
+	6634.3.8 = {
+		culture = blacklocks
+		religion = faith_eastern_khazad
+	}
+}
+
+###	Narâdûmu (d_naradumu)
+##	Azaghazahâr (c_azaghazahar)
+
+5568 = {	#Azaghazahâr (b_azaghazahar)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		collapsed_ceiling
+	}
+}
+
+##	Amdâru'adad (c_amdaruadad)
+
+5566 = {	#Amdâru'adad (b_amdaruadad)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		collapsed_ceiling
+		stale_air
+	}
+}
+
+##	Libokhafush (c_libokhafush)
+
+5567 = {	#Libokhafush (b_libokhafush)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		flooded_tunnels
+	}
+}
+
+##	Lubrugarîth (c_lubrugarith)
+
+5571 = {	#Lubrugarîth (b_lubrugarith)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		flooded_tunnels
+		wild_orcs
+	}
+	5078.02.16 = {
+		culture = echomaker_goblin
+		religion = orc_spider_cult
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_01
+			slave_mines_01
+			hunting_outposts_01
+		}
+	}
+	6500.1.1 = { #Axes of Nargubraz destroy goblins
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+			wild_orcs
+		}
+	}
+}
+
+##	Nulumiriz (c_nulumiriz)
+
+5962 = {	#Nulumiriz (b_nulumiriz)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		stale_air
+		wild_orcs
+	}
+}
+
+####	Shulkâbbad (k_shulkabbad)
+###	Khairîn (d_khairin)
+##	Narâbbad-dûm (c_narabbad_dum)
+
+5963 = {	#Narâbbad-dûm (b_narabbad_dum)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		stale_air
+		strange_creatures
+	}
+}
+
+##	Nudmakhmith (c_nudmakhmith)
+
+5964 = {	#Nudmakhmith (b_nudmakhmith)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+}
+
+##	Tahfâmût (c_tahfamut)
+
+5965 = {	#Tahfâmût (b_tahfamut)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		collapsed_ceiling
+		stale_air
+	}
+}
+
+##	Siginalîth (c_siginalith)
+
+5966 = {	#Siginalîth (b_siginalith)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		collapsed_ceiling
+	}
+}
+
+##	Kifanîn (c_kifanin)
+
+5967 = {	#Kifanîn (b_kifanin)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		flooded_tunnels
+	}
+}
+
+##	Imganmazal (c_imganmazal)
+
+5968 = {	#Imganmazal (b_imganmazal)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		strange_creatures
+	}
+}
+
+###	Dûminudul (d_duminudul)
+##	Athrur Khatdâ (c_athrur_khatda)
+
+5969 = {	#Athrur Khatdâ (b_athrur_khatda)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		wild_orcs
+	}
+	6780.11.21 = {
+		culture = echomaker_goblin
+		religion = orc_spider_cult
+		holding = dwarven_holding
+	}
+	6842.7.15 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+		}
+	}
+}
+
+##	Zudkhashmur (c_zudkhashmur)
+
+5970 = {	#Zudkhashmur (b_zudkhashmur)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		flooded_tunnels
+	}
+	6780.11.21 = {
+		culture = echomaker_goblin
+		religion = orc_spider_cult
+		holding = dwarven_holding
+	}
+	6842.7.15 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_tunnels
+		}
+	}
+}
+
+###	Rukshul-dîm (d_rukshul_dim)
+##	Agâr Binakmâth (c_agar_binakmath)
+
+5971 = {	#Agâr Binakmâth (b_agar_binakmath)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+}
+
+##	Sigarîn (c_sigarin)
+
+5972 = {	#Sigarîn (b_sigarin)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		collapsed_ceiling
+		stale_air
+	}
+	5036.12.15 = {
+		culture = echomaker_goblin
+		religion = orc_spider_cult
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_02
+			slave_mines_02
+			raiding_camps_01
+		}
+	}
+	6500.1.1 = { #Axes of Nargubraz destroy goblins
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			collapsed_ceiling
+			stale_air
+		}
+	}
+}
+
+##	Tinazûn (c_tinazun)
+
+5973 = {	#Tinazûn (b_tinazun)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+}
+
+##	Ithrarakht (c_ithrarakht)
+
+5974 = {	#Ithrarakht (b_ithrarakht)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		wild_orcs
+	}
+	5135.04.14 = {
+		culture = echomaker_goblin
+		religion = orc_spider_cult
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_02
+			slave_mines_02
+			hunting_outposts_01
+		}
+	}
+	6500.1.1 = { #Axes of Nargubraz destroy goblins
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+		}
+	}
+}
+
+###	Azrinâl (d_azrinal)
+##	Ufulnai (c_ufulnai)
+
+5975 = {	#Ufulnai (b_ufulnai)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	5001.05.17 = {
+		culture = echomaker_goblin
+		religion = orc_spider_cult
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_01
+			slave_mines_01
+			raiding_camps_01
+		}
+	}
+	6500.1.1 = { #Axes of Nargubraz destroy goblins
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			spider_nest
+		}
+	}
+}
+
+##	Zaznur (c_zaznur)
+
+5976 = {	#Zaznur (b_zaznur)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+}
+
+##	Imgêrul (c_imgerul)
+
+5977 = {	#Imgêrul (b_imgerul)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		collapsed_ceiling
+	}
+}
+
+####	Gunduzandâ (k_gunduzanda)
+###	Kutnarsur (d_kutnarsur)
+##	Zâramgathol (c_zaramgathol)
+
+5978 = {	#Zâramgathol (b_zaramgathol)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	special_building_slot = wonder_igal_zaram
+	special_building = wonder_igal_zaram
+	buildings = {
+		flooded_tunnels
+		strange_creatures
+	}
+}
+
+##	Mekhemim (c_mekhemim)
+
+5979 = {	#Mekhemim (b_mekhemim)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		wild_orcs
+	}
+}
+
+##	Zabadmirdîn (c_zabadmirdin)
+
+5980 = {	#Zabadmirdîn (b_zabadmirdin)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+}
+
+##	Gal'ifnat (c_gal_ifnat)
+
+5981 = {	#Gal'ifnat (b_gal_ifnat)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		collapsed_ceiling
+	}
+}
+
+##	Mudtazhâr (c_mudtazhar)
+
+5982 = {	#Mudtazhâr (b_mudtazhar)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		collapsed_ceiling
+		strange_creatures
+	}
+}
+
+###	Zukhadrêl (d_zukhadrel)
+##	Hubukbarkîn (c_hubukbarkin)
+
+5983 = {	#Hubukbarkîn (b_hubukbarkin)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	5120.09.02 = {
+		culture = echomaker_goblin
+		religion = orc_spider_cult
+		holding = dwarven_holding
+		buildings = {
+			dwarven_depths_01
+			slave_mines_01
+			hunting_outposts_01
+		}
+	}
+	6500.1.1 = { #Axes of Nargubraz destroy goblins
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+		}
+	}
+	6988.11.7 = {
+		culture = echomaker_goblin
+		religion = orc_spider_cult
+		holding = dwarven_holding
+	}
+}
+
+##	Sigin'absun (c_sigin_absun)
+
+5984 = {	#Sigin'absun (b_sigin_absun)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+}
+
+##	Alfâtarsâ (c_alfatarsa)
+
+5985 = {	#Alfâtarsâ (b_alfatarsa)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+}
+
+##	Nuluzârum (c_nuluzarum)
+
+5986 = {	#Nuluzârum (b_nuluzarum)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		wild_orcs
+	}
+}
+
+###	Uznîm (d_uznim)
+##	Marâd-dûm (c_marad_dum)
+
+5987 = {	#Marâd-dûm (b_marad_dum)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		collapsed_ceiling
+		stale_air
+	}
+}
+
+##	Akrâzokriz (c_akrazokriz)
+
+5988 = {	#Akrâzokriz (b_akrazokriz)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		collapsed_ceiling
+		wild_orcs
+	}
+}
+
+##	Khîminbar (c_khiminbar)
+
+5989 = {	#Khîminbar (b_khiminbar)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		stale_air
+	}
+}

@@ -1,0 +1,1462 @@
+﻿#####		Umbar (e_umbar)
+####		Umbar (k_umbar)
+###			Umbar (d_umbar)
+##			Umbar (c_umbar)
+
+819 = {		#Umbar (b_umbar)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = castle_holding
+	special_building_slot = wonder_umbar_01
+	special_building = wonder_umbar_03
+	buildings = {
+		castle_04
+		curtain_walls_06
+		farm_estates_06
+		# common_tradeport_07
+		# barracks_04
+	}
+	duchy_capital_building = march_03
+	4060.1.1 = {
+		culture = old_umbarean
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5633.1.1 = { # Castamiri Creed develops
+		religion = faith_castamiri_creed
+	}
+	5883.1.1 = {
+		culture = corsair
+		duchy_capital_building = march_02
+	}
+	5899.1.1 = {
+		religion = faith_corsair
+		duchy_capital_building = march_01
+	}
+	6930.1.1 = {
+		culture = umbarean
+		religion = faith_kings_men_castamir
+		special_building = wonder_umbar_03
+	}
+	7000.1.1 = {
+		special_building = wonder_umbar_01
+	}
+	7068.9.12 = { #Death of the Umbarean Culture
+		culture = corsair
+		religion = faith_edain
+	}
+}
+
+820 = {		#Azarobroth (b_azarobroth)
+	culture = old_umbarean
+	religion = faith_kings_men_numenorean
+	holding = church_holding
+	buildings = {
+			temple_04
+			scriptorium_08
+		}
+	4060.1.1 = {
+		culture = old_umbarean
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5883.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+		buildings = {
+			temple_02
+			scriptorium_04
+		}
+	}
+}
+
+870 = {		#Bêlâri (b_belari)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = city_holding
+	buildings = {
+		city_04
+		logging_camps_08
+	}
+	4060.1.1 = {
+		culture = old_umbarean
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5883.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+		buildings = {
+			city_02
+			logging_camps_04
+		}
+	}
+}
+
+2301 = {	# (b_minasthalion)
+	culture = black_numenorean
+	religion = faith_kings_men_castamir
+	holding = castle_holding
+	buildings = {
+		castle_04
+		curtain_walls_08
+	}
+	4060.1.1 = {
+		culture = old_umbarean
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5883.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+		buildings = {
+			castle_02
+			curtain_walls_04
+		}
+	}
+}
+822 = {		#Kharatêth (b_kharateth)
+	culture = old_umbarean
+	religion = faith_kings_men_numenorean
+	holding = church_holding
+	buildings = {
+		temple_01
+	}
+	4060.1.1 = {
+		culture = old_umbarean
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+		special_building_slot = wonder_tar_calion
+		special_building = wonder_tar_calion
+	}
+	5883.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+		effect = {
+			remove_building = wonder_tar_calion
+		}
+	}
+}
+
+##			Nîlorur (c_nilo)
+
+2302 = {	# (b_minas_naro)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = castle_holding
+	buildings = {
+		castle_03
+		hill_farms_05
+		hill_forts_06
+	}
+	4060.1.1 = {
+		culture = old_umbarean
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5633.1.1 = { # Castamiri Creed develops
+		religion = faith_castamiri_creed
+	}
+	5899.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+		buildings = {
+			castle_02
+			hill_farms_03
+			hill_forts_04
+		}
+	}
+	7070.1.1 = { #Integrations of the South
+		religion = faith_edain
+	}
+}
+
+843 = {		#Nîlo (b_nilorur)
+	culture = black_numenorean
+	religion = faith_kings_men_castamir
+	holding = city_holding
+	buildings = {
+		city_04
+		common_tradeport_07
+		# guild_halls_03
+	}
+	4060.1.1 = {
+		culture = old_umbarean
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5883.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+		buildings = {
+		city_02
+		common_tradeport_05
+		# guild_halls_03
+	}
+	}
+}
+
+869 = {		#Dolgu (b_dolgu)
+	culture = old_umbarean
+	religion = faith_kings_men_castamir
+	holding = none
+}
+
+##			Marös (c_maros)
+
+846 = {		#Marös (b_maros)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = castle_holding
+	buildings = {
+			castle_03
+			hill_forts_05
+			garrison_tower_04
+			# common_tradeport_04
+			# hill_farms_04
+		}
+	4060.1.1 = {
+		culture = old_umbarean
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5633.1.1 = { # Castamiri Creed develops
+		religion = faith_castamiri_creed
+	}
+	5891.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+		buildings = {
+			castle_02
+			hill_forts_04
+			garrison_tower_02
+			# common_tradeport_04
+			# hill_farms_04
+		}
+	}
+	7070.1.1 = { #Integrations of the South
+		religion = faith_edain
+	}
+}
+
+847 = {		#Gimilêth (b_gimleth)
+	culture = old_umbarean
+	religion = faith_kings_men_castamir
+	holding = none
+	5200.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5883.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+	}
+}
+
+848 = {		#Abanazûl (b_abanazul)
+	culture = old_umbarean
+	religion = faith_kings_men_castamir
+	holding = none
+	5200.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5883.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+	}
+}
+
+845 = {		#Tol Glingal (b_tol_glingal)
+	culture = old_umbarean
+	religion = faith_kings_men_castamir
+	holding = city_holding
+	buildings = {
+		city_03
+		common_tradeport_05
+		# logging_camps_03
+	}
+	5200.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5883.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+		buildings = {
+		city_02
+		common_tradeport_04
+	}
+	}
+}
+
+844 = {		#Azûladêth (b_azuladeth)
+	culture = old_umbarean
+	religion = faith_kings_men_castamir
+	holding = none
+	5200.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5883.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+	}
+}
+
+##			Zabthân (c_zabthan)
+
+821 = {		#Azgarurîd (b_azgarurid)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = castle_holding
+	4060.1.1 = {
+		culture = old_umbarean
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+		buildings = {
+			castle_04
+			curtain_walls_06
+			common_tradeport_06
+			# hunting_grounds_04
+		}
+	}
+	5633.1.1 = { # Castamiri Creed develops
+		religion = faith_castamiri_creed
+	}
+	5899.1.1 = {
+		religion = faith_corsair
+	}
+	5901.1.1 = {
+		culture = corsair
+		buildings = {
+			castle_03
+			curtain_walls_02
+			courier_stables_02
+			# hunting_grounds_04
+		}
+	}
+	6930.1.1 = {
+		culture = umbarean
+		religion = faith_kings_men_castamir
+	}
+	7068.9.12 = { #Death of the Umbarean Culture
+		culture = corsair
+		religion = faith_edain
+	}
+}
+
+818 = {		#Zabthân (b_zabthan)
+	culture = umbarean
+	religion = faith_kings_men_castamir
+	holding = city_holding
+	buildings = {
+		city_03
+		common_tradeport_05
+		# guild_halls_04
+	}
+}
+
+1296 = {	#Zanazûl (b_zanazul)
+	culture = umbarean
+	religion = faith_kings_men_castamir
+	holding = none
+}
+
+1299 = {	#Cirith Umbar (b_cirith_umbar)
+	holding = castle_holding
+	buildings = {
+		castle_03
+		hill_forts_06
+	}
+	5883.1.1 = {
+		buildings = {
+			castle_02
+			hill_forts_04
+		}
+	}
+}
+
+##			Barazôn (c_barazon)
+
+849 = {		#Barazôn (b_barazon)
+	culture = sakalai
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	buildings = {
+		castle_02
+		curtain_walls_04
+		farm_estates_03
+	}
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
+	5800.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+	}
+	6000.1.1 = { # Jelut Migration
+		culture = jelut
+	}
+	7062.10.24 = { #Conversions of the Haradwaith
+		religion = faith_chelkar
+	}
+}
+
+2470 = {	#Banâthar (b_banathar)
+	culture = jelut
+	religion = faith_corsair
+	holding = city_holding
+	buildings = {
+		city_02
+		farm_estates_04
+	}
+}
+
+868 = {		#Zabalêth (b_zabaleth)
+	culture = jelut
+	religion = faith_corsair
+	holding = castle_holding
+	buildings = {
+		castle_02
+		hill_forts_04
+	}
+}
+
+867 = {		#Karamagân (b_karamagan)
+	culture = jelut
+	religion = faith_corsair
+	holding = none
+}
+
+###			Calenfalas (d_calenfalas)
+##			Ardûmir (c_ardumir)
+
+831 = {		#Ardûmir (b_ardumir)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = castle_holding
+	special_building_slot = wonder_umbar_citadel
+	special_building = wonder_umbar_citadel
+	buildings = {
+		castle_03
+		curtain_walls_06
+		garrison_tower_04
+		# common_tradeport_02
+		# barracks_05
+	}
+	4060.1.1 = {
+		culture = old_umbarean
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5633.1.1 = { # Castamiri Creed develops
+		religion = faith_castamiri_creed
+	}
+	5892.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+		buildings = {
+			castle_02
+			curtain_walls_04
+			garrison_tower_02
+			# common_tradeport_02
+			# barracks_05
+		}
+	}
+}
+
+830 = {		#Folen (b_folen)
+	culture = corsair
+	religion = faith_corsair
+	holding = city_holding
+	buildings = {
+		city_02
+		common_tradeport_03
+	}
+}
+
+842 = {		#Bêla Zimra (b_bela_zimra)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+832 = {		#Ûrêz Zimra (b_urez_zimra)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+##			Khibil (c_khibil)
+
+828 = {		#Phazânôn (b_phazanon)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = castle_holding
+	buildings = {
+		castle_02
+		ramparts_04
+		logging_camps_04
+	}
+	4060.1.1 = {
+		culture = old_umbarean
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5600.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+		buildings = {
+		castle_02
+		ramparts_02
+		logging_camps_03
+	}
+	}
+}
+
+829 = {		#Khibil (b_khibil)
+	culture = corsair
+	religion = faith_corsair
+	holding = city_holding
+	buildings = {
+		city_02
+		logging_camps_04
+	}
+}
+
+2105 = {	#Sûlasâr (b_sulasar)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+##			Sûzâkal (c_suzakal)
+
+840 = {		#Sûzâkal (b_suzakal)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = castle_holding
+	buildings = {
+		castle_02
+		hill_forts_04
+		barracks_04
+	}
+	4060.1.1 = {
+		culture = old_umbarean
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5600.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+		buildings = {
+			castle_02
+			hill_forts_02
+			barracks_05
+		}
+	}
+	7070.1.1 = { #Integrations of the South
+		religion = faith_path_of_wisdom
+	}
+}
+
+827 = {		#Phursâl (b_phursal)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+2497 = {	#Sôlîsur (b_solisur)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+##			Pelladur (c_pellardur)
+
+823 = {		#Pelladur (b_pelladur)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = castle_holding
+	buildings = {
+		castle_02
+		curtain_walls_04
+		common_tradeport_04
+	}
+	4060.1.1 = {
+		culture = old_umbarean
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5600.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+	}
+	7070.1.1 = { #Integrations of the South
+		religion = faith_edain
+	}
+}
+
+825 = {		#Tûdânir (b_tudanir)
+	culture = corsair
+	religion = faith_corsair
+	holding = city_holding
+	buildings = {
+		city_02
+		common_tradeport_04
+	}
+}
+
+826 = {		#Lôkha (b_lokha)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+824 = {		#Khôrâzul (b_khorazul)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+1307 = {	#Ûrêlôni (b_ureloni)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+##			Zâmudôr (c_zamudor)
+
+1511 = {	#Adira (b_adira)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = castle_holding
+	buildings = {
+		castle_02
+		ramparts_04
+		common_tradeport_03
+		# barracks_02
+		# logging_camps_03
+	}
+	4060.1.1 = {
+		culture = old_umbarean
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5633.1.1 = { # Castamiri Creed develops
+		religion = faith_castamiri_creed
+	}
+	5891.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+	}
+	7070.1.1 = { #Integrations of the South
+		religion = faith_edain
+	}
+}
+
+1524 = {	#Amutara (b_amutara)
+	culture = corsair
+	religion = faith_corsair
+	holding = city_holding
+	buildings = {
+		city_02
+		plantations_04
+	}
+}
+
+2541 = {	#Zâmudôr (b_zamudor)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+2547 = {	#Mâuthôr (b_mauthor)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+###			Annabrith (d_annabrith)
+##			Annabrith (c_annabrith)
+
+834 = {		#Dol Annabrith (b_dol_annabrith)
+	culture = sakalai
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	buildings = {
+		castle_02
+		curtain_walls_04
+		cereal_fields_02
+	}
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
+	5600.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+	}
+}
+
+833 = {		#Ugrudâth (b_ugrudath)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+841 = {		#Nîn-Zâyan (b_nin_zayan)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+##			Zôrthân (c_zorthan)
+
+1403 = {	#Ethazôr (b_ethazor)
+	culture = sakalai
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	buildings = {
+		castle_01
+		horse_pastures_02
+		plantations_02
+	}
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
+	6000.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+	}
+	7070.1.1 = { #Integrations of the South
+		religion = faith_path_of_wisdom
+	}
+}
+
+1404 = {	#An Zôrthân (b_an_zorthan)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+	4048.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = none
+	}
+}
+
+1405 = {	#Anzharr (b_anzharr)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+	4048.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = none
+	}
+}
+
+1406 = {	#An Mari (b_an_mari)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+	4048.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = none
+	}
+}
+
+##			Dhurn (c_dhurn)
+
+1407 = {	#Sûl-Dhurn (b_sul_dhurn)
+	culture = sakalai
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	buildings = {
+		castle_01
+		horse_pastures_02
+		plantations_02
+	}
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
+	6000.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+	}
+	7000.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+	}
+	7070.1.1 = { #Integrations of the South
+		religion = faith_path_of_wisdom
+	}
+}
+
+1408 = {	#Darthân (b_darthan)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+	4048.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = none
+	}
+}
+
+1409 = {	#An Dhurn (b_an_dhurn)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+	4048.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = none
+	}
+}
+
+1410 = {	#Uruzhar (b_uruzhar)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+	4048.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = none
+	}
+}
+
+###			Glínfalas (d_glinfalas)
+##			Isigir (c_isigir)
+
+853 = {		#Isigir (b_isigir)
+	culture = sakalai
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	buildings = {
+		castle_02
+		curtain_walls_04
+		common_tradeport_04
+	}
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5600.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+		buildings = {
+			castle_02
+			curtain_walls_03
+			common_tradeport_03
+		}
+	}
+}
+
+854 = {		#Bawabar (b_bawabar)
+	culture = corsair
+	religion = faith_corsair
+	holding = city_holding
+	buildings = {
+		city_02
+		common_tradeport_03
+	}
+}
+
+852 = {		#Thânikadar (b_thanikadar)
+	culture = corsair
+	religion = faith_corsair
+	holding = church_holding
+	buildings = {
+		temple_01
+		scriptorium_02
+	}
+}
+
+850 = {		#Ûriyaz (b_uriyaz)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+851 = {		#Ulbrad (b_ulbrad)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+##			Erädas (c_eradas)
+
+855 = {		#Erädas (b_eradas)
+	culture = sakalai
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	buildings = {
+		castle_02
+		curtain_walls_05
+		common_tradeport_04
+	}
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
+	5600.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+		buildings = {
+			castle_02
+			curtain_walls_04
+			common_tradeport_03
+		}
+	}
+}
+
+859 = {		#Númerös (b_numeros)
+	culture = corsair
+	religion = faith_corsair
+	holding = city_holding
+	buildings = {
+		city_02
+		common_tradeport_03
+	}
+}
+
+860 = {		#Vamag (b_vamag)
+	culture = corsair
+	religion = faith_corsair
+	holding = castle_holding
+	buildings = {
+		castle_02
+		ramparts_04
+	}
+}
+
+862 = {		#Sakalzad (b_sakalzad)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+861 = {		#Nakhar (b_nakhar)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+##			Caldûr (c_caldur)
+
+857 = {		#Caldûr (b_caldur)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = castle_holding
+	buildings = {
+		castle_03
+		curtain_walls_06
+		garrison_tower_04
+	}
+	special_building_slot = wonder_umbar_citadel
+	special_building = wonder_umbar_citadel
+	4060.1.1 = {
+		culture = old_umbarean
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+	}
+	5633.1.1 = { # Castamiri Creed develops
+		religion = faith_castamiri_creed
+	}
+	5891.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+		buildings = {
+			castle_02
+			curtain_walls_04
+			garrison_tower_02
+		}
+	}
+}
+
+856 = {		#Aglarêth (b_aglareth)
+	culture = corsair
+	religion = faith_corsair
+	holding = city_holding
+	buildings = {
+		city_02
+		common_tradeport_03
+	}
+}
+
+858 = {		#Rabôbrad (b_rabobrad)
+	culture = corsair
+	religion = faith_corsair
+	holding = church_holding
+	buildings = {
+		temple_01
+		scriptorium_02
+	}
+}
+
+2545 = {	#Isaga (b_isaga)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+##			Dibis (c_dibis)
+
+865 = {		#Dibis (b_dibis)
+	culture = sakalai
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	buildings = {
+		castle_02
+		curtain_walls_04
+		barracks_02
+	}
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
+	5800.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+	}
+	6900.1.1 = {
+		culture = jelut
+	}
+	7062.10.24 = { #Conversions of the Haradwaith
+		religion = faith_chelkar
+	}
+}
+
+864 = {		#Esgar-Gûr (b_esgar_gur)
+	culture = jelut
+	religion = faith_corsair
+	holding = none
+}
+
+863 = {		#Phurutêth (b_phuruteth)
+	culture = jelut
+	religion = faith_corsair
+	holding = none
+}
+
+866 = {		#Gimil (b_gimil)
+	culture = jelut
+	religion = faith_corsair
+	holding = none
+}
+
+###			Tol Uialgaer (d_tol_uialgaer)
+##			Tol Uialgaer (c_tol_uialgaer)
+
+1018 = {	#Tol Uialgaer (b_tol_uialgaer)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		flooded_lands
+		pirate_remnants
+	}
+	6900.1.1 = {
+		culture = umbarean
+		religion = faith_pharazon
+		holding = castle_holding
+		special_building_slot = wonder_arminalethor_01
+		buildings = {
+			castle_01
+			military_camps_01
+		}
+	}
+	7040.7.1 = { # Population wiped from the island in a freak storm
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_lands
+			pirate_remnants
+		}
+	}
+}
+
+###			Sakal An-Khâr (d_sakal_an_khar)
+##			Sûk Oda (c_suk_oda)
+
+906 = {		#Sûk Oda (b_suk_oda)
+	culture = sakalai
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	buildings = {
+		castle_01
+		curtain_walls_02
+		common_tradeport_02
+	}
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
+	6000.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+	}
+	6500.1.1 = {
+		culture = jelut
+	}
+	6900.1.1 = {
+		religion = faith_haruze
+		holding = tribal_holding
+	}
+	7062.10.24 = { #Conversions of the Haradwaith
+		religion = faith_chelkar
+	}
+}
+
+878 = {		#Mogurakh (b_mogurakh)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+}
+
+1309 = {	#Aglarild (b_aglarild)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+}
+
+879 = {		#An Pharaz (b_an_pharaz)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+}
+
+##			Shafra (c_shafra)
+
+876 = {		#Kas Shafra (b_kas_shafra)
+	culture = sakalai
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	buildings = {
+		castle_02
+		curtain_walls_03
+		cereal_fields_02
+	}
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
+	5800.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+	}
+	6900.1.1 = {
+		culture = jelut
+		religion = faith_haruze
+		holding = tribal_holding
+	}
+	7062.10.24 = { #Conversions of the Haradwaith
+		religion = faith_chelkar
+	}
+}
+
+875 = {		#Zayan (b_zayan)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+}
+
+874 = {		#Nûlunîn (b_nulunin)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+}
+
+873 = {		#Bur Baklin (b_bur_baklin)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+}
+
+##			Zoran (c_zoran)
+
+871 = {		#An Zoran (b_an_zoran)
+	culture = sakalai
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	buildings = {
+		hill_forts_02
+		hill_farms_02
+	}
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
+	5900.1.1 = {
+		culture = jelut
+		religion = faith_jelut
+		holding = tribal_holding
+	}
+	7070.1.1 = { #Integrations of the South
+		religion = faith_chelkar
+	}
+}
+
+872 = {		#Ziba (b_ziba)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+}
+
+1298 = {	#Hi-Phara (b_hi_phara)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+}
+
+###			Dûsalan (d_dusalan)
+##			Badharkân (c_badharkan)
+
+1450 = {	#Badharkân (b_badharkan)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = castle_holding
+	buildings = {
+		castle_02
+		curtain_walls_04
+		barracks_02
+	}
+	4060.1.1 = {
+		culture = old_umbarean
+	}
+	4966.1.1 = {
+		culture = umbaredain
+		religion = faith_edain
+		special_building_slot = wonder_citadel_hyarmendacil_01
+		special_building = wonder_citadel_hyarmendacil_02
+	}
+	5600.1.1 = {
+		culture = corsair
+		faith = faith_corsair
+	}
+	6000.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		special_building = wonder_citadel_hyarmendacil_01
+	}
+	7070.1.1 = { #Integrations of the South
+		religion = faith_path_of_wisdom
+	}
+
+}
+
+1451 = {	#Bedanir (b_bedanir)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+	4048.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = none
+	}
+}
+
+1452 = {	#Kharazôr (b_kharazor)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+	4048.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = none
+	}
+}
+
+1453 = {	#Dalazâth (b_dalazath)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+	4048.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = none
+	}
+}
+
+##			Azulathân (c_azulathan)
+
+1454 = {	#Azulathân (b_azulathan)
+	culture = sakalai
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	buildings = {
+		castle_02
+		curtain_walls_04
+		cereal_fields_02
+	}
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
+	5600.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+	}
+}
+
+1455 = {	#Badradêth (b_badradeth)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+1456 = {	#Phurut-Azrazâin (b_phurut_azrazain)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+1457 = {	#Kharat-Azrazâin (b_kharat_azrazain)
+	culture = corsair
+	religion = faith_corsair
+	holding = none
+}
+
+##			Mazrakh (c_mazrakh)
+
+1458 = {	#Mazrakh (b_mazrakh)
+	culture = sakalai
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	buildings = {
+		castle_01
+		horse_pastures_02
+		plantations_02
+	}
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
+	6000.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+	}
+	7070.1.1 = { #Integrations of the South
+		religion = faith_path_of_wisdom
+	}
+}
+
+1459 = {	#Akhara (b_akhara)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+	4048.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = none
+	}
+}
+
+1460 = {	#Fejan (b_fejan)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+	4048.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = none
+	}
+}
+
+##			Sakal an-Dalajaf (c_sakal_an_dalajaf)
+
+1461 = {	#Dalajaf (b_dalajaf)
+	culture = sakalai
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	buildings = {
+		castle_01
+		horse_pastures_02
+		plantations_02
+	}
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
+	6000.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+	}
+	7070.1.1 = { #Integrations of the South
+		religion = faith_path_of_wisdom
+	}
+}
+
+1462 = {	#An-Mahaz (b_an_mahaz)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+	4048.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = none
+	}
+}
+
+1464 = {	#Bakhel (b_bakhel)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+	4048.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = none
+	}
+}
+
+1465 = {	#Kajef (b_kajef)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+	4048.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = none
+	}
+}
+
+1466 = {	#Maharud (b_maharud)
+	culture = sakalai
+	religion = faith_chelkar
+	holding = none
+	4048.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = none
+	}
+}
+
+

@@ -1,0 +1,202 @@
+﻿#############################
+############ Pel ############
+#############################
+
+### Pel 
+dynasty_zuberi = {
+	name = "dynn_zuberi"
+	culture = "pel"
+	motto = dynn_zuberi_motto
+}
+dynasty_bukumagen = {
+	name = "dynn_bukumagen"
+	culture = "mag"
+	motto = dynn_bukumagen_motto
+}
+dynasty_emibi = {
+	name = "dynn_emibi"
+	culture = "pel"
+	motto = dynn_emibi_motto
+}
+dynasty_odindi = {
+	name = "dynn_odindi"
+	culture = "pel"
+	motto = dynn_odindi_motto
+}
+dynasty_ojasowo = {
+	name = "dynn_ojasowo"
+	culture = "pel"
+	motto = dynn_ojasowo_motto
+}
+dynasty_lagbe = {
+	name = "dynn_lagbe"
+	culture = "pel"
+	motto = dynn_lagbe_motto
+}
+dynasty_jinibi = {
+	name = "dynn_jinibi"
+	culture = "pel"
+	motto = dynn_jinibi_motto
+}
+dynasty_inigi = {
+	name = "dynn_inigi"
+	culture = "pel"
+	motto = dynn_inigi_motto
+}
+dynasty_arogwe = {
+	name = "dynn_arogwe"
+	culture = "pel"
+	motto = dynn_arogwe_motto
+}
+dynasty_majibandit = {
+	name = "dynn_majibandit"
+	culture = "pel"
+	motto = dynn_majibandit_motto
+}
+dynasty_nyere = {
+	name = "dynn_nyere"
+	culture = "pel"
+	motto = dynn_nyere_motto
+}
+dynasty_obimaji = {
+	name = "dynn_obimaji"
+	culture = "pel"
+	motto = dynn_obimaji_motto
+}
+dynasty_omeli = {
+	name = "dynn_omeli"
+	culture = "pel"
+	motto = dynn_omeli_motto
+}
+dynasty_shanwani = {
+	name = "dynn_shanwani"
+	culture = "pel"
+	motto = dynn_shanwani_motto
+}
+dynasty_dayogo = {
+	name = "dynn_dayogo"
+	culture = "pel"
+	motto = dynn_dayogo_motto
+}
+dynasty_mokubi = {
+	name = "dynn_mokubi"
+	culture = "pel"
+	motto = dynn_mokubi_motto
+}
+
+### Sederi ###
+dynasty_sederivassalone = {
+	name = "dynn_sederivassalone"
+	culture = "sederi"
+	motto = dynn_sederivassalone_motto
+}
+dynasty_sederivassalthree = {
+	name = "dynn_sederivassalthree"
+	culture = "sederi"
+	motto = dynn_sederivassalthree_motto
+}
+dynasty_sederivassaltwo = {
+	name = "dynn_sederivassaltwo"
+	culture = "sederi"
+	motto = dynn_sederivassaltwo_motto
+}
+dynasty_azarisederione = {
+	name = "dynn_azarisederione"
+	culture = "sederi"
+}
+dynasty_sederiholzvassalone = {
+	name = "dynn_sederiholzvassalone"
+	culture = "sederi"
+}
+dynasty_sederidolgvassal = {
+	name = "dynn_sederidolgvassal"
+	culture = "sederi"
+}
+dynasty_sederidolgvassaltwo = {
+	name = "dynn_sederidolgvassaltwo"
+	culture = "sederi"
+}
+dynasty_anjedi = {
+	name = "dynn_anjedi"
+	culture = "sederi"
+	motto = dynn_anjedi_motto
+}
+
+### Drêl ###
+dynasty_balisar = {
+	name = "dynn_balisar"
+	culture = "drel"
+	motto = dynn_balisar_motto
+}
+dynasty_ogwowe = {
+	name = "dynn_ogwowe"
+	culture = "drel"
+	motto = dynn_ogwowe_motto
+}
+dynasty_tabwe = {
+	name = "dynn_tabwe"
+	culture = "drel"
+	motto = dynn_tabwe_motto
+}
+dynasty_zakiri = {
+	name = "dynn_zakiri"
+	culture = "drel"
+	motto = dynn_zakiri_motto
+}
+dynasty_hambari = {
+	name = "dynn_hambari"
+	culture = "drel"
+	motto = dynn_hambari_motto
+}
+dynasty_mabaro = {
+	name = "dynn_mabaro"
+	culture = "drel"
+	motto = dynn_mabaro_motto
+}
+dynasty_eslani = {
+	name = "dynn_eslani"
+	culture = "drel"
+	motto = dynn_eslani_motto
+}
+dynasty_galavi = {
+    name = "dynn_galavi"
+    culture = "drel"
+    motto = "dynn_galavi_motto"
+}
+dynasty_omoro = {
+    name = "dynn_omoro"
+    culture = "drel"
+    motto = "dynn_omoro_motto"
+}
+dynasty_zandari = {
+    name = "dynn_zandari"
+    culture = "drel"
+    motto = "dynn_zandari_motto"
+}
+dynasty_tagoro = {
+    name = "dynn_tagoro"
+    culture = "drel"
+    motto = "dynn_tagoro_motto"
+}
+
+### Adena ###
+dynasty_awon = {
+	name = "dynn_awon"
+	culture = "adena"
+	motto = dynn_awon_motto
+}
+dynasty_dyeni = {
+	name = "dynn_dyeni"
+	culture = adena
+	motto = dynn_dyeni_motto
+}
+dynasty_oruni = {
+	name = "dynn_oruni"
+	culture = adena
+	motto = dynn_oruni_motto
+}
+dynasty_urwon = {
+	name = "dynn_urwon"
+	culture = adena
+	motto = dynn_urwon_motto
+}

@@ -1,0 +1,421 @@
+﻿e_laurelindorenan = {
+	1142.1.1 = { # Lorien is founded
+		effect = {
+			lotr_move_dejure_capital_effect = { COUNTY = c_cerin_amroth }
+		}
+	}
+	6014.7.9 = {
+		effect = {
+			lotr_move_dejure_capital_effect = { COUNTY = c_caras_galadhon }
+		}
+	}
+}
+
+k_lothlorien = {
+	1142.1.1 = { # Lorien is founded
+		holder = lineofamdir1 # Amdir
+		effect = {
+			lotr_move_dejure_capital_effect = { COUNTY = c_cerin_amroth }
+		}
+	}
+	4026.1.1 = {
+		holder = lineofamdir3 # Amroth
+	}
+	6014.7.9 = {
+		holder = lineoffinarfin5 # Galadriel
+		effect = {
+			lotr_move_dejure_capital_effect = { COUNTY = c_caras_galadhon }
+		}
+	}
+	7054.9.29 = { # Galadriel passes into the West
+		holder = lineofelmo5 # Celeborn
+	}
+	7136.9.3 = {
+		holder = 0
+		de_jure_liege = e_anduin_vale
+	}
+}
+
+d_lorien = {
+	1142.1.1 = { # Lorien is founded
+		holder = lineofamdir1 # Amdir
+		effect = {
+			lotr_move_dejure_capital_effect = { COUNTY = c_cerin_amroth }
+		}
+	}
+	4026.1.1 = {
+		holder = lineofamdir3 # Amroth
+	}
+	6014.7.9 = {
+		holder = lineoffinarfin5 # Galadriel
+		effect = {
+			lotr_move_dejure_capital_effect = { COUNTY = c_caras_galadhon }
+		}
+	}
+	7054.9.29 = { # Galadriel passes into the West
+		holder = lineofelmo5 # Celeborn
+	}
+	7136.9.3 = {
+		holder = 0
+	}
+}
+
+c_caras_galadhon = {
+	1967.7.9 = { # Galadriel leaves Eregion
+		holder = lineoffinarfin5 #Galadriel
+		liege = k_lothlorien
+		change_development_level = 22
+	}
+	4026.1.1 = {
+		change_development_level = 18
+	}
+	6014.7.9 = {
+		change_development_level = 20
+	}
+	7054.9.29 = { # Galadriel passes into the West
+		holder = lineofelmo5 #Celeborn
+	}
+	7136.9.3 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+c_melbrethil = {
+	1142.1.1 = { # Lorien is founded
+		holder = lineofamdir1 # Amdir
+		change_development_level = 20
+	}
+	4026.1.1 = {
+		holder = lineofamdir3 # Amroth
+		change_development_level = 17
+	}
+	6014.7.9 = {
+		holder = lineoffinarfin5 # Galadriel
+		change_development_level = 14
+	}
+	7054.9.29 = { # Galadriel passes into the West
+		holder = lineofelmo5 #Celeborn
+	}
+	7136.9.3 = { # Celeborn sails west with the Sons of Elrond
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+c_egladil = {
+	4142.1.1 = { # Celeborn and Galadriel permanently settle in Lorien
+		holder = lineofelmo5 #Celeborn
+		liege = k_lothlorien
+		change_development_level = 25
+	}
+	4026.1.1 = {
+		change_development_level = 20
+	}
+	6014.7.9 = {
+		change_development_level = 16
+	}
+	7123.8.22 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+c_cerin_amroth = {
+	1142.1.1 = { # Lorien is founded
+		holder = lineofamdir1 # Amdir
+		change_development_level = 30
+	}
+	4026.1.1 = {
+		holder = lineofamdir3 # Amroth
+		change_development_level = 25
+	}
+	6014.7.9 = {
+		holder = lineofelmo5 #Celeborn
+		liege = k_lothlorien
+		change_development_level = 15
+	}
+	7100.2.5 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+c_amdirion = {
+	4472.12.8 = { # Gifted as a wedding present
+		holder = lineofmeldir1 #Meldir
+		liege = k_lothlorien
+		change_development_level = 16
+	}
+	4026.1.1 = {
+		change_development_level = 13
+	}
+	6784.6.19 = {
+		holder = lineofmeldir2 #Melosse
+		change_development_level = 10
+	}
+	7136.9.3 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+d_iathglan = {
+	1142.1.1 = {
+		holder = lineoftirneldor1 #Tirneldor
+		liege = k_lothlorien
+	}
+	4026.4.12 = {
+		holder = lineoftirneldor3 #Haldir
+	}
+	7094.10.30 = {
+		holder = 0
+	}
+}
+
+c_nimrodel = {
+	3831.1.1 = {
+		holder = lineoftirneldor1 #Tirneldor
+		liege = d_iathglan
+		change_development_level = 20
+	}
+	4026.1.1 = {
+		holder = lineoftirneldor3 #Haldir
+		change_development_level = 16
+	}
+	6014.7.9 = {
+		change_development_level = 12
+	}
+	7094.10.30 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+c_harglan_nimrodel = {
+	1142.1.1 = {
+		holder = lineoftirneldor1 #Tirneldor
+		liege = d_iathglan
+		change_development_level = 16
+	}
+	4026.4.12 = {
+		holder = lineoftirneldor3 #Haldir
+		change_development_level = 14
+	}
+	6014.7.9 = {
+		change_development_level = 10
+	}
+	7081.2.14 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+c_thinglad = {
+	1142.1.1 = {
+		holder = lineoftirneldor1 #Tirneldor
+		liege = d_iathglan
+		change_development_level = 18
+	}
+	4026.4.12 = {
+		holder = lineoftirneldor5 #Orophin
+		change_development_level = 15
+	}
+	6014.7.9 = {
+		change_development_level = 12
+	}
+	7087.8.11 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+d_parth_celebrant = {
+	6919.4.28 = {
+		holder = lineofguthmunding1 #Wiglaf
+		government = tribal_government
+	}
+	6958.4.28 = {
+		holder = lineofguthmunding3 #SE_xbald
+	}
+	7011.7.1 = {
+		holder = lineofguthmunding5 #SE_lrE_d
+	}
+	7041.8.26 = {
+		holder = lineofguthmunding7 #Cerdic
+	}
+	7066.10.3 = {
+		holder = lineofguthmunding9 #Osulf
+	}
+	7081.11.25 = {
+		holder = lineofguthmunding38 #Cenfus
+	}
+	7082.4.12 = {
+		liege = k_rohan
+		de_jure_liege = k_rohan
+		government = feudal_government
+	}
+	7102.4.9 = {
+		holder = lineofcenfusas1 #Heahberht
+	}
+	7134.7.24 = {
+		holder = lineofcenfusas3 #Leofwine
+	}
+	7149.10.18 = {
+		holder = lineofcenfusas7 #Ealdwine
+	}
+}
+
+c_byre_tor = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+		liege = 0
+	}
+	6876.8.28 = {
+		change_development_level = 3
+	}
+	6919.4.28 = {
+		holder = lineofguthmunding1 #Wiglaf
+		government = tribal_government
+	}
+	6958.4.28 = {
+		holder = lineofguthmunding3 #SE_xbald
+	}
+	7011.7.1 = {
+		holder = lineofguthmunding5 #SE_lrE_d
+	}
+	7041.8.26 = {
+		holder = lineofguthmunding7 #Cerdic
+	}
+	7052.4.6 = {
+		holder = lineofguthmunding9 #Osulf
+	}
+	7081.11.25 = {
+		holder = lineofguthmunding38 #Cenfus
+	}
+	7082.4.12 = {
+		government = feudal_government
+		change_development_level = 5
+	}
+	7102.4.9 = {
+		holder = lineofcenfusas1 #Heahberht
+	}
+	7134.7.24 = {
+		holder = lineofcenfusas3 #Leofwine
+	}
+	7149.10.18 = {
+		holder = lineofcenfusas7 #Ealdwine
+	}
+}
+
+c_aduialand = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6876.8.28 = {
+		holder = lineofguthmunding0	#Guthmund
+		government = tribal_government
+		change_development_level = 4
+	}
+	6919.4.28 = {
+		holder = lineofguthmunding1 #Wiglaf
+		government = tribal_government
+	}
+	6958.4.28 = {
+		holder = lineofguthmunding3 #SE_xbald
+	}
+	7011.7.1 = {
+		holder = lineofguthmunding5 #SE_lrE_d
+	}
+	7041.8.26 = {
+		holder = lineofguthmunding7 #Cerdic
+	}
+	7052.4.6 = {
+		holder = lineofguthmunding9 #Osulf
+	}
+	7081.11.25 = {
+		holder = lineofguthmunding38 #Cenfus
+	}
+	7082.4.12 = {
+		government = feudal_government
+		change_development_level = 6
+	}
+	7102.4.9 = {
+		holder = lineofcenfusas1 #Heahberht
+	}
+	7134.7.24 = {
+		holder = lineofcenfusas3 #Leofwine
+	}
+	7149.10.18 = {
+		holder = lineofcenfusas7 #Ealdwine
+	}
+}
+
+c_athraduin = {
+	1.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6750.2.19 = {
+		holder = linewistaning4
+		change_development_level = 5
+	}
+	6754.11.14 = {
+		holder = linewistaning5
+	}
+	6783.11.26 = {
+		holder = linewistaning6
+	}
+	6821.3.10 = {
+		holder = linewistaning7
+	}
+	6841.12.2 = {
+		holder = linewistaning8
+	}
+	6876.8.28 = {
+		holder = lineofguthmunding0	#Guthmund
+		government = tribal_government
+	}
+	6919.4.28 = {
+		holder = lineofguthmunding1 #Wiglaf
+	}
+	6920.1.1 = { # Wiglaf retreats from the River
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	7057.5.29 = { # Resettled in a large push by Rohan to take back their lost lands
+		holder = lineofguthmunding9 #Osulf
+		change_development_level = 5
+		government = feudal_government
+	}
+	7081.11.25 = {
+		holder = lineofguthmunding38 #Cenfus
+	}
+	7082.4.12 = {
+		government = feudal_government
+		change_development_level = 6
+	}
+	7102.4.9 = {
+		holder = lineofcenfusas1 #Heahberht
+	}
+	7134.7.24 = {
+		holder = lineofcenfusas3 #Leofwine
+	}
+	7149.10.18 = {
+		holder = lineofcenfusas7 #Ealdwine
+	}
+}

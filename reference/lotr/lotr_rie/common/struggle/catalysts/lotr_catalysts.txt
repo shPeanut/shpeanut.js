@@ -1,0 +1,48 @@
+﻿# Colonisation mechanic
+catalyst_new_colony_in_moria = {} # Starting new colony in Moria
+catalyst_destroyed_colony_in_moria = {} # Abandoning colony in Moria
+catalyst_cleared_blocker_in_moria = {} # Successfully clearing a blocker in Moria
+catalyst_upgraded_colony_in_moria = {} # Upgrading colony holding to lvl 2 or 3 in Moria
+
+# Building
+catalyst_new_building_in_moria = {} # New building in a stronghold holding in Moria
+
+# Activities
+catalyst_held_a_feast_in_moria = {}
+catalyst_went_mining_in_moria = {}
+
+# War
+catalyst_declared_a_war = {}
+catalyst_declared_war_upon = {}
+catalyst_involved_ruler_lost_war = {}
+
+# Balrog
+catalyst_balrog_event_calm = {}
+catalyst_balrog_event_anger = {}
+
+### Diplomacy
+
+catalyst_sway_scheme = {}
+catalyst_abduct_scheme = {}
+catalyst_duel_fought = {}
+catalyst_cheat_in_tournaments = {}
+catalyst_marriage_between_characters = {}
+catalyst_mysterious_dissapearance_involved_character = {}
+catalyst_fabricated_hook_scheme = {}
+catalyst_controls_too_large_area = {}
+catalyst_controls_too_large_area_moria = {}
+catalyst_inherited_title_outside_of_realm = {}
+catalyst_hiding_realm = {}
+
+### Dynasty
+
+catalyst_has_confederation_modifier = {}
+
+## Story 
+
+catalyst_stormhost_threatens = {} # For Seregul chain
+
+## Building
+catalyst_delved_too_deep = {}
+catalyst_delved_too_deep_deeper = {}
+catalyst_delved_too_deep_deepest = {}

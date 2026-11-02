@@ -1,0 +1,2927 @@
+﻿namespace = numenoreanblood
+
+#Somewhat awkwardly put this here: For Dúnedain culture spouses - assign widow trait to AI on death of spouse where children exist 
+
+numenoreanblood.1000 = { #Check for dead character
+	content_source = realms_dlc
+	type = character_event
+	hidden = yes
+	
+	immediate = {
+		save_scope_as = dead_character
+		every_spouse = { # Numenoreans
+			limit = { 
+				NOT = { this = root }
+				culture = { has_cultural_pillar = heritage_dunedain }
+			}
+			trigger_event = numenoreanblood.1001
+				
+		}
+		every_spouse = { # Dwarves
+			limit = { 
+				NOT = { this = root }
+				is_dwarf = yes
+				# any_child = { count > 0 }
+			}
+			trigger_event = dwarven.0101
+				
+		}
+		every_spouse = { # Elves
+			limit = { 
+				NOT = { this = root }
+				is_elf = yes
+			}
+			trigger_event = elven_racial.0700	
+		}
+	}
+
+}
+
+numenoreanblood.1001 = { #Widow event for widow 
+	content_source = realms_dlc
+	type = character_event
+	title = numenoreanblood.1001.t
+	desc = {
+		desc = numenoreanblood.1001.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					any_child = { count > 0 }
+				}
+				desc = numenoreanblood.1001.desc.child
+			}
+			triggered_desc = {
+				trigger = {
+					NOT = { any_child = { count > 0 } }
+				}
+				desc = numenoreanblood.1001.desc.childless
+			}
+		}
+	}
+	theme = unfriendly
+	left_portrait = {
+		character = root
+		animation = grief
+	}
+	right_portrait = {
+		character = scope:dead_character
+		animation = pain
+	}
+	
+	option = { # Become a widow
+		name = numenoreanblood.1001.a
+		add_trait = widowed
+		add_piety = 250
+		stress_impact = {
+			lustful = major_stress_impact_gain
+			lifestyle_reveler = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 80
+			modifier = {
+				any_child = { count > 0 }
+				add = 50
+			}
+			modifier = {
+				has_trait = lustful						
+				add = -60
+			}
+			modifier = {
+				has_trait = chaste						
+				add = 60
+			}
+			modifier = {
+				has_trait = content						
+				add = 20
+			}
+		}
+	}
+	option = { # I will find another
+		name = numenoreanblood.1001.b
+		if = { # Only loose devotion if you already have kids
+			limit = {
+				NOT = { any_child = { count > 0 } }
+			}
+			add_piety_level = -1
+		}
+		add_character_modifier = refused_widowhood_modifier
+		stress_impact = {
+			chaste = major_stress_impact_gain
+			content = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 20
+			modifier = {
+				any_child = { count = 0 }
+				add = 50
+			}
+			modifier = {
+				has_trait = lustful						
+				add = 60
+			}
+			modifier = {
+				has_trait = chaste						
+				add = -60
+			}	
+			modifier = {
+				has_trait = content						
+				add = -20
+			}			
+		}		
+	}
+
+}
+
+numenoreanblood.0001 = {
+	
+	hidden = yes
+
+	trigger = {
+		OR = {
+			scope:real_father = { has_trait = blood_of_numenor }
+			scope:mother = { has_trait = blood_of_numenor }
+		}
+	}
+
+	immediate = { #First clear all traits given by vanilla genetics mechanics
+		if = {
+			limit = { has_trait = blood_of_numenor }
+			if = {
+				limit = { has_trait = blood_of_numenor_1 }
+				remove_trait = blood_of_numenor_1
+			}
+			if = {
+				limit = { has_trait = blood_of_numenor_2 }
+				remove_trait = blood_of_numenor_2
+			}
+			if = {
+				limit = { has_trait = blood_of_numenor_3 }
+				remove_trait = blood_of_numenor_3
+			}
+			if = {
+				limit = { has_trait = blood_of_numenor_4 }
+				remove_trait = blood_of_numenor_4
+			}
+			if = {
+				limit = { has_trait = blood_of_numenor_5 }
+				remove_trait = blood_of_numenor_5
+			}
+			if = {
+				limit = { has_trait = blood_of_numenor_6 }
+				remove_trait = blood_of_numenor_6
+			}
+			if = {
+				limit = { has_trait = blood_of_numenor_7 }
+				remove_trait = blood_of_numenor_7
+			}
+			if = {
+				limit = { has_trait = blood_of_numenor_8 }
+				remove_trait = blood_of_numenor_8
+			}
+			if = {
+				limit = { has_trait = blood_of_numenor_9 }
+				remove_trait = blood_of_numenor_9
+			}
+			if = {
+				limit = { has_trait = blood_of_numenor_10 }
+				remove_trait = blood_of_numenor_10
+			}
+		}
+	}
+
+	option = { # Equal blood levels
+		trigger = {
+			OR = {	
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 1
+					scope:mother.get_numenorean_blood_tier = 1
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 2
+					scope:mother.get_numenorean_blood_tier = 2
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 3
+					scope:mother.get_numenorean_blood_tier = 3
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 4
+					scope:mother.get_numenorean_blood_tier = 4
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 5
+					scope:mother.get_numenorean_blood_tier = 5
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 6
+					scope:mother.get_numenorean_blood_tier = 6
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 7
+					scope:mother.get_numenorean_blood_tier = 7
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 8
+					scope:mother.get_numenorean_blood_tier = 8
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 9
+					scope:mother.get_numenorean_blood_tier = 9
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 10
+					scope:mother.get_numenorean_blood_tier = 10
+				}
+			}
+		}
+		random_list = {
+			100 = {
+				show_chance = yes
+				desc = numenoreanblood.0001.maintained
+
+				modifier = {
+					scope:real_father = {
+						has_trait = disloyal
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = disloyal
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = lustful
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = lustful
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = vengeful
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = vengeful
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = greedy
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = greedy
+					}						
+					add = -16
+				}				
+				modifier = {
+					scope:real_father = {
+						has_trait = wrathful
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = wrathful
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = deceitful
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = deceitful
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = arrogant
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = arrogant
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = callous
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = callous
+					}						
+					add = -16
+				}		
+				modifier = {
+					scope:real_father = {
+						has_trait = sadistic
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = sadistic
+					}						
+					add = -16
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = arbitrary
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = arbitrary
+					}						
+					add = -16
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = torturer
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = torturer
+					}						
+					add = -16
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = adulterer
+					}						
+					add = -32
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = adulterer
+					}						
+					add = -32
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = fornicator
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = fornicator
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = deviant
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = deviant
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = kinslayer_1
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = kinslayer_1
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = kinslayer_2
+					}						
+					add = -32
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = kinslayer_2
+					}						
+					add = -32
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = kinslayer_3
+					}						
+					add = -48
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = kinslayer_3
+					}						
+					add = -48
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = incestuous
+					}						
+					add = -32
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = incestuous
+					}						
+					add = -32
+				}
+				modifier = { #Very incestuous
+					scope:real_father = { is_close_family_of = scope:mother }
+					add = -64
+				}
+				modifier = { #Slightly incestuous
+					scope:real_father = { is_extended_family_of = scope:mother }
+					add = -48
+				}
+				modifier = { #Distant ancestor but still incestuous
+					scope:mother = {
+						any_ancestor = {
+							this = scope:real_father
+						}
+					}
+					NOT = { scope:real_father = { is_close_or_extended_family_of = scope:mother } }
+					add = -48
+				}
+				modifier = { #Distant ancestor but still incestuous
+					scope:real_father = {
+						any_ancestor = {
+							this = scope:mother
+						}
+					}
+					NOT = { scope:real_father = { is_close_or_extended_family_of = scope:mother } }
+					add = -48
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = witch
+					}						
+					add = -32
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = witch
+					}						
+					add = -32
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = cannibal
+					}						
+					add = -48
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = cannibal
+					}						
+					add = -48
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = murderer
+					}						
+					add = -32
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = murderer
+					}						
+					add = -32
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = rakish
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = rakish
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = drunkard
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = drunkard
+					}						
+					add = -8
+				}		
+				modifier = {
+					scope:real_father = {
+						has_trait = kidnapper
+					}						
+					add = -24
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = kidnapper
+					}						
+					add = -24
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_deviant }
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_deviant }
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_murder_attempt }
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_murder_attempt }
+					}						
+					add = -16
+				}	
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_cannibal }
+					}						
+					add = -24
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_cannibal }
+					}						
+					add = -24
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_lover }
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_lover }
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_murder }
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_murder }
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_non_believer }
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_non_believer }
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_incest }
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_incest }
+					}						
+					add = -16
+				}				
+				modifier = {
+					OR = {
+						scope:real_father = {
+							religion = { is_in_family = rf_forcesofevil }
+						}
+						scope:real_father = {
+							religion = { is_in_family = rf_forcesofevil }
+						}
+					}
+					# NOT = { #Special exception to make Ar-Adunaim more likely to keep higher blood tiers
+					# 	scope:real_father = {
+					# 		dynasty = dynasty:dynasty_pharazon
+					# 	}
+					# }
+					add = -32
+				}
+				modifier = {
+					OR = {
+						scope:real_father = {
+							NOR = {
+								religion = { is_in_family = rf_forcesofevil }
+								religion = { is_in_family = rf_eruhini }
+							}
+						}
+						scope:real_father = {
+							NOR = {
+								religion = { is_in_family = rf_forcesofevil }
+								religion = { is_in_family = rf_eruhini }
+							}
+						}
+					}
+					# NOT = { #Special exception to make Ar-Adunaim more likely to keep higher blood tiers
+					# 	scope:real_father = {
+					# 		dynasty = dynasty:dynasty_pharazon
+					# 	}
+					# }					
+					add = -16
+				}
+				modifier = {
+					OR = {
+						scope:mother = {
+							religion = { is_in_family = rf_forcesofevil }
+						}
+						scope:mother = {
+							religion = { is_in_family = rf_forcesofevil }
+						}
+					}	
+					# NOT = { #Special exception to make Ar-Adunaim more likely to keep higher blood tiers
+					# 	scope:mother = {
+					# 		dynasty = dynasty:dynasty_pharazon
+					# 	}
+					# }
+					add = -32
+				}
+				modifier = {
+					OR = {
+						scope:mother = {
+							NOR = {
+								religion = { is_in_family = rf_forcesofevil }
+								religion = { is_in_family = rf_eruhini }
+							}
+						}
+						scope:mother = {
+							NOR = {
+								religion = { is_in_family = rf_forcesofevil }
+								religion = { is_in_family = rf_eruhini }
+							}
+						}
+					}
+					# NOT = { #Special exception to make Ar-Adunaim more likely to keep higher blood tiers
+					# 	scope:mother = {
+					# 		dynasty = dynasty:dynasty_pharazon
+					# 	}
+					# }					
+					add = -16
+				}
+				if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 10 }
+					scope:child = {
+						add_trait = blood_of_numenor_10
+					}		
+				}
+				else_if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 9 }
+					scope:child = {
+						add_trait = blood_of_numenor_9
+					}		
+				}
+				else_if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 8 }
+					scope:child = {
+						add_trait = blood_of_numenor_8
+					}					
+				}
+				else_if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 7 }
+					scope:child = {
+						add_trait = blood_of_numenor_7
+					}					
+				}
+				else_if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 6 }
+					scope:child = {
+						add_trait = blood_of_numenor_6
+					}					
+				}
+				else_if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 5 }
+					scope:child = {
+						add_trait = blood_of_numenor_5
+					}					
+				}
+				else_if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 4 }
+					scope:child = {
+						add_trait = blood_of_numenor_4
+					}					
+				}
+				else_if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 3 }
+					scope:child = {
+						add_trait = blood_of_numenor_3
+					}					
+				}
+				else_if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 2 }
+					scope:child = {
+						add_trait = blood_of_numenor_2
+					}
+				}
+				else = {
+					scope:child = {
+						add_trait = blood_of_numenor_1
+					}
+				}
+			}
+			0 = {
+				show_chance = yes
+				desc = numenoreanblood.0001.weakened
+
+				modifier = {
+					scope:real_father = {
+						has_trait = disloyal
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = disloyal
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = lustful
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = lustful
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = vengeful
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = vengeful
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = greedy
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = greedy
+					}						
+					add = 16
+				}				
+				modifier = {
+					scope:real_father = {
+						has_trait = wrathful
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = wrathful
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = deceitful
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = deceitful
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = arrogant
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = arrogant
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = callous
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = callous
+					}						
+					add = 16
+				}		
+				modifier = {
+					scope:real_father = {
+						has_trait = sadistic
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = sadistic
+					}						
+					add = 16
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = arbitrary
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = arbitrary
+					}						
+					add = 16
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = torturer
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = torturer
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = adulterer
+					}						
+					add = 32
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = adulterer
+					}						
+					add = 32
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = fornicator
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = fornicator
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = deviant
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = deviant
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = kinslayer_1
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = kinslayer_1
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = kinslayer_2
+					}						
+					add = 32
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = kinslayer_2
+					}						
+					add = 32
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = kinslayer_3
+					}						
+					add = 48
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = kinslayer_3
+					}						
+					add = 48
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = incestuous
+					}						
+					add = 32
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = incestuous
+					}						
+					add = 32
+				}
+				modifier = { #Very incestuous
+					scope:real_father = { is_close_family_of = scope:mother }
+					add = 64
+				}
+				modifier = { #Slightly incestuous
+					scope:real_father = { is_extended_family_of = scope:mother }
+					add = 48
+				}
+				modifier = { #Distant ancestor but still incestuous
+					scope:mother = {
+						any_ancestor = {
+							this = scope:real_father
+						}
+					}
+					NOT = { scope:real_father = { is_close_or_extended_family_of = scope:mother } }
+					add = 48
+				}
+				modifier = { #Distant ancestor but still incestuous
+					scope:real_father = {
+						any_ancestor = {
+							this = scope:mother
+						}
+					}
+					NOT = { scope:real_father = { is_close_or_extended_family_of = scope:mother } }
+					add = 48
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = witch
+					}						
+					add = 32
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = witch
+					}						
+					add = 32
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = cannibal
+					}						
+					add = 48
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = cannibal
+					}						
+					add = 48
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = murderer
+					}						
+					add = 32
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = murderer
+					}						
+					add = 32
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = rakish
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = rakish
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = drunkard
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = drunkard
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = kidnapper
+					}						
+					add = 24
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = kidnapper
+					}						
+					add = 24
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_deviant }
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_deviant }
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_murder_attempt }
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_murder_attempt }
+					}						
+					add = 16
+				}	
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_cannibal }
+					}						
+					add = 24
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_cannibal }
+					}						
+					add = 24
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_lover }
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_lover }
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_murder }
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_murder }
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_non_believer }
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_non_believer }
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_incest }
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_incest }
+					}						
+					add = 16
+				}
+				modifier = {
+					OR = {
+						scope:real_father = {
+							religion = { is_in_family = rf_forcesofevil }
+						}
+						scope:real_father = {
+							religion = { is_in_family = rf_forcesofevil }
+						}
+					}
+					# NOT = { #Special exception to make Ar-Adunaim more likely to keep higher blood tiers
+					# 	scope:real_father = {
+					# 		dynasty = dynasty:dynasty_pharazon
+					# 	}
+					# }					
+					add = 32
+				}
+				modifier = {
+					OR = {
+						scope:real_father = {
+							NOR = {
+								religion = { is_in_family = rf_forcesofevil }
+								religion = { is_in_family = rf_eruhini }
+							}
+						}
+						scope:real_father = {
+							NOR = {
+								religion = { is_in_family = rf_forcesofevil }
+								religion = { is_in_family = rf_eruhini }
+							}
+						}
+					}
+					# NOT = { #Special exception to make Ar-Adunaim more likely to keep higher blood tiers
+					# 	scope:real_father = {
+					# 		dynasty = dynasty:dynasty_pharazon
+					# 	}
+					# }					
+					add = 16
+				}
+				modifier = {
+					OR = {
+						scope:mother = {
+							religion = { is_in_family = rf_forcesofevil }
+						}
+						scope:mother = {
+							religion = { is_in_family = rf_forcesofevil }
+						}
+					}	
+					# NOT = { #Special exception to make Ar-Adunaim more likely to keep higher blood tiers
+					# 	scope:mother = {
+					# 		dynasty = dynasty:dynasty_pharazon
+					# 	}
+					# }
+					add = 32
+				}
+				modifier = {
+					OR = {
+						scope:mother = {
+							NOR = {
+								religion = { is_in_family = rf_forcesofevil }
+								religion = { is_in_family = rf_eruhini }
+							}
+						}
+						scope:mother = {
+							NOR = {
+								religion = { is_in_family = rf_forcesofevil }
+								religion = { is_in_family = rf_eruhini }
+							}
+						}
+					}
+					# NOT = { #Special exception to make Ar-Adunaim more likely to keep higher blood tiers
+					# 	scope:mother = {
+					# 		dynasty = dynasty:dynasty_pharazon
+					# 	}
+					# }					
+					add = 16
+				}
+				if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 10 }
+					scope:child = {
+						add_trait = blood_of_numenor_9
+					}		
+				}
+				else_if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 9 }
+					scope:child = {
+						add_trait = blood_of_numenor_8
+					}		
+				}
+				else_if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 8 }
+					scope:child = {
+						add_trait = blood_of_numenor_7
+					}					
+				}
+				else_if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 7 }
+					scope:child = {
+						add_trait = blood_of_numenor_6
+					}					
+				}
+				else_if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 6 }
+					scope:child = {
+						add_trait = blood_of_numenor_5
+					}					
+				}
+				else_if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 5 }
+					scope:child = {
+						add_trait = blood_of_numenor_4
+					}					
+				}
+				else_if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 4 }
+					scope:child = {
+						add_trait = blood_of_numenor_3
+					}					
+				}
+				else_if = {
+					limit = { scope:real_father.get_numenorean_blood_tier = 3 }
+					scope:child = {
+						add_trait = blood_of_numenor_2
+					}					
+				}
+				else = {
+					if = {
+						limit = { scope:real_father.get_numenorean_blood_tier = 2 }
+						scope:child = {
+							add_trait = blood_of_numenor_1
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # Non-equal blood levels
+		trigger = {
+			NOR = {
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 10
+					scope:mother.get_numenorean_blood_tier = 10									
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 9
+					scope:mother.get_numenorean_blood_tier = 9
+				}	
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 8
+					scope:mother.get_numenorean_blood_tier = 8
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 7
+					scope:mother.get_numenorean_blood_tier = 7
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 6
+					scope:mother.get_numenorean_blood_tier = 6
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 5
+					scope:mother.get_numenorean_blood_tier = 5
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 4
+					scope:mother.get_numenorean_blood_tier = 4
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 3
+					scope:mother.get_numenorean_blood_tier = 3
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 2
+					scope:mother.get_numenorean_blood_tier = 2
+				}
+				AND = {
+					scope:real_father.get_numenorean_blood_tier = 1
+					scope:mother.get_numenorean_blood_tier = 1
+				}
+			}
+		}
+		random_list = {
+			50 = {
+				show_chance = yes
+				desc = numenoreanblood.0001.maintained
+
+				modifier = {
+					scope:real_father = {
+						has_trait = disloyal
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = disloyal
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = lustful
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = lustful
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = vengeful
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = vengeful
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = greedy
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = greedy
+					}						
+					add = -8
+				}				
+				modifier = {
+					scope:real_father = {
+						has_trait = wrathful
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = wrathful
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = deceitful
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = deceitful
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = arrogant
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = arrogant
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = callous
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = callous
+					}						
+					add = -8
+				}		
+				modifier = {
+					scope:real_father = {
+						has_trait = sadistic
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = sadistic
+					}						
+					add = -8
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = arbitrary
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = arbitrary
+					}						
+					add = -8
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = torturer
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = torturer
+					}						
+					add = -8
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = adulterer
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = adulterer
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = fornicator
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = fornicator
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = deviant
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = deviant
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = kinslayer_1
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = kinslayer_1
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = kinslayer_2
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = kinslayer_2
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = kinslayer_3
+					}						
+					add = -24
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = kinslayer_3
+					}						
+					add = -24
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = incestuous
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = incestuous
+					}						
+					add = -16
+				}
+				modifier = { #Very incestuous
+					scope:real_father = { is_close_family_of = scope:mother }
+					add = -32
+				}
+				modifier = { #Slightly incestuous
+					scope:real_father = { is_extended_family_of = scope:mother }
+					add = -24
+				}
+				modifier = { #Distant ancestor but still incestuous
+					scope:mother = {
+						any_ancestor = {
+							this = scope:real_father
+						}
+					}
+					NOT = { scope:real_father = { is_close_or_extended_family_of = scope:mother } }
+					add = -24
+				}
+				modifier = { #Distant ancestor but still incestuous
+					scope:real_father = {
+						any_ancestor = {
+							this = scope:mother
+						}
+					}
+					NOT = { scope:real_father = { is_close_or_extended_family_of = scope:mother } }
+					add = -24
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = witch
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = witch
+					}						
+					add = -16
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = cannibal
+					}						
+					add = -24
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = cannibal
+					}						
+					add = -24
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = murderer
+					}						
+					add = -16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = murderer
+					}						
+					add = -16
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = rakish
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = rakish
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = drunkard
+					}						
+					add = -4
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = drunkard
+					}						
+					add = -4
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = kidnapper
+					}						
+					add = -12
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = kidnapper
+					}						
+					add = -12
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_deviant }
+					}						
+					add = -4
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_deviant }
+					}						
+					add = -4
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_murder_attempt }
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_murder_attempt }
+					}						
+					add = -8
+				}	
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_cannibal }
+					}						
+					add = -12
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_cannibal }
+					}						
+					add = -12
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_lover }
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_lover }
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_murder }
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_murder }
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_non_believer }
+					}						
+					add = -4
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_non_believer }
+					}						
+					add = -4
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_incest }
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_incest }
+					}						
+					add = -8
+				}				
+				modifier = {
+					OR = {
+						scope:real_father = {
+							religion = { is_in_family = rf_forcesofevil }
+						}
+						scope:real_father = {
+							religion = { is_in_family = rf_forcesofevil }
+						}
+					}
+					# NOT = { #Special exception to make Ar-Adunaim more likely to keep higher blood tiers
+					# 	scope:real_father = {
+					# 		dynasty = dynasty:dynasty_pharazon
+					# 	}
+					# }					
+					add = -16
+				}
+				modifier = {
+					OR = {
+						scope:real_father = {
+							NOR = {
+								religion = { is_in_family = rf_forcesofevil }
+								religion = { is_in_family = rf_eruhini }
+							}
+						}
+						scope:real_father = {
+							NOR = {
+								religion = { is_in_family = rf_forcesofevil }
+								religion = { is_in_family = rf_eruhini }
+							}
+						}
+					}
+					# NOT = { #Special exception to make Ar-Adunaim more likely to keep higher blood tiers
+					# 	scope:real_father = {
+					# 		dynasty = dynasty:dynasty_pharazon
+					# 	}
+					# }					
+					add = -8
+				}
+				modifier = {
+					OR = {
+						scope:mother = {
+							religion = { is_in_family = rf_forcesofevil }
+						}
+						scope:mother = {
+							religion = { is_in_family = rf_forcesofevil }
+						}
+					}	
+					# NOT = { #Special exception to make Ar-Adunaim more likely to keep higher blood tiers
+					# 	scope:mother = {
+					# 		dynasty = dynasty:dynasty_pharazon
+					# 	}
+					# }
+					add = -16
+				}
+				modifier = {
+					OR = {
+						scope:mother = {
+							NOR = {
+								religion = { is_in_family = rf_forcesofevil }
+								religion = { is_in_family = rf_eruhini }
+							}
+						}
+						scope:mother = {
+							NOR = {
+								religion = { is_in_family = rf_forcesofevil }
+								religion = { is_in_family = rf_eruhini }
+							}
+						}
+					}
+					# NOT = { #Special exception to make Ar-Adunaim more likely to keep higher blood tiers
+					# 	scope:mother = {
+					# 		dynasty = dynasty:dynasty_pharazon
+					# 	}
+					# }					
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = loyal
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = loyal
+					}						
+					add = 8
+				}		
+				modifier = {
+					scope:real_father = {
+						has_trait = brave
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = brave
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = calm
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = calm
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = content
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = content
+					}						
+					add = 8
+				}				
+				modifier = {
+					scope:real_father = {
+						has_trait = generous
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = generous
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = humble
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = humble
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = just
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = just
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = temperate
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = temperate
+					}						
+					add = 8
+				}		
+				modifier = {
+					scope:real_father = {
+						has_trait = compassionate
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = compassionate
+					}						
+					add = 8
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = honest
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = honest
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = forgiving
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = forgiving
+					}						
+					add = 8
+				}													
+				if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 10
+							scope:mother.get_numenorean_blood_tier = 10
+						}
+					}
+					scope:child = {
+						add_trait = blood_of_numenor_10
+					}		
+				}
+				else_if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 9
+							scope:mother.get_numenorean_blood_tier = 9
+						}
+					}
+					scope:child = {
+						add_trait = blood_of_numenor_9
+					}		
+				}
+				else_if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 8
+							scope:mother.get_numenorean_blood_tier = 8
+						}
+					}
+					scope:child = {
+						add_trait = blood_of_numenor_8
+					}					
+				}
+				else_if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 7
+							scope:mother.get_numenorean_blood_tier = 7
+						}
+					}
+					scope:child = {
+						add_trait = blood_of_numenor_7
+					}					
+				}
+				else_if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 6
+							scope:mother.get_numenorean_blood_tier = 6
+						}
+					}
+					scope:child = {
+						add_trait = blood_of_numenor_6
+					}					
+				}
+				else_if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 5
+							scope:mother.get_numenorean_blood_tier = 5
+						}
+					}
+					scope:child = {
+						add_trait = blood_of_numenor_5
+					}					
+				}
+				else_if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 4
+							scope:mother.get_numenorean_blood_tier = 4
+						}
+					}
+					scope:child = {
+						add_trait = blood_of_numenor_4
+					}					
+				}
+				else_if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 3
+							scope:mother.get_numenorean_blood_tier = 3
+						}
+					}
+					scope:child = {
+						add_trait = blood_of_numenor_3
+					}					
+				}
+				else_if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 2
+							scope:mother.get_numenorean_blood_tier = 2
+						}
+					}
+					scope:child = {
+						add_trait = blood_of_numenor_2
+					}
+				}
+				else = {
+					scope:child = {
+						add_trait = blood_of_numenor_1
+					}
+				}
+			}
+			50 = {
+				show_chance = yes
+				desc = numenoreanblood.0001.weakened
+
+				modifier = {
+					scope:real_father = {
+						has_trait = disloyal
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = disloyal
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = lustful
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = lustful
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = vengeful
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = vengeful
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = greedy
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = greedy
+					}						
+					add = 8
+				}				
+				modifier = {
+					scope:real_father = {
+						has_trait = wrathful
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = wrathful
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = deceitful
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = deceitful
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = arrogant
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = arrogant
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = callous
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = callous
+					}						
+					add = 8
+				}		
+				modifier = {
+					scope:real_father = {
+						has_trait = sadistic
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = sadistic
+					}						
+					add = 8
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = arbitrary
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = arbitrary
+					}						
+					add = 8
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = torturer
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = torturer
+					}						
+					add = 8
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = adulterer
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = adulterer
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = fornicator
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = fornicator
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = deviant
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = deviant
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = kinslayer_1
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = kinslayer_1
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = kinslayer_2
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = kinslayer_2
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = kinslayer_3
+					}						
+					add = 24
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = kinslayer_3
+					}						
+					add = 24
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = incestuous
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = incestuous
+					}						
+					add = 16
+				}
+				modifier = { #Very incestuous
+					scope:real_father = { is_close_family_of = scope:mother }
+					add = 32
+				}
+				modifier = { #Slightly incestuous
+					scope:real_father = { is_extended_family_of = scope:mother }
+					add = 24
+				}
+				modifier = { #Distant ancestor but still incestuous
+					scope:mother = {
+						any_ancestor = {
+							this = scope:real_father
+						}
+					}
+					NOT = { scope:real_father = { is_close_or_extended_family_of = scope:mother } }
+					add = 24
+				}
+				modifier = { #Distant ancestor but still incestuous
+					scope:real_father = {
+						any_ancestor = {
+							this = scope:mother
+						}
+					}
+					NOT = { scope:real_father = { is_close_or_extended_family_of = scope:mother } }
+					add = 24
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = witch
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = witch
+					}						
+					add = 16
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = cannibal
+					}						
+					add = 24
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = cannibal
+					}						
+					add = 24
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = murderer
+					}						
+					add = 16
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = murderer
+					}						
+					add = 16
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = rakish
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = rakish
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = drunkard
+					}						
+					add = 4
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = drunkard
+					}						
+					add = 4
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = kidnapper
+					}						
+					add = 24
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = kidnapper
+					}						
+					add = 24
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_deviant }
+					}						
+					add = 4
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_deviant }
+					}						
+					add = 4
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_murder_attempt }
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_murder_attempt }
+					}						
+					add = 8
+				}	
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_cannibal }
+					}						
+					add = 12
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_cannibal }
+					}						
+					add = 12
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_lover }
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_lover }
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_murder }
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_murder }
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_non_believer }
+					}						
+					add = 4
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_non_believer }
+					}						
+					add = 4
+				}
+				modifier = {
+					scope:real_father = {
+						any_secret = { secret_type = secret_incest }
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						any_secret = { secret_type =  secret_incest }
+					}						
+					add = 8
+				}
+				# Concubines and Poligamy are double sins
+				modifier = {
+					scope:real_father = {
+						any_consort = { count > 1 }
+					}						
+					add = 8
+				}
+				modifier = {
+					scope:mother = {
+						any_consort = { count > 1 }
+					}						
+					add = 8
+				}						
+				modifier = {
+					OR = {
+						scope:real_father = {
+							religion = { is_in_family = rf_forcesofevil }
+						}
+						scope:real_father = {
+							religion = { is_in_family = rf_forcesofevil }
+						}
+					}	
+					# NOT = { #Special exception to make Ar-Adunaim more likely to keep higher blood tiers
+					# 	scope:real_father = {
+					# 		dynasty = dynasty:dynasty_pharazon
+					# 	}
+					# }
+					add = 16
+				}
+				modifier = {
+					OR = {
+						scope:real_father = {
+							NOR = {
+								religion = { is_in_family = rf_forcesofevil }
+								religion = { is_in_family = rf_eruhini }
+							}
+						}
+						scope:real_father = {
+							NOR = {
+								religion = { is_in_family = rf_forcesofevil }
+								religion = { is_in_family = rf_eruhini }
+							}
+						}
+					}
+					# NOT = { #Special exception to make Ar-Adunaim more likely to keep higher blood tiers
+					# 	scope:real_father = {
+					# 		dynasty = dynasty:dynasty_pharazon
+					# 	}
+					# }					
+					add = 8
+				}
+				modifier = {
+					OR = {
+						scope:mother = {
+							religion = { is_in_family = rf_forcesofevil }
+						}
+						scope:mother = {
+							religion = { is_in_family = rf_forcesofevil }
+						}
+					}	
+					# NOT = { #Special exception to make Ar-Adunaim more likely to keep higher blood tiers
+					# 	scope:mother = {
+					# 		dynasty = dynasty:dynasty_pharazon
+					# 	}
+					# }
+					add = 16
+				}
+				modifier = {
+					OR = {
+						scope:mother = {
+							NOR = {
+								religion = { is_in_family = rf_forcesofevil }
+								religion = { is_in_family = rf_eruhini }
+							}
+						}
+						scope:mother = {
+							NOR = {
+								religion = { is_in_family = rf_forcesofevil }
+								religion = { is_in_family = rf_eruhini }
+							}
+						}
+					}
+					# NOT = { #Special exception to make Ar-Adunaim more likely to keep higher blood tiers
+					# 	scope:mother = {
+					# 		dynasty = dynasty:dynasty_pharazon
+					# 	}
+					# }					
+					add = 8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = loyal
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = loyal
+					}						
+					add = -8
+				}			
+				modifier = {
+					scope:real_father = {
+						has_trait = brave
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = brave
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = calm
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = calm
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = content
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = content
+					}						
+					add = -8
+				}				
+				modifier = {
+					scope:real_father = {
+						has_trait = generous
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = generous
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = humble
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = humble
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = just
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = just
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:real_father = {
+						has_trait = temperate
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = temperate
+					}						
+					add = -8
+				}		
+				modifier = {
+					scope:real_father = {
+						has_trait = compassionate
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = compassionate
+					}						
+					add = -8
+				}	
+				modifier = {
+					scope:real_father = {
+						has_trait = honest
+					}						
+					add = -8
+				}
+				modifier = {
+					scope:mother = {
+						has_trait = honest
+					}						
+					add = -8
+				}		
+				### Actual Inheriting happens below ###	
+				if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 10
+							scope:mother.get_numenorean_blood_tier = 10
+						}
+					}
+					if = {
+						limit = { get_numenorean_tier_difference > 2 }
+						random_list = {
+							50 = {
+								scope:child = {
+									add_trait = blood_of_numenor_8
+								}
+							}
+							50 = {
+								scope:child = {
+									add_trait = blood_of_numenor_9
+								}
+							}
+						}	
+					}
+					else = {
+						scope:child = {
+							add_trait = blood_of_numenor_9
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 9
+							scope:mother.get_numenorean_blood_tier = 9
+						}
+					}
+					if = {
+						limit = { get_numenorean_tier_difference > 2 }
+						random_list = {
+							50 = {
+								scope:child = {
+									add_trait = blood_of_numenor_7
+								}
+							}
+							50 = {
+								scope:child = {
+									add_trait = blood_of_numenor_8
+								}
+							}
+						}	
+					}
+					else = {
+						scope:child = {
+							add_trait = blood_of_numenor_8
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 8
+							scope:mother.get_numenorean_blood_tier = 8
+						}
+					}
+					if = {
+						limit = { get_numenorean_tier_difference > 2 }
+						random_list = {
+							50 = {
+								scope:child = {
+									add_trait = blood_of_numenor_7
+								}
+							}
+							50 = {
+								scope:child = {
+									add_trait = blood_of_numenor_6
+								}
+							}
+						}	
+					}
+					else = {
+						scope:child = {
+							add_trait = blood_of_numenor_7
+						}
+					}					
+				}
+				else_if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 7
+							scope:mother.get_numenorean_blood_tier = 7
+						}
+					}
+					if = {
+						limit = { get_numenorean_tier_difference > 2 }
+						random_list = {
+							50 = {
+								scope:child = {
+									add_trait = blood_of_numenor_5
+								}
+							}
+							50 = {
+								scope:child = {
+									add_trait = blood_of_numenor_6
+								}
+							}
+						}	
+					}
+					else = {
+						scope:child = {
+							add_trait = blood_of_numenor_6
+						}
+					}					
+				}
+				else_if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 6
+							scope:mother.get_numenorean_blood_tier = 6
+						}
+					}
+					if = {
+						limit = { get_numenorean_tier_difference > 2 }
+						random_list = {
+							50 = {
+								scope:child = {
+									add_trait = blood_of_numenor_4
+								}
+							}
+							50 = {
+								scope:child = {
+									add_trait = blood_of_numenor_5
+								}
+							}
+						}	
+					}
+					else = {
+						scope:child = {
+							add_trait = blood_of_numenor_5
+						}
+					}					
+				}
+				else_if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 5
+							scope:mother.get_numenorean_blood_tier = 5
+						}
+					}
+					if = {
+						limit = { get_numenorean_tier_difference > 2 }
+						random_list = {
+							50 = {
+								scope:child = {
+									add_trait = blood_of_numenor_3
+								}
+							}
+							50 = {
+								scope:child = {
+									add_trait = blood_of_numenor_4
+								}
+							}
+						}	
+					}
+					else = {
+						scope:child = {
+							add_trait = blood_of_numenor_4
+						}
+					}					
+				}
+				else_if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 4
+							scope:mother.get_numenorean_blood_tier = 4
+						}
+					}
+					if = {
+						limit = { get_numenorean_tier_difference > 2 }
+						random_list = {
+							50 = {
+								scope:child = {
+									add_trait = blood_of_numenor_2
+								}
+							}
+							50 = {
+								scope:child = {
+									add_trait = blood_of_numenor_3
+								}
+							}
+						}	
+					}
+					else = {
+						scope:child = {
+							add_trait = blood_of_numenor_3
+						}
+					}				
+				}
+				else_if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 3
+							scope:mother.get_numenorean_blood_tier = 3
+						}
+					}
+					if = {
+						limit = { get_numenorean_tier_difference > 2 }
+						random_list = {
+							50 = {
+								scope:child = {
+									add_trait = blood_of_numenor_1
+								}
+							}
+							50 = {
+								scope:child = {
+									add_trait = blood_of_numenor_2
+								}
+							}
+						}	
+					}
+					else = {
+						scope:child = {
+							add_trait = blood_of_numenor_2
+						}
+					}				
+				}
+				else_if = {
+					limit = {
+						OR = {
+							scope:real_father.get_numenorean_blood_tier = 2
+							scope:mother.get_numenorean_blood_tier = 2
+						}
+					}
+					scope:child = {
+						add_trait = blood_of_numenor_1
+					}
+				}
+				else = { }
+			}
+		}
+	}
+
+}

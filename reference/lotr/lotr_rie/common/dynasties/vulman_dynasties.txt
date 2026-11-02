@@ -1,0 +1,18 @@
+﻿###########################
+########## Vulmaw #########
+###########################
+
+
+
+dynasty_kebtsiihta = {
+	name = "dynn_kebtsiihta"
+	culture = "vulmaw"
+	motto = dynn_kebtsiihta_motto
+}
+
+dynasty_akvulmes = {
+	name = "dynn_akvulmes"
+	culture = "vulmaw"
+	motto = dynn_akvulmes_motto
+}
+

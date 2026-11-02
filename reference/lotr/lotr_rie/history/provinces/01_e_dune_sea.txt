@@ -1,0 +1,3263 @@
+﻿#####		 Dune Sea (e_dune_sea)
+####		  Kôanoz (k_koanoz)
+###		   Kôanoz (d_koanoz)
+##			Mazharath (c_mazharath)
+
+2881 = {	  #Mazharath (b_mazharath)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	3990.1.1 = {
+		special_building_slot = wonder_souk_mazharath
+		special_building = wonder_souk_mazharath
+	}
+}
+
+2884 = {	  #Bojâghal (b_bojaghal)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+2885 = {	  #Kefa (b_kefa)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##			Khâliri (c_khaliri)
+
+2886 = {	  #Mamani (b_mamani)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+}
+
+2887 = {	  #Zhabar (b_zhabar)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+2888 = {	  #Akhusaja (b_akhusaja)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##			Khâzho (c_khazho)
+
+2891 = {	  #Mûshâr (b_mushar)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+}
+
+2892 = {	  #Jargirna (b_jargirna)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+2893 = {	  #Tamani (b_tamani)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##			Rakhumar (c_rakhumar)
+
+2894 = {	  #Radorena (b_radorena)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+}
+
+2896 = {	  #Drûrek (b_drurek)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##			Jargith (c_jargith)
+
+2897 = {	  #Drûzâl (b_druzal)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	7000.1.1 = {
+		religion = faith_haruze
+	}
+}
+
+2898 = {	  #Zefojta (b_zefojta)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+###		   Jel-Daniz (d_jel_daniz)
+##			Jêtin (c_jetin)
+
+2899 = {	  #Rakhudish (b_rakhudish)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	5400.1.1 = { # Jelut Migration
+		religion = faith_jelut
+	}
+	5700.1.1 = { # Jelut become increasingly settled, loose Dune Sea Nomads tradition
+		culture = arani
+		religion = faith_arani
+	}
+	6900.1.1 = {
+		religion = faith_jelut
+	}
+	7062.10.24 = { #Conversions of the Haradwaith
+		religion = faith_jelut
+	}
+}
+
+2901 = {	  #Lafodija (b_lafodija)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+2903 = {	  #Pedak (b_pedak)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##			Berifar (c_berifar)
+
+2905 = {	  #Zirija (b_zirija)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	6500.1.1 = { # Big sandstorm and following drought drives out the local tribes
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+		}
+	}
+    6905.1.1 = {
+		culture = arani
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	7062.10.24 = { #Conversions of the Haradwaith
+		religion = faith_jelut
+	}
+}
+
+2907 = {	  #Tijen (b_tijen)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##			Ôlatin (c_olatin)
+
+2912 = {	  #Ouhunna (b_ouhunna)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	5400.1.1 = { # Jelut Migration
+		culture = jelut
+		religion = faith_jelut
+	}
+	5700.1.1 = { # Jelut become increasingly settled, loose Dune Sea Nomads tradition
+		culture = arani
+	}
+	6500.1.1 = { # Big sandstorm and following drought drives out the local tribes
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+		}
+	}
+    6740.1.1 = {
+		culture = arani
+		religion = faith_jelut
+		holding = tribal_holding
+	}
+}
+
+2914 = {	  #Mirasaja (b_mirasaja)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##			Bilashâr (c_bilashar)
+
+2916 = {	  #Pakinna (b_pakinna)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	5400.1.1 = { # Jelut Migration
+		culture = jelut
+		religion = faith_jelut
+	}
+	5700.1.1 = { # Jelut become increasingly settled, loose Dune Sea Nomads tradition
+		culture = arani
+	}
+	6500.1.1 = { # Big sandstorm and following drought drives out the local tribes
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			scorpion_bed
+		}
+	}
+    6960.1.1 = {
+		culture = arani
+		religion = faith_jelut
+		holding = tribal_holding
+	}
+}
+
+2910 = {	  #Âluzena (b_aluzena)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##			Dêlala (c_delala)
+
+2917 = {	  #Zhakizin (b_zhakizin)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	# 6500.1.1 = { # Big sandstorm and following drought drives out the local tribes
+	# 	culture = wastelands
+	# 	religion = faith_wastelands_pagan
+	# 	holding = wastelands_holding
+	# 	buildings = {
+	# 		bandits
+	# 	}
+	# }
+    # 6905.1.1 = {
+	# 	culture = arani
+	# 	religion = faith_arani
+	# 	holding = tribal_holding
+	# }
+	7074.1.1 = { # Desertification of the Dune Sea drives inhabitants further out in the Fourth Age
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+		}
+	}
+}
+
+2919 = {	  #Dartorakha (b_dartorakha)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##			Pidija (c_pidija)
+
+2920 = {	  #Kherifa (b_kherifa)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	5340.4.7 = { # Proto-Jelut tribes migrate northward
+		religion = faith_jelut
+	}
+	5600.1.1 = { # Jelut migrate further north
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+		}
+	}
+	6900.1.1 = {
+		culture = arani
+		religion = faith_haruze
+		holding = tribal_holding
+		buildings = {
+			tribe_01
+			market_villages_01
+		}
+	}
+	7074.1.1 = { # Desertification of the Dune Sea drives inhabitants further out in the Fourth Age
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+		}
+	}
+}
+
+2922 = {	  #Khazena (b_khazena)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+###		   Sâr-Daniz (d_sar_daniz)
+##			Khanat (c_khanat)
+
+2923 = {	  #Jêmita (b_jemita)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	5340.4.7 = { # Proto-Jelut tribes migrate northward
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+		}
+	}
+	5900.1.1 = {
+		culture = arani
+		religion = faith_arani
+		holding = tribal_holding
+	}
+}
+
+##			Raton (c_raton)
+
+2927 = {	  #Rajnna (b_rajnna)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	5000.1.1 = {
+		religion = faith_jelut
+	}
+	5340.4.7 = { # Proto-Jelut tribes migrate northward
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			scorpion_bed
+			ghosts
+		}
+	}
+	5900.1.1 = {
+		culture = arani
+		religion = faith_arani
+		holding = tribal_holding
+	}
+}
+
+2929 = {	  #Ôlashâr (b_olashar)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##			Zhorath (c_zhorath)
+
+2930 = {	  #Khâlimor (b_khalimor)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	5340.4.7 = { # Proto-Jelut tribes migrate northward
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			scorpion_bed
+		}
+	}
+	5900.1.1 = {
+		culture = arani
+		religion = faith_arani
+		holding = tribal_holding
+	}
+}
+
+2931 = {	  #Ôlafen (b_olafen)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+2932 = {	  #Fejanna (b_fejanna)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##			Isarkha (c_isarkha)
+
+2933 = {	  #Daridija (b_daridija)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	5340.4.7 = { # Proto-Jelut tribes migrate northward
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			scorpion_bed
+			strange_creatures
+		}
+	}
+	5900.1.1 = {
+		culture = arani
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	7074.1.1 = { # Desertification of the Dune Sea drives inhabitants further out in the Fourth Age
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+		}
+	}
+}
+
+2934 = {	  #Rajjen (b_rajjen)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+###		   Hari-Daniz (d_hari_daniz)
+##			Saluren (c_saluren)
+
+2945 = {	  #Bozhab (b_bozhab)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	6720.1.1 = {
+		religion = faith_sanbaiz
+	}
+}
+
+2955 = {	  #Drajân (b_drajan)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+2948 = {	  #Safakho (b_safakho)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##			Mirakor (c_mirakor)
+
+2953 = {	  #Frukhir (b_frukhir)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	6720.1.1 = {
+		religion = faith_sanbaiz
+	}
+}
+
+2951 = {	  #Darizhat (b_darizhat)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##			Rajlîma (c_rajlima)
+
+2957 = {	  #Darid (b_darid)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	6720.1.1 = {
+		religion = faith_sanbaiz
+	}
+}
+
+2956 = {	  #Harif (b_harif)
+	culture = arani
+	religion = faith_arani
+	holding = none
+	6720.1.1 = {
+		religion = faith_sanbaiz
+	}
+}
+
+##			Ladija (c_ladija)
+
+2938 = {	  #Brâghal (b_braghal)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	6500.1.1 = { # Deserted as trade to Abrakhan dies down
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			scorpion_bed
+		}
+	}
+    6906.2.2 = {
+		culture = arani
+		religion = faith_arani
+		holding = tribal_holding
+	}
+}
+
+2940 = {	  #Khâlanna (b_khalanna)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+2936 = {	  #Prajona (b_prajona)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##			Jagan (c_jagan)
+
+2943 = {	  #Dari (b_dari)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+}
+
+2941 = {	  #Fel (b_fel)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+###		Zhar-Daniz (d_zhar_daniz)
+##		Oghakho (c_oghako)
+
+2962 = { #Oghakho (b_oghakho)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		bandits
+		scorpion_bed
+	}
+	5200.1.1 = {
+		culture = arani
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	5500.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			scorpion_bed
+		}
+	}
+}
+
+2963 = { #Asûrakha (b_asurakha)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+}
+
+##		Draghusha (c_draghusha)
+
+2960 = { #Akhukhi (b_akhukhi)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		bandits
+		scorpion_bed
+	}
+	5300.1.1 = {
+		culture = arani
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	5500.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			scorpion_bed
+		}
+	}
+}
+
+2970 = { #Khatera (b_khatera)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+}
+
+2961 = { #Tihôrak (b_tihorak)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+}
+
+##		Tarukhis (c_tarukhis)
+
+2964 = { #Îmâtash (b_imatash)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+}
+
+2966 = { #Bojâtera (b_bojatera)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+2965 = { #Fatratikh (b_fatratikh)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##		Dartofar (c_dartofar)
+
+2971 = { #Akhulaja (b_akhulaja)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	5100.1.1 = { # Abandoned after the collapse of Abrakân
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wolf_den
+			scorpion_bed
+		}
+	}
+	5426.2.17 = { # Resettled by Jelut tributaries
+		culture = arani
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	7074.1.1 = { # Desertification of the Dune Sea drives inhabitants further out in the Fourth Age
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+		}
+	}
+}
+
+2972 = { #Tajabara (b_tajabara)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+2973 = { #Drûmani (b_drumani)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##		Mûlânat (c_mulanat)
+
+2967 = { #Radosaja (b_radosaja)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	6600.1.1 = { # Minor Powan migration into far western Harshandatt
+        culture = poan
+    }
+}
+
+2968 = { #Bijotash (b_bijotash)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+2969 = { #Firafisa (b_firafisa)
+	culture = arani
+	religion = faith_arani
+	holding = none
+
+}
+
+####		  Tedja (k_tedja)
+###		   Kref Nilja (d_kref_nilja)
+##			Arka (c_arka)
+
+2314 = {	  #Shom-taï (b_shom_tai)
+	culture = karrani
+	religion = faith_legends_of_harwan
+	holding = tribal_holding
+	4300.1.1 = { # First Tedjin Migration
+		culture = tedjin
+		religion = faith_easterling_war
+	}
+	6000.1.1 = {
+		holding = castle_holding
+		buildings = {
+			castle_02
+			watchtowers_04
+			plantations_03
+		}
+	}
+	7174.1.1 = {
+		religion = faith_path_of_wisdom
+	}
+}
+
+2315 = {	  #Masukya (b_masukya)
+	holding = none
+	6000.1.1 = {
+		holding = city_holding
+		buildings = {
+			city_02
+			plantations_04
+		}
+	}
+}
+
+2316 = {	  #Wastrad (b_wastrad)
+	holding = none
+	6000.1.1 = {
+		holding = church_holding
+		buildings = {
+			temple_02
+			monastic_schools_04
+		}
+	}
+}
+
+2317 = {	  #Enokid (b_enokid)
+	holding = none
+}
+
+##			Asterüzad (c_asteruzad)
+
+2422= {	  #Kalonhad (b_kalonhad)
+	culture = karrani
+	religion = faith_legends_of_harwan
+	holding = tribal_holding
+	4300.1.1 = { # First Tedjin Migration
+		culture = tedjin
+		religion = faith_easterling_war
+	}
+	6000.1.1 = {
+		holding = castle_holding
+		buildings = {
+			castle_01
+			watchtowers_02
+			horse_pastures_02
+		}
+	}
+	7174.1.1 = {
+		religion = faith_path_of_wisdom
+	}
+}
+
+2318 = {	  #Rôdazar (b_rodazar)
+	holding = none
+}
+
+2319 = {	  #Vangarad (b_vangarad)
+	holding = none
+}
+
+##			Ôvonid (c_ovonid)
+
+2320 = {	  #Bor Lamekad (b_bor_lamekad)
+	culture = karrani
+	religion = faith_legends_of_harwan
+	holding = tribal_holding
+	4300.1.1 = { # First Tedjin Migration
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = tribal_holding
+	}
+	4800.1.1 = {
+		culture = soriyan
+		religion = faith_easterling_war
+		holding = castle_holding
+	}
+	6000.1.1 = {
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_02
+			horse_pastures_02
+		}
+	}
+	7174.1.1 = {
+		religion = faith_path_of_wisdom
+	}
+}
+
+2321 = {	  #Arkid (b_arkid)
+	holding = none
+}
+
+2322 = {	  #Goûr-anid (b_gour_anid)
+	holding = city_holding
+	4300.1.1 = { # First Tedjin Migration
+		holding = none
+	}
+}
+
+2323 = {	  #Harvâshtûn (b_harvashtun)
+	holding = church_holding
+	4300.1.1 = { # First Tedjin Migration
+		holding = none
+	}
+}
+
+##			Nomüzad (c_nomuzad)
+
+2324 = {	  #Idezh (b_idezh)
+	culture = bellanarud
+	religion = faith_iunast
+	holding = tribal_holding
+	4300.1.1 = { # First Tedjin Migration
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = tribal_holding
+	}
+	4800.1.1 = {
+		culture = soriyan
+		religion = faith_easterling_war
+		holding = castle_holding
+	}
+	6000.1.1 = {
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_02
+			horse_pastures_02
+		}
+	}
+	7174.1.1 = {
+		religion = faith_path_of_wisdom
+	}
+}
+
+2325 = {	  #Skarizad (b_skarizad)
+	holding = church_holding
+	4300.1.1 = { # First Tedjin Migration
+		holding = none
+	}
+	7174.1.1 = {
+		culture = soriyan
+		religion = faith_easterling_war
+		holding = church_holding
+	}
+}
+
+2326 = {	  #Ûvamad (b_uvamad)
+	holding = none
+}
+
+##			Qajazan (c_qajazan)
+
+2423 = {	  #Wanokh (b_wanokh)
+	culture = karrani
+	religion = faith_legends_of_harwan
+	holding = tribal_holding
+	4300.1.1 = { # First Tedjin Migration
+		culture = tedjin
+		religion = faith_easterling_war
+	}
+	6000.1.1 = {
+		holding = castle_holding
+		buildings = {
+			castle_01
+			watchtowers_02
+			camel_farms_02
+		}
+	}
+	7174.1.1 = {
+		religion = faith_path_of_wisdom
+	}
+}
+
+2424 = {	  #Vangariazid (b_vangariazid)
+	holding = none
+}
+
+2425 = {	  #Dashanadun (b_dashanadun)
+	holding = none
+}
+
+###		   Kref Urt (d_kref_urt)
+##			Tarôkad (c_tarokad)
+
+2327 = {	  #Jotaethar (b_jotaethar) (Earlier Kârna)
+	culture = karrani
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	3000.1.1 = { # City of Karna flourishes in the SA
+		buildings = {
+			castle_02
+			camel_farms_02
+		}
+	}
+	4600.1.1 = { #City of Kârna falls into ruin entirely, rumored to be haunted
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			troll_cave
+		}
+	}
+	6380.10.11 = { #Tedjin settle sparsely
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = tribal_holding
+	}
+}
+
+2328 = {	  #Gyürüchalid (b_gyuruchalid)
+	culture = karrani
+	religion = faith_legends_of_harwan
+	holding = church_holding
+	4300.1.1 = { # First Tedjin Migration
+		holding = none
+	}
+}
+
+2329 = {	  #Lûtkad (b_lutkad)
+	culture = karrani
+	religion = faith_legends_of_harwan
+	holding = city_holding
+	4300.1.1 = { # First Tedjin Migration
+		holding = none
+	}
+}
+
+2330 = {	  #Seramid (b_seramid)
+	culture = karrani
+	religion = faith_legends_of_harwan
+	holding = city_holding
+	4450.1.1 = { #Southern Karrani culture disappears under Tedjin rule
+		holding = none
+	}
+	4600.1.1 = { #City of Kârna falls into ruin entirely, rumored to be haunted
+		holding = none
+	}
+}
+
+##			Ayalid (c_ayalid)
+
+2331 = {	  #Khureshtûn (b_khureshtun)
+	culture = karrani
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	4450.1.1 = { #Southern Karrani culture disappears under Tedjin rule
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = tribal_holding
+	}
+	6000.1.1 = {
+		holding = castle_holding
+		buildings = {
+			castle_01
+			watchtowers_02
+			camel_farms_02
+		}
+	}
+}
+
+2332 = {	  #Ôrund (b_orund)
+	holding = church_holding
+	4300.1.1 = { # First Tedjin Migration
+		holding = none
+	}
+}
+
+2333 = {	  #Surakid (b_surakid)
+	holding = none
+}
+
+2334 = {	  #Djanidun (b_djanidun)
+	holding = castle_holding
+	4450.1.1 = { #Southern Karrani culture disappears under Tedjin rule
+		holding = none
+	}
+}
+
+##			Yavvad (c_yavvad)
+
+2335 = {	  #Ômazishtûn (b_omazishtun)
+	culture = karrani
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	4450.1.1 = { #Southern Karrani culture disappears under Tedjin rule
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = tribal_holding
+	}
+	6800.1.1 = {
+		religion = faith_haruze
+	}
+	7174.1.1 = {
+		religion = faith_easterling_war
+	}
+}
+
+2336 = {	  #Itôvad (b_itovad)
+	holding = none
+}
+
+2337 = {	  #Arasaliad (b_arasaliad)
+	holding = none
+}
+
+2338 = {	  #Qajazan (b_qajazan)
+	holding = city_holding
+	4300.1.1 = { # First Tedjin Migration
+		holding = none
+	}
+}
+
+##			Gyürothar (c_gyurothar)
+
+2339 = {	  #Sacidun (b_sacidun)
+	culture = karrani
+	religion = faith_legends_of_harwan
+	holding = tribal_holding
+	4300.1.1 = { # First Tedjin Migration
+		culture = tedjin
+		religion = faith_easterling_war
+	}
+}
+
+2340 = {	  #Ogtinad (b_ogtinad)
+	culture = karrani
+	religion = faith_chelkar
+	holding = none
+	4300.1.1 = { # First Tedjin Migration
+		culture = tedjin
+		religion = faith_easterling_war
+	}
+}
+
+2341 = {	  #Irbôkad (b_irbokad)
+	culture = karrani
+	religion = faith_chelkar
+	holding = none
+	4300.1.1 = { # First Tedjin Migration
+		culture = tedjin
+		religion = faith_easterling_war
+	}
+}
+
+##			Shavâl (c_shaval)
+
+2342 = {	  #Vakhazad (b_vakhazad)
+	culture = karrani
+	religion = faith_legends_of_harwan
+	holding = castle_holding
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
+	5200.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = tribal_holding
+	}
+	5600.1.1 = {
+		culture = jelut
+		religion = faith_jelut
+	}
+	6930.1.1 = {
+		religion = faith_haruze
+	}
+	7062.10.24 = { #Conversions of the Haradwaith
+		religion = faith_jelut
+	}
+}
+
+2343 = {	  #Akiseriad (b_akiseriad)
+	culture = karrani
+	religion = faith_chelkar
+	holding = none
+}
+
+2344 = {	  #Qaravad (b_qaravad)
+	culture = karrani
+	religion = faith_chelkar
+	holding = none
+}
+
+##			Harizad (c_harizad)
+
+2345 = {	  #Djasreköl (b_djasrekol)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4300.1.1 = { # First Tedjin Migration
+		culture = tedjin
+		religion = faith_easterling_war
+	}
+	6000.1.1 = {
+		culture = arani
+		religion = faith_arani
+	}
+	6500.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+	6820.2.2 = {
+		culture = arani
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	7170.1.1 = {
+		religion = faith_jelut
+	}
+}
+
+2346 = {	  #Itasalid (b_itasalid)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+2347 = {	  #Serad (b_serad)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+###		   Kref Tuvvaj (d_kref_tuvvaj)
+##			Itashtûn (c_itashtun)
+
+2348 = {	  #Qalram (b_qalram)
+	culture = bellanarud
+	religion = faith_iunast
+	holding = tribal_holding
+	4300.1.1 = { # First Tedjin Migration
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = tribal_holding
+	}
+	4800.1.1 = {
+		culture = soriyan
+		religion = faith_easterling_war
+		holding = castle_holding
+	}
+	6000.1.1 = {
+		religion = faith_path_of_wisdom
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_02
+			horse_pastures_02
+		}
+	}
+}
+
+2349 = {	  #Istirad (b_istirad)
+	holding = church_holding
+	4300.1.1 = { # First Tedjin Migration
+		holding = none
+	}
+}
+
+2350 = {	  #Uoyalid (b_uoyalid)
+	holding = none
+}
+
+2351 = {	  #Ravvad (b_ravvad)
+	holding = none
+}
+
+##			Vragûn (c_vragun)
+
+2352 = {	  #Gurtha (b_gurtha)
+	culture = karrani
+	religion = faith_legends_of_harwan
+	holding = tribal_holding
+	4300.1.1 = { # First Tedjin Migration
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = tribal_holding
+	}
+	4800.1.1 = {
+		culture = soriyan
+		religion = faith_easterling_war
+		holding = castle_holding
+	}
+	6000.1.1 = {
+		culture = tedjin
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_02
+			horse_pastures_02
+		}
+	}
+	7000.1.1 = {
+		culture = soriyan
+	}
+	7174.1.1 = {
+		religion = faith_path_of_wisdom
+	}
+}
+
+2353 = {	  #Azinarun (b_azinarun)
+	holding = none
+}
+
+##			Râisodun (c_raisodun)
+
+2354 = {	  #Tarikan (b_tarikan)
+	culture = karrani
+	religion = faith_legends_of_harwan
+	holding = tribal_holding
+	4300.1.1 = { # First Tedjin Migration
+		culture = tedjin
+		religion = faith_easterling_war
+	}
+	6000.1.1 = {
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_02
+			horse_pastures_02
+		}
+	}
+}
+
+2355 = {	  #Akodun (b_akodun)
+	holding = none
+}
+
+2356 = {	  #Ogajeriad (b_ogajeriad)
+	holding = city_holding
+	4300.1.1 = { # First Tedjin Migration
+		holding = none
+	}
+}
+
+##			Ûsried (c_usried)
+
+2357 = {	  #Akizan (b_akizan)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4300.1.1 = { # First Tedjin Migration
+		culture = tedjin
+		religion = faith_easterling_war
+	}
+	6000.1.1 = {
+		culture = arani
+		religion = faith_arani
+	}
+	6800.1.1 = {
+		culture = jelut
+		religion = faith_jelut
+	}
+}
+
+2358 = {	  #Sheva (b_sheva)
+	holding = none
+}
+
+2359 = {	  #Tukan (b_tukan)
+	holding = none
+}
+
+##			Ûonia (c_uonia)
+
+2360 = {	  #Joan-taï (b_joan_tai)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4300.1.1 = { # First Tedjin Migration
+		culture = tedjin
+		religion = faith_easterling_war
+	}
+	6000.1.1 = {
+		culture = arani
+		religion = faith_arani
+	}
+	6960.1.1 = {
+		culture = jelut
+		religion = faith_jelut
+	}
+}
+
+2361 = {	  #Qastad (b_qastad)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+2362 = {	  #Qajaraman (b_qajaraman)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+##			Taïn (c_tain)
+
+2363 = {	  #Bozatha (b_bozatha)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4300.1.1 = { # First Tedjin Migration
+		culture = tedjin
+		religion = faith_easterling_war
+	}
+	6000.1.1 = {
+		culture = arani
+		religion = faith_arani
+	}
+	7170.1.1 = {
+		religion = faith_jelut
+	}
+}
+
+2364 = {	  #Kanharod (b_kanharod)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+2365 = {	  #Vrazalad (b_vrazalad)
+	culture = arani
+	religion = faith_arani
+	holding = none
+}
+
+####		  Qarsa (k_qarsa)
+###		   Kes Susad (d_kes_susad)
+##			Sâzat (c_sazat)
+
+2366 = {	  #Dârrat (b_darrat)
+	culture = arani
+	religion = faith_ray
+	holding = tribal_holding
+	4400.1.1 = { # Cult of Ladnôca founded in reaction to Kathasaptha
+		religion = faith_ladnoca
+	}
+	4800.1.1 = {
+		culture = qarsag
+	}
+	5500.1.1 = {
+		religion = faith_easterling_war
+	}
+	6000.1.1 = {
+		religion = faith_iunast
+	}
+	7174.1.1 = {
+		religion = faith_path_of_wisdom
+	}
+}
+
+2367 = {	  #Dâlân (b_dalan)
+	culture = qarsag
+	religion = faith_iunast
+	holding = none
+}
+
+2368 = {	  #Nurrurrân (b_nurrurran)
+	culture = qarsag
+	religion = faith_iunast
+	holding = none
+}
+
+2369 = {	  #Bozarrat (b_bozarrat)
+	culture = qarsag
+	religion = faith_iunast
+	holding = none
+}
+
+##			Tôfarh (c_tofarh)
+
+2370 = {	  #Qasikând (b_qasikand)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4800.1.1 = {
+		culture = qarsag
+		religion = faith_easterling_war
+	}
+	6000.1.1 = {
+		religion = faith_iunast
+	}
+}
+
+2371 = {	  #Pakifarh (b_pakifarh)
+	culture = qarsag
+	religion = faith_iunast
+	holding = none
+}
+
+2372 = {	  #Mânâvak (b_manavak)
+	culture = qarsag
+	religion = faith_iunast
+	holding = none
+}
+
+##			Zâtay (c_zatay)
+
+2373 = {	  #Tihôrri (b_tihorri)
+	culture = arani
+	religion = faith_ray
+	holding = tribal_holding
+	4400.1.1 = { # Cult of Ladnôca founded in reaction to Kathasaptha
+		religion = faith_ladnoca
+	}
+	4800.1.1 = {
+		culture = qarsag
+		religion = faith_easterling_war
+	}
+	6000.1.1 = {
+		religion = faith_path_of_wisdom
+	}
+}
+
+2374 = {	  #Brayman (b_brayman)
+	culture = qarsag
+	religion = faith_path_of_wisdom
+	holding = none
+}
+
+2375 = {	  #Yalân (b_yalan)
+	culture = qarsag
+	religion = faith_path_of_wisdom
+	holding = none
+}
+
+2376 = {	  #Ândrirn (b_andrirn)
+	culture = qarsag
+	religion = faith_path_of_wisdom
+	holding = none
+}
+
+2377 = {	  #Tihôrh (b_tihorh)
+	culture = qarsag
+	religion = faith_path_of_wisdom
+	holding = none
+}
+
+###		   Kes Arik (d_kes_arik)
+##			Tiazên (c_tiazen)
+
+2378 = {	  #Yêladahn (b_yeladahn)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4800.1.1 = {
+		culture = qarsag
+		religion = faith_easterling_war
+	}
+	6000.1.1 = {
+		religion = faith_garauda
+	}
+}
+
+2379 = {	  #Uhunkorh (b_uhunkorh)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+2380 = {	  #Pigos (b_pigos)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+2381 = {	  #Rakûgâl (b_rakugal)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+##			Râmirh (c_ramirh)
+
+2382 = {	  #Brayk (b_brayk)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4800.1.1 = {
+		culture = qarsag
+		religion = faith_easterling_war
+	}
+	5500.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+		}
+	}
+	6820.2.2 = {
+		culture = qarsag
+		religion = faith_garauda
+		holding = tribal_holding
+	}
+}
+
+2383 = {	  #Darrikorh (b_darrikorh)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+2384 = {	  #Bilusak (b_bilusak)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+##			Sârri (c_sarri)
+
+2385 = {	  #Shâg (b_shag)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	3500.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			scorpion_bed
+		}
+	}
+	6820.2.2 = {
+		culture = qarsag
+		religion = faith_garauda
+		holding = tribal_holding
+	}
+}
+
+2386 = {	  #Yêkorh (b_yekorh)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+2387 = {	  #Vako (b_vako)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+2388 = {	  #Hak (b_hak)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+##			Tuazat (c_tuazat)
+
+2389 = {	  #Âlunên (b_alunen)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4800.1.1 = {
+		culture = qarsag
+		religion = faith_garauda
+	}
+}
+
+2390 = {	  #Qâvak (b_qavak)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+2391 = {	  #Pivên (b_piven)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+
+
+###		   Kes Weza (d_kes_weza)
+##			Weza (c_weza)
+
+1890 = {	  #Weza (b_weza)
+	culture = bellanarud
+	religion = faith_ray
+	holding = tribal_holding
+	4400.1.1 = {
+		culture = arani
+		religion = faith_arani
+	}
+	4800.1.1 = {
+		culture = qarsag
+		religion = faith_garauda
+	}
+	6000.1.1 = {
+		religion = faith_iunast
+	}
+}
+
+1891 = {	  #Dunzan (b_dunzan)
+	culture = qarsag
+	religion = faith_iunast
+	holding = none
+}
+
+1892 = {	  #Batadama (b_batadama)
+	culture = qarsag
+	religion = faith_iunast
+	holding = none
+}
+
+1893 = {	  #Muradaz (b_muradaz)
+	culture = qarsag
+	religion = faith_iunast
+	holding = none
+}
+
+##			Kaljoa (c_kalijoa)
+
+1894 = {	  #Kaljoa (b_kaljoa)
+	culture = bellanarud
+	religion = faith_ray
+	holding = tribal_holding
+	4400.1.1 = {
+		culture = arani
+		religion = faith_arani
+	}
+	4800.1.1 = {
+		culture = qarsag
+		religion = faith_ladnoca
+	}
+	6000.1.1 = {
+		culture = aukuag
+		religion = faith_infinite_wisdom
+	}
+	7000.1.1 = {
+		culture = qarsag
+		religion = faith_infinite_wisdom
+	}
+}
+
+1895 = {	  #Temeketh (b_temeketh)
+	culture = aukuag
+	religion = faith_infinite_wisdom
+	holding = none
+}
+
+1896 = {	  #Dhakahasa (b_dhakahasa)
+	culture = aukuag
+	religion = faith_infinite_wisdom
+	holding = none
+}
+
+##			Tarmur (c_tarmur)
+
+1897 = {	  #Tarmur (b_tarmur)
+	culture = bellanarud
+	religion = faith_ray
+	holding = tribal_holding
+	4400.1.1 = {
+		culture = arani
+		religion = faith_arani
+	}
+	4800.1.1 = {
+		culture = qarsag
+		religion = faith_ladnoca
+	}
+	6000.1.1 = {
+		religion = faith_iunast
+	}
+}
+
+1898 = {	  #Kethulli (b_kethulli)
+	culture = qarsag
+	religion = faith_iunast
+	holding = none
+}
+
+##			Zunzun (c_zunzun)
+
+1899 = {	  #Zunzun (b_zunzun)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4800.1.1 = {
+		culture = qarsag
+		religion = faith_garauda
+	}
+	6000.1.1 = {
+		religion = faith_iunast
+	}
+}
+
+1900 = {	  #Hasaza (b_hasaza)
+	culture = qarsag
+	religion = faith_iunast
+	holding = none
+}
+
+1901 = {	  #Arajaraj (b_arajaraj)
+	culture = qarsag
+	religion = faith_iunast
+	holding = none
+}
+
+###		   Kes Kriz (d_kes_kriz)
+##			Asûd (c_asud)
+
+2392 = {	  #Yargisin (b_yargisin)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4800.1.1 = {
+		culture = qarsag
+		religion = faith_garauda
+		special_building_slot = wonder_qarsa_palace_01
+		special_building = wonder_qarsa_palace_01
+	}
+
+}
+
+2393 = {	  #Brâlisâl (b_bralisal)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+2394 = {	  #Rârri (b_rarri)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+##			Akuman (c_akuman)
+
+2395 = {	  #Tarraz (b_tarraz)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4800.1.1 = {
+		culture = aukuag
+		religion = faith_garauda
+	}
+	5100.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			strange_creatures
+		}
+	}
+	6666.6.5 = {
+		culture = qarsag
+		religion = faith_garauda
+		holding = tribal_holding
+	}
+}
+
+2396 = {	  #Zetêman (b_zeteman)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+2397 = {	  #Zetêdish (b_zetedish)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+##			Haman (c_haman)
+
+2398 = {	  #Mirrên (b_mirren)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4800.1.1 = {
+		culture = qarsag
+		religion = faith_garauda
+	}
+	5100.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			scorpion_bed
+			wolf_den
+		}
+	}
+	5500.1.1 = {
+		culture = qarsag
+		religion = faith_garauda
+		holding = tribal_holding
+	}
+}
+
+2399 = {	  #Mafarh (b_mafarh)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+###		   Auz Bekar (d_auz_bekar)
+##			Êphalak (c_ephalak)
+
+1902 = {	  #Khibil Êphalak (b_khibil_ephalak)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	3441.1.1 = { # Numenoreans settle the oasis and copper mines
+		culture = bellakaze
+		religion = faith_old_bellakarean
+		holding = castle_holding
+    	buildings = {
+    	    copper_mines_04
+    	}
+	}
+	4300.1.1 = { # First Tedjin Migration
+		culture = tedjin
+		religion = faith_easterling_war
+		holding = tribal_holding
+        buildings = {
+            copper_mines_01
+        }
+	}
+	4800.1.1 = {
+		culture = qarsag
+		religion = faith_garauda
+        buildings = { }
+	}
+	6000.1.1 = {
+		religion = faith_iunast
+	}
+}
+
+1903 = {	  #Kalâri (b_kalari)
+	culture = qarsag
+	religion = faith_iunast
+	holding = none
+}
+
+1904 = {	  #Samanir (b_samanir)
+	culture = qarsag
+	religion = faith_iunast
+	holding = none
+}
+
+##			Menaja (c_menaja)
+
+1905 = {	  #Badrazâin (b_badrazain)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4800.1.1 = {
+		culture = qarsag
+		religion = faith_garauda
+	}
+	7174.1.1 = {
+		religion = faith_iunast
+	}
+}
+
+1906 = {	  #Azida (b_azida)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+1907 = {	  #Mogudha (b_mogudha)
+	culture = qarsag
+	religion = faith_garauda
+	holding = none
+}
+
+##			Temelahi (c_temelahi)
+
+1908 = {	  #An-Temelahi (b_an_temelahi)
+	culture = bellanarud
+	religion = faith_ray
+	holding = tribal_holding
+	4400.1.1 = { # Cult of Ladnôca founded in reaction to Kathasaptha
+		religion = faith_ladnoca
+	}
+	4800.1.1 = {
+		culture = qarsag
+		religion = faith_garauda
+	}
+	5300.1.1 = {
+		religion = faith_ladnoca
+	}
+	6000.1.1 = {
+		religion = faith_iunast
+	}
+}
+
+1909 = {	  #Marzen (b_marzen)
+	culture = qarsag
+	religion = faith_iunast
+	holding = none
+}
+
+1910 = {	  #Bajdas (b_bajdas)
+	culture = qarsag
+	religion = faith_iunast
+	holding = none
+}
+
+1911 = {	  #Sûaja (b_suaja)
+	culture = qarsag
+	religion = faith_iunast
+	holding = none
+}
+
+####		  Aukar (k_aukar)
+###		   Kes Zum (d_kes_zum)
+##			Hafarh (c_hafarh)
+
+2400 = {	  #Marraz (b_marraz)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4800.1.1 = {
+		culture = aukuag
+		religion = faith_garauda
+	}
+}
+
+2401 = {	  #Shânân (b_shanan)
+	culture = aukuag
+	religion = faith_garauda
+	holding = none
+}
+
+2402 = {	  #Ôlanên (b_olanen)
+	culture = aukuag
+	religion = faith_garauda
+	holding = none
+}
+
+2403 = {	  #Braykând (b_braykand)
+	culture = aukuag
+	religion = faith_garauda
+	holding = none
+}
+
+##			Tan (c_tan)
+
+2404 = {	  #Yerren (b_yerren)
+	culture = bellanarud
+	religion = faith_ray
+	holding = tribal_holding
+	4400.1.1 = { # Cult of Ishtra founded in reaction to Kathasaptha
+		religion = faith_ishtra
+	}
+	4800.1.1 = {
+		culture = aukuag
+	}
+	5500.1.1 = {
+		religion = faith_garauda
+	}
+}
+
+2405 = {	  #Qâlalân (b_qalalan)
+	culture = aukuag
+	religion = faith_garauda
+	holding = none
+}
+
+2406 = {	  #Kyevak (b_kyevak)
+	culture = aukuag
+	religion = faith_garauda
+	holding = none
+}
+
+##			Tasak (c_tasak)
+
+2407 = {	  #Zerrâfarh (b_zerrafarh)
+	culture = bellanarud
+	religion = faith_ray
+	holding = tribal_holding
+	4400.1.1 = { # Cult of Ishtra founded in reaction to Kathasaptha
+		religion = faith_ishtra
+	}
+	4800.1.1 = {
+		culture = aukuag
+	}
+	5500.1.1 = {
+		religion = faith_garauda
+	}
+}
+
+2408 = {	  #Visêmirh (b_visemirh)
+	culture = aukuag
+	religion = faith_garauda
+	holding = none
+}
+
+2409 = {	  #Maurrat (b_maurrat)
+	culture = aukuag
+	religion = faith_garauda
+	holding = none
+}
+
+##			Ostozo (c_ostozo)
+
+2410 = {	  #Isasak (b_isasak)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4800.1.1 = {
+		culture = aukuag
+		religion = faith_garauda
+	}
+}
+
+2411 = {	  #Tuarak (b_tuarak)
+	culture = aukuag
+	religion = faith_garauda
+	holding = none
+}
+
+2412 = {	  #Ândrik (b_andrik)
+	culture = aukuag
+	religion = faith_garauda
+	holding = none
+}
+
+###		   Kes Triha (d_kes_triha)
+##			Draman (c_draman)
+
+2413 = {	  #Safazo (b_safazo)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4800.1.1 = {
+		culture = aukuag
+		religion = faith_garauda
+	}
+	5515.2.7 = {
+		culture = kindilar
+		religion = faith_ray
+	}
+	5900.1.1 = {
+		culture = aukuag
+		religion = faith_garauda
+	}
+}
+
+2414 = {	  #Pêkirh (b_pekirh)
+	culture = aukuag
+	religion = faith_garauda
+	holding = none
+}
+
+2415 = {	  #Ruadômirh (b_ruadomirh)
+	culture = aukuag
+	religion = faith_garauda
+	holding = none
+}
+
+##			Marh (c_marh)
+
+2416 = {	  #Mûri (b_muri)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4800.1.1 = {
+		culture = aukuag
+		religion = faith_garauda
+	}
+}
+
+2417 = {	  #Dran (b_dran)
+	culture = aukuag
+	religion = faith_garauda
+	holding = none
+}
+
+2418 = {	  #Ozrêd (b_ozred)
+	culture = aukuag
+	religion = faith_garauda
+	holding = none
+}
+
+##			Rakûtin (c_rakutin)
+
+2419 = {	  #Drûdish (b_drudish)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4800.1.1 = {
+		culture = aukuag
+		religion = faith_garauda
+	}
+}
+
+2420 = {	  #Sâladahn (b_saladahn)
+	culture = aukuag
+	religion = faith_garauda
+	holding = none
+}
+
+2421 = {	  #Dâligos (b_daligos)
+	culture = aukuag
+	religion = faith_garauda
+	holding = none
+}
+
+###		   Auz Triha (d_auz_triha)
+##			Durwal (c_durwal)
+
+1880 = {	  #Arajmes (b_arajmes)
+	culture = bellanarud
+	religion = faith_ray
+	holding = tribal_holding
+	4400.1.1 = {
+		culture = arani
+		religion = faith_arani
+	}
+	4800.1.1 = {
+		culture = aukuag
+		religion = faith_garauda
+	}
+	6000.1.1 = {
+		religion = faith_iunast
+	}
+}
+
+1881 = {	  #Torkal (b_torkal)
+	culture = aukuag
+	religion = faith_iunast
+	holding = none
+}
+
+1882 = {	  #Abbakal (b_abbakal)
+	culture = aukuag
+	religion = faith_iunast
+	holding = none
+}
+
+##			Sarmur (c_sarmur)
+
+1883 = {	  #Sarmur (b_sarmur)
+	culture = bellanarud
+	religion = faith_ray
+	holding = tribal_holding
+	4400.1.1 = { # Cult of Ishtra founded in reaction to Kathasaptha
+		religion = faith_ishtra
+	}
+	4800.1.1 = {
+		culture = aukuag
+	}
+	6000.1.1 = {
+		religion = faith_infinite_wisdom
+	}
+}
+
+1884 = {	  #Joekul (b_joekul)
+	culture = aukuag
+	religion = faith_infinite_wisdom
+	holding = none
+}
+
+##			Agawar (c_agawar)
+
+1885 = {	  #Agawar (b_agawar)
+	culture = bellanarud
+	religion = faith_ray
+	holding = tribal_holding
+	4400.1.1 = { # Cult of Ishtra founded in reaction to Kathasaptha
+		religion = faith_ishtra
+	}
+	4800.1.1 = {
+		culture = aukuag
+	}
+	5500.1.1 = {
+		religion = faith_garauda
+	}
+	6000.1.1 = {
+		religion = faith_iunast
+	}
+}
+
+1886 = {	  #Feldha (b_feldha)
+	culture = aukuag
+	religion = faith_iunast
+	holding = none
+}
+
+##			Tedjizan (c_tedjizan)
+
+1887 = {	  #Tedjizan (b_tedjizan)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4800.1.1 = {
+		culture = aukuag
+		religion = faith_garauda
+	}
+	6000.1.1 = {
+		religion = faith_iunast
+	}
+}
+
+1888 = {	  #Narabata (b_narabata)
+	culture = aukuag
+	religion = faith_iunast
+	holding = none
+}
+
+1889 = {	  #Sarbasa (b_sarbasa)
+	culture = aukuag
+	religion = faith_iunast
+	holding = none
+}
+
+####		Abrakhân (k_abrakhan)
+###			Abrakhân (d_abrakhan)
+##			Abrashâdorh (c_abrashadorh)
+
+2250 = { #Abrakhân (b_abrakhan)
+	culture = old_pust
+	religion = faith_kanra
+	holding = castle_holding
+	buildings = {
+		castle_03
+		curtain_walls_02
+		barracks_05
+		# noria_02 #TODONEWCAPS
+		# orchards_01 #TODONEWCAPS
+	}
+	special_building_slot = wonder_zekhetz_abrakhan_original
+	3970.1.1 = { # The palace is completed
+		special_building = wonder_zekhetz_abrakhan_original
+	}
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		special_building_slot = wonder_zekhetz_abrakhan_01
+		special_building = wonder_zekhetz_abrakhan_01
+		buildings = {
+			bandits
+			ghosts
+		}
+	}
+}
+
+2251 = { 	#Zahsaid (b_zahsaid)
+	culture = old_pust
+	religion = faith_kanra
+	holding = city_holding
+	buildings = {
+		city_03
+		guild_halls_02
+	}
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+2252 = { 	#Ahzer (b_ahzehr)
+	culture = old_pust
+	religion = faith_kanra
+	holding = castle_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+2253 = { 	#Tahrzadsh (b_tahrzadsh)
+	culture = old_pust
+	religion = faith_kanra
+	holding = castle_holding
+	buildings = {
+		castle_02
+	}
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+##			Tahni (c_tahni)
+
+2254 = { 	#Irhi Uhtyara (b_irhi_uhtyara)
+	culture = old_pust
+	religion = faith_kanra
+	holding = castle_holding
+	buildings = {
+		waterfront_plaza_03
+	}
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			bandits
+		}
+	}
+}
+2257 = { 	#Zaja Sahr (b_zaja_sahr)
+	culture = old_pust
+	religion = faith_kanra
+	holding = castle_holding
+	buildings = {
+		castle_02
+		noria_03
+	}
+	special_building_slot = wonder_zaja_shar_noria_01
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+}
+2258 = { #Ra-i-Abrakhân (b_ra_i_abrakhan)
+	culture = old_pust
+	religion = faith_kanra
+	holding = church_holding
+	buildings = {
+		temple_02
+	}
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+##			Uhtyara (c_uhtyara)
+
+2256 = { 	#Ahrkand (b_ahrkand)
+	culture = old_pust
+	religion = faith_kanra
+	holding = castle_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			scorpion_bed
+		}
+	}
+}
+
+2255 = { 	#Tahrza (b_tahrza)
+	culture = old_pust
+	religion = faith_kanra
+	holding = city_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+2265 = { 	#Czehrya (b_czehrya)
+	culture = old_pust
+	religion = faith_kanra
+	holding = city_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+##			Scheatorh (c_scheatorh)
+
+2261 = { 	#Yratay (b_yratay)
+	culture = old_pust
+	religion = faith_kanra
+	holding = castle_holding
+	buildings = {
+		castle_02
+	}
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			scorpion_bed
+		}
+	}
+    6737.4.21 = { # Darsalani Resettle
+		culture = darsalai
+		religion = faith_arani
+		holding = castle_holding
+	}
+}
+
+2262 = { 	#Zehr Raquay (b_zehr_raquay)
+	culture = old_pust
+	religion = faith_kanra
+	holding = city_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+2259 = { #Zrahalk (b_zrahalk)
+	culture = old_pust
+	religion = faith_kanra
+	holding = city_holding
+	4200.1.1 = {
+		holding = none
+	}
+}
+
+##			Irrishadorh (c_irhishadorh)
+
+2263 = { 	#Farirhi (b_farirhi)
+	culture = old_pust
+	religion = faith_kanra
+	holding = castle_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			scorpion_bed
+		}
+	}
+	6500.1.1 = { # Darsalani Resettle
+		culture = darsalai
+		religion = faith_arani
+		holding = castle_holding
+	}
+}
+
+2264 = { 	#Arzahr (b_arzahr)
+	culture = old_pust
+	religion = faith_kanra
+	holding = church_holding
+	buildings = {
+		temple_04
+		monastic_schools_06
+		# noria_02 #TODONEWCAPS
+		# pastures_04 #TODONEWCAPS
+	}
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+2266 = { 	#Dorn (b_dorn)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+}
+
+##			Zaikandorh (c_zaikhandorh)
+
+2267 = { 	#Zaikhan (b_zaikhan)
+	culture = old_pust
+	religion = faith_kanra
+	holding = tribal_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			scorpion_bed
+		}
+	}
+	6500.1.1 = { # Darsalani Resettle
+		culture = darsalai
+		religion = faith_arani
+		holding = castle_holding
+	}
+}
+
+2268 = { 	#Scharokh (b_scharokh)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+}
+
+2269 = { 	#Khrarcor (b_khrarcor)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+}
+
+###			Darsalan (d_darsalan)
+##			Hidar (c_hidar)
+
+2306 = { 	#Hidar (b_hidar)
+	culture = old_pust
+	religion = faith_kanra
+	holding = castle_holding
+	buildings = {
+		castle_02
+		watchtowers_01
+		camel_farms_03
+		# orchards_03 #TODONEWCAPS
+	}
+	special_building_slot = wonder_hidar_oasis_01
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = old_pust
+		religion = faith_kanra
+		holding = tribal_holding
+		special_building = wonder_hidar_oasis_01
+	}
+	4400.1.1 = { # Darsalani Culture
+		culture = darsalai
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	5000.1.1 = {
+		religion = faith_arysis
+	}
+	5500.1.1 = {
+		religion = faith_arani
+	}
+	6000.1.1 = {
+		holding = castle_holding
+		special_building = wonder_hidar_oasis_02
+	}
+}
+
+2307 = {	 #Taraer (b_taraer)
+	culture = old_pust
+	religion = faith_arani
+	holding = none
+	6000.1.1 = {
+		holding = castle_holding
+	}
+}
+
+2858 = { 	#Lijazat (b_lijazat)
+	culture = old_pust
+	religion = faith_kanra
+	holding = church_holding
+	special_building_slot = wonder_lijazat_sanctuary
+	special_building = wonder_lijazat_sanctuary
+}
+
+2309 = { 	#Zath (b_zath)
+	culture = old_pust
+	religion = faith_arani
+	holding = none
+	6000.1.1 = {
+		holding = city_holding
+	}
+}
+
+##			Azkahar (c_azkahar_abrakhan)
+
+2312 = { 	#Avarhna (b_avarhna)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = arani
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	4400.1.1 = { # Darsalani Culture
+		culture = darsalai
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	5000.1.1 = {
+		religion = faith_arysis
+	}
+	5420.1.1 = {
+		religion = faith_arani
+	}
+	6000.1.1 = {
+		holding = castle_holding
+	}
+}
+
+2310 = { 	#Azkahar (b_azkahar_abrakhan)
+	culture = old_pust
+	religion = faith_arani
+	holding = none
+}
+
+3104 = { 	#Azkahar Physus (b_azkahar_physus)
+	culture = old_pust
+	religion = faith_arani
+	holding = none
+}
+
+##			Avarhna (c_avarhna)
+
+2850 = { 	#Zetekhis (b_zetekhis)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = arani
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	4400.1.1 = { # Darsalani Culture
+		culture = darsalai
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	6000.1.1 = {
+		holding = castle_holding
+	}
+}
+
+3107 = { 	#Zetekhis-Boras (b_zetekhis_boras)
+	culture = old_pust
+	religion = faith_arani
+	holding = none
+}
+
+2859 = { 	#Khâlalân (b_khalalan)
+	culture = old_pust
+	religion = faith_arani
+	holding = none
+	6500.1.1 = {
+		holding = city_holding
+	}
+}
+
+##			Larna (c_larna)
+
+2311 = { 	#Ekpanand (b_ekpanand)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = arani
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	4400.1.1 = { # Darsalani Culture
+		culture = darsalai
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	6000.1.1 = {
+		holding = castle_holding
+	}
+}
+
+2848 = { 	#Momikhor (b_momikhor)
+	culture = old_pust
+	religion = faith_arani
+	holding = none
+}
+
+3106 = { 	#Momikhor-Ticus (b_momikhor_ticus)
+	culture = old_pust
+	religion = faith_arani
+	holding = none
+}
+
+##			Sâzata (c_sazata)
+
+2860 = { 	#Kjaghos (b_kjaghos)
+	culture = arani
+	religion = faith_arani
+	holding = tribal_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = arani
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	4400.1.1 = { # Darsalani Culture
+		culture = darsalai
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	6000.1.1 = {
+		holding = castle_holding
+	}
+}
+
+2851 = { 	#Darizho (b_darizho)
+	culture = old_pust
+	religion = faith_arani
+	holding = church_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+2273 = { 	#Marra (b_marra_abrakhan)
+	culture = old_pust
+	religion = faith_arani
+	holding = none
+}
+
+##			Dtatradorh (c_dtatradorh)
+
+2270 = { 	#Dtatr (b_dtatr)
+	culture = old_pust
+	religion = faith_kanra
+	holding = tribal_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = arani
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	4400.1.1 = { # Darsalani Culture
+		culture = darsalai
+		religion = faith_arani
+		holding = tribal_holding
+	}
+	5000.1.1 = {
+		religion = faith_arysis
+	}
+	5500.1.1 = {
+		religion = faith_arani
+	}
+	6000.1.1 = {
+		holding = castle_holding
+	}
+}
+
+2271 = { 	#Herarh (b_herarh)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+}
+
+2272 = { 	#Tarsesh-Dtatr (b_tarsesh_dtatr)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+}
+
+###			Tarsesh Raahr (d_tarsesh_abrakhan)
+##			Raahr (c_raahr)
+
+2280 = { 	#Lux-Zinaya (b_lux_zinaya)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		bandits
+		scorpion_bed
+	}
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = old_pust
+		religion = faith_kanra
+		holding = tribal_holding
+	}
+	4400.1.1 = { # Isolated Mountain Culture
+		culture = lushek_pust
+		religion = faith_kanra
+		holding = tribal_holding
+	}
+}
+
+2281 = { 	#Scatarh (b_scatarh)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+}
+
+2282 = { 	#Hoarakhan (b_hoarakhan)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+	6000.1.1 = {
+		holding = church_holding
+	}
+}
+
+##			Gaesch-Shadorh (c_ghaesch_shadorh)
+
+2277 = { 	#Razehrizt (b_razehrizt)
+	culture = old_pust
+	religion = faith_kanra
+	holding = castle_holding
+	buildings = {
+		castle_02
+		waterfront_plaza_01
+	}
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			bandits
+		}
+	}
+	6000.1.1 = { # Pûst Resettle
+		culture = lushek_pust
+		religion = faith_kanra
+		holding = tribal_holding
+	}
+}
+
+2278 = { 	#Rar-Zehrand (b_rar_zehrand)
+	culture = old_pust
+	religion = faith_kanra
+	holding = church_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+2279 = { 	#Rahrlal (b_rahrlal)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+}
+
+2294 = { 	#Zandquay (b_zandquay)
+	culture = old_pust
+	religion = faith_kanra
+	holding = city_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+##		Ahrayhiradorh (c_ahrayhiradorh)
+
+2274 = { 	#Iztach (b_iztachi)
+	culture = old_pust
+	religion = faith_kanra
+	holding = castle_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			bandits
+		}
+	}
+	6800.1.1 = { # Pust resettle Tarseh Abrakhan
+		culture = lushek_pust
+		religion = faith_kanra
+		holding = tribal_holding
+	}
+}
+
+2298 = { 	#Ahrayhir (b_ahrayhir)
+	culture = old_pust
+	religion = faith_kanra
+	holding = city_holding
+	buildings = {
+		city_02
+	}
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+2299 = { 	#Kanazt-Yehr (b_kanazt_yehr)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+}
+
+##			#Karhrykh (c_karhrykh)
+
+2308 = { 	#Karhrykh (b_karhrykh)
+	culture = old_pust
+	religion = faith_kanra
+	holding = tribal_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+		}
+	}
+	6950.1.1 = { # Pust resettle Tarseh Abrakhan
+		culture = lushek_pust
+		religion = faith_kanra
+		holding = tribal_holding
+	}
+}
+
+2313 = { 	#Azkahar-Boros (b_azkahar_boros)
+	culture = old_pust
+	religion = faith_arani
+	holding = none
+}
+
+3105 = { 	#Avarhna-Tritras (b_avarhna_tritras)
+	culture = old_pust
+	religion = faith_arani
+	holding = none
+}
+
+###			Tahbr (d_tahbr_abrakhan)
+##			Kanra (c_kanra)
+
+2290 = { 	#Kandayotahrra (b_kandayotahrra)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		bandits
+		troll_cave
+	}
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = old_pust
+		religion = faith_kanra
+		holding = tribal_holding
+	}
+	4400.1.1 = { # Isolated Mountain Culture
+		culture = lushek_pust
+		religion = faith_kanra
+		holding = tribal_holding
+	}
+}
+
+2291 = { 	#Schaizad (b_schaizad)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+}
+2300 = { 	#Ghaesh-Kanra (b_ghaesch_kanra)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+}
+
+##			Palakhyadorh (c_palahkaydorh)
+
+2288 = { 	#Palahya (b_palahya)
+	culture = old_pust
+	religion = faith_kanra
+	holding = castle_holding
+	buildings = {
+		castle_02
+		waterfront_plaza_01
+	}
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+		}
+	}
+}
+
+2289 = { 	#Yaizekey (b_yaizekey)
+	culture = old_pust
+	religion = faith_kanra
+	holding = church_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+
+2275 = { 	#Zehr-Rahkaad (b_zehr_rahkaad)
+	culture = old_pust
+	religion = faith_kanra
+	holding = city_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+##			Saikhan (c_saikhan)
+
+2292 = { 	#Kanay (b_kanay)
+	culture = old_pust
+	religion = faith_kanra
+	holding = castle_holding
+	buildings = {
+		castle_02
+		waterfront_plaza_02
+	}
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			troll_cave
+			ghosts
+		}
+	}
+}
+
+2293 = { 	#Yasand (b_yasand)
+	culture = old_pust
+	religion = faith_kanra
+	holding = church_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+2276 = { 	#Zokandra (b_zokandra)
+	culture = old_pust
+	religion = faith_kanra
+	holding = city_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+##		 Zadefarr (c_zadefarr)
+
+2283 = { 	#Zendrya (b_zehndrya)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		troll_cave
+	}
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = old_pust
+		religion = faith_kanra
+		holding = tribal_holding
+	}
+	4400.1.1 = { # Isolated Mountain Culture
+		culture = lushek_pust
+		religion = faith_kanra
+		holding = tribal_holding
+	}
+}
+
+2284 = { 	#Chahleehr (b_chahleehr)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+}
+
+2285 = { 	#Chilanquay (b_chilanquay)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+}
+
+##			Zeratayadorh (c_zeratayadorh)
+
+2286 = { 	#Zeratay (b_zeratay)
+	culture = old_pust
+	religion = faith_kanra
+	holding = castle_holding
+	buildings = {
+		castle_01
+	}
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			scorpion_bed
+		}
+	}
+	4400.1.1 = { # Isolated Mountain Culture
+		culture = lushek_pust
+		religion = faith_kanra
+		holding = tribal_holding
+	}
+}
+
+2287 = { 	#Yehrayot (b_yehrayot)
+	culture = old_pust
+	religion = faith_kanra
+	holding = church_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+	4400.1.1 = { # Isolated Mountain Culture
+		holding = none
+	}
+}
+
+###		   Sarysis (d_sarysis)
+##			Jasifân (c_jasifan)
+
+2833 = {	  #Jelamita (b_jelamita)
+	culture = old_pust
+	religion = faith_kanra
+	holding = tribal_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = haludi
+		religion = faith_arysis
+		holding = tribal_holding
+	}
+    5600.1.1 = { # Arysori Culture
+	    culture = arysisani
+	    religion = faith_arysis
+	    holding = castle_holding
+    }
+}
+
+2834 = {	  #Visêl (b_visel)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+	5400.1.1 = { # Jelut Migration
+		holding = city_holding
+	}
+}
+
+2836 = {	  #Boghotaj (b_boghotaj)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+    7100.1.1 = {
+        holding = church_holding
+    }
+}
+
+##			Khadôrkha (c_khadorkha)
+
+2260 = { 	  #Chikehr (b_chikehr)
+	culture = old_pust
+	religion = faith_kanra
+	holding = tribal_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+    5600.1.1 = { # Arysori Culture
+	    culture = arysisani
+	    religion = faith_arysis
+	    holding = castle_holding
+    }
+}
+
+2837 = {	  #Zhorar (b_zhorar)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+}
+
+2838 = {	  #Latash (b_latash)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+	5700.1.1 = {
+		holding = city_holding
+	}
+}
+
+##			Pêtera (c_petera)
+
+2841 = {	  #Drûl (b_drul)
+	culture = old_pust
+	religion = faith_kanra
+	holding = tribal_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+    5600.1.1 = { # Arysori Culture
+	    culture = arysisani
+	    religion = faith_arysis
+	    holding = castle_holding
+    }
+}
+
+2842 = {	  #Takja (b_takja)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+    7100.1.1 = {
+        holding = city_holding
+    }
+}
+
+2843 = {	  #Mûlâjân (b_mulajan)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+}
+
+##			Nênaghos (c_nenaghos)
+
+2846 = {	  #Sâlid (b_salid)
+	culture = old_pust
+	religion = faith_kanra
+	holding = tribal_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+    5600.1.1 = { # Arysori Culture
+	    culture = arysisani
+	    religion = faith_arysis
+	    holding = castle_holding
+    }
+}
+
+2847 = {	  #Râkhir (b_rakhir)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+}
+
+2844 = {	  #Makja (b_makja)
+	culture = old_pust
+	religion = faith_kanra
+	holding = none
+}
+
+##			Chikara (c_chikara)
+
+2295 = { 	#Zehr-Yarnd (b_zehr_yarnd)
+	culture = old_pust
+	religion = faith_kanra
+	holding = castle_holding
+	buildings = {
+		castle_02
+		waterfront_plaza_01
+	}
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+		}
+	}
+    7134.3.12 = { # Resettled
+		culture = arysisani
+		religion = faith_arysis
+		holding = castle_holding
+	}
+}
+
+2296 = { 	#Cozehahr (b_cozehahr)
+	culture = old_pust
+	religion = faith_kanra
+	holding = church_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}
+
+2297 = { 	#Ahrayzin (b_ahrayzin)
+	culture = old_pust
+	religion = faith_kanra
+	holding = city_holding
+	4200.1.1 = { # Central Abrakhan is abandoned as Salt Lake dries up
+		holding = none
+	}
+}

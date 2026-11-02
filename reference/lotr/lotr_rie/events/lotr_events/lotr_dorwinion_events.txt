@@ -1,0 +1,187 @@
+﻿namespace = dorwinion
+
+#events:
+#	dorwinion.0001		Choose a faction alignment
+#	dorwinion.0002		Change a faction alignment
+#	dorwinion.0003		make jauf head of house
+#	dorwinion.0004		decision_dorwinion_abolish_elections
+#  	dorwinion.0501		Form the League of the Winelands
+
+#Choose a faction alignment
+dorwinion.0001 = {
+	content_source = realms_dlc
+	type = character_event
+	title = dorwinion.0001.t
+	desc = dorwinion.0001.desc
+	theme = crown
+	
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}	
+	
+	option = { # The Winelords
+		name = dorwinion.0001.a
+		dynasty = { add_dynasty_modifier = winelords }
+		ai_chance = { base = 50 }
+	}
+	
+	option = { # The Master Merchants
+		name = dorwinion.0001.b
+		dynasty = { add_dynasty_modifier = master_merchants }
+		ai_chance = { base = 50 }
+	}
+	
+	option = { # Remain Unaligned
+		name = dorwinion.0001.c
+		ai_chance = { base = 0 }
+	}
+}
+
+#Change a faction alignment
+dorwinion.0002 = {
+	content_source = realms_dlc
+	type = character_event
+	title = dorwinion.0002.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					dynasty = { has_dynasty_modifier = winelords }
+				}
+				desc = flavourevent.0002.desc.winelords
+			}
+			desc = flavourevent.0002.desc.mastermerchants
+		}		
+	}
+	theme = crown
+	
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}	
+
+	option = { # The Winelords
+		name = dorwinion.0002.a
+		trigger = {
+			dynasty = { has_dynasty_modifier = master_merchants }
+		}
+		dynasty = { add_dynasty_modifier = winelords }
+		dynasty = { remove_dynasty_modifier = master_merchants }
+		ai_chance = { base = 0 }
+	}
+	
+	option = { # The Master Merchants
+		name = dorwinion.0002.b
+		trigger = {
+			dynasty = { has_dynasty_modifier = winelords }
+		}
+		dynasty = { add_dynasty_modifier = master_merchants }
+		dynasty = { remove_dynasty_modifier = winelords }
+		ai_chance = { base = 0 }
+	}
+	
+	option = { # Become Unaligned
+		name = dorwinion.0002.c
+		if = {
+			limit = { dynasty = { has_dynasty_modifier = master_merchants } }
+			dynasty = { remove_dynasty_modifier = master_merchants }
+		}
+		if = {
+			limit = { dynasty = { has_dynasty_modifier = winelords } }
+			dynasty = { remove_dynasty_modifier = winelords }
+		}
+		ai_chance = { base = 0 }
+	}
+	
+	option = { # Remain in current faction
+		name = dorwinion.0002.d
+		dynasty = { add_dynasty_prestige = 750 }
+		ai_chance = { base = 100 }
+	}
+}
+
+dorwinion.0003 = { # make jauf head of house
+	hidden = yes
+	option = {
+		if = { #Juke note: Fxed an error
+			limit = { character:lineofjauffre33 = { is_house_head = no } }
+			house = { set_house_head = character:lineofjauffre33 }
+		}
+	}
+}
+
+dorwinion.0004 = {	# decision_dorwinion_abolish_elections
+	content_source = realms_dlc
+	type = character_event
+	title = dorwinion.0004.t
+	desc = dorwinion.0004.desc
+	theme = crown
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = {
+		name = dorwinion.0004.a
+	}
+}
+
+### Form the League of the Winelands ###
+dorwinion.0501 = {	
+	content_source = realms_dlc
+	type = character_event
+	title = dorwinion.0501.t
+	desc = dorwinion.0501.desc
+	theme = alliance
+	override_background = { reference = city_north }
+	immediate = {
+		show_as_tooltip = { # Effects from the decision 
+			# title:k_dorwinion = {
+				# every_in_de_jure_hierarchy = {
+					# limit = {
+						# tier >= tier_county
+						# holder ?= {
+							# NOT = { this = root }
+							# is_human = yes
+							# is_independent_ruler = yes
+							# OR = {
+								# opinion = {
+									# target = root
+									# value >= 80
+								# }
+								# root = { has_strong_hook = prev }
+								# is_allied_to = root 
+								# has_relation_friend = root
+							# }
+						# }
+					# }
+					# holder = { add_to_list = dorwinion_confederation_members }
+				# }
+			# }
+			root.dynasty = {
+				add_dynasty_prestige = 250
+			}
+			create_confederation = {
+				name = LEAGUE_OF_THE_WINELANDS
+				#type = confederation_type:republican_leage - Consider making this a republican league after S&S
+			}
+			every_in_list = {
+				list = dorwinion_confederation_members
+				scope:new_confederation ?= {
+					add_confederation_member = prev
+				}
+			}
+		}
+	}
+
+	left_portrait = {
+		character = root
+		animation = writing
+	}
+
+	option = { # Well done guys
+		name = dorwinion.0501.a
+	}
+}

@@ -1,0 +1,35 @@
+﻿# Study Religious Manuscript
+kathasaptha_manuscript_template = {
+	can_equip = {
+		always = yes
+	}
+
+	can_benefit = {
+		faith = { has_doctrine = tenet_bellakari_syncretism }
+	}
+
+	fallback = {
+		learning = 1
+	}
+	
+}
+
+# Dwarven Toymaker Event
+dwarven_toy_template = { # Based on child_toy_template, but allow eccentric to use them too
+	can_equip = {
+		trigger_if = {
+			limit = {
+				NOT = {
+					scope:artifact = { category = court }
+				}
+			}
+			custom_tooltip = {
+				text = dwarf_toy_template_tt
+				OR = {
+					is_lotr_adult = no
+					has_trait = eccentric
+				}
+			}
+		}
+	}
+}

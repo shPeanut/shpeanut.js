@@ -1,0 +1,7529 @@
+﻿# Empire of Harwan (Haradwaith)
+e_haradwaith = {
+	2590.1.1 = { # The Kingdom of Ard, Numenorean tributary-kingdom carved out by Ard the Vain, the Seventh Nazgul.
+		holder = nazgul7
+	}
+	2870.1.1 = { # The Kingdom of Ard is destroyed by the Numenoreans in the War of the Renegades
+		holder = 0
+	}
+	#3765.1.1 = { # Ancient Haruze Kings of Amrûn - Tributary Kingdom established by Numenor. Eventually conquered by Black Numenoreans in time for last alliance
+	#	holder = lineaharuz15 #Arajar
+	#}
+	#3781.8.8 = {
+	#	holder = lineaharuz17 #Bogho
+	#}
+	#3819.2.23 = {
+	#	holder = lineaharuz19 #A_A_lu
+	#}
+	#3830.6.11 = {
+	#	holder = lineaharuz21 #Tiho_o_mi
+	#}
+	#3869.7.13 = {
+	#	holder = lineaharuz23 #Rutnikho
+	#}
+	#3908.9.28 = { # Slain by Fuinur
+	#	holder = lineaharuz25 #Mirajkha_a_n
+	#}
+	#3911.1.1 = { # Black Numenoreans split up the spoils
+	#	holder = 0
+	#}
+	6711.8.24 = { # Akateiaji, the 'Great King', unifies much of Haradwaith beneath his family's rule through judicious marriage and conquest, bringing an unprecedented period of Haruze prosperity
+		holder = lineofafalku9 # Akateiaji
+	}
+	6731.1.1 = {
+		holder = lineofafalku10 # Mûzaffarranâm
+	}
+	6780.1.1 = {
+		holder = lineofafalku11a # Hûssammâkir
+	}
+	6796.1.1 = {
+		holder = lineofafalku11 # Firmûsaraddin
+	}
+	6851.1.1 = {
+		holder = lineofafalku12 # Amessaddin
+	}
+	6900.1.1 = {
+		holder = lineofafalku13 # Micipsaddin
+	}
+	6923.1.1 = { # The Chelkar Revolt shatters the Realm of Harwan, Micipsaddin dies
+		holder = 0
+	}
+	7042.3.15 = { # Suladan reunites Harawan
+		holder = lineofafalku15 # Sûladan
+	}
+	7052.3.15 = {
+		holder = lineofafalku18 # Mu_u_radin
+	}
+	7052.6.1 = { # Harwan falls apart as Pezarsan secedes, revolt breaks out upon news of Muradin giving in to Elessar's demands to cede Harondor to him
+		holder = 0
+	}
+}
+
+# Kingdom of Haruzan
+k_haruzan = {
+	# Ancient Haruze Kings
+	3765.1.1 = { # Ancient Haruze Kings of Amrûn - Tributary Kingdom established by Numenor. Eventually conquered by Black Numenoreans in time for last alliance
+		holder = lineaharuz15 #Arajar
+		name = k_amrun
+		government = clan_government
+	}
+	3781.8.8 = {
+		holder = lineaharuz17 #Bogho
+	}
+	3819.2.23 = {
+		holder = lineaharuz19 #A_A_lu
+	}
+	3830.6.11 = {
+		holder = lineaharuz21 #Tiho_o_mi
+	}
+	3869.7.13 = {
+		holder = lineaharuz23 #Rutnikho
+	}
+	3908.9.28 = { # Slain by Fuinur
+		holder = lineaharuz25 #Mirajkha_a_n
+	}
+
+	# Black Numenoreans rule Proto-Haruzan
+	3911.1.1 = {
+		holder = lineherumor7 # Fuinur
+	}
+	4029.1.1 = {
+		holder = 0 # Realm disunited with Fuinur's death
+	}
+
+	# Gondor-Supported Haruzan tributary
+	5083.1.1 = {
+		holder = lineamrunom3 #Rutnikho the Clawless
+	}
+	5116.8.3 = {
+		holder = lineamrunom7 #Je_e_la
+	}
+	5173.10.3 = {
+		holder = lineamrunom9 #Sa_a_mir
+	}
+	5215.7.4 = {
+		holder = lineamrunom11 #Fe_e_ladoh
+	}
+	5250.6.15 = {
+		holder = lineamrunom13 #Rutnikho
+	}
+	5289.10.16 = {
+		holder = lineamrunom15 #Zhora_a_n
+	}
+	5324.4.14 = {
+		holder = lineamrunom17 #Dasin
+	}
+	5357.1.10 = {
+		holder = lineamrunom19 #Tijasimmir
+		effect = {
+			lotr_set_court_language_effect = { LANGUAGE = language_northern_apysaic }
+		}
+	}
+	5385.2.11 = {
+		holder = lineamrunom21 #Borgha_a_l
+	}
+	5442.9.5 = {
+		holder = lineamrunom25 #Rato
+	}
+	5478.1.1 = { # Kin-Strife: Without support from Gondor, the kingdom collapses
+		holder = 0
+		name = k_haruzan
+	}
+
+	# Pezarsani Rule
+	5636.1.26 = {
+		holder = linepesasikka27 #Pezar
+		effect = {
+			lotr_set_court_language_effect = { LANGUAGE = language_northern_apysaic }
+		}
+	}
+	5640.10.12 = {
+		holder = linepesasikka29 #Ouhuro
+	}
+	5697.6.5 = {
+		holder = linepesasikka31 #Sa_a_milha_a_n
+	}
+	5736.8.24 = {
+		holder = linepesasikka33 #Je_e_ngho
+	}
+	5776.8.28 = {
+		holder = linepesasikka35 #Amessan
+	}
+	5809.10.6 = {
+		holder = linepesasikka37 #Njokha
+	}
+
+	#Ayerikkä Kings
+	5820.1.1 = {
+		holder = lineofafalku40 # Ayer
+	}
+	5899.1.1 = {
+		holder = lineofafalku41 # Adalkû
+	}
+	5945.1.1 = {
+		holder = lineofafalku42 # Khalid
+	}
+	5965.1.1 = {
+		holder = lineofafalku43 # Akli
+	}
+	6030.1.1 = { # Jelut briefly conquer most of Haruzan
+		holder = linezhajomin9 #Kha_a_linar
+	}
+	6034.5.27 = {
+		holder = linezhajomin11 #Khaba_a_li
+	}
+	6039.1.1 = { # Jelut Kingdom collapses
+		holder = lineofafalku44 # Masnsen
+	}
+	6092.1.1 = {
+		holder = lineofafalku45 # Masmûd
+	}
+	6109.1.1 = {
+		holder = lineofafalku46 # Yûba
+	}
+	6177.1.1 = {
+		holder = lineofafalku1 # Adalkû
+	}
+	6240.1.1 = {
+		holder = lineofafalku2 # Ayerasan
+	}
+	6293.1.1 = {
+		holder = lineofafalku3 # Adergazûz
+	}
+	6350.1.1 = {
+		holder = lineofafalku4 # Aderkhâd
+	}
+	6410.1.1 = {
+		holder = lineofafalku5 # Sûladan
+	}
+	6467.1.1 = {
+		holder = lineofafalku6 # Gulûsa
+	}
+	6549.1.1 = {
+		holder = lineofafalku7 # Ikshifânsan
+	}
+	6602.1.1 = {
+		holder = lineofafalku8 # Ikshifserka
+	}
+	6661.1.1 = { # Akateiaji, the 'Great King', unifies much of Haradwaith beneath his family's rule through judicious marriage and conquest, bringing an unprecedented period of Haruze prosperity
+		holder = lineofafalku9 # Akateiaji
+	}
+	6731.1.1 = {
+		holder = lineofafalku10 # Mûzaffarranâm
+	}
+	6780.1.1 = {
+		holder = lineofafalku11a # Hûssammâkir
+	}
+	6796.1.1 = {
+		holder = lineofafalku11 # Firmûsaraddin
+	}
+	6851.1.1 = {
+		holder = lineofafalku12 # Amessaddin
+	}
+	6900.1.1 = {
+		holder = lineofafalku13 # Micipsaddin
+	}
+	6923.1.1 = { # The Chelkar Revolt shatters the Realm of Harwan, Micipsaddin dies
+		holder = lineofafalku14 # Lacûmaces
+	}
+	6990.1.1 = {
+		holder = lineofafalku14b # Lacûmaces
+	}
+	7019.1.1 = {
+		holder = lineofafalku15 # Sûladan
+	}
+	7052.3.15 = {
+		holder = lineofafalku18 # Mu_u_radin
+	}
+	7062.5.30 = { # Radicals and Zealots win war, install Suladan's grandson as a puppet
+		holder = lineofkhasilakka1 # Khasila_a_n
+	}
+	7062.10.24 = { # Elessar's Pacification of Haruzan
+		holder = lineofdraghutinin1 # Draghutin
+	}
+	7095.6.17 = {
+		holder = lineofdraghutinin2 # Tajari
+	}
+	7105.3.26 = {
+		holder = lineofdraghutinin3 # A_A_ndrija
+	}
+	7144.7.6 = {
+		holder = lineofdraghutinin4 # Jozir
+	}
+	7163.12.27 = {
+		holder = lineofdraghutinin6 # Arat
+	}
+}
+
+# Duchy of Amrûn
+d_amrun = {
+	# Ancient Haruze Kings
+	3500.6.1 = { # They ruled from Amrun
+		holder = lineaharuz1 #Ostoja
+	}
+	3585.5.28 = {
+		holder = lineaharuz3 #Ouhuro
+	}
+	3596.5.3 = {
+		holder = lineaharuz5 #Zefo_o_n
+	}
+	3610.4.8 = {
+		holder = lineaharuz7 #Jozir
+	}
+	3650.9.15 = {
+		holder = lineaharuz9 #Arajar
+	}
+	3667.12.6 = {
+		holder = lineaharuz11 #Nafasir
+	}
+	3697.10.8 = {
+		holder = lineaharuz13 #Taruk
+	}
+	3757.2.10 = {
+		holder = lineaharuz15 #Arajar
+	}
+	3781.8.8 = {
+		holder = lineaharuz17 #Bogho
+	}
+	3819.2.23 = {
+		holder = lineaharuz19 #A_A_lu
+	}
+	3830.6.11 = {
+		holder = lineaharuz21 #Tiho_o_mi
+	}
+	3869.7.13 = {
+		holder = lineaharuz23 #Rutnikho
+	}
+	3908.9.28 = {
+		holder = lineaharuz25 #Mirajkha_a_n
+	}
+
+	# Black Numenoreans rule Proto-Pezarsan
+	3911.1.1 = {
+		holder = lineherumor7 # Fuinur
+	}
+	4029.1.1 = {
+		holder = 0 # Realm disunited with Herumor's death
+	}
+
+	5000.12.11 = {
+		holder = lineamrunom1 #Dasin
+	}
+	# Gondor-Supported Haruzan tributary
+	5083.1.1 = {
+		holder = lineamrunom3 #Rutnikho
+	}
+	5116.8.3 = {
+		holder = lineamrunom7 #Je_e_la
+	}
+	5173.10.3 = {
+		holder = lineamrunom9 #Sa_a_mir
+	}
+	5215.7.4 = {
+		holder = lineamrunom11 #Fe_e_ladoh
+	}
+	5250.6.15 = {
+		holder = lineamrunom13 #Rutnikho
+	}
+	5289.10.16 = {
+		holder = lineamrunom15 #Zhora_a_n
+	}
+	5324.4.14 = {
+		holder = lineamrunom17 #Dasin
+	}
+	5357.1.10 = {
+		holder = lineamrunom19 #Tijasimmir
+	}
+	5385.2.11 = {
+		holder = lineamrunom21 #Borgha_a_l
+	}
+	5442.9.5 = {
+		holder = lineamrunom25 #Rato
+	}
+	5478.1.1 = { # Kin-Strife: Without support from Gondor, the kingdom collapses
+		holder = 0
+	}
+
+	5820.1.1 = {
+		holder = lineofafalku40 # Ayer
+		liege = k_haruzan
+	}
+	5899.1.1 = {
+		holder = lineofafalku41 # Adalkû
+	}
+	5945.1.1 = {
+		holder = lineofafalku42 # Khalid
+	}
+	5965.1.1 = {
+		holder = lineofafalku43 # Akli
+	}
+	6039.1.1 = {
+		holder = lineofafalku44 # Masnsen
+	}
+	6092.1.1 = {
+		holder = lineofafalku45 # Masmûd
+	}
+	6109.1.1 = {
+		holder = lineofafalku46 # Yûba
+	}
+	6177.1.1 = {
+		holder = lineofafalku1 # Adalkû
+	}
+	6240.1.1 = {
+		holder = lineofafalku2 # Ayerasan
+	}
+	6293.1.1 = {
+		holder = lineofafalku3 # Adergazûz
+	}
+	6350.1.1 = {
+		holder = lineofafalku4 # Aderkhâd
+	}
+	6410.1.1 = {
+		holder = lineofafalku5 # Sûladan
+	}
+	6467.1.1 = {
+		holder = lineofafalku6 # Gulûsa
+	}
+	6549.1.1 = {
+		holder = lineofafalku7 # Ikshifânsan
+	}
+	6602.1.1 = {
+		holder = lineofafalku8 # Ikshifserka
+	}
+	6661.1.1 = {
+		holder = lineofafalku9 # Akateiaji
+	}
+	6731.1.1 = {
+		holder = lineofafalku10 # Mûzaffarranâm
+	}
+	6780.1.1 = {
+		holder = lineofafalku11a # Hûssammâkir
+	}
+	6796.1.1 = {
+		holder = lineofafalku11 # Firmûsaraddin
+	}
+	6851.1.1 = {
+		holder = lineofafalku12 # Amessaddin
+	}
+	6900.1.1 = {
+		holder = lineofafalku13 # Micipsaddin
+	}
+	6923.1.1 = { # The Chelkar Revolt shatters the Realm of Harwan, Micipsaddin dies
+		holder = lineofafalku14 # Lacûmaces
+	}
+	6990.1.1 = {
+		holder = lineofafalku14b # Lacûmaces
+	}
+	7019.1.1 = {
+		holder = lineofafalku15 # Sûladan
+	}
+	7052.3.15 = {
+		holder = lineofafalku18 # Mu_u_radin
+	}
+	7062.5.30 = { # Radicals and Zealots win war, install Suladan's grandson as a puppet
+		holder = lineofkhasilakka1 # Khasila_a_n
+	}
+	7062.10.24 = { # Elessar's Pacification of Haruzan
+		holder = lineofdraghutinin1 # Draghutin
+	}
+	7095.6.17 = {
+		holder = lineofdraghutinin2 # Tajari
+	}
+	7105.3.26 = {
+		holder = lineofdraghutinin3 # A_A_ndrija
+	}
+	7144.7.6 = {
+		holder = lineofdraghutinin4 # Jozir
+	}
+	7163.12.27 = {
+		holder = lineofdraghutinin6 # Arat
+	}
+}
+
+c_amrun = {
+	# Ancient Haruze Kings
+	3500.6.1 = { # They ruled from Amrun
+		holder = lineaharuz1 #Ostoja
+	}
+	3585.5.28 = {
+		holder = lineaharuz3 #Ouhuro
+	}
+	3596.5.3 = {
+		holder = lineaharuz5 #Zefo_o_n
+	}
+	3610.4.8 = {
+		holder = lineaharuz7 #Jozir
+	}
+	3650.9.15 = {
+		holder = lineaharuz9 #Arajar
+	}
+	3667.12.6 = {
+		holder = lineaharuz11 #Nafasir
+	}
+	3697.10.8 = {
+		holder = lineaharuz13 #Taruk
+	}
+	3757.2.10 = {
+		holder = lineaharuz15 #Arajar
+	}
+	3781.8.8 = {
+		holder = lineaharuz17 #Bogho
+	}
+	3819.2.23 = {
+		holder = lineaharuz19 #A_A_lu
+	}
+	3830.6.11 = {
+		holder = lineaharuz21 #Tiho_o_mi
+	}
+	3869.7.13 = {
+		holder = lineaharuz23 #Rutnikho
+	}
+	3908.9.28 = {
+		holder = lineaharuz25 #Mirajkha_a_n
+	}
+
+	# Black Numenoreans rule Proto-Pezarsan
+	3911.1.1 = {
+		holder = lineherumor7 # Fuinur
+	}
+	#4029.1.1 = {
+	#	holder = 0 # Realm disunited with Herumor's death
+	#}
+
+	5000.12.11 = {
+		holder = lineamrunom1 #Dasin
+	}
+	5078.7.4 = {
+		holder = lineamrunom3 #Rutnikho
+	}
+	5116.8.3 = {
+		holder = lineamrunom7 #Je_e_la
+	}
+	5173.10.3 = {
+		holder = lineamrunom9 #Sa_a_mir
+	}
+	5215.7.4 = {
+		holder = lineamrunom11 #Fe_e_ladoh
+	}
+	5250.6.15 = {
+		holder = lineamrunom13 #Rutnikho
+	}
+	5289.10.16 = {
+		holder = lineamrunom15 #Zhora_a_n
+	}
+	5324.4.14 = {
+		holder = lineamrunom17 #Dasin
+	}
+	5357.1.10 = {
+		holder = lineamrunom19 #Tijasimmir
+		change_development_level = 18
+	}
+	5385.2.11 = {
+		holder = lineamrunom21 #Borgha_a_l
+	}
+	5442.9.5 = {
+		holder = lineamrunom25 #Rato
+	}
+	5504.10.24 = {
+		holder = lineamrunom27 #Rajda_a_n
+	}
+	5537.3.10 = {
+		holder = lineamrunom29 #Kha_a_lfa_a_n
+	}
+	5551.5.17 = {
+		holder = lineamrunom31 #Kha_a_nnafu
+	}
+
+	5820.1.1 = {
+		holder = lineofafalku40 # Ayer
+		liege = d_amrun
+		change_development_level = 25
+	}
+	5899.1.1 = {
+		holder = lineofafalku41 # Adalkû
+	}
+	5945.1.1 = {
+		holder = lineofafalku42 # Khalid
+	}
+	5965.1.1 = {
+		holder = lineofafalku43 # Akli
+	}
+	6039.1.1 = {
+		holder = lineofafalku44 # Masnsen
+	}
+	6092.1.1 = {
+		holder = lineofafalku45 # Masmûd
+	}
+	6109.1.1 = {
+		holder = lineofafalku46 # Yûba
+	}
+	6177.1.1 = {
+		holder = lineofafalku1 # Adalkû
+	}
+	6240.1.1 = {
+		holder = lineofafalku2 # Ayerasan
+	}
+	6293.1.1 = {
+		holder = lineofafalku3 # Adergazûz
+	}
+	6350.1.1 = {
+		holder = lineofafalku4 # Aderkhâd
+	}
+	6410.1.1 = {
+		holder = lineofafalku5 # Sûladan
+	}
+	6467.1.1 = {
+		holder = lineofafalku6 # Gulûsa
+	}
+	6549.1.1 = {
+		holder = lineofafalku7 # Ikshifânsan
+	}
+	6602.1.1 = {
+		holder = lineofafalku8 # Ikshifserka
+	}
+	6661.1.1 = {
+		holder = lineofafalku9 # Akateiaji
+	}
+	6731.1.1 = {
+		holder = lineofafalku10 # Mûzaffarranâm
+	}
+	6780.1.1 = {
+		holder = lineofafalku11a # Hûssammâkir
+	}
+	6796.1.1 = {
+		holder = lineofafalku11 # Firmûsaraddin
+	}
+	6851.1.1 = {
+		holder = lineofafalku12 # Amessaddin
+	}
+	6900.1.1 = {
+		holder = lineofafalku13 # Micipsaddin
+	}
+	6923.1.1 = { # The Chelkar Revolt shatters the Realm of Harwan, Micipsaddin dies
+		holder = lineofafalku14 # Lacûmaces
+	}
+	6990.1.1 = {
+		holder = lineofafalku14b # Lacûmaces
+	}
+	7019.1.1 = {
+		holder = lineofafalku15 # Sûladan
+	}
+	7052.3.15 = {
+		holder = lineofafalku18 # Mu_u_radin
+	}
+	7062.5.30 = { # Radicals and Zealots win war, install Suladan's grandson as a puppet
+		holder = lineofkhasilakka1 # Khasila_a_n
+	}
+	7062.10.24 = { # Elessar's Pacification of Haruzan
+		holder = lineofdraghutinin1 # Draghutin
+	}
+	7095.6.17 = {
+		holder = lineofdraghutinin2 # Tajari
+	}
+	7105.3.26 = {
+		holder = lineofdraghutinin3 # A_A_ndrija
+	}
+	7144.7.6 = {
+		holder = lineofdraghutinin4 # Jozir
+	}
+	7163.12.27 = {
+		holder = lineofdraghutinin6 # Arat
+	}
+}
+
+b_ikhamrun = {	#amrun barony
+	3923.1.1 = {
+		holder = lineherumor5 # Herumor
+	}
+	4032.1.1 = {
+		holder = lineherumor8 # Tarîkmagân, poisoned
+	}
+	#4042.1.1 = {
+	#	holder = 0 # Death of Tarik
+	#}
+
+	5000.12.11 = {
+		holder = lineamrunom1 #Dasin
+	}
+	5078.7.4 = {
+		holder = lineamrunom3 #Rutnikho
+	}
+	5116.8.3 = {
+		holder = lineamrunom7 #Je_e_la
+	}
+	5173.10.3 = {
+		holder = lineamrunom9 #Sa_a_mir
+	}
+	5215.7.4 = {
+		holder = lineamrunom11 #Fe_e_ladoh
+	}
+	5250.6.15 = {
+		holder = lineamrunom13 #Rutnikho
+	}
+	5289.10.16 = {
+		holder = lineamrunom15 #Zhora_a_n
+	}
+	5324.4.14 = {
+		holder = lineamrunom17 #Dasin
+	}
+	5357.1.10 = {
+		holder = lineamrunom19 #Tijasimmir
+	}
+	5385.2.11 = {
+		holder = lineamrunom21 #Borgha_a_l
+	}
+	5442.9.5 = {
+		holder = lineamrunom25 #Rato
+	}
+	5504.10.24 = {
+		holder = lineamrunom27 #Rajda_a_n
+	}
+	5537.3.10 = {
+		holder = lineamrunom29 #Kha_a_lfa_a_n
+	}
+	5551.5.17 = {
+		holder = lineamrunom31 #Kha_a_nnafu
+	}
+
+	5820.1.1 = {
+		holder = lineofafalku40 # Ayer
+	}
+	5899.1.1 = {
+		holder = lineofafalku41 # Adalkû
+	}
+	5945.1.1 = {
+		holder = lineofafalku42 # Khalid
+	}
+	5965.1.1 = {
+		holder = lineofafalku43 # Akli
+	}
+	6039.1.1 = {
+		holder = lineofafalku44 # Masnsen
+	}
+	6092.1.1 = {
+		holder = lineofafalku45 # Masmûd
+	}
+	6109.1.1 = {
+		holder = lineofafalku46 # Yûba
+	}
+	6177.1.1 = {
+		holder = lineofafalku1 # Adalkû
+	}
+	6240.1.1 = {
+		holder = lineofafalku2 # Ayerasan
+	}
+	6293.1.1 = {
+		holder = lineofafalku3 # Adergazûz
+	}
+	6350.1.1 = {
+		holder = lineofafalku4 # Aderkhâd
+	}
+	6410.1.1 = {
+		holder = lineofafalku5 # Sûladan
+	}
+	6467.1.1 = {
+		holder = lineofafalku6 # Gulûsa
+	}
+	6549.1.1 = {
+		holder = lineofafalku7 # Ikshifânsan
+	}
+	6602.1.1 = {
+		holder = lineofafalku8 # Ikshifserka
+	}
+	6661.1.1 = {
+		holder = lineofafalku9 # Akateiaji
+	}
+	6731.1.1 = {
+		holder = lineofafalku10 # Mûzaffarranâm
+	}
+	6780.1.1 = {
+		holder = lineofafalku11a # Hûssammâkir
+	}
+	6796.1.1 = {
+		holder = lineofafalku11 # Firmûsaraddin
+	}
+	6851.1.1 = {
+		holder = lineofafalku12 # Amessaddin
+	}
+	6900.1.1 = {
+		holder = lineofafalku13 # Micipsaddin
+	}
+	6923.1.1 = { # The Chelkar Revolt shatters the Realm of Harwan, Micipsaddin dies
+		holder = lineofafalku14 # Lacûmaces
+	}
+	6990.1.1 = {
+		holder = lineofafalku14b # Lacûmaces
+	}
+	7019.1.1 = {
+		holder = lineofafalku15 # Sûladan
+	}
+	7052.3.15 = {
+		holder = lineofafalku18 # Mu_u_radin
+	}
+	7062.5.30 = { # Radicals and Zealots win war, install Suladan's grandson as a puppet
+		holder = lineofkhasilakka1 # Khasila_a_n
+	}
+	7062.10.24 = { # Elessar's Pacification of Haruzan
+		holder = lineofdraghutinin1 # Draghutin
+	}
+	7095.6.17 = {
+		holder = lineofdraghutinin2 # Tajari
+	}
+	7105.3.26 = {
+		holder = lineofdraghutinin3 # A_A_ndrija
+	}
+	7144.7.6 = {
+		holder = lineofdraghutinin4 # Jozir
+	}
+	7163.12.27 = {
+		holder = lineofdraghutinin6 # Arat
+	}
+}
+
+# Oud Ilaz
+c_oud_ilaz = {
+	# Gondor-Supported Haruzan tributary
+	5083.1.1 = {
+		holder = lineamrunom3 #Rutnikho
+	}
+	5116.8.3 = {
+		holder = lineamrunom7 #Je_e_la
+	}
+	5173.10.3 = {
+		holder = lineamrunom9 #Sa_a_mir
+	}
+	5215.7.4 = {
+		holder = lineamrunom11 #Fe_e_ladoh
+	}
+	5250.6.15 = {
+		holder = lineamrunom13 #Rutnikho
+	}
+	5289.10.16 = {
+		holder = lineamrunom15 #Zhora_a_n
+	}
+	5324.4.14 = {
+		holder = lineamrunom17 #Dasin
+	}
+	5357.1.10 = {
+		holder = lineamrunom19 #Tijasimmir
+		change_development_level = 12
+	}
+	5385.2.11 = {
+		holder = lineamrunom21 #Borgha_a_l
+	}
+	5442.9.5 = {
+		holder = lineamrunom25 #Rato
+	}
+
+	5820.1.1 = {
+		holder = lineofafalku40 # Ayer
+		liege = d_amrun
+		change_development_level = 12
+	}
+	5899.1.1 = {
+		holder = lineofafalku41 # Adalkû
+	}
+	5945.1.1 = {
+		holder = lineofafalku42 # Khalid
+	}
+	5965.1.1 = {
+		holder = lineofafalku43 # Akli
+	}
+	6039.1.1 = {
+		holder = lineofafalku44 # Masnsen
+	}
+	6092.1.1 = {
+		holder = lineofafalku45 # Masmûd
+	}
+	6109.1.1 = {
+		holder = lineofafalku46 # Yûba
+	}
+	6177.1.1 = {
+		holder = lineofafalku1 # Adalkû
+	}
+	6240.1.1 = {
+		holder = lineofafalku2 # Ayerasan
+	}
+	6293.1.1 = {
+		holder = lineofafalku3 # Adergazûz
+	}
+	6350.1.1 = {
+		holder = lineofafalku4 # Aderkhâd
+	}
+	6410.1.1 = {
+		holder = lineofafalku5 # Sûladan
+	}
+	6467.1.1 = {
+		holder = lineofafalku6 # Gulûsa
+	}
+	6549.1.1 = {
+		holder = lineofafalku7 # Ikshifânsan
+	}
+	6602.1.1 = {
+		holder = lineofafalku8 # Ikshifserka
+	}
+	6661.1.1 = {
+		holder = lineofafalku9 # Akateiaji
+	}
+	6731.1.1 = {
+		holder = lineofafalku10 # Mûzaffarranâm
+	}
+	6780.1.1 = {
+		holder = lineofafalku11a # Hûssammâkir
+	}
+	6785.1.1 = {	# LW ruler
+		holder = lineofafalku11 # Firmûsaraddin
+		liege = d_amrun
+	}
+	6851.1.1 = {
+		holder = lineofafalku12 # Amessaddin
+	}
+	6900.1.1 = {
+		holder = lineofafalku13 # Micipsaddin
+	}
+	6923.1.1 = { # The Chelkar Revolt shatters the Realm of Harwan, Micipsaddin dies
+		holder = lineofafalku14 # Lacûmaces
+	}
+	6990.1.1 = {
+		holder = lineofafalku14b # Lacûmaces
+	}
+	7019.1.1 = {
+		holder = lineofafalku15 # Sûladan
+	}
+	7052.3.15 = {
+		holder = lineofafalku18 # Mu_u_radin
+	}
+	7062.5.30 = { # Radicals and Zealots win war, install Suladan's grandson as a puppet
+		holder = lineofkhasilakka1 # Khasila_a_n
+	}
+	7062.10.24 = { # Elessar's Pacification of Haruzan
+		holder = lineofdraghutinin1 # Draghutin
+	}
+	7095.6.17 = {
+		holder = lineofdraghutinin2 # Tajari
+	}
+	7105.3.26 = {
+		holder = lineofdraghutinin3 # A_A_ndrija
+	}
+	7144.7.6 = {
+		holder = lineofdraghutinin4 # Jozir
+	}
+	7163.12.27 = {
+		holder = lineofdraghutinin6 # Arat
+	}
+}
+
+# Nardûkhad
+c_nardukhad = {
+	# Gondor-Supported Haruzan tributary
+	5083.1.1 = {
+		holder = lineamrunom3 #Rutnikho
+	}
+	5116.8.3 = {
+		holder = lineamrunom7 #Je_e_la
+	}
+	5173.10.3 = {
+		holder = lineamrunom9 #Sa_a_mir
+	}
+	5215.7.4 = {
+		holder = lineamrunom11 #Fe_e_ladoh
+	}
+	5250.6.15 = {
+		holder = lineamrunom13 #Rutnikho
+	}
+	5289.10.16 = {
+		holder = lineamrunom15 #Zhora_a_n
+	}
+	5324.4.14 = {
+		holder = lineamrunom17 #Dasin
+	}
+	5357.1.10 = {
+		holder = lineamrunom19 #Tijasimmir
+		change_development_level = 10
+	}
+	5385.2.11 = {
+		holder = lineamrunom21 #Borgha_a_l
+	}
+	5442.9.5 = {
+		holder = lineamrunom25 #Rato
+	}
+
+	5820.1.1 = {
+		holder = lineofafalku40 # Ayer
+		liege = d_amrun
+		change_development_level = 8
+	}
+	5899.1.1 = {
+		holder = lineofafalku41 # Adalkû
+	}
+	5945.1.1 = {
+		holder = lineofafalku42 # Khalid
+	}
+	5965.1.1 = {
+		holder = lineofafalku43 # Akli
+	}
+	6039.1.1 = {
+		holder = lineofafalku44 # Masnsen
+	}
+	6092.1.1 = {
+		holder = lineofafalku45 # Masmûd
+	}
+	6109.1.1 = {
+		holder = lineofafalku46 # Yûba
+	}
+	6177.1.1 = {
+		holder = lineofafalku1 # Adalkû
+	}
+	6240.1.1 = {
+		holder = lineofafalku2 # Ayerasan
+	}
+	6293.1.1 = {
+		holder = lineofafalku3 # Adergazûz
+	}
+	6350.1.1 = {
+		holder = lineofafalku4 # Aderkhâd
+	}
+	6410.1.1 = {
+		holder = lineofafalku5 # Sûladan
+	}
+	6467.1.1 = {
+		holder = lineofafalku6 # Gulûsa
+	}
+	6549.1.1 = {
+		holder = lineofafalku7 # Ikshifânsan
+	}
+	6602.1.1 = {
+		holder = lineofafalku8 # Ikshifserka
+	}
+	6661.1.1 = {
+		holder = lineofafalku9 # Akateiaji
+	}
+	6731.1.1 = {
+		holder = lineofafalku10 # Mûzaffarranâm
+	}
+	6780.1.1 = {
+		holder = lineofafalku11a # Hûssammâkir
+	}
+	6796.1.1 = {
+		holder = lineofafalku11 # Firmûsaraddin
+	}
+	6851.1.1 = {
+		holder = lineofafalku12 # Amessaddin
+	}
+	6900.1.1 = {
+		holder = lineofafalku13 # Micipsaddin
+	}
+	6923.1.1 = { # The Chelkar Revolt shatters the Realm of Harwan, Micipsaddin dies
+		holder = lineofafalku14 # Lacûmaces
+	}
+	6990.1.1 = {
+		holder = lineofafalku14b # Lacûmaces
+	}
+	7019.1.1 = {
+		holder = lineofafalku15 # Sûladan
+	}
+	7052.3.15 = {
+		holder = lineofafalku18 # Mu_u_radin
+	}
+	7062.5.30 = { # Radicals and Zealots win war, install Suladan's grandson as a puppet
+		holder = lineofkhasilakka1 # Khasila_a_n
+	}
+	7062.10.24 = { # Elessar's Pacification of Haruzan
+		holder = lineofdraghutinin1 # Draghutin
+	}
+	7095.6.17 = {
+		holder = lineofdraghutinin2 # Tajari
+	}
+	7105.3.26 = {
+		holder = lineofdraghutinin3 # A_A_ndrija
+	}
+	7144.7.6 = {
+		holder = lineofdraghutinin4 # Jozir
+	}
+	7163.12.27 = {
+		holder = lineofdraghutinin6 # Arat
+	}
+}
+
+# Hingren
+d_hingren = {
+	3000.1.1 = {
+		de_jure_liege = k_mirlond
+	}
+	4200.1.1 = {
+		de_jure_liege = k_haruzan
+	}
+
+	5290.3.10 = {
+		holder = lineofpakir1 #Njokha
+		liege = k_haruzan
+	}
+	5364.4.9 = {
+		holder = lineofpakir3 #Ozre_e_n
+	}
+	5386.4.26 = {
+		holder = lineofpakir5 #Bozidar
+	}
+	5420.1.23 = {
+		holder = lineofpakir7 #Kha_a_ngho
+	}
+	5437.10.6 = {
+		holder = 0
+	}
+
+
+	6456.10.23 = { # Granted to second son
+		holder = lineofafalku56 #Krukho
+	}
+	6529.1.16 = {
+		holder = lineofafalku58 #Torna
+	}
+	6569.5.8 = {
+		holder = 0
+	}
+
+	6765.6.8 = {
+		holder = lineofikendaka6 #Mileg
+		liege = k_haruzan
+	}
+	6825.5.18 = {
+		holder = lineofikendaka8 #De_e_lasimmir
+	}
+	6864.8.24 = {
+		holder = lineofikendaka10 #Ozho
+	}
+	6903.6.2 = {
+		holder = lineofikendaka13 #Radofa_a_n
+	}
+	6925.1.1 = { # Partially conquered in the anarchy after the fall of Harwan
+		holder = 0
+		liege = 0
+	}
+}
+
+#Athrad Hingren
+c_athrad_hingren = {
+	5290.3.10 = {
+		holder = lineofpakir1 #Njokha
+	}
+	5364.4.9 = {
+		holder = lineofpakir3 #Ozre_e_n
+		change_development_level = 14
+	}
+	5386.4.26 = {
+		holder = lineofpakir5 #Bozidar
+	}
+	5420.1.23 = {
+		holder = lineofpakir7 #Kha_a_ngho
+	}
+
+	6456.10.23 = { # Granted to second son
+		holder = lineofafalku56 #Krukho
+		liege = k_haruzan
+		change_development_level = 14
+	}
+	6529.1.16 = {
+		holder = lineofafalku58 #Torna
+	}
+	6569.5.8 = { # Became High Priest of Khäz-Gramaze, founded his Great Temple at Khäz-Ilaz
+		holder = lineofafalku60 #Arat
+	}
+	#6577.12.7 = {
+	#	holder = 0
+	#}
+
+	6765.6.8 = {
+		holder = lineofikendaka6 #Mileg
+	}
+	6825.5.18 = {
+		holder = lineofikendaka8 #De_e_lasimmir
+	}
+	6864.8.24 = {
+		holder = lineofikendaka10 #Ozho
+	}
+	6903.6.2 = {
+		holder = lineofikendaka13 #Radofa_a_n
+	}
+	6928.5.14 = {
+		holder = lineofikendaka15 #Borgha_a_l
+	}
+	6967.1.1 = {
+		holder = lineofikendaka1 # Menzû
+		liege = k_haruzan
+	}
+	6991.1.1 = {
+		holder = lineofikendaka2 # Abdûllah
+	}
+	7033.1.1 = {
+		holder = lineofikendaka3 # Abûbakr
+	}
+}
+
+#Harnen
+c_harnen = {
+	5290.3.10 = {
+		holder = lineofpakir1 #Njokha
+	}
+	5364.4.9 = {
+		holder = lineofpakir3 #Ozre_e_n
+		change_development_level = 13
+	}
+	5386.4.26 = {
+		holder = lineofpakir5 #Bozidar
+	}
+	5420.1.23 = {
+		holder = lineofpakir7 #Kha_a_ngho
+	}
+
+	6456.10.23 = { # Granted to second son
+		holder = lineofafalku56 #Krukho
+		liege = k_haruzan
+		change_development_level = 16
+	}
+	6529.1.16 = {
+		holder = lineofafalku58 #Torna
+	}
+	6569.5.8 = {
+		holder = lineofafalku60 #Arat
+	}
+	#6577.12.7 = {
+	#	holder = 0
+	#}
+	6765.6.8 = { # Granted to the dukes of the area
+		holder = lineofikendaka6 #Mileg
+		liege = k_haruzan
+	}
+	6825.5.18 = {
+		holder = lineofikendaka8 #De_e_lasimmir
+	}
+	6864.8.24 = {
+		holder = lineofikendaka10 #Ozho
+	}
+	6903.6.2 = {
+		holder = lineofikendaka13 #Radofa_a_n
+	}
+
+	6925.1.1 = { # Conquered in the anarchy after the fall of Harwan
+		holder = newlineofprochalomin8 #Sut
+		liege = 0
+	}
+	6934.4.11 = {
+		holder = newlineofprochalomin11 #Fatrad
+	}
+	6979.3.12 = { # Submit to Haruzan, political marriage with Lacûmanes II
+		liege = k_haruzan
+	}
+	6981.6.18 = {
+		holder = newlineofprochalomin13 #Kjatikhar
+	}
+	6995.12.11 = {
+		holder = newlineofprochalomin15 #Mek
+	}
+	7001.1.24 = {
+		holder = newlineofprochalomin17 #Pakir
+	}
+	7016.11.6 = { # Inherited through his mothers side
+		holder = lineofafalku15 # Sûladan
+	}
+	7052.3.15 = {
+		holder = lineofafalku18 # Mu_u_radin
+	}
+	7062.5.30 = { # Radicals and Zealots win war, install Suladan's grandson as a puppet
+		holder = lineofkhasilakka1 # Khasila_a_n
+	}
+	7062.10.24 = { # Elessar's Pacification of Haruzan
+		holder = lineofdraghutinin1 # Draghutin
+	}
+	7095.6.17 = {
+		holder = lineofdraghutinin2 # Tajari
+	}
+	7105.3.26 = {
+		holder = lineofdraghutinin3 # A_A_ndrija
+	}
+	7144.7.6 = {
+		holder = lineofdraghutinin4 # Jozir
+	}
+	7163.12.27 = {
+		holder = lineofdraghutinin6 # Arat
+	}
+}
+
+# Foropende
+c_foropende = {
+	5290.3.10 = {
+		holder = lineofpakir1 #Njokha
+	}
+	5364.4.9 = {
+		holder = lineofpakir3 #Ozre_e_n
+		change_development_level = 11
+	}
+	5386.4.26 = {
+		holder = lineofpakir5 #Bozidar
+	}
+	5420.1.23 = {
+		holder = lineofpakir7 #Kha_a_ngho
+	}
+
+	6456.10.23 = { # Granted to second son
+		holder = lineofafalku56 #Krukho
+		liege = k_haruzan
+		change_development_level = 12
+	}
+	6529.1.16 = {
+		holder = lineofafalku58 #Torna
+	}
+	6569.5.8 = { # Became High Priest of Khäz-Gramaze, founded his Great Temple at Khäz-Ilaz
+		holder = lineofafalku60 #Arat
+	}
+
+	6765.6.8 = {
+		holder = lineofikendaka6 #Mileg
+		liege = k_haruzan
+	}
+	6825.5.18 = {
+		holder = lineofikendaka8 #De_e_lasimmir
+	}
+	6864.8.24 = {
+		holder = lineofikendaka10 #Ozho
+	}
+	6903.6.2 = {
+		holder = lineofikendaka13 #Radofa_a_n
+	}
+	6928.5.14 = {
+		holder = lineofikendaka15 #Borgha_a_l
+	}
+	6941.11.12 = {
+		holder = lineofikendaka1 # Menzû
+		liege = k_haruzan
+	}
+	6991.1.1 = {
+		holder = lineofikendaka2 # Abdûllah
+	}
+	7015.1.1 = {
+		liege = k_haruzan
+		holder = serpentcult1
+	}
+}
+
+#Rhuntir
+d_rhuntir = {
+	3000.1.1 = {
+		de_jure_liege = k_mirlond
+	}
+	4200.1.1 = {
+		de_jure_liege = k_haruzan
+	}
+
+	5300.7.2 = {
+		holder = lineofdarikka1 #Gjorad
+		liege = k_haruzan
+	}
+	5367.12.6 = {
+		holder = lineofdarikka3 #Bra_a_limar
+	}
+	5383.9.10 = {
+		holder = lineofdarikka5 #Pedag
+	}
+	5405.12.12 = {
+		holder = lineofdarikka7 #Raduji
+	}
+	5435.11.25 = {
+		holder = 0
+	}
+
+	6690.8.7 = {
+		holder = lineofjozir1 #Jozir
+		liege = k_haruzan
+	}
+	6743.8.4 = {
+		holder = lineofjozir3 #Jakhubu
+	}
+	6786.1.23 = {
+		holder = lineofjozir5 #Raduji
+	}
+	6791.6.24 = {	### Lord dies during the Gondorian Campaign and has only daughters
+		holder = 0
+	}
+	6925.1.1 = { # Proclaimed in the anarchy after the fall of Harwan
+		holder = newlineofprochalomin8 #Sut
+		liege = 0
+	}
+	6934.4.11 = { # Split between two quarrelling sons
+		holder = 0
+	}
+	7010.3.8 = { # Recreated by eastern branch, submit to Lacûmanes II, marriage between Sûladan and rulers daughter
+		holder = newlineofprochalomin45
+		liege = k_haruzan
+	}
+	7047.6.27 = {
+		holder = newlineofprochalomin47
+	}
+
+}
+
+#Rhuntêg
+c_rhunteg = {
+	5300.7.2 = {
+		holder = lineofdarikka1 #Gjorad
+	}
+	5367.12.6 = {
+		holder = lineofdarikka3 #Bra_a_limar
+		change_development_level = 10
+	}
+	5383.9.10 = {
+		holder = lineofdarikka5 #Pedag
+	}
+	5405.12.12 = {
+		holder = lineofdarikka7 #Raduji
+	}
+
+	6690.8.7 = {
+		holder = lineofjozir1 #Jozir
+		change_development_level = 12
+	}
+	6743.8.4 = {
+		holder = lineofjozir3 #Jakhubu
+	}
+	6786.1.23 = {
+		holder = lineofjozir5 #Raduji
+	}
+	6868.3.9 = {
+		holder = newlineofprochalomin6 #Mitar
+	}
+	6901.7.11 = {
+		holder = newlineofprochalomin8 #Sut
+	}
+	6934.4.11 = {
+		holder = newlineofprochalomin40
+	}
+	6970.3.27 = {
+		holder = newlineofprochalomin42
+	}
+	7003.3.21 = {
+		holder = newlineofprochalomin45
+	}
+	7047.6.27 = {
+		holder = newlineofprochalomin47
+	}
+}
+
+#Kupsha
+c_kupsha = {
+	5300.7.2 = {
+		holder = lineofdarikka1 #Gjorad
+	}
+	5367.12.6 = {
+		holder = lineofdarikka3 #Bra_a_limar
+		change_development_level = 8
+	}
+	5383.9.10 = {
+		holder = lineofdarikka5 #Pedag
+	}
+	5405.12.12 = {
+		holder = lineofdarikka7 #Raduji
+	}
+
+	6690.8.7 = {
+		holder = lineofjozir1 #Jozir
+		change_development_level = 9
+	}
+	6743.8.4 = {
+		holder = lineofjozir3 #Jakhubu
+	}
+	6786.1.23 = {
+		holder = lineofjozir5 #Raduji
+	}
+	6915.1.1 = { # Conquered from Donan
+		holder = newlineofprochalomin8 #Sut
+		liege = k_haruzan
+	}
+	6934.4.11 = {
+		holder = newlineofprochalomin40
+	}
+	6970.3.27 = {
+		holder = newlineofprochalomin42
+	}
+	7003.3.21 = {
+		holder = newlineofprochalomin45
+	}
+	7047.6.27 = {
+		holder = newlineofprochalomin47
+	}
+}
+
+#Tallath Parch
+c_tallath_parch = {
+	5300.7.2 = {
+		holder = lineofdarikka1 #Gjorad
+	}
+	5367.12.6 = {
+		holder = lineofdarikka3 #Bra_a_limar
+		change_development_level = 8
+	}
+	5383.9.10 = {
+		holder = lineofdarikka5 #Pedag
+	}
+	5405.12.12 = {
+		holder = lineofdarikka7 #Raduji
+	}
+
+	6750.8.7 = {
+		holder = newlineofprochalomin1 #Drahar
+		liege = d_rhuntir
+		change_development_level = 12
+	}
+	6791.6.24 = { # Liege dies during Gondorian Campaign vassal inherited by the lord of Haruzan
+		liege = k_haruzan
+	}
+	6834.2.12 = {
+		holder = newlineofprochalomin3 #Ra_a_nkho
+	}
+	6868.3.9 = {
+		holder = newlineofprochalomin6 #Mitar
+	}
+	6901.7.11 = {
+		holder = newlineofprochalomin8 #Sut
+	}
+	6934.4.11 = {
+		holder = newlineofprochalomin11 #Fatrad
+	}
+	6979.3.12 = { # Submit to Haruzan, political marriage with Lacûmanes II
+		liege = k_haruzan
+	}
+	6981.6.18 = {
+		holder = newlineofprochalomin30
+	}
+	6987.9.16 = {
+		holder = newlineofprochalomin32
+	}
+	7026.4.2 = {
+		holder = newlineofprochalomin34
+		liege = d_rhuntir
+	}
+}
+
+#Ramlond
+d_ramlond = {
+	3000.1.1 = {
+		de_jure_liege = k_mirlond
+	}
+	3911.1.1 = {
+		holder = lineherumor5 # Herumor
+	}
+	4032.1.1 = {
+		holder = lineherumor8 # Tarîkmagân, poisoned
+	}
+	4042.1.1 = {
+		holder = 0 # Death of Tarik
+	}
+	4200.1.1 = {
+		de_jure_liege = k_umbar
+	}
+	5083.1.1 = {
+		holder = lineofearendur # Maethon
+		government = administrative_government
+		effect = {
+			administrative_government_dlc_check = { REPLACEMENT = feudal_government }
+			set_administrative_themes_type = { LEVEL = 2 } # Military
+		}
+		liege = e_gondor
+	}
+	5083.1.2 = {
+		liege = k_umbar
+	}
+	5180.7.22 = {
+		holder = lineofearendur1 # Seregon
+	}
+	5231.7.18 = {
+		holder = lineofearendurdaughter # Amarie
+	}
+	5277.6.3 = {
+		holder = lineofearendur4 # Maratar
+	}
+	5320.10.1 = {
+		holder = lineofearendur5 # Virinehtar
+	}
+	5322.3.8 = {
+		holder = lineofearendur7 # Edhelion
+	}
+	5382.1.1 = {
+		liege = e_gondor
+	}
+	5382.2.1 = {
+		liege = k_umbar
+	}
+	5410.8.24 = {
+		holder = lineofearendur8 # Mallor
+	}
+	5480.8.22 = {
+		holder = lineofcastamir1 # Castarion
+		liege = e_umbar
+		change_development_level = 12
+	}
+	5608.9.6 = {
+		holder = lineofcastamir44 # Castariel
+		liege = e_umbar
+	}
+	5744.9.1 = {
+		holder = lineofcastamir46 # Calimon
+		liege = e_umbar
+	}
+	5765.7.19 = {
+		holder = lineofcastamir51 # Anardil
+		liege = e_umbar
+	}
+	5828.4.23 = {
+		holder = lineofcastamir52 # Arandil
+	}
+	5843.7.23 = {
+		holder = lineofanarion38 # Telumehtar Umbardacil
+	}
+	#5895 - 6650 Ruled by Minor Corsairs/Haradrim
+	5895.1.1 = { # Seized by rising Jelut Kingdom
+		holder = linezhajomin3 #Sha_a_lirik
+		de_jure_liege = k_haruzan
+		government = clan_government
+	}
+	5928.3.22 = {
+		holder = linezhajomin5 #Zirinkho
+	}
+	5957.3.12 = {
+		holder = linezhajomin7 #Tiho_o_mmo
+	}
+	6002.6.5 = {
+		holder = linezhajomin9 #Kha_a_linar
+	}
+	6034.5.27 = {
+		holder = linezhajomin11 #Khaba_a_li
+	}
+	6039.1.1 = { # Jelut Kingdom collapses
+		holder = 0
+	}
+	6595.10.8 = { # Falls under Harwani control
+		holder = lineyonires1 #Je_e_ngho
+		liege = k_haruzan
+	}
+	6663.8.18 = {
+		holder = lineyonires3 #Bozidar
+	}
+	6688.6.21 = {
+		holder = lineyonires5 #Bra_a_limar
+	}
+	6734.1.5 = {
+		holder = lineyonires7 #Gjorad
+	}
+	6766.12.13 = {
+		holder = lineyonires9 #Borgha_a_l
+	}
+	6784.8.1 = {
+		holder = lineyonires11 #Brajkho
+	}
+	6833.9.18 = {
+		holder = lineyonires13 #A_A_mbar
+	}
+	6850.1.23 = {
+		holder = lineyonires15 #Arajar
+	}
+	6925.1.1 = { # Umbar seizes Ramlond and Mirlond during the collapse of Harwan
+		holder = lineofcalmacil7 # Calmacil
+		government = feudal_government
+		liege = 0
+	}
+	6934.1.1 = {
+		holder = lineofcalmacil9 # Castamir
+	}
+	6956.1.1 = {
+		holder = lineofcalmacil9a
+	}
+	7000.1.1 = {
+		holder = lineofcalmacil10 # Abrazân
+	}
+	7062.10.24 = { # Elessar's Pacification of Haruzan
+		holder = 0 # TEMP, replace with Elessar's RK lord of Ramlond
+	}
+	7063.9.12 = { # Elessar's Conquest of Umbar
+		de_jure_liege = k_umbar
+		liege = k_umbar
+	}
+}
+
+#Ramlond
+c_ramlond = {
+	3911.1.1 = {
+		holder = lineherumor5 # Herumor
+	}
+	4032.1.1 = {
+		holder = lineherumor8 # Tarîkmagân, poisoned
+	}
+	5083.1.14 = {
+		holder = lineofearendur #Maethon
+	}
+	5180.7.22 = {
+		holder = lineofearendur1 # Seregon
+	}
+	5231.7.18 = {
+		holder = lineofearendurdaughter # Amarie
+	}
+	5277.6.3 = {
+		holder = lineofearendur4 # Maratar
+	}
+	5320.10.1 = {
+		holder = lineofearendur5 # Virinehtar
+	}
+	5322.3.8 = {
+		holder = lineofearendur7 # Edhelion
+		change_development_level = 18
+	}
+	5410.8.24 = {
+		holder = lineofearendur8 # Mallor
+	}
+	5480.8.22 = {
+		holder = lineofcastamir1 # Castarion
+		liege = e_umbar
+	}
+	5608.9.6 = {
+		holder = lineofcastamir44 # Castariel
+		liege = e_umbar
+	}
+	5724.1.1 = {
+		holder = lineofcastamir46 # Calimon
+		liege = e_umbar
+	}
+	5819.1.1 = {
+		holder = lineofcastamir51 # Zabathan
+		liege = e_umbar
+	}
+	5843.7.23 = {
+		holder = lineofanarion38 # Telumehtar Umbardacil
+		government = feudal_government
+	}
+	#5895 - 6650 Ruled by Minor Corsairs/Haradrim
+	5895.1.1 = { # Seized by rising Jelut Kingdom
+		holder = linezhajomin3 #Sha_a_lirik
+		government = clan_government
+		change_development_level = 12
+	}
+	5928.3.22 = {
+		holder = linezhajomin5 #Zirinkho
+	}
+	5957.3.12 = {
+		holder = linezhajomin7 #Tiho_o_mmo
+	}
+	6002.6.5 = {
+		holder = linezhajomin9 #Kha_a_linar
+	}
+	6034.5.27 = {
+		holder = linezhajomin11 #Khaba_a_li
+	}
+	6595.10.8 = { # Falls under Harwani control
+		holder = lineyonires1 #Je_e_ngho
+	}
+	6663.8.18 = {
+		holder = lineyonires3 #Bozidar
+	}
+	6688.6.21 = {
+		holder = lineyonires5 #Bra_a_limar
+	}
+	6734.1.5 = {
+		holder = lineyonires7 #Gjorad
+	}
+	6766.12.13 = {
+		holder = lineyonires9 #Borgha_a_l
+	}
+	6784.8.1 = {
+		holder = lineyonires11 #Brajkho
+	}
+	6833.9.18 = {
+		holder = lineyonires13 #A_A_mbar
+	}
+	6850.1.23 = {
+		holder = lineyonires15 #Arajar
+	}
+	6925.1.1 = { # Umbar seizes Ramlond and Mirlond during the collapse of Harwan
+		holder = lineofcalmacil7 # Calmacil
+	}
+	6934.1.1 = {
+		holder = lineofcalmacil9 # Castamir
+	}
+	6956.1.1 = {
+		holder = lineofcalmacil9a
+	}
+	7000.1.1 = {
+		holder = lineofcalmacil10 # Abrazân
+	}
+}
+
+#Kiba
+c_kiba = {
+	#4919.1.1 = {
+	#	holder = lineofvardur24 # Gimilzor
+	#	liege = d_ramlond
+	#}
+	5083.1.14 = {
+		holder = lineofearendur #Maethon
+	}
+	5180.7.22 = {
+		holder = lineofearendur1 # Seregon
+	}
+	5231.7.18 = {
+		holder = lineofearendurdaughter # Amarie
+	}
+	5277.6.3 = {
+		holder = lineofearendur4 # Maratar
+	}
+	5320.10.1 = {
+		holder = lineofearendur5 # Virinehtar
+	}
+	5322.3.8 = {
+		holder = lineofearendur7 # Edhelion
+		change_development_level = 12
+	}
+	5410.8.24 = {
+		holder = lineofearendur8 # Mallor
+	}
+	5480.8.22 = {
+		holder = lineofcastamir1 # Castarion
+		liege = d_ramlond
+	}
+	5608.9.6 = {
+		holder = lineofcastamir44 # Castariel
+	}
+	5724.1.1 = {
+		holder = lineofcastamir46 # Calimon
+	}
+	5819.1.1 = {
+		holder = lineofcastamir51 # Zabathan
+	}
+	5843.7.23 = {
+		holder = lineofanarion38 # Telumehtar Umbardacil
+	}
+	6595.10.8 = { # Falls under Harwani control
+		holder = lineyonires1 #Je_e_ngho
+	}
+	6663.8.18 = {
+		holder = lineyonires3 #Bozidar
+	}
+	6688.6.21 = {
+		holder = lineyonires5 #Bra_a_limar
+	}
+	6734.1.5 = {
+		holder = lineyonires7 #Gjorad
+	}
+	6766.12.13 = {
+		holder = lineyonires9 #Borgha_a_l
+	}
+	6784.8.1 = {
+		holder = lineyonires11 #Brajkho
+	}
+	6833.9.18 = {
+		holder = lineyonires13 #A_A_mbar
+	}
+	6850.1.23 = {
+		holder = lineyonires15 #Arajar
+	}
+	6842.1.1 = {
+		holder = lineofcalmacil7 # Calmacil
+	}
+	6930.1.1 = {
+		holder = lineofcalmacil9 # Castamir
+	}
+	6956.1.1 = {
+		holder = lineofcalmacil9a
+	}
+	7000.1.1 = {
+		holder = lineofcalmacil10 # Abrazân
+	}
+}
+
+#Celebiant
+c_celebiant = {
+	3911.1.1 = {
+		holder = lineherumor5 # Herumor
+	}
+	4032.1.1 = {
+		holder = lineherumor8 # Tarîkmagân, poisoned
+	}
+	5083.1.14 = {
+		holder = lineofearendur #Maethon
+	}
+	5180.7.22 = {
+		holder = lineofearendur1 # Seregon
+	}
+	5231.7.18 = {
+		holder = lineofearendurdaughter # Amarie
+	}
+	5277.6.3 = {
+		holder = lineofearendur4 # Maratar
+	}
+	5320.10.1 = {
+		holder = lineofearendur5 # Virinehtar
+	}
+	5322.3.8 = {
+		holder = lineofearendur7 # Edhelion
+		change_development_level = 10
+	}
+	5410.8.24 = {
+		holder = lineofearendur8 # Mallor
+	}
+	5480.8.22 = {
+		holder = lineofcastamir1 # Castarion
+		liege = e_umbar
+	}
+	5608.9.6 = {
+		holder = lineofcastamir44 # Castariel
+		liege = e_umbar
+	}
+	5724.1.1 = {
+		holder = lineofcastamir46 # Calimon
+		liege = e_umbar
+	}
+	5819.1.1 = {
+		holder = lineofcastamir51 # Zabathan
+		liege = e_umbar
+	}
+	5843.7.23 = {
+		holder = lineofanarion38 # Telumehtar Umbardacil
+		government = feudal_government
+	}
+	#5895 - 6650 Ruled by Minor Corsairs/Haradrim
+	5895.1.1 = { # Seized by rising Jelut Kingdom
+		holder = linezhajomin3 #Sha_a_lirik
+		government = clan_government
+	}
+	5928.3.22 = {
+		holder = linezhajomin5 #Zirinkho
+	}
+	5957.3.12 = {
+		holder = linezhajomin7 #Tiho_o_mmo
+	}
+	6002.6.5 = {
+		holder = linezhajomin9 #Kha_a_linar
+	}
+	6034.5.27 = {
+		holder = linezhajomin11 #Khaba_a_li
+	}
+
+	6786.1.1 = {
+		holder = lineofkamal9 # Nizar
+		liege = d_harnendor
+		change_development_level = 14
+	}
+	6852.1.1 = {
+		holder = lineofkamal16 # Agdûn
+	}
+	6930.1.1 = {
+		holder = lineofkamal17 # Kûssil
+	}
+	6963.1.1 = {
+		holder = lineofkamal18 # Mezwar
+		liege = k_haruzan
+	}
+	7014.1.1 = {
+		holder = lineofkamal19 # Malik
+	}
+}
+
+#Harnendor
+d_harnendor = {
+	3000.1.1 = {
+		de_jure_liege = k_mirlond
+	}
+	4200.1.1 = {
+		de_jure_liege = k_haruzan
+	}
+
+	5360.1.1 = {
+		holder = linemisin1 #Ima_a_n
+		liege = k_haruzan
+	}
+	5400.2.11 = {
+		holder = linemisin3 #Safarh
+	}
+	5449.9.8 = {
+		holder = linemisin7 #Qia_a_no
+	}
+	5473.11.20 = {
+		holder = linemisin10 #Harrat
+	}
+	5515.8.25 = {
+		holder = linemisin12 #Qa_a_linarh
+	}
+	5540.11.15 = {
+		holder = 0
+	}
+
+	6499.1.1 = {
+		holder = lineofkamal7 # Kamal
+		liege = k_haruzan
+	}
+	6593.1.1 = {
+		holder = lineofkamal8 # Sisso
+	}
+	6645.1.1 = {
+		holder = lineofkamal10 # Qûtaiba
+	}
+	6711.1.1 = {
+		holder = lineofkamal11 # Shamsaddin
+	}
+	6782.1.1 = {
+		holder = lineofkamal12 # Hemmû
+	}
+	6868.1.1 = {
+		holder = lineofkamal13 # Mûrad
+	}
+	6927.1.1 = {
+		holder = lineofkamal14 # Akaday
+	}
+	6963.1.1 = {
+		holder = lineofkamal15 # Igmi
+		liege = k_haruzan
+	}
+}
+
+#Anacalimon
+c_anacalimon = {
+	5360.1.1 = {
+		holder = linemisin1 #Ima_a_n
+		liege = k_haruzan
+		change_development_level = 15
+	}
+	5400.2.11 = {
+		holder = linemisin3 #Safarh
+	}
+	5449.9.8 = {
+		holder = linemisin7 #Qia_a_no
+	}
+	5473.11.20 = {
+		holder = linemisin10 #Harrat
+	}
+	5515.8.25 = {
+		holder = linemisin12 #Qa_a_linarh
+	}
+
+	5849.1.1 = {
+		holder = lineofcassimir1 # Adûm
+		change_development_level = 15
+		liege = k_haruzan
+	}
+	5891.1.1 = {
+		holder = lineofcassimir3 # Yûba
+	}
+	6001.1.1 = {
+		holder = lineofcassimir40 # Qûtaiba
+	}
+	6066.1.1 = {
+		holder = lineofcassimir41 # Kamal
+		liege = d_harnendor
+	}
+	6131.1.1 = {
+		holder = lineofkamal1 # Hemmû
+	}
+	6191.1.1 = {
+		holder = lineofkamal2 # Hamad
+	}
+	6261.1.1 = {
+		holder = lineofkamal3 # Hemmû
+	}
+	6324.3.5 = {
+		holder = lineofkamal3a # Yu_u_ba
+	}
+	6347.2.4 = {
+		holder = lineofkamal4 # Akaday
+	}
+	6377.1.1 = {
+		holder = lineofkamal5 # Mazigh
+	}
+	6432.1.1 = {
+		holder = lineofkamal6 # Kamal
+	}
+	6499.1.1 = {
+		holder = lineofkamal7 # Kamal
+	}
+	6593.1.1 = {
+		holder = lineofkamal8 # Sisso
+	}
+	6645.1.1 = {
+		holder = lineofkamal10 # Qûtaiba
+	}
+	6711.1.1 = {
+		holder = lineofkamal11 # Shamsaddin
+		liege = k_haruzan
+	}
+	6782.1.1 = {
+		holder = lineofkamal12 # Hemmû
+	}
+	6868.1.1 = {
+		holder = lineofkamal13 # Mûrad
+	}
+	6927.1.1 = {
+		holder = lineofkamal14 # Akaday
+	}
+	6963.1.1 = {
+		holder = lineofkamal15 # Igmi
+	}
+}
+
+#Ardrista
+c_ardrista = {
+	5280.11.4 = {
+		holder = lineofkrejir1 #Rajlo
+	}
+	5364.8.27 = {
+		holder = lineofkrejir3 #Mu_u_la_a_no
+		change_development_level = 7
+	}
+	5384.10.20 = {
+		holder = lineofkrejir5 #Isa_a_lin
+	}
+	5418.4.17 = { # Jelut Conquest
+		holder = linejelut1 #Kuan
+		liege = k_narak
+	}
+	5429.6.23 = {
+		holder = linejelut3 #Kuesh
+	}
+	5443.7.21 = { # Kuesh slain in Siege of Umbar
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linemisin7 #Qia_a_no
+	}
+	5473.11.20 = {
+		holder = linemisin10 #Harrat
+	}
+	5515.8.25 = {
+		holder = linemisin12 #Qa_a_linarh
+	}
+
+	5849.1.1 = {
+		change_development_level = 10
+	}
+	6131.1.1 = {
+		holder = lineofkamal1 # Hemmû
+	}
+	6191.1.1 = {
+		holder = lineofkamal2 # Hamad
+	}
+	6261.1.1 = {
+		holder = lineofkamal3 # Hemmû
+	}
+	6324.3.5 = {
+		holder = lineofkamal3a # Yu_u_ba
+	}
+	6347.2.4 = {
+		holder = lineofkamal4 # Akaday
+	}
+	6377.1.1 = {
+		holder = lineofkamal5 # Mazigh
+	}
+	6432.1.1 = {
+		holder = lineofkamal6 # Kamal
+	}
+	6499.1.1 = {
+		holder = lineofkamal7 # Kamal
+	}
+	6593.1.1 = {
+		holder = lineofkamal8 # Sisso
+	}
+	6645.1.1 = {
+		holder = lineofkamal10 # Qûtaiba
+	}
+	6711.1.1 = {
+		holder = lineofkamal11 # Shamsaddin
+	}
+	6782.1.1 = {
+		holder = lineofkamal12 # Hemmû
+	}
+	6868.1.1 = {
+		holder = lineofkamal13 # Mûrad
+	}
+	6927.1.1 = {
+		holder = lineofkamal14 # Akaday
+	}
+	6963.1.1 = {
+		holder = lineoftacfimin1 # Buxtûc
+	}
+	6970.1.1 = {
+		holder = lineoftacfimin2 # Kûssil
+	}
+	7001.1.1 = {
+		holder = lineoftacfimin3 # Yaghmûrasen
+		liege = d_kes_jelut
+	}
+	7028.1.1 = {
+		holder = lineoftacfimin5 # Nizar
+	}
+	7049.8.9 = {
+		holder = lineofkamal15 #Igmi
+	}
+}
+
+#Abârrim
+c_abarrim = {
+	5360.1.1 = {
+		holder = linemisin1 #Ima_a_n
+		liege = k_haruzan
+		change_development_level = 12
+	}
+	5400.2.11 = {
+		holder = linemisin3 #Safarh
+	}
+	5449.9.8 = {
+		holder = linemisin7 #Qia_a_no
+	}
+	5473.11.20 = {
+		holder = linemisin10 #Harrat
+	}
+	5515.8.25 = {
+		holder = linemisin12 #Qa_a_linarh
+	}
+
+	5849.1.1 = {
+		holder = lineofcassimir1 # Adûm
+		change_development_level = 14
+	}
+	5891.1.1 = {
+		holder = lineofcassimir3 # Yûba
+	}
+	6001.1.1 = {
+		holder = lineofcassimir40 # Qûtaiba
+	}
+	6066.1.1 = {
+		holder = lineofcassimir41 # Kamal
+		liege = d_harnendor
+	}
+	6131.1.1 = {
+		holder = lineofkamal1 # Hemmû
+	}
+	6191.1.1 = {
+		holder = lineofkamal2 # Hamad
+	}
+	6261.1.1 = {
+		holder = lineofkamal3 # Hemmû
+	}
+	6324.3.5 = {
+		holder = lineofkamal3a # Yu_u_ba
+	}
+	6347.2.4 = {
+		holder = lineofkamal4 # Akaday
+	}
+	6377.1.1 = {
+		holder = lineofkamal5 # Mazigh
+	}
+	6432.1.1 = {
+		holder = lineofkamal6 # Kamal
+	}
+	6499.1.1 = {
+		holder = lineofkamal7 # Kamal
+	}
+	6593.1.1 = {
+		holder = lineofkamal8 # Sisso
+	}
+	6645.1.1 = {
+		holder = lineofkamal10 # Qûtaiba
+	}
+	6711.1.1 = {
+		holder = lineofkamal11 # Shamsaddin
+		liege = k_haruzan
+	}
+	6782.1.1 = {
+		holder = lineofkamal12 # Hemmû
+	}
+	6868.1.1 = {
+		holder = lineofkamal13 # Mûrad
+	}
+	6927.1.1 = {
+		holder = lineofkamal14 # Akaday
+	}
+	6963.1.1 = {
+		holder = lineofkamal15 # Igmi
+	}
+}
+
+#Haruzan
+d_haruzan = {
+	5300.9.19 = {
+		holder = lineofdasin1 #Dragiji
+		liege = k_haruzan
+	}
+	5360.9.6 = {
+		holder = lineofdasin3 #Jerek
+	}
+	5394.9.3 = {
+		holder = lineofdasin5 #Pakir
+	}
+	5417.11.28 = {
+		holder = lineofdasin7 #Laforaz
+	}
+	5435.6.24 = {
+		holder = 0
+	}
+
+	5820.1.1 = {
+		holder = lineofafalku40 # Ayer
+	}
+	5899.1.1 = {
+		holder = lineofafalku41 # Adalkû
+	}
+	5945.1.1 = {
+		holder = lineofafalku42 # Khalid
+	}
+	5965.1.1 = {
+		holder = lineofafalku43 # Akli
+	}
+	6039.1.1 = {
+		holder = lineofafalku44 # Masnsen
+	}
+	6092.1.1 = {
+		holder = lineofafalku45 # Masmûd
+	}
+	6109.1.1 = {
+		holder = lineofafalku46 # Yûba
+	}
+	6177.1.1 = {
+		holder = lineofafalku1 # Adalkû
+	}
+	6240.1.1 = {
+		holder = lineofafalku2 # Ayerasan
+	}
+	6293.1.1 = {
+		holder = lineofafalku3 # Adergazûz
+	}
+	6350.1.1 = {
+		holder = lineofafalku4 # Aderkhâd
+	}
+	6410.1.1 = {
+		holder = lineofafalku5 # Sûladan
+	}
+	6467.1.1 = {
+		holder = lineofafalku6 # Gulûsa
+	}
+	6549.1.1 = {
+		holder = lineofafalku7 # Ikshifânsan
+	}
+	6602.1.1 = {
+		holder = lineofafalku8 # Ikshifserka
+	}
+	6661.1.1 = {
+		holder = lineofafalku9 # Akateiaji
+	}
+	6731.1.1 = {
+		holder = lineofafalku10 # Mûzaffarranâm
+	}
+	6780.1.1 = {
+		holder = lineofafalku11a # Hûssammâkir
+	}
+	6796.1.1 = {
+		holder = lineofafalku11 # Firmûsaraddin
+	}
+	6851.1.1 = {
+		holder = lineofafalku12 # Amessaddin
+	}
+	6900.1.1 = {
+		holder = lineofafalku13 # Micipsaddin
+	}
+	6923.1.1 = { # The Chelkar Revolt shatters the Realm of Harwan, Micipsaddin dies
+		holder = 0
+	}
+	6946.1.1 = {
+		holder = lineofafalku35 # Sâloân
+	}
+	6977.1.1 = {
+		holder = lineofafalku36 # Zâinabên
+	}
+	7018.1.1 = {
+		holder = lineofafalku37 # Balkuthôr
+	}
+	7039.1.1 = {
+		holder = lineofafalku15 #Su_u_ladan
+	}
+	7052.3.15 = {
+		holder = lineofafalku18 # Mu_u_radin
+	}
+	7062.5.30 = { # Radicals and Zealots win war, install Suladan's grandson as a puppet
+		holder = lineofkhasilakka1 # Khasila_a_n
+	}
+	7062.10.24 = { # Allowed to keep some holdings if he converts and disavows the house of Ayerikka
+		liege = k_haruzan
+	}
+	7125.3.11 = {
+		holder = lineofkhasilakka2 # Bozhat
+	}
+	7173.12.3 = {
+		holder = lineofkhasilakka4 # Sut
+	}
+}
+
+# Argon
+c_argon = {
+	5300.9.19 = {
+		holder = lineofdasin1 #Dragiji
+	}
+	5360.9.6 = {
+		holder = lineofdasin3 #Jerek
+		change_development_level = 13
+	}
+	5394.9.3 = {
+		holder = lineofdasin5 #Pakir
+	}
+	5417.11.28 = {
+		holder = lineofdasin7 #Laforaz
+	}
+
+	5820.1.1 = {
+		holder = lineofafalku40 # Ayer
+		change_development_level = 10
+	}
+	5899.1.1 = {
+		holder = lineofafalku41 # Adalkû
+	}
+	5945.1.1 = {
+		holder = lineofafalku42 # Khalid
+	}
+	5965.1.1 = {
+		holder = lineofafalku43 # Akli
+	}
+	6039.1.1 = {
+		holder = lineofafalku44 # Masnsen
+	}
+	6092.1.1 = {
+		holder = lineofafalku45 # Masmûd
+	}
+	6109.1.1 = {
+		holder = lineofafalku46 # Yûba
+	}
+	6177.1.1 = {
+		holder = lineofafalku1 # Adalkû
+	}
+	6240.1.1 = {
+		holder = lineofafalku2 # Ayerasan
+	}
+	6293.1.1 = {
+		holder = lineofafalku3 # Adergazûz
+	}
+	6350.1.1 = {
+		holder = lineofafalku4 # Aderkhâd
+	}
+	6410.1.1 = {
+		holder = lineofafalku5 # Sûladan
+	}
+	6467.1.1 = {
+		holder = lineofafalku6 # Gulûsa
+		change_development_level = 12
+	}
+	6549.1.1 = {
+		holder = lineofafalku7 # Ikshifânsan
+	}
+	6602.1.1 = {
+		holder = lineofafalku8 # Ikshifserka
+	}
+	6661.1.1 = {
+		holder = lineofafalku9 # Akateiaji
+	}
+	6731.1.1 = {
+		holder = lineofafalku10 # Mûzaffarranâm
+	}
+	6780.1.1 = {
+		holder = lineofafalku11a # Hûssammâkir
+	}
+	6796.1.1 = {
+		holder = lineofafalku11 # Firmûsaraddin
+	}
+	6851.1.1 = {
+		holder = lineofafalku12 # Amessaddin
+	}
+	6900.1.1 = {
+		holder = lineofafalku13 # Micipsaddin
+	}
+
+	6946.1.1 = {
+		holder = lineofafalku35 # Sâloân
+		liege = d_haruzan
+		change_development_level = 14
+	}
+	6977.1.1 = {
+		holder = lineofafalku36 # Zâinabên
+	}
+	7018.1.1 = {
+		holder = lineofafalku37 # Balkuthôr
+	}
+	7039.1.1 = {
+		holder = lineofafalku15 #Su_u_ladan
+	}
+	7052.3.15 = {
+		holder = lineofafalku18 # Mu_u_radin
+	}
+	7062.5.30 = { # Radicals and Zealots win war, install Suladan's grandson as a puppet
+		holder = lineofkhasilakka1 # Khasila_a_n
+	}
+	7062.10.24 = { # Allowed to keep some holdings if he converts and disavows the house of Ayerikka
+		liege = k_haruzan
+	}
+	7125.3.11 = {
+		holder = lineofkhasilakka2 # Bozhat
+	}
+	7173.12.3 = {
+		holder = lineofkhasilakka4 # Sut
+	}
+}
+
+# Nîthagasag
+c_nithagasag = {
+	5300.9.19 = {
+		holder = lineofdasin1 #Dragiji
+	}
+	5360.9.6 = {
+		holder = lineofdasin3 #Jerek
+		change_development_level = 10
+	}
+	5394.9.3 = {
+		holder = lineofdasin5 #Pakir
+	}
+	5417.11.28 = {
+		holder = lineofdasin7 #Laforaz
+	}
+
+	5820.1.1 = {
+		holder = lineofafalku40 # Ayer
+		change_development_level = 10
+	}
+	5899.1.1 = {
+		holder = lineofafalku41 # Adalkû
+	}
+	5945.1.1 = {
+		holder = lineofafalku42 # Khalid
+	}
+	5965.1.1 = {
+		holder = lineofafalku43 # Akli
+	}
+	6039.1.1 = {
+		holder = lineofafalku44 # Masnsen
+	}
+	6092.1.1 = {
+		holder = lineofafalku45 # Masmûd
+	}
+	6109.1.1 = {
+		holder = lineofafalku46 # Yûba
+	}
+	6177.1.1 = {
+		holder = lineofafalku1 # Adalkû
+	}
+	6240.1.1 = {
+		holder = lineofafalku2 # Ayerasan
+	}
+	6293.1.1 = {
+		holder = lineofafalku3 # Adergazûz
+	}
+	6350.1.1 = {
+		holder = lineofafalku4 # Aderkhâd
+	}
+	6410.1.1 = {
+		holder = lineofafalku5 # Sûladan
+	}
+	6467.1.1 = {
+		holder = lineofafalku6 # Gulûsa
+	}
+	6549.1.1 = {
+		holder = lineofafalku7 # Ikshifânsan
+	}
+	6602.1.1 = {
+		holder = lineofafalku8 # Ikshifserka
+		change_development_level = 13
+	}
+	6661.1.1 = {
+		holder = lineofafalku9 # Akateiaji
+	}
+	6731.1.1 = {
+		holder = lineofafalku10 # Mûzaffarranâm
+	}
+	6780.1.1 = {
+		holder = lineofafalku11a # Hûssammâkir
+	}
+	6796.1.1 = {
+		holder = lineofafalku11 # Firmûsaraddin
+	}
+	6851.1.1 = {
+		holder = lineofafalku12 # Amessaddin
+	}
+	6900.1.1 = {
+		holder = lineofafalku13 # Micipsaddin
+	}
+	6946.1.1 = {
+		holder = lineofafalku35 # Sâloân
+		liege = d_haruzan
+	}
+	6977.1.1 = {
+		holder = lineofafalku36 # Zâinabên
+	}
+	7018.1.1 = {
+		holder = lineofafalku37 # Balkuthôr
+	}
+	7039.1.1 = {
+		holder = lineofafalku15 #Su_u_ladan
+	}
+	7052.3.15 = {
+		holder = lineofafalku18 # Mu_u_radin
+	}
+	7062.5.30 = { # Radicals and Zealots win war, install Suladan's grandson as a puppet
+		holder = lineofkhasilakka1 # Khasila_a_n
+	}
+	7062.10.24 = { # Allowed to keep some holdings if he converts and disavows the house of Ayerikka
+		liege = k_haruzan
+	}
+	7125.3.11 = {
+		holder = lineofkhasilakka2 # Bozhat
+	}
+	7173.12.3 = {
+		holder = lineofkhasilakka4 # Sut
+	}
+}
+
+# Chelkar
+k_chelkar = {
+	3765.1.1 = { # Ancient Haruze Kings of Amrun — Tributary Kingdom established by Numenor. Eventually conquered by Black Numenoreans in time for last alliance
+		holder = lineaharuz15 #Arajar
+	}
+	3781.8.8 = {
+		holder = lineaharuz17 #Bogho
+	}
+	3819.2.23 = {
+		holder = lineaharuz19 #A_A_lu
+	}
+	3830.6.11 = {
+		holder = lineaharuz21 #Tiho_o_mi
+	}
+	3869.7.13 = {
+		holder = lineaharuz23 #Rutnikho
+	}
+	3908.9.28 = { # Slain by Fuinur
+		holder = lineaharuz25 #Mirajkha_a_n
+	}
+	3911.1.1 = { # Black Numenoreans split up the spoils
+		holder = 0
+	}
+
+	5200.07.15 = {
+		holder = lineofakhubarikka1
+		effect = {
+			lotr_set_court_language_effect = { LANGUAGE = language_northern_apysaic }
+		}
+	}
+	5272.06.01 = {
+		holder = lineofakhubarikka3
+	}
+	5289.09.06 = {
+		holder = lineofakhubarikka4
+	}
+	5334.07.09 = {
+		holder = lineofakhubarikka5
+	}
+	5368.11.22 = {
+		holder = lineofakhubarikka7
+	}
+	5381.08.28 = {
+		holder = lineofakhubarikka10
+	}
+	5403.04.09 = {
+		holder = lineofakhubarikka13
+	}
+	5449.03.15 = {
+		holder = lineofakhubarikka15
+	}
+	5469.06.27 = {
+		holder = lineofakhubarikka21
+	}
+	#5480.07.11 = {
+	#	holder = 0
+	#}
+
+	5999.1.12 = { # In the wake of the coalition's defeat by King Earnil, Ôvatha VI unifies Khand, taking advantage of the weakened Haradrim and Easterlings, beginning a golden age of Khand
+		holder = lineofskakali1
+		government = clan_government
+		effect = {
+			lotr_set_court_language_effect = { LANGUAGE = language_varadia }
+		}
+	}
+	6050.8.22 = {
+		holder = lineofskakali4
+	}
+	6112.7.12 = { # Children of Ôvatha VII cannot chose who should be high-king. Khand's golden age continues due to an informal alliance between the Khandish realms, but the realm of Khand is broken
+		holder = lineofskakali45
+	}
+	6155.9.20 = {
+		holder = lineofskakali49
+	}
+	6208.7.25 = {
+		holder = lineofskakali53
+	}
+	6244.9.9 = {
+		holder = lineofskakali57
+	}
+	6259.9.18 = {
+		holder = lineofskakali59
+	}
+	6260.10.12 = {
+		holder = 0
+	}
+	#6705.1.1 = { # Akateiaji, the 'Great King'
+	#	holder = lineofafalku9 # Akateiaji
+	#}
+	#6731.1.1 = {
+	#	holder = lineofafalku10 # Mûzaffarranâm
+	#}
+	#6790.1.1 = {
+	#	holder = lineofafalku11 # Firmûsaraddin
+	#}
+	#6851.1.1 = {
+	#	holder = lineofafalku12 # Amessaddin
+	#}
+	6920.1.1 = {
+		holder = lineofkhadnom1 # Khadnom, leader of the Chelkar Revolt
+		effect = {
+			lotr_set_court_language_effect = { LANGUAGE = language_northern_apysaic }
+		}
+	}
+	6937.3.6 = {
+		holder = lineofkhadnom2 # Safal the Stalwart
+	}
+	7007.12.20 = {
+		holder = lineofkhadnom3 # Sagalion the Strangled
+	}
+	7029.2.5 = {
+		holder = lineofkhadnom5 # Kalafar the Gilded-Blade
+	}
+	7042.3.15 = { # Suladan reunites Harawan
+		holder = 0
+	}
+	7062.10.24 = { # Elessar's Pacification of Haruzan
+		holder = lineofkhadnom5 # Kalafar the Gilded-Blade
+	}
+	7087.4.8 = {
+		holder = lineofkhadnom9 # Fe_e_ladoh
+	}
+	7110.3.4 = {
+		holder = lineofkhadnom11 # Nafasir
+	}
+	7134.4.14 = {
+		holder = lineofkhadnom12 # Lasim
+	}
+	7170.1.29 = {
+		holder = lineofkhadnom14 # Nenad
+	}
+}
+
+#Hûk Saromís
+d_huk_saromis = {
+	5200.07.15 = {
+		holder = lineofakhubarikka1
+	}
+	5272.06.01 = {
+		holder = lineofakhubarikka3
+	}
+	5289.09.06 = {
+		holder = lineofakhubarikka4
+	}
+	5334.07.09 = {
+		holder = lineofakhubarikka5
+	}
+	5368.11.22 = {
+		holder = lineofakhubarikka7
+	}
+	5381.08.28 = {
+		holder = lineofakhubarikka10
+	}
+	5403.04.09 = {
+		holder = lineofakhubarikka13
+	}
+	5449.03.15 = {
+		holder = lineofakhubarikka15
+	}
+	5469.06.27 = {
+		holder = lineofakhubarikka21
+	}
+	#5480.07.11 = {
+	#	holder = 0
+	#}
+
+	5999.1.12 = { # In the wake of the coalition's defeat by King Earnil, Ôvatha VI unifies Khand, taking advantage of the weakened Haradrim and Easterlings, beginning a golden age of Khand
+		holder = lineofskakali1
+		government = clan_government
+	}
+	6050.8.22 = {
+		holder = lineofskakali4
+	}
+	6112.7.12 = { # Children of Ôvatha VII cannot chose who should be high-king. Khand's golden age continues due to an informal alliance between the Khandish realms, but the realm of Khand is broken
+		holder = lineofskakali45
+	}
+	6155.9.20 = {
+		holder = lineofskakali49
+	}
+	6208.7.25 = {
+		holder = lineofskakali53
+	}
+	6244.9.9 = {
+		holder = lineofskakali57
+	}
+	6259.9.18 = {
+		holder = lineofskakali59
+	}
+	6260.10.12 = {
+		holder = 0
+	}
+
+	6653.3.18 = {
+		holder = lineofyahyaka9 #Khado_o_mejar
+	}
+	6726.8.1 = {
+		holder = lineofyahyaka13 #Nuru
+	}
+	6779.11.18 = {
+		holder = lineofyahyaka15 #Dar
+		liege = e_haradwaith
+	}
+	6812.4.13 = {
+		holder = lineofyahyaka17 #Mu_u_la_a_no
+	}
+	6832.9.28 = {
+		holder = lineofyahyaka19 #Ima_a_n
+	}
+	6860.11.11 = {
+		holder = lineofyahyaka21 #Isa_a_lin
+	}
+	6913.7.7 = {
+		holder = lineofyahyaka23 #Zha_a_latkho
+	}
+
+	6920.1.1 = { # Haruze Rulers slaughtered in Chelkari Revolt
+		holder = lineofkhadnom1 # Khadnom, leader of the Chelkar Revolt
+		government = feudal_government
+	}
+	6937.3.6 = {
+		holder = lineofkhadnom2 # Safal the Stalwart
+	}
+	7007.12.20 = {
+		holder = lineofkhadnom3 # Sagalion the Strangled
+	}
+	7029.2.5 = {
+		holder = lineofkhadnom5 # Kalafar the Gilded-Blade
+	}
+	#7042.3.15 = { # Suladan reunites Harawan
+	#	holder =
+	#}
+	7062.10.24 = {
+		holder = lineofkhadnom5 # Kalafar the Gilded-Blade
+	}
+	7087.4.8 = {
+		holder = lineofkhadnom9 # Fe_e_ladoh
+	}
+	7110.3.4 = {
+		holder = lineofkhadnom11 # Nafasir
+	}
+	7134.4.14 = {
+		holder = lineofkhadnom12 # Lasim
+	}
+	7170.1.29 = {
+		holder = lineofkhadnom14 # Nenad
+	}
+}
+
+#Muzeida
+c_muzeida = {
+	5200.07.15 = {
+		holder = lineofakhubarikka1
+	}
+	5272.06.01 = {
+		holder = lineofakhubarikka3
+	}
+	5289.09.06 = {
+		holder = lineofakhubarikka4
+	}
+	5334.07.09 = {
+		holder = lineofakhubarikka5
+	}
+	5368.11.22 = {
+		holder = lineofakhubarikka7
+		change_development_level = 10
+	}
+	5381.08.28 = {
+		holder = lineofakhubarikka10
+	}
+	5403.04.09 = {
+		holder = lineofakhubarikka13
+	}
+	5449.03.15 = {
+		holder = lineofakhubarikka15
+	}
+	5469.06.27 = {
+		holder = lineofakhubarikka21
+	}
+	#5480.07.11 = {
+	#	holder = 0
+	#}
+
+	5999.1.12 = { # In the wake of the coalition's defeat by King Earnil, Ôvatha VI unifies Khand, taking advantage of the weakened Haradrim and Easterlings, beginning a golden age of Khand
+		holder = lineofskakali1
+		government = clan_government
+	}
+	6050.8.22 = {
+		holder = lineofskakali4
+	}
+	6112.7.12 = { # Children of Ôvatha VII cannot chose who should be high-king. Khand's golden age continues due to an informal alliance between the Khandish realms, but the realm of Khand is broken
+		holder = lineofskakali45
+	}
+	6155.9.20 = {
+		holder = lineofskakali49
+	}
+	6208.7.25 = {
+		holder = lineofskakali53
+	}
+	6244.9.9 = {
+		holder = lineofskakali57
+	}
+	6259.9.18 = {
+		holder = lineofskakali59
+	}
+	#6260.10.12 = {
+	#	holder = 0
+	#}
+
+	6653.3.18 = {
+		holder = lineofyahyaka9 #Khado_o_mejar
+		change_development_level = 9
+	}
+	6726.8.1 = {
+		holder = lineofyahyaka13 #Nuru
+	}
+	6779.11.18 = {
+		holder = lineofyahyaka15 #Dar
+	}
+	6812.4.13 = {
+		holder = lineofyahyaka17 #Mu_u_la_a_no
+	}
+	6832.9.28 = {
+		holder = lineofyahyaka19 #Ima_a_n
+	}
+	6860.11.11 = {
+		holder = lineofyahyaka21 #Isa_a_lin
+	}
+	6913.7.7 = {
+		holder = lineofyahyaka23 #Zha_a_latkho
+	}
+
+	6920.1.1 = { # Haruze Rulers slaughtered in Chelkari Revolt
+		holder = lineofkhadnom1 # Khadnom, leader of the Chelkar Revolt
+		change_development_level = 15
+		government = clan_government
+	}
+	6937.3.6 = {
+		holder = lineofkhadnom2 # Safal the Stalwart
+	}
+	7007.12.20 = {
+		holder = lineofkhadnom3 # Sagalion the Strangled
+	}
+	7029.2.5 = {
+		holder = lineofkhadnom5 # Kalafar the Gilded-Blade
+	}
+	#7042.3.15 = { # Suladan reunites Harawan
+	#	holder =
+	#}
+	7062.10.24 = {
+		holder = lineofkhadnom5 # Kalafar the Gilded-Blade
+	}
+	7087.4.8 = {
+		holder = lineofkhadnom9 # Fe_e_ladoh
+	}
+	7110.3.4 = {
+		holder = lineofkhadnom11 # Nafasir
+	}
+	7134.4.14 = {
+		holder = lineofkhadnom12 # Lasim
+	}
+	7170.1.29 = {
+		holder = lineofkhadnom14 # Nenad
+	}
+}
+
+#Khelkar
+c_khelkar = {
+	5200.07.15 = {
+		holder = lineofakhubarikka1
+	}
+	5272.06.01 = {
+		holder = lineofakhubarikka3
+	}
+	5289.09.06 = {
+		holder = lineofakhubarikka4
+	}
+	5334.07.09 = {
+		holder = lineofakhubarikka5
+	}
+	5368.11.22 = {
+		holder = lineofakhubarikka7
+		change_development_level = 9
+	}
+	5381.08.28 = {
+		holder = lineofakhubarikka10
+	}
+	5403.04.09 = {
+		holder = lineofakhubarikka13
+	}
+	5449.03.15 = {
+		holder = lineofakhubarikka15
+	}
+	5469.06.27 = {
+		holder = lineofakhubarikka21
+	}
+	#5480.07.11 = {
+	#	holder = 0
+	#}
+
+	6653.3.18 = {
+		holder = lineofyahyaka9 #Khado_o_mejar
+		change_development_level = 9
+	}
+	6726.8.1 = {
+		holder = lineofyahyaka13 #Nuru
+	}
+	6779.11.18 = {
+		holder = lineofyahyaka15 #Dar
+	}
+	6812.4.13 = {
+		holder = lineofyahyaka17 #Mu_u_la_a_no
+	}
+	6832.9.28 = {
+		holder = lineofyahyaka19 #Ima_a_n
+	}
+	6860.11.11 = {
+		holder = lineofyahyaka21 #Isa_a_lin
+	}
+	6913.7.7 = {
+		holder = lineofyahyaka23 #Zha_a_latkho
+	}
+
+	6920.1.1 = { # Haruze Rulers slaughtered in Chelkari Revolt
+		holder = lineofkhadnom1 # Khadnom, leader of the Chelkar Revolt
+		change_development_level = 13
+	}
+	6937.3.6 = {
+		holder = lineofkhadnom2 # Safal the Stalwart
+	}
+	7007.12.20 = {
+		holder = lineofkhadnom3 # Sagalion the Strangled
+	}
+	7029.2.5 = {
+		holder = lineofkhadnom5 # Kalafar the Gilded-Blade
+	}
+	#7042.3.15 = { # Suladan reunites Harawan
+	#	holder =
+	#}
+	7062.10.24 = {
+		holder = lineofkhadnom5 # Kalafar the Gilded-Blade
+	}
+	7087.4.8 = {
+		holder = lineofkhadnom9 # Fe_e_ladoh
+	}
+	7110.3.4 = {
+		holder = lineofkhadnom11 # Nafasir
+	}
+	7134.4.14 = {
+		holder = lineofkhadnom12 # Lasim
+	}
+	7170.1.29 = {
+		holder = lineofkhadnom14 # Nenad
+	}
+}
+
+#Karghila
+c_karghila = {
+	5200.07.15 = {
+		holder = lineofakhubarikka1
+	}
+	5272.06.01 = {
+		holder = lineofakhubarikka3
+	}
+	5289.09.06 = {
+		holder = lineofakhubarikka4
+	}
+	5334.07.09 = {
+		holder = lineofakhubarikka5
+	}
+	5368.11.22 = {
+		holder = lineofakhubarikka7
+		change_development_level = 8
+	}
+	5381.08.28 = {
+		holder = lineofakhubarikka10
+	}
+	5403.04.09 = {
+		holder = lineofakhubarikka13
+	}
+	5449.03.15 = {
+		holder = lineofakhubarikka15
+	}
+	5469.06.27 = {
+		holder = lineofakhubarikka21
+	}
+	#5480.07.11 = {
+	#	holder = 0
+	#}
+
+	6653.3.18 = {
+		holder = lineofyahyaka9 #Khado_o_mejar
+		change_development_level = 10
+	}
+	6726.8.1 = {
+		holder = lineofyahyaka13 #Nuru
+	}
+	6779.11.18 = {
+		holder = lineofyahyaka15 #Dar
+	}
+	6812.4.13 = {
+		holder = lineofyahyaka17 #Mu_u_la_a_no
+	}
+	6832.9.28 = {
+		holder = lineofyahyaka19 #Ima_a_n
+	}
+	6860.11.11 = {
+		holder = lineofyahyaka21 #Isa_a_lin
+	}
+	6913.7.7 = {
+		holder = lineofyahyaka23 #Zha_a_latkho
+	}
+
+	6920.1.1 = { # Haruze Rulers slaughtered in Chelkari Revolt
+		holder = lineofkhadnom1 # Khadnom, leader of the Chelkar Revolt
+		change_development_level = 12
+	}
+	6937.3.6 = {
+		holder = lineofkhadnom2 # Safal the Stalwart
+	}
+	7007.12.20 = {
+		holder = lineofkhadnom3 # Sagalion the Strangled
+	}
+	7029.2.5 = {
+		holder = lineofkhadnom5 # Kalafar the Gilded-Blade
+	}
+	#7042.3.15 = { # Suladan reunites Harawan
+	#	holder =
+	#}
+	7062.10.24 = {
+		holder = lineofkhadnom5 # Kalafar the Gilded-Blade
+	}
+	7087.4.8 = {
+		holder = lineofkhadnom9 # Fe_e_ladoh
+	}
+	7110.3.4 = {
+		holder = lineofkhadnom11 # Nafasir
+	}
+	7134.4.14 = {
+		holder = lineofkhadnom12 # Lasim
+	}
+	7170.1.29 = {
+		holder = lineofkhadnom14 # Nenad
+	}
+}
+
+#Kharga
+c_kharga = {
+	5205.10.24 = {
+		holder = lineoffejasikkä1
+		liege = k_chelkar
+	}
+	5298.08.21 = {
+		holder = lineoffejasikkä8
+	}
+	5340.10.28 = {
+		holder = lineoffejasikkä20
+		change_development_level = 6
+	}
+	5384.01.13 = {
+		holder = lineoffejasikkä22
+	}
+	5390.01.15 = {
+		holder = lineoffejasikkä26
+	}
+	5414.05.15 = {
+		holder = lineoffejasikkä29
+	}
+	5462.09.05 = {
+		holder = lineofzhajikkä33
+	}
+	5480.09.13 = {
+		holder = lineofzhajikkä36
+	}
+	6653.3.18 = {
+		holder = lineofyahyaka9 #Khado_o_mejar
+		change_development_level = 6
+	}
+	6726.8.1 = {
+		holder = lineofyahyaka13 #Nuru
+	}
+	6779.11.18 = {
+		holder = lineofyahyaka15 #Dar
+	}
+	6812.4.13 = {
+		holder = lineofyahyaka17 #Mu_u_la_a_no
+	}
+	6832.9.28 = {
+		holder = lineofyahyaka19 #Ima_a_n
+	}
+	6860.11.11 = {
+		holder = lineofyahyaka21 #Isa_a_lin
+	}
+	6913.7.7 = {
+		holder = lineofyahyaka23 #Zha_a_latkho
+	}
+	6920.1.1 = { # Haruze Rulers slaughtered in Chelkari Revolt
+		holder = lineofkhadnom1 # Khadnom, leader of the Chelkar Revolt
+		change_development_level = 7
+	}
+	6937.1.1 = {
+		holder = lineofkhadnom2 # Safal the Stalwart
+	}
+	7007.1.1 = {
+		holder = lineofkhadnom3 # Sagalion the Strangled
+	}
+	7029.2.5 = {
+		holder = lineofkhadnom6 #Sinil the Silent
+		liege = k_chelkar
+		change_development_level = 8
+	}
+	#7042.3.15 = { # Suladan reunites Harawan
+	#	holder =
+	#}
+	7062.10.24 = {
+		holder = lineofkhadnom6 #Sinil the Silent
+	}
+}
+
+#Kajbah
+d_kajbah = {
+	5201.12.02 = {
+		holder = lineoftajarikkä1
+		liege = k_chelkar
+	}
+	5290.01.06 = {
+		holder = lineoftajarikkä3
+	}
+	5305.07.27 = {
+		holder = lineoftajarikkä7
+	}
+	5367.12.10 = {
+		holder = lineoftajarikkä9
+	}
+	5397.03.06 = {
+		holder = lineoftajarikkä16
+	}
+	5418.05.23 = {
+		holder = lineoftajarikkä20
+	}
+	5449.06.24 = {
+		holder = lineoftajarikkä24
+	}
+	5480.09.14 = {
+		holder = lineoftajarikkä30
+	}
+	5480.10.26 = {
+		holder = lineofakhubarikka18
+	}
+	5510.7.1 = {
+		holder = 0
+	}
+}
+
+#Kajbah
+c_kajbah = {
+	5201.12.02 = {
+		holder = lineoftajarikkä1
+	}
+	5290.01.06 = {
+		holder = lineoftajarikkä3
+	}
+	5305.07.27 = {
+		holder = lineoftajarikkä7
+	}
+	5367.12.10 = {
+		holder = lineoftajarikkä9
+		change_development_level = 7
+	}
+	5397.03.06 = {
+		holder = lineoftajarikkä16
+	}
+	5418.05.23 = {
+		holder = lineoftajarikkä20
+	}
+	5449.06.24 = {
+		holder = lineoftajarikkä24
+	}
+	5480.09.14 = {
+		holder = lineoftajarikkä30
+	}
+	5480.10.26 = {
+		holder = lineofakhubarikka18
+	}
+
+	6360.1.1 = { #Malâd I
+		holder = lineofmalaad1
+	}
+	6430.1.1 = { #Mabâr
+		holder = lineofmalaad2
+	}
+	6438.12.6 = { #Dâmir
+		holder = lineofmalaad3
+	}
+	6500.1.1 = { #Râmor I
+		holder = lineofmalaad4
+	}
+	6529.12.6 = { #Maltök
+		holder = lineofmalaad5
+	}
+	6553.12.1 = { #Rânko
+		holder = lineofmalaad6
+	}
+	6601.4.18 = { #Rakhûmir
+		holder = lineofmalaad7
+	}
+	6603.12.7 = { #Râmor II
+		holder = lineofmalaad8
+	}
+	6641.3.12 = { #Dâmor
+		holder = lineofmalaad9
+	}
+	6692.4.18 = { #Namârrut I Nadi-aya
+		holder = lineofnadiaya1
+		liege = d_azran
+	}
+	6733.12.29 = { #Nâmiz
+		holder = lineofnadiaya2
+		change_development_level = 5
+	}
+	6801.4.18 = { #Nafasir
+		holder = lineofnadiaya3
+	}
+	6830.4.18 = { #Namârrut II
+		holder = lineofnadiaya4
+	}
+	6869.3.13 = { #Râmor (II)
+		holder = lineofnadiaya5
+	}
+	6870.1.1 = { # Confiscated by Maksîn
+		holder = lineofmalaad13 # Maksîn
+		change_development_level = 4
+	}
+	6850.12.1 = {
+		holder = lineofmalaad14 # Maksîn
+	}
+	6920.1.1 = {
+		holder = lineofkhadnom1 # Khadnom, leader of the Chelkar Revolt
+	}
+	6921.1.1 = { # Granted to a loyal warrior
+		holder = lineofiman1 # Ima_a_n
+		liege = k_chelkar
+	}
+	6953.11.2 = {
+		holder = lineofiman2 # Ozho
+	}
+	6973.10.23 = {
+		holder = lineofiman3 # Ne_e_nad
+	}
+	7010.8.10 = {
+		holder = lineofiman4 # Dar
+	}
+	7037.11.15 = {
+		holder = lineofiman6 # Asu_u_ma_a_ni
+	}
+	#7042.3.15 = { # Suladan reunites Harawan
+	#	holder =
+	#}
+	7062.10.24 = {
+		holder = lineofiman6 # Asu_u_ma_a_ni
+	}
+}
+
+#Pazaran
+c_pazaran = {
+	5201.12.02 = {
+		holder = lineoftajarikkä1
+	}
+	5290.01.06 = {
+		holder = lineoftajarikkä3
+	}
+	5305.07.27 = {
+		holder = lineoftajarikkä7
+	}
+	5367.12.10 = {
+		holder = lineoftajarikkä9
+		change_development_level = 5
+	}
+	5397.03.06 = {
+		holder = lineoftajarikkä16
+	}
+	5418.05.23 = {
+		holder = lineoftajarikkä20
+	}
+	5449.06.24 = {
+		holder = lineoftajarikkä24
+	}
+	5480.09.14 = {
+		holder = lineoftajarikkä30
+	}
+	5480.10.26 = {
+		holder = lineofakhubarikka18
+	}
+
+	6360.1.1 = { #Malâd I
+		holder = lineofmalaad1
+	}
+	6430.1.1 = { #Mabâr
+		holder = lineofmalaad2
+	}
+	6438.12.6 = { #Dâmir
+		holder = lineofmalaad3
+	}
+	6500.1.1 = { #Râmor I
+		holder = lineofmalaad4
+	}
+	6529.12.6 = { #Maltök
+		holder = lineofmalaad5
+	}
+	6553.12.1 = { #Rânko
+		holder = lineofmalaad6
+	}
+	6601.4.18 = { #Rakhûmir
+		holder = lineofmalaad7
+	}
+	6603.12.7 = { #Râmor II
+		holder = lineofmalaad8
+	}
+	6641.3.12 = { #Dâmor
+		holder = lineofmalaad9
+	}
+	6692.4.18 = { #Namârrut I Nadi-aya
+		holder = lineofnadiaya1
+	}
+	6733.12.29 = { #Nâmiz
+		holder = lineofnadiaya2
+		change_development_level = 6
+	}
+	6801.4.18 = { #Nafasir
+		holder = lineofnadiaya3
+	}
+	6830.4.18 = { #Namârrut II
+		holder = lineofnadiaya4
+	}
+	6869.3.13 = { #Râmor (II)
+		holder = lineofnadiaya5
+	}
+	6870.1.1 = { # Confiscated by Maksîn
+		holder = lineofmalaad13 # Maksîn
+		change_development_level = 5
+	}
+	6850.12.1 = {
+		holder = lineofmalaad14 # Maksîn
+	}
+	6920.1.1 = {
+		holder = lineofkhadnom1 # Khadnom, leader of the Chelkar Revolt
+	}
+	6921.1.1 = { # Granted to a loyal warrior
+		holder = lineofiman1 # Ima_a_n
+		liege = k_chelkar
+	}
+	6953.11.2 = {
+		holder = lineofiman2 # Ozho
+	}
+	6973.10.23 = {
+		holder = lineofiman3 # Ne_e_nad
+	}
+	7010.8.10 = {
+		holder = lineofiman4 # Dar
+	}
+	7037.11.15 = {
+		holder = lineofiman6 # Asu_u_ma_a_ni
+	}
+	#7042.3.15 = { # Suladan reunites Harawan
+	#	holder =
+	#}
+	7062.10.24 = {
+		holder = lineofiman6 # Asu_u_ma_a_ni
+	}
+}
+
+#Kath
+c_khath = {
+	5207.06.23 = {
+		holder = lineoftimmirikkä1
+		liege = d_kajbah
+	}
+	5287.08.01 = {
+		holder = lineoftimmirikkä3
+	}
+	5309.06.04 = {
+		holder = lineoftimmirikkä13
+	}
+	5360.04.02 = {
+		holder = lineoftimmirikkä19
+		change_development_level = 6
+	}
+	5390.08.17 = {
+		holder = lineoftimmirikkä28
+	}
+	5421.06.24 = {
+		holder = lineoftimmirikkä37
+	}
+	5430.06.07 = {
+		holder = lineoftimmirikkä41
+	}
+	#5480.06.04 = {
+	#	holder = 0
+	#}
+
+	6743.6.27 = { # Long Winter start date ruler
+		holder = lineoftajhayyi1 #Zimboh
+		liege = e_haradwaith
+		change_development_level = 8
+	}
+	6817.10.16 = {
+		holder = lineoftajhayyi3 #Sa_a_lu
+	}
+	6828.7.24 = {
+		holder = lineoftajhayyi5 #Fejas
+	}
+	6878.10.27 = {
+		holder = lineoftajhayyi7 #Khaba_a_li
+	}
+	6898.11.1 = {
+		holder = lineoftajhayyi9 #Fese_e_lkho
+	}
+	6929.9.3 = {
+		holder = lineoftajhayyi11 #Rajda_a_n
+	}
+	6942.9.9 = {
+		holder = lineoftajhayyi13 #Kija_a_no
+	}
+	6979.12.10 = {
+		holder = lineoftajhayyi15 #Kjetikha_a_nd
+	}
+	7020.6.17 = {
+		holder = lineoftajhayyi17 #Sa_a_milha_a_n
+	}
+	7028.6.12 = {
+		liege = k_lower_khand
+	}
+	7035.9.10 = {
+		holder = lineoftajhayyi19 #Fruk
+	}
+}
+
+#Mirashar
+c_mirashar = {
+	5205.11.26 = {
+		holder = lineofzhajikkä1
+		liege = d_kajbah
+	}
+	5273.11.22 = {
+		holder = lineofzhajikkä4
+	}
+	5302.02.11 = {
+		holder = lineofzhajikkä10
+	}
+	5343.11.09 = {
+		holder = lineofzhajikkä13
+	}
+	5374.10.17 = {
+		holder = lineofzhajikkä19
+		change_development_level = 7
+	}
+	5414.10.24 = {
+		holder = lineofzhajikkä22
+	}
+	5431.03.08 = {
+		holder = lineofzhajikkä25
+	}
+	5461.06.11 = {
+		holder = lineofzhajikkä30
+	}
+	5480.03.01 = {
+		holder = lineofakhubarikka21
+	}
+	#5480.07.11 = {
+	#	holder = 0
+	#}
+
+	6743.6.27 = { # Long winter start date ruler
+		holder = lineoftajhayyi1 #Zimboh
+		change_development_level = 9
+		government = clan_government
+	}
+	6817.10.16 = {
+		holder = lineoftajhayyi3 #Sa_a_lu
+	}
+	6828.7.24 = {
+		holder = lineoftajhayyi5 #Fejas
+	}
+	6878.10.27 = {
+		holder = lineoftajhayyi7 #Khaba_a_li
+	}
+	6898.11.1 = {
+		holder = lineoftajhayyi9 #Fese_e_lkho
+	}
+	6929.9.3 = {
+		holder = lineoftajhayyi11 #Rajda_a_n
+	}
+	6942.9.9 = {
+		holder = lineoftajhayyi13 #Kija_a_no
+	}
+	6979.12.10 = {
+		holder = lineoftajhayyi15 #Kjetikha_a_nd
+	}
+	7020.6.17 = {
+		holder = lineoftajhayyi17 #Sa_a_milha_a_n
+	}
+	7028.6.12 = {
+		liege = k_lower_khand
+	}
+	7035.9.10 = {
+		holder = lineoftajhayyi19 #Fruk
+	}
+}
+
+c_nafajta = {
+	5205.11.26 = {
+		holder = lineofzhajikkä1
+		liege = d_kajbah
+	}
+	5273.11.22 = {
+		holder = lineofzhajikkä4
+	}
+	5302.02.11 = {
+		holder = lineofzhajikkä10
+	}
+	5343.11.09 = {
+		holder = lineofzhajikkä13
+	}
+	5374.10.17 = {
+		holder = lineofzhajikkä19
+		change_development_level = 8
+	}
+	5414.10.24 = {
+		holder = lineofzhajikkä22
+	}
+	5431.03.08 = {
+		holder = lineofzhajikkä25
+	}
+	5461.06.11 = {
+		holder = lineofzhajikkä30
+	}
+	5480.03.01 = {
+		holder = lineofakhubarikka21
+	}
+	#5480.07.11 = {
+	#	holder = 0
+	#}
+
+	6743.6.27 = {
+		holder = lineoftajhayyi1 #Zimboh
+		change_development_level = 10
+	}
+	6817.10.16 = {
+		holder = lineoftajhayyi3 #Sa_a_lu
+	}
+	6828.7.24 = {
+		holder = lineoftajhayyi5 #Fejas
+	}
+	6858.10.27 = {
+		holder = lineoftajhayyi7 #Khaba_a_li
+	}
+	6898.11.1 = {
+		holder = lineoftajhayyi9 #Fese_e_lkho
+	}
+	6929.9.3 = {
+		holder = lineoftajhayyi11 #Rajda_a_n
+	}
+	6942.9.9 = {
+		holder = lineoftajhayyi13 #Kija_a_no
+	}
+	6979.12.10 = {
+		holder = lineoftajhayyi15 #Kjetikha_a_nd
+	}
+	7020.6.17 = {
+		holder = lineoftajhayyi17 #Sa_a_milha_a_n
+	}
+	7028.6.12 = {
+		liege = k_lower_khand
+	}
+	7035.9.10 = {
+		holder = lineoftajhayyi19 #Fruk
+	}
+}
+
+#Azran
+d_azran = {
+	5202.02.10 = {
+		holder = lineofnafasirikkä1
+		liege = k_chelkar
+	}
+	5282.08.21 = {
+		holder = lineofnafasirikkä4
+	}
+	5302.03.28 = {
+		holder = lineofnafasirikkä8
+	}
+	5324.11.17 = {
+		holder = lineofnafasirikkä9
+	}
+	5339.04.02 = {
+		holder = lineofnafasirikkä16
+	}
+	5376.05.05 = {
+		holder = lineofnafasirikkä19
+	}
+	5405.04.21 = {
+		holder = lineofnafasirikkä24
+	}
+	5431.09.04 = {
+		holder = lineofnafasirikkä27
+	}
+	5454.11.16 = {
+		holder = lineofnafasirikkä29
+	}
+	5480.11.14 = {
+		holder = lineofnafasirikkä36
+	}
+
+	6138.1.1 = {
+		holder = lineofskakali75
+		government = clan_government
+	}
+	6192.9.8 = {
+		holder = lineofskakali80
+	}
+	6221.8.27 = {
+		holder = lineofskakali82
+	}
+	6249.4.22 = {
+		holder = lineofskakali84
+	}
+	6251.10.3 = {
+		holder = 0
+	}
+
+	6360.1.1 = { #Malâd I
+		holder = lineofmalaad1
+	}
+	6430.1.1 = { #Mabâr
+		holder = lineofmalaad2
+	}
+	6438.12.6 = { #Dâmir
+		holder = lineofmalaad3
+	}
+	6500.1.1 = { #Râmor I
+		holder = lineofmalaad4
+	}
+	6529.12.6 = { #Maltök
+		holder = lineofmalaad5
+	}
+	6553.12.1 = { #Rânko
+		holder = lineofmalaad6
+	}
+	6601.4.18 = { #Rakhûmir
+		holder = lineofmalaad7
+	}
+	6603.12.7 = { #Râmor II
+		holder = lineofmalaad8
+	}
+	6641.3.12 = { #Dâmor
+		holder = lineofmalaad9
+	}
+	6692.4.18 = { #Dâlijrut
+		holder = lineofmalaad10
+	}
+	6728.3.14 = { #Drahar
+		holder = lineofmalaad11
+	}
+	6781.3.14 = { #Malâd II
+		holder = lineofmalaad12
+		liege = e_haradwaith
+	}
+	6819.4.18 = {
+		holder = lineofmalaad13 # Mânnân
+	}
+	6850.12.1 = {
+		holder = lineofmalaad14 # Maksîn
+	}
+
+	6880.1.1 = {
+		holder = lineofkhadnom1 # Khadnom, leader of the Chelkar Revolt
+	}
+	6921.1.1 = { # Granted to his father in-law
+		holder = lineofdrahar1 # Drahar
+		liege = k_chelkar
+	}
+	6933.6.17 = {
+		holder = lineofdrahar4 # Kho_o_lo_o_nkha_a_n
+	}
+	6986.8.1 = {
+		holder = lineofdrahar5 # Lasim
+	}
+	7001.8.28 = {
+		holder = lineofdrahar6 # Je_e_ngho
+	}
+	7014.12.22 = {
+		holder = lineofdrahar7 # Keto
+	}
+	#7042.3.15 = { # Suladan reunites Harawan
+	#	holder =
+	#}
+	7062.10.24 = {
+		holder = lineofdrahar7 # Keto
+	}
+	7076.12.7 = {
+		holder = lineofdrahar10 # Mek
+	}
+}
+
+#Auchel
+c_auchel = {
+	5202.02.10 = {
+		holder = lineofnafasirikkä1
+	}
+	5282.08.21 = {
+		holder = lineofnafasirikkä4
+	}
+	5302.03.28 = {
+		holder = lineofnafasirikkä8
+	}
+	5324.11.17 = {
+		holder = lineofnafasirikkä9
+	}
+	5339.04.02 = {
+		holder = lineofnafasirikkä16
+	}
+	5376.05.05 = {
+		holder = lineofnafasirikkä19
+		change_development_level = 8
+	}
+	5405.04.21 = {
+		holder = lineofnafasirikkä24
+	}
+	5431.09.04 = {
+		holder = lineofnafasirikkä27
+	}
+	5454.11.16 = {
+		holder = lineofnafasirikkä29
+	}
+	5480.11.14 = {
+		holder = lineofnafasirikkä36
+	}
+
+	6360.1.1 = { #Malâd I
+		holder = lineofmalaad1
+	}
+	6430.1.1 = { #Mabâr
+		holder = lineofmalaad2
+	}
+	6438.12.6 = { #Dâmir
+		holder = lineofmalaad3
+	}
+	6500.1.1 = { #Râmor I
+		holder = lineofmalaad4
+	}
+	6529.12.6 = { #Maltök
+		holder = lineofmalaad5
+	}
+	6553.12.1 = { #Rânko
+		holder = lineofmalaad6
+	}
+	6601.4.18 = { #Rakhûmir
+		holder = lineofmalaad7
+	}
+	6603.12.7 = { #Râmor II
+		holder = lineofmalaad8
+	}
+	6641.3.12 = { #Dâmor
+		holder = lineofmalaad9
+	}
+	6692.4.18 = { #Dâlijrut
+		holder = lineofmalaad10
+	}
+	6728.3.14 = { #Drahar
+		holder = lineofmalaad11
+	}
+	6781.3.14 = { #Malâd II
+		holder = lineofmalaad12
+		change_development_level = 8
+	}
+	6819.4.18 = {
+		holder = lineofmalaad13 # Mânnân
+	}
+	6850.12.1 = {
+		holder = lineofmalaad14 # Maksîn
+	}
+	6920.1.1 = {
+		holder = lineofkhadnom1 # Khadnom, leader of the Chelkar Revolt
+		change_development_level = 12
+	}
+	6921.1.1 = { # Granted to his father in-law
+		holder = lineofdrahar1 # Drahar
+	}
+	6933.6.17 = {
+		holder = lineofdrahar4 # Kho_o_lo_o_nkha_a_n
+	}
+	6986.8.1 = {
+		holder = lineofdrahar5 # Lasim
+	}
+	7001.8.28 = {
+		holder = lineofdrahar6 # Je_e_ngho
+	}
+	7014.12.22 = {
+		holder = lineofdrahar7 # Keto
+	}
+	#7042.3.15 = { # Suladan reunites Harawan
+	#	holder =
+	#}
+	7062.10.24 = {
+		holder = lineofdrahar7 # Keto
+	}
+	7076.12.7 = {
+		holder = lineofdrahar10 # Mek
+	}
+}
+
+#Bogath
+c_bogath = {
+	5202.02.10 = {
+		holder = lineofnafasirikkä1
+	}
+	5282.08.21 = {
+		holder = lineofnafasirikkä4
+	}
+	5302.03.28 = {
+		holder = lineofnafasirikkä8
+	}
+	5324.11.17 = {
+		holder = lineofnafasirikkä9
+	}
+	5339.04.02 = {
+		holder = lineofnafasirikkä16
+	}
+	5376.05.05 = {
+		holder = lineofnafasirikkä19
+		change_development_level = 7
+	}
+	5405.04.21 = {
+		holder = lineofnafasirikkä24
+	}
+	5431.09.04 = {
+		holder = lineofnafasirikkä27
+	}
+	5454.11.16 = {
+		holder = lineofnafasirikkä29
+	}
+	5480.11.14 = {
+		holder = lineofnafasirikkä36
+	}
+
+	6360.1.1 = { #Malâd I
+		holder = lineofmalaad1
+	}
+	6430.1.1 = { #Mabâr
+		holder = lineofmalaad2
+	}
+	6438.12.6 = { #Dâmir
+		holder = lineofmalaad3
+	}
+	6500.1.1 = { #Râmor I
+		holder = lineofmalaad4
+	}
+	6529.12.6 = { #Maltök
+		holder = lineofmalaad5
+	}
+	6553.12.1 = { #Rânko
+		holder = lineofmalaad6
+	}
+	6601.4.18 = { #Rakhûmir
+		holder = lineofmalaad7
+	}
+	6603.12.7 = { #Râmor II
+		holder = lineofmalaad8
+	}
+	6641.3.12 = { #Dâmor
+		holder = lineofmalaad9
+	}
+	6692.4.18 = { #Dâlijrut
+		holder = lineofmalaad10
+	}
+	6728.3.14 = { #Drahar
+		holder = lineofmalaad11
+	}
+	6781.3.14 = { #Malâd II
+		holder = lineofmalaad12
+		change_development_level = 8
+	}
+	6819.4.18 = {
+		holder = lineofmalaad13 # Mânnân
+	}
+	6850.12.1 = {
+		holder = lineofmalaad14 # Maksîn
+	}
+	6920.1.1 = {
+		holder = lineofkhadnom1 # Khadnom, leader of the Chelkar Revolt
+	}
+	6921.1.1 = { # Granted to his father in-law
+		holder = lineofdrahar1 # Drahar
+	}
+	6933.6.17 = {
+		holder = lineofdrahar4 # Kho_o_lo_o_nkha_a_n
+	}
+	6986.8.1 = {
+		holder = lineofdrahar5 # Lasim
+	}
+	7001.8.28 = {
+		holder = lineofdrahar6 # Je_e_ngho
+	}
+	7014.12.22 = {
+		holder = lineofdrahar7 # Keto
+	}
+	#7042.3.15 = { # Suladan reunites Harawan
+	#	holder =
+	#}
+	7062.10.24 = {
+		holder = lineofdrahar7 # Keto
+	}
+	7076.12.7 = {
+		holder = lineofdrahar10 # Mek
+	}
+}
+
+### The Kingdom of Pezarsan ###
+k_pezarsan = {
+	# Founding of Pezarsan
+	5211.3.16 = { # Pezar unites surrounding tribes
+		holder = linepesasikka1 #Pezar I
+		government = clan_government
+	}
+	5243.3.21 = {
+		holder = linepesasikka3 #Kharne_e_n I
+	}
+	5300.4.7 = {
+		holder = linepesasikka5 #Jasikho
+	}
+	5338.7.5 = {
+		holder = linepesasikka7 #Bilagho
+	}
+	5373.10.5 = {
+		holder = linepesasikka9 #Mutimmir
+		effect = {
+			lotr_set_court_language_effect = { LANGUAGE = language_northern_apysaic }
+		}
+	}
+	5416.2.12 = {
+		holder = linepesasikka11 #Jargize_e_n
+	}
+	5441.7.11 = {
+		holder = linepesasikka13 #Raduji
+	}
+	5460.4.1 = {
+		holder = linepesasikka15 #Da_a_lijrut
+	}
+	5497.9.11 = {
+		holder = linepesasikka19 #Khaba_a_li
+	}
+	5535.3.24 = {
+		holder = linepesasikka21 #Milhe_e_nkho
+	}
+	5583.12.20 = {
+		holder = linepesasikka23 #Mitar
+	}
+	5603.9.20 = {
+		holder = linepesasikka25 #Laforaz
+		effect = {
+			lotr_set_court_language_effect = { LANGUAGE = language_northern_apysaic }
+		}
+	}
+	5636.1.26 = {
+		holder = linepesasikka27 #Pezar II
+	}
+	5640.10.12 = {
+		holder = linepesasikka29 #Ouhuro
+	}
+	5697.6.5 = {
+		holder = linepesasikka31 #Sa_a_milha_a_n
+	}
+	5736.8.24 = {
+		holder = linepesasikka33 #Je_e_ngho
+	}
+	5776.8.28 = {
+		holder = linepesasikka35 #Nija
+	}
+	5809.10.6 = {
+		holder = linepesasikka37 #Njokha
+	}
+	5829.6.17 = {
+		holder = linepesasikka39 #Re_e_lkho
+	}
+	5859.10.23 = {
+		holder = linepesasikka41 #Bijorna
+	}
+	5860.5.5 = {
+		holder = linepesasikka43 #Pezar III
+	}
+	5924.9.25 = {
+		holder = linepesasikka45 #Kharne_e_n II
+	}
+	5965.9.9 = { # Kingdom disbands
+		holder = 0
+	}
+
+	# Under Harwan
+	6705.1.1 = { # Akateiaji, the 'Great King'
+		holder = lineofafalku9 #Akateiaji
+	}
+	6731.1.1 = { # Vassal Kingdom to Harwan
+		holder = lineofafalku52 #Kha_a_ngho
+	}
+	6784.12.25 = {
+		holder = lineofafalku54 #Fe_e_ladoh
+	}
+	# Granted to popular general related to the previous king
+	6786.11.4 = { # Long Winter start date ruler
+		holder = lineofarzagarnom1 # Arzagar
+		liege = e_haradwaith
+	}
+	6835.1.1 = {
+		holder = lineofarzagarnom2 #Azim
+	}
+	6842.1.1 = {
+		holder = lineofarzagarnom3 #Gildûn
+	}
+	6894.1.1 = { # The Chelkar Revolt shatters the Realm of Harwan
+		liege = 0
+	}
+	6915.1.1 = {
+		holder = lineofarzagarnom4 #Dasin I
+	}
+	6927.1.1 = {
+		holder = lineofarzagarnom5 #Hashim
+	}
+	6984.1.1 = {
+		holder = lineofarzagarnom6 #Jamal
+	}
+	7028.1.1 = {
+		holder = lineofarzagarnom7 #Dasin II
+	}
+	7039.1.1 = {
+		holder = lineofafalku15 #Su_u_ladan
+	}
+	7052.3.15 = {
+		holder = lineofafalku19 #Capu_u_ssa
+	}
+	7080.11.16 = {
+		holder = lineofpezerikka1 #Kha_a_ndoro
+	}
+	7109.6.11 = {
+		holder = lineofpezerikka2 #Pezar IV
+	}
+	7140.7.18 = {
+		holder = lineofpezerikka3 #Kharne_e_n III
+	}
+	7158.8.18 = {
+		holder = lineofpezerikka4 #De_e_lasimmir
+	}
+}
+
+## Duchy of Pezarsan ##
+d_pezarsan = {
+	3000.1.1 = {
+		de_jure_liege = k_haruzan
+	}
+
+	# Black Numenoreans rule Proto-Pezarsan
+	3911.1.1 = {
+		holder = lineherumor7 # Fuinur
+	}
+	4029.1.1 = {
+		holder = 0 # Realm disunited with Herumor's death
+	}
+
+	5211.3.16 = {
+		holder = linepesasikka1 #Pezar
+		de_jure_liege = k_pezarsan
+	}
+	5243.3.21 = {
+		holder = linepesasikka3 #Kharne_e_n
+	}
+	5300.4.7 = {
+		holder = linepesasikka5 #Jasikho
+	}
+	5338.7.5 = {
+		holder = linepesasikka7 #Bilagho
+	}
+	5373.10.5 = {
+		holder = linepesasikka9 #Mutimmir
+	}
+	5416.2.12 = {
+		holder = linepesasikka11 #Jargize_e_n
+	}
+	5441.7.11 = {
+		holder = linepesasikka13 #Raduji
+	}
+	5460.4.1 = {
+		holder = linepesasikka15 #Da_a_lijrut
+	}
+	5497.9.11 = {
+		holder = linepesasikka19 #Khaba_a_li
+	}
+	5535.3.24 = {
+		holder = linepesasikka21 #Milhe_e_nkho
+	}
+	5583.12.20 = {
+		holder = linepesasikka23 #Mitar
+	}
+	5603.9.20 = {
+		holder = linepesasikka25 #Laforaz
+	}
+	5636.1.26 = {
+		holder = linepesasikka27 #Pezar
+	}
+	5640.10.12 = {
+		holder = linepesasikka29 #Ouhuro
+	}
+	5697.6.5 = {
+		holder = linepesasikka31 #Sa_a_milha_a_n
+	}
+	5736.8.24 = {
+		holder = linepesasikka33 #Je_e_ngho
+	}
+	5776.8.28 = {
+		holder = linepesasikka35 #Amessan
+	}
+	5809.10.6 = {
+		holder = linepesasikka37 #Njokha
+	}
+	5829.6.17 = {
+		holder = linepesasikka39 #Re_e_lkho
+	}
+	5859.10.23 = {
+		holder = linepesasikka41 #Bijorna
+	}
+	5860.5.5 = {
+		holder = linepesasikka43 #Pezar
+	}
+	5924.9.25 = {
+		holder = linepesasikka45 #Kharne_e_n
+	}
+	5965.9.9 = {
+		holder = linepesasikka47 #Rajlo
+	}
+	5980.3.21 = {
+		holder = linepesasikka49 #Boja_a_n
+	}
+	5992.1.5 = {
+		holder = linepesasikka51 #Fese_e_lkho
+	}
+	6059.7.23 = {
+		holder = linepesasikka53 #Fejo_o_nno_o_mir
+	}
+	6088.5.2 = {
+		holder = linepesasikka55 #Kjetikha_a_nd
+	}
+	6132.5.27 = {
+		holder = linepesasikka57 #Tiho_o_mmo
+	}
+	6174.7.7 = {
+		holder = linepesasikka59 #Kha_a_ngho
+	}
+	6189.10.8 = { # Pezarsan dynasty goes extinct
+		holder = 0
+	}
+
+	# Under Harwan
+	6705.1.1 = { # Akateiaji, the 'Great King'
+		holder = lineofafalku9 # Akateiaji
+	}
+	6731.1.1 = { # Vassal Kingdom to Harwan
+		holder = lineofafalku52 # Kha_a_ngho
+	}
+	6784.12.25 = {
+		holder = lineofafalku54 # Fe_e_ladoh
+	}
+	# Granted to popular general related to the previous king
+	6786.11.4 = { # Long Winter start date ruler
+		holder = lineofarzagarnom1 # Arzagar
+		liege = e_haradwaith
+	}
+	6835.1.1 = {
+		holder = lineofarzagarnom2 # Azim
+	}
+	6842.1.1 = {
+		holder = lineofarzagarnom3 # Gildûn
+	}
+	6915.1.1 = {
+		holder = lineofarzagarnom4 # Dasin
+	}
+	6927.1.1 = {
+		holder = lineofarzagarnom5 # Hashim
+	}
+	6984.1.1 = {
+		holder = lineofarzagarnom6 # Jamal
+	}
+	7028.1.1 = {
+		holder = lineofarzagarnom7 # Dasin
+	}
+	7039.1.1 = {
+		holder = lineofafalku37 #Balkutho_o_r
+	}
+	7052.3.15 = {
+		holder = lineofafalku19 #Capu_u_ssa
+	}
+	7080.11.16 = {
+		holder = lineofpezerikka1 #Kha_a_ndoro
+	}
+	7109.6.11 = {
+		holder = lineofpezerikka2 #Pezar IV
+	}
+	7140.7.18 = {
+		holder = lineofpezerikka3 #Kharne_e_n III
+	}
+	7158.8.18 = {
+		holder = lineofpezerikka4 #De_e_lasimmir
+	}
+}
+
+#Hannan
+c_hannan = {
+	5211.3.16 = {
+		holder = linepesasikka1 #Pezar
+	}
+	5243.3.21 = {
+		holder = linepesasikka3 #Kharne_e_n
+	}
+	5300.4.7 = {
+		holder = linepesasikka5 #Jasikho
+	}
+	5338.7.5 = {
+		holder = linepesasikka7 #Bilagho
+	}
+	5373.10.5 = {
+		holder = linepesasikka9 #Mutimmir
+		change_development_level = 12
+	}
+	5416.2.12 = {
+		holder = linepesasikka11 #Jargize_e_n
+	}
+	5441.7.11 = {
+		holder = linepesasikka13 #Raduji
+	}
+	5460.4.1 = {
+		holder = linepesasikka15 #Da_a_lijrut
+	}
+	5497.9.11 = {
+		holder = linepesasikka19 #Khaba_a_li
+	}
+	5535.3.24 = {
+		holder = linepesasikka21 #Milhe_e_nkho
+	}
+	5583.12.20 = {
+		holder = linepesasikka23 #Mitar
+	}
+	5603.9.20 = {
+		holder = linepesasikka25 #Laforaz
+	}
+	5636.1.26 = {
+		holder = linepesasikka27 #Pezar
+	}
+	5640.10.12 = {
+		holder = linepesasikka29 #Ouhuro
+	}
+	5697.6.5 = {
+		holder = linepesasikka31 #Sa_a_milha_a_n
+	}
+	5736.8.24 = {
+		holder = linepesasikka33 #Je_e_ngho
+	}
+	5776.8.28 = {
+		holder = linepesasikka35 #Amessan
+	}
+	5809.10.6 = {
+		holder = linepesasikka37 #Njokha
+	}
+	5829.6.17 = {
+		holder = linepesasikka39 #Re_e_lkho
+	}
+	5859.10.23 = {
+		holder = linepesasikka41 #Bijorna
+	}
+	5860.5.5 = {
+		holder = linepesasikka43 #Pezar
+	}
+	5924.9.25 = {
+		holder = linepesasikka45 #Kharne_e_n
+	}
+	5965.9.9 = {
+		holder = linepesasikka47 #Rajlo
+	}
+	5980.3.21 = {
+		holder = linepesasikka49 #Boja_a_n
+	}
+	5992.1.5 = {
+		holder = linepesasikka51 #Fese_e_lkho
+	}
+	6059.7.23 = {
+		holder = linepesasikka53 #Fejo_o_nno_o_mir
+	}
+	6088.5.2 = {
+		holder = linepesasikka55 #Kjetikha_a_nd
+	}
+	6132.5.27 = {
+		holder = linepesasikka57 #Tiho_o_mmo
+	}
+	6174.7.7 = {
+		holder = linepesasikka59 #Kha_a_ngho
+	}
+
+	# Under Harwan
+	6705.1.1 = { # Akateiaji, the 'Great King'
+		holder = lineofafalku9 # Akateiaji
+		change_development_level = 13
+	}
+	6731.1.1 = { # Vassal Kingdom to Harwan
+		holder = lineofafalku52 # Kha_a_ngho
+	}
+	6784.12.25 = {
+		holder = lineofafalku54 # Fe_e_ladoh
+	}
+	# Granted to popular general related to the previous king
+	6786.11.4 = {
+		holder = lineofarzagarnom1 # Arzagar
+		liege = e_haradwaith
+	}
+	6835.1.1 = {
+		holder = lineofarzagarnom2 # Azim
+	}
+	6842.1.1 = {
+		holder = lineofarzagarnom3 # Gildûn
+	}
+	6915.1.1 = {
+		holder = lineofarzagarnom4 # Dasin
+	}
+	6927.1.1 = {
+		holder = lineofarzagarnom5 # Hashim
+	}
+	6984.1.1 = {
+		holder = lineofarzagarnom6 # Jamal
+	}
+	7028.1.1 = {
+		holder = lineofarzagarnom7 # Dasin
+	}
+	7039.1.1 = {
+		holder = lineofafalku37 #Balkutho_o_r
+	}
+	7052.3.15 = {
+		holder = lineofafalku19 #Capu_u_ssa
+	}
+	7080.11.16 = {
+		holder = lineofpezerikka1 #Kha_a_ndoro
+	}
+	7109.6.11 = {
+		holder = lineofpezerikka2 #Pezar IV
+	}
+	7140.7.18 = {
+		holder = lineofpezerikka3 #Kharne_e_n III
+	}
+	7158.8.18 = {
+		holder = lineofpezerikka4 #De_e_lasimmir
+	}
+}
+
+#Rakha
+c_rakha = {
+	5211.3.16 = {
+		holder = linepesasikka1 #Pezar
+	}
+	5243.3.21 = {
+		holder = linepesasikka3 #Kharne_e_n
+	}
+	5300.4.7 = {
+		holder = linepesasikka5 #Jasikho
+	}
+	5338.7.5 = {
+		holder = linepesasikka7 #Bilagho
+	}
+	5373.10.5 = {
+		holder = linepesasikka9 #Mutimmir
+		change_development_level = 6
+	}
+	5416.2.12 = {
+		holder = linepesasikka11 #Jargize_e_n
+	}
+	5441.7.11 = {
+		holder = linepesasikka13 #Raduji
+	}
+	5460.4.1 = {
+		holder = linepesasikka15 #Da_a_lijrut
+	}
+	5497.9.11 = {
+		holder = linepesasikka19 #Khaba_a_li
+	}
+	5535.3.24 = {
+		holder = linepesasikka21 #Milhe_e_nkho
+	}
+	5583.12.20 = {
+		holder = linepesasikka23 #Mitar
+	}
+	5603.9.20 = {
+		holder = linepesasikka25 #Laforaz
+	}
+	5636.1.26 = {
+		holder = linepesasikka27 #Pezar
+	}
+	5640.10.12 = {
+		holder = linepesasikka29 #Ouhuro
+	}
+	5697.6.5 = {
+		holder = linepesasikka31 #Sa_a_milha_a_n
+	}
+	5736.8.24 = {
+		holder = linepesasikka33 #Je_e_ngho
+	}
+	5776.8.28 = {
+		holder = linepesasikka35 #Amessan
+	}
+	5809.10.6 = {
+		holder = linepesasikka37 #Njokha
+	}
+	5829.6.17 = {
+		holder = linepesasikka39 #Re_e_lkho
+	}
+	5859.10.23 = {
+		holder = linepesasikka41 #Bijorna
+	}
+	5860.5.5 = {
+		holder = linepesasikka43 #Pezar
+	}
+	5924.9.25 = {
+		holder = linepesasikka45 #Kharne_e_n
+	}
+	5965.9.9 = {
+		holder = linepesasikka47 #Rajlo
+	}
+	5980.3.21 = {
+		holder = linepesasikka49 #Boja_a_n
+	}
+	5992.1.5 = {
+		holder = linepesasikka51 #Fese_e_lkho
+	}
+	6059.7.23 = {
+		holder = linepesasikka53 #Fejo_o_nno_o_mir
+	}
+	6088.5.2 = {
+		holder = linepesasikka55 #Kjetikha_a_nd
+	}
+	6132.5.27 = {
+		holder = linepesasikka57 #Tiho_o_mmo
+	}
+	6174.7.7 = {
+		holder = linepesasikka59 #Kha_a_ngho
+	}
+
+	# Under Harwan
+	6705.1.1 = { # Akateiaji, the 'Great King'
+		holder = lineofafalku9 # Akateiaji
+		change_development_level = 4
+	}
+	6731.1.1 = { # Vassal Kingdom to Harwan
+		holder = lineofafalku52 # Kha_a_ngho
+	}
+	6784.12.25 = {
+		holder = lineofafalku54 # Fe_e_ladoh
+	}
+	# Granted to popular general related to the previous king
+	6786.11.4 = {
+		holder = lineofarzagarnom1 # Arzagar
+		liege = e_haradwaith
+	}
+	6835.1.1 = {
+		holder = lineofarzagarnom2 # Azim
+	}
+	6842.1.1 = {
+		holder = lineofarzagarnom3 # Gildûn
+	}
+	6915.1.1 = {
+		holder = lineofarzagarnom4 # Dasin
+	}
+	6927.1.1 = {
+		holder = lineofarzagarnom5 # Hashim
+	}
+	6984.1.1 = {
+		holder = lineofarzagarnom6 # Jamal
+	}
+	7028.1.1 = {
+		holder = lineofmedjanom1 # Medjan
+		liege = k_chelkar
+		change_development_level = 5
+	}
+	7035.8.27 = {
+		holder = lineofmedjanom2 # Nazar
+	}
+	7035.10.1 = {
+		holder = lineofmedjanom3 # Sapazi_i_r
+	}
+	7042.3.15 = { # Suladan reunites Harawan
+		holder = lineofafalku38 # Su_u_ltan
+		liege = k_pezarsan
+	}
+	7052.3.15 = {
+		holder = lineofafalku19 #Capu_u_ssa
+	}
+	#7052.4.16 = {
+	#	holder = ? # Capussa's BFF
+	#}
+}
+
+#Arakh
+c_arakh = {
+	5320.11.19 = {
+		holder = lineofjerek1 #Rajlo
+		liege = k_pezarsan
+		change_development_level = 6
+	}
+	5395.1.25 = {
+		holder = lineofjerek3 #Na_a_loa_a_n
+	}
+	5432.9.1 = {
+		holder = lineofjerek5 #Kijlu
+	}
+	6786.11.4 = {
+		holder = lineofarzagarnom1 # Arzagar
+		change_development_level = 5
+	}
+	6835.1.1 = {
+		holder = lineofarzagarnom2 # Azim
+	}
+	6842.1.1 = {
+		holder = lineofarzagarnom3 # Gildûn
+	}
+	6915.1.1 = {
+		holder = lineofarzagarnom4 # Dasin
+	}
+	6927.1.1 = {
+		holder = lineofarzagarnom5 # Hashim
+	}
+	6984.1.1 = {
+		holder = lineofarzagarnom6 # Jamal
+	}
+	7028.1.1 = {
+		holder = lineofmedjanom1 # Medjan
+		liege = k_chelkar
+	}
+	7035.8.27 = {
+		holder = lineofmedjanom2 # Nazar
+	}
+	7035.10.1 = {
+		holder = lineofmedjanom3 # Sapazi_i_r
+	}
+	7042.3.15 = { # Suladan reunites Harawan
+		holder = lineofafalku38 # Su_u_ltan
+		liege = k_pezarsan
+	}
+	7052.3.15 = {
+		holder = lineofafalku19 #Capu_u_ssa
+	}
+	#7052.4.16 = {
+	#	holder = ? # Capussa's BFF
+	#}
+}
+
+## Duchy of Khumar ##
+d_khumar = {
+	3000.1.1 = {
+		de_jure_liege = k_haruzan
+	}
+	5211.3.16 = {
+		de_jure_liege = k_pezarsan
+	}
+
+	5211.3.16 = {
+		holder = linepesasikka1 #Pezar
+	}
+	5243.3.21 = {
+		holder = linepesasikka3 #Kharne_e_n
+	}
+	5300.4.7 = {
+		holder = linepesasikka5 #Jasikho
+	}
+	5338.7.5 = {
+		holder = linepesasikka7 #Bilagho
+	}
+	5373.10.5 = {
+		holder = linepesasikka9 #Mutimmir
+	}
+	5416.2.12 = {
+		holder = linepesasikka11 #Jargize_e_n
+	}
+	5441.7.11 = {
+		holder = linepesasikka13 #Raduji
+	}
+
+	5456.7.11 = {
+		holder = linekawuan22 #Asu_u_ma_a_ni
+	}
+	5489.9.5 = {
+		holder = linekawuan25 #Gyorruad
+	}
+	5515.7.17 = {
+		holder = 0
+	}
+
+	6655.10.22 = {
+		holder = linekhumares1 #Jasikho
+	}
+	6729.3.4 = {
+		holder = linekhumares3 #Gjorad
+	}
+	6746.10.21 = { # Long Winter start date ruler
+		holder = linekhumares5 #Bra_a_nkho
+	}
+	6786.11.4 = {
+		liege = k_pezarsan
+	}
+	6818.4.27 = {
+		holder = linekhumares7 #De_e_lasimmir
+	}
+	6833.12.25 = {
+		holder = linekhumares9 #Bogho
+	}
+	6869.10.16 = {
+		holder = linekhumares11 #Jasikho
+	}
+	6897.8.6 = {
+		holder = linekhumares13 #Jerek
+	}
+	6915.1.1 = {
+		holder = lineofarzagarnom4 # Dasin
+	}
+	6927.1.1 = {
+		holder = lineofarzagarnom5 # Hashim
+	}
+	6984.1.1 = {
+		holder = lineofarzagarnom6 # Jamal
+	}
+	7028.1.1 = {
+		holder = lineofarzagarnom7 # Dasin
+	}
+	7039.1.1 = {
+		holder = lineofafalku37 #Balkutho_o_r
+	}
+	7052.3.15 = {
+		holder = lineofafalku19 #Capu_u_ssa
+	}
+	7080.11.16 = {
+		holder = lineofpezerikka1 #Kha_a_ndoro
+	}
+	7109.6.11 = {
+		holder = lineofpezerikka2 #Pezar IV
+	}
+	7140.7.18 = {
+		holder = lineofpezerikka3 #Kharne_e_n III
+	}
+	7158.8.18 = {
+		holder = lineofpezerikka4 #De_e_lasimmir
+	}
+}
+
+#Khumar
+c_khumar = {
+	5211.3.16 = {
+		holder = linepesasikka1 #Pezar
+	}
+	5243.3.21 = {
+		holder = linepesasikka3 #Kharne_e_n
+	}
+	5300.4.7 = {
+		holder = linepesasikka5 #Jasikho
+	}
+	5338.7.5 = {
+		holder = linepesasikka7 #Bilagho
+	}
+	5373.10.5 = {
+		holder = linepesasikka9 #Mutimmir
+		change_development_level = 9
+	}
+	5416.2.12 = {
+		holder = linepesasikka11 #Jargize_e_n
+	}
+	5441.7.11 = {
+		holder = linepesasikka13 #Raduji
+	}
+	5460.4.1 = {
+		holder = linepesasikka15 #Da_a_lijrut
+	}
+	5497.9.11 = {
+		holder = linepesasikka19 #Khaba_a_li
+	}
+	5535.3.24 = {
+		holder = linepesasikka21 #Milhe_e_nkho
+	}
+	5583.12.20 = {
+		holder = linepesasikka23 #Mitar
+	}
+	5603.9.20 = {
+		holder = linepesasikka25 #Laforaz
+	}
+	5636.1.26 = {
+		holder = linepesasikka27 #Pezar
+	}
+	5640.10.12 = {
+		holder = linepesasikka29 #Ouhuro
+	}
+	5697.6.5 = {
+		holder = linepesasikka31 #Sa_a_milha_a_n
+	}
+	5736.8.24 = {
+		holder = linepesasikka33 #Je_e_ngho
+	}
+	5776.8.28 = {
+		holder = linepesasikka35 #Amessan
+	}
+	5809.10.6 = {
+		holder = linepesasikka37 #Njokha
+	}
+	5829.6.17 = {
+		holder = linepesasikka39 #Re_e_lkho
+	}
+	5859.10.23 = {
+		holder = linepesasikka41 #Bijorna
+	}
+	5860.5.5 = {
+		holder = linepesasikka43 #Pezar
+	}
+	5924.9.25 = {
+		holder = linepesasikka45 #Kharne_e_n
+	}
+	5965.9.9 = {
+		holder = linepesasikka47 #Rajlo
+	}
+	5980.3.21 = {
+		holder = linepesasikka49 #Boja_a_n
+	}
+	5992.1.5 = {
+		holder = linepesasikka51 #Fese_e_lkho
+	}
+	6059.7.23 = {
+		holder = linepesasikka53 #Fejo_o_nno_o_mir
+	}
+	6088.5.2 = {
+		holder = linepesasikka55 #Kjetikha_a_nd
+	}
+	6132.5.27 = {
+		holder = linepesasikka57 #Tiho_o_mmo
+	}
+	6174.7.7 = {
+		holder = linepesasikka59 #Kha_a_ngho
+	}
+
+
+	6655.10.22 = {
+		holder = linekhumares1 #Jasikho
+		change_development_level = 6
+	}
+	6729.3.4 = {
+		holder = linekhumares3 #Gjorad
+	}
+	6746.10.21 = { # Long Winter start date ruler
+		holder = linekhumares5 #Bra_a_nkho
+	}
+	6818.4.27 = {
+		holder = linekhumares7 #De_e_lasimmir
+	}
+	6833.12.25 = {
+		holder = linekhumares9 #Bogho
+	}
+	6869.10.16 = {
+		holder = linekhumares11 #Jasikho
+	}
+	6897.8.6 = {
+		holder = linekhumares13 #Jerek
+	}
+	6915.1.1 = {
+		holder = lineofarzagarnom4 # Dasin
+	}
+	6927.1.1 = {
+		holder = lineofarzagarnom5 # Hashim
+	}
+	6984.1.1 = {
+		holder = lineofarzagarnom6 # Jamal
+	}
+	7028.1.1 = {
+		holder = lineofarzagarnom7 # Dasin
+	}
+	7039.1.1 = {
+		holder = lineofafalku37 #Balkutho_o_r
+	}
+	7052.3.15 = {
+		holder = lineofafalku19 #Capu_u_ssa
+	}
+	7080.11.16 = {
+		holder = lineofpezerikka1 #Kha_a_ndoro
+	}
+	7109.6.11 = {
+		holder = lineofpezerikka2 #Pezar IV
+	}
+	7140.7.18 = {
+		holder = lineofpezerikka3 #Kharne_e_n III
+	}
+	7158.8.18 = {
+		holder = lineofpezerikka4 #De_e_lasimmir
+	}
+}
+
+#Zakakha
+c_zakakha = {
+	5310.1.7 = {
+		holder = lineofozho1 #Nuru
+		liege = k_pezarsan
+		change_development_level = 5
+	}
+	5394.12.8 = {
+		holder = lineofozho3 #Zhajd
+	}
+	5415.2.4 = {
+		holder = lineofozho5 #Lijadikir
+	}
+
+	5425.6.8 = { # Jelut conquer parts of Pezarsan
+		holder = linekawuan7 #Za_a_l
+		liege = k_narak
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		liege = d_kes_jelut
+	}
+	5448.7.12 = {
+		holder = linekawuan20 #Safarh
+	}
+	5449.5.26 = {
+		holder = linekawuan22 #Asu_u_ma_a_ni
+		liege = 0
+	}
+	5489.9.5 = {
+		holder = linekawuan25 #Gyorruad
+	}
+	5515.7.17 = {
+		liege = 0
+	}
+
+	6655.10.22 = {
+		holder = linekhumares1 #Jasikho
+		change_development_level = 7
+	}
+	6729.3.4 = {
+		holder = linekhumares3 #Gjorad
+	}
+	6746.10.21 = { # Long Winter start date ruler
+		holder = linekhumares5 #Bra_a_nkho
+	}
+	6818.4.27 = {
+		holder = linekhumares7 #De_e_lasimmir
+	}
+	6833.12.25 = {
+		holder = linekhumares9 #Bogho
+	}
+	6869.10.16 = {
+		holder = linekhumares11 #Jasikho
+	}
+	6897.8.6 = {
+		holder = linekhumares13 #Jerek
+	}
+	6915.1.1 = {
+		holder = lineofarzagarnom4 # Dasin
+	}
+	6927.1.1 = {
+		holder = lineofarzagarnom5 # Hashim
+	}
+	6984.1.1 = {
+		holder = lineofarzagarnom6 # Jamal
+	}
+	7015.1.1 = {
+		holder = lineofgjoradka3
+		change_development_level = 6
+		liege = 0
+	}
+	7032.5.11 = {	# awesome haradrim warrior lady
+		holder = lineofgjoradka5
+	}
+}
+
+#Tajama
+c_tajama = {
+	5310.1.7 = {
+		holder = lineofozho1 #Nuru
+		liege = k_pezarsan
+		change_development_level = 6
+	}
+	5394.12.8 = {
+		holder = lineofozho3 #Zhajd
+	}
+	5415.2.4 = {
+		holder = lineofozho5 #Lijadikir
+	}
+	5425.6.8 = { # Jelut conquer parts of Pezarsan
+		holder = linekawuan7 #Za_a_l
+		liege = k_narak
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		liege = d_kes_jelut
+	}
+	5448.7.12 = {
+		holder = linekawuan20 #Safarh
+	}
+	5449.5.26 = {
+		holder = linekawuan22 #Asu_u_ma_a_ni
+		liege = 0
+	}
+	5489.9.5 = {
+		holder = linekawuan25 #Gyorruad
+	}
+	5515.7.17 = {
+		liege = 0
+	}
+
+	6655.10.22 = {
+		holder = linekhumares1 #Jasikho
+		change_development_level = 7
+	}
+	6729.3.4 = {
+		holder = linekhumares3 #Gjorad
+	}
+	6746.10.21 = { # Long Winter start date ruler
+		holder = linekhumares5 #Bra_a_nkho
+	}
+	6818.4.27 = {
+		holder = linekhumares7 #De_e_lasimmir
+	}
+	6833.12.25 = {
+		holder = linekhumares9 #Bogho
+	}
+	6869.10.16 = {
+		holder = linekhumares11 #Jasikho
+	}
+	6897.8.6 = {
+		holder = linekhumares13 #Jerek
+	}
+	6915.1.1 = {
+		holder = lineofarzagarnom4 # Dasin
+	}
+	6927.1.1 = {
+		holder = lineofarzagarnom5 # Hashim
+	}
+	6984.1.1 = {
+		holder = lineofarzagarnom6 # Jamal
+	}
+	7015.1.1 = {
+		holder = lineofgjoradka3
+		change_development_level = 6
+		liege = 0
+	}
+	7032.5.11 = {	# awesome haradrim warrior lady
+		holder = lineofgjoradka5
+	}
+}
+
+#Khabazh
+c_khabazh = {
+	5310.1.7 = {
+		holder = lineofozho1 #Nuru
+		liege = k_pezarsan
+		change_development_level = 5
+	}
+	5394.12.8 = {
+		holder = lineofozho3 #Zhajd
+	}
+	5415.2.4 = {
+		holder = lineofozho5 #Lijadikir
+	}
+	5425.6.8 = { # Jelut conquer parts of Pezarsan
+		holder = linekawuan7 #Za_a_l
+		liege = k_narak
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		liege = d_kes_jelut
+	}
+	5448.7.12 = {
+		holder = linekawuan20 #Safarh
+	}
+	5449.5.26 = {
+		holder = linekawuan22 #Asu_u_ma_a_ni
+		liege = 0
+	}
+	5489.9.5 = {
+		holder = linekawuan25 #Gyorruad
+	}
+	5515.7.17 = {
+		liege = 0
+	}
+
+	6655.10.22 = {
+		holder = linekhumares1 #Jasikho
+		change_development_level = 6
+	}
+	6729.3.4 = {
+		holder = linekhumares3 #Gjorad
+	}
+	6746.10.21 = { # Long Winter start date ruler
+		holder = linekhumares5 #Bra_a_nkho
+	}
+	6818.4.27 = {
+		holder = linekhumares7 #De_e_lasimmir
+	}
+	6833.12.25 = {
+		holder = linekhumares9 #Bogho
+	}
+	6869.10.16 = {
+		holder = linekhumares11 #Jasikho
+	}
+	6897.8.6 = {
+		holder = linekhumares13 #Jerek
+	}
+	6915.1.1 = {
+		holder = lineofarzagarnom4 # Dasin
+	}
+	6927.1.1 = {
+		holder = lineofarzagarnom5 # Hashim
+	}
+	6984.1.1 = {
+		holder = lineofarzagarnom6 # Jamal
+	}
+	7015.1.1 = {
+		holder = lineofgjoradka3
+		change_development_level = 6
+		liege = 0
+	}
+	7032.5.11 = {	# awesome haradrim warrior lady
+		holder = lineofgjoradka5
+	}
+}
+
+## Duchy of Parzee ##
+d_parzee = {
+	3000.1.1 = {
+		de_jure_liege = k_haruzan
+	}
+	5211.3.16 = {
+		holder = linepesasikka1 #Pezar
+		de_jure_liege = k_pezarsan
+	}
+	5243.3.21 = {
+		holder = 0
+	}
+
+	6675.7.24 = {
+		holder = lineparzenid1 #Pakir
+	}
+	6741.5.18 = {
+		holder = lineparzenid3 #A_A_mbar
+		liege = k_pezarsan
+	}
+	6796.4.12 = {
+		holder = lineparzenid5 #Rajlo
+	}
+	6819.3.2 = {
+		holder = lineparzenid7 #Bogho
+	}
+	6853.5.18 = {
+		holder = lineparzenid9 #Darijkho
+	}
+	6903.12.2 = {
+		holder = lineparzenid11 #Ozho
+	}
+	6935.12.22 = {
+		holder = lineparzenid13 #Radofa_a_n
+	}
+	6984.1.1 = {
+		holder = lineofarzagarnom6 # Jamal
+	}
+	7028.1.1 = {
+		holder = lineofarzagarnom7 # Dasin
+	}
+	7039.1.1 = {
+		holder = lineofafalku37 #Balkutho_o_r
+	}
+	7052.3.15 = {
+		holder = lineofafalku19 #Capu_u_ssa
+	}
+	7080.11.16 = {
+		holder = lineofpezerikka1 #Kha_a_ndoro
+	}
+	7109.6.11 = {
+		holder = lineofpezerikka2 #Pezar IV
+	}
+	7140.7.18 = {
+		holder = lineofpezerikka3 #Kharne_e_n III
+	}
+	7158.8.18 = {
+		holder = lineofpezerikka4 #De_e_lasimmir
+	}
+}
+
+#Parzee
+c_parzee = {
+	5320.11.19 = {
+		holder = lineofjerek1 #Rajlo
+		liege = k_pezarsan
+		change_development_level = 10
+	}
+	5395.1.25 = {
+		holder = lineofjerek3 #Na_a_loa_a_n
+	}
+	5432.9.1 = {
+		holder = lineofjerek5 #Kijlu
+	}
+	6675.7.24 = {
+		holder = lineparzenid1 #Pakir
+		change_development_level = 12
+	}
+	6741.5.18 = {
+		holder = lineparzenid3 #A_A_mbar
+	}
+	6796.4.12 = {
+		holder = lineparzenid5 #Rajlo
+	}
+	6819.3.2 = {
+		holder = lineparzenid7 #Bogho
+	}
+	6853.5.18 = {
+		holder = lineparzenid9 #Darijkho
+	}
+	6903.12.2 = {
+		holder = lineparzenid11 #Ozho
+	}
+	6935.12.22 = {
+		holder = lineparzenid13 #Radofa_a_n
+	}
+	6984.1.1 = {
+		holder = lineofarzagarnom6 # Jamal
+	}
+	7028.1.1 = {
+		holder = lineofarzagarnom7 # Dasin
+	}
+	7039.1.1 = {
+		holder = lineofafalku37 #Balkutho_o_r
+	}
+	7052.3.15 = {
+		holder = lineofafalku19 #Capu_u_ssa
+	}
+	7080.11.16 = {
+		holder = lineofpezerikka1 #Kha_a_ndoro
+	}
+	7109.6.11 = {
+		holder = lineofpezerikka2 #Pezar IV
+	}
+	7140.7.18 = {
+		holder = lineofpezerikka3 #Kharne_e_n III
+	}
+	7158.8.18 = {
+		holder = lineofpezerikka4 #De_e_lasimmir
+	}
+}
+
+#Mahûr
+c_mahur = {
+	5320.11.19 = {
+		holder = lineofjerek1 #Rajlo
+		liege = k_pezarsan
+		change_development_level = 9
+	}
+	5395.1.25 = {
+		holder = lineofjerek3 #Na_a_loa_a_n
+	}
+	5432.9.1 = {
+		holder = lineofjerek5 #Kijlu
+	}
+	6675.7.24 = {
+		holder = lineparzenid1 #Pakir
+		change_development_level = 11
+	}
+	6741.5.18 = {
+		holder = lineparzenid3 #A_A_mbar
+		liege = k_pezarsan
+	}
+	6796.4.12 = {
+		holder = lineparzenid5 #Rajlo
+	}
+	6819.3.2 = {
+		holder = lineparzenid7 #Bogho
+	}
+	6853.5.18 = {
+		holder = lineparzenid9 #Darijkho
+	}
+	6903.12.2 = {
+		holder = lineparzenid11 #Ozho
+	}
+	6935.12.22 = {
+		holder = lineparzenid13 #Radofa_a_n
+	}
+	6984.1.1 = {
+		holder = lineofarzagarnom6 # Jamal
+	}
+	7028.1.1 = {
+		holder = lineofarzagarnom7 # Dasin
+	}
+	7039.1.1 = {
+		holder = lineofafalku37 #Balkutho_o_r
+	}
+	7052.3.15 = {
+		holder = lineofafalku19 #Capu_u_ssa
+	}
+	7080.11.16 = {
+		holder = lineofpezerikka1 #Kha_a_ndoro
+	}
+	7109.6.11 = {
+		holder = lineofpezerikka2 #Pezar IV
+	}
+	7140.7.18 = {
+		holder = lineofpezerikka3 #Kharne_e_n III
+	}
+	7158.8.18 = {
+		holder = lineofpezerikka4 #De_e_lasimmir
+	}
+}
+
+#Tafas
+c_tafas = {
+	5312.5.4 = {
+		holder = lineofarat1 #Timbah
+		liege = k_pezarsan
+		change_development_level = 6
+	}
+	5393.5.16 = {
+		holder = lineofarat3 #Kha_a_nnafu
+	}
+	5422.12.13 = {
+		holder = lineofarat5 #Bogho
+	}
+	6675.7.24 = {
+		holder = lineparzenid1 #Pakir
+		change_development_level = 9
+	}
+	6741.5.18 = {
+		holder = lineparzenid3 #A_A_mbar
+	}
+	6796.4.12 = {
+		holder = lineparzenid5 #Rajlo
+	}
+	6819.3.2 = {
+		holder = lineparzenid7 #Bogho
+	}
+	6853.5.18 = {
+		holder = lineparzenid9 #Darijkho
+	}
+	6903.12.2 = {
+		holder = lineparzenid11 #Ozho
+	}
+	6935.12.22 = {
+		holder = lineparzenid13 #Radofa_a_n
+	}
+	6984.1.1 = {
+		holder = lineofarzagarnom6 # Jamal
+	}
+	7007.1.1 = {
+		holder = lineofmaltokka1 # Maysar
+		change_development_level = 8
+		liege = k_pezarsan
+	}
+}
+
+#Enmahadh
+c_enmahadh = {
+	5312.5.4 = {
+		holder = lineofarat1 #Timbah
+		liege = k_pezarsan
+		change_development_level = 8
+	}
+	5393.5.16 = {
+		holder = lineofarat3 #Kha_a_nnafu
+	}
+	5422.12.13 = {
+		holder = lineofarat5 #Bogho
+	}
+	# Under Harwan
+	6675.7.24 = {
+		holder = lineparzenid1 #Pakir
+		change_development_level = 8
+	}
+	6741.5.18 = { # Long winter start date ruler
+		holder = lineparzenid3 #A_A_mbar
+	}
+	6796.4.12 = {
+		holder = lineparzenid5 #Rajlo
+	}
+	6819.3.2 = {
+		holder = lineparzenid7 #Bogho
+	}
+	6853.5.18 = {
+		holder = lineparzenid9 #Darijkho
+	}
+	6903.12.2 = {
+		holder = lineparzenid11 #Ozho
+	}
+	6935.12.22 = {
+		holder = lineparzenid13 #Radofa_a_n
+		change_development_level = 4
+	}
+	6984.1.1 = {
+		holder = lineofarzagarnom6 # Jamal
+	}
+	7007.1.1 = {
+		holder = lineofmaltokka1 # Maysar
+	}
+}
+
+#Bojadla
+c_bojadla = {
+	5312.5.4 = {
+		holder = lineofarat1 #Timbah
+		liege = k_pezarsan
+		change_development_level = 6
+	}
+	5393.5.16 = {
+		holder = lineofarat3 #Kha_a_nnafu
+	}
+	5422.12.13 = {
+		holder = lineofarat5 #Bogho
+	}
+	6675.7.24 = {
+		holder = lineparzenid1 #Pakir
+		change_development_level = 9
+	}
+	6741.5.18 = { # Long Winter start date ruler
+		holder = lineparzenid3 #A_A_mbar
+	}
+	6796.4.12 = {
+		holder = lineparzenid5 #Rajlo
+	}
+	6819.3.2 = {
+		holder = lineparzenid7 #Bogho
+	}
+	6853.5.18 = {
+		holder = lineparzenid9 #Darijkho
+	}
+	6903.12.2 = {
+		holder = lineparzenid11 #Ozho
+	}
+	6935.12.22 = {
+		holder = lineparzenid13 #Radofa_a_n
+	}
+	6984.1.1 = {
+		holder = lineofarzagarnom6 # Jamal
+	}
+	7007.1.1 = {
+		holder = lineofmaltokka1 # Maysar
+		change_development_level = 7
+	}
+}
+
+## High Kingdom of Narakawan (Jelut Empire)
+e_jelut = {
+	5398.5.7 = { # Jelut Conquest
+		holder = linejelut1 #Kuan
+	}
+	5429.6.23 = {
+		holder = linejelut3 #Kuesh
+	}
+	5443.7.21 = { # Kuesh slain in Siege of Umbar
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = 0
+	}
+
+	5891.1.1 = { # Jelut invade Umbar
+		holder = linezhajomin3 #Sha_a_lirik
+	}
+	5928.3.22 = {
+		holder = linezhajomin5 #Zirinkho
+	}
+	5957.3.12 = {
+		holder = linezhajomin7 #Tiho_o_mmo
+	}
+	6002.6.5 = { #conquers haruzan briefly
+		holder = linezhajomin9 #Kha_a_linar
+	}
+	6034.5.27 = {
+		holder = linezhajomin11 #Khaba_a_li
+	}
+	6039.1.1 = { # Jelut Kingdom collapses
+		holder = 0
+	}
+}
+
+### Kingdom of Narak ###
+k_narak = {
+	1000.1.1 = {
+		name = k_karna
+		de_jure_liege = e_umbar
+	}
+
+	4300.1.1 = { # First Tedjin Migration
+		effect = { # The City of Kârna falls to the Tedjin
+			lotr_move_dejure_capital_effect = { COUNTY = c_karagmir }
+		}
+	}
+
+	# Umbarean Vassal Kings
+	4783.8.13 = {
+		holder = linenarghan1 #Pakirh
+		liege = e_umbar
+		effect = {
+			lotr_set_court_language_effect = { LANGUAGE = language_adunaic_umbar }
+		}
+	}
+	4860.11.11 = {
+		holder = linenarghan3 #Pe_e_nharh
+	}
+	4872.2.8 = {
+		holder = linenarghan5 #Vauk
+	}
+	4893.12.16 = {
+		holder = linenarghan8 #Ra_a_nko
+	}
+	4920.2.7 = {
+		holder = linenarghan11 #Ima_a_n
+	}
+	4947.11.7 = {
+		holder = linenarghan13 #Pravak
+	}
+	4956.6.24 = {
+		holder = linenarghan16 #Zasarra
+	}
+	4965.9.17 = {
+		holder = linenarghan26 #Zayd
+	}
+	4966.1.1 = { # Gondorian Conquest of Umbar under King Eärnil I
+		de_jure_liege = e_dune_sea
+		liege = 0
+	}
+	4969.6.8 = { # Some Nobles from Umbar flee to the desert
+		holder = lineumbar19
+	}
+	5048.12.8 = { # Adunaic Exiles siege Umbar
+		holder = 0
+	}
+
+	5325.5.13 = { # Kes Âluk retaken from Arani, Uhurro is crowned King of Kârna
+		holder = linedesarrhan1 #Uhurro
+		effect = {
+			lotr_set_court_language_effect = { LANGUAGE = language_northern_apysaic }
+		}
+	}
+	5355.3.4 = {
+		holder = linedesarrhan4 #Uhurro
+	}
+	5386.2.15 = {
+		holder = linedesarrhan6 #Akubarh
+	}
+	5390.4.13 = {
+		holder = linedesarrhan8 #Su_u_luadahn
+	}
+	5398.5.7 = { # Jelut Conquest
+		holder = linejelut1 #Kuan
+		name = k_narak
+		effect = {
+			lotr_move_dejure_capital_effect = { COUNTY = c_harsan }
+		}
+	}
+	5429.6.23 = {
+		holder = linejelut3 #Kuesh
+	}
+	5443.7.21 = { # Kuesh slain in Siege of Umbar
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linejelut6 #Ozre_e_n
+	}
+	5473.1.25 = {
+		holder = linejelut8 #Za_a_l
+	}
+	5540.2.14 = {
+		holder = 0
+	}
+
+	5850.1.1 = {
+		holder = linezhajomin1 #Da_a_mir
+		effect = {
+			lotr_set_court_language_effect = { LANGUAGE = language_jelut }
+		}
+	}
+	5881.7.2 = {
+		holder = linezhajomin3 #Sha_a_lirik
+	}
+	5928.3.22 = {
+		holder = linezhajomin5 #Zirinkho
+	}
+	5957.3.12 = {
+		holder = linezhajomin7 #Tiho_o_mmo
+	}
+	6002.6.5 = {
+		holder = linezhajomin9 #Kha_a_linar
+	}
+	6034.5.27 = {
+		holder = linezhajomin11 #Khaba_a_li
+	}
+	6039.1.1 = { # Jelut Kingdom collapses
+		de_jure_liege = e_haradwaith
+		holder = 0
+	}
+}
+
+## Duchy of Kes Jelut ##
+d_kes_jelut = {
+	1000.1.1 = {
+		name = cn_kes_sirran
+	}
+
+
+	4969.6.8 = { # Some Nobles from Umbar flee to the desert
+		holder = lineumbar19
+	}
+	5048.12.8 = { # Adunaic Exiles siege Umbar
+		holder = 0
+	}
+
+	5228.10.23 = {
+		holder = linetijit1 #Maksin
+	}
+	5278.11.1 = {
+		holder = linetijit3 #To_o_mo
+	}
+	5298.12.22 = {
+		holder = linetijit5 #Ma_a_na_a_n
+	}
+	5325.5.13 = { # Kes Âluk retaken from Arani, Uhurro is crowned King of Kârna
+		holder = linetijit7 #Kyetika_a_nd
+	}
+	5334.2.8 = {
+		holder = linetijit17 #Boa_a_n
+	}
+	5336.4.4 = {
+		holder = linetijit19 #Da_a_liyaut
+	}
+	5344.1.1 = { # Haruze seize northern oasis
+		holder = 0
+		liege = 0
+	}
+
+	5398.5.7 = { # Jelut Conquest
+		holder = linejelut1 #Kuan
+		liege = k_narak
+		name = d_kes_jelut
+	}
+	5429.6.23 = {
+		holder = linejelut3 #Kuesh
+	}
+	5443.7.21 = { # Kuesh slain in Siege of Umbar
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linejelut12 #Borga_a_l
+		liege = 0
+	}
+	5468.6.19 = {
+		holder = linejelut14 #Biorna
+	}
+	5482.7.15 = {
+		holder = 0
+	}
+
+	5492.6.4 = { # Reestablished
+		holder = linekawuan31 #Terko
+	}
+	5500.7.3 = {
+		holder = linekawuan33 #Timirh
+	}
+	5537.7.5 = {
+		holder = 0
+	}
+
+	6822.11.1 = {
+		holder = lineofboghomin1 #Bogho
+	}
+	6905.8.22 = {
+		holder = lineofboghomin3 #Rutnikho
+	}
+	6930.11.27 = {
+		holder = lineofboghomin6 #Kho_o_lo_o_nkha_a_n
+	}
+	6970.8.28 = {
+		holder = lineofboghomin15 #Mutimmir
+	}
+	7020.4.20 = {
+		holder = lineofboghomin17 #Gjorad
+	}
+	7042.6.4 = {
+		holder = lineofboghomin26 #Krukho
+	}
+	7065.6.27 = {
+		holder = lineofboghomin48 #Ailuk
+	}
+	7095.9.24 = {
+		holder = lineofboghomin50 #Zirra_a_na
+	}
+	7133.6.10 = {
+		holder = lineofboghomin52 #Gyorruad
+	}
+	7168.4.27 = {
+		holder = lineofboghomin55 #Kuesh
+	}
+}
+c_harsan = {
+	5280.11.4 = {
+		holder = lineofkrejir1 #Rajlo
+		liege = d_harnendor
+	}
+	5364.8.27 = {
+		holder = lineofkrejir3 #Mu_u_la_a_no
+		change_development_level = 8
+	}
+	5384.10.20 = {
+		holder = lineofkrejir5 #Isa_a_lin
+	}
+	5398.5.7 = { # Jelut Conquest
+		holder = linejelut1 #Kuan
+		liege = d_kes_jelut
+	}
+	5429.6.23 = {
+		holder = linejelut3 #Kuesh
+	}
+	5443.7.21 = { # Kuesh slain in Siege of Umbar
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linejelut12 #Borga_a_l
+	}
+	5449.5.26 = {
+		holder = linekawuan22 #Asu_u_ma_a_ni
+		liege = 0
+	}
+	5489.9.5 = {
+		holder = linekawuan31 #Terko
+	}
+	5500.7.3 = {
+		holder = linekawuan33 #Timirh
+	}
+	6450.1.1 = {
+		holder = lineofizrissin1
+	}
+	6496.3.21 = {
+		holder = lineofizrissin2
+	}
+	6517.6.7 = {
+		holder = lineofizrissin3
+	}
+	6575.3.15 = {
+		holder = lineofizrissin7
+	}
+	6613.8.17 = {
+		holder = lineofizrissin10
+	}
+	6631.9.7 = {
+		holder = lineofhuagos1 #Huagos
+		change_development_level = 7
+	}
+	6703.1.10 = {
+		holder = lineofhuagos3 #Bogo
+	}
+	6742.11.5 = {
+		holder = lineofhuagos5 #Reta
+	}
+	6761.2.25 = { # Long winter start date ruler
+		holder = lineofhuagos7 #Sa_a_lavisa
+		liege = e_haradwaith
+	}
+	6809.4.10 = {
+		holder = lineofhuagos9 #Pe_e_nharh
+	}
+	6822.11.1 = {
+		holder = lineofboghomin1 #Bogho
+		change_development_level = 5
+	}
+	6905.8.22 = {
+		holder = lineofboghomin3 #Rutnikho
+	}
+	6930.11.27 = {
+		holder = lineofboghomin6 #Kho_o_lo_o_nkha_a_n
+	}
+	6970.8.28 = {
+		holder = lineofboghomin15 #Mutimmir
+	}
+	7020.4.20 = {
+		holder = lineofboghomin17 #Gjorad
+	}
+	7042.6.4 = {
+		holder = lineofboghomin26 #Krukho
+	}
+	7065.6.27 = {
+		holder = lineofboghomin48 #Ailuk
+	}
+	7095.9.24 = {
+		holder = lineofboghomin50 #Zirra_a_na
+	}
+	7133.6.10 = {
+		holder = lineofboghomin52 #Gyorruad
+	}
+	7168.4.27 = {
+		holder = lineofboghomin55 #Kuesh
+	}
+}
+c_yazat = {
+	5228.10.23 = {
+		holder = linetijit1 #Maksin
+	}
+	5278.11.1 = {
+		holder = linetijit3 #To_o_mo
+	}
+	5298.12.22 = {
+		holder = linetijit5 #Ma_a_na_a_n
+	}
+	5325.5.13 = { # Kes Âluk retaken from Arani, Uhurro is crowned King of Kârna
+		holder = linetijit7 #Kyetika_a_nd
+	}
+	5334.2.8 = {
+		holder = linetijit17 #Boa_a_n
+	}
+	5336.4.4 = {
+		holder = linetijit19 #Da_a_liyaut
+	}
+	5345.1.1 = { # Subjugated by Kârna
+		liege = k_narak
+	}
+	5379.1.6 = {
+		holder = linetijit21
+		change_development_level = 5
+	}
+	5398.5.7 = { # Jelut Conquest
+		holder = linejelut1 #Kuan
+		liege = d_kes_jelut
+	}
+	5429.6.23 = {
+		holder = linejelut3 #Kuesh
+	}
+	5443.7.21 = { # Kuesh slain in Siege of Umbar
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linejelut12 #Borga_a_l
+	}
+	5468.6.19 = {
+		holder = linejelut14 #Biorna
+	}
+	5482.7.15 = { # Conquered post-death of Biorna
+		holder = linekawuan22 #Asu_u_ma_a_ni
+	}
+	5489.9.5 = {
+		holder = linekawuan31 #Terko
+	}
+	5500.7.3 = {
+		holder = linekawuan33 #Timirh
+	}
+	6450.1.1 = {
+		holder = lineofacammes1
+	}
+	6484.2.5 = {
+		holder = lineofacammes2
+	}
+	6525.12.23 = {
+		holder = lineofacammes3
+	}
+	6544.3.10 = {
+		holder = lineofacammes5
+	}
+	6579.11.3 = {
+		holder = lineofnatana1 #Natana
+		change_development_level = 5
+	}
+	6633.10.26 = {
+		holder = lineofnatana3 #Asu_u_ma_a_ni
+	}
+	6643.2.15 = {
+		holder = lineofnatana5 #Ve_e_luado
+	}
+	6721.6.1 = {
+		holder = lineofnatana7 #Quado_o_mearh
+	}
+	6764.1.3 = { # Long winter start date ruler
+		holder = lineofnatana19 #Shalin
+		liege = d_kes_aluk
+	}
+	6811.10.12 = {
+		holder = lineofnatana13 #Rakumirh
+	}
+	6822.11.1 = {
+		holder = lineofboghomin1 #Bogho
+		change_development_level = 6
+	}
+	6905.8.22 = {
+		holder = lineofboghomin3 #Rutnikho
+	}
+	6930.11.27 = {
+		holder = lineofboghomin6 #Kho_o_lo_o_nkha_a_n
+	}
+	6970.8.28 = {
+		holder = lineofboghomin15 #Mutimmir
+	}
+	7020.4.20 = {
+		holder = lineofboghomin17 #Gjorad
+	}
+	7042.6.4 = {
+		holder = lineofboghomin26 #Krukho
+	}
+	7065.6.27 = {
+		holder = lineofboghomin48 #Ailuk
+	}
+	7095.9.24 = {
+		holder = lineofboghomin50 #Zirra_a_na
+	}
+	7133.6.10 = {
+		holder = lineofboghomin52 #Gyorruad
+	}
+	7168.4.27 = {
+		holder = lineofboghomin55 #Kuesh
+	}
+}
+c_lasirrat = {
+	5228.10.23 = {
+		holder = linetijit1 #Maksin
+	}
+	5278.11.1 = {
+		holder = linetijit3 #To_o_mo
+	}
+	5298.12.22 = {
+		holder = linetijit5 #Ma_a_na_a_n
+	}
+	5325.5.13 = { # Kes Âluk retaken from Arani, Uhurro is crowned King of Kârna
+		holder = linetijit7 #Kyetika_a_nd
+	}
+	5334.2.8 = {
+		holder = linetijit17 #Boa_a_n
+	}
+	5336.4.4 = {
+		holder = linetijit19 #Da_a_liyaut
+	}
+	5345.1.1 = { # Subjugated by Kârna
+		liege = k_narak
+	}
+	5379.1.6 = {
+		holder = linetijit21
+		change_development_level = 5
+	}
+
+
+	5398.5.7 = { # Jelut Conquest
+		holder = linejelut1 #Kuan
+		liege = k_narak
+		name = d_kes_jelut
+	}
+	5429.6.23 = {
+		holder = linejelut3 #Kuesh
+	}
+	5443.7.21 = { # Kuesh slain in Siege of Umbar
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linejelut12 #Borga_a_l
+		liege = 0
+	}
+	5468.6.19 = {
+		holder = linejelut14 #Biorna
+	}
+	5471.4.7 = {
+		holder = linejelut6 #Ozre_e_n
+	}
+	5473.1.25 = {
+		holder = linejelut8 #Za_a_l
+	}
+	6450.1.1 = {
+		holder = lineofkhuarseg1
+	}
+	6491.6.27 = {
+		holder = lineofkhuarseg2
+	}
+	6530.2.11 = {
+		holder = lineofkhuarseg5
+	}
+	6539.10.28 = {
+		holder = lineofkhuarseg7
+	}
+	6547.3.17 = {
+		holder = lineofkhuarseg12
+	}
+	6590.4.23 = {
+		holder = lineofnatana1 #Natana
+		change_development_level = 6
+	}
+	6633.10.26 = {
+		holder = lineofnatana3 #Asu_u_ma_a_ni
+	}
+	6643.2.15 = {
+		holder = lineofnatana5 #Ve_e_luado
+	}
+	6721.6.1 = {
+		holder = lineofnatana7 #Quado_o_mearh
+	}
+	6764.1.3 = {
+		holder = lineofnatana31 #Krierh
+		liege = d_kes_aluk
+	}
+	6785.8.1 = { # Long winter start date ruler
+		holder = lineofnatana33 #Sela
+	}
+	6920.4.27 = {
+		holder = lineofisakin0 #Isak
+		liege = 0
+	}
+	6963.2.19 = {
+		holder = lineofisakin1 #Isak
+	}
+	7020.3.9 = {
+		holder = lineofisakin3 #Pinak
+	}
+	7028.9.9 = {
+		holder = lineofisakin5 #Jargize_e_n
+	}
+	7048.4.21 = {
+		liege = d_kes_jelut
+	}
+	7106.10.15 = {
+		holder = lineofisakin28 #Asu_u_ma_a_ni
+	}
+	7112.9.25 = {
+		holder = lineofisakin30 #Pastaz
+	}
+	7137.12.7 = {
+		holder = lineofisakin32 #Biorna
+	}
+	7158.6.19 = {
+		holder = lineofisakin34 #Nediyko
+	}
+}
+c_ben = {
+	5280.11.4 = {
+		holder = lineofkrejir1 #Rajlo
+		liege = d_harnendor
+	}
+	5364.8.27 = {
+		holder = lineofkrejir3 #Mu_u_la_a_no
+		change_development_level = 6
+	}
+	5384.10.20 = {
+		holder = lineofkrejir5 #Isa_a_lin
+	}
+	5418.11.22 = {
+		holder = linekawuan7 #Za_a_l
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		liege = d_kes_jelut
+	}
+	5448.7.12 = {
+		holder = linekawuan20 #Safarh
+	}
+	5449.5.26 = {
+		holder = linekawuan22 #Asu_u_ma_a_ni
+		liege = 0
+	}
+	5489.9.5 = {
+		holder = linekawuan25 #Gyorruad
+	}
+	5515.7.17 = {
+		liege = 0
+	}
+	6450.1.1 = {
+		holder = lineofizrissin1
+	}
+	6496.3.21 = {
+		holder = lineofizrissin2
+	}
+	6517.6.7 = {
+		holder = lineofizrissin3
+	}
+	6575.3.15 = {
+		holder = lineofizrissin7
+	}
+	6613.8.17 = {
+		holder = lineofizrissin10
+	}
+	6631.9.7 = {
+		holder = lineofhuagos1 #Huagos
+		change_development_level = 8
+	}
+	6703.1.10 = {
+		holder = lineofhuagos3 #Bogo
+	}
+	6742.11.5 = {
+		holder = lineofhuagos5 #Reta
+	}
+	6761.2.25 = { # Long winter start date ruler
+		holder = lineofhuagos7 #Sa_a_lavisa
+		liege = e_haradwaith
+	}
+	6809.4.10 = {
+		holder = lineofhuagos9 #Pe_e_nharh
+	}
+	6822.11.1 = {
+		holder = lineofboghomin1 #Bogho
+		change_development_level = 5
+	}
+	6905.8.22 = {
+		holder = lineofboghomin3 #Rutnikho
+	}
+	6930.11.27 = {
+		holder = lineofboghomin6 #Kho_o_lo_o_nkha_a_n
+	}
+	6970.8.28 = {
+		holder = lineofboghomin15 #Mutimmir
+	}
+	7020.4.20 = {
+		holder = lineofboghomin17 #Gjorad
+	}
+	7042.6.4 = {
+		holder = lineofboghomin26 #Krukho
+	}
+	7065.6.27 = {
+		holder = lineofboghomin48 #Ailuk
+	}
+	7095.9.24 = {
+		holder = lineofboghomin50 #Zirra_a_na
+	}
+	7133.6.10 = {
+		holder = lineofboghomin52 #Gyorruad
+	}
+	7168.4.27 = {
+		holder = lineofboghomin55 #Kuesh
+	}
+}
+
+## Duchy of Zar Uran ##
+d_zar_uran = {
+	3000.1.1 = {
+		de_jure_liege = k_umbar
+	}
+	5083.1.1 = {
+		holder = sakalgovernor30
+	}
+	5110.1.1 = {
+		holder = sakalgovernor31
+	}
+	5132.1.1 = {
+		holder = sakalgovernor32
+	}
+	5198.1.1 = {
+		holder = sakalgovernor33
+	}
+	5237.1.1 = {
+		holder = sakalgovernor34
+	}
+	5291.1.1 = {
+		holder = sakalgovernor35
+	}
+	5321.1.1 = {
+		holder = sakalgovernor36
+	}
+	5385.1.1 = {
+		holder = sakalgovernor37
+	}
+	5398.5.7 = { # Jelut Conquest
+		de_jure_liege = k_narak
+		holder = 0
+	}
+
+	5445.5.3 = { # Karrani Rump State established after Gondor-Jelut War
+		holder = linedesarrhan34
+		liege = 0
+	}
+	5484.8.1 = {
+		holder = linedesarrhan36
+	}
+
+
+	5560.1.1 = { # Last of the Karrani cities failed
+		effect = {
+			lotr_move_dejure_capital_effect = { COUNTY = c_ialut }
+		}
+	}
+
+	6563.7.8 = {
+		holder = lineofnatana1 #Natana
+	}
+	6633.10.26 = {
+		holder = lineofnatana3 #Asu_u_ma_a_ni
+	}
+	6643.2.15 = {
+		holder = lineofnatana5 #Ve_e_luado
+	}
+	6721.6.1 = {
+		holder = lineofnatana7 #Quado_o_mearh
+	}
+	6764.1.3 = { # Long winter start date ruler
+		holder = lineofnatana11 #Milye_e_nko
+	}
+	6805.2.12 = {
+		holder = lineofnatana13 #Gyorruad
+	}
+	6848.9.13 = {
+		holder = 0
+	}
+	6912.1.1 = {
+		holder = lineizrissas1 # Keraja
+	}
+	6947.1.1 = {
+		holder = lineizrissas2 # Yugerten
+	}
+	6990.1.1 = {
+		holder = lineizrissas4 # Amessan
+	}
+	7023.1.1 = {
+		holder = lineizrissas5 # Aksel
+	}
+	7052.12.13 = {
+		holder = lineizrissas6 # Tiljad
+	}
+	7081.2.1 = {
+		holder = lineizrissas15 # O_O_latarh
+	}
+	7108.5.12 = {
+		holder = lineizrissas17 # Kuan
+	}
+	7134.2.27 = {
+		holder = lineizrissas19 # Yozirh
+	}
+}
+c_pharim = {
+	5083.1.1 = {
+		holder = sakalgovernor30
+	}
+	5110.1.1 = {
+		holder = sakalgovernor31
+	}
+	5132.1.1 = {
+		holder = sakalgovernor32
+	}
+	5198.1.1 = {
+		holder = sakalgovernor33
+	}
+	5237.1.1 = {
+		holder = sakalgovernor34
+	}
+	5291.1.1 = {
+		holder = sakalgovernor35
+	}
+	5321.1.1 = {
+		holder = sakalgovernor36
+		change_development_level = 7
+	}
+	5385.1.1 = {
+		holder = sakalgovernor37
+	}
+	5402.1.1 = {
+		holder = sakalgovernor38
+	}
+	5424.1.1 = {
+		holder = sakalgovernor39
+	}
+	5438.1.1 = {
+		holder = linedesarrhan34
+	}
+	5484.8.1 = {
+		holder = linedesarrhan36
+	}
+	6450.1.1 = {
+		holder = lineofteferias1
+	}
+	6473.10.5 = {
+		holder = lineofteferias2
+	}
+	6505.10.16 = {
+		holder = lineofteferias3
+	}
+	6566.2.26 = {
+		holder = lineofnatana1 #Natana
+		change_development_level = 5
+	}
+	6633.10.26 = {
+		holder = lineofnatana3 #Asu_u_ma_a_ni
+	}
+	6643.2.15 = {
+		holder = lineofnatana5 #Ve_e_luado
+	}
+	6721.6.1 = {
+		holder = lineofnatana7 #Quado_o_mearh
+	}
+	6764.1.3 = { # Long winter start date ruler
+		holder = lineofnatana11 #Milye_e_nko
+	}
+	6805.2.12 = {
+		holder = lineofnatana13 #Gyorruad
+	}
+	6912.1.1 = {
+		holder = lineizrissas1 # Keraja
+		change_development_level = 7
+	}
+	6947.1.1 = {
+		holder = lineizrissas2 # Yugerten
+	}
+	6990.1.1 = {
+		holder = lineizrissas4 # Amessan
+	}
+	7023.1.1 = {
+		holder = lineizrissas5 # Aksel
+	}
+	7052.12.13 = {
+		holder = lineizrissas6 # Tiljad
+	}
+	7081.2.1 = {
+		holder = lineizrissas15 # O_O_latarh
+	}
+	7108.5.12 = {
+		holder = lineizrissas17 # Kuan
+	}
+	7134.2.27 = {
+		holder = lineizrissas19 # Yozirh
+	}
+}
+c_ialut = {
+	5083.1.1 = {
+		holder = sakalgovernor30
+	}
+	5110.1.1 = {
+		holder = sakalgovernor31
+	}
+	5132.1.1 = {
+		holder = sakalgovernor32
+	}
+	5198.1.1 = {
+		holder = sakalgovernor33
+	}
+	5237.1.1 = {
+		holder = sakalgovernor34
+	}
+	5291.1.1 = {
+		holder = sakalgovernor35
+	}
+	5321.1.1 = {
+		holder = sakalgovernor36
+		change_development_level = 6
+	}
+	5385.1.1 = {
+		holder = sakalgovernor37
+	}
+	5398.5.7 = { # Jelut Conquest
+		holder = linekawuan13
+		liege = k_narak
+	}
+	5405.9.24 = {
+		holder = linekawuan16
+	}
+	5444.8.15 = { # Dies in Gondor-Jelut war
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Karrani Rump State established after Gondor-Jelut War
+		holder = linedesarrhan34
+		liege = 0
+	}
+	5484.8.1 = {
+		holder = linedesarrhan36
+	}
+	6450.1.1 = {
+		holder = lineofigiderag1
+	}
+	6480.9.22 = {
+		holder = lineofigiderag2
+	}
+	6527.5.24 = {
+		holder = lineofigiderag3
+	}
+	6548.6.9 = {
+		holder = lineofigiderag7
+	}
+	6574.6.9 = {
+		holder = lineofnatana1 #Natana
+		change_development_level = 6
+	}
+	6633.10.26 = {
+		holder = lineofnatana3 #Asu_u_ma_a_ni
+	}
+	6643.2.15 = {
+		holder = lineofnatana5 #Ve_e_luado
+	}
+	6721.6.1 = {
+		holder = lineofnatana7 #Quado_o_mearh
+	}
+	6764.1.3 = { # Long winter start date ruler
+		holder = lineofnatana7a1 # Aniri_i_k
+		liege = d_ramlond
+	}
+	6792.3.13 = {
+		holder = lineofnatana7a2 # Ailuk
+	}
+	6812.3.13 = {
+		holder = lineofnatana7a1b1 # Akhubar
+	}
+	6833.9.17 = {
+		holder = lineofnatana7a1b2 # Akubarh
+	}
+
+	7021.1.1 = {
+		holder = lineizrissas5 # Aksel
+	}
+	7052.12.13 = {
+		holder = lineizrissas6 # Tiljad
+	}
+	7081.2.1 = {
+		holder = lineizrissas15 # O_O_latarh
+	}
+	7108.5.12 = {
+		holder = lineizrissas17 # Kuan
+	}
+	7134.2.27 = {
+		holder = lineizrissas19 # Yozirh
+	}
+}
+
+## Duchy of Kes Aluk
+d_kes_aluk = {
+	4969.6.8 = { # Some Nobles from Umbar flee to the desert
+		holder = lineumbar19
+	}
+	5048.12.8 = { # Adunaic Exiles siege Umbar
+		holder = linekarzhan3 #Za_a_latko
+	}
+	5114.1.14 = {
+		holder = linekarzhan7 #Dobarruadish
+	}
+	5135.12.2 = {
+		holder = linekarzhan9 #Mirre_e_no
+	}
+	5163.5.11 = {
+		holder = linekarzhan11 #Qo_o_lo_o_nka_a_n
+	}
+	5168.8.27 = {
+		holder = linekarzhan13
+	}
+	5172.10.7 = {
+		holder = linekarzhan15
+	}
+	5186.2.21 = {
+		holder = linekarzhan18 #Brayko
+	}
+	5210.12.26 = {
+		holder = linekarzhan20 #Tarri
+	}
+	5254.6.26 = {
+		holder = linekarzhan23
+	}
+	5273.8.23 = {
+		holder = linekarzhan29
+	}
+	5301.3.27 = { # Arani tribes seize Kes Âluk from native Karrani
+		holder = linetijit5 #Ma_a_na_a_n
+	}
+	5325.5.13 = { # Kes Âluk retaken from Arani, Uhurro is crowned King of Kârna
+		holder = lineluazhar1 #Quaba_a_li
+		liege = k_narak
+	}
+	5346.4.10 = {
+		holder = lineluazhar3 #Ozo
+	}
+	5378.5.10 = {
+		holder = lineluazhar6 #Sa_a_mirh
+	}
+	5398.5.7 = { # Jelut Conquest
+		name = d_kes_aluk
+		holder = linekawuan13
+		liege = k_narak
+	}
+	5405.9.24 = {
+		holder = linekawuan16
+	}
+	5444.8.15 = { # Dies in Gondor-Jelut war
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linejelut6 #Ozre_e_n
+	}
+	5473.1.25 = {
+		holder = linejelut8 #Za_a_l
+	}
+	5540.2.14 = {
+		holder = 0
+		liege = 0
+	}
+
+	6563.7.8 = {
+		holder = lineofnatana1 #Natana
+	}
+	6633.10.26 = {
+		holder = lineofnatana3 #Asu_u_ma_a_ni
+	}
+	6643.2.15 = {
+		holder = lineofnatana5 #Ve_e_luado
+	}
+	6721.6.1 = {
+		holder = lineofnatana7 #Quado_o_mearh
+	}
+	6764.1.3 = { # Long winter start date ruler
+		holder = lineofnatana11 #Milye_e_nko
+	}
+	6805.2.12 = {
+		holder = lineofnatana13 #Gyorruad
+	}
+	6901.1.24 = {
+		holder = lineofmisrakim1 #Misrak
+	}
+	6961.12.22 = {
+		holder = lineofmisrakim6 #Ozre_e_n
+	}
+	6978.1.14 = { # Seized by Vassals
+		holder = lineofozhomin3 #Raduji
+	}
+	6978.7.10 = {
+		holder = lineofozhomin6 #Safar
+	}
+	7013.2.27 = {
+		holder = lineofozhomin8 #Borgha_a_l
+	}
+	7039.2.10 = {
+		holder = lineofozhomin14 #Bilagho
+	}
+	7039.2.19 = {
+		holder = lineofozhomin16 #Zhajik
+	}
+	7105.6.16 = {
+		holder = lineofozhomin24 #Boa_a_n
+	}
+	7127.12.27 = {
+		holder = lineofozhomin26 #Za_a_latko
+	}
+	7144.5.5 = {
+		holder = lineofozhomin28 #Ruadova_a_n
+	}
+}
+c_aluk = {
+	4969.6.8 = { # Some Nobles from Umbar flee to the desert
+		holder = lineumbar19
+	}
+	5048.12.8 = { # Adunaic Exiles siege Umbar
+		holder = linekarzhan3 #Za_a_latko
+	}
+	5114.1.14 = {
+		holder = linekarzhan7 #Dobarruadish
+	}
+	5135.12.2 = {
+		holder = linekarzhan9 #Mirre_e_no
+	}
+	5163.5.11 = {
+		holder = linekarzhan11 #Qo_o_lo_o_nka_a_n
+	}
+	5168.8.27 = {
+		holder = linekarzhan13
+	}
+	5172.10.7 = {
+		holder = linekarzhan15
+	}
+	5186.2.21 = {
+		holder = linekarzhan18 #Brayko
+	}
+	5210.12.26 = {
+		holder = linekarzhan20 #Tarri
+	}
+	5254.6.26 = {
+		holder = linekarzhan23
+	}
+	5273.8.23 = {
+		holder = linekarzhan29
+	}
+	5301.3.27 = { # Arani tribes seize Kes Âluk from native Karrani
+		holder = linetijit5 #Ma_a_na_a_n
+	}
+	5325.5.13 = { # Kes Âluk retaken from Arani, Uhurro is crowned King of Kârna
+		holder = lineluazhar1 #Quaba_a_li
+		liege = k_narak
+	}
+	5346.4.10 = {
+		holder = lineluazhar3 #Ozo
+	}
+	5378.5.10 = {
+		holder = lineluazhar6 #Sa_a_mirh
+		change_development_level = 5
+	}
+	5398.5.7 = { # Jelut Conquest
+		holder = linekawuan13
+		liege = k_narak
+	}
+	5405.9.24 = {
+		holder = linekawuan16
+	}
+	5444.8.15 = { # Dies in Gondor-Jelut war
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linejelut6 #Ozre_e_n
+	}
+	5473.1.25 = {
+		holder = linejelut8 #Za_a_l
+	}
+	6450.1.1 = {
+		holder = lineofmasgavassin1
+	}
+	6463.9.3 = {
+		holder = lineofmasgavassin5
+	}
+	6498.11.5 = {
+		holder = lineofmasgavassin6
+	}
+	6527.10.3 = {
+		holder = lineofmasgavassin11
+	}
+	6547.1.14 = {
+		holder = lineofmasgavassin18
+	}
+	6600.3.6 = {
+		holder = lineofnatana1 #Natana
+		change_development_level = 5
+	}
+	6633.10.26 = {
+		holder = lineofnatana3 #Asu_u_ma_a_ni
+	}
+	6643.2.15 = {
+		holder = lineofnatana5 #Ve_e_luado
+	}
+	6721.6.1 = {
+		holder = lineofnatana7 #Quado_o_mearh
+	}
+	6764.1.3 = { # Long winter start date ruler
+		holder = lineofnatana11 #Milye_e_nko
+	}
+	6805.2.12 = {
+		holder = lineofnatana13 #Gyorruad
+	}
+	6901.1.24 = {
+		holder = lineofmisrakim1 #Misrak
+		change_development_level = 4
+	}
+	6961.12.22 = {
+		holder = lineofmisrakim6 #Ozre_e_n
+	}
+	6978.1.14 = { # Seized by Vassals
+		holder = lineofozhomin3 #Raduji
+	}
+	6978.7.10 = {
+		holder = lineofozhomin6 #Safar
+	}
+	7013.2.27 = {
+		holder = lineofozhomin8 #Borgha_a_l
+	}
+	7039.2.10 = {
+		holder = lineofozhomin14 #Bilagho
+	}
+	7039.2.19 = {
+		holder = lineofozhomin16 #Zhajik
+	}
+	7105.6.16 = {
+		holder = lineofozhomin24 #Boa_a_n
+	}
+	7127.12.27 = {
+		holder = lineofozhomin26 #Za_a_latko
+	}
+	7144.5.5 = {
+		holder = lineofozhomin28 #Ruadova_a_n
+	}
+}
+c_zaynen = {
+	4969.6.8 = { # Some Nobles from Umbar flee to the desert
+		holder = lineumbar19
+	}
+	5048.12.8 = { # Adunaic Exiles siege Umbar
+		holder = linekarzhan3 #Za_a_latko
+	}
+	5114.1.14 = {
+		holder = linekarzhan7 #Dobarruadish
+	}
+	5135.12.2 = {
+		holder = linekarzhan9 #Mirre_e_no
+	}
+	5163.5.11 = {
+		holder = linekarzhan11 #Qo_o_lo_o_nka_a_n
+	}
+	5168.8.27 = {
+		holder = linekarzhan13
+	}
+	5172.10.7 = {
+		holder = linekarzhan15
+	}
+	5186.2.21 = {
+		holder = linekarzhan18 #Brayko
+	}
+	5210.12.26 = {
+		holder = linekarzhan20 #Tarri
+	}
+	5254.6.26 = {
+		holder = linekarzhan23
+	}
+	5273.8.23 = {
+		holder = linekarzhan29
+	}
+	5301.3.27 = { # Arani tribes seize Kes Âluk from native Karrani
+		holder = linetijit5 #Ma_a_na_a_n
+	}
+	5325.5.13 = { # Kes Âluk retaken from Arani, Uhurro is crowned King of Kârna
+		holder = lineluazhar1 #Quaba_a_li
+		liege = k_narak
+	}
+	5346.4.10 = {
+		holder = lineluazhar3 #Ozo
+	}
+	5378.5.10 = {
+		holder = lineluazhar6 #Sa_a_mirh
+		change_development_level = 6
+	}
+	5398.5.7 = { # Jelut Conquest
+		holder = linekawuan13
+		liege = k_narak
+	}
+	5405.9.24 = {
+		holder = linekawuan16
+	}
+	5444.8.15 = { # Dies in Gondor-Jelut war
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linejelut6 #Ozre_e_n
+	}
+	5473.1.25 = {
+		holder = linejelut8 #Za_a_l
+	}
+	6450.1.1 = {
+		holder = lineofyerrag1
+	}
+	6471.3.3 = {
+		holder = lineofyerrag2
+	}
+	6521.9.3 = {
+		holder = lineofyerrag3
+	}
+	6552.9.27 = {
+		holder = lineofyerrag9
+	}
+	6573.7.8 = {
+		holder = lineofyerrag7
+	}
+	6581.8.9 = {
+		holder = lineofyerrag15
+	}
+	6636.9.11 = {
+		holder = lineofhuagos1 #Huagos
+		change_development_level = 8
+	}
+	6703.1.10 = {
+		holder = lineofhuagos3 #Bogo
+	}
+	6742.11.5 = {
+		holder = lineofhuagos5 #Reta
+	}
+	6761.2.25 = { # Long winter start date ruler
+		holder = lineofhuagos7 #Sa_a_lavisa
+		liege = e_haradwaith
+	}
+	6809.4.10 = {
+		holder = lineofhuagos9 #Pe_e_nharh
+	}
+	6883.1.4 = {
+		holder = lineofozhomin1 #Ozho
+		change_development_level = 6
+	}
+	6944.7.24 = {
+		holder = lineofozhomin3 #Raduji
+	}
+	6978.7.10 = {
+		holder = lineofozhomin6 #Safar
+	}
+	7013.2.27 = {
+		holder = lineofozhomin8 #Borgha_a_l
+	}
+	7039.2.10 = {
+		holder = lineofozhomin14 #Bilagho
+	}
+	7039.2.19 = {
+		holder = lineofozhomin16 #Zhajik
+	}
+	7105.6.16 = {
+		holder = lineofozhomin24 #Boa_a_n
+	}
+	7127.12.27 = {
+		holder = lineofozhomin26 #Za_a_latko
+	}
+	7144.5.5 = {
+		holder = lineofozhomin28 #Ruadova_a_n
+	}
+}
+c_zakik = {
+	4969.6.8 = { # Some Nobles from Umbar flee to the desert
+		holder = lineumbar19
+	}
+	5048.12.8 = { # Adunaic Exiles siege Umbar
+		holder = linekarzhan3 #Za_a_latko
+	}
+	5114.1.14 = {
+		holder = linekarzhan7 #Dobarruadish
+	}
+	5135.12.2 = {
+		holder = linekarzhan9 #Mirre_e_no
+	}
+	5163.5.11 = {
+		holder = linekarzhan11 #Qo_o_lo_o_nka_a_n
+	}
+	5168.8.27 = {
+		holder = linekarzhan13
+	}
+	5172.10.7 = {
+		holder = linekarzhan15
+	}
+	5186.2.21 = {
+		holder = linekarzhan18 #Brayko
+	}
+	5210.12.26 = {
+		holder = linekarzhan20 #Tarri
+	}
+	5254.6.26 = {
+		holder = linekarzhan23
+	}
+	5273.8.23 = {
+		holder = linekarzhan29
+	}
+	5301.3.27 = { # Arani tribes seize Kes Âluk from native Karrani
+		holder = linetijit5 #Ma_a_na_a_n
+	}
+	5325.5.13 = { # Kes Âluk retaken from Arani, Uhurro is crowned King of Kârna
+		holder = lineluazhar1 #Quaba_a_li
+	}
+	5346.4.10 = {
+		holder = lineluazhar3 #Ozo
+	}
+	5378.5.10 = {
+		holder = lineluazhar6 #Sa_a_mirh
+		change_development_level = 4
+	}
+	5398.5.7 = { # Jelut Conquest
+		holder = linekawuan13
+		liege = k_narak
+	}
+	5405.9.24 = {
+		holder = linekawuan16
+	}
+	5444.8.15 = { # Dies in Gondor-Jelut war
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linejelut6 #Ozre_e_n
+	}
+	5473.1.25 = {
+		holder = linejelut8 #Za_a_l
+	}
+	6450.1.1 = {
+		holder = lineofyerrag1
+	}
+	6471.3.3 = {
+		holder = lineofyerrag2
+	}
+	6521.9.3 = {
+		holder = lineofyerrag3
+	}
+	6552.9.27 = {
+		holder = lineofyerrag9
+	}
+	6573.7.8 = {
+		holder = lineofyerrag7
+	}
+	6581.8.9 = {
+		holder = lineofnatana1 #Natana
+		change_development_level = 5
+	}
+	6633.10.26 = {
+		holder = lineofnatana3 #Asu_u_ma_a_ni
+	}
+	6643.2.15 = {
+		holder = lineofnatana5 #Ve_e_luado
+	}
+	6721.6.1 = {
+		holder = lineofnatana7 #Quado_o_mearh
+	}
+	6764.1.3 = { # Long winter start date ruler
+		holder = lineofnatana43 #Desa
+		liege = d_kes_aluk
+	}
+	6826.12.26 = {
+		holder = lineofnatana45 #Pakirh
+	}
+	6920.4.27 = {
+		holder = lineofisakin0 #Isak
+		liege = 0
+		change_development_level = 4
+	}
+	6963.2.19 = {
+		holder = lineofisakin1 #Isak
+	}
+	7020.3.9 = {
+		holder = lineofisakin3 #Pinak
+	}
+	7028.9.9 = {
+		holder = lineofisakin5 #Jargize_e_n
+	}
+	7048.4.21 = {
+		holder = lineofozhomin16 #Zhajik
+	}
+	7105.6.16 = {
+		holder = lineofozhomin24 #Boa_a_n
+	}
+	7127.12.27 = {
+		holder = lineofozhomin26 #Za_a_latko
+	}
+	7144.5.5 = {
+		holder = lineofozhomin28 #Ruadova_a_n
+	}
+}
+
+## Duchy of Kes Karrak ##
+d_kes_karrak = {
+	# Umbarean Vassal Kings
+	4783.8.13 = {
+		holder = linenarghan1 #Pakirh
+	}
+	4860.11.11 = {
+		holder = linenarghan3 #Pe_e_nharh
+	}
+	4872.2.8 = {
+		holder = linenarghan5 #Vauk
+	}
+	4893.12.16 = {
+		holder = linenarghan8 #Ra_a_nko
+	}
+	4920.2.7 = {
+		holder = linenarghan11 #Ima_a_n
+	}
+	4947.11.7 = {
+		holder = linenarghan13 #Pravak
+	}
+	4956.6.24 = {
+		holder = linenarghan16 #Zasarra
+	}
+	# Gondorian Tributary period
+	4965.9.17 = {
+		holder = linenarghan26 #Zayd
+	}
+	4974.10.20 = {
+		holder = linenarghan30 #Quado_o_mearh
+	}
+	4994.4.25 = {
+		holder = linenarghan32
+	}
+	5000.9.25 = {
+		holder = linenarghan34
+	}
+	5045.8.25 = { # Umbarean Exiles seize Kes Karrak
+		holder = 0
+	}
+
+	# Gondorian Tributary Dukes
+	5049.2.15 = { # Takes charge of her people
+		holder = linedarrhan1
+	}
+	5153.5.6 = {
+		holder = linedarrhan3 #Isak
+	}
+	5211.10.8 = {
+		holder = linedarrhan6 #Asu_u_ma_a_ni
+	}
+	5216.7.11 = {
+		holder = linedarrhan9 #Saut
+	}
+	5279.1.7 = {
+		holder = linedarrhan11 #Uhurro
+	}
+	5301.1.1 = {
+		holder = linedarrhan18 #Zirrinko
+	}
+	5320.8.7 = {
+		holder = linedesarrhan1 #Uhurro
+	}
+	5355.3.4 = {
+		holder = linedesarrhan4 #Uhurro
+	}
+	5386.2.15 = {
+		holder = linedesarrhan6 #Akubarh
+	}
+	5390.4.13 = {
+		holder = linedesarrhan8 #Su_u_luadahn
+	}
+	5398.5.7 = { # Jelut Conquest
+		holder = linejelut1 #Kuan
+		effect = {
+			lotr_move_dejure_capital_effect = { COUNTY = c_murraz }
+		}
+	}
+	5429.6.23 = {
+		holder = linejelut3 #Kuesh
+	}
+	5443.7.21 = { # Kuesh slain in Siege of Umbar
+		holder = linejelut10 #Sa_a_lave_e_n
+	}
+	5445.5.3 = { # Sâlavên's death in the deserts of Amrûn marks the end of the Jelut-Gondor war
+		holder = linejelut6 #Ozre_e_n
+	}
+	5473.1.25 = {
+		holder = linejelut8 #Za_a_l
+	}
+	5540.2.14 = {
+		holder = 0
+	}
+
+	5850.1.1 = {
+		holder = linezhajomin1 #Da_a_mir
+	}
+	5881.7.2 = {
+		holder = linezhajomin3 #Sha_a_lirik
+	}
+	5928.3.22 = {
+		holder = linezhajomin5 #Zirinkho
+	}
+	5957.3.12 = {
+		holder = linezhajomin7 #Tiho_o_mmo
+	}
+	6002.6.5 = {
+		holder = linezhajomin9 #Kha_a_linar
+	}
+	6034.5.27 = {
+		holder = linezhajomin11 #Khaba_a_li
+	}
+	6053.12.15 = {
+		holder = linezhajomin13 #Fejas
+	}
+	6105.7.20 = {
+		holder = linezhajomin15 #Tabu
+	}
+	6136.3.20 = {
+		holder = linezhajomin17 #Radofa_a_n
+	}
+	6148.2.27 = {
+		holder = 0
+	}
+	6920.1.1 = {
+		holder = linemelenkoud1 # Ptolemee
+	}
+	6950.1.1 = {
+		holder = linemelenkoud2 # Agdun
+	}
+	6989.1.1 = {
+		holder = linemelenkoud3 # Kenan
+	}
+	7029.1.1 = {
+		holder = linemelenkoud4 # Mezwar
+	}
+	7049.1.1 = {
+		holder = linemelenkoud5 # Gildun
+	}
+	7080.1.1 = {
+		holder = linemelenkoud12 # Lasim
+	}
+	7102.1.1 = {
+		holder = linemelenkoud14 # Ruadova_a_n
+	}
+	7159.12.19 = {
+		holder = linemelenkoud16 # Boa_a_n
+	}
+}
+c_karagmir = {
+	# Umbarean Vassal Kings
+	4783.8.13 = {
+		holder = linenarghan1 #Pakirh
+	}
+	4860.11.11 = {
+		holder = linenarghan3 #Pe_e_nharh
+	}
+	4872.2.8 = {
+		holder = linenarghan5 #Vauk
+	}
+	4893.12.16 = {
+		holder = linenarghan8 #Ra_a_nko
+	}
+	4920.2.7 = {
+		holder = linenarghan11 #Ima_a_n
+	}
+	4947.11.7 = {
+		holder = linenarghan13 #Pravak
+	}
+	4956.6.24 = {
+		holder = linenarghan16 #Zasarra
+	}
+	# Gondorian Tributary period
+	4965.9.17 = {
+		holder = linenarghan26 #Zayd
+	}
+	4974.10.20 = {
+		holder = linenarghan30 #Quado_o_mearh
+	}
+	4994.4.25 = {
+		holder = linenarghan32
+	}
+	5000.9.25 = {
+		holder = linenarghan34
+	}
+	#5045.8.25 = { # Umbarean Exiles seize Kes Karrak
+
+	# Gondorian Tributary Dukes
+	5049.2.15 = { # Takes charge of her people
+		holder = linedarrhan1
+	}
+	5153.5.6 = {
+		holder = linedarrhan3 #Isak
+	}
+	5211.10.8 = {
+		holder = linedarrhan6 #Asu_u_ma_a_ni
+	}
+	5216.7.11 = {
+		holder = linedarrhan9 #Saut
+	}
+	5279.1.7 = {
+		holder = linedarrhan11 #Uhurro
+	}
+	5301.1.1 = {
+		holder = linedarrhan18 #Zirrinko
+	}
+	5320.8.7 = {
+		holder = linedesarrhan1 #Uhurro
+	}
+	5355.3.4 = {
+		holder = linedesarrhan4 #Uhurro
+		change_development_level = 9
+	}
+	5386.2.15 = {
+		holder = linedesarrhan6 #Akubarh
+	}
+	5390.4.13 = {
+		holder = linedesarrhan8 #Su_u_luadahn
+	}
+	5398.5.7 = { # Jelut Conquest
+		holder = linedesarrhan21
+		liege = k_narak
+	}
+	5409.5.7 = {
+		holder = linedesarrhan31
+	}
+	5419.6.14 = {
+		holder = linedesarrhan34
+	}
+	5484.8.1 = {
+		holder = linedesarrhan36
+	}
+	6450.1.1 = {
+		holder = lineofqarsatig2
+	}
+	6476.1.21 = {
+		holder = lineofqarsatig3
+	}
+	6515.11.28 = {
+		holder = lineofqarsatig4
+	}
+	6547.1.21 = {
+		holder = lineofqarsatig6
+	}
+	6585.5.18 = {
+		holder = lineofqarsatig8
+	}
+	6594.5.7 = {
+		holder = lineofqarsatig13
+	}
+	6622.10.27 = {
+		holder = lineofqarsatig20
+	}
+	6664.9.27 = {
+		holder = lineofsuabel1 #Suabe_e_l
+		change_development_level = 6
+	}
+	6707.4.6 = {
+		holder = lineofsuabel3 #Isa_a_lin
+	}
+	6728.5.14 = { # Long winter start date ruler
+		holder = lineofsuabel5 #Vese_e_lko
+	}
+	6791.2.14 = {
+		holder = lineofsuabel7 #Zae
+	}
+	6805.5.22 = {
+		holder = lineofsuabel9 #Qa_a_lfa_a_n
+	}
+	6932.1.1 = {
+		holder = lineaglarbalak1 # Aglarbal
+		change_development_level = 8
+	}
+	6973.1.1 = {
+		holder = lineaglarbalak2 # Isildûr
+	}
+	6998.1.1 = {
+		holder = lineaglarbalak3 # Ârukhûrân
+	}
+	7030.1.1 = {
+		holder = lineaglarbalak4 # Nâloân
+		government = feudal_government
+		liege = k_umbar
+	}
+	7052.1.1 = {
+		holder = lineaglarbalak6 #Sapazûr
+	}
+	7063.9.12 = {
+		liege = d_kes_karrak
+	}
+	7069.1.1 = {
+		holder = lineaglarbalak12 #Abatâryk
+	}
+	7101.8.26 = {
+		holder = lineaglarbalak14 #Sapazûr
+	}
+	7143.11.19 = {
+		holder = lineaglarbalak16 #Balkumagâ
+	}
+}
+c_murraz = {
+	# Umbarean Vassal Kings
+	4783.8.13 = {
+		holder = linenarghan1 #Pakirh
+	}
+	4860.11.11 = {
+		holder = linenarghan3 #Pe_e_nharh
+	}
+	4872.2.8 = {
+		holder = linenarghan5 #Vauk
+	}
+	4893.12.16 = {
+		holder = linenarghan8 #Ra_a_nko
+	}
+	4920.2.7 = {
+		holder = linenarghan11 #Ima_a_n
+	}
+	4947.11.7 = {
+		holder = linenarghan13 #Pravak
+	}
+	4956.6.24 = {
+		holder = linenarghan16 #Zasarra
+	}
+	# Gondorian Tributary period
+	4965.9.17 = {
+		holder = linenarghan26 #Zayd
+	}
+	4974.10.20 = {
+		holder = linenarghan30 #Quado_o_mearh
+	}
+	4994.4.25 = {
+		holder = linenarghan32
+	}
+	5000.9.25 = {
+		holder = linenarghan34
+	}
+	#5045.8.25 = { # Umbarean Exiles seize Kes Karrak
+
+	# Gondorian Tributary Dukes
+	5049.2.15 = { # Takes charge of her people
+		holder = linedarrhan1
+	}
+	5153.5.6 = {
+		holder = linedarrhan3 #Isak
+	}
+	5211.10.8 = {
+		holder = linedarrhan6 #Asu_u_ma_a_ni
+	}
+	5216.7.11 = {
+		holder = linedarrhan9 #Saut
+	}
+	5279.1.7 = {
+		holder = linedarrhan11 #Uhurro
+	}
+	5301.1.1 = {
+		holder = linedarrhan18 #Zirrinko
+	}
+	5320.8.7 = {
+		holder = linedesarrhan1 #Uhurro
+	}
+	5355.3.4 = {
+		holder = linedesarrhan4 #Uhurro
+		change_development_level = 8
+	}
+	5386.2.15 = {
+		holder = linedesarrhan6 #Akubarh
+	}
+	5390.4.13 = {
+		holder = linedesarrhan8 #Su_u_luadahn
+	}
+	5398.5.7 = { # Jelut Conquest
+		holder = linedesarrhan21
+		liege = k_narak
+	}
+	5409.5.7 = {
+		holder = linedesarrhan31
+	}
+	5419.6.14 = {
+		holder = linedesarrhan34
+	}
+	5484.8.1 = {
+		holder = linedesarrhan36
+	}
+	5850.1.1 = {
+		holder = linezhajomin1 #Da_a_mir
+	}
+	5881.7.2 = {
+		holder = linezhajomin3 #Sha_a_lirik
+	}
+	5928.3.22 = {
+		holder = linezhajomin5 #Zirinkho
+	}
+	5957.3.12 = {
+		holder = linezhajomin7 #Tiho_o_mmo
+	}
+	6002.6.5 = {
+		holder = linezhajomin9 #Kha_a_linar
+	}
+	6034.5.27 = {
+		holder = linezhajomin11 #Khaba_a_li
+	}
+	6053.12.15 = {
+		holder = linezhajomin13 #Fejas
+	}
+	6105.7.20 = {
+		holder = linezhajomin15 #Tabu
+	}
+	6136.3.20 = {
+		holder = linezhajomin17 #Radofa_a_n
+	}
+	6450.1.1 = {
+		holder = lineofsarbig1
+	}
+	6460.12.14 = {
+		holder = lineofsarbig4
+	}
+	6495.8.2 = {
+		holder = lineofsarbig5
+	}
+	6509.12.28 = {
+		holder = lineofsarbig9
+	}
+	6572.7.19 = {
+		holder = lineofsarbig10
+	}
+	6573.3.19 = {
+		holder = lineofsarbig13
+	}
+	6611.4.5 = {
+		holder = lineofsarbig18
+	}
+	6649.2.22 = {
+		holder = lineofsuabel1 #Suabe_e_l
+		change_development_level = 6
+	}
+	6707.4.6 = {
+		holder = lineofsuabel3 #Isa_a_lin
+	}
+	6728.5.14 = { # Long winter start date ruer
+		holder = lineofsuabel5 #Vese_e_lko
+	}
+	6791.2.14 = {
+		holder = lineofsuabel7 #Zae
+	}
+	6805.5.22 = {
+		holder = lineofsuabel9 #Qa_a_lfa_a_n
+	}
+	6920.1.1 = {
+		holder = linemelenkoud1 # Ptolemee
+	}
+	6950.1.1 = {
+		holder = linemelenkoud2 # Agdun
+	}
+	6989.1.1 = {
+		holder = linemelenkoud3 # Kenan
+	}
+	7029.1.1 = {
+		holder = linemelenkoud4 # Mezwar
+	}
+	7049.1.1 = {
+		holder = linemelenkoud5 # Gildun
+	}
+	7080.1.1 = {
+		holder = linemelenkoud12 # Lasim
+	}
+	7102.1.1 = {
+		holder = linemelenkoud14 # Ruadova_a_n
+	}
+	7159.12.19 = {
+		holder = linemelenkoud16 # Boa_a_n
+	}
+}
+c_zerrak = {
+	# Umbarean Vassal Kings
+	4783.8.13 = {
+		holder = linenarghan1 #Pakirh
+	}
+	4860.11.11 = {
+		holder = linenarghan3 #Pe_e_nharh
+	}
+	4872.2.8 = {
+		holder = linenarghan5 #Vauk
+	}
+	4893.12.16 = {
+		holder = linenarghan8 #Ra_a_nko
+	}
+	4920.2.7 = {
+		holder = linenarghan11 #Ima_a_n
+	}
+	4947.11.7 = {
+		holder = linenarghan13 #Pravak
+	}
+	4956.6.24 = {
+		holder = linenarghan16 #Zasarra
+	}
+	# Gondorian Tributary period
+	4965.9.17 = {
+		holder = linenarghan26 #Zayd
+	}
+	4974.10.20 = {
+		holder = linenarghan30 #Quado_o_mearh
+	}
+	4994.4.25 = {
+		holder = linenarghan32
+	}
+	5000.9.25 = {
+		holder = linenarghan34
+	}
+	#5045.8.25 = { # Umbarean Exiles seize Kes Karrak
+
+	# Gondorian Tributary Dukes
+	5049.2.15 = { # Takes charge of her people
+		holder = linedarrhan1
+	}
+	5153.5.6 = {
+		holder = linedarrhan3 #Isak
+	}
+	5211.10.8 = {
+		holder = linedarrhan6 #Asu_u_ma_a_ni
+	}
+	5216.7.11 = {
+		holder = linedarrhan9 #Saut
+	}
+	5279.1.7 = {
+		holder = linedarrhan11 #Uhurro
+	}
+	5301.1.1 = {
+		holder = linedarrhan18 #Zirrinko
+	}
+	5320.8.7 = {
+		holder = linedesarrhan1 #Uhurro
+	}
+	5355.3.4 = {
+		holder = linedesarrhan4 #Uhurro
+		change_development_level = 5
+	}
+	5386.2.15 = {
+		holder = linedesarrhan6 #Akubarh
+	}
+	5390.4.13 = {
+		holder = linedesarrhan8 #Su_u_luadahn
+	}
+	5398.5.7 = { # Jelut Conquest
+		holder = linedesarrhan21
+		liege = k_narak
+	}
+	5409.5.7 = {
+		holder = linedesarrhan31
+	}
+	5419.6.14 = {
+		holder = linedesarrhan34
+	}
+	5484.8.1 = {
+		holder = linedesarrhan36
+	}
+	5850.1.1 = {
+		holder = linezhajomin1 #Da_a_mir
+	}
+	5881.7.2 = {
+		holder = linezhajomin3 #Sha_a_lirik
+	}
+	5928.3.22 = {
+		holder = linezhajomin5 #Zirinkho
+	}
+	5957.3.12 = {
+		holder = linezhajomin7 #Tiho_o_mmo
+	}
+	6002.6.5 = {
+		holder = linezhajomin9 #Kha_a_linar
+	}
+	6034.5.27 = {
+		holder = linezhajomin11 #Khaba_a_li
+	}
+	6053.12.15 = {
+		holder = linezhajomin13 #Fejas
+	}
+	6105.7.20 = {
+		holder = linezhajomin15 #Tabu
+	}
+	6136.3.20 = {
+		holder = linezhajomin17 #Radofa_a_n
+	}
+	6450.1.1 = {
+		holder = lineofubruag1
+	}
+	6480.7.12 = {
+		holder = lineofubruag2
+	}
+	6520.10.5 = {
+		holder = lineofubruag3
+	}
+	6534.11.20 = {
+		holder = lineofubruag8
+	}
+	6558.3.24 = {
+		holder = lineofnatana1 #Natana
+		change_development_level = 4
+	}
+	6633.10.26 = {
+		holder = lineofnatana3 #Asu_u_ma_a_ni
+	}
+	6643.2.15 = {
+		holder = lineofnatana5 #Ve_e_luado
+	}
+	6721.6.1 = {
+		holder = lineofnatana7 #Quado_o_mearh
+	}
+	6764.1.3 = { # Long winter start date ruler
+		holder = lineofnatana55 #Nurru
+		liege = d_kes_aluk
+	}
+	6830.10.28 = {
+		holder = lineofnatana57 #Yela
+	}
+	6920.1.1 = {
+		holder = linemelenkoud1 # Ptolemee
+	}
+	6950.1.1 = {
+		holder = linemelenkoud2 # Agdun
+	}
+	6989.1.1 = {
+		holder = linemelenkoud3 # Kenan
+	}
+	7029.1.1 = {
+		holder = linemelenkoud4 # Mezwar
+	}
+	7049.1.1 = {
+		holder = linemelenkoud5 # Gildun
+	}
+	7080.1.1 = {
+		holder = linemelenkoud12 # Lasim
+	}
+	7102.1.1 = {
+		holder = linemelenkoud14 # Ruadova_a_n
+	}
+	7159.12.19 = {
+		holder = linemelenkoud16 # Boa_a_n
+	}
+}

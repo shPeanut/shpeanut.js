@@ -1,0 +1,6725 @@
+﻿#####		Gondor (e_gondor_steward)			#  7033 = T.A. 3000
+####		Anórien (k_anorien)
+###			Minas Tirith (d_minas_tirith)
+##			Osgiliath (c_osgiliath)
+
+202 = {		#Osgiliath (b_osgiliath)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_04
+			curtain_walls_08
+			# numenorean_houses_of_healing
+			farm_estates_08
+		}
+	}
+	6508.1.1 = { # Ruin of Osgiliath
+		buildings = {
+			castle_02
+			curtain_walls_04
+			# numenorean_houses_of_healing
+			barracks_01
+		}
+	}
+}
+
+203 = {		#East Osgiliath (b_east_osgiliath)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_04
+			curtain_walls_08
+		}
+	}
+	6508.1.1 = { # Ruin of Osgiliath
+		buildings = {
+			castle_02
+			curtain_walls_04
+		}
+	}
+}
+
+##			Minas Tirith (c_minas_tirith)
+
+199 = {		#Minas Tirith (b_minas_tirith)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	special_building_slot = wonder_minas_anor_01
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			barracks_02
+			smiths_01
+		}
+		special_building = wonder_minas_anor_01
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	4453.1.1 = { # Ostoher expands Minas Anor
+		special_building = wonder_minas_anor_02
+		buildings = {
+			castle_04
+			barracks_04
+			smiths_04
+		}
+	}
+	5233.1.1 = { # Houses of Healing: Can be built at any point before the plague, currently set to 1200
+		special_building = wonder_minas_anor_03
+	}
+	5673.1.1 = { # Tarondor removes the King's House to Minas Anor and replants the White Tree
+		special_building = wonder_minas_anor_04
+	}
+	5933.1.1 = { # Calimehtar builds the White Tower
+		buildings = {
+			castle_04
+			barracks_05
+			smiths_05
+		}
+	}
+	6035.1.1 = { # Minas Ithil fall, Minas Anor is renamed Minas Tirith
+		special_building = wonder_minas_anor_05
+	}
+	6731.1.1 = { # Ecthelion rebuilds the White Tower
+		special_building = wonder_minas_anor_06
+	}
+	7052.6.25 = { #Aragorn finds the sapling of the White Tree
+		special_building = wonder_minas_anor_07
+	}
+}
+
+201 = {		#Pelennor (b_pelannor)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_04
+			farm_estates_08
+			# orchards_04
+			# cereal_fields_04
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_03
+			farm_estates_06
+			# orchards_04
+			# cereal_fields_04
+		}
+	}
+	6508.1.1 = { # With the destruction of Osgiliath, the Rammas Echor is built
+		special_building_slot = wonder_rammas_echor_01
+		special_building = wonder_rammas_echor_02
+	}
+	6940.1.1 = {
+		special_building = wonder_rammas_echor_01
+	}
+	7052.3.1 = {
+		special_building = wonder_rammas_echor_02
+	}
+}
+
+200 = {		#Harlond (b_harlond_gondor)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	3990.1.1 = {
+		buildings = {
+			city_04
+			common_tradeport_08
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_03
+			common_tradeport_06
+		}
+	}
+}
+
+##			Malridh (c_malridh)
+
+205 = {		#Maldridh (b_malridh)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_04
+			hill_forts_06
+			barracks_08
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_03
+			hill_forts_06
+			barracks_05
+		}
+	}
+}
+
+2714 = {	#Thimbar (b_thimbar)
+	holding = city_holding
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		holding = city_holding
+		buildings = {
+			city_04
+			common_tradeport_07
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_03
+			common_tradeport_05
+		}
+	}
+}
+
+204 = {		#Talath Anor (b_talath_anor)
+	holding = none
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		holding = church_holding
+		buildings = {
+			temple_04
+			scriptorium_07
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			temple_03
+			scriptorium_05
+		}
+	}
+}
+
+###			Doranórien (d_doranorien)
+##			Aranelaith (c_aranelaith)
+
+208 = {		#Cair Andros (b_cair_andros)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5057.1.1 = {
+		buildings = {
+			castle_03
+			garrison_tower_04
+			hill_forts_06
+		}
+	}
+	5281.1.1 = {
+		special_building_slot = wonder_citadel_cairos_original
+		special_building = wonder_citadel_cairos_original
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			garrison_tower_02
+			hill_forts_04
+		}
+	}
+	6433.1.1 = {
+		special_building_slot = wonder_citadel_cairos_01
+		special_building = wonder_citadel_cairos_02
+	}
+	6934.1.1 = {
+		special_building = wonder_citadel_cairos_03
+	}
+}
+
+209 = {		#Aranelaith (b_aranelaith)
+	culture = dunedain
+	religion = faith_edain
+	holding = church_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			temple_03
+			hospices_06
+		}
+	}
+}
+
+2830 = {	#Bar Duilin (b_bar_duilin)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		buildings = {
+			city_04
+			common_tradeport_07
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_03
+			common_tradeport_05
+		}
+	}
+}
+
+##			Elena (c_elena)
+
+210 = {		#Tir Elena (b_tir_elena)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	3990.1.1 = {
+		buildings = {
+			castle_03
+			curtain_walls_06
+			cereal_fields_05
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_03
+			curtain_walls_04
+			cereal_fields_04
+		}
+	}
+}
+
+2791 = {	#Esgarabad (b_esgarabad)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+2815 = {	#Felarna (b_felarna)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_02
+			pastures_04
+		}
+	}
+}
+
+##			Caranthan (c_caranthan)
+
+216 = {		#Dol Caranthan (b_dol_caranthan)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	3990.1.1 = {
+		buildings = {
+			castle_03
+			curtain_walls_05
+			cereal_fields_04
+		}
+	}
+}
+
+2808 = {	#Esgarlad (b_sgarlad)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_02
+			cereal_fields_04
+		}
+	}
+}
+
+214 = {		#Calost (b_calost)
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			pastures_04
+		}
+	}
+}
+
+##			Herenyand (c_herenyand)
+
+206 = {		#Amon Dín (b_amon_dim)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	3990.1.1 = {
+		buildings = {
+			castle_03
+			hill_forts_06
+			barracks_05
+			# courier_stables_02
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			hill_forts_04
+			barracks_02
+			# courier_stables_02
+		}
+	}
+}
+
+2795 = {	#Dolnach (b_dolnach)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_03
+			common_tradeport_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+2800 = {	#Tir Caranaid (b_tir_caranaid)
+	culture = dunedain
+	religion = faith_edain
+	holding = church_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			temple_03
+			scriptorium_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			temple_02
+			scriptorium_04
+		}
+	}
+}
+
+###			Entyn-i-Onodlo (d_entyn_i_onodlo)
+##			Dummardh (c_dunmardo)
+
+211 = {		#Dummardh (b_dummardh)
+	culture = danaine
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_04
+			stables_04
+		}
+		duchy_capital_building = jousting_lists_02
+	}
+}
+
+217 = {		#Len Parmuil (b_len_parmuil)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+}
+
+2804 = {	#Glenbad (b_glenbad)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			cereal_fields_04
+		}
+	}
+}
+
+##			Astirian (c_astirian)
+
+219 = {		#Pel Enaid (b_pel_enaid)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_04
+			stables_03
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+218 = {		#Bar Astirian (b_bar_astirian)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+}
+
+2840 = {	#Luinbar (b_luinbar)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			pastures_04
+		}
+	}
+}
+
+##			Nardol (c_nardol)
+
+2775 = {	#Nardol (b_nardol)
+	culture = druedain
+	religion = faith_druedain
+	holding = tribal_holding
+	4000.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			barracks_03
+			hill_forts_02
+		}
+	}
+}
+
+223 = {		#Erelas (b_erelas)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_01
+			hill_farms_02
+			# courier_stables_02
+		}
+	}
+}
+
+2845 = {	#Bar Dolwar (b_bar_dolwar)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+224 = {		#Gorgu (b_gorghu)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+###	Gardhon Fuir (d_gardhon_fuir)
+
+##	Min-Rimmon (c_min_rimmon)
+
+2784 = {	#Sir-Rimmon (b_sir_rimmon)
+	culture = coenmor
+	religion = faith_daen_coentis
+	holding = tribal_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			curtain_walls_04
+			cereal_fields_04
+		}
+		duchy_capital_building = jousting_lists_01
+	}
+}
+
+222 = {		#Min-Rimmon (b_min_rimmon)
+	culture = coenmor
+	religion = faith_daen_coentis
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_01
+			courier_stables_01
+		}
+	}
+}
+
+2738 = {	#Carlost (b_carlost)
+	culture = gondorian
+	religion = faith_edain
+	holding = city_holding
+	buildings = {
+		city_02
+		pastures_04
+	}
+}
+
+2746 = {	#Calenhad (b_calenhad)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = church_holding
+		buildings = {
+			temple_01
+			courier_stables_01
+		}
+	}
+}
+
+##			Araglas (c_araglas)
+
+2835 = {	#Ard-Elmar (b_ard_elmar)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_04
+			cereal_fields_03
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+220 = {		#Imdorad (b_imdorad)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+221 = {		#Loennin (b_parth_forant)
+	holding = city_holding
+	buildings = {
+		city_02
+		peat_quarries_03
+	}
+}
+
+##			Eryn Fuir (c_eryn_fuir)
+
+66 = {		# Fuirbel (b_fuirbel)
+	culture = danaine
+	religion = faith_donan
+	holding = tribal_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_01
+			curtain_walls_02
+			stables_02
+		}
+	}
+	6590.3.22 = {
+		buildings = {
+			castle_02
+			curtain_walls_03
+			stables_04
+		}
+	}
+}
+
+225 = {		#Amon_Anwar (b_amon_anwar) (Halifirien)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+	# 4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian # Trig - no buildings on top of Amon Anwar
+	#	holding = castle_holding
+	#	buildings = {
+	#		castle_01
+	#		courier_stables_01
+	#	}
+	# }
+}
+
+65 = {		# Eryn Fuir (b_eryn_fuir)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			logging_camps_03
+		}
+	}
+}
+
+###			Lossarnach (d_lossarnach)
+##			Arthor (c_arthor)
+
+278 = {		#Bar Melui (b_bar melui)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_04
+			hill_forts_05
+			hill_farms_06
+		}
+		duchy_capital_building = blacksmiths_01
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			hill_forts_04
+			hill_farms_03
+		}
+	}
+}
+
+279 = {		#Imloth Arthor (b_imloth_arthor)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	3990.1.1 = {
+		buildings = {
+			city_03
+			logging_camps_05
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			logging_camps_04
+		}
+	}
+}
+2750 = {	#Merinand (b_merinand)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+##			Celerdain (c_celerdain)
+
+261 = {		#Celerdain (b_celerdain)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	3990.1.1 = {
+		buildings = {
+			castle_04
+			regimental_grounds_05
+			curtain_walls_07
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_03
+			regimental_grounds_04
+			curtain_walls_06
+		}
+	}
+}
+
+2743 = {	#Aranelle (b_aranelle)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		buildings = {
+			city_04
+			farm_estates_07
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_03
+			farm_estates_05
+		}
+	}
+}
+
+2729 = {	#Beleganor (b_beleganor)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	3990.1.1 = {
+		buildings = {
+			city_03
+			hill_farms_05
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			hill_farms_04
+		}
+	}
+}
+
+##			Telumendil (c_telumendil)
+
+263 = {		#Emlin (b_emlin)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		buildings = {
+			castle_03
+			regimental_grounds_05
+			curtain_walls_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			regimental_grounds_03
+			curtain_walls_04
+		}
+	}
+}
+
+262 = {		#Lothuial (b_lothuial)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_03
+			farm_estates_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			farm_estates_04
+		}
+	}
+}
+
+2733 = {	#Carlim (b_carlim)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5003.2.12 = {
+		holding = city_holding
+		buildings = {
+			city_03
+			common_tradeport_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+###			Drúadan Forest (d_druadan_forest)
+##			Drû Bhûta (c_dru_bhuta)
+
+213 = {		#Drû Bhûta (b_dru_bhuta)
+	culture = druedain
+	religion = faith_druedain
+	holding = tribal_holding
+	3990.1.1 = {
+		buildings = {
+			tribe_02
+			palisades_02
+			longhouses_02
+		}
+	}
+}
+
+207 = {		#Luk Khakát (b_luk_khakat)
+	culture = druedain
+	religion = faith_druedain
+	holding = none
+}
+
+##			Dhûrghud (c_dhurghud)
+
+212 = {		#Dhûrghud (b_dhurghud)
+	culture = druedain
+	religion = faith_druedain
+	holding = tribal_holding
+	3990.1.1 = {
+		buildings = {
+			tribe_02
+			palisades_02
+			longhouses_02
+		}
+	}
+}
+
+215 = {		#Ghâdrûta (b_ghadruta)
+	culture = druedain
+	religion = faith_druedain
+	holding = none
+}
+
+####		Ithilien (k_ithilien)
+###			Minas Ithil (d_minas_ithil)
+##			Minas Ithil (c_minas_ithil)
+
+226 = {		#Minas Ithil (b_minas_ithil)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_04
+			hill_forts_06
+			hill_farms_06
+		}
+	}
+	4000.1.1 = {
+		special_building_slot = wonder_minas_ithil_original
+		special_building = wonder_minas_ithil_original
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	6033.1.1 = { # The Nazgul take Minas Ithil and corrupt it into Minas Morgul
+		culture = ungurhai
+		religion = lidless_eye
+		holding = castle_holding
+		special_building_slot = wonder_minas_ithil_01
+		special_building = wonder_minas_ithil_02
+		buildings = {
+			castle_04
+		}
+	}
+	6990.1.1 = {
+		duchy_capital_building = loot_houses_02
+		buildings = {
+			castle_04
+			hill_forts_04
+			slave_mines_05
+			# warg_pits_04
+			# uruk_pits_05
+		}
+	}
+	7054.3.25 = { #Destruction of the One Ring
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		special_building_slot = wonder_minas_ithil_01
+		special_building = wonder_minas_ithil_02
+		buildings = {
+			castle_04
+		}
+	}
+}
+
+227 = {		#Imlad Ithil (b_imlad_ithil)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_03
+			curtain_walls_06
+		}
+	}
+	6990.1.1 = { # Assault on Ithilien and occupation by Orcs
+		culture = ungurhai
+		religion = lidless_eye
+		buildings = {
+			raiding_camps_02
+			# warg_pits_01
+			# uruk_pits_02
+		}
+	}
+	7054.3.25 = { #Destruction of the One Ring
+		culture = gondorian
+		religion = faith_edain
+		buildings = {
+			castle_01
+		}
+	}
+}
+
+2730 = {	#Thamas Neldor (b_thamas_neldor)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_03
+			curtain_walls_06
+		}
+	}
+	6990.1.1 = { # Assault on Ithilien and occupation by Orcs
+		culture = ungurhai
+		religion = lidless_eye
+		buildings = {
+			raiding_camps_01
+			# warg_pits_01
+			# uruk_pits_02
+		}
+	}
+	7054.3.25 = { #Destruction of the One Ring
+		culture = gondorian
+		religion = faith_edain
+		buildings = {
+			castle_01
+		}
+	}
+}
+
+###			Emyn Arnen (d_emyn_arnen)
+##			Emyn Arnen (c_emyn_arnen)
+
+236 = {		#Emyn Arnen (b_emyn_arnen)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			hill_forts_02
+			garrison_tower_01
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			castle_03
+			hill_forts_05
+			garrison_tower_03
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			hill_forts_04
+			garrison_tower_01
+		}
+	}
+	7033.1.1 = {
+		culture = ungurhai
+		religion = lidless_eye
+	}
+	7054.3.25 = { #Destruction of the One Ring
+		culture = gondorian
+		religion = faith_edain
+		special_building_slot = wonder_palace_of_ithilien
+		special_building = wonder_palace_of_ithilien
+	}
+}
+
+2767 = {	#Limmon (b_limmon)
+	holding = city_holding
+	culture = dunedain
+	religion = faith_edain
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		buildings = {
+			city_03
+			common_tradeport_05
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_01
+			common_tradeport_02
+		}
+	}
+	7033.1.1 = {
+		holding = none
+	}
+}
+
+238 = {		# Abad Elemir (b_abad_elemir)
+	holding = city_holding
+	culture = dunedain
+	religion = faith_edain
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		buildings = {
+			city_03
+			common_tradeport_05
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_01
+			common_tradeport_02
+		}
+	}
+	7033.1.1 = {
+		holding = none
+	}
+}
+
+239 = {		#Bâr Húrin (b_bar_hurin)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	7033.1.1 = {
+		culture = ungurhai
+		religion = lidless_eye
+	}
+	7054.3.25 = { #Destruction of the One Ring
+		culture = gondorian
+		religion = faith_edain
+	}
+}
+
+1463 = {	#Pen-Arduin (b_pen_arduin)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	7033.1.1 = {
+		culture = ungurhai
+		religion = lidless_eye
+	}
+	7054.3.25 = { #Destruction of the One Ring
+		culture = gondorian
+		religion = faith_edain
+	}
+}
+
+##			Curedain (c_curedain)
+
+235 = {		#Bâr Aroth (b_bar_aroth)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_03
+			ramparts_05
+			barracks_04
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			ramparts_03
+			barracks_02
+		}
+	}
+	6498.1.1 = { # Abandoned as the Watchful Peace Ends in 2475
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			shadow_of_mordor
+		}
+	}
+	6934.1.1 = { # Reoccupied with Henneth Annun
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			ramparts_03
+			barracks_02
+		}
+	}
+}
+
+2723 = {	#Bâr Ithilduin (b_bar_ithilduin)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		religion = faith_edain
+		holding = city_holding
+		buildings = {
+			city_02
+			barracks_04
+		}
+	}
+	6498.1.1 = { # Abandoned as the Watchful Peace Ends in 2475
+		holding = none
+	}
+	6934.1.1 = { # Reoccupied with Henneth Annun
+		culture = gondorian
+		religion = faith_edain
+		holding = city_holding
+		buildings = {
+			city_01
+			barracks_02
+		}
+	}
+}
+
+2735 = {	#Rossolas (b_rossolas)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+##			Othnir (c_othnir)
+
+234 = {		#Barad Othnir (b_barad_othnir)
+	culture = danaine
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			castle_02
+			hill_forts_03
+			pastures_04
+		}
+	}
+	5480.1.1 = {	#Post Kinstrife
+		buildings = {
+			city_01
+			outposts_02
+		}
+	}
+	6498.1.1 = { # Abandoned as Watchful Peace Ends in 2475
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			shadow_of_mordor
+		}
+	}
+	6934.1.1 = { # Reoccupided by Sauron
+		culture = ungurhai
+		religion = lidless_eye
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_02
+		}
+	}
+	7054.3.25 = { #Destruction of the One Ring
+		culture = gondorian
+		religion = faith_edain
+	}
+}
+
+237 = {		#Celebros (b_celebros)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			city_02
+			logging_camps_04
+		}
+	}
+	5480.1.1 = {	#Post Kinstrife
+		buildings = {
+			city_01
+			outposts_02
+		}
+	}
+	6498.1.1 = { # Abandoned as Watchful Peace Ends in 2475
+		holding = none
+	}
+	6934.1.1 = { # Reoccupided by Sauron
+		culture = ungurhai
+		religion = lidless_eye
+		holding = city_holding
+		buildings = {
+			city_01
+			logging_outposts_02
+		}
+	}
+	7054.3.25 = { #Destruction of the One Ring
+		culture = gondorian
+		religion = faith_edain
+		buildings = {
+			city_01
+		}
+	}
+}
+
+2770 = {	#Amon Gorgor (b_amon_gorgor)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+##			Rian (c_rian)
+
+240 = {		#Rianbar (b_rianbar)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			ramparts_03
+			logging_camps_04
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	7033.1.1 = {
+		culture = ungurhai
+		religion = lidless_eye
+		holding = castle_holding
+		buildings = {
+			castle_02
+			ramparts_03
+			logging_outposts_02
+		}
+	}
+	7054.3.25 = { #Destruction of the One Ring
+		culture = gondorian
+		religion = faith_edain
+	}
+}
+
+242 = {		#Barn-en-Dinnen (b_barn_en_dinnen)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		buildings = {
+			city_02
+			common_tradeport_03
+		}
+	}
+	7033.1.1 = {
+		holding = city_holding
+		buildings = {
+			city_01
+			slave_farms_02
+		}
+	}
+}
+
+241 = {		#Dimrost (b_dimrost)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+2754 = {	#Illuin (b_illuin)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		buildings = {
+			city_02
+			guild_halls_03
+		}
+	}
+	7033.1.1 = {
+		holding = city_holding
+		buildings = {
+			city_01
+			slave_mines_01
+		}
+	}
+}
+
+243 = {		#Trenas (b_trenas)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+###			Harithilien (d_harithilien)
+##			Alagdor (c_alagdor)
+
+258 = {		#Hyarpendë (b_hyarpende)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	special_building_slot = wonder_port_of_hyarpende_01
+	special_building = wonder_port_of_hyarpende_01
+	3990.1.1 = {
+		buildings = {
+			castle_04
+			curtain_walls_06
+			common_tradeport_06
+		}
+		duchy_capital_building = march_02
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			curtain_walls_04
+			common_tradeport_04
+		}
+	}
+}
+
+246 = {		#Hingrenost (b_hingrenost)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_01
+			barracks_02
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+257 = {		#Alunnor (b_alunnor)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+##			Glorel (c_glorel)
+
+245 = {		#Sindamos (b_sindamos)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_04
+			barracks_02
+		}
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			castle_03
+			curtain_walls_05
+			common_tradeport_04
+		}
+	}
+	5480.1.1 = {	#Post Kinstrife
+		buildings = {
+			castle_02
+			curtain_walls_04
+			barracks_02
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+2756 = {	#Bar-en-Obel (b_bar_en_obel)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		holding = city_holding
+		buildings = {
+			city_01
+			barracks_02
+		}
+	}
+}
+
+2839 = {	#Sîr Glorel (b_sir_glorel)
+	holding = none
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		culture = dunedain
+		religion = faith_edain
+		holding = city_holding
+		buildings = {
+			city_01
+			common_tradeport_02
+		}
+	}
+}
+
+##			Morvegil (c_morvegil)
+
+256 = {		#Bar Morgevil (b_bar_morvegil)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_04
+			regimental_grounds_04
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			curtain_walls_02
+			regimental_grounds_01
+		}
+	}
+}
+
+259 = {		#Porosir (b_porosir)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_01
+			common_tradeport_02
+		}
+	}
+}
+
+254 = {		#Barad Sûl (b_barad_sul)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	3990.1.1 = {
+		holding = church_holding
+		buildings = {
+			temple_02
+			scriptorium_04
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			temple_01
+			scriptorium_02
+		}
+	}
+}
+
+958 = {		#Nelbel (b_nelbel)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+}
+
+##			Nethos (c_nethos)
+
+2613 = {	#Nethost (b_nethost)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_02
+			curtain_walls_03
+			barracks_04
+		}
+	}
+}
+
+255 = {		#Haudh_In_Gwanûr (b_haudh_in_gwanun)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+}
+
+260 = {		#Aludor (b_aludor)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+}
+
+##			Tiridon (c_tiridon)
+
+253 = {		#Tirith Ethraid (b_tirith_ethraid)
+	culture = donan
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			ramparts_02
+		}
+	}
+	4000.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+	}
+	7033.1.1 = {
+		culture = ungurhai
+		religion = lidless_eye
+	}
+	7054.3.25 = { #Destruction of the One Ring
+		culture = gondorian
+		religion = faith_edain
+	}
+}
+
+250 = {		#Faronnor (b_farannor)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_01
+			outposts_02
+		}
+	}
+	7033.1.1 = {
+		buildings = {
+			city_01
+			raiding_camps_02
+		}
+	}
+}
+
+252 = {		#Ode Tesar (b_ode_tesar)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+##			Telengaur (c_telengaur)
+
+247 = {		#Telegar (b_telegar)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			ramparts_02
+		}
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			castle_02
+			ramparts_04
+		}
+	}
+	5480.1.1 = {	#Post Kinstrife
+		buildings = {
+			castle_02
+			ramparts_02
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	7033.1.1 = {
+		culture = ungurhai
+		religion = lidless_eye
+	}
+	7054.3.25 = { #Destruction of the One Ring
+		culture = gondorian
+		religion = faith_edain
+	}
+}
+
+2612 = {	#Pelinel (b_pelinel)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_02
+		}
+	}
+	7033.1.1 = {
+		culture = ungurhai
+		religion = lidless_eye
+		buildings = {
+			city_01
+			slave_mines_02
+		}
+	}
+	7054.3.25 = { #Destruction of the One Ring
+		culture = gondorian
+		religion = faith_edain
+		buildings = {
+			city_01
+		}
+	}
+}
+
+248 = {		#Duilwen (b_duilwen)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	7033.1.1 = {
+		culture = ungurhai
+	}
+	7054.3.25 = { #Destruction of the One Ring
+		culture = gondorian
+		religion = faith_edain
+	}
+}
+
+244 = {		#Nan Girith (b_nan_girith)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	7033.1.1 = {
+		culture = ungurhai
+	}
+	7054.3.25 = { #Destruction of the One Ring
+		culture = gondorian
+		religion = faith_edain
+	}
+}
+
+###			Forithilien (d_forithilien)
+##			Henneth Annûn (c_henneth_annun)
+
+229 = {		#Henneth Annûn (b_henneth_annun)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			ramparts_04
+			outposts_03
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			castle_03
+			ramparts_05
+			outposts_04
+		}
+	}
+	5480.1.1 = {	#Post Kinstrife
+		buildings = {
+			castle_02
+			ramparts_04
+			outposts_03
+		}
+	}
+	6915.1.1 = { # Hidden refuges in Ithilien are constructed under Steward Turin II
+		special_building_slot = wonder_henneth_annun
+		special_building = wonder_henneth_annun
+	}
+}
+
+231 = {		#Cormallen (b_cormallen)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_01
+			outposts_02
+		}
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			city_02
+			logging_camps_04
+		}
+	}
+	5480.1.1 = {	#Post Kinstrife
+		buildings = {
+			city_01
+			outposts_02
+		}
+	}
+}
+
+2718 = {	#Ninevet (b_ninevet)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+##			Coruvegil (c_coruvegil)
+
+233 = {		#Bar-Wilwarin (b_bar_wilwarin)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_01
+			ramparts_02
+			outposts_02
+		}
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			castle_02
+			ramparts_03
+			logging_camps_04
+		}
+	}
+	6498.1.1 = { # Abandoned as Watchful Peace Ends in 2475
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			shadow_of_mordor
+		}
+	}
+	6934.1.1 = { # Reoccupied with Henneth Annun
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_01
+			ramparts_03
+			outposts_02
+		}
+	}
+}
+
+232 = {		#Aelin Verin (b_aelin_verin)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_01
+			outposts_02
+		}
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			city_02
+			hunting_grounds_04
+		}
+	}
+	6498.1.1 = { # Abandoned as the Watchful Peace Ends in 2475
+		holding = none
+	}
+	6934.1.1 = { # Reoccupied with Henneth Annun
+		holding = city_holding
+		buildings = {
+			city_01
+			outposts_02
+		}
+	}
+}
+
+##			Asgaril (c_asgaril)
+
+2707 = {	#Bar Tawar (b_bar_tawar)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_02
+			ramparts_03
+			outposts_02
+		}
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			castle_02
+			ramparts_03
+			logging_camps_04
+		}
+	}
+	5480.1.1 = {	#Post Kinstrife
+		buildings = {
+			castle_02
+			ramparts_03
+			outposts_02
+		}
+	}
+}
+
+2710 = {	#Larnach (b_larnach)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_01
+			barracks_02
+		}
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+	5480.1.1 = {	#Post Kinstrife
+		buildings = {
+			city_01
+			barracks_02
+		}
+	}
+}
+
+2704 = {	#Sîr Asgar (b_sir_asgar)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+##			Faedur (c_faedur)
+
+228 = {		#Caladuil (b_caladuil)
+	culture = danaine
+	religion = faith_donan
+	holding = tribal_holding
+	3990.1.1 = {
+		culture = dunedain
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			hill_forts_02
+			garrison_tower_01
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		religion = faith_edain
+	}
+	6498.1.1 = { # Abandoned as the Watchful Peace Ends in 2475
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			shadow_of_mordor
+		}
+	}
+	6934.1.1 = { # Reoccupied with Henneth Annun
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			hill_forts_03
+			garrison_tower_01
+		}
+	}
+}
+
+2713 = {	#Mormaegon (b_mormaegon)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = none
+	}
+}
+
+230 = {		#Cirith Negen (b_cirith_negen)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			hill_forts_03
+			# garrison_tower_01
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	6498.1.1 = { # Abandoned as the Watchful Peace Ends in 2475
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+	6934.1.1 = { # Reoccupied with Henneth Annun
+		culture = gondorian
+		religion = faith_edain
+		holding = none
+	}
+}
+
+###			Cormalthen (d_cormalthen)
+##			Arandal (c_arandal)
+
+2725 = {	#Arandal (b_arandal)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			city_02
+			common_tradeport_04
+			cereal_fields_03
+		}
+	}
+	5480.1.1 = {	#Post Kinstrife
+		buildings = {
+			city_01
+			common_tradeport_02
+			cereal_fields_01
+		}
+	}
+	6498.1.1 = { # Abandoned as the Watchful Peace Ends in 2475
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wolf_den
+			dense_growth
+		}
+	}
+	7060.5.14 = { # Early FoA
+		culture = gondorian
+		religion = faith_edain
+		# holding = city_holding #Add back if the capital barony change can be forced to work
+		holding = castle_holding
+	}
+}
+
+604 = {		#Bâr Tarnaher (b_bar_tarnaher)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+}
+
+605 = {		#Haerondir (b_haerondir)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	7054.3.25 = { #Destruction of the One Ring
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_01
+		}
+	}
+}
+
+##			Nindalf (c_nindalf)
+
+599 = {		#Raunas (b_raunas)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			castle_02
+			hill_forts_02
+			hill_farms_04
+		}
+	}
+	5480.1.1 = {	#Post Kinstrife
+		buildings = {
+			castle_01
+			hill_forts_02
+			hill_farms_01
+		}
+	}
+	6033.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_lands
+			bandits
+		}
+	}
+}
+
+600 = {		#Nindalf (b_nindalf)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	6033.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+}
+
+601 = {		#Tel Verenaer (b_tel_verenaer)
+
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	6033.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+}
+
+##			Drinbar (c_drinbar)
+
+602 = {		#Tirith Ingon (b_tirith_ingon)
+	culture = danaine
+	religion = faith_edain
+	holding = tribal_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			castle_02
+			hill_forts_03
+			pastures_04
+		}
+	}
+	5480.1.1 = {	#Post Kinstrife
+		buildings = {
+			castle_01
+			hill_forts_02
+			pastures_02
+		}
+	}
+	6033.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			wild_orcs
+		}
+	}
+}
+
+603 = {		#Tirith Malbor (b_tirith_malbor)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+}
+
+606 = {		#Tol Malbor (b_tol_malbor)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+}
+607 = {		#Bar Malbor (b_bar_malbor)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+####		Lebennin (k_lebennin)
+###			Pelargir (d_pelargir)
+##			Pelargir (c_pelargir)
+
+264 = {		#Pelargir (b_pelargir)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	special_building_slot = wonder_port_of_pelargir_01
+	special_building = wonder_port_of_pelargir_01
+	3990.1.1 = {
+		buildings = {
+			castle_04
+			curtain_walls_08
+			garrison_tower_04
+			# common_tradeport_06
+		}
+		duchy_capital_building = tax_assessor_03
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_04
+			curtain_walls_06
+			garrison_tower_02
+			# common_tradeport_06
+		}
+		duchy_capital_building = tax_assessor_02
+	}
+}
+
+265 = {		#Barfalas (b_barfalas)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		buildings = {
+			city_03
+			common_tradeport_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+267 = {		#Dior (b_dior)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			cereal_fields_04
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = none
+	}
+}
+
+266 = {		#Lebinor (b_lebinor)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			farm_estates_04
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = none
+	}
+}
+
+268 = {		#Malrach (b_malrach)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		buildings = {
+			city_03
+			common_tradeport_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+272 = {		#Bar Sirith (b_bar_sirith)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_03
+			farm_estates_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			farm_estates_04
+		}
+	}
+}
+
+##			Landor (c_landor)
+
+277 = {		#Pellas (b_pellas)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		buildings = {
+			castle_04
+			curtain_walls_06
+			cereal_fields_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			curtain_walls_04
+			cereal_fields_04
+		}
+	}
+}
+
+2515 = {	#Mesgal (b_mesgal)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		holding = city_holding
+		buildings = {
+			city_03
+			common_tradeport_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+2734 = {	# Abad Loen (b_abad_loen)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = city_holding
+		buildings = {
+			city_03
+			farm_estates_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			farm_estates_03
+		}
+	}
+}
+
+##			Calimir (c_calimir)
+
+306 = {		#Minlos (b_minlos)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_04
+			hill_forts_06
+			hill_farms_06
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_03
+			hill_forts_05
+			hill_farms_04
+		}
+	}
+}
+
+294 = {		#Arnbâd (b_arnbad)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_03
+			cereal_fields_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			cereal_fields_04
+		}
+	}
+}
+
+269 = {		#Dol Calimir (b_dol_calimir)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_03
+			common_tradeport_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+##			Erui (c_erui)
+
+2745 = {	#Bar Erui (b_bar_erui)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_03
+			barracks_06
+			curtain_walls_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_03
+			barracks_04
+			curtain_walls_05
+		}
+	}
+}
+
+271 = {		#Minas Arnach (b_minas_arnach)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_03
+			hill_forts_05
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife}
+		buildings = {
+			castle_02
+			hill_forts_03
+		}
+	}
+}
+
+276 = {		#Bar Luindol (b_bar_luindol)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = city_holding
+		buildings = {
+			city_03
+			farm_estates_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			farm_estates_04
+		}
+	}
+}
+
+275 = {		#Minas Arthor (b_minas_arthor)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = city_holding
+		buildings = {
+			city_03
+			farm_estates_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			farm_estates_03
+		}
+	}
+}
+
+###			Lebennimeth (d_lebennimeth)
+##			Fanuilond (c_fanuilond)
+
+299 = {		#Fanuilond (b_fanuilond)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_04
+			curtain_walls_08
+			barracks_06
+		}
+		duchy_capital_building = march_02
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			curtain_walls_04
+			barracks_04
+		}
+		duchy_capital_building = march_01
+	}
+}
+
+302 = {		#Minas Daldor (b_minas_daldor)
+	culture = dunedain
+	religion = faith_edain
+	holding = church_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			temple_03
+			scriptorium_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			temple_01
+			scriptorium_02
+		}
+	}
+}
+
+301 = {		#Lanthiriath (b_lanthiriath)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		buildings = {
+			city_03
+			common_tradeport_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+300 = {		#Methed Lebennin (b_methed_lebennin)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = none
+	}
+}
+
+##			Serni (c_serni)
+
+303 = {		#Tir Serni (b_tir_serni)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_03
+			curtain_walls_05
+			common_tradeport_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			curtain_walls_04
+			common_tradeport_04
+		}
+	}
+}
+
+304 = {		#Bar Annunaid (b_bar_annunaid)
+	culture = dunedain
+	religion = faith_edain
+	holding = church_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			temple_03
+			scriptorium_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			temple_01
+			scriptorium_02
+		}
+	}
+}
+
+##			Lindor (c_lindor)
+
+297 = {		#Lindor (b_lindor)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_04
+			curtain_walls_06
+			cereal_fields_06
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			curtain_walls_04
+			cereal_fields_03
+		}
+	}
+}
+
+298 = {		#Lorilad (b_lorilad)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		holding = city_holding
+		buildings = {
+			city_03
+			common_tradeport_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+270 = {		#Gaersul (b_gaersul)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		holding = city_holding
+		buildings = {
+			city_03
+			common_tradeport_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+295 = {		#Lalornen (b_lalornen)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			cereal_fields_04
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_01
+			cereal_fields_02
+		}
+	}
+}
+
+##			Ethir Anduin (c_ethir_anduin)
+
+2550 = {	#Tir Anduin (b_tir_anduin)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_02
+			curtain_walls_04
+			peat_quarries_02
+		}
+	}
+}
+
+2558 = {	#Benish Armon (b_benish_armon)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_02
+			curtain_walls_04
+		}
+	}
+}
+
+###			Gilrain (d_gilrain)
+##			Gilrain (c_gilrain)
+
+292 = {		#Bar Gilraen (b_bar_gilraen)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_03
+			curtain_walls_05
+			cereal_fields_06
+		}
+		duchy_capital_building = siege_works_02
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			curtain_walls_04
+			cereal_fields_03
+		}
+		duchy_capital_building = siege_works_01
+	}
+}
+
+293 = {		#Bar Gilcúdor (b_bar_gilcudor)
+	culture = dunedain
+	religion = faith_edain
+	holding = church_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			temple_03
+			scriptorium_06  
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			temple_01
+			scriptorium_02
+		}
+	}
+}
+
+296 = {		#Birthir (b_brithir)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = {
+		culture = gondorian
+		buildings = {
+			city_03
+			farm_estates_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			farm_estates_04
+		}
+	}
+}
+
+291 = {		#Lanrain (b_lanrain)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = {
+		culture = gondorian
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_03
+			common_tradeport_06
+		}
+	}
+}
+
+##			Brethil (c_brethil)
+
+290 = {		#Minas Brethil (b_minas_brethil)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_03
+			curtain_walls_05
+			farm_estates_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			curtain_walls_03
+			farm_estates_04
+		}
+	}
+}
+
+309 = {		#Glaniath (b_glaniath)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			cereal_fields_04
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = none
+	}
+}
+
+286 = {		#Lornost (b_lornost)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = church_holding
+		buildings = {
+			temple_02
+			scriptorium_04
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			temple_01
+			scriptorium_02
+		}
+	}
+}
+
+##			Gilbin (c_gilbin)
+
+314 = {		#Bar Gilbin (b_bar_gilbin)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_03
+			curtain_walls_05
+			farm_estates_04
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			curtain_walls_03
+			farm_estates_02
+		}
+	}
+}
+
+308 = {		#Herevorn (b_herevorn)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			hill_farms_04
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_01
+			hill_farms_02
+		}
+	}
+}
+
+307 = {		#Iaurost (b_iaurost)
+	culture = dunedain
+	religion = faith_edain
+	holding = church_holding
+	3990.1.1 = {
+		buildings = {
+			temple_02
+			scriptorium_04
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			temple_01
+			scriptorium_02
+		}
+	}
+}
+
+##			Lameduin (c_lameduin)
+
+311 = {		#Bar Lameduin (b_bar_lameduin)
+	culture = coenmor
+	religion = faith_daen_coentis
+	holding = castle_holding
+	4000.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			hill_forts_04
+			hill_farms_04
+		}
+	}
+
+}
+
+312 = {		#Tundalaf (b_tundalaf)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+305 = {		#Imforant (b_imforant)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_02
+			quarries_04
+		}
+	}
+}
+
+310 = {		#Ethillorn (b_ethillorn)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_01
+			hill_farms_01
+		}
+	}
+}
+
+###			Celosien (d_celosien)
+
+##			Tumladen (c_tumladen)
+
+281 = {		#Tumladen (b_tumladen)
+	culture = coenmor
+	religion = faith_daen_coentis
+	holding = none
+	3990.1.1 = {
+		culture = dunedain
+		faith = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_03
+			curtain_walls_04
+			farm_estates_06
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_03
+			barracks_04
+			farm_estates_04
+		}
+	}
+}
+
+280 = {		#Minas tumladen (b_minas_tumladen)
+	culture = coenmor
+	religion = faith_daen_coentis
+	holding = castle_holding
+	4035.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		holding = city_holding
+		buildings = {
+			city_03
+			quarries_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			quarries_04
+		}
+	}
+}
+
+2535 = {	#Ered tumladen (b_ered_tumladen)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+283 = {		#Aerthir (b_aerthir)
+	culture = coenmor
+	religion = faith_daen_coentis
+	holding = none
+	3990.1.1 = {
+		culture = dunedain
+		holding = city_holding
+		buildings = {
+			city_02
+			hill_farms_04
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_01
+			hill_farms_02
+		}
+	}
+}
+
+##			Orchaldor (c_orchaldor)
+
+274 = {		#Bar Orchaldor (b_bar_orchaldor)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_03
+			curtain_walls_06
+			farm_estates_05
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			curtain_walls_03
+			farm_estates_04
+		}
+	}
+}
+
+2523 = {	#Glorlach (b_glorlach)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_03
+			farm_estates_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			farm_estates_03
+		}
+	}
+}
+
+273 = {		#Echorost (b_echorost)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_02
+			hill_farms_04
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_01
+			hill_farms_01
+		}
+	}
+}
+
+2526 = {	#Levainnor (b_levainnor)
+	culture = dunedain
+	religion = faith_edain
+	holding = church_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			temple_02
+			scriptorium_04
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			temple_01
+			scriptorium_01
+		}
+	}
+}
+
+##			Enedhir (c_enedhir)
+
+289 = {		#Enedhir (b_enedhir_lebennin)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_03
+			curtain_walls_05
+			farm_estates_06
+		}
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			curtain_walls_03
+			farm_estates_04
+		}
+	}
+}
+
+282 = {		#Bar Novond (b_bar_novond)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = church_holding
+		buildings = {
+			temple_02
+			scriptorium_04
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			temple_01
+			scriptorium_01
+		}
+	}
+}
+
+1377 = {	#Glorbin (b_lebennin1)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = city_holding
+		buildings = {
+			city_03
+			cereal_fields_05
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_01
+			cereal_fields_02
+		}
+	}
+}
+
+1378 = {	#Pind Lothui (b_lebennin2)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+##			Caragost (c_caragost)
+
+284 = {		#Caragdur (b_caragdur)
+	culture = coenmor
+	religion = faith_daen_coentis
+	holding = castle_holding
+	4000.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			hill_forts_03
+			quarries_04
+		}
+	}
+}
+
+285 = {		#Lochen (b_lochen)
+	culture = coenmor
+	religion = faith_daen_coentis
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			hill_farms_03
+		}
+	}
+}
+
+287 = {		#Celosbel (b_celosbel)
+	culture = coenmor
+	religion = faith_daen_coentis
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = city_holding
+		buildings = {
+			city_01
+			cereal_fields_02
+		}
+	}
+}
+
+288 = {		#Sirthanc (b_sirthanc)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			logging_camps_04
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = none
+	}
+}
+
+####		Belfalas (k_belfalas)
+###			Lond Ernil (d_lond_ernil)
+##			Dol Amroth (c_dol_amroth)
+
+315 = {		#Dol Amroth (b_dol_amroth)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_04
+			curtain_walls_06
+			garrison_tower_04
+			# common_tradeport_05
+		}
+	}
+	4000.1.1 = {
+		special_building_slot = wonder_dol_amroth_01
+		special_building = wonder_dol_amroth_01
+	}
+}
+
+318 = {		#Dol Brannor (b_dol_brannor)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+}
+
+319 = {		#Tir Ithaear (b_tir_ithaear)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = city_holding
+	3990.1.1 = {
+		buildings = {
+			city_03
+			farm_estates_06
+		}
+	}
+}
+
+316 = {		#Rohallor (b_rohallor)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_01
+			curtain_walls_04
+		}
+	}
+}
+
+317 = {		#Bar Haeron (b_bar_haeron)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = city_holding
+	3990.1.1 = {
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+##			Nargond (c_nargond)
+
+320 = {		#Nargond (b_nargond)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_04
+			stables_04
+		}
+	}
+}
+
+324 = {		#Ráma (b_rama)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = city_holding
+	3990.1.1 = {
+		buildings = {
+			city_01
+			hill_farms_02
+		}
+	}
+}
+
+321 = {		#Cirith Dunrandir (b_cirith_dunrandir)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+}
+
+322 = {		#Tyll Ernil (b_tyll_ernil)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+}
+
+###			Methrast (d_methrast)
+##			Methrast (c_methrast)
+
+331 = {		#Methrast (b_methrast)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_03
+			curtain_walls_06
+			common_tradeport_04
+		}
+	}
+}
+
+332 = {		#Barad Galathil (b_barad_galathil)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = city_holding
+	3990.1.1 = {
+		buildings = {
+			city_02
+			common_tradeport_03
+		}
+	}
+}
+
+326 = {		#Tir Solen (b_tir_solen)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+}
+
+333 = {		#Tyll Druxaldë (b_tyll_druxalde)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = church_holding
+	3990.1.1 = {
+		buildings = {
+			temple_02
+			scriptorium_04
+		}
+	}
+}
+
+##			Tyliand (c_tyliand)
+
+323 = {		#Endil (b_endil)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_04
+			farm_estates_04
+		}
+	}
+}
+
+327 = {		#Galibur (b_galibur)
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			hill_forts_03
+		}
+	}
+}
+
+325 = {		#Bar Tyliand (b_bar_tyliand)
+	holding = none
+}
+
+##			Eregost (c_eregost)
+
+334 = {		#Eregost (b_eregost)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_04
+			stables_04
+		}
+	}
+}
+
+330 = {		#Ostara (b_ostara)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = city_holding
+	3990.1.1 = {
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+329 = {		#Indilzar (b_indilzar)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+}
+
+##			Dudhrandur (c_dudhrandur)
+
+328 = {		#Barad Rill (b_barad_rill)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			hill_forts_04
+			stables_04
+		}
+	}
+}
+
+336 = {		#Sarnen (b_sarnen)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+}
+
+337 = {		#Parth Uilos (b_parth_uilos)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = city_holding
+	3990.1.1 = {
+		buildings = {
+			city_02
+			quarries_04
+		}
+	}
+}
+
+###			Dor en Ernil (d_dor_en_ernil)
+
+##			Linhir (c_linhir)
+
+350 = {		#Linhir (b_linhir)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	special_building_slot = wonder_walls_linhir
+	special_building = wonder_walls_linhir
+	3990.1.1 = {
+		buildings = {
+			castle_04
+			curtain_walls_08
+			common_tradeport_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_03
+			curtain_walls_06
+			common_tradeport_05
+		}
+	}
+}
+
+349 = {		#Lond Tathren (b_lond_tathren)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = city_holding
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		buildings = {
+			city_03
+			common_tradeport_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+351 = {		#Catarinabad (b_catarinabad)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		holding = church_holding
+		buildings = {
+			temple_02
+			scriptorium_04
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = none
+	}
+}
+
+352 = {		#Tharas (b_tharas)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		holding = city_holding
+		buildings = {
+			city_03
+			cereal_fields_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			city_02
+			cereal_fields_04
+		}
+	}
+}
+##			Tarnost (c_tarnost)
+
+343 = {		#Tarnost (b_tarnost)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_03
+			curtain_walls_06
+			stables_06
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			curtain_walls_04
+			stables_04
+		}
+	}
+}
+
+353 = {		#Tauren (b_tauren)
+	holding = none
+}
+313 = {		#Tir Edrain (b_tir_edrain)
+	holding = none
+}
+
+##			Anghabar (c_anghabar)
+
+338 = {		#Sarlond (b_sarlond)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_04
+			stables_04
+		}
+	}
+}
+
+341 = {		#Naur Amrûn (b_naur_amrun)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = city_holding
+	3990.1.1 = {
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+335 = {		#Imrabad (b_imrabad)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+}
+
+##			Naur Amrûn (c_naur_amrun)
+
+339 = {		#Thônfalas (b_thonfalas)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_04
+			regimental_grounds_04
+		}
+	}
+}
+
+340 = {		#Andram (b_andram)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power
+		holding = city_holding
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+348 = {		#Raudfern (b_raudfern)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+}
+
+##			Bar-Erib (c_bar_erib)
+
+342 = {		#Cûm Taran (b_cum_taran)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_01
+			hill_forts_02
+			quarries_02
+		}
+	}
+}
+
+346 = {		#Barad Tong (b_barad_tong)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+}
+
+###			Edhelion (d_edhelion)
+##			Edhelion (c_edhelion)
+
+381 = {		#Tir Faroth (b_tir_faroth)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_03
+			curtain_walls_06
+			regimental_grounds_05
+		}
+		duchy_capital_building = jousting_lists_02
+	}
+}
+
+380 = {		#Echad-i-Sedryn (b_echad_i_sedryn)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = city_holding
+	3990.1.1 = {
+		buildings = {
+			city_02
+			farm_estates_04
+		}
+	}
+}
+
+378 = {		#Makham (b_makham)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+}
+
+##			Cathlond (c_cathlond)
+
+377 = {		#Amon Corch (b_amon_corch)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		culture = gondorian
+		buildings = {
+			castle_02
+			curtain_walls_04
+			regimental_grounds_04
+		}
+	}
+}
+
+375 = {		#Cathlond (b_cathlond)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = city_holding
+	buildings = {
+		city_02
+		cereal_fields_04
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = none
+	}
+}
+
+
+##		Taur-en-Ernil	(b_rosuldrie)
+
+344 = {		#Rosuldrië (b_rosuldrie)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_03
+			stables_02
+		}
+	}
+}
+
+379 = {		#Edhellont (b_edhellont)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_01
+			ramparts_02
+			# courier_stables_02
+		}
+	}
+}
+
+373 = {		#Hashadîr (b_hashadir)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_01
+			ramparts_02
+			# courier_stables_02
+		}
+	}
+}
+
+##			Nan Ringló (c_south_ringlo)
+
+374 = {		#Dâr Martum (b_dar_martum)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			curtain_walls_05
+			cereal_fields_04
+		}
+	}
+}
+
+376 = {		#Spathlin (b_spathlin)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+}
+
+347 = {		#Bar-Erib (b_bar_erib)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+	3990.1.1 = {
+		holding = castle_holding
+		buildings = {
+			castle_02
+			ramparts_04
+			# courier_stables_01
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_01
+			ramparts_02
+			# courier_stables_01
+		}
+	}
+}
+
+345 = {		#Sigilbad (b_sigilbad)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+}
+
+
+
+###			Tolfalas (d_tolfalas)
+##			Hartolfalas (c_hartolfalas)
+
+357 = {		#Caras Tolfalas (b_caras_tolfalas)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3911.1.1 = { # The Downfall causes heavy damage
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+	3930.1.1 = {
+		culture = belfalathrim
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			hill_forts_04
+			hospices_02
+		}
+	}
+}
+
+356 = {		#Alôra (b_alora)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+}
+
+355 = {		#Uphar (b_uphar)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+}
+
+354 = {		#Eithor (b_eithor)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+}
+
+##			Fortolfalas (c_fortolfalas)
+
+359 = {		#Toltir (b_toltir)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = castle_holding
+	3911.1.1 = { # The Downfall causes heavy damage
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+	3930.1.1 = {
+		culture = belfalathrim
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_02
+			hospices_01
+		}
+	}
+}
+
+358 = {		#Hithugarth (b_hithugarth)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = none
+
+}
+
+360 = {		#Gilros (b_gilros)
+	culture = belfalathrim
+	religion = faith_edain
+	holding = church_holding
+	3911.1.1 = { # The Downfall causes heavy damage
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+	3930.1.1 = {
+		culture = belfalathrim
+		religion = faith_edain
+		holding = church_holding
+		buildings = {
+			temple_03
+			hospices_04
+		}
+		special_building_slot = wonder_imrazor_hallow
+		special_building = wonder_imrazor_hallow
+	}
+}
+
+####		Lamedon (k_lamedon)
+###			Lamedon (d_lamedon)
+##			Calembel (c_calembel)
+
+362 = {		#Calembel (b_calembel)
+	culture = coenmor
+	religion = faith_daen_sauron
+	holding = tribal_holding
+	4000.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_03
+			curtain_walls_04
+			farm_estates_05
+		}
+		duchy_capital_building = tax_assessor_02
+	}
+}
+
+382 = {		#Lothgobel (b_lothgobel)
+	holding = none
+}
+
+386 = {		#Cûl Bin (b_cul_bin)
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			logging_camps_04
+		}
+	}
+}
+
+##			Narvindon (c_narvindon)
+
+364 = {		#Narvindon (b_narvindon)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_02
+			hill_farms_03
+			hill_forts_04
+		}
+	}
+}
+
+363 = {		#Setmaenen (b_setmaenen)
+	holding = none
+}
+
+361 = {		#Bar Elir (b_bar_elir)
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			cereal_fields_03
+		}
+	}
+}
+
+367 = {		#Ossarnen (b_ossarnen)
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_02
+			quarries_04
+		}
+	}
+}
+
+##			Achad Tarlang (c_achad_tarlang)
+
+365 = {		#Achad Tarlang (b_achad_tarlang)
+	culture = coenmor
+	religion = faith_daen_sauron
+	holding = tribal_holding
+	3950.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			hill_forts_03
+			barracks_04
+		}
+	}
+}
+
+366 = {		#Dol Tarlang (b_dol_tarlang)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			hill_farms_03
+		}
+	}
+}
+
+394 = {		#Cul Veleg (b_cul_veleg)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+##			Ringnen (c_ringnen)
+
+368 = {		#Tadrent (b_tadrant)
+	culture = coenmor
+	religion = faith_daen_sauron
+	holding = tribal_holding
+	4000.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			hill_forts_04
+			hill_farms_03
+		}
+	}
+}
+
+370 = {		#Nimrond (b_nimrond)
+	holding = none
+}
+
+369 = {		#Ringnen (b_ringnen)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			quarries_04
+		}
+	}
+}
+
+##			Ethring (c_ethring)
+
+383 = {		#Ethring (b_ethring)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_01
+			curtain_walls_04
+			cereal_fields_03
+		}
+	}
+}
+
+371 = {		#Aug Lamedon (b_aug_lamedon)
+	holding = none
+}
+
+372 = {		#Amon Lontir (b_amon_lontir)
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			farm_estates_04
+		}
+	}
+}
+
+###			Glandhir (d_glandhir)
+##			Glanhir (c_glanhir)
+
+387 = {		#Glanhir (b_glanhir)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	buildings = {
+		castle_02
+		curtain_walls_05
+		common_tradeport_04
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+389 = {		#Dínadab (b_dinadab)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			farm_estates_04
+		}
+	}
+}
+
+388 = {		#Parth Ruscar (b_parth_ruscar)
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			cereal_fields_03
+		}
+	}
+}
+
+384 = {		#Ost Lontir (b_ost_lontir)
+	holding = none
+	3950.1.1 = {
+		culture = dunedain
+		religion = faith_edain
+		holding = church_holding
+		buildings = {
+			temple_01
+			scriptorium_02
+		}
+	}
+}
+
+385 = {		#Bar-en-Glad (b_bar_en_glad)
+	holding = none
+}
+
+##			Andhen (c_andhen)
+
+404 = {		#Gondranínui (b_gondraninui)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_02
+			curtain_walls_03
+			farm_estates_04
+		}
+	}
+	5000.1.1 = {
+		culture = orodbedhrim
+	}
+}
+
+405 = {		#Iolair (b_iolair)
+	holding = none
+}
+
+407 = {		#Barad Nîr (b_barad_nir)
+	holding = none
+}
+
+406 = {		#Angbor Barad (b_angbor_barad)
+	holding = none
+}
+
+###			Morthond Vale (d_morthond_vale)
+##			Morthond (c_morthond)
+
+395 = {		#Mothondost (b_morthondost)
+	culture = coenmor
+	religion = faith_daen_sauron
+	holding = tribal_holding
+	5000.1.1 = {
+		culture = orodbedhrim
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			curtain_walls_03
+			farm_estates_04
+		}
+	}
+}
+
+392 = {		#Dol Faeren (b_dol_faeren)
+	holding = none
+	5000.1.1 = {
+		holding = city_holding
+		buildings = {
+			city_01
+			quarries_02
+		}
+	}
+}
+
+6241 = {	#Blackroot (b_blackroot)
+	holding = none
+}
+
+393 = {		#Nineryn (b_nineryn)
+	holding = none
+}
+
+##			Erech (c_erech)
+
+390 = {		#Erech (b_erech)
+	culture = coenmor
+	religion = faith_daen_sauron
+	holding = tribal_holding
+	3900.1.1 = {
+		special_building_slot = wonder_erech
+		special_building = wonder_erech
+	}
+	4000.1.1 = {
+		culture = orodbedhrim
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			hill_forts_03
+			barracks_03
+		}
+	}
+}
+
+391 = {		#Imlad Angren (b_imlad_angren)
+	holding = none
+}
+
+396 = {		#Palomire (b_palomire)
+	holding = none
+	4000.1.1 = {
+		holding = city_holding
+		buildings = {
+			city_01
+			hill_farms_02
+		}
+	}
+}
+
+##			Tarlang (c_emyn_morthond)
+
+400 = {		#Gadardhel (b_gadardhel)
+	culture = coenmor
+	religion = faith_daen_sauron
+	holding = tribal_holding
+	4900.1.1 = {
+		culture = orodbedhrim
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			hill_forts_02
+			barracks_02
+		}
+	}
+}
+
+403 = {		#Tor-Duinair (b_tor_duinair)
+	culture = coenmor
+	religion = faith_daen_sauron
+	holding = tribal_holding
+	4900.1.1 = {
+		culture = orodbedhrim
+		faith = faith_edain
+		holding = city_holding
+		buildings = {
+			city_01
+			hill_farms_02
+		}
+	}
+}
+
+398 = {		#Emyn Thûin (b_emyn_thuin)
+	culture = coenmor
+	religion = faith_daen_sauron
+	holding = tribal_holding
+	4900.1.1 = {
+		culture = orodbedhrim
+		religion = faith_edain
+		holding = church_holding
+		buildings = {
+			temple_01
+			scriptorium_02
+		}
+	}
+}
+
+##			Rendûl (c_rendul)
+
+401 = {	#Rendul (b_rendul)
+	culture = coenmor
+	religion = faith_daen_coentis
+	holding = castle_holding
+	4900.1.1 = {
+		culture = orodbedhrim
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			curtain_walls_03
+			farm_estates_02
+		}
+	}
+}
+
+399 = {		#Minas Foen (b_minas_foen)
+	holding = none
+	4900.1.1 = {
+		holding = city_holding
+		buildings = {
+			city_01
+			logging_camps_02
+		}
+	}
+}
+
+397 = {		#Cartrev Matho (b_cartrev_matho)
+	holding = none
+}
+
+402 = {	#Tir Abedec (b_tir_abedec)
+	holding = none
+	5000.1.1 = {
+		holding = city_holding
+		buildings = {
+			city_02
+			cereal_fields_03
+		}
+	}
+}
+
+####		Anfalas (k_anfalas)
+###			Anfalas (d_anfalas)
+
+##			Lond Galen (c_lond_galen)
+
+431 = {		#Lond Galen (b_lond_galen)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_03
+			common_tradeport_06
+			curtain_walls_05
+		}
+	}
+}
+
+430 = {		#Ladwen (b_ladwen)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+432 = {		#Legwaloth (b_legwaloth)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+##			Iantras (c_iantras)
+
+428 = {		#Iantras (b_iantras)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4900.1.1 = { #Falastur's Expansion
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			curtain_walls_03
+			common_tradeport_04
+		}
+	}
+}
+
+429 = {		#Bar-En-Siril (b_bar_en_siril)
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		holding = city_holding
+		buildings = {
+			city_02
+			cereal_fields_03
+		}
+	}
+}
+
+427 = {		#Rondalph (b_rondalph)
+	holding = none
+	4900.1.1 = { #Falasturs Expansion
+		holding = city_holding
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+1020 = {	#Cûm Mandring (b_cum_mandring)
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		holding = church_holding
+		buildings = {
+			temple_01
+			scriptorium_02
+		}
+	}
+}
+
+###			Edhellond (d_edhellond)
+
+##			Edhellond (c_edhellond)
+
+420 = {		#Edhellond (b_edhellond)
+	culture = sindar
+	religion = faith_eldar
+	holding = elven_holding
+	543.2.1 = {
+		special_building_slot = wonder_edhellond_01
+		special_building = wonder_edhellond_01
+		buildings = {
+			elven_settlement_04
+			elven_port_04
+			elven_barracks_03
+		}
+	}
+	6014.9.21 = { # End of the Elven-realm of Edhellond
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		special_building = wonder_edhellond_02
+		buildings = {
+			castle_01
+		}
+	}
+}
+
+##			Cobas (c_cobas)
+
+422 = {		#Lond Cobas (b_lond_cobas)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4900.1.1 = { #Falastur's Expansion
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+	}
+	5048.1.1 = { # Dawn of Ciryaher Hyarmendacil I's Reign, height of Gondor's power, settlement of Anfalas intensifies
+		buildings = {
+			castle_02
+			common_tradeport_04
+			curtain_walls_03
+		}
+	}
+}
+
+425 = {		#Barad Loen (b_barad_loen)
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+##			Ethir Morthond (c_edhellond_2)
+
+421 = {		#Annúbad (b_annubad)
+	culture = sindar
+	religion = faith_eldar
+	holding = elven_holding
+	buildings = {
+		elven_settlement_02
+		elven_port_02
+		elven_markets_02
+	}
+	6014.7.9 = { # The Princes take over after the last Elves leave
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_03
+			curtain_walls_05
+			farm_estates_05
+		}
+	}
+}
+
+423 = {		#Caleneithel (b_caleneithel_gondor)
+	6014.7.9 = { # The Princes take over after the last Elves leave
+		culture = gondorian
+		religion = faith_edain
+		holding = city_holding
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+
+##			Pind Rusc (c_pind_rusc)
+
+424 = {		#Ruscnan (b_ruscnan)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_02
+			hill_forts_04
+			common_tradeport_04
+		}
+	}
+}
+
+426 = {		#Dol Maldring (b_dol_maldring)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_02
+			hill_forts_04
+		}
+	}
+}
+
+###			Serelond (d_serelond)
+##			Serelond (c_serelond)
+
+433 = {		#Serelond (b_serelond)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+	3495.1.1 = { #Colonisation by Pelargir
+		culture = dunedain
+		religion = faith_numenorean
+		holding = castle_holding
+		buildings = {
+			castle_02
+			common_tradeport_02
+			curtain_walls_02
+		}
+		special_building_slot = wonder_serelond
+		special_building = wonder_serelond
+	}
+	3912.1.1 = {
+		culture = dunedain
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			common_tradeport_04
+			curtain_walls_02
+		}
+	}
+	4900.1.1 = { #Falastur's Expansion
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_03
+			common_tradeport_06
+			curtain_walls_05
+		}
+	}
+}
+
+477 = {		#Tir Eiliant (b_tir_eiliant)
+	holding = none
+}
+
+437 = {		#Arî-Zin (b_ari_zin)
+	holding = none
+}
+
+##			Annodrûn (c_annodrun)
+
+441 = {		#Annodrûn (b_annodrun)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	1614.1.1 = { #Foundation by Aldarion
+		special_building_slot = wonder_annondrun
+		special_building = wonder_annondrun
+	}
+	2475.1.1 = { #Permanent settlement
+		culture = dunedain
+		religion = faith_numenorean
+		holding = castle_holding
+	}
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		religion = faith_edain
+	}
+	4900.1.1 = { #Falastur's Expansion
+		buildings = {
+			castle_02
+			curtain_walls_03
+			common_tradeport_03
+		}
+	}
+}
+
+442 = {		#Annúlond (b_annulond)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_01
+			barracks_02
+		}
+	}
+}
+
+1537 = {	#Haerlond (b_haerlond)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_01
+			common_tradeport_02
+		}
+	}
+}
+
+439 = {		#Lond Feren (b_lond_feren)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+##			Eregmar (c_eregmar)
+
+435 = {		#Eregmar (b_eregmar)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4900.1.1 = { #Falasturs Expansion
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			common_tradeport_02
+			curtain_walls_03
+		}
+	}
+}
+
+438 = {		#Lalmar (b_lalmar)
+	holding = none
+	4900.1.1 = { #Falasturs Expansion
+		holding = city_holding
+		buildings = {
+			city_02
+			common_tradeport_04
+		}
+	}
+}
+
+436 = {		#Annonmeth (b_annonmeth)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_01
+			hill_farms_02
+		}
+	}
+}
+
+440 = {		#Anannamon (b_anannamon)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+####		Pinnath Gelin (k_pinnath_gelin)
+###			Hairavercien (d_hairavercien)
+##			Cirith Nimrais (c_cirith_nimrais)
+
+452 = {		#Celoniach (b_celoniach)
+	culture = coenfir
+	religion = faith_daen_coentis
+	holding = tribal_holding
+	5530.1.1 = {
+		culture = eredrim
+		religion = faith_daen_coentis
+		holding = tribal_holding
+	}
+	6785.1.1 = {
+		special_building_slot = wonder_eredrim_monument_01
+		special_building = wonder_eredrim_monument_01
+	}
+}
+
+453 = {		#Imlad Locen (b_imlad_locen)
+	culture = eredrim
+	religion = faith_daen_coentis
+	holding = none
+}
+
+455 = {		#Hirta (b_hirta)
+	culture = eredrim
+	religion = faith_daen_coentis
+	holding = none
+}
+
+##			Pinnornost (c_pinnornost)
+
+450 = {		#Pinnornost (b_pinnornost)
+	culture = coenfir
+	religion = faith_daen_coentis
+	holding = tribal_holding
+	4900.1.1 = { #Falastur's Expansion
+		culture = orodbedhrim
+		religion = faith_daen_coentis
+		holding = castle_holding
+		buildings = {
+			castle_01
+			curtain_walls_02
+			barracks_02
+		}
+	}
+	5530.1.1 = {
+		culture = orodbedhrim
+		religion = faith_edain
+		holding = castle_holding
+	}
+	6785.1.1 = {
+		holding = tribal_holding
+		buildings = {
+			tribe_02
+			palisades_02
+			war_camps_02
+		}
+	}
+}
+
+469 = {		#Gwaed-Brun (b_gwaed_brun)
+	holding = none
+}
+
+468 = {		#Amlothdor (b_amlothdor)
+	holding = none
+}
+
+##			Thórod (c_thorod)
+
+457 = {		#Dol Thórod (b_dol_thorod)
+	culture = coenfir
+	religion = faith_daen_coentis
+	holding = tribal_holding
+	5530.1.1 = {
+		culture = eredrim
+		religion = faith_daen_coentis
+		holding = tribal_holding
+	}
+}
+
+456 = {		#Thorodras (b_thorodhras)
+	culture = coenfir
+	religion = faith_daen_coentis
+	holding = none
+	5530.1.1 = {
+		culture = eredrim
+		religion = faith_daen_coentis
+		holding = none
+	}
+}
+
+454 = {		#Cabed Araheledh (b_cabed_araheledh)
+	culture = coenfir
+	religion = faith_daen_coentis
+	holding = church_holding
+	5530.1.1 = {
+		culture = eredrim
+		religion = faith_daen_coentis
+		holding = church_holding
+	}
+}
+
+##			Eryn Drúin (c_cirith_drû)
+
+474 = {		#Kadbêl (b_kadbel)
+	culture = coenfir
+	religion = faith_daen_gaoth
+	holding = tribal_holding
+	4500.1.1 = {
+		religion = faith_daen_coentis
+	}
+	5530.1.1 = {
+		culture = eredrim
+		religion = faith_daen_coentis
+		holding = tribal_holding
+	}
+}
+
+451 = {		#I-Gwîndor (b_i_gwindor)
+	culture = eredrim
+	religion = faith_daen_coentis
+	holding = none
+}
+
+##			Tirith Menel (c_tirith_menel)
+
+464 = {		#Enegmenel (b_enegmenel)
+	culture = coenfir
+	religion = faith_daen_coentis
+	holding = tribal_holding
+	5530.1.1 = {
+		culture = eredrim
+		religion = faith_daen_coentis
+		holding = tribal_holding
+	}
+}
+
+458 = {		#Cûm Arelaidh (b_cum_arelaidh)
+	culture = eredrim
+	religion = faith_daen_coentis
+	holding = none
+}
+
+459 = {		#Celebcebir (b_celebcebir)
+	culture = eredrim
+	religion = faith_daen_coentis
+	holding = none
+}
+
+###			Arlefnui (d_arlefnui)
+##			Arlefnui (c_arlefnui)
+473 = {		#Aron Úvanim (b_aron_uvanim)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	buildings = {
+		castle_02
+		hill_forts_03
+		barracks_02
+	}
+	4035.1.1 = {
+		culture = gondorian
+	}
+	4900.1.1 = {
+		culture = orodbedhrim
+	}
+}
+
+480 = {		#Osgar (b_osgar)
+	culture = orodbedhrim
+	religion = faith_edain
+	holding = none
+}
+
+481 = {		#Parth Feren (b_parth_feren)
+	culture = orodbedhrim
+	religion = faith_edain
+	holding = none
+}
+
+482 = {		#Mithtalaf (b_mithtalaf)
+	culture = orodbedhrim
+	religion = faith_edain
+	holding = none
+}
+
+##			Adavalinda (c_adavalinda)
+
+478 = {		#Adavalinda (b_adavalinda)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4900.1.1 = { #Falasturs Expansion
+		culture = orodbedhrim
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			curtain_walls_03
+			barracks_02
+		}
+	}
+}
+
+1595 = {	#Caraghir (b_caraghir)
+	culture = orodbedhrim
+	religion = faith_edain
+	holding = city_holding
+	buildings = {
+		city_01
+		logging_camps_02
+	}
+}
+
+479 = {		#Taurrant (b_taurrant)
+	culture = orodbedhrim
+	religion = faith_edain
+	holding = none
+}
+
+476 = {		#Phila (b_phila)
+	culture = orodbedhrim
+	religion = faith_edain
+	holding = none
+}
+
+###			Nan-i-Feryn (d_nan_i_feryn)
+##			Nan-i-Feryth (c_nan_i_feryth)
+
+463 = {		#Zirubêra (b_zirubera)
+	culture = coenfir
+	religion = faith_daen_coentis
+	holding = tribal_holding
+	5530.1.1 = {
+		culture = eredrim
+		religion = faith_daen_coentis
+		holding = tribal_holding
+	}
+	6000.1.1 = {
+		culture = orodbedhrim
+		religion = faith_daen_coentis
+		holding = tribal_holding
+		buildings = {
+			tribe_02
+		}
+	}
+}
+
+465 = {		#Chardún (b_chardun)
+	culture = eredrim
+	religion = faith_daen_coentis
+	holding = none
+}
+
+466 = {		#Annon Annui (b_annon_annui)
+	culture = eredrim
+	religion = faith_daen_coentis
+	holding = none
+}
+
+461 = {		#Gond-Huin (b_gond_huin)
+	culture = eredrim
+	religion = faith_daen_coentis
+	holding = none
+}
+
+6270 = {	#Cirith Thúin (b_cirith_thuin)
+	culture = eredrim
+	religion = faith_daen_coentis
+	holding = none
+}
+
+##			Torrant (c_torrant)
+
+472 = {		#Sarnen Himbadar (b_sarnen_himbadar)
+	culture = coenfir
+	religion = faith_daen_coentis
+	holding = tribal_holding
+	4900.1.1 = {
+		culture = orodbedhrim
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_01
+			curtain_walls_01
+			barracks_02
+		}
+	}
+}
+
+470 = {		#Lindabad (b_lindabad)
+	holding = none
+}
+
+471 = {		#Bar Mandos (b_bar_mandos)
+	holding = none
+}
+
+467 = {		#Aratund (b_aratund)
+	holding = none
+}
+
+
+
+
+##			Imrathion (c_imrathion)
+
+462 = {		#Imrathion (b_imrathion)
+	culture = coenfir
+	religion = faith_daen_coentis
+	holding = tribal_holding
+	5530.1.1 = {
+		culture = eredrim
+		religion = faith_daen_coentis
+		holding = tribal_holding
+	}
+}
+
+460 = {		#Lind-en-Eryn (b_lind_en_eryn)
+	culture = eredrim
+	religion = faith_daen_coentis
+	holding = none
+}
+
+6258 = {	#Emyn Imrath (b_emyn_imrath)
+	culture = eredrim
+	religion = faith_daen_coentis
+	holding = none
+}
+
+
+537 = {		#Cirith Nimrais (b_cirith_nimrais)
+	culture = eredrim
+	religion = faith_daen_coentis
+	holding = none
+}
+
+
+1399 = {		#Drûghan (b_drughan)
+	culture = eredrim
+	religion = faith_daen_coentis
+	holding = none
+}
+###			Pinnath Gelin (d_pinnath_gelin)
+##			Idhrilthaeg (c_idhrilthaeg)
+
+418 = {		#Bar Hoeg (b_bar_hoeg)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4900.1.1 = { #Falastur's Expansion
+		culture = orodbedhrim
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_03
+			curtain_walls_05
+			cereal_fields_04
+		}
+	}
+}
+
+447 = {		#Lunbad (b_thôltaen)
+	holding = none
+}
+
+448 = {		#Rond Deren (b_rond_deren)
+	holding = none
+	4900.1.1 = { #Falastur's Expansion
+		holding = city_holding
+		buildings = {
+			city_02
+			logging_camps_04
+		}
+	}
+}
+
+449 = {		#Dol Udul (b_dol_udul)
+	holding = none
+}
+
+##			Udul (c_udul)
+
+445 = {		#Umb Estelwain (b_umb_estelwain)
+	culture = coenfir
+	religion = faith_daen_coentis
+	holding = tribal_holding
+	4900.1.1 = { #Falastur's Expansion
+		culture = orodbedhrim
+		religion = faith_daen_coentis
+		holding = tribal_holding
+	}
+	5500.1.1 = {
+		culture = orodbedhrim
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_02
+			hill_farms_02
+		}
+	}
+}
+
+446 = {		#Eithil Gelin (b_eithil_gelin)
+	culture = coenfir
+	religion = faith_daen_coentis
+	holding = none
+	4900.1.1 = { #Falastur's Expansion
+		culture = orodbedhrim
+		religion = faith_daen_coentis
+		holding = tribal_holding
+	}
+	5500.1.1 = {
+		culture = orodbedhrim
+		religion = faith_edain
+		holding = city_holding
+		buildings = {
+			city_01
+			hill_farms_02
+		}
+	}
+}
+
+##			Glorfalch (c_glorfalch)
+
+444 = {		#Glorfalch (b_glorfalch)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4900.1.1 = { #Falastur's Expansion
+		culture = orodbedhrim
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_02
+			hill_farms_02
+		}
+	}
+}
+
+434 = {		#Lindelos (b_lindelos)
+	holding = none
+}
+
+1019 = {	#Dol Idhrilthaeg (b_dol_idhrilthaeg)
+	holding = none
+	4900.1.1 = { #Falastur's Expansion
+		culture = orodbedhrim
+		religion = faith_edain
+		holding = church_holding
+		buildings = {
+			temple_01
+			scriptorium_02
+		}
+	}
+}
+
+443 = {		#Dellutham (b_dellutham)
+	holding = none
+	4900.1.1 = { #Falastur's Expansion
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_02
+		}
+	}
+}
+
+###			Rhandir (d_rhandir)
+##			Rhandir (c_rhandir)
+
+408 = {		#Bar Randir (b_bar_randir)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_02
+			curtain_walls_03
+			farm_estates_04
+		}
+	}
+}
+
+411 = {		#Rond Rhandir (b_rond_rhandir)
+	holding = none
+}
+
+409 = {		#Corgonin (b_corgonin)
+	holding = none
+}
+
+410 = {		#Galenhirost (b_galenhirost)
+	holding = none
+}
+
+##			Imristo (c_imristo)
+
+416 = {		#Imristo (b_imristo)
+	culture = coenfir
+	religion = faith_daen_sauron
+	holding = tribal_holding
+	5000.1.1 = {
+		culture = orodbedhrim
+		religion = faith_daen_coentis
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_01
+			hill_farms_02
+		}
+	}
+}
+
+417 = {		#Pennagwanur (b_pennagwanur)
+	holding = none
+}
+
+415 = {		#Dol Fain (b_dol_fain)
+	culture = eredrim
+	religion = faith_daen_coentis
+	holding = none
+	6000.1.1 = {
+		culture = orodbedhrim
+		holding = city_holding
+		buildings = {
+			city_01
+			quarries_02
+		}
+	}
+}
+
+##			Tathrendalf (c_tathrendalf)
+
+412 = {		#Tathrendalf (b_tathrendalf)
+	culture = coenmor
+	religion = faith_daen_sauron
+	holding = tribal_holding
+	4900.1.1 = {
+		culture = orodbedhrim
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			curtain_walls_02
+			cereal_fields_03
+		}
+	}
+}
+
+413 = {		#Glandol (b_glandol)
+	culture = orodbedhrim
+	religion = faith_edain
+	holding = city_holding
+	5000.1.1 = {
+		holding = city_holding
+		buildings = {
+			city_02
+			hill_farms_04
+		}
+	}
+}
+
+414 = {		#Haered Glînhim (b_haered_glinhim)
+	culture = orodbedhrim
+	religion = faith_edain
+	holding = none
+}
+
+##			Emyn Glaur (c_emyn_glaur)
+
+419 = {		#Dol Glaur (b_dol_glaur)
+	culture = coenmor
+	religion = faith_daen_sauron
+	holding = tribal_holding
+	4900.1.1 = {
+		culture = orodbedhrim
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_02
+			hill_farms_02
+		}
+	}
+}
+
+6249 = {	#Allanfadde (b_allanfadde)
+	holding = none
+	4900.1.1 = {
+		holding = city_holding
+		buildings = {
+			city_01
+			quarries_02
+		}
+	}
+}
+
+####		Harondor (k_harondor)
+###			Forethir (d_forethir)
+##			Mirlond (c_mirlond)
+
+935 = {		#Mirlond (b_mirlond)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = castle_holding
+	4035.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		special_building_slot = wonder_mirlond
+		buildings = {
+			castle_04
+			common_tradeport_07
+			curtain_walls_05
+		}
+	}
+	5633.1.1 = { # Castamiri Creed develops
+		religion = faith_castamiri_creed
+	}
+	5895.1.1 = {
+		religion = faith_edain
+	}
+	6705.1.1 = { #Mirlond Destroyed
+		culture = haruze
+		religion = faith_corsair
+		buildings = {
+			castle_02
+			common_tradeport_02
+			cereal_fields_01
+		}
+	}
+	6756.1.1 = { #Mirlond Reconstituted
+		buildings = {
+			castle_02
+			common_tradeport_03
+			cereal_fields_02
+		}
+	}
+	6930.1.1 = {
+		religion = faith_haruze
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_edain
+	}
+}
+
+936 = {		#Ras Arish (b_ras_arish)
+	culture = umbarean
+	religion = faith_kings_men_castamir
+	holding = city_holding
+	buildings = {
+		city_03
+		common_tradeport_06
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = city_holding
+	}
+}
+
+1264 = {	#Gobel Mirlond (b_gobel_mirlond)
+	culture = umbarean
+	religion = faith_kings_men_castamir
+	holding = city_holding
+	buildings = {
+		city_03
+		cereal_fields_06
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = city_holding
+	}
+}
+
+1265 = {	#Kazranzân (b_kazranzan)
+	culture = umbarean
+	religion = faith_kings_men_castamir
+	holding = none
+}
+
+##			Harthalond (c_harthalond)
+
+937 = {		#Harthalond (b_harthalond)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = castle_holding
+	4000.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		buildings = {
+			castle_02
+			curtain_walls_05
+			cereal_fields_03
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = castle_holding
+	}
+	5633.1.1 = { # Castamiri Creed develops
+		religion = faith_castamiri_creed
+	}
+	5895.1.1 = {
+		religion = faith_edain
+	}
+	6000.1.1 = {
+		culture = haruze
+		religion = faith_haruze
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_edain
+	}
+}
+
+938 = {		#Has Yayb (b_has_yayb)
+	culture = umbarean
+	religion = faith_kings_men_castamir
+	holding = city_holding
+	buildings = {
+		city_02
+		cereal_fields_04
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = city_holding
+	}
+}
+
+2817 = {	#Bilaris (b_bilaris)
+	culture = umbarean
+	religion = faith_kings_men_castamir
+	holding = city_holding
+	buildings = {
+		city_02
+		common_tradeport_04
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = city_holding
+	}
+}
+
+1014 = {	#Arphôth (b_arphoth)
+	culture = umbarean
+	religion = faith_kings_men_castamir
+	holding = none
+}
+
+##			Korb Ugarta (c_korb_ugarta)
+
+1269 = {	#Korb Ugarta (b_korb_ugarta)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = castle_holding
+	4000.1.1 = {
+		culture = haruze
+		religion = faith_chelkar
+	}
+	6000.1.1 = {
+		culture = haruze
+		religion = faith_haruze
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_edain
+	}
+}
+
+1267 = {	#Kadar-Karab (b_kadar_karab)
+	culture = haruze
+	religion = faith_haruze
+	holding = city_holding
+}
+
+2889 = {	#Râgan (b_ragan)
+	culture = haruze
+	religion = faith_haruze
+	holding = none
+}
+
+##			Menost (c_menost)
+
+1010 = {	#Minas Menost (b_minas_menost)
+	culture = donan
+	religion = faith_donan
+	holding = tribal_holding
+	5000.1.1 = {
+		religion = faith_donan
+		buildings = {
+			tribe_02
+		}
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_edain
+	}
+}
+
+1266 = {	#Celentir (b_celentir)
+	culture = donan
+	religion = faith_donan
+	holding = none
+}
+
+1268 = {	#Iant Menost (b_iant_menost)
+	culture = donan
+	religion = faith_donan
+	holding = none
+}
+
+###			Harfalas (d_harfalas)
+##			Harfalas (c_harfalas)
+
+942 = {		#Falasduin (b_falasduin)
+	culture = donan
+	religion = faith_edain
+	holding = castle_holding
+	3911.1.1 = { # The Downfall causes heavy damage
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+	4000.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			curtain_walls_04
+			common_tradeport_04
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = castle_holding
+	}
+	6000.1.1 = {
+		culture = harondorim
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+	}
+}
+
+943 = {		#Has Annûn (b_has_annun)
+	culture = gondorian
+	religion = faith_edain
+	holding = city_holding
+	buildings = {
+		city_02
+		common_tradeport_05
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = none
+	}
+}
+
+2826 = {	#Laforakha (b_laforakha)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+994 = {		#Ulgabarad (b_ulgabarad)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+##			Winion (c_winion)
+
+1011 = {	#Gwiniant (b_gwiniant)
+	culture = donan
+	religion = faith_donan
+	holding = tribal_holding
+	5000.1.1 = {
+		religion = faith_donan
+		buildings = {
+			tribe_02
+		}
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_edain
+	}
+}
+
+1012 = {	#Eryn Falas (b_eryn_falas)
+	culture = donan
+	religion = faith_donan
+	holding = none
+}
+
+1270 = {	#Adôrutha (b_adorutha)
+	culture = donan
+	religion = faith_donan
+	holding = none
+}
+
+##			Tirfalas (c_tirfalas)
+
+1013 = {	#Tirfalas (b_tirfalas)
+	culture = donan
+	religion = faith_daen_coentis
+	holding = castle_holding
+	3911.1.1 = { # The Downfall causes heavy damage
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+	4000.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			curtain_walls_04
+			cereal_fields_03
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = castle_holding
+	}
+	5633.1.1 = { # Castamiri Creed develops
+		religion = faith_castamiri_creed
+	}
+	5895.1.1 = {
+		religion = faith_edain
+	}
+	6000.1.1 = {
+		culture = harondorim
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_edain
+	}
+}
+
+941 = {		#Has Adri (b_has_adri)
+	culture = gondorian
+	religion = faith_edain
+	holding = city_holding
+	buildings = {
+		city_02
+		common_tradeport_04
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = city_holding
+	}
+}
+
+2823 = {	#Mazin (b_mazin)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+1271 = {	#An Sakal (b_an_sakal)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+###			Annun (d_annun)
+##			Harn (c_harn)
+
+944 = {		#Barad Harn (b_barad_harn)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	3911.1.1 = { # The Downfall causes heavy damage
+		holding = wastelands_holding
+		special_building_slot = wonder_barad_harn
+	}
+	4000.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		special_building = wonder_barad_harn
+		buildings = {
+			castle_03
+			common_tradeport_05
+			curtain_walls_06
+		}
+	}
+	6000.1.1 = {
+		culture = harondorim
+		buildings = {
+			castle_02
+			common_tradeport_03
+			curtain_walls_03
+		}
+	}
+}
+
+946 = {		#Eithel Turin (b_eithel_turin)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+945 = {		#Nen Falastir (b_nen_falastir)
+	culture = gondorian
+	religion = faith_edain
+	holding = city_holding
+	buildings = {
+		city_02
+		common_tradeport_05
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = none
+	}
+}
+
+##			Annun (c_annun)
+
+1273 = {	#Barad Annun (b_barad_annun_gondor)
+	culture = donan
+	religion = faith_edain
+	holding = castle_holding
+	4000.1.1 = {
+		culture = gondorian
+		buildings = {
+			castle_01
+			hill_forts_03
+			hill_farms_02
+		}
+	}
+	6000.1.1 = {
+		culture = harondorim
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+	}
+}
+
+1272 = {	#Eryn Annun (b_eryn_annun)
+	culture = gondorian
+	religion = faith_edain
+	holding = city_holding
+	buildings = {
+		city_01
+		hill_farms_02
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = none
+	}
+}
+
+993 = {		#Sirannun (b_sirannun)
+	culture = gondorian
+	religion = faith_edain
+	holding = church_holding
+	buildings = {
+		temple_01
+		scriptorium_02
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = none
+	}
+}
+
+##			Narthan (c_narthan)
+
+991 = {		#Dol Narthan (b_dol_narthan)
+	culture = donan
+	religion = faith_edain
+	holding = castle_holding
+	4000.1.1 = {
+		culture = gondorian
+		buildings = {
+			castle_02
+			hill_forts_04
+			hill_farms_03
+		}
+	}
+	6000.1.1 = {
+		culture = harondorim
+		holding = castle_holding
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+	}
+}
+
+954 = {		#Tiriant Harn (b_tiriant_harn)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+992 = {		#Annun Harn (b_annun_harn)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+###			Laergaldrin (d_laergaladrin)
+##			Methir (c_methir)
+
+948 = {		#Methir (b_methir)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4000.1.1 = { #More Gondorian than Harondorrim	due to distance to Gondor
+		culture = gondorian
+		religion = faith_edain
+		buildings = {
+			castle_04
+			curtain_walls_05
+			common_tradeport_07
+		}
+	}
+	6000.1.1 = {
+		culture = harondorim
+		holding = castle_holding
+	}
+}
+
+951 = {		#Ost Calardam (b_ost_calardam)
+	culture = gondorian
+	religion = faith_edain
+	holding = city_holding
+	buildings = {
+		city_03
+		cereal_fields_06
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = city_holding
+	}
+}
+
+949 = {		#Erdegil (b_erdegil)
+	culture = gondorian
+	religion = faith_edain
+	holding = city_holding
+	buildings = {
+		city_03
+		peat_quarries_06
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = none
+	}
+
+}
+
+950 = {		#Carnenost (b_carnenost)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+##			Lothsir (c_lothsir)
+
+947 = {		#Iant Lond (b_iant_lond)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4000.1.1 = {
+		culture = gondorian
+		buildings = {
+			castle_02
+			curtain_walls_04
+			common_tradeport_05
+		}
+	}
+	6000.1.1 = {
+		culture = harondorim
+	}
+}
+
+953 = {		#Gobelaer (b_gobelaer)
+	culture = gondorian
+	religion = faith_edain
+	holding = city_holding
+	buildings = {
+		city_02
+		cereal_fields_04
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = none
+	}
+}
+
+955 = {		#Tir Bronwe (b_tir_bronwe)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+956 = {		#Tel Corch (b_tel_corch)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+##			Neporos (c_neporos)
+
+952 = {		#Neporos (b_neporos)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	4000.1.1 = {
+		culture = gondorian
+		buildings = {
+			castle_02
+			curtain_walls_04
+			orchards_04
+		}
+	}
+	6000.1.1 = {
+		culture = harondorim
+	}
+}
+
+957 = {		#Nosstham (b_nosstham)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+988 = {		#Laerbin (b_laerbin)
+	culture = donan
+	religion = faith_donan
+	holding = none
+}
+
+1274 = {	#Pend Poros (b_pend_poros)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+###			Eredir (d_eredir)
+##			Eredir (c_eredir)
+
+961 = {		#Eredir (b_eredir)
+	culture = donan
+	religion = faith_donan
+	holding = tribal_holding
+	4000.1.1 = {
+		religion = faith_edain
+	}
+	5000.1.1 = {
+		religion = faith_donan
+		buildings = {
+			tribe_02
+		}
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_edain
+	}
+}
+
+249 = {		#Harphoros (b_harphoros)
+	culture = donan
+	religion = faith_edain
+	holding = castle_holding
+	3990.1.1 = {
+		buildings = {
+			castle_02
+			ramparts_02
+		}
+	}
+	4000.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+	}
+	6800.1.1 = {
+		holding = none
+	}
+}
+
+964 = {		#Caras Othari (b_caras_othari)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+962 = {		#Ered Poros (b_ered_poros)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+251 = {		#Bârazal (b_barazal)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+##			Hyarmen (c_hyarmen)
+
+985 = {		#Barad Hyarmen (b_barad_hyarmen)
+	culture = donan
+	religion = faith_donan
+	holding = castle_holding
+	4000.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		buildings = {
+			castle_02
+			hill_farms_03
+			hill_forts_04
+		}
+	}
+	6000.1.1 = {
+		culture = harondorim
+		religion = faith_edain
+	}
+	6850.1.1 = {
+		culture = haruze
+		religion = faith_haruze
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_edain
+	}
+
+}
+
+960 = {		#Ethraid Poros (b_ethraid_poros)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+959 = {		#Amonmál (b_amonmal)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+986 = {		#Iant Hyarmen (b_iant_hyarmen)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+##			Ered Eryn (c_ered_eryn)
+
+963 = {		#Ered Eryn (b_ered_eryn)
+	culture = donan
+	religion = faith_donan
+	holding = tribal_holding
+	5000.1.1 = {
+		religion = faith_donan
+		buildings = {
+			tribe_02
+		}
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_edain
+	}
+}
+
+966 = {		#Glamorbel (b_glamorbel)
+	culture = donan
+	religion = faith_donan
+	holding = none
+}
+
+965 = {		#Glameryn (b_glameryn)
+	culture = donan
+	religion = faith_donan
+	holding = none
+}
+
+##			Dirnen (c_dirnen)
+
+968 = {		#Barad Dirnen (b_barad_dirnen)
+	culture = donan
+	religion = faith_donan
+	holding = castle_holding
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_edain
+	}
+}
+
+967 = {		#Iant Dirnen (b_iant_dirnen)
+	culture = donan
+	religion = faith_donan
+	holding = none
+}
+
+969 = {		#Hyargardh (b_hyargardh)
+	culture = donan
+	religion = faith_donan
+	holding = none
+}
+
+###			Aegardh (d_aegardh)
+
+##			Haraegardh (c_haraegardh)
+
+987 = {		#Amon Eithel (b_amon_eithel)
+	culture = donan
+	religion = faith_donan
+	holding = castle_holding
+	4000.1.1 = {
+		religion = faith_edain
+	}
+	6000.1.1 = {
+		culture = haruze
+		religion = faith_haruze
+		buildings = {
+			castle_02
+			cereal_fields_01
+			plantations_02
+		}
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_edain
+	}
+}
+
+1006 = {	#Neledhnín (b_neledhnin)
+	culture = haruze
+	religion = faith_haruze
+	holding = none
+	6850.1.1 = {
+		holding = church_holding
+	}
+}
+
+984 = {		#Cabed Malduin (b_cabed_malduin)
+	culture = haruze
+	religion = faith_haruze
+	holding = none
+}
+
+1001 = {	#Harmaka (b_harmaka)
+	culture = haruze
+	religion = faith_haruze
+	holding = none
+}
+
+1005 = {	#Yânêt (b_yanet)
+	culture = haruze
+	religion = faith_haruze
+	holding = none
+}
+
+##			Foraegardh (c_foraegardh)
+
+1000 = {	#Amonost (b_amonost)
+	culture = donan
+	religion = faith_donan
+	holding = castle_holding
+	4000.1.1 = {
+		religion = faith_edain
+	}
+	6850.1.1 = {
+		culture = haruze
+		religion = faith_haruze
+		buildings = {
+			castle_02
+			barracks_02
+			plantations_03
+		}
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_edain
+	}
+}
+
+983 = {		#Iant Malduin (b_iant_malduin)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+	6850.1.1 = {
+		holding = city_holding
+		buildings = {
+			city_01
+			plantations_01
+		}
+	}
+}
+
+1003 = {	#Eithel Amonduin (b_eithel_amonduin)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+1004 = {	#Zôralkam (b_zoralkam)
+	culture = gondorian
+	religion = faith_edain
+	holding = none
+}
+
+##			Imladrim (c_imladrim)
+
+997 = {		#Yânu (b_yanu)
+	culture = donan
+	religion = faith_donan
+	holding = castle_holding
+	6000.1.1 = {
+		culture = haruze
+		religion = faith_haruze
+		holding = castle_holding
+		buildings = {
+			castle_02
+			hill_farms_02
+			hill_forts_01
+		}
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_edain
+	}
+}
+
+998 = {		#Barad Harmaka (b_barad_harmaka)
+	culture = haruze
+	religion = faith_haruze
+	holding = none
+}
+
+1009 = {	#Ausk Harmaka (b_ausk_harmaka)
+	culture = haruze
+	religion = faith_haruze
+	holding = none
+}
+
+##	Laer (c_laer)
+
+989 = {		#Emyn Laer (b_emyn_laer)
+	culture = donan
+	religion = faith_donan
+	holding = castle_holding
+	4000.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		buildings = {
+			castle_02
+			hill_forts_04
+			hill_farms_03
+		}
+	}
+	6000.1.1 = {
+		culture = harondorim
+		religion = faith_edain
+	}
+	6850.1.1 = {
+		culture = haruze
+		religion = faith_haruze
+		buildings = {
+			castle_02
+			hill_forts_02
+			hill_farms_01
+		}
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_edain
+	}
+}
+
+996 = {		#Barad Laer (b_barad_laer)
+	culture = haruze
+	religion = faith_haruze
+	holding = castle_holding
+	buildings = {
+		castle_01
+		plantations_02
+	}
+}
+
+1002 = {	#Nênu (b_nenu)
+	holding = none
+}
+
+###			Doriant (d_doriant)
+##			Tharven (c_tharven)
+
+940 = {		#Tharven (b_tharven)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = castle_holding
+	4000.1.1 = {
+		culture = haruze
+		religion = faith_chelkar
+	}
+	6000.1.1 = {
+		culture = haruze
+		religion = faith_haruze
+	}
+	7070.1.1 = { #Integrations of the South
+		religion = faith_chelkar
+	}
+}
+
+1277 = {	#Aint Harnen (b_aint_harnen)
+	culture = haruze
+	religion = faith_haruze
+	holding = city_holding
+}
+
+1017 = {	#Kas Marzuk (b_kas_marzuk)
+	culture = haruze
+	religion = faith_haruze
+	holding = none
+}
+
+1276 = {	#Barad Marzuk (b_barad_marzuk)
+	culture = haruze
+	religion = faith_haruze
+	holding = none
+}
+
+##			Marzuk (c_marzuk)
+
+1015 = {	#Marzuk (b_marzuk)
+	culture = donan
+	religion = faith_donan
+	holding = castle_holding
+	4000.1.1 = {
+		culture = haruze
+		religion = faith_chelkar
+	}
+	6000.1.1 = {
+		culture = haruze
+		religion = faith_haruze
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_chelkar
+	}
+}
+
+1008 = {	#Barad Born (b_barad_born)
+	culture = haruze
+	religion = faith_haruze
+	holding = none
+}
+
+1007 = {	#Garborn (b_garborn)
+	culture = haruze
+	religion = faith_haruze
+	holding = none
+}
+
+##			Kêthimi (c_kethimi)
+
+939 = {		#Kêthimi (b_kethimi)
+	culture = black_numenorean
+	religion = faith_kings_men_numenorean
+	holding = castle_holding
+	4000.1.1 = {
+		culture = haruze
+		religion = faith_chelkar
+	}
+	6000.1.1 = {
+		culture = haruze
+		religion = faith_haruze
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_edain
+	}
+}
+
+1275 = {	#Hallath (b_hallath)
+	culture = haruze
+	religion = faith_haruze
+	holding = none
+}
+
+1016 = {	#Garhereb (b_garhereb)
+	culture = haruze
+	religion = faith_haruze
+	holding = none
+}
+
+###			Carnentir (d_carnentir)
+##			Carnen (c_carnen)
+
+980 = {		#Imlad Carnen (b_imlad_carnen)
+	culture = donan
+	religion = faith_donan
+	holding = castle_holding
+	4000.1.1 = {
+		culture = haruze
+		religion = faith_chelkar
+	}
+	6000.1.1 = {
+		culture = haruze
+		religion = faith_haruze
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_chelkar
+	}
+}
+
+1284 = {	#Iant Carnen (b_iant_carnen)
+	culture = haruze
+	religion = faith_haruze
+	holding = none
+}
+
+1283 = {	#Bar Carnen (b_bar_carnen)
+	culture = haruze
+	religion = faith_haruze
+	holding = none
+}
+
+##			Malduin (c_malduin)
+
+982 = {		#Bar Malduin (b_bar_malduin)
+	culture = donan
+	religion = faith_donan
+	holding = castle_holding
+	6500.1.1 = {
+		culture = haruze
+		religion = faith_haruze
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_edain
+	}
+}
+
+999 = {		#Tallath Brann (b_tallath_brann)
+	culture = donan
+	religion = faith_haruze
+	holding = none
+}
+
+981 = {		#Iant Brann (b_iant_brann)
+	culture = donan
+	religion = faith_haruze
+	holding = none
+}
+
+##			Forcarnen (c_forcarnen)
+
+970 = {		#Tir Forcarnen (b_tir_forcarnen)
+	culture = donan
+	religion = faith_donan
+	holding = tribal_holding
+	5000.1.1 = {
+		religion = faith_donan
+		buildings = {
+			tribe_02
+		}
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_chelkar
+	}
+}
+
+1279 = {	#Iant Forcarnen (b_iant_forcarnen)
+	culture = donan
+	religion = faith_donan
+	holding = none
+}
+
+1280 = {	#Nan-i-Zûk (b_nan_i_zuk)
+	culture = donan
+	religion = faith_donan
+	holding = none
+}
+
+##			Gonngaran (c_gonngaran)
+
+1282 = {	#Nan-i-Gothrim (b_nan_i_gothrim)
+	culture = donan
+	religion = faith_donan
+	holding = tribal_holding
+	5000.1.1 = {
+		religion = faith_donan
+		buildings = {
+			tribe_02
+		}
+	}
+	7070.1.1 = { #Integrations of the South
+		culture = harmakuze
+		religion = faith_chelkar
+	}
+}
+
+972 = {		#Gimidud (b_gimidud)
+	culture = donan
+	religion = faith_donan
+	holding = none
+}
+
+1281 = {	#Men Malduin (b_men_malduin)
+	culture = donan
+	religion = faith_donan
+	holding = none
+}
+
+1278 = {	#Emyn Gonngaran (b_emyn_gonngaran)
+	culture = donan
+	religion = faith_donan
+	holding = none
+}

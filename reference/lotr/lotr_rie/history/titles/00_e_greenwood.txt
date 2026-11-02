@@ -1,0 +1,2518 @@
+﻿#### The Empire of the Greenwood
+#### e_greenwood
+
+e_greenwood = {
+	1279.1.1 = { # S.A. 750. The Sindar migrate East, and Oropher establishes his kingdom in Greenwood
+		holder = lineoforopher1 # Oropher
+	}
+	4026.1.1 = { # Oropher is slain at the Last Alliance, the Elves of Greenwood fully retreat north. Any authority south of the Mountains of Mirkwood is lost
+		holder = 0
+	}
+}
+
+### Kingdom of Lasgalen
+### k_lasgalen
+k_lasgalen = {
+	1279.1.1 = { # S.A. 750. The Sindar migrate East, and Oropher establishes his kingdom in Greenwood
+		holder = lineoforopher1 # Oropher
+	}
+	4026.1.1 = { # Oropher is slain at the Last Alliance
+		holder = lineoforopher3 # Thranduil
+	}
+}
+
+## Duchy of Aradhrynd
+## d_aradhrynd
+d_aradhrynd = {
+	5083.1.1 = { # Thranduil erects his halls in Northeast Greenwood
+		holder = lineoforopher3 # Thranduil
+	}
+}
+
+c_aradhrynd = {
+	5083.1.1 = { # Thranduil erects his halls in Northeast Greenwood
+		holder = lineoforopher3 # Thranduil
+		change_development_level = 20
+	}
+}
+
+c_cerin_arhendhiril = {
+	5083.1.1 = { # Thranduil erects his halls in Northeast Greenwood
+		holder = lineoforopher3 # Thranduil
+		change_development_level = 7
+	}
+}
+
+c_celon_glossgond = {
+	5083.1.1 = {
+		holder = lineofgalmir
+		liege = k_lasgalen
+		change_development_level = 5
+	}
+}
+
+c_car_rusc = {
+	5083.1.1 = { # Thranduil erects his halls in Northeast Greenwood
+		holder = lineoforopher5 # Ilmarien
+		liege = k_lasgalen
+		change_development_level = 5
+	}
+}
+
+c_tirduin = {
+	5083.1.1 = { # Thranduil erects his halls in Northeast Greenwood
+		holder = lineoforopher5 # Ilmarien
+		change_development_level = 4
+	}
+}
+
+c_neldoreth = {
+	5083.1.1 = { # Thranduil erects his halls in Northeast Greenwood
+		holder = lineoforopher3 # Thranduil
+		change_development_level = 6
+	}
+
+	6700.1.1 = {
+		holder = lineofnoriel
+		liege = k_lasgalen
+	}
+}
+
+c_arodsenn = {
+	5083.1.1 = { # Thranduil erects his halls in Northeast Greenwood
+		holder = lineoforopher3 # Thranduil
+		change_development_level = 7
+	}
+}
+
+## Duchy of Taurduin
+d_taurduin = {
+	1279.1.1 = { # S.A. 750. The Sindar migrate East, and Oropher establishes his kingdom in Greenwood
+		holder = lineoforopher1 # Oropher
+	}
+	4026.1.1 = { # Oropher is slain at the Last Alliance
+		holder = lineoforopher3 # Thranduil
+	}
+}
+
+c_haudh_en_aiganaur = {
+	725.1.1 = { # Taurion ascends to prominence among the North-Eastern Silvan of the Great Wood
+		holder = lineoftaurion1 # Taurion
+		change_development_level = 8
+	}
+	1279.1.1 = { # Taurion is one of the strongest voices for accepting Oropher's kingship. Rises to become one of Oropher's key councilors
+		liege = k_lasgalen
+	}
+	4028.1.1 = { # In the wake of the loss of Oropher, Indossa decides to cease his nomadic lifestyle throughout Greenwood to aid the bereaved Thranduil — Taurion gives up this county so he can be close to Thranduil
+		holder = lineofindossa1 # Indossa
+	}
+}
+
+c_tham_aeldir = {
+	3047.12.3 = { # Migration into the North-west expands, and the Elves answering to Taurion expand across the enchanted river
+		holder = lineoftaurion1 # Taurion
+		liege = k_lasgalen
+		change_development_level = 5
+	}
+}
+
+c_tham_taerdol = {
+	4028.1.1 = { # In the wake of the loss of Oropher, Indossa decides to cease his nomadic lifestyle throughout Greenwood to aid the bereaved Thranduil — Taurion gives up this county so he can be close to Thranduil
+		holder = lineofindossa1 # Indossa
+		liege = k_lasgalen
+		change_development_level = 3
+	}
+	6722.1.1 = { # Lethuin takes up command of the eastern borders
+		holder = lineofferen3 # Lethuin
+		liege = d_taur_nu_fuin # Intentionally Legolas' vassal
+	}
+	7052.4.6 = { # Dol Guldur falls, Tauriel takes up permanant command of the southern border, western border-guard made independent
+		liege = k_lasgalen
+	}
+}
+
+c_torech_emel = {
+	4028.1.1 = { # In the wake of the loss of Oropher, Indossa decides to cease his nomadic lifestyle throughout Greenwood to aid the bereaved Thranduil
+		holder = lineofindossa1 # Indossa
+		change_development_level = 4
+	}
+}
+
+## Duchy of Taur-nu-fuin
+d_taur_nu_fuin = {
+	6722.1.1 = { # Legolas takes up command of the southern border
+		holder = lineoforopher6 # Legolas
+		liege = k_lasgalen
+	}
+	7051.10.1 = { # Legolas sets off to Rivendell, leaving Tauriel in charge of the southern border
+		holder = lineoftaurion5 # Tauriel
+	}
+	7052.4.6 = { # Dol Guldur falls, Tauriel takes up permanant command of the southern border, united border command dissolved
+		holder = 0
+	}
+}
+
+c_caras_tilion = {
+	3047.12.3 = {
+		change_development_level = 6
+	}
+	4026.1.1 = { # Oropher is slain at the Last Alliance
+		holder = lineoforopher3 # Thranduil
+	}
+	5083.1.1 = { # Thranduil relocates the capital Northeast, leaving Taurion in control
+		holder = lineoftaurion1 # Taurion
+		change_development_level = 4
+	}
+	6722.1.1 = { # Tauriel takes up command of the eastern border under Legolas
+		holder = lineoftaurion5 # Tauriel
+		liege = d_taur_nu_fuin
+	}
+	7052.4.6 = { # Dol Guldur falls, eastern border militarization lowers
+		holder = lineoftaurion1 # Taurion
+		liege = k_lasgalen
+	}
+}
+
+c_esglador = {
+	3047.12.3 = {
+		change_development_level = 6
+	}
+	4026.1.1 = { # Oropher is slain at the Last Alliance
+		holder = lineoforopher3 # Thranduil
+		liege = k_lasgalen
+	}
+	4035.1.1 = { # Granted for saving Thranduil's life in the battle of Morannon
+		holder = lineofcamrandir # Camrandir
+	}
+	5083.1.1 = { # Thranduil relocates the capital Northeast, leading to people leaving this area
+		change_development_level = 4
+	}
+}
+
+c_orod_men = {
+	1279.1.1 = { # Belechir supported *a* Kingship, but not specifically Orophers. Nonetheless, Oropher took him into good council on military matters
+		holder = lineofbelechir1 # Belechir
+		liege = k_lasgalen
+		change_development_level = 3
+	}
+	4026.1.1 = { # Inherited after the death of her father in the Battle of Dagorlad
+		holder = lineofbelechir3 # Celebel
+	}
+	6722.1.1 = { # Legolas takes up command of the southern border (Celebel intentionally not his vassal)
+		holder = lineoforopher6 #Legolas
+	}
+	7051.10.1 = { # Legolas sets off to Rivendell, leaving Tauriel in charge of the southern border
+		holder = lineoftaurion5 # Tauriel
+	}
+	7052.4.6 = { # Dol Guldur falls, southern border post is shifted south
+		holder = lineofbelechir3 # Celebel
+	}
+}
+
+c_orod_annon = {
+	5300.3.24 = {
+		holder = linebalgrukh1
+		change_development_level = 5
+		government = orcish_government
+	}
+	5343.5.15 = { # Angmar Start Date Ruler
+		holder = linebalgrukh3
+	}
+	5396.5.15 = {
+		holder = linebalgrukh5
+	}
+	6729.5.2 = { #The elves under Legolas push back the Orcs for a time
+		holder = lineoforopher6 #Legolas
+		government = elven_government
+		change_development_level = 3
+	}
+	6822.4.1 = { #Satisfied with their success, the elves retreat to their outposts up north
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	6975.4.16 = { # Mirkwood Mountain orcs slowly creep back in, Shebrog, Bodyguard of Bolg, flees Battle of the Five Armies to Mirkwood and subdues local orcs
+		holder = lineukorg3
+		government = orcish_government
+		change_development_level = 4
+	}
+	7019.11.12 = {
+		holder = lineukorg5
+	}
+	7052.4.6 = { # Dol Guldur falls, Tauriel takes up permanant command of the southern border, southern border post is shifted south
+		holder = lineoftaurion5 # Tauriel
+		government = elven_government
+		liege = k_lasgalen
+		change_development_level = 3
+	}
+}
+
+c_nan_gulduin = {
+	1279.1.1 = { # Belechir supported *a* Kingship, but not specifically Orophers. Nonetheless, Oropher took him into good council on military matters
+		holder = lineofbelechir1 # Belechir
+		liege = k_lasgalen
+		change_development_level = 3
+	}
+	4026.1.1 = { # Inherited after the death of her father in the Battle of Dagorlad
+		holder = lineofbelechir3 # Celebel
+	}
+}
+
+## Duchy of Emyn-i-Firith
+#d_emyn_i_firith = { } # While incorporated to Oropher's kingdom, is not granted to anyone. The north is only lightly settled in the early Second Age.
+
+c_amarthrynd = {
+	1000.1.1 = {
+		holder = lineoforopher1 # Oropher
+		change_development_level = 12
+		government = elven_government
+	}
+	4922.1.1 = { #Abandoned due to the darkening of Mirkwood
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6500.1.1 = { #Orcs spread during the Rise of Dol Guldur
+		change_development_level = 5
+		government = orcish_government
+	}
+	6650.4.11 = {
+		holder = lineshirfik1 #Gorduf
+	}
+	6693.5.8 = {
+		holder = lineshirfik3 #Gazdush
+	}
+	6750.10.2 = {
+		holder = lineshirfik8 #Gorlu_u_n
+	}
+	6751.4.18 = { #Long winter start date ruler
+		holder = lineshirfik10 #Mauduf
+	}
+	6900.1.1 = { #Ruins are reclaimed by the forest
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+c_edhelmen = {
+	4922.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+c_eryn_ivann = {
+	4922.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+c_linnathon = {
+	4922.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+c_forbardh = {
+	4922.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+c_elenfen = {
+	4922.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+c_mornrad = {
+	4922.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6500.1.1 = { #Orcs spread during the Rise of Dol Guldur
+		change_development_level = 5
+		government = orcish_government
+	}
+	6650.4.11 = {
+		holder = lineshirfik1 #Gorduf
+	}
+	6693.5.8 = {
+		holder = lineshirfik3 #Gazdush
+	}
+	6750.10.2 = {
+		holder = lineshirfik8 #Gorlu_u_n
+	}
+	6751.4.18 = { #Long winter start date ruler
+		holder = lineshirfik10 #Mauduf
+	}
+	6900.1.1 = { #Ruins are reclaimed by the forest
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+}
+
+## Duchy of Nivrim
+## d_nivrim
+
+d_nivrim = {
+	5365.2.17 = { # Gargath rulers rise to modest prominence
+		holder = lineiltish7
+	}
+	5381.3.19 = { # Angmar Start date ruler
+		holder = lineiltish9
+	}
+	5421.11.16 = {
+		holder = lineiltish12
+	}
+	5744.2.2 = {
+		holder = 0
+	}
+	6950.1.1 = {
+		holder = lineofgudamar1 #Thalton
+	}
+	6990.5.24 = {# Independent Woodmen of the Gudamari tribe
+		holder = lineofgudamar3 #Gatano
+	}
+	7050.2.11 = {
+		holder = lineofgudamar5 #Gaton
+	}
+	7052.4.6 = {
+		liege = k_anduin_vale
+	}
+	7086.1.19 = {
+		holder = lineofgudamar8 #Guttier
+	}
+	7110.2.22 = {
+		holder = lineofgudamar11 #Frideger
+	}
+	7143.12.18 = {
+		holder = lineofgudamar13 #Matheo
+	}
+	7170.12.13 = {
+		holder = lineofgudamar15 #Arias
+	}
+}
+
+c_girchirion = {
+	5219.4.8 = { # Gargath tribes migrate to the western eaves of the Greenwood
+		holder = lineiltish1
+		government = tribal_government
+		change_development_level = 5
+	}
+	5288.9.24 = {
+		holder = lineiltish3
+	}
+	5324.3.1 = {
+		holder = lineiltish5
+	}
+	5365.2.17 = {
+		holder = lineiltish7
+	}
+	5381.3.19 = { # Angmar Start date ruler
+		holder = lineiltish9
+	}
+	5421.11.16 = {
+		holder = lineiltish12
+	}
+	5900.1.1 = {
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	6950.1.1 = {
+		holder = lineofgudamar1 #Thalton
+	}
+	6990.5.24 = {# Independent Woodmen of the Gudamari tribe
+		holder = lineofgudamar3 #Gatano
+		change_development_level = 3
+	}
+	7050.2.11 = {
+		holder = lineofgudamar5 #Gaton
+	}
+	7086.1.19 = {
+		holder = lineofgudamar8 #Guttier
+	}
+	7110.2.22 = {
+		holder = lineofgudamar11 #Frideger
+	}
+	7143.12.18 = {
+		holder = lineofgudamar13 #Matheo
+	}
+	7170.12.13 = {
+		holder = lineofgudamar15 #Arias
+	}
+}
+
+c_beraland = {
+	5288.9.24 = {
+		holder = lineiltish3
+		government = tribal_government
+		change_development_level = 4
+	}
+	5324.3.1 = {
+		holder = lineiltish5
+	}
+	5365.2.17 = {
+		holder = lineiltish7
+	}
+	5381.3.19 = { # Angmar Start date ruler
+		holder = lineiltish9
+	}
+	5421.11.16 = {
+		holder = lineiltish12
+	}
+	6650.12.13 = {
+		holder = lineherning1 #Dieraglir
+	}
+	6733.6.23 = {
+		holder = lineherning3 #Sigiswulf
+	}
+	6743.8.22 = {
+		holder = lineherning5 #Sigiswulf
+	}
+	6748.6.21 = { #Long Winter start date ruler
+		holder = lineherning7 #Dudannis
+	}
+	6821.12.27 = {
+		holder = lineherning9 #Gunderic
+	}
+	6950.1.1 = {
+		holder = lineofgudamar1 #Thalton
+	}
+	6990.5.24 = {# Independent Woodmen of the Gudamari tribe
+		holder = lineofgudamar3 #Gatano
+		change_development_level = 4
+	}
+	7050.2.11 = {
+		holder = lineofgudamar5 #Gaton
+	}
+	7086.1.19 = {
+		holder = lineofgudamar8 #Guttier
+	}
+	7110.2.22 = {
+		holder = lineofgudamar11 #Frideger
+	}
+	7143.12.18 = {
+		holder = lineofgudamar13 #Matheo
+	}
+	7170.12.13 = {
+		holder = lineofgudamar15 #Arias
+	}
+}
+
+c_gudmarhalle = {
+	5256.7.4 = {
+		holder = lineakshir1
+	}
+	5320.10.5 = {
+		holder = lineakshir3
+	}
+	5349.9.1 = {
+		holder = lineakshir5
+	}
+	5380.8.9 = { # Angmar Start Date ruler
+		holder = lineakshir7
+		change_development_level = 4
+	}
+	5415.5.28 = {
+		holder = lineakshir9
+	}
+	5449.8.21 = {
+		holder = lineakshir11
+	}
+	6650.12.13 = {
+		holder = lineherning1 #Dieraglir
+		change_development_level = 3
+	}
+	6733.6.23 = {
+		holder = lineherning3 #Sigiswulf
+	}
+	6743.8.22 = {
+		holder = lineherning5 #Sigiswulf
+	}
+	6748.6.21 = { #Long Winter start date ruler
+		holder = lineherning7 #Dudannis
+	}
+	6821.12.27 = {
+		holder = lineherning9 #Gunderic
+	}
+	6980.1.1 = {
+		holder = lineofbeorn1 # Beorn
+		change_development_level = 5
+	}
+	7025.3.15 = {
+		holder = lineofbeorn2 # Grimbeorn
+	}
+	7052.4.6 = {
+		holder = lineofgudamar5 #Gaton
+	}
+	7086.1.19 = {
+		holder = lineofgudamar8 #Guttier
+	}
+	7110.2.22 = {
+		holder = lineofgudamar11 #Frideger
+	}
+	7143.12.18 = {
+		holder = lineofgudamar13 #Matheo
+	}
+	7170.12.13 = {
+		holder = lineofgudamar15 #Arias
+	}
+}
+
+
+### Angáladh
+### k_angaladh
+
+k_angaladh = {
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	4091.1.1 = {
+		holder = 0
+	}
+}
+
+## Duchy of Dundaedelu
+## d_dundaedelu
+
+d_dundaedelu = {
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	4091.1.1 = {
+		holder = 0
+	}
+
+	6650.4.16 = {
+		holder = linefroderik1 #Bain
+	}
+	6731.10.24 = {
+		holder = linefroderik3 #Gustadolph
+	}
+	6758.11.23 = { #Long Winter Start Date Ruler
+		holder = linefroderik5 #Delling
+	}
+	6800.12.4 = {
+		holder = linefroderik7 #Wuilaric
+	}
+	6821.4.15 = {
+		holder = linefroderik9 #Marhold
+	}
+	6855.6.26 = {
+		holder = 0
+	}
+	7052.4.6 = {
+		holder = lineofolphang14 #Gesalecho
+		liege = k_anduin_vale
+	}
+	7073.11.15 = {
+		holder = lineofolphang15 #Olphabeorn
+	}
+	7107.12.13 = {
+		holder = lineofolphang22 #Beorhtnoth
+	}
+	7133.1.26 = {
+		holder = lineofolphang24 #Erwigio
+	}
+	7135.3.20 = {
+		holder = lineofolphang26 #Alaric
+	}
+	7161.6.6 = {
+		holder = lineofolphang28 #Nunno
+	}
+}
+
+c_taurongobel = {
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	5188.3.25 = {
+		holder = lineevorik1 #Gangleren
+	}
+	5265.8.27 = {
+		holder = lineevorik3 #Breor
+	}
+	5293.7.7 = {
+		holder = lineevorik5 #Thiudakind
+	}
+	5335.3.15 = {
+		holder = lineevorik7 #Freagar
+	}
+	5360.12.13 = { # Angmar Start Date Ruler
+		holder = lineevorik9 #Irkenwin
+		change_development_level = 5
+	}
+	5399.6.3 = {
+		holder = lineevorik13 #Swain
+	}
+	6650.4.16 = {
+		holder = linefroderik1 #Bain
+		change_development_level = 5
+	}
+	6731.10.24 = {
+		holder = linefroderik3 #Gustadolph
+	}
+	6758.11.23 = { #Long Winter Start Date Ruler
+		holder = linefroderik5 #Delling
+	}
+	6800.12.4 = {
+		holder = linefroderik7 #Wuilaric
+	}
+	6821.4.15 = {
+		holder = linefroderik9 #Marhold
+	}
+	7030.3.14 = {
+		holder = lineofolphang14 #Gesalecho
+		liege = d_carrock_vale
+		change_development_level = 8
+	}
+	7073.11.15 = {
+		holder = lineofolphang15 #Olphabeorn
+	}
+	7107.12.13 = {
+		holder = lineofolphang22 #Beorhtnoth
+	}
+	7133.1.26 = {
+		holder = lineofolphang24 #Erwigio
+	}
+	7135.3.20 = {
+		holder = lineofolphang26 #Alaric
+	}
+	7161.6.6 = {
+		holder = lineofolphang28 #Nunno
+	}
+}
+
+c_dunmen_i_naugrim = {
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	5265.8.27 = {
+		holder = lineevorik3 #Breor
+	}
+	5293.7.7 = {
+		holder = lineevorik5 #Thiudakind
+	}
+	5335.3.15 = {
+		holder = lineevorik7 #Freagar
+	}
+	5360.12.13 = { # Angmar Start Date Ruler
+		holder = lineevorik9 #Irkenwin
+		change_development_level = 5
+	}
+	5399.6.3 = {
+		holder = lineevorik13 #Swain
+	}
+	6500.1.1 = {
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	7030.3.15 = {
+		holder = lineofolphang14 #Gesalecho
+		government = tribal_government
+		liege = d_carrock_vale
+		change_development_level = 6
+	}
+	7073.11.15 = {
+		holder = lineofolphang15 #Olphabeorn
+	}
+	7107.12.13 = {
+		holder = lineofolphang22 #Beorhtnoth
+	}
+	7133.1.26 = {
+		holder = lineofolphang24 #Erwigio
+	}
+	7135.3.20 = {
+		holder = lineofolphang26 #Alaric
+	}
+	7161.6.6 = {
+		holder = lineofolphang28 #Nunno
+	}
+}
+
+c_tauronrad = {
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	5241.8.10 = {# Some of the Gargath passing through the greenwood settle along its western eaves
+		holder = linemaroz1
+		government = tribal_government
+		change_development_level = 5
+	}
+	5312.1.26 = {
+		holder = linemaroz3
+	}
+	5362.9.25 = {
+		holder = linemaroz5
+	}
+	5364.1.16 = { # Angmar Start Date Ruler
+		holder = linemaroz7
+	}
+	5432.8.20 = {
+		holder = linemaroz10
+	}
+	5462.2.10 = {
+		holder = linemaroz13
+	}
+	6000.1.1 = {
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	7030.3.15 = {
+		holder = lineofolphang14 #Gesalecho
+		government = tribal_government
+		liege = d_carrock_vale
+		change_development_level = 4
+	}
+	7073.11.15 = {
+		holder = lineofolphang15 #Olphabeorn
+	}
+	7107.12.13 = {
+		holder = lineofolphang22 #Beorhtnoth
+	}
+	7133.1.26 = {
+		holder = lineofolphang24 #Erwigio
+	}
+	7135.3.20 = {
+		holder = lineofolphang26 #Alaric
+	}
+	7161.6.6 = {
+		holder = lineofolphang28 #Nunno
+	}
+}
+
+c_talan_pengron = {
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	5362.9.25 = { # Some of the Gargath passing through the greenwood settle along its western eaves
+		holder = linemaroz5
+		government = tribal_government
+		change_development_level = 4
+	}
+	5364.1.16 = { # Angmar Start Date Ruler
+		holder = linemaroz7
+	}
+	5432.8.20 = {
+		holder = linemaroz10
+	}
+	5462.2.10 = {
+		holder = linemaroz13
+	}
+	6650.12.1 = {
+		holder = linegerwig1 #Theoren
+	}
+	6729.12.20 = {
+		holder = linegerwig3 #Hengon
+	}
+	6775.6.4 = {
+		holder = linegerwig5 #Brathalwin
+	}
+	6785.3.19 = { #Long Winter Start Date ruler
+		holder = linegerwig7 #Athalhere
+	}
+	6814.1.1 = {
+		holder = linegerwig9 #Brander
+	}
+	6851.8.19 = {
+		holder = linegerwig11 #Euric
+	}
+	7030.3.15 = {
+		holder = lineofolphang14 #Gesalecho
+		liege = d_carrock_vale
+		change_development_level = 4
+	}
+	7073.11.15 = {
+		holder = lineofolphang15 #Olphabeorn
+	}
+	7107.12.13 = {
+		holder = lineofolphang22 #Beorhtnoth
+	}
+	7133.1.26 = {
+		holder = lineofolphang24 #Erwigio
+	}
+	7135.3.20 = {
+		holder = lineofolphang26 #Alaric
+	}
+	7161.6.6 = {
+		holder = lineofolphang28 #Nunno
+	}
+}
+
+c_cor_tauraglor = {
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	5195.5.10 = {
+		holder = lineerivald1
+		government = tribal_government
+		change_development_level = 4
+	}
+	5265.10.21 = {
+		holder = lineerivald3 #Delling
+	}
+	5310.5.12 = {
+		holder = lineerivald5 #Thiudakind
+	}
+	5335.12.10 = { # Angmar Start Date Ruler
+		holder = lineerivald9 #Chararic
+	}
+	5405.6.9 = {
+		holder = lineerivald13 #Sigismund
+	}
+	6650.4.16 = {
+		holder = linefroderik1 #Bain
+		change_development_level = 4
+	}
+	6731.10.24 = {
+		holder = linefroderik3 #Gustadolph
+	}
+	6758.11.23 = { #Long Winter Start Date Ruler
+		holder = linefroderik5 #Delling
+	}
+	6800.12.4 = {
+		holder = linefroderik7 #Wuilaric
+	}
+	6821.4.15 = {
+		holder = linefroderik9 #Marhold
+	}
+
+	6935.6.2 = {
+		holder = lineofsairthiuda1 #Diagero
+		government = tribal_government
+	}
+	6986.2.25 = {
+		holder = lineofsairthiuda4 #Diasto
+	}
+	7005.11.13 = {
+		holder = lineofsairthiuda6 #Diagero
+	}
+	7030.3.15 = {
+		holder = lineofsairthiuda8 #Dalecho
+		liege = d_gwath_anglennol
+		change_development_level = 6
+	}
+	7037.4.19 = {
+		holder = lineofsairthiuda17 #Euricho
+		liege = d_carrock_vale
+	}
+	7059.8.26 = {
+		holder = lineofsairthiuda19 #Theodemiro
+	}
+	7107.3.19 = {
+		holder = lineofsairthiuda46 #Ambroz
+	}
+	7109.3.28 = {
+		holder = lineofsairthiuda48 #Witiza
+	}
+	7148.1.18 = {
+		holder = lineofsairthiuda51 #Geila
+	}
+}
+
+## Duchy of Angaladh Rhunen
+## d_angaladh_rhunen
+
+d_angaladh_rhunen = { # Waldandings
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	4091.1.1 = {
+		holder = 0
+	}
+	6888.10.12 = {
+		holder = lineofwaldan1 #Waldan
+		government = tribal_government
+	}
+	6922.12.26 = {
+		holder = lineofwaldan2 #Wimarano
+	}
+	6964.6.28 = {
+		holder = lineofwaldan3 #Witiza
+	}
+	6985.7.11 = {
+		holder = lineofwaldan7 #Theudis
+	}
+	6999.4.12 = {
+		holder = lineofwaldan8 #Theudigislo
+	}
+	7043.7.1 = {
+		holder = lineofwaldan9 #Theodemiro
+	}
+	7078.7.6 = {
+		holder = lineofwaldan10 #Theodefredo
+	}
+	7086.2.2 = {
+		holder = lineofwaldan15 #Theudis
+	}
+	7093.3.13 = {
+		holder = lineofwaldan17 #Savarico
+	}
+	7141.2.13 = {
+		holder = lineofwaldan19 #Ermengar
+	}
+}
+
+c_eryn_aelin = { # Waldandings
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	5211.2.7 = {
+		holder = linebaldrik1 #Viloric
+		government = tribal_government
+		change_development_level = 7
+	}
+	5292.9.5 = {
+		holder = linebaldrik3 #Vidusith
+	}
+	5310.4.16 = {
+		holder = linebaldrik5 #Waldamiro
+	}
+	5347.4.13 = {
+		holder = linebaldrik7 #Vandreren
+	}
+	5378.7.20 = { # Angmar Start date ruler
+		holder = linebaldrik9 #Sigrid
+	}
+	6000.1.1 = {
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	7010.1.1 = {
+		holder = lineofwaldan8 #Theudigislo
+	}
+	6888.10.12 = {
+		holder = lineofwaldan1 #Waldan
+		change_development_level = 6
+		government = tribal_government
+	}
+	6922.12.26 = {
+		holder = lineofwaldan2 #Wimarano
+	}
+	6964.6.28 = {
+		holder = lineofwaldan3 #Witiza
+	}
+	6985.7.11 = {
+		holder = lineofwaldan7 #Theudis
+	}
+	6999.4.12 = {
+		holder = lineofwaldan8 #Theudigislo
+	}
+	7043.7.1 = {
+		holder = lineofwaldan9 #Theodemiro
+	}
+	7078.7.6 = {
+		holder = lineofwaldan10 #Theodefredo
+	}
+	7086.2.2 = {
+		holder = lineofwaldan15 #Theudis
+	}
+	7093.3.13 = {
+		holder = lineofwaldan17 #Savarico
+	}
+	7141.2.13 = {
+		holder = lineofwaldan19 #Ermengar
+	}
+}
+
+c_minas_thoron = { # Waldandings
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	5225.1.24 = {
+		holder = linewaldreg1 #Widin
+		government = tribal_government
+		change_development_level = 5
+	}
+	5297.3.27 = {
+		holder = linewaldreg3 #Gustadolph
+	}
+	5332.7.25 = {
+		holder = linewaldreg5 #Athalhere
+	}
+	5372.2.1 = {
+		holder = linewaldreg7 #Dudannis
+	}
+	5381.10.21 = { # Angmar Start Date ruler
+		holder = linewaldreg10 #Belgo
+	}
+	5453.11.14 = {
+		holder = linewaldreg12 #Herion
+	}
+	6000.1.1 = {
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	6888.10.12 = {
+		holder = lineofwaldan1 #Waldan
+		change_development_level = 4
+		government = tribal_government
+	}
+	6922.12.26 = {
+		holder = lineofwaldan2 #Wimarano
+	}
+	6964.6.28 = {
+		holder = lineofwaldan3 #Witiza
+	}
+	6985.7.11 = {
+		holder = lineofwaldan7 #Theudis
+	}
+	6999.4.12 = {
+		holder = lineofwaldan11 #Waldan
+	}
+	7057.3.17 = {
+		holder = lineofwaldan12 #Waldano
+		liege = d_angaladh_rhunen
+	}
+	7071.2.24 = {
+		holder = lineofwaldan22 #Wifredo
+	}
+	7091.9.21 = {
+		holder = lineofwaldan24 #Veremondo
+	}
+	7159.9.8 = {
+		holder = lineofwaldan26 #Wulferd
+	}
+}
+
+c_rad_angaladh = {
+	4200.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+
+	6700.9.3 = { #Orcs expand in the darkening of Mirkwood
+		holder = linegrohak1 #Greb
+		change_development_level = 7
+		government = orcish_government
+	}
+	6733.1.15 = { #Long winter start date ruler
+		holder = linegrohak3 #Gorduf
+	}
+	6900.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	7060.5.22 = {
+		holder = lineofsairthiuda19 #Theodemiro
+		change_development_level = 5
+		government = tribal_government
+	}
+	7107.3.19 = {
+		holder = lineofsairthiuda46 #Ambroz
+	}
+	7109.3.28 = {
+		holder = lineofsairthiuda48 #Witiza
+	}
+	7148.1.18 = {
+		holder = lineofsairthiuda51 #Geila
+	}
+}
+
+c_gond_bangath = { # Waldandings
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	5220.7.13 = {
+		holder = lineathalmar1 #Wuilaric
+		government = tribal_government
+		change_development_level = 6
+	}
+	5309.10.22 = {
+		holder = lineathalmar3 #Kylroi
+	}
+	5332.8.27 = {
+		holder = lineathalmar5 #Arving
+	}
+	5369.6.9 = { # Angmar Start Date Ruler
+		holder = lineathalmar7 #Herion
+	}
+	5392.4.11 = {
+		holder = lineathalmar9 #Frani
+	}
+	5430.6.7 = {
+		holder = lineathalmar11 #Vidugild
+	}
+	6650.6.26 = {
+		holder = linewilrik1 #Gustaw
+	}
+	6734.8.13 = {
+		holder = linewilrik3 #Lindor
+	}
+	6762.8.10 = {
+		holder = linewilrik5 #Theoren
+	}
+	6784.8.11 = { #Long Winter Start Date
+		holder = linewilrik7 #Eodoric
+	}
+	6820.3.16 = {
+		holder = linewilrik9 #Stormeriv
+	}
+	6850.7.7 = {
+		holder = linewilrik11 #Hawin
+	}
+	7021.1.11 = {
+		holder = lineofwaldan9 #Theodemiro
+		liege = d_angaladh_rhunen
+		change_development_level = 4
+	}
+	7078.7.6 = {
+		holder = lineofwaldan10 #Theodefredo
+	}
+	7086.2.2 = {
+		holder = lineofwaldan15 #Theudis
+	}
+	7093.3.13 = {
+		holder = lineofwaldan17 #Savarico
+	}
+	7141.2.13 = {
+		holder = lineofwaldan19 #Ermengar
+	}
+}
+
+## Duchy of Men-i-Naugrim
+## d_men_i_naugrim
+
+d_men_i_naugrim = {# Meroagings
+	1000.1.1 = {
+		holder = 0
+	}
+	5347.5.15 = { # Orcs trickle in from the Mts. of Mirkwood
+		holder = linegrozablokh3
+		government = orcish_government
+	}
+	5481.4.24 = { # Angmar Start Date Ruler
+		holder = linegrozablokh6
+	}
+	5700.1.1 = {
+		holder = 0
+	}
+	6700.8.28 = {
+		holder = linehornakh1 #Gazdush
+	}
+	6778.2.11 = { #Long Winter Start Date Ruler
+		holder = linehornakh3 #Gudul
+	}
+	6820.4.13 = {
+		holder = linehornakh5 #Gazlag
+	}
+	6844.2.6 = {
+		holder = linehornakh7 #Gazdush
+	}
+	6878.7.8 = {
+		holder = 0
+	}
+	6955.6.12 = {
+		holder = lineofmeroaging1 #Adelgaster
+		government = tribal_government
+	}
+	6980.10.15 = {
+		holder = lineofmeroaging3 #Ambrozano
+	}
+	7030.8.23 = {
+		holder = lineofmeroaging5 #Ambroz
+	}
+	7059.10.23 = {
+		holder = lineofmeroaging7 #Aoricho
+	}
+	7078.3.27 = {
+		holder = lineofmeroaging10 #Diaco
+	}
+	7098.11.10 = {
+		holder = lineofmeroaging12 #Bera
+	}
+	7134.1.13 = {
+		holder = lineofmeroaging14 #Theodoricho
+	}
+	7173.9.4 = {
+		holder = lineofmeroaging16#Olmondo
+	}
+}
+
+d_fangs_of_the_forest = {
+	6975.4.16 = { # Shebrog, Bodyguard of Bolg, flees Battle of the Five Armies to Mirkwood and subdues local orcs
+		holder = lineukorg3
+		government = orcish_government
+	}
+	7019.11.12 = {
+		holder = lineukorg5
+	}
+	7052.3.15 = { # Battle Under the Trees, the orcs are scattered
+		holder = 0
+	}
+}
+
+c_senn_i_naugrim = {
+	5202.2.26 = {
+		holder = lineorbar1 #Hargast
+		government = tribal_government
+		change_development_level = 7
+	}
+	5288.8.15 = {
+		holder = lineorbar3 #Ansovald
+	}
+	5327.6.19 = {
+		holder = lineorbar5 #Viduhar
+	}
+	5367.12.1 = {
+		holder = lineorbar7 #Theudebal
+	}
+	5380.1.20 = { # Angmar Start Date Ruler
+		holder = lineorbar9
+	}
+	5418.4.8 = {
+		holder = lineorbar11 #Hengon
+	}
+	6650.10.19 = {
+		holder = linegerold1 #Cormac
+	}
+	6725.11.15 = {
+		holder = linegerold3 #Godomar
+	}
+	6749.3.21 = {
+		holder = linegerold7 #Gartila
+	}
+	6784.9.11 = { #Long Winter Start Date Ruler
+		holder = linegerold9 #Lunt
+	}
+	6822.2.1 = {
+		holder = linegerold11 #Thiudakind
+	}
+	6955.6.12 = {
+		holder = lineofmeroaging1 #Adelgaster
+		government = tribal_government
+		change_development_level = 6
+	}
+	6980.10.15 = {
+		holder = lineofmeroaging3 #Ambrozano
+	}
+	7030.8.23 = {
+		holder = lineofmeroaging5 #Ambroz
+	}
+	7059.10.23 = {
+		holder = lineofmeroaging7 #Aoricho
+	}
+	7078.3.27 = {
+		holder = lineofmeroaging10 #Diaco
+	}
+	7098.11.10 = {
+		holder = lineofmeroaging12 #Bera
+	}
+	7134.1.13 = {
+		holder = lineofmeroaging14 #Theodoricho
+	}
+	7173.9.4 = {
+		holder = lineofmeroaging16#Olmondo
+	}
+}
+
+c_medelarnis = {
+	5211.12.20 = {
+		holder = linereigar1 #Harken
+		government = tribal_government
+		change_development_level = 6
+	}
+	5284.11.5 = {
+		holder = linereigar5 #Swain
+	}
+	5337.3.2 = {
+		holder = linereigar7 #Brander
+	}
+	5367.8.12 = { # Angmar Start Date Ruler
+		holder = linereigar9 #Erland
+	}
+	5390.2.11 = {
+		holder = linereigar11 #Vidukind
+	}
+	6650.6.26 = {
+		holder = linewilrik1 #Gustaw
+	}
+	6734.8.13 = {
+		holder = linewilrik3 #Lindor
+	}
+	6762.8.10 = {
+		holder = linewilrik5 #Theoren
+	}
+	6784.8.11 = { #Long Winter Start Date
+		holder = linewilrik7 #Eodoric
+	}
+	6820.3.16 = {
+		holder = linewilrik9 #Stormeriv
+	}
+	6850.7.7 = {
+		holder = linewilrik11 #Hawin
+	}
+	7021.1.1 = {
+		change_development_level = 4
+		holder = lineofmeroaging7 #Aoricho
+		liege = d_men_i_naugrim
+	}
+	7078.3.27 = {
+		holder = lineofmeroaging10 #Diaco
+	}
+	7098.11.10 = {
+		holder = lineofmeroaging12 #Bera
+	}
+	7134.1.13 = {
+		holder = lineofmeroaging14 #Theodoricho
+	}
+	7173.9.4 = {
+		holder = lineofmeroaging16#Olmondo
+	}
+}
+
+c_rhumen_i_naugrim = {
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	5231.8.5 = {
+		holder = linefreor1 #Arving
+		government = tribal_government
+		change_development_level = 6
+	}
+	5321.11.20 = {
+		holder = linefreor3 #Stormeriv
+	}
+	5341.7.10 = {
+		holder = linefreor5 #Vogirion
+	}
+	5381.12.24 = { # Angmar Start Date Ruler
+		holder = linefreor7 #Asabian
+	}
+	5438.8.5 = {
+		holder = linefreor9 #Halstein
+	}
+	5461.3.3 = {
+		holder = linefreor11 #Gustaw
+	}
+	6650.10.19 = {
+		holder = linegerold1 #Cormac
+	}
+	6725.11.15 = {
+		holder = linegerold3 #Godomar
+	}
+	6749.3.21 = {
+		holder = linegerold7 #Gartila
+	}
+	6784.9.11 = { #Long Winter Start Date Ruler
+		holder = linegerold9 #Lunt
+	}
+	6822.2.1 = {
+		holder = linegerold11 #Thiudakind
+	}
+	7021.1.1 = {
+		holder = lineofmeroaging9 #Arias
+		change_development_level = 3
+	}
+	7065.4.13 = { #Won in Civil War
+		holder = lineofmeroaging7 #Aoricho
+	}
+	7078.3.27 = {
+		holder = lineofmeroaging10 #Diaco
+	}
+	7098.11.10 = {
+		holder = lineofmeroaging12 #Bera
+	}
+	7134.1.13 = {
+		holder = lineofmeroaging14 #Theodoricho
+	}
+	7173.9.4 = {
+		holder = lineofmeroaging16#Olmondo
+	}
+}
+
+c_enedhmen_i_naugrim = {
+	5219.4.16 = { #Some remnant Gargath linger along the central passage through the Greenwood
+		holder = linerakhol1
+		government = tribal_government
+		change_development_level = 5
+	}
+	5282.7.8 = {
+		holder = linerakhol3
+	}
+	5302.7.12 = {
+		holder = linerakhol5
+	}
+	5357.2.5 = {
+		holder = linerakhol7
+	}
+	5373.10.21 = { # Angmar Start Date Ruler
+		holder = linerakhol9
+	}
+	5416.1.14 = {
+		holder = linerakhol12
+	}
+	5700.5.1 = { # The Gargath move on westwards
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	6700.8.28 = { #Orcs begin to spread
+		holder = linehornakh1 #Gazdush
+		government = tribal_government
+		change_development_level = 9
+	}
+	6778.2.11 = { #Long Winter Start Date Ruler
+		holder = linehornakh3 #Gudul
+	}
+	6820.4.13 = {
+		holder = linehornakh5 #Gazlag
+	}
+	6844.2.6 = {
+		holder = linehornakh7 #Gazdush
+	}
+	6878.7.8 = {
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	7055.5.20 = {
+		holder = lineofolphang20 #Gesalecho
+		government = tribal_government
+		change_development_level = 3
+		liege = k_anduin_vale
+	}
+	7071.2.17 = {
+		holder = lineoffriednand1 #Friednand
+	}
+	7091.5.20 = {
+		holder = lineoffriednand3 #Alaricho
+	}
+	7121.10.5 = {
+		holder = lineoffriednand5 #Berengario
+	}
+	7164.10.16 = {
+		holder = lineoffriednand8 #Silo
+	}
+}
+
+c_taurannon = {
+	5297.3.21 = { # Orcs trickle in from the Mts. of Mirkwood
+		holder = linegrozablokh1
+		government = orcish_government
+		change_development_level = 5
+	}
+	5347.5.15 = {
+		holder = linegrozablokh3
+	}
+	5481.4.24 = { # Angmar Start Date Ruler
+		holder = linegrozablokh6
+	}
+	6700.8.28 = {
+		holder = linehornakh1 #Gazdush
+		change_development_level = 8
+	}
+	6778.2.11 = { #Long Winter Start Date Ruler
+		holder = linehornakh3 #Gudul
+	}
+	6820.4.13 = {
+		holder = linehornakh5 #Gazlag
+	}
+	6844.2.6 = {
+		holder = linehornakh7 #Gazdush
+	}
+	6975.4.16 = { # Mirkwood Mountain orcs slowly creep back in, Shebrog, Bodyguard of Bolg, flees Battle of the Five Armies to Mirkwood and subdues local orcs
+		holder = lineukorg3
+		government = orcish_government
+		change_development_level = 4
+	}
+	7019.11.12 = {
+		holder = lineukorg5
+	}
+	7052.3.28 = { #Defeat of Dol Guldur
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	7058.6.1 = {
+		holder = lineofolphang20 #Gesalecho
+		government = tribal_government
+		change_development_level = 3
+	}
+	7071.2.17 = {
+		holder = lineoffriednand1 #Friednand
+	}
+	7091.5.20 = {
+		holder = lineoffriednand3 #Alaricho
+	}
+	7121.10.5 = {
+		holder = lineoffriednand5 #Berengario
+	}
+	7164.10.16 = {
+		holder = lineoffriednand8 #Silo
+	}
+}
+
+c_nidurn = {
+	5347.5.15 = { # Orcs trickle in from the Mts. of Mirkwood
+		holder = linegrozablokh3
+		government = orcish_government
+		change_development_level = 5
+	}
+	5481.4.24 = { # Angmar Start Date Ruler
+		holder = linegrozablokh6
+	}
+	6700.8.28 = {
+		holder = linehornakh1 #Gazdush
+		change_development_level = 7
+	}
+	6778.2.11 = { #Long Winter Start Date Ruler
+		holder = linehornakh3 #Gudul
+	}
+	6820.4.13 = {
+		holder = linehornakh5 #Gazlag
+	}
+	6844.2.6 = {
+		holder = linehornakh7 #Gazdush
+	}
+	6975.4.16 = { # Mirkwood Mountain orcs slowly creep back in, Shebrog, Bodyguard of Bolg, flees Battle of the Five Armies to Mirkwood and subdues local orcs
+		holder = lineukorg3
+		government = orcish_government
+		change_development_level = 5
+	}
+	7019.11.12 = {
+		holder = lineukorg6
+		liege = d_fangs_of_the_forest
+	}
+	7052.3.28 = { #Defeat of Dol Guldur
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	7057.4.30 = {
+		holder = lineofolphang20 #Gesalecho
+		government = tribal_government
+		change_development_level = 3
+	}
+	7071.2.17 = {
+		holder = lineoffriednand1 #Friednand
+	}
+	7091.5.20 = {
+		holder = lineoffriednand3 #Alaricho
+	}
+	7121.10.5 = {
+		holder = lineoffriednand5 #Berengario
+	}
+	7164.10.16 = {
+		holder = lineoffriednand8 #Silo
+	}
+}
+
+c_carag_thoroth = {
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	5215.12.28 = { #Gargath migrate through the Greenwood
+		holder = linekholoz1 #Lu_u_thku
+	}
+	5296.5.27 = {
+		holder = linekholoz3 #Kha_a_zath
+	}
+	5335.8.13 = {
+		holder = linekholoz5 #Gorovo_o_d
+	}
+	5364.5.10 = {
+		holder = linekholoz7 #Khioni_i_d
+	}
+	5370.12.9 = { #Angmar start date ruler
+		holder = linekholoz9 #Daio
+		change_development_level = 4
+	}
+	5423.5.7 = {
+		holder = linekholoz11 #Yotaen
+	}
+	6700.8.28 = { #Orcs begin to spread
+		holder = linehornakh1 #Gazdush
+		change_development_level = 6
+	}
+	6778.2.11 = { #Long Winter Start Date Ruler
+		holder = linehornakh3 #Gudul
+	}
+	6820.4.13 = {
+		holder = linehornakh5 #Gazlag
+	}
+	6844.2.6 = {
+		holder = linehornakh7 #Gazdush
+	}
+
+	6855.2.6 = {
+		holder = prelineoffadiring1 #Fredol
+		change_development_level = 2
+	}
+	6888.6.19 = {
+		holder = prelineoffadiring3 #Fruella
+	}
+	6920.10.26 = {
+		holder = prelineoffadiring5 #Sisenando
+	}
+	6947.7.15 = {
+		holder = prelineoffadiring7 #GonC_alo
+	}
+	6982.10.12 = {
+		holder = lineoffadiring1 #Oppola
+	}
+	7028.1.30 = {
+		holder = lineoffadiring2 #Oppas
+		change_development_level = 3
+	}
+	7067.6.9 = {
+		holder = lineoffadiring4 #Aoricho
+		liege = d_men_i_naugrim
+	}
+	7089.7.16 = {
+		holder = lineoffadiring6 #Aloito
+	}
+	7106.4.24 = {
+		holder = lineoffadiring8 #Athanaricho
+	}
+	7118.4.15 = {
+		holder = lineoffadiring10 #Fruella
+	}
+}
+
+### Amon Lanc
+### k_amon_lanc
+
+k_amon_lanc = {
+	1279.1.1 = { # S.A. 750. The Sindar migrate East, and Oropher establishes his kingdom in Greenwood
+		holder = lineoforopher1 # Oropher
+	}
+	2847.1.1 = {
+		holder = 0
+	}
+	6984.1.1 = { # T.A. 2951, Khamul is dispatched to rebuild and strengthen Dol Guldur as a stronghold for Mordor
+		holder = nazgul2
+	}
+	7052.4.6 = { #Establishment of East Lorien
+		holder = lineofelmo5 #Celeborn
+		effect = { set_title_name = cn_east_lorien }
+	}
+	7058.6.14 = {
+		holder = lineoftirneldor8 #Meladorn
+	}
+}
+
+## Duchy of Amon Lanc
+## d_amon_lanc
+
+d_amon_lanc = {
+	1279.1.1 = { # S.A. 750. The Sindar migrate East, and Oropher establishes his kingdom in Greenwood
+		holder = lineoforopher1 # Oropher
+	}
+	2847.1.1 = {
+		holder = 0
+	}
+
+	5033.1.1 = { # Sauron makes his abode in Dol Guldur
+		holder = lineofsauron
+	}
+	6096.1.1 = { # Sauron flees at the coming of Gandalf to investigate
+		holder = 0
+	}
+
+	6493.1.1 = { # Sauron returns to Dol Guldur again
+		holder = lineofsauron
+	}
+	6974.9.1 = { # T.A. 2941, The White Council dislodges Sauron from Dol Guldur, who returns to Mordor
+		holder = 0
+	}
+
+	6984.1.1 = { # T.A. 2951, Khamul is dispatched to rebuild and strengthen Dol Guldur as a stronghold for Mordor
+		holder = nazgul2
+	}
+	7052.4.6 = { #Establishment of East Lorien
+		holder = lineofelmo5 #Celeborn
+	}
+	7058.6.14 = {
+		holder = lineoftirneldor8 #Meladorn
+	}
+}
+
+c_amon_lanc = {
+	1279.1.1 = { # S.A. 750. The Sindar migrate East, and Oropher establishes his kingdom in Greenwood
+		holder = lineoforopher1 # Oropher
+		change_development_level = 18
+	}
+	5033.1.1 = { # Sauron makes his abode in Dol Guldur
+		holder = lineofsauron
+		change_development_level = 10
+	}
+	6096.1.1 = { # Sauron flees at the coming of Gandalf to investigate
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	6493.1.1 = { # Sauron returns to Dol Guldur again
+		holder = lineofsauron
+		government = feudal_government
+		change_development_level = 12
+	}
+	6974.9.1 = { # T.A. 2941, The White Council dislodges Sauron from Dol Guldur, who returns to Mordor
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+	6984.1.1 = { # T.A. 2951, Khamul is dispatched to rebuild and strengthen Dol Guldur as a stronghold for Mordor
+		holder = nazgul2
+		government = feudal_government
+		change_development_level = 15
+	}
+	7052.4.6 = { #Establishment of East Lorien
+		holder = lineofelmo5 #Celeborn
+		government = elven_government
+		change_development_level = 10
+	}
+	7058.6.14 = {
+		holder = lineoftirneldor8 #Meladorn
+	}
+}
+
+b_fennas_guldur = {
+	6984.1.1 = { # T.A. 2951, Khamul is dispatched to rebuild and strengthen Dol Guldur as a stronghold for Mordor
+		holder = nazgul2
+		government = feudal_government
+	}
+	7052.4.6 = { #Establishment of East Lorien
+		holder = lineofelmo5 #Celeborn
+		government = elven_government
+	}
+	7058.6.14 = {
+		holder = lineoftirneldor8 #Meladorn
+	}
+}
+
+b_pel_umarth = {
+	6984.1.1 = { # T.A. 2951, Khamul is dispatched to rebuild and strengthen Dol Guldur as a stronghold for Mordor
+		holder = nazgul2
+		government = feudal_government
+	}
+	7052.4.6 = { #Establishment of East Lorien
+		holder = lineofelmo5 #Celeborn
+		government = elven_government
+	}
+	7058.6.14 = {
+		holder = lineoftirneldor8 #Meladorn
+	}
+}
+
+c_gorogrod = {
+	1279.1.1 = { # S.A. 750. The Sindar migrate East, and Oropher establishes his kingdom in Greenwood
+		holder = lineoforopher1 # Oropher
+		change_development_level = 3
+	}
+
+	#5033.1.1 = { # Sauron makes his abode in Dol Guldur
+	#	holder = lineofsauron
+	#}
+	5033.2.2 = { # Sauron selects Orc captains for local command
+		holder = linehugrakh1
+		#liege = d_amon_lanc #Juke note: The Necromancers actual control of the area is loose, this will stop him from expanding
+		tributary_of = {
+			suzerain = d_amon_lanc
+			contract_group = tributary_subjugated
+		}
+	}
+	5381.10.25 = { # Angmar Start Date Ruler
+		holder = linehugrakh3
+	}
+	5393.4.11 = {
+		holder = linehugrakh6
+	}
+
+	#6493.1.1 = { # Sauron returns to Dol Guldur again
+	#	holder = lineofsauron
+	#}
+	6700.10.3 = { #Local Orcs under the influence of Dol Guldur
+		holder = linegreleb1 #Shagu_u_l
+		government = orcish_government
+		#liege = d_amon_lanc #Juke note: The Necromancers actual control of the area is loose, this will stop him from expanding
+	}
+	6756.1.11 = { #Long Winter start date ruler
+		holder = linegreleb3 #A_A_rlok
+	}
+	6984.1.1 = { # T.A. 2951, Khamul is dispatched to rebuild and strengthen Dol Guldur as a stronghold for Mordor
+		holder = nazgul2
+		change_development_level = 6
+	}
+	7005.1.1= { # Khamul grants position as Captain of the Guard
+		holder = lineofmogdred1
+		government = tribal_government
+		liege = k_amon_lanc
+	}
+}
+
+c_dimbar = {
+	1279.1.1 = { # S.A. 750. The Sindar migrate East, and Oropher establishes his kingdom in Greenwood
+		holder = lineoforopher1 # Oropher
+		change_development_level = 3
+	}
+
+	#5033.1.1 = { # Sauron makes his abode in Dol Guldur
+	#	holder = lineofsauron
+	#}
+	5033.2.2 = { # Sauron selects Orc captains for local command
+		holder = linerothrukh1
+		#liege = d_amon_lanc #Juke note: The Necromancers actual control of the area is loose, this will stop him from expanding
+		tributary_of = {
+			suzerain = d_amon_lanc
+			contract_group = tributary_subjugated
+		}
+	}
+	5345.2.12 = { # Angmar Start Date Ruler
+		holder = linerothrukh3
+	}
+	5414.2.18 = {
+		holder = linerothrukh5
+	}
+
+	#6493.1.1 = { # Sauron returns to Dol Guldur again
+	#	holder = lineofsauron
+	#}
+	6700.10.3 = { #Local Orcs under the influence of Dol Guldur
+		holder = linegreleb1 #Shagu_u_l
+		government = orcish_government
+		#liege = d_amon_lanc #Juke note: The Necromancers actual control of the area is loose, this will stop him from expanding
+	}
+	6756.1.11 = { #Long Winter start date ruler
+		holder = linegreleb3 #A_A_rlok
+	}
+	6984.1.1 = { # T.A. 2951, Khamul is dispatched to rebuild and strengthen Dol Guldur as a stronghold for Mordor
+		holder = nazgul2
+		change_development_level = 6
+	}
+	6995.1.1= { # Khamul grants command of Orcish garrison to Maghaz
+		holder = lineofmaghaz3
+		government = orcish_government
+		liege = k_amon_lanc
+	}
+}
+
+c_barad_angol = {
+	1279.1.1 = { # S.A. 750. The Sindar migrate East, and Oropher establishes his kingdom in Greenwood
+		holder = lineoforopher1 # Oropher
+		change_development_level = 3
+	}
+	5033.1.1 = { # Sauron makes his abode in Dol Guldur
+		holder = lineofsauron
+	}
+	5031.2.2 = { # Sauron selects Orc captains for local command
+		holder = lineborkagh1
+		#liege = d_amon_lanc #Juke note: The Necromancers actual control of the area is loose, this will stop him from expanding
+	}
+	5349.6.23 = { #Angmar start date ruler
+		holder = lineborkagh3
+		tributary_of = {
+			suzerain = d_amon_lanc
+			contract_group = tributary_subjugated
+		}
+	}
+	5412.1.14 = {
+		holder = lineborkagh5
+	}
+	6493.1.1 = { # Sauron returns to Dol Guldur
+		holder = lineofsauron
+	}
+	6700.6.27 = { #Orcs are appointed to take command in Sauron's service
+		holder = linegrulukh1 #Zerl_uk
+		government = orcish_government
+		#liege = d_amon_lanc #Juke note: The Necromancers actual control of the area is loose, this will stop him from expanding
+	}
+	6743.10.26 = { #Long Winter Start date ruler
+		holder = linegrulukh3 #A_A_mbal
+	}
+	6984.1.1 = { # T.A. 2951, Khamul is dispatched to rebuild and strengthen Dol Guldur as a stronghold for Mordor
+		holder = nazgul2
+		change_development_level = 6
+	}
+	#6995.1.1= { # Khamul grants command of Orcish garrison to Maghaz
+	#	holder = lineofmaghaz3
+	#	liege = k_amon_lanc
+	#}
+}
+
+c_naerorn = {
+	1279.1.1 = { # S.A. 750. The Sindar migrate East, and Oropher establishes his kingdom in Greenwood
+		holder = lineoforopher1 # Oropher
+		change_development_level = 3
+	}
+	5033.1.1 = { # Sauron makes his abode in Dol Guldur
+		holder = lineofsauron
+	}
+	5033.2.2 = { # Sauron selects Orc captains for local command
+		holder = linenorbog1
+		#liege = d_amon_lanc #Juke note: The Necromancers actual control of the area is loose, this will stop him from expanding
+	}
+	5380.8.17 = { # Angmar Start date ruler
+		holder = linenorbog3
+	}
+	5451.4.7 = {
+		holder = linenorbog5
+	}
+	6493.1.1 = { # Sauron returns to Dol Guldur
+		holder = lineofsauron
+	}
+	6700.6.27 = { #Orcs are appointed to take command in Sauron's service
+		holder = linegrulukh1 #Zerl_uk
+		government = orcish_government
+		#liege = d_amon_lanc #Juke note: The Necromancers actual control of the area is loose, this will stop him from expanding
+		tributary_of = {
+			suzerain = d_amon_lanc
+			contract_group = tributary_subjugated
+		}
+	}
+	6743.10.26 = { #Long Winter Start date ruler
+		holder = linegrulukh3 #A_A_mbal
+	}
+	6984.1.1 = { # T.A. 2951, Khamul is dispatched to rebuild and strengthen Dol Guldur as a stronghold for Mordor
+		holder = nazgul2
+		change_development_level = 6
+	}
+	7052.4.6 = { #Establishment of East Lorien
+		holder = lineoftirneldor8 #Meladorn
+		government = elven_government
+		change_development_level = 10
+		liege = k_amon_lanc
+	}
+	7058.6.14 = {
+		holder = lineofargalad1 #Argalad
+	}
+}
+## Duchy of Gwath Anglennol
+## d_gwath_anglennol
+
+d_gwath_anglennol = {
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	4091.1.1 = {
+		holder = 0
+	}
+	6935.6.2 = {
+		holder = lineofsairthiuda1 #Diagero
+	}
+	6986.2.25 = {
+		holder = lineofsairthiuda4 #Diasto
+	}
+	7005.11.13 = {
+		holder = lineofsairthiuda6 #Diagero
+	}
+	7037.4.19 = {
+		holder = lineofsairthiuda8 #Dalecho
+	}
+	7058.11.15 = {
+		holder = lineofsairthiuda11 #Diaco
+	}
+	7084.6.17 = {
+		holder = lineofsairthiuda21 #GonC_alo
+	}
+	7096.7.3 = {
+		holder = lineofsairthiuda23 #Aurelio
+	}
+	7142.8.25 = {
+		holder = lineofsairthiuda25 #Gaton
+	}
+}
+
+c_gwathrad = {
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	5211.6.2 = {
+		holder = lineholdrad1 #Wuilaric
+	}
+	5274.5.14 = {
+		holder = lineholdrad3 #Edwodyn
+	}
+	5332.1.25 = {
+		holder = lineholdrad5 #Eodoric
+	}
+	5343.7.18 = { # Angmar start date ruler
+		holder = lineholdrad7 #Kylroi
+		change_development_level = 3
+	}
+	5409.10.9 = {
+		holder = lineholdrad10 #Halstein
+	}
+	5432.1.19 = {
+		holder = lineholdrad12
+	}
+	5722.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	7052.4.6 = { #Establishment of East Lorien
+		holder = lineofargalad1 #Argalad
+		change_development_level = 4
+		government = elven_government
+		liege = k_amon_lanc
+	}
+}
+
+c_thon_gwaeren = { # Sairtheod the Hidden City, most important site of the Woodmen
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	5222.6.28 = {
+		holder = linehundrik1 #Ratahis
+	}
+	5311.11.2 = {
+		holder = linehundrik3 #Lindenkind
+	}
+	5318.9.2 = {
+		holder = linehundrik5 #Bladorthin
+	}
+	5366.2.13 = {
+		holder = linehundrik7 #Landroi
+	}
+	5381.9.7 = { # Angmar start date ruler
+		holder = linehundrik9 #
+		change_development_level = 4
+	}
+	5421.11.20 = {
+		holder = linehundrik11 #Tore
+	}
+	6720.6.17 = {
+		holder = lineolvik1
+		change_development_level = 4
+	}
+	6751.1.6 = {
+		holder = lineolvik3
+	}
+	6784.7.7 = { # LW Ruler, old chiefs die in orc raid
+		holder = linemosi3
+	}
+	6809.6.4 = {
+		holder = linemosi6
+	}
+	6839.11.3 = {
+		holder = linemosi8
+	}
+	6845.4.2 = {
+		holder = linemosi9
+	}
+	6935.6.2 = {
+		holder = lineofsairthiuda1 #Diagero
+		government = tribal_government
+	}
+	6986.2.25 = {
+		holder = lineofsairthiuda4 #Diasto
+	}
+	7005.11.13 = {
+		holder = lineofsairthiuda6 #Diagero
+	}
+	7037.4.19 = {
+		holder = lineofsairthiuda8 #Dalecho
+	}
+	7058.11.15 = {
+		holder = lineofsairthiuda11 #Diaco
+	}
+	7084.6.17 = {
+		holder = lineofsairthiuda21 #GonC_alo
+	}
+	7096.7.3 = {
+		holder = lineofsairthiuda23 #Aurelio
+	}
+	7142.8.25 = {
+		holder = lineofsairthiuda25 #Gaton
+	}
+}
+
+c_emyn_dulin = {
+	4200.1.1 = {
+		holder = k_wastelands_holder
+		change_development_level = -100
+		government = wastelands_government
+	}
+	# 5033.4.12 = { #Angmar Start Date Ruler
+		# holder = lineoflaerdan3
+		# change_development_level = 10
+		# government = elven_government
+	# }
+	# 5404.5.7 = {
+		# holder = k_wastelands_holder
+		# change_development_level = -100
+		# government = wastelands_government
+	# }
+	7060.10.3 = {
+		holder = lineoffredol1 #Fredol
+		change_development_level = 4
+		government = tribal_government
+	}
+	7109.2.11 = {
+		holder = lineoffredol3 #Egica
+	}
+	7127.6.28 = {
+		holder = lineoffredol5 #Oddilon
+	}
+	7128.6.8 = {
+		holder = lineoffredol8 #Eboric
+	}
+}
+
+## Duchy of Taur-e-Ndaedlos
+## d_taur_e_ndaedlos
+
+d_taur_e_ndaedlos = {
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	5300.8.6 = {
+		holder = linegisilrik5 #Vogirion
+	}
+	5352.3.12 = {
+		holder = linegisilrik7 #Gartila
+	}
+	5377.1.2 = { # Angmar Start Date Ruler
+		holder = linegisilrik10 # Freagar
+	}
+	5462.5.8 = {
+		holder = linegisilrik12
+	}
+	5700.1.1 = {
+		holder = 0
+	}
+	6700.12.19 = { #Orcs begin to spread
+		holder = linebruluk1 #Gorduf
+		government = orcish_government
+	}
+	6744.7.16 = {
+		holder = linebruluk3 #Mauduf
+	}
+	6770.11.17 = { #Long Winter Start date ruler
+		holder = linebruluk5 #Ratak
+	}
+	6941.1.19 = { #Corsechings
+		holder = lineofcorsech1 #Corsech
+		government = tribal_government
+	}
+	6985.3.5 = {
+		holder = lineofcorsech3 #Corsech
+	}
+	6989.4.15 = {
+		holder = lineofcorsech5 #Corsech
+	}
+	7040.1.29 = {
+		holder = lineofcorsech7 #Corsech
+	}
+	7052.3.28 = {
+		holder = lineofcorsech12 #Rostan
+	}
+	7052.4.6 = {
+		holder = lineoffredol1 #Fredol
+	}
+	7109.2.11 = {
+		holder = lineoffredol3 #Egica
+	}
+	7127.6.28 = {
+		holder = lineoffredol5 #Oddilon
+	}
+	7128.6.8 = {
+		holder = lineoffredol8 #Eboric
+	}
+}
+
+c_galbrethin = {
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	5220.12.9 = {
+		holder = linewaldamar1 #Gartila
+		government = tribal_government
+		change_development_level = 6
+	}
+	5303.2.12 = {
+		holder = linewaldamar3 #Thalas
+	}
+	5343.2.2 = {
+		holder = linewaldamar5 #Hross
+	}
+	5363.2.1 = {
+		holder = linewaldamar7 #Haed
+	}
+	5365.3.28 = { #Angmar Start Date Ruler
+		holder = linewaldamar9 #Thorald
+	}
+	6700.12.19 = { #Orcs begin to spread
+		holder = linebruluk1 #Gorduf
+		government = orcish_government
+		change_development_level = 7
+	}
+	6744.7.16 = {
+		holder = linebruluk3 #Mauduf
+	}
+	6770.11.17 = { #Long Winter Start date ruler
+		holder = linebruluk5 #Ratak
+	}
+	6941.1.19 = { #Corsechings
+		holder = lineofcorsech1 #Corsech
+		government = tribal_government
+		change_development_level = 4
+	}
+	6985.3.5 = {
+		holder = lineofcorsech3 #Corsech
+	}
+	6989.4.15 = {
+		holder = lineofcorsech5 #Corsech
+	}
+	7040.1.29 = {
+		holder = lineofcorsech7 #Corsech
+	}
+	7052.3.28 = {
+		holder = lineofcorsech12 #Rostan
+	}
+	7052.4.6 = {
+		holder = lineoffredol1 #Fredol
+	}
+	7109.2.11 = {
+		holder = lineoffredol3 #Egica
+	}
+	7127.6.28 = {
+		holder = lineoffredol5 #Oddilon
+	}
+	7128.6.8 = {
+		holder = lineoffredol8 #Eboric
+	}
+}
+
+c_barad_dolni = {
+	5343.2.2 = {
+		holder = linewaldamar5 #Hross
+	}
+	5363.2.1 = {
+		holder = linewaldamar7 #Haed
+	}
+	5365.3.28 = { #Angmar Start Date Ruler
+		holder = linewaldamar9 #Thorald
+		change_development_level = 6
+	}
+	6650.4.6 = {
+		holder = linehagaldo1 #Thrain
+		change_development_level = 4
+	}
+	6724.1.18 = {
+		holder = linehagaldo3 #Raendoric
+	}
+	6741.3.2 = {
+		holder = linehagaldo5 #Gustaw
+	}
+	6756.1.24 = { #Long Winter start date ruler
+		holder = linehagaldo7 #Einar
+	}
+	6814.2.7 = {
+		holder = linehagaldo9 #Brathalwin
+	}
+	6888.10.12 = {
+		holder = lineofwaldan1 #Waldan
+		change_development_level = 4
+		government = tribal_government
+	}
+	6922.12.26 = {
+		holder = lineofwaldan2 #Wimarano
+	}
+	6964.6.28 = {
+		holder = lineofwaldan3 #Witiza
+	}
+	6985.7.11 = {
+		holder = lineofwaldan4 #Wittericho
+	}
+	6989.8.14 = {
+		holder = lineofwaldan6 #Waldamiro
+	}
+	7040.8.4 = {
+		holder = lineofwaldan6a #Veremondo
+	}
+	7076.12.18 = {
+		holder = lineoffredol1 #Fredol
+	}
+	7109.2.11 = {
+		holder = lineoffredol3 #Egica
+	}
+	7127.6.28 = {
+		holder = lineoffredol5 #Oddilon
+	}
+	7128.6.8 = {
+		holder = lineoffredol8 #Eboric
+	}
+}
+
+c_tawaroth = {
+	5199.11.6 = {
+		holder = linegoldabrand1 #Valamir
+		government = tribal_government
+		change_development_level = 6
+	}
+	5280.9.1 = {
+		holder = linegoldabrand3 #Uirdriks
+	}
+	5336.3.3 = {
+		holder = linegoldabrand5 #Sichar
+	}
+	5339.10.6 = {
+		holder = linegoldabrand7 #Marhere
+		liege = d_taur_e_ndaedlos
+	}
+	5355.9.3 = {
+		holder = linegoldabrand9 #Irkenwin
+	}
+	5366.8.19 = { # Angmar Start Date Ruler
+		holder = linegoldabrand12 # Balecho
+	}
+	6000.1.1 = {
+		holder = k_wastelands_holder
+		liege = 0
+		government = wastelands_government
+		change_development_level = -100
+	}
+	6941.1.19 = { #Corsechings
+		holder = lineofcorsech1 #Corsech
+		government = tribal_government
+		liege = d_taur_e_ndaedlos
+		change_development_level = 4
+	}
+	6985.3.5 = {
+		holder = lineofcorsech3 #Corsech
+	}
+	6989.4.15 = {
+		holder = lineofcorsech5 #Corsech
+	}
+	7043.9.1 = {
+		holder = lineofcorsech12 #Rostan
+	}
+	7078.3.10 = {
+		holder = lineofcorsech20 #Euricho
+	}
+	7094.9.11 = {
+		holder = lineofcorsech22 #Friednand
+	}
+	7135.9.7 = {
+		holder = lineofcorsech24 #Adelfonso
+	}
+	7170.12.10 = {
+		holder = lineofcorsech26 #Alatheo
+	}
+}
+
+c_tharlag = {
+	4042.1.1 = {
+		holder = lineoffaderda1	#Faderda, legendary woodmen leader, allegedly led them into the greenwood
+	}
+	5271.1.23 = {
+		holder = linegisilrik3 #Silvio
+		government = tribal_government
+		change_development_level = 5
+	}
+	5300.8.6 = {
+		holder = linegisilrik5 #Vogirion
+	}
+	5352.3.12 = {
+		holder = linegisilrik7 #Gartila
+	}
+	5377.1.2 = { # Angmar Start Date Ruler
+		holder = linegisilrik10 # Freagar
+	}
+	5462.5.8 = {
+		holder = linegisilrik12
+	}
+	6700.12.19 = { #Orcs begin to spread
+		holder = linebruluk1 #Gorduf
+		government = orcish_government
+		change_development_level = 7
+	}
+	6744.7.16 = {
+		holder = linebruluk3 #Mauduf
+	}
+	6770.11.17 = { #Long Winter Start date ruler
+		holder = linebruluk5 #Ratak
+	}
+	6985.3.5 = { #Corseching
+		holder = lineofcorsech8 #Corsech
+		liege = d_taur_e_ndaedlos
+		government = tribal_government
+		change_development_level = 3
+	}
+	6999.4.12 = {
+		holder = lineofcorsech15 #Guttier
+	}
+	7052.4.6 = {
+		holder = lineoffredol1 #Fredol
+		change_development_level = 5
+	}
+	7109.2.11 = {
+		holder = lineoffredol3 #Egica
+	}
+	7127.6.28 = {
+		holder = lineoffredol5 #Oddilon
+	}
+	7128.6.8 = {
+		holder = lineoffredol8 #Eboric
+	}
+}
+
+c_minas_raug = {
+	1279.1.1 = { # S.A. 750. The Sindar migrate East, and Oropher establishes his kingdom in Greenwood
+		holder = lineoforopher1 # Oropher
+		change_development_level = 3
+		government = elven_government
+	}
+	5202.1.28 = {
+		holder = linegisilrik1 #Dudannis
+		government = tribal_government
+		change_development_level = 4
+	}
+	5271.1.23 = {
+		holder = linegisilrik3 #Silvio
+	}
+	5300.8.6 = {
+		holder = linegisilrik5 #Vogirion
+	}
+	5352.3.12 = {
+		holder = linegisilrik7 #Gartila
+	}
+	5377.1.2 = { # Angmar Start Date Ruler
+		holder = linegisilrik10 # Freagar
+	}
+	5462.5.8 = {
+		holder = linegisilrik12
+	}
+	6700.12.19 = { #Orcs begin to spread
+		holder = linebruluk1 #Gorduf
+		government = orcish_government
+		change_development_level = 7
+	}
+	6744.7.16 = {
+		holder = linebruluk3 #Mauduf
+	}
+	6770.11.17 = { #Long Winter Start date ruler
+		holder = linebruluk5 #Ratak
+	}
+	6974.9.1 = { # T.A. 2941, The White Council dislodges Sauron from Dol Guldur, who returns to Mordor, Zimraphel takes residence
+		holder = lineofwaldan14
+		government = tribal_government
+	}
+	7052.4.6 = { #Establishment of East Lorien
+		holder = k_wastelands_holder
+		government = wastelands_government
+		change_development_level = -100
+	}
+}

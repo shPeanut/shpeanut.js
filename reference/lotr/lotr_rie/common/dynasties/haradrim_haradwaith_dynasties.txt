@@ -1,0 +1,507 @@
+﻿###############################
+###############################
+######### HARADWAITH ##########
+###############################
+###############################
+
+
+####################
+#### SECOND AGE ####
+####################
+
+dynasty_aharuz = {
+	name = "dynn_aharuz"
+	culture = "haruze"
+	motto = "dynn_aharuz_motto"
+}
+
+#########################
+#### EARLY THIRD AGE ####
+#########################
+# Roughly 4000-4999
+
+#######################
+#### MID THIRD AGE ####
+#######################
+# Roughly 5000-5999
+
+# Haruzan Mid TA
+dynasty_amrunom = {
+	name = "dynn_amrunom"
+	culture = "haruze"
+	motto = "dynn_amrunom_motto"
+}
+
+dynasty_misin = {
+	name = "dynn_misin"
+	culture = "haruze"
+	motto = dynn_misin_motto
+}
+
+# Chelkar Mid TA
+dynasty_akhubarikk_a = {
+	name = "dynn_akhubarikk_a"
+	culture = "haruze"
+	motto = dynn_akhubarikk_a_motto
+}
+
+dynasty_fejasikk_a = {
+	name = "dynn_fejasikk_a"
+	culture = "haruze"
+	motto = dynn_fejasikk_a_motto
+}
+
+dynasty_nafasirikk_a = {
+	name = "dynn_nafasirikk_a"
+	culture = "haruze"
+	motto = dynn_nafasirikk_a_motto
+}
+
+dynasty_semerikk_a = {
+	name = "dynn_semerikk_a"
+	culture = "haruze"
+	motto = dynn_semerikk_a_motto
+}
+
+dynasty_tajarikk_a = {
+	name = "dynn_tajarikk_a"
+	culture = "haruze"
+	motto = dynn_tajarikk_a_motto
+}
+
+dynasty_timmirikk_a = {
+	name = "dynn_timmirikk_a"
+	culture = "haruze"
+	motto = dynn_timmirikk_a_motto
+}
+
+dynasty_zhajikk_a = {
+	name = "dynn_zhajikk_a"
+	culture = "haruze"
+	motto = dynn_zhajikk_a_motto
+}
+
+dynasty_zhakirikk_a = {
+	name = "dynn_zhakirikk_a"
+	culture = "haruze"
+	motto = dynn_zhakirikk_a_motto
+}
+
+#Lurmsakun Mid TA
+dynasty_frukka = {
+	name = dynn_frukka
+	culture = lurmsakari
+	motto = dynn_frukka_motto
+}
+
+dynasty_rajlin = {
+	name = dynn_rajlin
+	culture = lurmsakari
+	motto = dynn_rajlin_motto
+}
+
+dynasty_khalin = {
+	name = dynn_khalin
+	culture = lurmsakari
+	motto = dynn_khalin_motto
+}
+
+dynasty_ratohin = {
+	name = dynn_ratohin
+	culture = lurmsakari
+	motto = dynn_ratohin_motto
+}
+
+dynasty_berisin = {
+	name = dynn_berisin
+	culture = lurmsakari
+	motto = dynn_berisin_motto
+}
+
+dynasty_aratikka = {
+	name = dynn_aratikka
+	culture = lurmsakari
+	motto = dynn_aratikka_motto
+}
+
+########################
+#### LATE THIRD AGE ####
+########################
+# Roughly 6000+
+
+dynasty_ayerikka = {
+	name = "dynn_ayerikka"
+	culture = "haruze"
+	motto = "dynn_ayerikka_motto"
+}
+
+dynasty_draghutinin = {
+	name = "dynn_draghutinin"
+	culture = "haruze"
+	motto = "dynn_draghutinin_motto"
+}
+
+dynasty_ikendaka = {
+	name = "dynn_ikendaka"
+	culture = "haruze"
+	motto = "dynn_ikendaka_motto"
+}
+
+dynasty_rhugimin = {
+	name = "dynn_rhugimin"
+	culture = "haruze"
+	motto = "dynn_rhugimin_motto"
+}
+
+dynasty_kussika = {
+	name = "dynn_kussika"
+	culture = "haruze"
+	motto = "dynn_kussika_motto"
+}
+
+dynasty_tacfimin = {
+	name = "dynn_tacfimin"
+	culture = "haruze"
+	motto = "dynn_tacfimin_motto"
+}
+
+dynasty_awzalika = {
+	name = "dynn_awzalika"
+	culture = "haruze"
+	motto = "dynn_awzalika_motto"
+}
+
+dynasty_qutaibin = {
+	name = "dynn_qutaibin"
+	culture = "haruze"
+	motto = "dynn_qutaibin_motto"
+}
+
+dynasty_ambartaji = {
+	name = "dynn_ambartaji"
+	culture = "arysisani"
+	motto = dynn_ambartaji_motto 
+}
+
+dynasty_salomonin = {
+	name = "dynn_salomonin"
+	culture = "haruze"
+	motto = "dynn_salomonin_motto"
+}
+
+dynasty_khadomejka = {
+	name = "dynn_khadomejka"
+	culture = "haruze"
+	motto = "dynn_khadomejka_motto"
+}
+
+dynasty_sallaka = {
+	name = "dynn_sallaka"
+	culture = "haruze"
+	motto = "dynn_sallaka_motto"
+}
+
+dynasty_khadnom = {
+	name = "dynn_khadnom"
+	culture = "chelkari"
+	motto = "dynn_khadnom_motto"
+}
+
+dynasty_drahar = {
+	name = "dynn_drahar"
+	culture = "chelkari"
+	motto = "dynn_drahar_motto"
+}
+
+dynasty_iman = {
+	name = "dynn_iman"
+	culture = "chelkari"
+	motto = "dynn_iman_motto"
+}
+
+dynasty_malaadikka = {
+	name = "dynn_malaadikka"
+	culture = "chelkari"
+	motto = "dynn_malaadikka_motto"
+}
+
+dynasty_suruknoma = {
+	name = "dynn_suruknoma"
+	culture = "chelkari"
+	motto = "dynn_suruknoma_motto"
+}
+
+dynasty_arzagarnom = {
+	name = "dynn_arzagarnom"
+	culture = "pezarsani"
+	motto = "dynn_arzagarnom_motto"
+}
+
+dynasty_medjanom = {
+	name = "dynn_medjanom"
+	culture = "chelkari"
+	motto = "dynn_medjanom_motto"
+}
+dynasty_umbarnom = {
+	name = "dynn_umbarnom"
+	culture = "haruze"
+	motto = "dynn_umbarnom_motto"
+}
+
+dynasty_tirsakounika = {
+	name = "dynn_tirsakounika"
+	culture = "jelut"
+	motto = "dynn_tirsakounika_motto"
+}
+
+dynasty_melenkoud = {
+	name = "dynn_melenkoud"
+	culture = "jelut"
+	motto = "dynn_melenkoud_motto"
+}
+
+dynasty_izrissas = {
+	name = "dynn_izrissas"
+	culture = "jelut"
+	motto = "dynn_izrissas_motto"
+}
+
+dynasty_isakin = {
+	name = "dynn_isakin"
+	culture = "jelut"
+	motto = "dynn_isakin_motto"
+}
+
+dynasty_ozhomin = {
+	name = "dynn_ozhomin"
+	culture = "jelut"
+	motto = "dynn_ozhomin_motto"
+}
+
+dynasty_boghomin = {
+	name = "dynn_boghomin"
+	culture = "jelut"
+	motto = "dynn_boghomin_motto"
+}
+
+dynasty_ketomin = {
+	name = "dynn_ketomin"
+	culture = "jelut"
+	motto = "dynn_ketomin_motto"
+}
+
+dynasty_zhajomin = {
+	name = "dynn_zhajomin"
+	culture = "jelut"
+	motto = "dynn_zhajomin_motto"
+}
+
+dynasty_mitares = {
+	name = "dynn_mitares"
+	culture = "lurmsakari"
+	motto = "dynn_mitares_motto"
+}
+
+dynasty_safares = {
+	name = "dynn_safares"
+	culture = "lurmsakari"
+	motto = "dynn_safares_motto"
+}
+
+dynasty_fatrakes = {
+	name = "dynn_fatrakes"
+	culture = "lurmsakari"
+	motto = "dynn_fatrakes_motto"
+}
+
+dynasty_pakires = {
+	name = "dynn_pakires"
+	culture = "siaken"
+	motto = "dynn_pakires_motto"
+}
+
+dynasty_sutes = {
+	name = "dynn_sutes"
+	culture = "siaken"
+	motto = "dynn_sutes_motto"
+}
+
+dynasty_timmires = {
+	name = "dynn_timmires"
+	culture = "siaken"
+	motto = "dynn_timmires_motto"
+}
+
+dynasty_tajhayyi = {
+	name = "dynn_tajhayyi"
+	culture = "pezarsani"
+	motto = "dynn_tajhayyi_motto"
+}
+
+dynasty_pesarsikka = {
+	name = "dynn_pesarsikka"
+	culture = "pezarsani"
+	motto = "dynn_pesarsikka_motto"
+}
+
+dynasty_gjoradka = {
+	name = "dynn_gjoradka"
+	culture = "pezarsani"
+	motto = "dynn_gjoradka_motto"
+}
+
+dynasty_maltokka = {
+	name = "dynn_maltokka"
+	culture = "pezarsani"
+	motto = "dynn_maltokka_motto"
+}
+
+dynasty_jasikhes = {
+	name = "dynn_jasikhes"
+	culture = "siaken"
+	motto = "dynn_jasikhes_motto"
+}
+
+dynasty_parzenid = {
+	name = "dynn_parzenid"
+	culture = "pezarsani"
+	motto = dynn_parzenid_motto
+}
+
+dynasty_khumares = {
+	name = "dynn_khumares"
+	culture = "pezarsani"
+	motto = dynn_khumares_motto
+}
+
+dynasty_jozirikka = {
+	name = "dynn_jozirikka"
+	culture = "haruze"
+	motto = dynn_jozirikka_motto
+}
+
+dynasty_zakaria = {
+	name = "dynn_zakaria"
+	culture = "haruze"
+	motto = dynn_zakaria_motto
+}
+
+dynasty_momin = {
+	name = "dynn_momin"
+	culture = "haruze"
+	motto = dynn_momin_motto
+}
+
+dynasty_ugwistanes = {
+	name = "dynn_ugwistanes"
+	culture = "nafarati"
+	motto = dynn_ugwistanes_motto
+}
+
+dynasty_yonires = {
+	name = dynn_yonires
+	culture = "haruze"
+	motto = dynn_yonires_motto
+}
+
+dynasty_pakir = {
+	name = "dynn_pakir"
+	culture = "haruze"
+	motto = dynn_pakir_motto
+}
+
+dynasty_darikka = {
+	name = "dynn_darikka"
+	culture = "haruze"
+	motto = dynn_darikka_motto
+}
+
+dynasty_dasin = {
+	name = "dynn_dasin"
+	culture = "haruze"
+	motto = dynn_dasin_motto
+}
+
+dynasty_krejir = {
+	name = "dynn_krejir"
+	culture = "haruze"
+	motto = dynn_krejir_motto
+}
+
+dynasty_ozho = {
+	name = "dynn_ozho"
+	culture = "pezarsani"
+	motto = dynn_ozho_motto
+}
+
+dynasty_arat = {
+	name = "dynn_arat"
+	culture = "pezarsani"
+	motto = dynn_arat_motto
+}
+
+dynasty_jerek = {
+	name = "dynn_jerek"
+	culture = "pezarsani"
+	motto = dynn_jerek_motto
+}
+
+dynasty_acammes = {
+    name = "dynn_acammes"
+    culture = "jelut"
+    motto = dynn_acammes_motto
+}
+
+dynasty_igiderag = {
+    name = "dynn_igideras"
+    culture = "jelut"
+    motto = dynn_igideras_motto
+}
+
+dynasty_izrissin = {
+    name = "dynn_izrissin"
+    culture = "jelut"
+    motto = dynn_izrissin_motto
+}
+
+dynasty_khuarseg = {
+    name = "dynn_khuarseg"
+    culture = "jelut"
+    motto = dynn_khuarseg_motto
+}
+
+dynasty_masgavassin = {
+    name = "dynn_masgavassin"
+    culture = "jelut"
+    motto = dynn_masgavassin_motto
+}
+
+dynasty_qarsatim = {
+    name = "dynn_qarsatim"
+    culture = "jelut"
+    motto = dynn_qarsatim_motto
+}
+
+dynasty_sarbig = {
+    name = "dynn_sarbil"
+    culture = "jelut"
+    motto = dynn_sarbil_motto
+}
+
+dynasty_teferias = {
+    name = "dynn_teferias"
+    culture = "jelut"
+    motto = dynn_teferias_motto
+}
+
+dynasty_ubrual = {
+    name = "dynn_ubruag"
+    culture = "jelut"
+    motto = dynn_ubruag_motto
+}
+
+dynasty_yerral = {
+    name = "dynn_yerrag"
+    culture = "jelut"
+    motto = dynn_yerrag_motto
+}

@@ -1,0 +1,2277 @@
+﻿alignment_map = {
+	effect = {
+		if = {
+			limit = {
+				trigger_if = {
+					limit = { exists = global_var:custom_map_mode }
+					NOT = { global_var:custom_map_mode = flag:alignment_map }
+				}
+			}
+			set_global_variable = {
+				name = custom_map_mode_changing
+				value = 1
+			}
+			set_global_variable = {
+				name = custom_map_mode
+				value = flag:alignment_map
+			}
+			every_county = {
+				if = {
+					# Wilderness 
+					limit = {
+						holder.religion = {
+							is_in_family = rf_pagan
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:k_wastelands }
+						set_variable = {
+							name = alignment_map_tooltip
+							value = flag:alignment_wilderness
+						}
+					}
+				}
+				else_if = {
+					# Good
+					limit = {
+						holder.religion = {
+							#OR = { 
+							#	is_in_family = rf_freepeoples
+								is_in_family = rf_eruhini
+							#}
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_alignment_map_good }
+						set_variable = {
+							name = alignment_map_tooltip
+							value = flag:alignment_good
+						}
+					}
+				}
+				else_if = {
+					# Good Leaning
+					limit = {
+						holder.faith = {
+							has_doctrine = doctrine_echoes_of_the_ainur
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_alignment_map_goodish }
+						set_variable = {
+							name = alignment_map_tooltip
+							value = flag:alignment_light
+						}
+					}
+				}
+				else_if = {
+					# Neutral
+					limit = {
+						OR = {
+							holder.faith = {
+								has_doctrine = doctrine_a_people_apart
+							}
+							# holder.religion = {
+							# 	is_in_family = rf_pagan
+							# }
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_alignment_map_neutral }
+						set_variable = {
+							name = alignment_map_tooltip
+							value = flag:alignment_neutral
+						}
+					}
+				}
+				else_if = {
+					# Evilish
+					limit = {
+						holder.faith = {
+							has_doctrine = doctrine_dominion_of_the_dark
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_alignment_map_evilish }
+						set_variable = {
+							name = alignment_map_tooltip
+							value = flag:alignment_dark
+						}
+					}
+				}
+				else_if = {
+					# Evil
+					limit = {
+						holder.religion = {
+							is_in_family = rf_forcesofevil
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_alignment_map_evil }
+						set_variable = {
+							name = alignment_map_tooltip
+							value = flag:alignment_evil
+						}
+					}
+				}
+			}
+			remove_global_variable = custom_map_mode_changing
+		}
+	}
+	is_shown = {
+		trigger_if = {
+			limit = { exists = global_var:custom_map_mode }
+			global_var:custom_map_mode = flag:alignment_map
+		}
+	}
+	is_valid = {
+		NOT = { exists = global_var:custom_map_mode_changing }
+	}
+}
+
+racial_homelands_map = {
+	effect = {
+		if = {
+			limit = {
+				trigger_if = {
+					limit = { exists = global_var:custom_map_mode }
+					NOT = { global_var:custom_map_mode = flag:racial_homelands_map }
+				}
+			}
+			set_global_variable = {
+				name = custom_map_mode_changing
+				value = 1
+			}
+			set_global_variable = {
+				name = custom_map_mode
+				value = flag:racial_homelands_map
+			}
+			every_barony = {
+				set_color_from_title = title:d_tributary_map_base
+			}
+			every_county = {
+				if = {
+					limit = {
+						has_county_modifier = elven_homeland_county_modifier
+					}
+					every_county_province = { barony = { set_color_from_title = title:d_elven_homelands } }
+				}
+			}
+			remove_global_variable = custom_map_mode_changing
+		}
+	}
+	is_shown = {
+		trigger_if = {
+			limit = { exists = global_var:custom_map_mode }
+			global_var:custom_map_mode = flag:racial_homelands_map
+		}
+	}
+	is_valid = {
+		NOT = { exists = global_var:custom_map_mode_changing }
+	}
+}
+
+trade_routes_map = {
+	effect = {
+		if = {
+			limit = {
+				trigger_if = {
+					limit = { exists = global_var:custom_map_mode }
+					NOT = { global_var:custom_map_mode = flag:trade_routes_map }
+				}
+			}
+			set_global_variable = {
+				name = custom_map_mode_changing
+				value = 1
+			}
+			set_global_variable = {
+				name = custom_map_mode
+				value = flag:trade_routes_map
+			}
+			every_barony = {
+				set_color_from_title = title:d_tributary_map_base
+			}
+			every_province = {
+				if = {
+					# Good
+					limit = {
+						has_province_modifier = rhun_road_province_modifier
+					}
+					barony = { set_color_from_title = title:d_tributary_map_tributary_state }
+				}
+			}
+			remove_global_variable = custom_map_mode_changing
+		}
+	}
+	is_shown = {
+		trigger_if = {
+			limit = { exists = global_var:custom_map_mode }
+			global_var:custom_map_mode = flag:trade_routes_map
+		}
+	}
+	is_valid = {
+		NOT = { exists = global_var:custom_map_mode_changing }
+	}
+}
+
+resources_map = {
+	effect = {
+		if = {
+			limit = {
+				trigger_if = {
+					limit = { exists = global_var:custom_map_mode }
+					NOT = { global_var:custom_map_mode = flag:resources_map }
+				}
+			}
+			set_global_variable = {
+				name = custom_map_mode_changing
+				value = 1
+			}
+			set_global_variable = {
+				name = custom_map_mode
+				value = flag:resources_map
+			}
+			every_province = {
+				remove_variable ?= resource_map_tooltip
+				if = {
+					limit = {
+						has_province_modifier = mining_mithril_province_modifier
+					}
+					barony = { set_color_from_title = title:d_resources_map_mithril }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:mithril
+					}
+				}
+				else_if = {
+					limit = {
+						has_province_modifier = mining_gold_province_modifier
+					}
+					barony = { set_color_from_title = title:d_resources_map_gold }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:gold
+					}
+				}
+				else_if = {
+					limit = {
+						has_province_modifier = mining_silver_province_modifier
+					}
+					barony = { set_color_from_title = title:d_resources_map_silver }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:silver_mining_resource
+					}
+				}
+				else_if = {
+					limit = {
+						has_province_modifier = mining_iron_province_modifier
+					}
+					barony = { set_color_from_title = title:d_resources_map_iron }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:iron_mining_resource
+					}
+				}
+				else_if = {
+					limit = {
+						has_province_modifier = mining_copper_province_modifier
+					}
+					barony = { set_color_from_title = title:d_resources_map_copper }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:copper
+					}
+				}
+				else_if = {
+					limit = {
+						has_province_modifier = mining_tin_province_modifier
+					}
+					barony = { set_color_from_title = title:d_resources_map_tin }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:tin
+					}
+				}
+				else_if = {
+					limit = {
+						has_province_modifier = mining_lead_province_modifier
+					}
+					barony = { set_color_from_title = title:d_resources_map_lead }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:lead
+					}
+				}
+				### Gems ###
+				else_if = {
+					limit = {
+						has_province_modifier = mining_diamond_province_modifier
+					}
+					barony = { set_color_from_title = title:d_resources_map_diamond }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:diamond
+					}
+				}
+				else_if = {
+					limit = {
+						has_province_modifier = mining_ruby_province_modifier
+					}
+					barony = { set_color_from_title = title:d_resources_map_ruby }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:ruby
+					}
+				}
+				else_if = {
+					limit = {
+						has_province_modifier = mining_sapphire_province_modifier
+					}
+					barony = { set_color_from_title = title:d_resources_map_sapphire }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:sapphire
+					}
+				}
+				else_if = {
+					limit = {
+						has_province_modifier = mining_emerald_province_modifier
+					}
+					barony = { set_color_from_title = title:d_resources_map_emerald }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:emerald_mining_resource
+					}
+				}
+				else_if = {
+					limit = {
+						has_province_modifier = mining_amethyst_province_modifier
+					}
+					barony = { set_color_from_title = title:d_resources_map_amethyst }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:amethyst
+					}
+				}
+				else_if = {
+					limit = {
+						has_province_modifier = mining_onyx_province_modifier
+					}
+					barony = { set_color_from_title = title:d_resources_map_onyx }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:onyx
+					}
+				}
+				else_if = {
+					limit = {
+						has_province_modifier = mining_peridot_province_modifier
+					}
+					barony = { set_color_from_title = title:d_resources_map_peridot }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:peridot
+					}
+				}
+				else_if = {
+					limit = {
+						has_province_modifier = mining_quartz_province_modifier
+					}
+					barony = { set_color_from_title = title:d_resources_map_quartz }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:quartz
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = mountains
+							terrain = halls
+							terrain = desert_mountains
+						}
+					}
+					barony = { set_color_from_title = title:d_tributary_map_suzerain }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:not_yet_prospected
+					}
+					if = {
+						limit = {
+							mining_common_mithril_province = yes
+						}
+						set_variable = {
+							name = mithril_common
+							value = flag:activity_mining_prospecting_province_desc_mithril_common
+						}
+					}
+					else = {
+						set_variable = {
+							name = mithril_common
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_common_gold_province = yes
+						}
+						set_variable = {
+							name = gold_common
+							value = flag:activity_mining_prospecting_province_desc_gold_common
+						}
+					}
+					else = {
+						set_variable = {
+							name = gold_common
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_common_silver_province = yes
+						}
+						set_variable = {
+							name = silver_common
+							value = flag:activity_mining_prospecting_province_desc_silver_common
+						}
+					}
+					else = {
+						set_variable = {
+							name = silver_common
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_common_lead_province = yes
+						}
+						set_variable = {
+							name = lead_common
+							value = flag:activity_mining_prospecting_province_desc_lead_common
+						}
+					}
+					else = {
+						set_variable = {
+							name = lead_common
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_common_tin_province = yes
+						}
+						set_variable = {
+							name = tin_common
+							value = flag:activity_mining_prospecting_province_desc_tin_common
+						}
+					}
+					else = {
+						set_variable = {
+							name = tin_common
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_common_copper_province = yes
+						}
+						set_variable = {
+							name = copper_common
+							value = flag:activity_mining_prospecting_province_desc_copper_common
+						}
+					}
+					else = {
+						set_variable = {
+							name = copper_common
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_common_iron_province = yes
+						}
+						set_variable = {
+							name = iron_common
+							value = flag:activity_mining_prospecting_province_desc_iron_common
+						}
+					}
+					else = {
+						set_variable = {
+							name = iron_common
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_common_diamond_province = yes
+						}
+						set_variable = {
+							name = diamond_common
+							value = flag:activity_mining_prospecting_province_desc_diamond_common
+						}
+					}
+					else = {
+						set_variable = {
+							name = diamond_common
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_common_ruby_province = yes
+						}
+						set_variable = {
+							name = ruby_common
+							value = flag:activity_mining_prospecting_province_desc_ruby_common
+						}
+					}
+					else = {
+						set_variable = {
+							name = ruby_common
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_common_sapphire_province = yes
+						}
+						set_variable = {
+							name = sapphire_common
+							value = flag:activity_mining_prospecting_province_desc_sapphire_common
+						}
+					}
+					else = {
+						set_variable = {
+							name = sapphire_common
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_common_emerald_province = yes
+						}
+						set_variable = {
+							name = emerald_common
+							value = flag:activity_mining_prospecting_province_desc_emerald_common
+						}
+					}
+					else = {
+						set_variable = {
+							name = emerald_common
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_common_amethyst_province = yes
+						}
+						set_variable = {
+							name = amethyst_common
+							value = flag:activity_mining_prospecting_province_desc_amethyst_common
+						}
+					}
+					else = {
+						set_variable = {
+							name = amethyst_common
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_common_onyx_province = yes
+						}
+						set_variable = {
+							name = onyx_common
+							value = flag:activity_mining_prospecting_province_desc_onyx_common
+						}
+					}
+					else = {
+						set_variable = {
+							name = onyx_common
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_common_peridot_province = yes
+						}
+						set_variable = {
+							name = peridot_common
+							value = flag:activity_mining_prospecting_province_desc_peridot_common
+						}
+					}
+					else = {
+						set_variable = {
+							name = peridot_common
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_common_quartz_province = yes
+						}
+						set_variable = {
+							name = quartz_common
+							value = flag:activity_mining_prospecting_province_desc_quartz_common
+						}
+					}
+					else = {
+						set_variable = {
+							name = quartz_common
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_uncommon_mithril_province = yes
+						}
+						set_variable = {
+							name = mithril_uncommon
+							value = flag:activity_mining_prospecting_province_desc_mithril_uncommon
+						}
+					}
+					else = {
+						set_variable = {
+							name = mithril_uncommon
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_uncommon_gold_province = yes
+						}
+						set_variable = {
+							name = gold_uncommon
+							value = flag:activity_mining_prospecting_province_desc_gold_uncommon
+						}
+					}
+					else = {
+						set_variable = {
+							name = gold_uncommon
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_uncommon_silver_province = yes
+						}
+						set_variable = {
+							name = silver_uncommon
+							value = flag:activity_mining_prospecting_province_desc_silver_uncommon
+						}
+					}
+					else = {
+						set_variable = {
+							name = silver_uncommon
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_uncommon_lead_province = yes
+						}
+						set_variable = {
+							name = lead_uncommon
+							value = flag:activity_mining_prospecting_province_desc_lead_uncommon
+						}
+					}
+					else = {
+						set_variable = {
+							name = lead_uncommon
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_uncommon_tin_province = yes
+						}
+						set_variable = {
+							name = tin_uncommon
+							value = flag:activity_mining_prospecting_province_desc_tin_uncommon
+						}
+					}
+					else = {
+						set_variable = {
+							name = tin_uncommon
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_uncommon_copper_province = yes
+						}
+						set_variable = {
+							name = copper_uncommon
+							value = flag:activity_mining_prospecting_province_desc_copper_uncommon
+						}
+					}
+					else = {
+						set_variable = {
+							name = copper_uncommon
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_uncommon_iron_province = yes
+						}
+						set_variable = {
+							name = iron_uncommon
+							value = flag:activity_mining_prospecting_province_desc_iron_uncommon
+						}
+					}
+					else = {
+						set_variable = {
+							name = iron_uncommon
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_uncommon_diamond_province = yes
+						}
+						set_variable = {
+							name = diamond_uncommon
+							value = flag:activity_mining_prospecting_province_desc_diamond_uncommon
+						}
+					}
+					else = {
+						set_variable = {
+							name = diamond_uncommon
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_uncommon_ruby_province = yes
+						}
+						set_variable = {
+							name = ruby_uncommon
+							value = flag:activity_mining_prospecting_province_desc_ruby_uncommon
+						}
+					}
+					else = {
+						set_variable = {
+							name = ruby_uncommon
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_uncommon_sapphire_province = yes
+						}
+						set_variable = {
+							name = sapphire_uncommon
+							value = flag:activity_mining_prospecting_province_desc_sapphire_uncommon
+						}
+					}
+					else = {
+						set_variable = {
+							name = sapphire_uncommon
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_uncommon_emerald_province = yes
+						}
+						set_variable = {
+							name = emerald_uncommon
+							value = flag:activity_mining_prospecting_province_desc_emerald_uncommon
+						}
+					}
+					else = {
+						set_variable = {
+							name = emerald_uncommon
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_uncommon_amethyst_province = yes
+						}
+						set_variable = {
+							name = amethyst_uncommon
+							value = flag:activity_mining_prospecting_province_desc_amethyst_uncommon
+						}
+					}
+					else = {
+						set_variable = {
+							name = amethyst_uncommon
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_uncommon_onyx_province = yes
+						}
+						set_variable = {
+							name = onyx_uncommon
+							value = flag:activity_mining_prospecting_province_desc_onyx_uncommon
+						}
+					}
+					else = {
+						set_variable = {
+							name = onyx_uncommon
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_uncommon_peridot_province = yes
+						}
+						set_variable = {
+							name = peridot_uncommon
+							value = flag:activity_mining_prospecting_province_desc_peridot_uncommon
+						}
+					}
+					else = {
+						set_variable = {
+							name = peridot_uncommon
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_uncommon_quartz_province = yes
+						}
+						set_variable = {
+							name = quartz_uncommon
+							value = flag:activity_mining_prospecting_province_desc_quartz_uncommon
+						}
+					}
+					else = {
+						set_variable = {
+							name = quartz_uncommon
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_rare_mithril_province = yes
+						}
+						set_variable = {
+							name = mithril_rare
+							value = flag:activity_mining_prospecting_province_desc_mithril_rare
+						}
+					}
+					else = {
+						set_variable = {
+							name = mithril_rare
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_rare_gold_province = yes
+						}
+						set_variable = {
+							name = gold_rare
+							value = flag:activity_mining_prospecting_province_desc_gold_rare
+						}
+					}
+					else = {
+						set_variable = {
+							name = gold_rare
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_rare_silver_province = yes
+						}
+						set_variable = {
+							name = silver_rare
+							value = flag:activity_mining_prospecting_province_desc_silver_rare
+						}
+					}
+					else = {
+						set_variable = {
+							name = silver_rare
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_rare_lead_province = yes
+						}
+						set_variable = {
+							name = lead_rare
+							value = flag:activity_mining_prospecting_province_desc_lead_rare
+						}
+					}
+					else = {
+						set_variable = {
+							name = lead_rare
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_rare_tin_province = yes
+						}
+						set_variable = {
+							name = tin_rare
+							value = flag:activity_mining_prospecting_province_desc_tin_rare
+						}
+					}
+					else = {
+						set_variable = {
+							name = tin_rare
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_rare_copper_province = yes
+						}
+						set_variable = {
+							name = copper_rare
+							value = flag:activity_mining_prospecting_province_desc_copper_rare
+						}
+					}
+					else = {
+						set_variable = {
+							name = copper_rare
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_rare_iron_province = yes
+						}
+						set_variable = {
+							name = iron_rare
+							value = flag:activity_mining_prospecting_province_desc_iron_rare
+						}
+					}
+					else = {
+						set_variable = {
+							name = iron_rare
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_rare_diamond_province = yes
+						}
+						set_variable = {
+							name = diamond_rare
+							value = flag:activity_mining_prospecting_province_desc_diamond_rare
+						}
+					}
+					else = {
+						set_variable = {
+							name = diamond_rare
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_rare_ruby_province = yes
+						}
+						set_variable = {
+							name = ruby_rare
+							value = flag:activity_mining_prospecting_province_desc_ruby_rare
+						}
+					}
+					else = {
+						set_variable = {
+							name = ruby_rare
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_rare_sapphire_province = yes
+						}
+						set_variable = {
+							name = sapphire_rare
+							value = flag:activity_mining_prospecting_province_desc_sapphire_rare
+						}
+					}
+					else = {
+						set_variable = {
+							name = sapphire_rare
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_rare_emerald_province = yes
+						}
+						set_variable = {
+							name = emerald_rare
+							value = flag:activity_mining_prospecting_province_desc_emerald_rare
+						}
+					}
+					else = {
+						set_variable = {
+							name = emerald_rare
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_rare_amethyst_province = yes
+						}
+						set_variable = {
+							name = amethyst_rare
+							value = flag:activity_mining_prospecting_province_desc_amethyst_rare
+						}
+					}
+					else = {
+						set_variable = {
+							name = amethyst_rare
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_rare_onyx_province = yes
+						}
+						set_variable = {
+							name = onyx_rare
+							value = flag:activity_mining_prospecting_province_desc_onyx_rare
+						}
+					}
+					else = {
+						set_variable = {
+							name = onyx_rare
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_rare_peridot_province = yes
+						}
+						set_variable = {
+							name = peridot_rare
+							value = flag:activity_mining_prospecting_province_desc_peridot_rare
+						}
+					}
+					else = {
+						set_variable = {
+							name = peridot_rare
+							value = flag:no_text_appears
+						}
+					}
+					if = {
+						limit = {
+							mining_rare_quartz_province = yes
+						}
+						set_variable = {
+							name = quartz_rare
+							value = flag:activity_mining_prospecting_province_desc_quartz_rare
+						}
+					}
+					else = {
+						set_variable = {
+							name = quartz_rare
+							value = flag:no_text_appears
+						}
+					}
+				}
+				else = {
+					barony ?= { set_color_from_title = title:d_tributary_map_base }
+					set_variable = {
+						name = resource_map_tooltip
+						value = flag:no_resources
+					}
+				}
+			}
+			remove_global_variable = custom_map_mode_changing
+		}
+	}
+	is_shown = {
+		trigger_if = {
+			limit = { exists = global_var:custom_map_mode }
+			global_var:custom_map_mode = flag:resources_map
+		}
+	}
+	is_valid = {
+		NOT = { exists = global_var:custom_map_mode_changing }
+	}
+}
+
+relics_map = {
+	effect = {
+		if = {
+			limit = {
+				trigger_if = {
+					limit = { exists = global_var:custom_map_mode }
+					NOT = { global_var:custom_map_mode = flag:relics_map }
+				}
+			}
+			set_global_variable = {
+				name = custom_map_mode_changing
+				value = 1
+			}
+			set_global_variable = {
+				name = custom_map_mode
+				value = flag:relics_map
+			}
+			every_barony = {
+				set_color_from_title = title:d_tributary_map_base
+			}
+			every_artifact = {
+				limit = {
+					is_unique = yes
+				}
+				artifact_owner.location.barony = { set_color_from_title = title:d_unique_artifacts }
+			}
+			remove_global_variable = custom_map_mode_changing
+		}
+	}
+	is_shown = {
+		trigger_if = {
+			limit = { exists = global_var:custom_map_mode }
+			global_var:custom_map_mode = flag:relics_map
+		}
+	}
+	is_valid = {
+		NOT = { exists = global_var:custom_map_mode_changing }
+	}
+}
+
+settlement_map = {
+	effect = {
+		if = {
+			limit = {
+				trigger_if = {
+					limit = { exists = global_var:custom_map_mode }
+					NOT = { global_var:custom_map_mode = flag:settlement_map }
+				}
+			}
+			set_global_variable = {
+				name = custom_map_mode_changing
+				value = 1
+			}
+			set_global_variable = {
+				name = custom_map_mode
+				value = flag:settlement_map
+			}
+			every_barony = {
+				set_variable = {
+					name = settlement_map_flag_tooltip
+					value = flag:settlement_is_not_here_flag
+				}
+				set_color_from_title = title:d_tributary_map_base
+			}
+			every_county = {
+				limit = { title_province ?= { has_holding_type = settlement_holding } }
+				if = {
+					limit = { title_province ?= { has_holding_type = settlement_holding } }
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_alignment_map_good }
+						set_variable = {
+							name = settlement_map_flag_tooltip
+							value = 1
+						}
+					}
+				} else = {
+					every_county_province = { 
+						set_variable = {
+							name = settlement_map_flag_tooltip
+							value = 0
+						}
+					}
+				}
+			}
+			remove_global_variable = custom_map_mode_changing
+		}
+	}
+	is_shown = {
+		trigger_if = {
+			limit = { exists = global_var:custom_map_mode }
+			global_var:custom_map_mode = flag:settlement_map
+		}
+	}
+	is_valid = {
+		NOT = { exists = global_var:custom_map_mode_changing }
+	}
+}
+
+elven_hope_map = {
+	is_shown = {
+		trigger_if = {
+			limit = { exists = global_var:custom_map_mode }
+			global_var:custom_map_mode = flag:elven_hope_map
+		}
+	}
+	is_valid = {
+		NOT = { exists = global_var:custom_map_mode_changing }
+	}
+	effect = {
+		if = {
+			limit = {
+				trigger_if = {
+					limit = { exists = global_var:custom_map_mode }
+					NOT = { global_var:custom_map_mode = flag:elven_hope_map }
+				}
+			}
+			set_global_variable = {
+				name = custom_map_mode_changing
+				value = 1
+			}
+			set_global_variable = {
+				name = custom_map_mode
+				value = flag:elven_hope_map
+			}
+			every_county = {
+				if = { # T5 - Thriving
+					limit = {
+						holder = { has_highest_hope = yes }
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_hope_highest }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_hope_highest
+						}
+					}
+				}
+				else_if = { # T4 - Renewing
+					limit = {
+						holder = { has_high_hope = yes }
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_hope_high }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_hope_high
+						}
+					}
+				}
+				else_if = { # T3 - Enduring
+					limit = {
+						holder = { has_medium_hope = yes }
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_hope_medium }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_hope_medium
+						}
+					}
+				}
+				else_if = { # T2 - Waning
+					limit = {
+						holder = { has_low_hope = yes }
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_hope_low }
+						
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_hope_low
+						}
+					}
+				}
+				else_if = { # T1 - Fading
+					limit = {
+						holder = { has_lowest_hope = yes }
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_hope_lowest }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_hope_lowest
+						}
+					}
+				}
+				else = {
+					every_county_province = { 
+						barony = { set_title_color = { 8 8 8 0 } }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_hope_uninvolved
+						}
+					}
+				}
+			}
+			
+			remove_global_variable = custom_map_mode_changing
+		}
+	}
+}
+
+elven_subregions_map = { 
+	is_shown = {
+		trigger_if = {
+			limit = { exists = global_var:custom_map_mode }
+			global_var:custom_map_mode = flag:elven_subregions_map
+		}
+	}
+	is_valid = {
+		NOT = { exists = global_var:custom_map_mode_changing }
+	}
+	effect = {
+		if = {
+			limit = {
+				trigger_if = {
+					limit = { exists = global_var:custom_map_mode }
+					NOT = { global_var:custom_map_mode = flag:elven_subregions_map }
+				}
+			}
+			set_global_variable = {
+				name = custom_map_mode_changing
+				value = 1
+			}
+			set_global_variable = {
+				name = custom_map_mode
+				value = flag:elven_subregions_map
+			}
+			every_county = {
+				if = { # Lorien
+					limit = {
+						title_province ?= { 
+							OR = {
+								geographical_region = middleearth_west_rhovanion_lothlorien
+								geographical_region = middleearth_west_eregion
+								geographical_region = middleearth_mountains_misty
+								geographical_region = middleearth_west_rhovanion_anduin
+							}
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_subregion_lorien }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_subregion_lorien
+						}
+					}
+				}
+				else_if = { # Lindon
+					limit = {
+						title_province ?= { 
+							OR = {
+								geographical_region = middleearth_west_beleriand
+								geographical_region = middleearth_mountains_blue
+							}
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_subregion_lindon }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_subregion_lindon
+						}
+					}
+				}
+				else_if = { # Lasgalen
+					limit = {
+						title_province ?= { 
+							geographical_region = middleearth_west_rhovanion_mirkwood
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_subregion_lasgalen }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_subregion_lasgalen
+						}
+					}
+				}
+				else_if = { # Nelornieth
+					limit = {
+						title_province ?= { 
+							OR = {
+								geographical_region = middleearth_west_rhovanion_dorwinion 
+								geographical_region = middleearth_rhun_seaofrhun 
+								geographical_region = middleearth_rhun_nurunkizdin
+							}
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_subregion_nelornieth }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_subregion_nelornieth
+						}
+					}
+				}
+				else_if = { # Drêl
+					limit = {
+						title_province ?= { 
+							OR = {
+								geographical_region = middleearth_uttersouth_thanihazad 
+								geographical_region = middleearth_mountains_yellow_west
+							}
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_subregion_drel }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_subregion_drel
+						}
+					}
+				}
+				else_if = { # Kinn-lai Lands
+					limit = {
+						title_province ?= { 
+							OR = {
+								geographical_region = middleearth_uttersouth_usakan
+								geographical_region = middleearth_uttersouth_twinkingdoms
+								geographical_region = middleearth_uttersouth_mumakan_talilan
+								geographical_region = middleearth_uttersouth_mumakan_koronande
+								geographical_region = middleearth_uttersouth_mumakan_mulambur
+								geographical_region = middleearth_uttersouth_mumakan_hathor
+							}
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_subregion_kinnlai }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_subregion_kinnlai
+						}
+					}
+				}
+				else_if = { # Mûmakan
+					limit = {
+						title_province ?= { 
+							OR = {
+								geographical_region = middleearth_uttersouth_mumakan_dushera    
+								geographical_region = middleearth_uttersouth_mumakan_mumakan
+								geographical_region = middleearth_uttersouth_mumakan_tuktan
+								geographical_region = middleearth_uttersouth_shayn
+								geographical_region = middleearth_mountains_yellow_east
+							}
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_subregion_mumakan }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_subregion_mumakan
+						}
+					}
+				}
+				else_if = { # Eriador
+					limit = {
+						title_province ?= { 
+							OR = {
+								geographical_region = middleearth_west_arnor
+								geographical_region = middleearth_forodwaith
+								geographical_region = middleearth_west_enedhwaith
+							}
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_subregion_eriador }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_subregion_eriador
+						}
+					}
+				}
+				else_if = { # Rhovanion
+					limit = {
+						title_province ?= { 
+							OR = {
+								geographical_region = middleearth_west_rhovanion_brownlands
+								geographical_region = middleearth_west_rhovanion_dalelands
+								geographical_region = middleearth_mountains_iron
+							}
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_subregion_rhovanion }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_subregion_rhovanion
+						}
+					}
+				}
+				else_if = { # Gondor
+					limit = {
+						title_province ?= { 
+							OR = {
+								geographical_region = middleearth_west_gondor
+								geographical_region = middleearth_mountains_white
+								geographical_region = middleearth_west_isengard
+								geographical_region = middleearth_west_rohan
+							}
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_subregion_gondor }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_subregion_gondor
+						}
+					}
+				}
+				else_if = { # Bay of Ormal
+					limit = {
+						title_province ?= { 
+							geographical_region = middleearth_harad_bayoformal
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_subregion_ormal }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_subregion_ormal
+						}
+					}
+				}
+				else_if = { # Sumarieth
+					limit = {
+						title_province ?= { 
+							OR = {
+								geographical_region = middleearth_harad_far_bellakar_central
+								geographical_region = middleearth_harad_far_tulwang
+								geographical_region = middleearth_harad_far_ray
+							}
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_subregion_sumarieth }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_subregion_sumarieth
+						}
+					}
+				}
+				else_if = { # Haradwaith
+					limit = {
+						title_province ?= { 
+							OR = {
+								geographical_region = middleearth_harad_dunesea
+								geographical_region = middleearth_harad_near
+								geographical_region = middleearth_harad_far_bellakar_bayoffelaya
+							}
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_subregion_haradwaith }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_subregion_haradwaith
+						}
+					}
+				}
+				else_if = { # Mordor
+					limit = {
+						title_province ?= { 
+							OR = { 
+								geographical_region = middleearth_mordor
+								geographical_region = middleearth_rhun_khand
+							}
+						}
+					}
+					every_county_province = { 
+						barony = { set_color_from_title = title:d_elven_subregion_mordor }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_subregion_mordor
+						}
+					}
+				}
+				else = {
+					every_county_province = { 
+						barony = { set_title_color = { 8 8 8 0 } }
+						set_variable = {
+							name = elven_hope_map_tooltip
+							value = flag:elven_hope_uninvolved
+						}
+					}
+				}
+			}
+			
+			remove_global_variable = custom_map_mode_changing
+		}
+	}
+}
+
+language_map = {
+	is_shown = {
+		trigger_if = {
+			limit = { exists = global_var:custom_map_mode }
+			global_var:custom_map_mode = flag:language_map
+		}
+	}
+	is_valid = {
+		NOT = { exists = global_var:custom_map_mode_changing }
+	}
+	effect = {
+		if = {
+			limit = {
+				trigger_if = {
+					limit = { exists = global_var:custom_map_mode }
+					NOT = { global_var:custom_map_mode = flag:language_map }
+				}
+			}
+			set_global_variable = {
+				name = custom_map_mode_changing
+				value = 1
+			}
+			set_global_variable = {
+				name = custom_map_mode
+				value = flag:language_map
+			}
+			every_county = {
+				if = {
+					limit = { culture = { has_cultural_pillar = language_eldarin } }
+					every_county_province = {
+						barony = { set_title_color = { 204 255 204 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_eldarin }
+						set_variable = { name = language_group_map_tooltip value = flag:group_eldarin }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_quenya } }
+					every_county_province = {
+						barony = { set_title_color = { 0 1 85 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_quenya }
+						set_variable = { name = language_group_map_tooltip value = flag:group_eldarin }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_telerin } }
+					every_county_province = {
+						barony = { set_title_color = { 204 204 255 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_telerin }
+						set_variable = { name = language_group_map_tooltip value = flag:group_eldarin }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_sindarin } }
+					every_county_province = {
+						barony = { set_title_color = { 83 152 20 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_sindarin }
+						set_variable = { name = language_group_map_tooltip value = flag:group_eldarin }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_avarin } }
+					every_county_province = {
+						barony = { set_title_color = { 45 25 127 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_avarin }
+						set_variable = { name = language_group_map_tooltip value = flag:group_avarin }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_hwenti } }
+					every_county_province = {
+						barony = { set_title_color = { 25 25 140 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_hwenti }
+						set_variable = { name = language_group_map_tooltip value = flag:group_avarin }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_penni } }
+					every_county_province = {
+						barony = { set_title_color = { 50 40 120 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_penni }
+						set_variable = { name = language_group_map_tooltip value = flag:group_avarin }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_windan } }
+					every_county_province = {
+						barony = { set_title_color = { 50 90 75 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_windan }
+						set_variable = { name = language_group_map_tooltip value = flag:group_avarin }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_cuind } }
+					every_county_province = {
+						barony = { set_title_color = { 80 60 140 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_cuind }
+						set_variable = { name = language_group_map_tooltip value = flag:group_avarin }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_kinnlai } }
+					every_county_province = {
+						barony = { set_title_color = { 70 70 110 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_kinnlai }
+						set_variable = { name = language_group_map_tooltip value = flag:group_avarin }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_kindi } }
+					every_county_province = {
+						barony = { set_title_color = { 70 70 110 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_kindi }
+						set_variable = { name = language_group_map_tooltip value = flag:group_avarin }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_westron } }
+					every_county_province = {
+						barony = { set_title_color = { 1 40 106 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_westron }
+						set_variable = { name = language_group_map_tooltip value = flag:group_westron }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_westron_south } }
+					every_county_province = {
+						barony = { set_title_color = { 43 97 89 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_westron_south }
+						set_variable = { name = language_group_map_tooltip value = flag:group_westron }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_westron_orc } }
+					every_county_province = {
+						barony = { set_title_color = { 31 21 19 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_westron_orc }
+						set_variable = { name = language_group_map_tooltip value = flag:group_westron }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_hobbitish } }
+					every_county_province = {
+						barony = { set_title_color = { 100 220 0 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_hobbitish }
+						set_variable = { name = language_group_map_tooltip value = flag:group_westron }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_dalish } }
+					every_county_province = {
+						barony = { set_title_color = { 200 100 0 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_dalish }
+						set_variable = { name = language_group_map_tooltip value = flag:group_rhovanic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_dorwinic } }
+					every_county_province = {
+						barony = { set_title_color = { 115 0 25 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_dorwinic }
+						set_variable = { name = language_group_map_tooltip value = flag:group_rhovanic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_rohirric } }
+					every_county_province = {
+						barony = { set_title_color = { 67 115 44 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_rohirric }
+						set_variable = { name = language_group_map_tooltip value = flag:group_rhovanic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_rhovanic } }
+					every_county_province = {
+						barony = { set_title_color = { 220 120 40 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_rhovanic }
+						set_variable = { name = language_group_map_tooltip value = flag:group_rhovanic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_adunaic } }
+					every_county_province = {
+						barony = { set_title_color = { 33 46 46 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_adunaic }
+						set_variable = { name = language_group_map_tooltip value = flag:group_adunaic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_adunaic_bellakar } }
+					every_county_province = {
+						barony = { set_title_color = { 100 20 50 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_adunaic_bellakar }
+						set_variable = { name = language_group_map_tooltip value = flag:group_adunaic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_kharadunaic } }
+					every_county_province = {
+						barony = { set_title_color = { 29 31 84 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_kharadunaic }
+						set_variable = { name = language_group_map_tooltip value = flag:group_adunaic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_tanturaki } }
+					every_county_province = {
+						barony = { set_title_color = { 10 10 15 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_tanturaki }
+						set_variable = { name = language_group_map_tooltip value = flag:group_adunaic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_adunaic_umbar } }
+					every_county_province = {
+						barony = { set_title_color = { 33 59 40 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_adunaic_umbar }
+						set_variable = { name = language_group_map_tooltip value = flag:group_adunaic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_azulunaic } }
+					every_county_province = {
+						barony = { set_title_color = { 145 99 15 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_azulunaic }
+						set_variable = { name = language_group_map_tooltip value = flag:group_adunaic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_taliska } }
+					every_county_province = {
+						barony = { set_title_color = { 95 71 102 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_taliska }
+						set_variable = { name = language_group_map_tooltip value = flag:group_old_edainic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_eriadoric } }
+					every_county_province = {
+						barony = { set_title_color = { 95 71 102 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_eriadoric }
+						set_variable = { name = language_group_map_tooltip value = flag:group_old_edainic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_northern_apysaic } }
+					every_county_province = {
+						barony = { set_title_color = { 209 105 0 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_northern_apysaic }
+						set_variable = { name = language_group_map_tooltip value = flag:group_fariyian }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_karrani } }
+					every_county_province = {
+						barony = { set_title_color = { 204 169 29 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_karrani }
+						set_variable = { name = language_group_map_tooltip value = flag:group_fariyian }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_jelut } }
+					every_county_province = {
+						barony = { set_title_color = { 240 120 10 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_jelut }
+						set_variable = { name = language_group_map_tooltip value = flag:group_fariyian }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_arysan } }
+					every_county_province = {
+						barony = { set_title_color = { 219 92 57 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_arysan }
+						set_variable = { name = language_group_map_tooltip value = flag:group_fariyian }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_pust } }
+					every_county_province = {
+						barony = { set_title_color = { 252 189 86 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_pust }
+						set_variable = { name = language_group_map_tooltip value = flag:group_fariyian }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_middle_apysaic } }
+					every_county_province = {
+						barony = { set_title_color = { 232 152 94 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_middle_apysaic }
+						set_variable = { name = language_group_map_tooltip value = flag:group_fariyian }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_new_sirayni } }
+					every_county_province = {
+						barony = { set_title_color = { 150 60 30 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_new_sirayni }
+						set_variable = { name = language_group_map_tooltip value = flag:group_fariyian }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_southern_apysaic } }
+					every_county_province = {
+						barony = { set_title_color = { 255 219 130 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_southern_apysaic }
+						set_variable = { name = language_group_map_tooltip value = flag:group_new_apysan }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_gai } }
+					every_county_province = {
+						barony = { set_title_color = { 177 162 100 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_gai }
+						set_variable = { name = language_group_map_tooltip value = flag:group_new_apysan }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_ansith } }
+					every_county_province = {
+						barony = { set_title_color = { 50 60 0 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_ansith }
+						set_variable = { name = language_group_map_tooltip value = flag:group_new_apysan }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_amutani } }
+					every_county_province = {
+						barony = { set_title_color = { 190 152 142 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_amutani }
+						set_variable = { name = language_group_map_tooltip value = flag:group_new_apysan }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_elinse } }
+					every_county_province = {
+						barony = { set_title_color = { 197 195 107 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_elinse }
+						set_variable = { name = language_group_map_tooltip value = flag:group_elinse }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_ioradya } }
+					every_county_province = {
+						barony = { set_title_color = { 100 25 25 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_ioradya }
+						set_variable = { name = language_group_map_tooltip value = flag:group_ioradya }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_tedjin } }
+					every_county_province = {
+						barony = { set_title_color = { 130 120 90 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_tedjin }
+						set_variable = { name = language_group_map_tooltip value = flag:group_ioradya }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_varadia } }
+					every_county_province = {
+						barony = { set_title_color = { 60 20 20 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_varadia }
+						set_variable = { name = language_group_map_tooltip value = flag:group_ioradya }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_ulgathig } }
+					every_county_province = {
+						barony = { set_title_color = { 130 150 0 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_ulgathig }
+						set_variable = { name = language_group_map_tooltip value = flag:group_ulgathig }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_hillmen } }
+					every_county_province = {
+						barony = { set_title_color = { 128 87 68 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_hillmen }
+						set_variable = { name = language_group_map_tooltip value = flag:group_gwathuilach }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_gwathuirim } }
+					every_county_province = {
+						barony = { set_title_color = { 107 91 77 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_gwathuirim }
+						set_variable = { name = language_group_map_tooltip value = flag:group_gwathuilach }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_dunlendish } }
+					every_county_province = {
+						barony = { set_title_color = { 85 18 17 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_dunlendish }
+						set_variable = { name = language_group_map_tooltip value = flag:group_gwathuilach }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_daenael } }
+					every_county_province = {
+						barony = { set_title_color = { 112 87 84 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_daenael }
+						set_variable = { name = language_group_map_tooltip value = flag:group_daenael }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_halethian } }
+					every_county_province = {
+						barony = { set_title_color = { 95 71 102 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_halethian }
+						set_variable = { name = language_group_map_tooltip value = flag:group_old_edainic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_drug } }
+					every_county_province = {
+						barony = { set_title_color = { 226 204 108 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_drug }
+						set_variable = { name = language_group_map_tooltip value = flag:group_drughic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_beffraen } }
+					every_county_province = {
+						barony = { set_title_color = { 171 169 147 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_beffraen }
+						set_variable = { name = language_group_map_tooltip value = flag:group_drughic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_honnin } }
+					every_county_province = {
+						barony = { set_title_color = { 204 204 108 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_honnin }
+						set_variable = { name = language_group_map_tooltip value = flag:group_drughic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_chaialla } }
+					every_county_province = {
+						barony = { set_title_color = { 195 252 112 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_chaialla }
+						set_variable = { name = language_group_map_tooltip value = flag:group_drughic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_yatali_gan } }
+					every_county_province = {
+						barony = { set_title_color = { 114 179 151 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_yatali_gan }
+						set_variable = { name = language_group_map_tooltip value = flag:group_drughic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_muranian } }
+					every_county_province = {
+						barony = { set_title_color = { 157 165 167 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_muranian }
+						set_variable = { name = language_group_map_tooltip value = flag:group_harshandatti }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_old_sirayni } }
+					every_county_province = {
+						barony = { set_title_color = { 150 120 30 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_old_sirayni }
+						set_variable = { name = language_group_map_tooltip value = flag:group_old_siryani }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_akanali } }
+					every_county_province = {
+						barony = { set_title_color = { 30 45 45 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_akanali }
+						set_variable = { name = language_group_map_tooltip value = flag:group_mumakani }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_mumakani } }
+					every_county_province = {
+						barony = { set_title_color = { 10 39 10 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_mumakani }
+						set_variable = { name = language_group_map_tooltip value = flag:group_mumakani }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_inkamaki } }
+					every_county_province = {
+						barony = { set_title_color = { 10 28 10 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_inkamaki }
+						set_variable = { name = language_group_map_tooltip value = flag:group_mumakani }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_nafarati } }
+					every_county_province = {
+						barony = { set_title_color = { 27 42 28 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_nafarati }
+						set_variable = { name = language_group_map_tooltip value = flag:group_mumakani }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_batamai } }
+					every_county_province = {
+						barony = { set_title_color = { 56 53 20 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_batamai }
+						set_variable = { name = language_group_map_tooltip value = flag:group_mumakani }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_kirani } }
+					every_county_province = {
+						barony = { set_title_color = { 10 50 35 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_kirani }
+						set_variable = { name = language_group_map_tooltip value = flag:group_kirani }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_hathori } }
+					every_county_province = {
+						barony = { set_title_color = { 10 30 40 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_hathori }
+						set_variable = { name = language_group_map_tooltip value = flag:group_kirani }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_usakani } }
+					every_county_province = {
+						barony = { set_title_color = { 112 116 29 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_usakani }
+						set_variable = { name = language_group_map_tooltip value = flag:group_magri }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_magri } }
+					every_county_province = {
+						barony = { set_title_color = { 84 118 41 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_magri }
+						set_variable = { name = language_group_map_tooltip value = flag:group_magri }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_geshanin } }
+					every_county_province = {
+						barony = { set_title_color = { 44 40 40 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_geshanin }
+						set_variable = { name = language_group_map_tooltip value = flag:group_geshanin }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_tuktanin } }
+					every_county_province = {
+						barony = { set_title_color = { 54 46 12 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_tuktanin }
+						set_variable = { name = language_group_map_tooltip value = flag:group_geshanin }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_dusheraen } }
+					every_county_province = {
+						barony = { set_title_color = { 37 35 21 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_dusheraen }
+						set_variable = { name = language_group_map_tooltip value = flag:group_geshanin }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_drenin } }
+					every_county_province = {
+						barony = { set_title_color = { 212 191 103 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_drenin }
+						set_variable = { name = language_group_map_tooltip value = flag:group_shayni }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_ganin } }
+					every_county_province = {
+						barony = { set_title_color = { 230 255 143 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_ganin }
+						set_variable = { name = language_group_map_tooltip value = flag:group_shayni }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_ahavan } }
+					every_county_province = {
+						barony = { set_title_color = { 254 223 100 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_ahavan }
+						set_variable = { name = language_group_map_tooltip value = flag:group_shayni }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_lyneri } }
+					every_county_province = {
+						barony = { set_title_color = { 220 230 183 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_lyneri }
+						set_variable = { name = language_group_map_tooltip value = flag:group_shayni }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_senga } }
+					every_county_province = {
+						barony = { set_title_color = { 252 198 85 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_senga }
+						set_variable = { name = language_group_map_tooltip value = flag:group_sare }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_khyan } }
+					every_county_province = {
+						barony = { set_title_color = { 210 100 180 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_khyan }
+						set_variable = { name = language_group_map_tooltip value = flag:group_south_khailuza }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_tazinain } }
+					every_county_province = {
+						barony = { set_title_color = { 108 175 175 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_tazinain }
+						set_variable = { name = language_group_map_tooltip value = flag:group_south_khailuza }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_anarikean } }
+					every_county_province = {
+						barony = { set_title_color = { 200 90 140 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_anarikean }
+						set_variable = { name = language_group_map_tooltip value = flag:group_south_khailuza }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_drakespeech } }
+					every_county_province = {
+						barony = { set_title_color = { 37 20 153 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_drakespeech }
+						set_variable = { name = language_group_map_tooltip value = flag:group_womaw }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_arhuneri } }
+					every_county_province = {
+						barony = { set_title_color = { 11 32 38 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_arhuneri }
+						set_variable = { name = language_group_map_tooltip value = flag:group_arhuneri }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_orcish } }
+					every_county_province = {
+						barony = { set_title_color = { 37 48 29 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_orcish }
+						set_variable = { name = language_group_map_tooltip value = flag:group_orcish }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_kurr } }
+					every_county_province = {
+						barony = { set_title_color = { 40 43 23 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_kurr }
+						set_variable = { name = language_group_map_tooltip value = flag:group_orcish }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_black_speech } }
+					every_county_province = {
+						barony = { set_title_color = { 0 0 0 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_black_speech }
+						set_variable = { name = language_group_map_tooltip value = flag:group_morgothic }
+					}
+				}
+				else_if = {
+					limit = { culture = { has_cultural_pillar = language_khuzdul } }
+					every_county_province = {
+						barony = { set_title_color = { 0 33 55 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_khuzdul }
+						set_variable = { name = language_group_map_tooltip value = flag:group_dwarven }
+					}
+				}
+				else = {
+					every_county_province = {
+						barony = { set_title_color = { 8 8 8 0 } }
+						set_variable = { name = language_map_tooltip value = flag:lang_none }
+						set_variable = { name = language_group_map_tooltip value = flag:group_none }
+					}
+				}
+			}
+			remove_global_variable = custom_map_mode_changing
+		}
+	}
+}

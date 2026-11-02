@@ -1,0 +1,2815 @@
+﻿#####		Enedhwaith (e_enedhwaith)
+####			Enedhwaith (k_enedhwaith)
+###			Nen Gwathlo (d_nen_gwathlo)
+##			Lond Daer (c_lond_daer)
+
+566 = {		#Lond Daer (b_lond_daer)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = tribal_holding
+
+	2392.1.1 = {
+		special_building_slot = wonder_lond_daer_01
+		special_building = wonder_lond_daer_01
+	}
+	3911.1.1 = {
+		special_building = wonder_lond_daer_02
+		culture = dunedain
+		religion = faith_edain
+		holding = castle_holding
+	}
+	4035.1.1 = {
+		culture = arnorian
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			castle_01
+			curtain_walls_02
+			common_tradeport_03
+		}
+	}
+	6000.1.1 = {
+		culture = enedhwaithrim
+		religion = faith_gwathuirim_dynion
+		holding = tribal_holding
+		buildings = {
+			tribe_02
+			market_villages_02
+		}
+	}
+}
+
+565 = {		#Carras (b_carras)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+567 = {		#Alclud (b_alclud)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+564 = {		#Eryn Gwathlo (b_eryn_gwathlo)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+##			Colgrin (c_colgrin)
+
+568 = {		#Barad Colgrin (b_barad_colgrin)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_01
+			market_villages_01
+		}
+	}
+	6687.1.1 = { #Small Saerlanner expansion
+		culture = enedhwaithrim
+		religion = faith_saralain
+		buildings = {
+			tribe_02
+			palisades_02
+			market_villages_02
+		}
+	}
+	6904.2.1 = { #Gwaithuirim pushback
+		culture = enedhwaithrim
+		religion = faith_gwathuirim_dynion
+		buildings = {
+			tribe_02
+			war_camps_02
+			market_villages_02
+		}
+	}
+
+}
+
+569 = {		#Galar Culch (b_galar_culch)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+570 = {		#Gygrid (b_gygrid)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+592 = {		#Colmire (b_colmire)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+##			Fadairigh (c_fadairigh)
+
+593 = {		#Fadairigh (b_fadairigh)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_01
+			market_villages_02
+		}
+	}
+}
+
+595 = {		#Ardreabh (b_ardreabh)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+596 = {		#Gormaltan (b_gormaltan)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+
+###			Angrast (d_angrast)
+##			Angrast (c_angrast)
+
+552 = {		#Angrast (b_angrast)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = tribal_holding
+	3500.1.1 = { # Gondorian coastal outpost
+		culture = belfalathrim
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			curtain_walls_03
+			stables_03
+		}
+	}
+	5000.1.1 = { # Gondor now merely retains a small garrison
+		culture = enedhwaithrim
+		religion = faith_dunlending_turthalis
+	}
+	6000.1.1 = { # Abandoned by Gondor
+		holding = tribal_holding
+		religion = faith_gwathuirim_dynion
+		buildings = {
+			tribe_02
+			longhouses_02
+			market_villages_02
+			# war_camps_01
+		}
+	}
+}
+
+553 = {		#Iarnmargadh (b_iarnmargadh)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+556 = {		#Garcosta (b_gargosta)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+555 = {		#Dorchasach (b_dorchasach)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+554 = {		#Rast Angrast (b_rast_angrast)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+##			Caithris (c_caithris)
+
+562 = {		#Caithris (b_caithris)
+	culture = enedhwaithrim
+	religion = faith_daen_gaoth
+	holding = tribal_holding
+	buildings = {
+		tribe_02
+		market_villages_02
+		war_camps_02
+	}
+	6000.1.1 = {
+		religion = faith_gwathuirim_dynion
+	}
+}
+
+560 = {		#Cala Tabhaich (b_cala_tabhaich)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+561 = {		#Ost-Heledir (b_ost_heledir)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+##			Lond Angren (c_lond_angren)
+
+559 = {		#Fortnathair (b_fortnathair)
+	culture = enedhwaithrim
+	religion = faith_daen_gaoth
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_02
+			war_camps_02
+		}
+	}
+	6000.1.1 = {
+		religion = faith_gwathuirim_dynion
+	}
+}
+
+558 = {		#Angrenost (b_angrenost)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+557 = {		#Endhras (b_endhras)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+
+###			Iarnbùrn (d_iarnburn)
+##			Iarnbùrn (c_iarnburn)
+
+585 = {		#Iarnbùrn (b_iarnburn)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4500.1.1 = {
+		culture = enedhwaithrim
+		religion = faith_gwathuirim_dynion
+		holding = tribal_holding
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			longhouses_02
+			market_villages_01
+		}
+	}
+	6000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wolf_den
+			flooded_lands
+		}
+	}
+	6707.7.7 = { # Dunlendings settle the area
+		culture = dunlending
+		religion = faith_dunlending_khrabnazerh
+		holding = castle_holding
+	}
+	6844.3.3 = { # Isen floodings devastate the settlements
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wolf_den
+			flooded_lands
+		}
+	}
+}
+
+588 = {		#Mùrlachan (b_murlachan)
+	culture = enedhwaithrim
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+584 = {		#Dun Arilthach (b_dun_arilthach)
+	culture = enedhwaithrim
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+583 = {		#Abardin (b_abardin)
+	culture = enedhwaithrim
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+##			Frìth Grabhail (c_frith_grabhail)
+
+587 = {		#Frìth Grabhail (b_frith_grabhail)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4500.1.1 = {
+		culture = enedhwaithrim
+		religion = faith_gwathuirim_dynion
+		holding = tribal_holding
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_01
+			palisades_01
+			market_villages_01
+		}
+	}
+	6000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bear_den
+			bandits
+		}
+	}
+}
+
+598 = {		#Fàlrodh (b_falrodh)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+	7033.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+597 = {		#Enedhir (b_enedhir)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+	7033.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+589 = {		#Learg Fraoch (b_learg_fraoch)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+	7033.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+##			Glynharrow (c_glynharrow)
+
+594 = {		#Glynharrow (b_glynharrow)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4500.1.1 = {
+		culture = enedhwaithrim
+		religion = faith_gwathuirim_dynion
+		holding = tribal_holding
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_01
+			palisades_01
+			market_villages_01
+		}
+	}
+	6000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wolf_den
+		}
+	}
+}
+
+590 = {		#Ancraug (b_ancraug)
+	culture = enedhwaithrim
+	religion = faith_dunlending_turthalis
+	holding = none
+	6000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+586 = {		#Dundaer (b_dundaer)
+	culture = enedhwaithrim
+	religion = faith_dunlending_turthalis
+	holding = none
+	6000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+##			Cailintùr (c_cailintur)
+
+580 = {		#Cailintùr (b_cailintur)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4500.1.1 = {
+		culture = enedhwaithrim
+		religion = faith_dunlending_turthalis
+		holding = tribal_holding
+	}
+	6000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wolf_den
+			bandits
+		}
+	}
+	6677.9.2 = { # Small Dunlending expansion by the chiefs of Carreglyn
+		culture = dunlending
+		religion = faith_dunlending_khrabnazerh
+		holding = castle_holding
+	}
+	6822.7.4 = { # Settlements are abandoned due to losses in the Long Winter and war against Rohan
+		culture = wastelands
+		religion = faith_dunlending_khrabnazerh
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+			bandits
+		}
+	}
+
+}
+
+582 = {		#Iomadhaigh (b_iomadhaigh)
+	culture = dunlending
+	religion = faith_dunlending_turthalis
+	holding = none
+	6000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+###			Runnach (d_runnach)
+##			Den Runnach (c_den_runnach)
+
+571 = {		#Ioch Runnach (b_ioch_runnach)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			longhouses_02
+			market_villages_02
+		}
+	}
+	6000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			flooded_lands
+		}
+	}
+}
+
+573 = {		#Àrd Runnach (b_ard_runnach)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+	6000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+727 = {		#Allinatha (b_allinatha)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+	6000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+575 = {		#Dun Andhas (b_dun_andhas)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+	6000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+##			Glasgleann (c_glasgleann)
+
+146 = {		#Mirthan (b_mirthang)
+	culture = dunmen
+	religion = faith_dunlending_turthalis
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_02
+			longhouses_02
+		}
+	}
+	6000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			flooded_lands
+		}
+	}
+}
+
+147 = {		#Larach Duhnnan (b_larachduhnnan)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+	7033.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+145 = {		#Gwencoit (b_gwencoit)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+	7033.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+143 = {		#Forthunn (b_forthunn)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+	7033.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+578 = {		#Lhan Tarren (b_lhan_tarren)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+	7033.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+##			Carnehtan (c_carnehtan)
+
+579 = {		#Carnehtan (b_carnehtan)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_01
+			palisades_02
+			war_camps_01
+		}
+	}
+	6000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bear_den
+			bandits
+		}
+	}
+}
+
+591 = {		#Teach Dannsair (b_teach_dannsair)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+	7033.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+572 = {		#Cearcall Chàrn (b_cearcall_charn)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+	7033.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+	}
+}
+
+###			Swanfell (d_swanfell)
+##			Harabad (c_harabad)
+
+4402 = {		#Harabad (b_harabad)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	buildings = {
+		castle_01
+	}
+	4035.1.1 = {
+		culture = arnorian
+		special_building_slot = wonder_harabad_01
+		special_building = wonder_harabad_01
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			castle_02
+			curtain_walls_04
+			farm_estates_03
+		}
+	}
+	5670.6.1 = {
+		culture = enedhwaithrim
+		religion = faith_gwathuirim_dynion
+		buildings = {
+			castle_01
+			curtain_walls_01
+			farm_estates_01
+		}
+	}
+	6945.1.1 = { # Big flood, most of Tharbad is depopulated
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			flooded_lands
+		}
+	}
+}
+
+4403 = {		#Nimladen (b_nimladen)
+	culture = arnorian
+	religion = faith_edain
+	holding = none
+	6945.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+}
+
+4404 = {		#Harannonmen (b_harannonmen)
+	culture = arnorian
+	religion = faith_edain
+	holding = none
+	5300.1.1 = {	#ROA Buildings
+		holding = city_holding
+		buildings = {
+			city_02
+			cereal_fields_03
+		}
+	}
+	6945.1.1 = {
+		holding = none
+	}
+}
+
+4405 = {		#Faoltìr (b_faoltir)
+	culture = arnorian
+	religion = faith_edain
+	holding = none
+	6945.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+}
+
+##			Seabhagtìr (c_seabhagtir)
+
+577 = {		#Seabhagtìr (b_seabhagtir)
+	culture = dunmen
+	religion = faith_dunlending_turthalis
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_02
+			market_villages_02
+		}
+	}
+	5670.6.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+			flooded_lands
+		}
+	}
+}
+
+122 = {		#Draugarthor (b_draugarthor)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = none
+	5670.6.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		}
+}
+
+574 = {		#Mournshaws (b_mournshaws)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = none
+	5670.6.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		}
+}
+
+##			Cabhartìr (c_cabhartir)
+
+4406 = {		#Cabhartìr (b_cabhartir)
+	culture = dunmen
+	religion = faith_dunlending_turthalis
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_02
+			market_villages_02
+		}
+	}
+	5670.6.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wild_orcs
+		}
+	}
+}
+
+
+576 = {		#Seancrìoch (b_seancrioch)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = none
+	5670.6.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+}
+
+
+4407 = {		#Deisear (b_deisear)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = none
+	5670.6.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+}
+
+##			Tuathair (c_tuathair)
+
+581 = {		#Tuathair (b_tuathair)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = tribal_holding
+	4500.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wolf_den
+		}
+	}
+}
+
+563 = {		#Aiteannach (b_aiteannach)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+}
+
+4401 = {		#Draghcuidh (b_draghcuidh)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+}
+
+##			Swanfleet (c_swanfleet)
+
+144 = {		#Marishborough (b_marishborough)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	5330.1.1 = {
+		culture = stoors
+		religion = faith_hobbit_wandering
+		holding = city_holding
+		buildings = {
+			city_01
+			breweries_01
+			peat_quarries_01
+		}
+	}
+	5800.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			ghosts
+			flooded_lands
+		}
+	}
+}
+
+162 = {		#Swanfleet (b_swanfleet)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+	5330.1.1 = {
+		culture = stoors
+		religion = faith_hobbit_wandering
+		holding = city_holding
+	}
+	5800.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = none
+	}
+}
+
+171 = {		#Lhan Colvarn (b_lhancolvarn)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+}
+
+170 = {		#Mòr Cuileann (b_mor_cuileann)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+}
+
+####			Dunland (k_dunland)
+###			Dunlandfells (d_dunlandfells)
+##			Frecalund (c_frecalund)
+
+114 = {		# Wulfborg (b_wulfborg)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		bandits
+		dense_growth
+	}
+	6000.1.1 = {
+		culture = dunlending
+		religion = faith_dunlending_turthalis
+		holding = castle_holding
+	}
+	6787.1.17 = { # T.A. 2754 - Wulf flees to Dunland after Helm Hammerhand declares him an enemy of Rohan, building up his power base here
+		special_building_slot = wonder_wulfborg_01
+		special_building = wonder_wulfborg_01
+		buildings = {
+			castle_02
+			curtain_walls_03
+			farm_estates_02
+			# stables_01
+		}
+		#culture = adornaen # Establishment of Wulfborg as a northern court for Wulf and his line, further settled by those Adornaen unwilling to bow to Edoras in years thereafter
+	}
+}
+
+135 = {				# Dunstrem (b_dunstrem)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+	6000.1.1 = {
+		culture = dunlending
+		religion = faith_dunlending_turthalis
+		holding = none
+	}
+}
+
+136 = {				# Vinyatir (b_vinyatir)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+	6000.1.1 = {
+		culture = dunlending
+		religion = faith_dunlending_turthalis
+		holding = none
+	}
+}
+
+117 = {				# Regnfells (b_regnfells)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+	6000.1.1 = {
+		culture = dunlending
+		religion = faith_dunlending_turthalis
+		holding = none
+	}
+}
+
+118 = {				# Nan Leglin (b_nanleglin)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+	6000.1.1 = {
+		culture = dunlending
+		religion = faith_dunlending_turthalis
+		holding = none
+	}
+}
+
+##			Magh Meala (c_magh_meala)
+
+165 = {				# Dun Gyroch (b_dungyroch)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = tribal_holding
+	buildings = {
+		tribe_02
+		longhouses_02
+		market_villages_02
+	}
+	4400.1.1 = { # The Dunmen begin to venerate Turthalis
+		religion = faith_dunlending_turthalis
+	}
+	6000.1.1 = {
+		culture = dunlending
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_01
+			pastures_02
+		}
+	}
+}
+
+115 = {				# Dun Thuaidh (b_dunthuaidh)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = church_holding
+}
+
+119 = {				# Hawkthain (b_hawkthain)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+##			Earcnoc (c_earcnoc)
+
+126 = {				# Thrór's Halls (b_throrshalls)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = tribal_holding
+	special_building_slot = wonder_dunland_shrine
+	special_building = wonder_dunland_shrine
+	4400.1.1 = { # The Dunmen begin to venerate Turthalis
+		religion = faith_dunlending_turthalis
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			war_camps_02
+			market_villages_01
+		}
+	}
+	6000.1.1 = {
+		culture = dunlending
+		holding = castle_holding
+		buildings = {
+			castle_02
+			quarries_04
+		}
+	}
+}
+
+127 = {				# Torch Andraug (b_torch_andraug)
+	culture = dunlending
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+125 = {				# Fordirith (b_fordirith)
+	culture = dunlending
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+128 = {				# Mududh Cadlus (b_mududh_cadlus)
+	culture = dunlending
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+##			Dearmadtìr (c_dearmadtir)
+
+131 = {				# Maidun (b_maidun)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = tribal_holding
+	4400.1.1 = { # The Dunmen begin to venerate Turthalis
+		religion = faith_dunlending_turthalis
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_01
+			market_villages_02
+		}
+	}
+	6000.1.1 = {
+		culture = dunlending
+		holding = castle_holding
+		buildings = {
+			castle_01
+			ramparts_01
+			logging_camps_02
+		}
+	}
+}
+
+130 = {				# Aonach Dear (b_aonach_dear)
+	culture = dunlending
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+121 = {				# Marishburh (b_marishburh)
+	culture = dunlending
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+124 = {				# Ulundin (b_ulundin)
+	culture = dunlending
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+##			Fairesìogaidh (c_fairesiogaidh)
+
+159 = {				# Ram Cadlus (b_ramcadlus)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		wolf_den
+		bandits
+	}
+	6000.1.1 = {
+		culture = dunlending
+		religion = faith_dunlending_turthalis
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_01
+			pastures_02
+		}
+	}
+}
+
+134 = {				# Caimarava (b_caimarava)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+	6000.1.1 = {
+		culture = dunlending
+		religion = faith_dunlending_turthalis
+		holding = none
+	}
+}
+
+155 = {				# Iasgach Phuing (b_iasgachphuing)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = none
+	6000.1.1 = {
+		culture = dunlending
+		religion = faith_dunlending_turthalis
+		holding = none
+	}
+}
+
+##			Larcnoc (c_larcnoc)
+
+123 = {				# Torm Dreng (b_tormdreng)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = tribal_holding
+	4400.1.1 = { # The Dunmen begin to venerate Turthalos
+		religion = faith_dunlending_turthalis
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_01
+			market_villages_02
+		}
+	}
+	6000.1.1 = {
+		culture = dunlending
+		holding = castle_holding
+		buildings = {
+			castle_02
+			ramparts_01
+			logging_camps_02
+		}
+	}
+}
+
+120 = {				# Cois Abhann (b_cois_abhann)
+	culture = dunlending
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+116 = {				# Bhainglad (b_bhainglad)
+	culture = dunlending
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+###			Dunfearan (d_dunfearan)
+##			Galtrev (c_galtrev)
+
+142 = {				# Ceò Beinn (b_ceobeinn)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = tribal_holding
+	4400.1.1 = { # The Dunmen begin to venerate Turthalis
+		religion = faith_dunlending_turthalis
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_01
+			longhouses_02
+		}
+	}
+	6000.1.1 = {
+		culture = dunlending
+		holding = castle_holding
+		buildings = {
+			castle_02
+			curtain_walls_02
+			pastures_03
+		}
+	}
+}
+
+138 = {				# Cae Uchel (b_caeuchel)
+	culture = dunlending
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+139 = {				# Treforn (b_treforn)
+	culture = dunlending
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+164 = {				# Ren Gwydh (b_rengwydh)
+	culture = dunlending
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+##			Dunfearnshaws (c_dunfearnshaws)
+
+132 = {				# Ebronicurr (b_ebronicurr)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = tribal_holding
+	4400.1.1 = { # The Dunmen begin to venerate the Lord of Loch Thiar
+		religion = faith_dunlending_luta_ies
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_01
+			market_villages_02
+		}
+	}
+	6000.1.1 = {
+		culture = dunlending
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_01
+			quarries_02
+		}
+	}
+}
+
+133 = {				# Riascach (b_riascach)
+	culture = dunlending
+	religion = faith_dunlending_luta_ies
+	holding = none
+	6000.1.1 = {
+		holding = church_holding
+	}
+}
+
+129 = {				# Ravndal (b_ravndal)
+	culture = dunlending
+	religion = faith_dunlending_luta_ies
+	6000.1.1 = {
+		holding = city_holding
+	}
+}
+
+##			Chailcaerdh (c_chailcaerdh)
+
+140 = {				# Kedhern (b_kedhern)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = tribal_holding
+	4400.1.1 = { # The Dunmen begin to venerate Turthalis
+		religion = faith_dunlending_turthalis
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_02
+			market_villages_02
+		}
+	}
+	6000.1.1 = {
+		culture = dunlending
+		holding = castle_holding
+		buildings = {
+			castle_02
+			hill_forts_01
+			pastures_02
+		}
+	}
+}
+
+161 = {				# Trum Dreng (b_trumdreng)
+	culture = dunlending
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+141 = {				# Cerdd Wood (b_cerddwood)
+	culture = dunlending
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+##			Torm Caladach (c_tormcaladach)
+
+148 = {				# Ard Phuing (b_ardphuing)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = tribal_holding
+	4400.1.1 = { # The Dunmen begin to venerate the Lord of Loch Thiar
+		religion = faith_dunlending_luta_ies
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_01
+			war_camps_02
+		}
+	}
+	6000.1.1 = {
+		culture = dunlending
+		religion = faith_dunlending_khrabnazerh
+		holding = castle_holding
+	}
+	6590.3.22 = {
+		buildings = {
+			castle_01
+			curtain_walls_01
+			pastures_02
+		}
+	}
+}
+
+149 = {				# Daighen (b_daighen)
+	culture = dunlending
+	religion = faith_dunlending_khrabnazerh
+	holding = none
+}
+
+137 = {				# Dun Fidach (b_dunfidach)
+	culture = dunlending
+	religion = faith_dunlending_khrabnazerh
+	holding = none
+}
+
+163 = {				# Galtrev (b_galtrev)
+	culture = dunlending
+	religion = faith_dunlending_khrabnazerh
+	holding = none
+}
+
+###			Dáthabha (d_dathabha)
+##			Riverwatch (c_riverwatch)
+
+27 = {				# Riverwatch (b_riverwatch)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4192.1.1 = {
+		culture = caledhrim
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			curtain_walls_01
+			pastures_02
+		}
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			castle_02
+			curtain_walls_03
+			pastures_04
+		}
+	}
+	6000.1.1 = {
+		culture = isengard_dunlending
+		religion = faith_dunlending_turthalis
+		holding = castle_holding
+	}
+	6700.1.1 = {
+		culture = isengard_dunlending
+		religion = faith_dunlending_khrabnazerh
+		holding = castle_holding
+	}
+}
+
+153 = {				# Fangcleft (b_fangcleft)
+	culture = isengard_dunlending
+	religion = faith_dunlending_khrabnazerh
+	holding = none
+}
+
+24 = {				# Dol Baran (b_dolbaran)
+	culture = isengard_dunlending
+	religion = faith_dunlending_khrabnazerh
+	holding = none
+}
+
+22 = {				# Cuvnerth (b_cuvnerth)
+	culture = isengard_dunlending
+	religion = faith_dunlending_khrabnazerh
+	holding = none
+	6000.1.1 = {
+		holding = castle_holding
+		buildings = {
+			castle_01
+			pastures_02
+		}
+	}
+}
+
+##			Iren (c_iren)
+
+156 = {				# Selg Phuing (b_selgphuing)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4500.1.1 = {
+		culture = dunmen
+		religion = faith_dunlending_turthalis
+		holding = tribal_holding
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_01
+			market_villages_02
+		}
+	}
+	6000.1.1 = {
+		culture = dunlending
+		religion = faith_dunlending_khrabnazerh
+		holding = castle_holding
+	}
+	6800.1.1 = {
+		culture = adornaen
+		religion = faith_dunlending_khrabnazerh
+		holding = castle_holding
+		buildings = {
+			castle_01
+			ramparts_01
+			logging_camps_02
+		}
+	}
+}
+
+154 = {				# Dun Caladach (b_duncaladach)
+	culture = adornaen
+	religion = faith_dunlending_khrabnazerh
+	holding = none
+}
+
+157 = {				# Lhanros (b_lhanros)
+	culture = adornaen
+	religion = faith_dunlending_khrabnazerh
+	holding = none
+}
+
+172 = {				# Bog Barrows (b_bogbarrows)
+	culture = adornaen
+	religion = faith_dunlending_khrabnazerh
+	holding = none
+}
+
+##			Carreglyn (c_carreglyn)
+
+167 = {				# Selg Phuing (b_lhanrhos)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4000.1.1 = {
+		culture = dunmen
+		religion = faith_dunlending_turthalis
+		holding = tribal_holding
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_01
+			market_villages_02
+		}
+	}
+	6000.1.1 = {
+		culture = dunlending
+		religion = faith_dunlending_khrabnazerh
+		holding = castle_holding
+	}
+	6800.1.1 = {
+		buildings = {
+			castle_01
+			hill_forts_01
+			pastures_02
+		}
+	}
+}
+
+168 = {				# Dun Caladach (b_hebogalt)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = none
+	6000.1.1 = {
+		culture = dunlending
+		religion = faith_dunlending_turthalis
+		holding = none
+	}
+	6800.1.1 = {
+		religion = faith_dunlending_khrabnazerh
+		holding = city_holding
+		buildings = {
+			city_01
+			pastures_01
+		}
+	}
+}
+
+169 = {				# Lhanros (b_dunbog)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = none
+	6000.1.1 = {
+		culture = dunlending
+		religion = faith_dunlending_turthalis
+		holding = none
+	}
+	6800.1.1 = {
+		religion = faith_dunlending_khrabnazerh
+	}
+}
+
+##			Ceòmardh (c_ceomardh)
+
+151 = {			# Dun Talorgan (b_duntalorgan)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4000.1.1 = {
+		culture = dunmen
+		religion = faith_dunlending_turthalis
+		holding = tribal_holding
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_02
+			market_villages_02
+		}
+	}
+	6000.1.1 = {
+		culture = dunlending
+		religion = faith_dunlending_turthalis
+		holding = castle_holding
+	}
+	6700.1.1 = {
+		culture = isengard_dunlending
+		religion = faith_dunlending_khrabnazerh
+		holding = castle_holding
+		buildings = {
+			castle_01
+			hill_forts_01
+			pastures_02
+		}
+	}
+	6804.4.4 = {
+		culture = dunlending
+		religion = faith_dunlending_khrabnazerh
+		holding = castle_holding
+	}
+}
+
+150 = {				# # Druwaur (b_druwaur)
+	culture = dunlending
+	religion = faith_dunlending_khrabnazerh
+	holding = none
+}
+
+152 = {				# Oser (b_oser)
+	culture = dunlending
+	religion = faith_dunlending_khrabnazerh
+	holding = none
+}
+
+##			Starkmoors (c_starkmoors)
+
+158 = {				# Starkmoor (b_starkmoor)
+	culture = dunmen
+	religion = faith_gwathuirim_dynion
+	holding = tribal_holding
+	4400.1.1 = { # The Dunmen begin to venerate Turthalis
+		religion = faith_dunlending_turthalis
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_02
+			market_villages_02
+		}
+	}
+	6000.1.1 = {
+		culture = dunlending
+		holding = castle_holding
+	}
+	6800.1.1 = {
+		religion = faith_dunlending_khrabnazerh
+		buildings = {
+			castle_01
+			hill_forts_01
+			pastures_02
+		}
+	}
+}
+
+160 = {			# Bedhrych (b_bedhrych)
+	culture = dunlending
+	religion = faith_dunlending_khrabnazerh
+	holding = none
+}
+
+166 = {				# Avencurr (b_avencurr)
+	culture = dunlending
+	religion = faith_dunlending_khrabnazerh
+	holding = none
+}
+
+####		Kingdom of Isengard (k_isengard)
+###			Duchy of Isengard (d_isengard)
+##			Isengard (c_isengard)
+
+20 = {		# Orthanc (b_orthanc)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4000.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		special_building_slot = wonder_angrenost_01
+		special_building = wonder_angrenost_01
+	}
+	4192.1.1 = {
+		culture = caledhrim
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			castle_03
+			garrison_tower_02
+			regimental_grounds_05
+		}
+	}
+	6500.1.1 = {
+		culture = isengard_dunlending
+		religion = faith_dunlending_khrabnazerh
+		buildings = {
+			castle_02
+			garrison_tower_01
+			pastures_03
+		}
+		special_building_slot = wonder_isengard_01
+		special_building = wonder_isengard_03
+	}
+	6792.8.30 = { # Saruman moves in
+		religion = faith_dunlending_turthalis
+		buildings = {
+			castle_04
+			garrison_tower_02
+			barracks_05
+		}
+		special_building = wonder_isengard_04
+	}
+	7052.3.3 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		special_building_slot = wonder_isengard_good_01
+		special_building =  wonder_isengard_good_05
+	}
+	7052.5.1 = { # Held by the Ents on behalf of the King of the Reunited Kingdom — Represented in game as held be the King of the Reunited Kingdom
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			orchards_01
+		}
+	}
+}
+21 = {		# Nan Cúrunir (b_nancurunir)
+	culture = isengard_dunlending
+	religion = faith_dunlending_turthalis
+	holding = none
+	6792.8.30 = { # Saruman moves in
+		holding = castle_holding
+		buildings = {
+			castle_01
+			iron_mines_01
+		}
+	}
+	7052.3.3 = { # Ents attack
+		holding = none
+	}
+	7052.5.1 = { # Held by the Ents on behalf of the King of the Reunited Kingdom — Represented in game as held be the King of the Reunited Kingdom
+		holding = castle_holding
+		buildings = {
+			castle_01
+		}
+	}
+}
+23 = {		# Forthbrond (b_forthbrond)
+	culture = isengard_dunlending
+	religion = faith_dunlending_turthalis
+	holding = none
+}
+
+####			Drûwaith (k_druwaith)
+###			Parth Iaur (d_parth_iaur)
+##			Parth Iaur (c_parth_iaur)
+
+513 = {		#Parth Iaur (b_parth_iaur)
+	culture = druedain
+	religion = faith_druedain
+	holding = tribal_holding
+	4000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+		}
+	}
+	6800.1.1 = {
+		culture = andrastrim
+		religion = faith_daen_gaoth
+		holding = tribal_holding
+	}
+}
+
+514 = {		#E Gynd (b_e_gynd)
+	culture = andrastrim
+	religion = faith_daen_gaoth
+	holding = none
+}
+
+515 = {		#Ghubân (b_ghuban)
+	culture = andrastrim
+	religion = faith_daen_gaoth
+	holding = none
+}
+
+516 = {		#Hallaph (b_hallaph)
+	culture = andrastrim
+	religion = faith_daen_gaoth
+	holding = none
+}
+
+517 = {		#Daerhad (b_daerhad)
+	culture = andrastrim
+	religion = faith_daen_gaoth
+	holding = none
+}
+
+##			An Côsa Brâs (c_an_cosa_bras)
+
+519 = {		#Zôdima (b_zodima)
+	culture = danan_lin
+	religion = faith_daen_gaoth
+	holding = tribal_holding
+	4500.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_lands
+			pirate_remnants
+		}
+	}
+	7057.6.30 = {
+		culture = belfalathrim
+		religion = faith_edain
+		holding = castle_holding
+	}
+}
+520 = {		#An Côsa Brâs (b_an_cosa_bras)
+	holding = none
+}
+518 = {		#Pilindhir (b_pilindhir)
+	holding = none
+}
+
+##			Odharn (c_odharn)
+
+523 = {		#Odharn (b_odharn)
+	culture = druedain
+	religion = faith_druedain
+	holding = tribal_holding
+	4000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+		}
+	}
+	6646.1.1 = { # Small Drúadan expansion
+		culture = druedain
+		religion = faith_druedain
+		holding = tribal_holding
+	}
+	6900.1.1 = { # The Drúedain retreat deeper into the wilderness once more
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bandits
+		}
+	}
+}
+
+521 = {		#Taur Goloth (b_taur_goloth)
+	culture = druedain
+	religion = faith_druedain
+	holding = none
+}
+
+522 = {		#Nika (b_nika)
+	culture = druedain
+	religion = faith_druedain
+	holding = none
+}
+
+524 = {		#Carthel (b_carthel)
+	culture = druedain
+	religion = faith_druedain
+	holding = none
+}
+
+730 = {		#Rûasir (b_ruasir)
+	culture = druedain
+	religion = faith_druedain
+	holding = none
+}
+
+###			Druwaith Iaur (d_druwaith_iaur)
+##			Dunlogan (c_dunlogan)
+
+533 = {		#Dunlogan (b_dunlogan)
+	culture = druedain
+	religion = faith_druedain
+	holding = tribal_holding
+	4500.1.1 = {
+		culture = enedhwaithrim
+		religion = faith_daen_gaoth
+		holding = tribal_holding
+		buildings = {
+			tribe_02
+			longhouses_01
+			market_villages_01
+		}
+	}
+	6000.1.1 = {
+		culture = druedain
+		religion = faith_druedain
+		holding = tribal_holding
+	}
+}
+
+539 = {		#Laidach (b_laidach)
+	culture = druedain
+	religion = faith_druedain
+	holding = none
+	4500.1.1 = {
+		culture = enedhwaithrim
+		religion = faith_daen_gaoth
+		holding = church_holding
+	}
+	6000.1.1 = {
+		culture = druedain
+		religion = faith_druedain
+		holding = none
+	}
+}
+
+532 = {		#Bar Elmar (b_bar_elmar)
+	culture = druedain
+	religion = faith_druedain
+	holding = none
+	4500.1.1 = {
+		culture = enedhwaithrim
+		religion = faith_gwathuirim_dynion
+		holding = none
+	}
+	6000.1.1 = {
+		culture = druedain
+		religion = faith_druedain
+		holding = none
+	}
+}
+
+531 = {		#Car Aldarion (b_car_aldarion)
+	culture = druedain
+	religion = faith_druedain
+	holding = none
+		4500.1.1 = {
+		culture = enedhwaithrim
+		religion = faith_gwathuirim_dynion
+		holding = none
+	}
+	6000.1.1 = {
+		culture = druedain
+		religion = faith_druedain
+		holding = none
+	}
+}
+
+535 = {		#Zalahiu-Tar (b_zalahiu_tar)
+	culture = druedain
+	religion = faith_druedain
+	holding = none
+		4500.1.1 = {
+		culture = enedhwaithrim
+		religion = faith_gwathuirim_dynion
+		holding = none
+	}
+	6000.1.1 = {
+		culture = druedain
+		religion = faith_druedain
+		holding = none
+	}
+}
+
+##			An Khôrgan (c_an_khorgan)
+
+526 = {		#Todolb (b_todolb)
+	culture = druedain
+	religion = faith_druedain
+	holding = tribal_holding
+	special_building_slot = wonder_enie_iaur
+	special_building = wonder_enie_iaur
+	buildings = {
+		tribe_02
+		palisades_02
+		longhouses_02
+	}
+}
+
+534 = {		#Ardeng (b_ardeng)
+	culture = druedain
+	religion = faith_druedain
+	holding = none
+}
+
+525 = {		#Rindvild (b_rindvild)
+	culture = druedain
+	religion = faith_druedain
+	holding = none
+}
+
+536 = {		#Echad Idrenfair (b_echad_idrenfair)
+	culture = druedain
+	religion = faith_druedain
+	holding = none
+}
+
+##			Byrig (c_byrig)
+
+530 = {		#Hauheinsfiudur (b_hauheinsfiudur)
+	culture = druedain
+	religion = faith_druedain
+	holding = tribal_holding
+	5000.1.1 = {
+		culture = enedhwaithrim
+		religion = faith_daen_gaoth
+		holding = tribal_holding
+		buildings = {
+			tribe_02
+			longhouses_01
+			market_villages_01
+		}
+	}
+	6200.1.1 = {
+		religion = faith_gwathuirim_dynion
+	}
+}
+
+527 = {		#Cast Limlug (b_cast_limlug)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+529 = {		#Byrig (b_byrig)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+528 = {		#Balorn (b_balorn)
+	culture = enedhwaithrim
+	religion = faith_gwathuirim_dynion
+	holding = none
+}
+
+###			Drûlad (d_drulad)
+##			Marr-Hu (c_marr_hu)
+
+
+545 = {		#Garthoren (b_marr_hu)
+	culture = coenfir
+	religion = faith_daen_coentis
+	holding = tribal_holding
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_01
+			war_camps_02
+		}
+	}
+	6500.1.1 = {
+		culture = eredrim
+		religion = faith_daen_coentis
+	}
+	6800.1.1 = {
+		culture = adornaen
+		religion = faith_dunlending_turthalis
+	}
+}
+
+546 = {		#Cûm Ehuir (b_cum_ehuir)
+	holding = none
+}
+84 = {	# Tharbel
+	holding = none
+}
+551 = {		#Norhithe (b_norhithe)
+	holding = none
+}
+
+##			Gaenn (c_geann)
+
+544 = {		#Geann-a-Lish (b_geann_a_lish)
+	culture = coenfir
+	religion = faith_daen_coentis
+	holding = tribal_holding
+	4000.1.1 = {
+		religion = faith_daen_coentis
+	}
+	5030.1.1 = {
+		culture = coenfir
+		religion = faith_daen_coentis
+		holding = tribal_holding
+	}
+	5300.1.1 = {	#ROA Buildings
+		buildings = {
+			tribe_02
+			palisades_01
+			war_camps_01
+		}
+	}
+	5530.1.1 = {
+		culture = eredrim
+	}
+}
+
+543 = {		#Rhas Drúath (b_rhas_druath)
+	culture = eredrim
+	religion = faith_daen_coentis
+	holding = none
+}
+
+542 = {		#Braedforth (b_braedforth)
+	culture = eredrim
+	religion = faith_daen_coentis
+	holding = none
+}
+
+##			Hwalord (c_hwalord)
+
+549 = {		#Hwalord (b_hwalord)
+	holding = none
+}
+
+541 = {		#Faol (b_faol)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		bandits
+		flooded_lands
+	}
+}
+
+540 = {		#Ossilryn (b_ossilryn)
+	holding = none
+}
+
+##			Cadlus (c_cadlus)
+
+538 = {		#Och Cadlus (b_och_cadlus)
+	culture = druedain
+	religion = faith_druedain
+	holding = tribal_holding
+	4500.1.1 = {
+		culture = enedhwaithrim
+		religion = faith_gwathuirim_dynion
+		holding = tribal_holding
+		buildings = {
+			tribe_02
+			longhouses_02
+			market_villages_01
+		}
+	}
+	6000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bear_den
+			flooded_lands
+		}
+	}
+	6707.7.7 = { # Dunlendings settle the area
+		culture = dunlending
+		religion = faith_dunlending_khrabnazerh
+		holding = castle_holding
+	}
+	6844.3.3 = { # Isen floodings devastate the settlements
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			bear_den
+			flooded_lands
+		}
+	}
+}
+
+550 = {		#Amon Elc (b_amon_elc)
+	holding = none
+}
+87 = {		# Bar Angren (b_barangren)
+	holding = none
+}
+
+##			Tharadorn (c_tharadorn)
+
+83 = {	# Vervain
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		ghosts
+	}
+	6500.1.1 = {
+		culture = eredrim
+		religion = faith_daen_coentis
+		holding = tribal_holding
+	}
+	6800.1.1 = {
+		culture = adornaen
+		religion = faith_dunlending_turthalis
+		holding = tribal_holding
+	}
+}
+74 = { # Amon Ardh
+	holding = none
+}
+547 = {		#Marr-Hu (b_garthoren)
+	holding = none
+}
+548 = {		#Ehuir (b_ehuir)
+	holding = none
+}
+
+###			West Marches (d_westmarches)
+##			Emyn Dunedor (c_emyndunendor)
+78 = { # b_frecasburg
+	culture = coenfir
+	religion = faith_daen_coentis
+	holding = tribal_holding
+	4000.1.1 = {
+		religion = faith_daen_coentis
+	}
+	5200.1.1 = {
+		culture = coenfir
+		religion = faith_daen_coentis
+		holding = tribal_holding
+		buildings = {
+			tribe_02
+			palisades_02
+			longhouses_02
+		}
+	}
+	5530.1.1 = {
+		culture = eredrim
+	}
+	6633.1.1 = { # Settled by the first Adornaen shortly after the founding of Rohan
+		culture = adornaen
+		religion = faith_rohirric
+		holding = castle_holding
+		buildings = {
+			castle_02
+			hill_forts_01
+			pastures_02
+		}
+	}
+	6800.1.1 = {
+		religion = faith_dunlending_khrabnazerh
+	}
+	7061.9.30 = {
+		religion = faith_rohirric
+	}
+}
+79 = {	#b_rendar
+	culture = adornaen
+	religion = faith_dunlending_khrabnazerh
+	holding = none
+	6800.1.1 = {
+		holding = city_holding
+		buildings = {
+			city_01
+			pastures_01
+		}
+	}
+}
+80 = { #b_tilmendir
+	culture = adornaen
+	religion = faith_dunlending_khrabnazerh
+	holding = none
+}
+81 = { #b_highstone
+	culture = adornaen
+	religion = faith_dunlending_khrabnazerh
+	6800.1.1 = {
+		holding = church_holding
+		buildings = {
+			temple_01
+			pastures_01
+		}
+	}
+}
+##			West Marches (c_westmarches)
+70 = {	#b_beldwin
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4500.1.1 = {
+		culture = dunmen
+		religion = faith_dunlending_turthalis
+		holding = tribal_holding
+		buildings = {
+			tribe_02
+			palisades_01
+			market_villages_02
+		}
+	}
+	6000.1.1 = {
+		culture = dunlending
+		holding = castle_holding
+		buildings = {
+			castle_01
+			curtain_walls_01
+			pastures_02
+		}
+	}
+	6633.1.1 = {
+		culture = adornaen
+		religion = faith_rohirric
+	}
+}
+69 = {	#b_amonroch
+	holding = none
+}
+44 = {	#b_fushum
+	holding = none
+}
+71 = {	#b_hariantryn
+	holding = none
+}
+72 = {	#b_earthwell
+	holding = none
+}
+
+##			Vales of the Adorn (c_valesoftheadorn)
+73 = {  #b_eithelamar
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	6000.1.1 = {
+		culture = dunlending
+		religion = faith_dunlending_turthalis
+		holding = tribal_holding
+	}
+	6633.1.1 = {
+		culture = adornaen
+		religion = faith_rohirric
+		holding = castle_holding
+	}
+}
+75 = {	#b_derwath
+	culture = adornaen
+	religion = faith_rohirric
+	holding = none
+}
+76 = {	#b_tauluth
+	culture = adornaen
+	religion = faith_rohirric
+	holding = none
+	6800.1.1 = {
+		holding = church_holding
+	}
+}
+77 = {	#b_arkendor
+	culture = adornaen
+	religion = faith_rohirric
+	holding = none
+}
+
+##			Gaetir/Adornfold (c_gaetir)
+82 = {	#b_dinasdrust
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	buildings = {
+		bandits
+	}
+	6500.1.1 = {
+		culture = dunlending
+		religion = faith_dunlending_khrabnazerh
+		holding = castle_holding
+	}
+	6800.1.1 = {
+		culture = adornaen
+		religion = faith_dunlending_turthalis
+		holding = tribal_holding
+	}
+	7061.9.30 = {
+		religion = faith_rohirric
+	}
+}
+
+85 = {	#b_adornas
+	holding = none
+}
+86 = {	#b_durgors
+	holding = none
+}
+
+####		Andrast (k_andrast)
+###		Nan Enqui (d_nan_enqui)
+##			Tharagrondost (c_tharagrondost)
+
+483 = {	#Tharagrondost (b_tharagrondost)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	special_building_slot = wonder_tharagrondost_01
+	2892.1.1 = {
+		special_building = wonder_tharagrondost_01
+	}
+	4035.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			curtain_walls_03
+			common_tradeport_04
+		}
+	}
+	5460.1.1 = { #built during kin-strife
+		buildings = {
+			castle_03
+			curtain_walls_05
+			common_tradeport_05
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		buildings = {
+			castle_02
+			curtain_walls_03
+			common_tradeport_04
+		}
+	}
+	5665.1.1 = {
+		special_building = wonder_tharagrondost_02
+	}
+}
+
+485 = {	#Nan Enqui (b_nan_enqui)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		holding = city_holding
+		buildings = {
+			city_01
+			quarries_02
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = none
+	}
+}
+
+484 = {	#Cail-Car (b_cail_car)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_01
+			hill_farms_02
+		}
+	}
+}
+
+487 = {	#Bar Enqui (b_bar_enqui)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+##			Rast Hwarin (c_rast_hwarin)
+
+489 = {	#Rast Hwarin (b_rast_hwarin)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4900.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			ramparts_02
+			logging_camps_03
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife - Gondorian population decline
+		culture = andrastrim
+		religion = faith_edain
+		buildings = {
+			castle_01
+			ramparts_01
+			logging_camps_01
+		}
+	}
+	6830.1.1 = { # Andrathrim takeover
+		culture = andrastrim
+		religion = faith_daen_gaoth
+		holding = tribal_holding
+		buildings = {
+			tribe_01
+			palisades_01
+		}
+	}
+}
+
+488 = {	#Lond Rhaen (b_lond_rhaen)
+	culture = andrastrim
+	religion = faith_daen_gaoth
+	holding = none
+}
+
+486 = {	#Ninabê (b_ninabe)
+	culture = andrastrim
+	religion = faith_daen_gaoth
+	holding = none
+}
+
+##			Nornin (c_nornin)
+
+499 = {	#Rasûr (b_rasur)
+	culture = danan_lin
+	religion = faith_edain
+	holding = castle_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			castle_01
+			warrior_lodges_02
+		}
+	}
+	4800.1.1 = {
+		culture = andrastrim
+		holding = tribal_holding
+		buildings = {
+			tribe_01
+			war_camps_01
+		}
+	}
+	6642.1.1 = { # The Ohtarion arrive
+		culture = gondorian
+		holding = castle_holding
+		buildings = {
+			castle_02
+			warrior_lodges_02
+			pastures_02
+		}
+	}
+}
+
+500 = {	#Tarûzôm (b_taruzom)
+	holding = none
+}
+
+501 = {	#Bar Nevedui (b_bar_nevedui)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		holding = city_holding
+		buildings = {
+			city_01
+			cereal_fields_01
+		}
+	}
+	5480.1.1 = {	# Post-Kinstrife
+		holding = none
+	}
+}
+
+###		Perth Maiwin (d_perth_maiwin)
+##			Úlond (c_ulond)
+
+502 = {	#Bar Morthil (b_bar_morthil)
+	culture = dunedain
+	religion = faith_edain
+	holding = castle_holding
+	special_building_slot = wonder_barmorthil_01
+	2504.1.1 = {
+		special_building = wonder_barmorthil_01
+	}
+	3924.1.1 = {
+		buildings = {
+			castle_02
+			hunting_grounds_02
+			common_tradeport_01
+		}
+		special_building = wonder_barmorthil_02
+	}
+
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+
+}
+
+503 = {	#Tumbrui (b_tumbrui)
+	culture = dunedain
+	religion = faith_edain
+	holding = city_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			city_01
+			hill_farms_02
+		}
+	}
+}
+
+504 = {	#Rast Hanadh (b_rast_hanadh)
+	culture = dunedain
+	religion = faith_edain
+	holding = church_holding
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+		buildings = {
+			temple_01
+			scriptorium_02
+		}
+	}
+}
+
+505 = {	#Amon Gaerrych (b_amon_gaerrych)
+	culture = dunedain
+	religion = faith_edain
+	holding = none
+	4035.1.1 = { # Split of Dunedain into Arnorian and Gondorian
+		culture = gondorian
+	}
+}
+
+##			Rafinfalas (c_rafinfalas)
+
+506 = {	#Rafinfalas (b_rafinfalas)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4900.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_01
+			curtain_walls_01
+			pastures_01
+		}
+	}
+	6000.1.1 = {
+		culture = andrastrim
+		religion = faith_daen_gaoth
+		holding = tribal_holding
+		buildings = {
+			tribe_01
+			longhouses_01
+		}
+	}
+}
+
+507 = {	#Perth Maiwin (b_perth_maiwin)
+	culture = andrastrim
+	religion = faith_daen_gaoth
+	holding = none
+}
+
+###		Parth-i-Certémar (d_parth_i_certemar)
+##			Aralanthir (c_aralanthir)
+
+511 = {	#Cirith Aralanthir (b_cirith_aralanthir)
+	culture = druedain
+	religion = faith_druedain
+	holding = tribal_holding
+	4000.1.1 = {
+		culture = andrastrim
+		religion = faith_daen_gaoth
+		holding = tribal_holding
+		buildings = {
+			tribe_01
+			palisades_01
+		}
+	}
+	6000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_lands
+			bandits
+		}
+	}
+	6821.1.1 = {
+		culture = andrastrim
+		religion = faith_daen_gaoth
+		holding = tribal_holding
+		buildings = {
+			tribe_01
+			palisades_01
+		}
+	}
+}
+
+510 = {	#Bar Mellainendë (b_bar_mellainende)
+	culture = andrastrim
+	religion = faith_daen_gaoth
+	holding = none
+}
+
+512 = {	#Parth-i-Certémar (b_parth_i_certemar)
+	culture = andrastrim
+	religion = faith_daen_gaoth
+	holding = none
+}
+
+##			Nannthorod (c_nannthorod)
+
+509 = {	#Nannthorod (b_nannthorod)
+	culture = druedain
+	religion = faith_druedain
+	holding = tribal_holding
+	4000.1.1 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			flooded_lands
+		}
+	}
+	6521.1.1 = {
+		culture = andrastrim
+		religion = faith_daen_gaoth
+		holding = tribal_holding
+		buildings = {
+			tribe_01
+			market_villages_01
+		}
+	}
+}
+
+508 = {	#Rast Nimrais (b_rast_nimrais)
+	culture = andrastrim
+	religion = faith_daen_gaoth
+	holding = none
+}
+
+###		Annúlefnui (d_annulefnui)
+##			Cereg (c_cereg)
+
+495 = {	#Tûm-i-Cereg (b_tum_i_cereg)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4000.1.1 = {
+		culture = andrastrim
+		religion = faith_daen_gaoth
+		holding = tribal_holding
+	}
+	4900.1.1 = {
+		culture = andrastrim
+		religion = faith_daen_gaoth
+		holding = castle_holding
+		buildings = {
+			castle_02
+			ramparts_02
+			barracks_01
+		}
+	}
+	6762.3.3 = {
+		culture = andrastrim
+		religion = faith_daen_gaoth
+		holding = tribal_holding
+		buildings = {
+			tribe_01
+			war_camps_01
+		}
+	}
+}
+
+494 = {	#Tûm Maidh (b_tum_maidh)
+	culture = andrastrim
+	religion = faith_daen_gaoth
+	holding = none
+}
+
+493 = {	#Tirlaug (b_tirlaug)
+	culture = andrastrim
+	religion = faith_daen_gaoth
+	holding = none
+}
+
+##			Tawartelch (c_tawartelch)
+
+497 = {	#Taur Fuinwaith (b_taur_fuinwaith)
+	culture = danan_lin
+	religion = faith_daen_gaoth
+	holding = tribal_holding
+	# special_building_slot = mountain_pass_01
+	# special_building = mountain_pass_01
+	4000.1.1 = {
+		culture = andrastrim
+		religion = faith_daen_gaoth
+		holding = tribal_holding
+		buildings = {
+			tribe_01
+			palisades_01
+		}
+	}
+}
+496 = {	#Cirith Iaur (b_cirith_iaur)
+	holding = none
+}
+498 = {	#Tawartelch (b_tawartelch)
+	holding = none
+}
+475 = {	#Iormen (b_cirith_drû)
+	holding = none
+}
+
+##			Adarubar (c_adarubar)
+
+491 = {	#Adarubar (b_adarubar)
+	culture = wastelands
+	religion = faith_wastelands_pagan
+	holding = wastelands_holding
+	4900.1.1 = {
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			curtain_walls_02
+			common_tradeport_02
+		}
+	}
+	5100.1.1 = {
+		culture = andrastrim
+		holding = tribal_holding
+		buildings = {
+			tribe_01
+			market_villages_01
+		}
+	}
+	6830.1.1 = {
+		culture = andrastrim
+		religion = faith_daen_gaoth
+		buildings = {
+			tribe_01
+			market_villages_02
+		}
+	}
+}
+
+490 = {	#Ferendil (b_ferendil)
+	culture = andrastrim
+	religion = faith_daen_gaoth
+	holding = none
+}
+
+492 = {	#Tawar Tirnen (b_tawar_tirnen)
+	culture = andrastrim
+	religion = faith_daen_gaoth
+	holding = none
+}

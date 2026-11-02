@@ -1,0 +1,2119 @@
+﻿namespace = derei
+
+derei.1000 = { # Derei sets off to ask for advice
+    content_source = realms_dlc
+    type = character_event
+    title = derei.1000.t
+    desc = derei.1000.desc
+    theme = stewardship_duty_focus
+    override_background = { reference = docks_adunai }
+    left_portrait = {
+        character = root
+        animation = thinking
+    }
+    trigger = { is_landless_ruler = no }
+    immediate = {
+        character:lineofmeglasul3 = { save_scope_as = terilaen }
+        hidden_effect = { #give free caravan master
+			if = {
+				limit = { NOT = { employs_court_position = travel_leader_court_position } }
+				create_character = {
+					template = travel_leader_court_position_template
+					employer = root
+					gender_female_chance = 25
+					save_scope_as = caravan_master
+				}
+				appoint_court_position = {
+					recipient = scope:caravan_master
+					court_position = travel_leader_court_position
+				}
+			}
+		}
+    }
+
+    option = {
+        name = derei.1000.a
+        set_variable = cannot_cancel_travel
+        start_travel_plan = {
+            destination = title:c_ainglad.title_province
+            players_use_planner = no
+            on_arrival_event = derei.1001
+            on_arrival_destinations = first
+        }
+    }
+}
+
+derei.1001 = { # Terilaen gives Derei a riddle
+    content_source = realms_dlc
+    type = character_event
+    title = derei.1001.t
+    desc = derei.1001.desc
+    theme = elven
+    override_background = { reference = throne_room_woodelf }
+    left_portrait = {
+        character = root
+        animation = throne_room_bow_1
+    }
+    right_portrait = {
+        character = character:lineofmeglasul3
+        animation = happy_teacher
+    }
+    immediate = { 
+        title:k_drel.holder = { save_scope_as = terilaen }
+        remove_variable = cannot_cancel_travel
+    }
+
+    option = {
+        name = derei.1001.a
+        add_character_flag = derei_riddle
+        add_stress = minor_stress_gain
+        hidden_effect = {
+            scope:terilaen = {
+                send_interface_toast = {
+                    title = derei.1001.a.toast
+                    left_icon = character:lineofgimilethtwo107
+                    right_icon = scope:terilaen
+                }
+            }
+        }
+    }
+}
+
+derei.1002 = { # Derei meets Phorakon
+    content_source = realms_dlc
+    type = character_event
+    title = derei.1002.t
+    desc = derei.1002.desc
+    theme = diplomacy
+    override_background = { reference = docks_adunai }
+    left_portrait = {
+        character = root
+        animation = interested
+    }
+    right_portrait = {
+        character = scope:phorakon
+        animation = scepter
+    }
+    immediate = {
+        title:k_gimilthani.holder = { save_scope_as = phorakon }
+        add_character_flag = met_phorakon
+        character:lineofelros22 = { save_scope_as = zimrathon }
+        character:lineofprinceimrazor1 = { save_scope_as = imrazorI }
+        remove_variable = cannot_cancel_travel
+    }
+
+    option = { # Friendly
+        name = derei.1002.a
+        duel = {
+            skill = diplomacy
+            target = scope:phorakon
+
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 2
+                }
+                send_interface_toast = {
+                    title = derei.1002.a.success
+                    left_icon = root
+                    right_icon = scope:phorakon
+                    set_relation_potential_friend = scope:phorakon
+                    add_diplomacy_lifestyle_xp = 250
+                }
+                hidden_effect = {
+                    scope:phorakon = {
+                        send_interface_toast = {
+                            title = derei.1002.a.toast
+                            left_icon = character:lineofgimilethtwo107
+                            show_as_tooltip = {
+                                set_relation_potential_friend = character:lineofgimilethtwo107
+                            }
+                        }
+                    }
+                }
+            }
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 1
+                }
+                send_interface_toast = {
+                    title = derei.1002.a.failure
+                    left_icon = root
+                    right_icon = scope:phorakon
+                    add_stress = minor_stress_gain
+                    add_prestige = minor_prestige_loss
+                }
+            }
+        }
+    }
+    option = { # Inquisitive
+        name = derei.1002.b
+        duel = {
+            skill = learning
+            target = scope:phorakon
+
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 2
+                }
+                send_interface_toast = {
+                    title = derei.1002.b.success
+                    left_icon = root
+                    right_icon = scope:phorakon
+                    add_diplomacy_lifestyle_xp = 500
+                    add_prestige = minor_prestige_gain
+                }
+            }
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 1
+                }
+                send_interface_toast = {
+                    title = derei.1002.b.failure
+                    left_icon = root
+                    right_icon = scope:phorakon
+                    add_stress = minor_stress_gain
+                }
+            }
+        }
+    }
+}
+
+derei.1003 = { # Derei meets Arimith
+    content_source = realms_dlc
+    type = character_event
+    title = derei.1003.t
+    desc = derei.1003.desc
+    theme = diplomacy
+    override_background = { reference = docks_adunai }
+    left_portrait = {
+        character = root
+        animation = interested
+    }
+    right_portrait = {
+        character = scope:arimith
+        animation = acknowledging
+    }
+    immediate = {
+        title:d_karasalas.holder = { save_scope_as = arimith }
+    }
+
+    option = { # Friendly
+        name = derei.1003.a
+        duel = {
+            skill = diplomacy
+            target = scope:arimith
+
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 2
+                }
+                send_interface_toast = {
+                    title = derei.1003.a.success
+                    left_icon = root
+                    right_icon = scope:arimith
+                    set_relation_potential_friend = scope:arimith
+                    add_diplomacy_lifestyle_xp = 250
+                }
+                hidden_effect = {
+                    scope:arimith = {
+                        send_interface_toast = {
+                            title = derei.1002.a.toast
+                            left_icon = character:lineofgimilethtwo107
+                            show_as_tooltip = {
+                                set_relation_potential_friend = character:lineofgimilethtwo107
+                            }
+                        }
+                    }
+                }
+            }
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 1
+                }
+                send_interface_toast = {
+                    title = derei.1003.a.failure
+                    left_icon = root
+                    right_icon = scope:arimith
+                    add_stress = minor_stress_gain
+                }
+            }
+        }
+    }
+    option = { # Inquisitive
+        name = derei.1003.b
+        duel = {
+            skill = learning
+            target = scope:arimith
+
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 2
+                }
+                send_interface_toast = {
+                    title = derei.1003.b.success
+                    left_icon = root
+                    right_icon = scope:arimith
+                    add_stewardship_lifestyle_xp = 500
+                    add_prestige = minor_prestige_gain
+                }
+            }
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 1
+                }
+                send_interface_toast = {
+                    title = derei.1003.b.failure
+                    left_icon = root
+                    right_icon = scope:arimith
+                    add_prestige = medium_prestige_loss
+                }
+            }
+        }
+    }
+}
+
+derei.1004 = { # Derei meets Imrazor
+    content_source = realms_dlc
+    type = character_event
+    title = derei.1004.t
+    desc = derei.1004.desc
+    theme = diplomacy
+    override_background = { reference = docks_adunai }
+    left_portrait = {
+        character = root
+        animation = admiration
+    }
+    right_portrait = {
+        character = scope:imrazor
+        animation = storyteller
+    }
+    immediate = {
+        title:d_alsarias.holder = { save_scope_as = imrazor }
+        add_character_flag = met_imrazor
+        remove_variable = cannot_cancel_travel
+    }
+
+    option = { # Friendly
+        name = derei.1004.a
+        duel = {
+            skill = diplomacy
+            target = scope:imrazor
+
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 2
+                }
+                send_interface_toast = {
+                    title = derei.1004.a.success
+                    left_icon = root
+                    right_icon = scope:imrazor
+                    set_relation_friend = scope:imrazor
+                    add_diplomacy_lifestyle_xp = 500
+                    add_stress = major_stress_loss
+                }
+                hidden_effect = {
+                    scope:imrazor = {
+                        send_interface_toast = {
+                            title = derei.1002.a.toast
+                            left_icon = character:lineofgimilethtwo107
+                            show_as_tooltip = {
+                                set_relation_friend = character:lineofgimilethtwo107
+                            }
+                        }
+                    }
+                }
+            }
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 1
+                }
+                send_interface_toast = {
+                    title = derei.1004.a.failure
+                    left_icon = root
+                    right_icon = scope:imrazor
+                    set_relation_potential_friend = scope:imrazor
+                    add_diplomacy_lifestyle_xp = 250
+                    add_stress = minor_stress_loss
+                }
+                hidden_effect = {
+                    scope:imrazor = {
+                        send_interface_toast = {
+                            title = derei.1002.a.toast
+                            left_icon = character:lineofgimilethtwo107
+                            show_as_tooltip = {
+                                set_relation_potential_friend = character:lineofgimilethtwo107
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+derei.1005 = { # Derei meets Karaag
+    content_source = realms_dlc
+    type = character_event
+    title = derei.1005.t
+    desc = derei.1005.desc
+    theme = diplomacy
+    override_background = { reference = docks_adunai }
+    left_portrait = {
+        character = root
+        animation = disbelief
+    }
+    right_portrait = {
+        character = scope:karaag
+        animation = dismissal
+    }
+    immediate = {
+        title:d_azarideth.holder = { save_scope_as = karaag }
+    }
+
+    option = { # Try to meet him
+        name = derei.1005.a
+        duel = {
+            skill = intrigue
+            target = scope:karaag
+
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 2
+                }
+                send_interface_toast = {
+                    title = derei.1005.a.success
+                    left_icon = root
+                    right_icon = scope:karaag
+                    add_hook = {
+                        type = favor_hook
+                        target = scope:karaag
+                    }
+                    add_learning_lifestyle_xp = 250
+                }
+                hidden_effect = {
+                    scope:karaag = {
+                        send_interface_toast = {
+                            title = derei.1005.a.toast
+                            left_icon = character:lineofgimilethtwo107
+                            show_as_tooltip = {
+                                character:lineofgimilethtwo107 = {
+                                    add_hook = {
+                                        type = favor_hook
+                                        target = scope:karaag
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 1
+                }
+                send_interface_toast = {
+                    title = derei.1005.a.failure
+                    left_icon = root
+                    right_icon = scope:karaag
+                    add_prestige = medium_prestige_loss
+                    add_stress = minor_stress_gain
+                }
+            }
+        }
+    }
+    option = { # Learn from his household
+        name = derei.1005.b
+        duel = {
+            skill = diplomacy
+            value = 12
+
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 2
+                }
+                send_interface_toast = {
+                    title = derei.1005.b.success
+                    left_icon = root
+                    add_intrigue_lifestyle_xp = 500
+                }
+            }
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 1
+                }
+                send_interface_toast = {
+                    title = derei.1005.b.failure
+                    left_icon = root
+                    add_prestige = minor_prestige_loss
+                }
+            }
+        }
+    }
+}
+
+derei.1006 = { # Derei meets Arthazroc
+    content_source = realms_dlc
+    type = character_event
+    title = derei.1006.t
+    desc = derei.1006.desc
+    theme = diplomacy
+    override_background = { reference = docks_adunai }
+    left_portrait = {
+        character = root
+        animation = stunned
+    }
+    right_portrait = {
+        character = scope:arthazroc
+        animation = personality_dishonorable 
+    }
+    immediate = {
+        title:d_inzilloni.holder = { save_scope_as = arthazroc }
+    }
+
+    option = { # Talk to the merchant's competition
+        name = derei.1006.a
+        duel = {
+            skill = diplomacy
+            value = 20
+
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 2
+                }
+                send_interface_toast = {
+                    title = derei.1006.a.success
+                    left_icon = root
+                    right_icon = scope:arthazroc
+                    add_hook = {
+                        type = favor_hook
+                        target = scope:arthazroc
+                    }
+                    add_intrigue_lifestyle_xp = 250
+                }
+                hidden_effect = {
+                    scope:arthazroc = {
+                        send_interface_toast = {
+                            title = derei.1006.a.toast
+                            left_icon = character:lineofgimilethtwo107
+                            show_as_tooltip = {
+                                character:lineofgimilethtwo107 = {
+                                    add_hook = {
+                                        type = favor_hook
+                                        target = scope:arthazroc
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 1
+                }
+                send_interface_toast = {
+                    title = derei.1006.a.failure
+                    left_icon = root
+                    right_icon = scope:arthazroc
+                    remove_short_term_gold = 100
+                }
+            }
+        }
+    }
+    option = { # Pay him
+        name = derei.1006.b
+        send_interface_toast = {
+            title = derei.1006.b.success
+            left_icon = root
+            right_icon = scope:arthazroc
+            add_intrigue_lifestyle_xp = 500
+            pay_short_term_gold = {
+                target = scope:arthazroc
+                gold = 300
+            }
+        }
+        scope:arthazroc = {
+            send_interface_toast = {
+                title = derei.1006.b.toast
+                left_icon = scope:arthazroc
+                right_icon = character:lineofgimilethtwo107 
+                show_as_tooltip = {
+                    add_short_term_gold = 300
+                }
+            }
+        }
+    }
+}
+
+derei.1007 = { # Derei meets Daroc
+    content_source = realms_dlc
+    type = character_event
+    title = derei.1007.t
+    desc = derei.1007.desc
+    theme = diplomacy
+    override_background = { reference = docks_adunai }
+    left_portrait = {
+        character = root
+        animation = throne_room_bow_2 
+    }
+    right_portrait = {
+        character = scope:daroc
+        animation = hero_flex 
+    }
+    immediate = {
+        title:d_holzoreth.holder = { save_scope_as = daroc }
+        add_character_flag = met_daroc
+        remove_variable = cannot_cancel_travel
+    }
+
+    option = { # Try to get on his softer side
+        trigger = { is_ai = no }
+        name = derei.1007.a
+        duel = {
+            skill = diplomacy
+            target = scope:daroc
+
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 2
+                }
+                send_interface_toast = {
+                    title = derei.1007.a.success
+                    left_icon = root
+                    right_icon = scope:daroc
+                    set_relation_friend = scope:daroc
+                    add_martial_lifestyle_xp = 250
+                }
+                hidden_effect = {
+                    scope:daroc = {
+                        send_interface_toast = {
+                            title = derei.1002.a.toast
+                            left_icon = character:lineofgimilethtwo107
+                            show_as_tooltip = {
+                                set_relation_friend = character:lineofgimilethtwo107
+                            }
+                        }
+                    }
+                }
+            }
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 1
+                }
+                send_interface_toast = {
+                    title = derei.1007.a.failure
+                    left_icon = root
+                    right_icon = scope:daroc
+                    add_stress = minor_stress_gain
+                    add_prestige = minor_prestige_loss
+                }
+            }
+        }
+    }
+    option = { # Try to get on his softer side
+        trigger = { is_ai = yes }
+        name = derei.1007.a
+        duel = {
+            skill = diplomacy
+            value = 10
+
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 2
+                }
+                send_interface_toast = {
+                    title = derei.1007.a.success
+                    left_icon = root
+                    right_icon = scope:daroc
+                    set_relation_friend = scope:daroc
+                    add_martial_lifestyle_xp = 250
+                }
+                hidden_effect = {
+                    scope:daroc = {
+                        send_interface_toast = {
+                            title = derei.1002.a.toast
+                            left_icon = character:lineofgimilethtwo107
+                            show_as_tooltip = {
+                                set_relation_friend = character:lineofgimilethtwo107
+                            }
+                        }
+                    }
+                }
+            }
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 1
+                }
+                send_interface_toast = {
+                    title = derei.1007.a.failure
+                    left_icon = root
+                    right_icon = scope:daroc
+                    add_stress = minor_stress_gain
+                    add_prestige = minor_prestige_loss
+                }
+            }
+        }
+    }
+    option = { # Talk about the frontier
+        name = derei.1007.b
+        send_interface_toast = {
+            title = derei.1007.b.success
+            left_icon = root
+            right_icon = scope:daroc
+            add_martial_lifestyle_xp = 500
+        }
+    }
+}
+
+derei.1008 = { # Derei meets Seregul
+    content_source = realms_dlc
+    type = character_event
+    title = derei.1008.t
+    desc = derei.1008.desc
+    theme = diplomacy
+    override_background = { reference = docks_adunai }
+    left_portrait = {
+        character = root
+        animation = disapproval
+    }
+    right_portrait = {
+        character = scope:seregul
+        animation = anger
+    }
+    immediate = {
+        title:k_pel.holder = { save_scope_as = seregul }
+    }
+
+    option = { # Yikes
+        name = derei.1008.a
+        duel = {
+            skill = diplomacy
+            target = scope:seregul
+
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 2
+                }
+                send_interface_toast = {
+                    title = derei.1008.a.success
+                    left_icon = root
+                    right_icon = scope:seregul
+                    add_diplomacy_lifestyle_xp = 250
+                    add_intrigue_lifestyle_xp = 250
+                }
+            }
+            
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 1
+                }
+                send_interface_toast = {
+                    title = derei.1008.a.failure
+                    left_icon = root
+                    right_icon = scope:seregul
+                    set_relation_rival = scope:seregul
+                    add_stress = major_stress_gain
+                }
+                hidden_effect = {
+                    scope:seregul = {
+                        send_interface_toast = {
+                            title = derei.1008.a.toast
+                            left_icon = character:lineofgimilethtwo107
+                            show_as_tooltip = {
+                                set_relation_rival = character:lineofgimilethtwo107
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+derei.1009 = { # Derei goes to Mispir
+    content_source = realms_dlc
+    type = character_event
+    title = derei.1009.t
+    desc = derei.1009.desc
+    theme = diplomacy
+    override_background = { reference = docks_adunai }
+    left_portrait = {
+        character = root
+        animation = happiness
+    }
+    right_portrait = {
+        character = title:c_mispir.holder
+        animation = interested_left
+    }
+    immediate = {
+        remove_character_flag = met_phorakon
+	    remove_character_flag = met_imrazor
+	    remove_character_flag = met_daroc
+        remove_character_flag = derei_riddle
+        remove_variable = cannot_cancel_travel
+	}
+    
+    option = { # I learned much
+        name = derei.1009.a
+        send_interface_toast = {
+            title = derei.1009.a.success
+            left_icon = root
+            add_learning_lifestyle_xp = 500
+            add_trait = shrewd
+        }
+        title:k_drel.holder = {
+            trigger_event = {
+                id = derei.1010
+                months = 3
+            }
+        }
+    }
+}
+
+derei.1010 = { # A refugee girl is brought to Terilaen
+    content_source = realms_dlc
+    title = derei.1010.t
+    desc =  derei.1010.desc
+    theme = elven
+    left_portrait = {
+        character = root
+        animation = thinking
+    }
+    right_portrait = {
+        character = scope:derei_wife
+        animation = fear
+    }
+    immediate = {
+        if = {
+            limit = {
+                character:lineofamali1 = {
+                    is_alive = yes
+                }
+            }
+            character:lineofamali1 = {
+                hidden_effect = {
+                    remove_trait = leper
+                    remove_trait = cancer
+                    remove_trait = gout_ridden
+                    remove_trait = dysentery
+                    remove_trait = smallpox
+                    remove_trait = typhus
+                    remove_trait = maimed
+                    remove_trait = blind
+                    remove_trait = disfigured
+                    remove_trait = drunkard
+                    remove_trait = flagellant
+                    remove_trait = comfort_eater
+                    remove_trait = irritable
+                    remove_trait = reclusive
+                    remove_trait = inappetetic
+                    remove_trait = witch
+                    remove_trait = cannibal
+                    remove_trait = deviant
+                }
+                set_employer = title:k_drel.holder
+                save_scope_as = derei_wife
+            }
+        }
+        else_if = {
+            create_character = {
+                name = A_A_ma_a_li
+                gender = female
+                age = 18
+                location = root.capital_province
+                dynasty = none
+                culture = culture:drel
+                faith = faith:faith_drel
+                trait = brave
+                trait = just
+                trait = content
+                trait = education_diplomacy_2
+                trait = intellect_good_2
+                trait = beauty_good_2
+                trait = cannot_marry
+
+                diplomacy = 6
+                martial = 2
+                stewardship = 3
+                intrigue = 6
+                learning = 5
+                prowess = 4
+
+                save_scope_as = derei_wife
+            }
+            hidden_effect = {
+                scope:derei_wife = {
+                    set_sexuality = heterosexual
+                    copy_inheritable_appearance_from = character:lineofamali1
+                    add_character_flag = has_scripted_appearance
+                }
+            }
+        }
+    }
+
+    option = { # The girl should live among her kind
+        name = derei.1010.a
+        custom_tooltip = derei.1010.a.tt
+        trigger = {
+            character:lineofgimilethtwo107 = {
+                is_alive = yes
+                is_landless_ruler = no
+            }
+        }
+        scope:derei_wife = {
+            set_employer = character:lineofgimilethtwo107
+        }
+        character:lineofgimilethtwo107 = {
+            trigger_event = {
+                id = derei.1011
+                days = 2
+            }
+        }
+        ai_chance = {
+            base = 100
+        }
+    }
+    option = { # She can live in my court
+        name = derei.1010.b
+        custom_tooltip = derei.1010.b.tt
+        scope:derei_wife = {
+            set_character_faith = faith:faith_good_pel
+            add_trait = loyal
+            set_employer = title:k_drel.holder
+            remove_trait = cannot_marry
+        }
+        character:lineofgimilethtwo107 = {
+            trigger_event = {
+                id = derei.1012
+                days = 2
+            }
+        }
+    }
+}
+
+derei.1011 = { # Derei meets Amali
+    content_source = realms_dlc
+    title = derei.1011.t
+    desc =  derei.1011.desc
+    theme = friendly
+    left_portrait = {
+        character = root
+        animation = interested
+    }
+    right_portrait = {
+        character = scope:derei_wife
+        animation = thinking
+    }
+
+    option = { # A delightful young woman
+        name = derei.1011.a
+        set_relation_friend = scope:derei_wife
+        trigger_event = {
+            id = derei.1013
+            months = 6
+        }
+    }
+}
+
+derei.1012 = { # Derei can marry
+    hidden = yes
+    immediate = {
+        send_interface_toast = {
+            title = derei.1012.a
+            left_icon = root
+            remove_trait = cannot_marry
+        }
+        hidden_effect = {
+            trigger_event = {
+                id = derei.1015
+                months = 8
+            }
+        }
+    }
+}
+
+derei.1013 = { # Derei is falling hard for Amali
+    content_source = realms_dlc
+    title = derei.1013.t
+    desc =  derei.1013.desc
+    theme = love
+    left_portrait = {
+        character = root
+        animation = love
+    }
+    right_portrait = {
+        character = scope:derei_wife
+        animation = happiness
+    }
+    immediate = {
+            remove_trait = cannot_marry
+            scope:derei_wife = {
+                remove_trait = cannot_marry
+            }
+        }
+    
+    option = { # I want to spend my life with her
+        name = derei.1013.a
+        add_prestige = medium_prestige_loss
+        send_interface_toast = {
+            title = derei.1013.a.toast
+            left_icon = root
+            add_trait = cannot_marry
+            scope:derei_wife = {
+                add_trait = cannot_marry
+            }
+        }
+        trigger_event = {
+            id = derei.1014
+            weeks = 4
+        }
+        ai_chance = {
+            base = 100
+        }
+    }
+    option = { # She should become my concubine
+        name = derei.1013.b
+        set_relation_lover = scope:derei_wife
+        make_concubine = scope:derei_wife
+        add_stress = minor_stress_gain
+        scope:derei_wife = {
+            add_opinion = {
+                modifier = insult_opinion
+                opinion = -50
+                target = character:lineofgimilethtwo107
+            }
+        }
+        hidden_effect = {
+            trigger_event = {
+                id = derei.1015
+                months = 8
+            }
+        }
+    }
+    option = { # What would people say?
+        name = derei.1013.c
+        add_stress = major_stress_gain
+        scope:derei_wife = {
+            add_stress = medium_stress_gain
+            add_opinion = {
+                modifier = insult_opinion
+                opinion = -50
+                target = character:lineofgimilethtwo107
+            }
+        }
+        hidden_effect = {
+            trigger_event = {
+                id = derei.1015
+                months = 8
+            }
+        }
+    }
+}
+
+derei.1014 = { # Shall we marry?
+    content_source = realms_dlc
+    title = derei.1014.t
+    desc =  derei.1014.desc
+    theme = love
+    left_portrait = {
+        character = scope:derei_wife
+        animation = wedding_bride_left
+    }
+    right_portrait = {
+        character = root
+        animation = wedding_groom_right
+    }
+    immediate = {
+        remove_trait = cannot_marry
+        scope:derei_wife = {
+            remove_trait = cannot_marry
+        }
+    }
+
+    option = { # Yes!
+        name = derei.1014.a
+        marry = scope:derei_wife
+        add_prestige = major_prestige_loss
+        add_legitimacy = medium_legitimacy_loss
+        add_stress = major_stress_loss
+        set_relation_soulmate = scope:derei_wife
+        scope:derei_wife = {
+            set_character_faith = faith:faith_gimileth
+        }
+        hidden_effect = {
+            trigger_event = {
+                id = derei.1015
+                months = 8
+            }
+        }
+        ai_chance = {
+            base = 100
+        }
+    }
+    option = { # Actually...
+        name = derei.1014.b
+        remove_relation_friend = scope:derei_wife
+        add_stress = 250
+        add_trait = depressed_1
+        scope:derei_wife = {
+            add_opinion = {
+                modifier = outraged_opinion 
+                opinion = -100
+                target = character:lineofgimilethtwo107
+            }
+            add_stress = 250
+        }
+        hidden_effect = {
+            trigger_event = {
+                id = derei.1015
+                months = 8
+            }
+        }
+    }
+}
+
+derei.1015 = { # Visiting the vassals
+    content_source = realms_dlc
+    title = derei.1015.t
+    desc = derei.1015.desc
+    theme = diplomacy
+    left_portrait = {
+        character = root
+        animation = survey
+    }
+    trigger = { is_landless_ruler = no }
+    option = { # Let's go
+        name = derei.1015.a
+        trigger = {
+            is_available_adult = yes
+            is_at_war = no
+        }
+        set_variable = cannot_cancel_travel
+        start_travel_plan = {
+            destination = title:b_kharadukal.title_province
+            destination = title:c_gulurath.title_province
+            players_use_planner = no
+            on_arrival_on_action = derei_vassals_on_action
+        }
+    }
+    option = { # Not right now
+        name = derei.1015.b
+        custom_tooltip = derei.1015.b.tt
+        trigger_event = {
+            id = derei.1015
+            months = 4
+        }
+    }
+}
+
+derei.1016 = { # City Vassal
+    content_source = realms_dlc
+    title = derei.1016.t
+    desc = derei.1016.desc
+    theme = diplomacy
+    left_portrait = {
+        character = root
+        animation = survey
+    }
+    right_portrait = {
+        character = scope:derei_vassal
+        animation = debating
+    }
+    trigger = { title:b_kharadukal.holder != root }
+    immediate = {
+        title:b_kharadukal.holder = { save_scope_as = derei_vassal }
+    }
+    option = { # Keep up the good work
+        name = derei.1016.a
+        scope:derei_vassal = {
+            add_opinion = {
+                modifier = pleased_opinion
+                opinion = 20
+                target = root
+            }
+        }
+    }
+    option = { # Help them out
+        name = derei.1016.b
+        pay_short_term_gold = {
+            target = scope:derei_vassal
+            gold = 50
+        }
+        scope:derei_vassal = {
+            add_opinion = {
+                modifier = grateful_opinion
+                opinion = 100
+                target = root
+            }
+        }
+    }
+}
+
+derei.1017 = { # Moreno
+    content_source = realms_dlc
+    title = derei.1017.t
+    desc = derei.1017.desc
+    theme = diplomacy
+    left_portrait = {
+        character = root
+        animation = survey
+    }
+    right_portrait = {
+        character = scope:moreno
+        animation = threatening
+    }
+    trigger = { title:c_gulurath.holder != root }
+    immediate = {
+        title:c_gulurath.holder = { save_scope_as = moreno }
+        remove_variable = cannot_cancel_travel
+    }
+    option = { # Don't escalate
+        name = derei.1017.a
+        pay_short_term_gold = {
+            target = scope:moreno
+            gold = 75
+        }
+        scope:moreno = {
+            add_opinion = {
+                modifier = grateful_opinion
+                opinion = 50
+                target = root
+            }
+        }
+        ai_chance = {
+            base = 100
+        }
+    }
+    option = { # Escalate
+        name = derei.1017.b
+        custom_tooltip = derei.1017.b.tt
+        duel = {
+            skill = prowess
+            target = scope:moreno
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 2
+                }
+                hidden_effect = { 
+                    scope:moreno = {
+                        vassal_contract_set_obligation_level = { type = title_revocation_rights level = 0 }
+                    }
+                }
+                increase_wounds_effect = { REASON = fight }
+                imprison = {
+                    target = scope:moreno
+                    type = dungeon
+                }
+                add_pressed_claim = title:c_nimiphurus
+                add_pressed_claim = title:c_gulurath
+            }
+            
+            20 = {
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 1
+                }
+                hidden_effect = { 
+                    scope:moreno = {
+                        vassal_contract_set_obligation_level = { type = title_revocation_rights level = 0 }
+                    }
+                    send_interface_toast = {
+                        title = derei.1017.b.toast
+                        left_icon = root
+                        right_icon = scope:moreno
+                        increase_wounds_effect = { REASON = fight }
+                    }
+                }
+                increase_wounds_effect = { REASON = fight }
+                scope:moreno = {
+                    start_war = {
+                        casus_belli = depose_war
+                        target = root
+                    }
+                }
+            }
+        }
+    }
+    after = {
+        trigger_event = {
+            id = derei.1018
+            months = 12
+        }
+    }
+}
+
+derei.1018 = { # Derei has plans!
+    content_source = realms_dlc
+    title = derei.1018.t
+    desc = derei.1018.desc
+    theme = realm
+    left_portrait = {
+        character = root
+        animation = debating
+    }
+    right_portrait = {
+        character = scope:derei_wife
+        animation = interested_left
+    }
+    immediate = {
+        if = {
+            limit = { any_courtier_or_guest = { is_spouse_of = root } }
+            root.primary_spouse ?= { save_scope_as = derei_wife }
+        }
+        else_if = {
+            limit = { any_relation = { type = best_friend } }
+            random_relation = {
+                limit = { this != title:k_drel.holder }
+                type = best_friend
+                save_scope_as = derei_wife
+            }
+        }
+        else_if = {
+            limit = { any_relation = { type = friend } }
+            random_relation = {
+                limit = { this != title:k_drel.holder }
+                type = friend
+                save_scope_as = derei_wife
+            }
+        }
+        else = {
+            root.dynasty = { random_dynasty_member = { save_scope_as = derei_wife } }
+        }
+    }
+    option = { # Visit Terilaen
+        name = derei.1018.a
+        trigger = {
+            is_available_adult = yes
+            character:lineofmeglasul3 = {
+                has_title = title:k_drel
+            }
+        }
+        custom_tooltip = derei.1018.tt
+        set_variable = cannot_cancel_travel
+        start_travel_plan = {
+            destination = title:c_ainglad.title_province
+            players_use_planner = no
+            on_arrival_event = derei.1020
+            on_arrival_destinations = first
+        }
+    }
+    option = { # Not right now
+        name = derei.1018.b
+        custom_tooltip = derei.1018.b.tt
+        trigger = {
+            character:lineofmeglasul3 = {
+                has_title = title:k_drel
+            }
+        }
+        trigger_event = {
+            id = derei.1019
+            months = 1
+        }
+    }
+    option = { # Terilaen is dead or lost Drel fallback
+        name = derei.1018.c
+        custom_tooltip = derei.1018.c.tt
+        trigger = {
+            NOT = {
+                character:lineofmeglasul3 = {
+                    has_title = title:k_drel
+                }
+            }
+        }
+        add_character_flag = derei_plans
+    }
+}
+
+derei.1019 = { # Will he travel now?
+    content_source = realms_dlc
+    title = derei.1019.t
+    desc = derei.1019.desc
+    theme = realm
+    left_portrait = {
+        character = root
+        animation = worry
+    }
+    option = { # Visit Terilaen
+        trigger = {
+            is_available_adult = yes
+        }
+        name = derei.1019.a
+        set_variable = cannot_cancel_travel
+        start_travel_plan = {
+            destination = title:c_ainglad.title_province
+            players_use_planner = no
+            on_arrival_event = derei.1020
+            on_arrival_destinations = first
+        }
+    }
+    option = { # Not right now
+        name = derei.1019.b
+        trigger_event = {
+            id = derei.1019
+            months = 1
+        }
+    }
+}
+
+derei.1020 = { # Second visit to Terilaen
+    content_source = realms_dlc
+    title = derei.1020.t
+    desc = derei.1020.desc
+    theme = elven
+    override_background = { reference = throne_room_woodelf }
+    left_portrait = {
+        character = root
+        animation = storyteller
+    }
+    right_portrait = {
+        character = character:lineofmeglasul3
+        animation = interested_left
+    }
+    immediate = { 
+        title:k_drel.holder = { save_scope_as = terilaen }
+        remove_variable = cannot_cancel_travel 
+    }
+    option = {
+        name = derei.1020.a
+        custom_tooltip = derei.1020.tt
+        add_character_flag = derei_plans
+        if = {
+            limit = {
+                has_perk = befriend_perk
+            }
+            add_diplomacy_lifestyle_perk_points = 1
+        }
+        else = {
+            add_perk = befriend_perk
+        }
+        hidden_effect = {
+            scope:terilaen = {
+                send_interface_toast = {
+                    title = derei.1020.a.toast
+                    left_icon = character:lineofgimilethtwo107
+                    right_icon = scope:terilaen
+                }
+            }
+        }
+    }
+}
+
+derei.1021 = { # Choose a Prince
+    content_source = realms_dlc
+    title = derei.1021.t
+    desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = { exists = scope:balan_lai_leader }
+                desc = derei.1021.leader.desc
+            }
+            desc = derei.1021.desc
+        }
+    }
+    theme = diplomacy
+    override_background = { reference = docks_adunai }
+    left_portrait = {
+        character = root
+        animation = writing
+    }
+    right_portrait = {
+        character = scope:balan_lai_leader
+        animation = reading
+    }
+    lower_left_portrait = scope:balan_lai_1
+    lower_center_portrait = scope:balan_lai_2
+    lower_right_portrait = scope:balan_lai_3
+    
+    immediate = {
+        root = { save_scope_as = derei }
+        if = {
+            limit = { any_courtier_or_guest = { is_spouse_of = root } }
+            root.primary_spouse ?= { save_scope_as = derei_wife }
+        }
+        else_if = {
+            limit = { any_relation = { type = best_friend } }
+            random_relation = {
+                type = best_friend
+                save_scope_as = derei_wife
+            }
+        }
+        else_if = {
+            limit = { any_relation = { type = friend } }
+            random_relation = {
+                type = friend
+                save_scope_as = derei_wife
+            }
+        }
+        else = {
+            root.dynasty = { random_dynasty_member = { save_scope_as = derei_wife } }
+        }
+        if = {
+            limit = { 
+                title:d_balan_lai_leader.holder != root
+                title:d_balan_lai_leader.holder.faith != root.faith
+            }
+            title:d_balan_lai_leader.holder = { save_scope_as = balan_lai_leader }
+        }
+        confederation = {
+            ordered_confederation_member = {
+                limit = {
+                    NOR = {
+                        this = root
+                        has_title = title:d_balan_lai_leader
+                        has_faith = faith:faith_gimileth
+                        is_adult = no
+                        has_character_flag = refused_conversion
+                        has_character_flag = already_considered
+                    }
+                }
+                order_by = ai_honor
+                position = 1
+                check_range_bounds = no
+                save_scope_as = balan_lai_1
+            }
+            random_confederation_member = {
+                limit = {
+                    NOR = {
+                        this = root
+                        has_title = title:d_balan_lai_leader
+                        has_faith = faith:faith_gimileth
+                        is_adult = no
+                        has_character_flag = refused_conversion
+                        has_character_flag = already_considered
+                        this = scope:balan_lai_1
+                    }
+                }
+                save_scope_as = balan_lai_2
+            }
+            random_confederation_member = {
+                limit = {
+                    NOR = {
+                        this = root
+                        has_title = title:d_balan_lai_leader
+                        has_faith = faith:faith_gimileth
+                        is_adult = no
+                        has_character_flag = refused_conversion
+                        has_character_flag = already_considered
+                        this = scope:balan_lai_1
+                        this = scope:balan_lai_2
+                    }
+                }
+                save_scope_as = balan_lai_3
+            }
+        }
+        scope:balan_lai_1 = { add_character_flag = { flag = already_considered days = 1 } }
+        scope:balan_lai_2 = { add_character_flag = { flag = already_considered days = 1 } }
+        scope:balan_lai_3 = { add_character_flag = { flag = already_considered days = 1 } }
+    }
+
+    option = { #Balan lai leader
+        name = derei.1021.a
+        trigger = { exists = scope:balan_lai_leader }
+        scope:balan_lai_leader = { save_scope_as = target_prince }
+        trigger_event = {
+            id = derei.1022
+            days = 1
+        }
+    }
+    option = { # First candidate
+        trigger = { exists = scope:balan_lai_1 }
+        name = derei.1021.b
+        scope:balan_lai_1 = { save_scope_as = target_prince }
+        trigger_event = {
+            id = derei.1022
+            days = 1
+        }
+    }
+    option = { # Second candidate
+        name = derei.1021.c
+        trigger = { exists = scope:balan_lai_2 }
+        scope:balan_lai_2 = { save_scope_as = target_prince }
+        trigger_event = {
+            id = derei.1022
+            days = 1
+        }
+    }
+    option = { # Third candidate
+        trigger = { exists = scope:balan_lai_3 }
+        name = derei.1021.d
+        scope:balan_lai_3 = { save_scope_as = target_prince }
+        trigger_event = {
+            id = derei.1022
+            days = 1
+        }
+    }
+    option = { # More options
+        trigger = {
+            confederation = {
+                any_confederation_member = {
+                    NOR = {
+                        this = root
+                        has_title = title:d_balan_lai_leader
+                        has_faith = faith:faith_gimileth
+                        is_adult = no
+                        has_character_flag = refused_conversion
+                        has_character_flag = already_considered
+                    }
+                }
+            }
+        }
+        name = derei.1021.e
+        trigger_event = derei.1021
+    }
+}
+
+derei.1022 = { # Send the letter
+    content_source = realms_dlc
+    title = derei.1022.t
+    desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = {
+                    OR = {
+                        has_hook = scope:target_prince
+                        has_strong_hook = scope:target_prince
+                    }
+                }
+                desc = derei.1022.hook.desc
+            }
+            desc = derei.1022.desc
+        }
+    }
+    theme = diplomacy
+    override_background = { reference = docks_adunai }
+    left_portrait = {
+        character = root
+        animation = writing
+    }
+    right_portrait = {
+        character = scope:target_prince
+        animation = reading
+    }
+
+    option = {
+        trigger = {
+            scope:target_prince = { is_ai = yes }
+        }
+        name = derei.1022.a
+        custom_tooltip = derei.1022.a.tt
+        random_list = {
+            0 = { # Success
+                modifier = { add = lotr_derei_convince_values }
+                desc = derei.1022.a.success
+                trigger_event = {
+                    id = derei.1023
+                    months = 1
+                }
+                show_as_tooltip = {
+                    if = {
+                        limit = {
+                            scope:target_prince = { has_title = title:d_balan_lai_leader }
+                        }
+                        root.dynasty = { add_dynasty_prestige = 300 }
+                        scope:target_prince = { 
+                            set_character_faith = faith:faith_gimileth
+                        }
+                    }
+                    else = {
+                        root.dynasty = { add_dynasty_prestige = 150 }
+                        scope:target_prince = { 
+                            set_character_faith = faith:faith_gimileth
+                        }
+                    }
+                }
+                if = {
+                    limit = {
+                        OR = {
+                            has_hook = scope:target_prince
+                            has_strong_hook = scope:target_prince
+                        }
+                    }
+                    use_hook = scope:target_prince
+                }
+            }
+            100 = { # Failure
+                modifier = { add = lotr_derei_convince_values.neg }
+                desc = derei.1022.a.failure
+                trigger_event = {
+                    id = derei.1024
+                    months = 1
+                }
+                show_as_tooltip = {
+                    root.dynasty = { add_dynasty_prestige = minor_dynasty_prestige_loss }
+                    add_stress = medium_stress_gain
+                }
+                if = {
+                    limit = {
+                        OR = {
+                            has_hook = scope:target_prince
+                            has_strong_hook = scope:target_prince
+                        }
+                    }
+                    use_hook = scope:target_prince
+                }
+            }
+        }
+        ai_chance = {
+            base = 0
+            modifier = {
+                add = lotr_derei_convince_values
+            }
+        }
+    }
+    option = { # Player only
+        trigger = {
+            scope:target_prince = { is_ai = no }
+        }
+        name = derei.1022.a
+        custom_tooltip = derei.1022.c.tt
+        if = {
+            limit = {
+                OR = {
+                    has_hook = scope:target_prince
+                    has_strong_hook = scope:target_prince
+                }
+            }
+            use_hook = scope:target_prince
+        }
+        scope:target_prince = {
+            trigger_event = {
+                id = derei.1025
+                days = 15
+            }
+        }
+        ai_chance = {
+            base = 100
+        }
+    }
+    option = { # Do not!
+        name = derei.1022.b
+        custom_tooltip = {
+			text = refunded_decision_cost
+		}
+        add_prestige_no_experience = 500
+        add_piety_no_experience = 1000
+        remove_decision_cooldown = decision_convince_the_princes
+        ai_chance = {
+            base = 100
+            modifier = {
+                add = lotr_derei_convince_values.neg
+            }
+        }
+    }
+}
+
+derei.1023 = { # They have converted!
+    type = letter_event
+    opening = derei.1023.t
+    desc = derei.1023.desc
+    sender = scope:target_prince
+    
+    option = {
+        name = derei.1023.a
+        if = {
+            limit = {
+                scope:target_prince = { has_title = title:d_balan_lai_leader }
+            }
+            root.dynasty = { add_dynasty_prestige = 300 }
+            scope:target_prince = { 
+                set_character_faith = faith:faith_gimileth
+                hidden_effect = {
+                    random = {
+                        chance = 30
+                        set_character_secret_faith = faith:faith_thani_hazad
+                    }
+                }
+            }
+        }
+        else = {
+            root.dynasty = { add_dynasty_prestige = 150 }
+            scope:target_prince = { 
+                set_character_faith = faith:faith_gimileth
+                hidden_effect = {
+                    random = {
+                        chance = 30
+                        set_character_secret_faith = faith:faith_thani_hazad
+                    }
+                }
+            }
+        }
+    }
+}
+
+derei.1024 = { # They refuse!
+    type = letter_event
+    opening = derei.1024.t
+    desc = derei.1024.desc
+    sender = scope:target_prince
+    
+    option = {
+        name = derei.1024.a
+        root.dynasty = { add_dynasty_prestige = minor_dynasty_prestige_loss }
+        add_stress = medium_stress_gain
+        scope:target_prince = { 
+            add_character_flag = {
+                flag = refused_conversion
+                years = 5
+            }
+        }
+    }
+}
+
+derei.1025 = { # Player's choice whether to convert
+    type = letter_event
+    opening = derei.1025.t
+    desc = derei.1025.desc
+    sender = scope:derei
+
+    option = { # Convert
+        name = derei.1025.a
+        set_character_faith = faith:faith_gimileth
+        scope:derei = {
+            send_interface_toast = {
+                title = derei.1025.a.toast
+                left_icon = scope:target_prince
+                if = {
+                    limit = {
+                        scope:target_prince = { has_title = title:d_balan_lai_leader }
+                    }
+                    root.dynasty = { add_dynasty_prestige = 300 }
+                }
+                else = {
+                    root.dynasty = { add_dynasty_prestige = 150 }
+                }
+                show_as_tooltip = {
+                    scope:target_prince = {
+                        set_character_faith = faith:faith_gimileth
+                    }
+                }
+            }
+        }
+    }
+    option = { # Convert, but keep a secret faith
+        name = derei.1025.b
+        set_character_faith = faith:faith_gimileth
+        hidden_effect = {
+            set_character_secret_faith = faith:faith_thani_hazad
+        }
+        scope:derei = {
+            send_interface_toast = {
+                title = derei.1025.a.toast
+                left_icon = scope:target_prince
+                if = {
+                    limit = {
+                        scope:target_prince = { has_title = title:d_balan_lai_leader }
+                    }
+                    root.dynasty = { add_dynasty_prestige = 300 }
+                }
+                else = {
+                    root.dynasty = { add_dynasty_prestige = 150 }
+                }
+                show_as_tooltip = {
+                    scope:target_prince = {
+                        set_character_faith = faith:faith_gimileth
+                    }
+                }
+            }
+        }
+    }
+    option = { # Nope
+        name = derei.1025.c
+        add_character_flag = {
+            flag = refused_conversion
+            years = 10 
+        }
+        scope:derei = {
+            send_interface_toast = {
+                title = derei.1025.c.toast
+                left_icon = scope:target_prince
+                root.dynasty = { add_dynasty_prestige = minor_dynasty_prestige_loss }
+                add_stress = medium_stress_gain
+            }
+        }
+    }
+}
+
+derei.1026 = { # The Kharadunai reform!
+    content_source = realms_dlc
+    title = derei.1026.t
+    desc = derei.1026.desc
+    theme = new_royal_court
+    left_portrait = {
+        character = root
+        animation = scepter
+    }
+    right_portrait = {
+        character = scope:balan_lai_1
+        animation = throne_room_applaud_1
+    }
+    override_effect_2d = {
+		reference = legend_glow
+	}
+    artifact = {
+        target = scope:newly_created_artifact
+        position = lower_center_portrait
+    }
+    lower_left_portrait = {
+        character = scope:balan_lai_2
+        animation = throne_room_applaud_1
+    }
+    lower_right_portrait = {
+        character = scope:balan_lai_3
+        animation = throne_room_applaud_1
+    }
+    
+    immediate = {
+        confederation = {
+            ordered_confederation_member = {
+                limit = {
+                    has_faith = faith:faith_gimileth
+                    NOT = {
+                        this = root
+                    }
+                }
+                order_by = ai_honor
+                position = 1
+                save_scope_as = balan_lai_1
+            }
+            ordered_confederation_member = {
+                limit = {
+                    has_faith = faith:faith_gimileth
+                    NOT = {
+                        this = root
+                        this = scope:balan_lai_1
+                    }
+                }
+                order_by = ai_honor
+                position = 2
+                save_scope_as = balan_lai_2
+            }
+            ordered_confederation_member = {
+                limit = {
+                    has_faith = faith:faith_gimileth
+                    NOT = {
+                        this = root
+                        this = scope:balan_lai_1
+                        this = scope:balan_lai_2
+                    }
+                }
+                order_by = ai_honor
+                position = 3
+                save_scope_as = balan_lai_3
+            }
+        }
+        create_artifact_reform_amendment = { 
+            OWNER = root
+        }
+        remove_character_flag = derei_plans
+        title:c_mispir.holder = {
+            set_character_faith = faith:faith_gimileth
+        }
+        culture = { save_scope_as = reformed_culture }
+    }
+
+    option = { # Sign it into law
+        name = derei.1026.a
+        root.dynasty = { add_dynasty_prestige = 500 }
+        scope:reformed_culture = {
+			remove_culture_tradition = tradition_kharadunai
+			add_culture_tradition = tradition_reformed_kharadunai
+		}
+        if = {
+            limit = {
+                title:k_drel.holder = {
+                    is_elf = yes
+                }
+            }
+            trigger_event = {
+                id = derei.1027
+                weeks = 12
+            }
+            title:k_drel.holder = { trigger_event = derei.1028 }
+        }
+    }
+    after = {
+        if = { 
+			limit = { # Major News
+				NOT = { has_game_rule = no_news }
+			}
+			every_player = { #Global News Announcement
+				trigger_event = news_event.0085
+			}
+		}
+		show_as_tooltip = { add_elven_hope_effect = { VALUE = massive_elven_hope_value HOPE_EFFECT = effect_elven_hope_global_evil_decreased } }
+    }
+}
+
+derei.1027 = { # Terilaen comes to congratulate Derei
+    content_source = realms_dlc
+    title = derei.1027.t
+    desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = { character:lineofmeglasul3 = title:k_drel.holder }
+                desc = derei.1027.desc
+            }
+            desc = derei.1027.trigger.desc
+        }
+    }
+    theme = elven
+    override_background = { reference = docks_adunai }
+    left_portrait = {
+        character = root
+        animation = ecstasy
+    }
+    right_portrait = {
+        character = scope:terilaen
+        animation = throne_room_applaud_1
+    }
+    artifact = {
+        target = scope:newly_created_artifact
+        position = lower_center_portrait
+    }
+    immediate = {
+        create_artifact_reformer_scepter = { OWNER = root }
+        title:k_drel.holder = { save_scope_as = terilaen }
+    }
+
+    option = { # I am moved
+        name = derei.1027.a
+        add_prestige = 1000
+        give_nickname = nick_sapthan
+        add_character_flag = had_nickname_event
+        if = {
+		    limit = {
+			    has_dlc_feature = legends
+    		}
+	    	custom_tooltip = derei_legend.tt
+		    hidden_effect = {
+		    	create_legend_seed = {
+			    	type = holy
+				    quality = illustrious
+    				chronicle = saintly_deed
+	    			properties = {
+		    			ancestor = character:lineofgimilethtwo107
+                        religion = religion:adunai_religion
+				    }
+			    }
+		    }
+	    }
+    }
+}
+
+derei.1028 = {
+    hidden = yes
+    immediate = {
+        send_interface_toast = {
+            title = derei.1028.toast
+            left_icon = root
+            right_icon = character:lineofgimilethtwo107
+            root = { add_elven_hope_effect = { VALUE = massive_elven_hope_value HOPE_EFFECT = effect_elven_hope_global_evil_decreased } }
+        }
+    }
+}
+
+derei.1029 = { # Derei grieves for Amali if she dies
+    content_source = realms_dlc
+    title = derei.1029.t
+    desc = derei.1029.desc
+    theme = death
+    left_portrait = {
+        character = root
+        animation = wailing
+    }
+    right_portrait = {
+        character = scope:amali
+        animation = dead
+    }
+    option = { # Become a widower
+        name = derei.1029.a
+        add_trait = widowed
+        add_piety = major_piety_gain
+        every_child = {
+            limit = { this.mother = scope:amali }
+            add_opinion = {
+                modifier = pleased_opinion
+                opinion = 50
+                target = root
+            }
+        }
+        ai_chance = {
+            base = 0
+            modifier = {
+                add = 100
+                any_child = {
+                    count >= 3
+                }
+            }
+            modifier = {
+                add = 50
+                any_child = {
+                    count = 2
+                }
+            }
+        }
+    }
+    option = { # Still much to live for
+        name = derei.1029.b
+        add_prestige = minor_prestige_gain
+        random_list = {
+            65 = { 
+                add_trait = depressed_1
+                add_stress = minor_stress_gain
+            }
+            25 = {
+                add_stress = major_stress_gain
+            }
+            10 = {
+                remove_trait = forgiving
+                add_trait = callous
+            }
+        }
+        every_child = {
+            limit = { this.mother = scope:amali }
+            add_opinion = {
+                modifier = disappointed_opinion
+                opinion = -50
+                target = root
+            }
+        }
+        ai_chance = {
+            base = 0
+            modifier = {
+                add = 100
+                any_child = {
+                    count < 2
+                }
+            }
+            modifier = {
+                add = 50
+                any_child = {
+                    count = 2
+                }
+            }
+        }
+    }
+}

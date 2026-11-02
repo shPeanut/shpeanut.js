@@ -1,0 +1,289 @@
+﻿namespace = lotr_enter_realm
+		
+### ROHAN
+## Helm's Deep
+lotr_enter_realm.3001 = { # Conquest of Helm's Deep - Saruman
+	hidden = yes
+ 	immediate = {
+		trigger_event = saruman_event_chain.3002
+	}
+}
+lotr_enter_realm.3002 = { # Loss of Helm's Deep - Rohan
+	hidden = yes
+ 	immediate = {
+		trigger_event = rohan.3002
+	}
+}
+lotr_enter_realm.3003 = { # Reconquest of Helm's Deep - Rohan
+	hidden = yes
+ 	immediate = {
+		trigger_event = rohan.3003
+	}
+}
+## Edoras
+lotr_enter_realm.3004 = { # Conquest of Edoras - Saruman
+	hidden = yes
+ 	immediate = {
+		trigger_event = saruman_event_chain.3003
+	}
+}
+lotr_enter_realm.3005 = { # Loss of Edoras - Rohan
+	hidden = yes
+ 	immediate = {
+		trigger_event = rohan.3000
+	}
+}
+lotr_enter_realm.3006 = { # Reconquest of Edoras - Rohan
+	hidden = yes
+ 	immediate = {
+		trigger_event = rohan.3001
+	}
+}
+## Isengard
+lotr_enter_realm.3007 = { # Loss of Isengard - Saruman
+	hidden = yes
+ 	immediate = {
+		trigger_event = saruman_event_chain.3000
+	}
+}
+lotr_enter_realm.3008 = { # Reconquest of Isengard - Saruman
+	hidden = yes
+ 	immediate = {
+		trigger_event = saruman_event_chain.3001
+		trigger_event = gondor.9998
+	}
+}	
+lotr_enter_realm.3009 = { # Conquest of Isengard - Rohan
+	hidden = yes
+ 	immediate = {
+		trigger_event = rohan.3004
+	}
+}
+lotr_enter_realm.3010 = { # Conquest of Isengard - Gondor
+	hidden = yes
+ 	immediate = {
+		trigger_event = gondor.6005
+	}
+}
+
+### GONDOR
+## Morannon
+lotr_enter_realm.2001 = { # Conquest of the Black Gate - Gondor
+	hidden = yes
+ 	immediate = {
+		trigger_event = gondor.6001
+	}
+}	
+lotr_enter_realm.2002 = { # Loss of the Black Gate - Sauron
+	hidden = yes
+ 	immediate = {
+		trigger_event = sauron.5000
+	}
+}
+lotr_enter_realm.2003 = { # Reconquest of the Black Gate - Sauron
+	hidden = yes
+ 	immediate = {
+		trigger_event = sauron.5001
+	}
+}		
+## Minas Tirith
+lotr_enter_realm.2004 = { # Loss of Minas Tirith - Gondor
+	hidden = yes
+ 	immediate = {
+		trigger_event = gondor.6002
+	}
+}
+lotr_enter_realm.2005 = { # Reconquest of Minas Tirith - Gondor
+	hidden = yes
+ 	immediate = {
+		trigger_event = gondor.6003
+	}
+}
+lotr_enter_realm.2006 = { # Conquest of Minas Tirith - Sauron
+	hidden = yes
+ 	immediate = {
+		trigger_event = {
+		    id = sauron.5002
+		    days = 2
+		}
+	}
+}	
+## Umbar
+lotr_enter_realm.2007 = { # Conquest of Umbar - Gondor
+	hidden = yes
+ 	immediate = {
+		trigger_event = gondor.6004
+	}
+}
+lotr_enter_realm.2011 = { # Northward Bellakar Takes Umbar
+	hidden = yes
+ 	immediate = {
+		trigger_event = bellakar_story.0213
+	}
+}		
+lotr_enter_realm.2008 = { # Conquest of Umbar - Ar-Adûnaim
+	hidden = yes
+ 	immediate = {
+		trigger_event = umbar.0111
+	}
+}	
+## Minas Ithil
+lotr_enter_realm.2009 = { # Reconquest of Minas Ithil - Gondor
+	hidden = yes
+ 	immediate = {
+		trigger_event = gondor.2300
+	}
+}
+### Tol Uialgaer
+lotr_enter_realm.2010 = { # Return to Anagzayan - Ar-Adûnaim
+	hidden = yes
+ 	immediate = {
+		trigger_event = umbar.0116
+	}
+}
+
+### ARNOR
+## Tharbad
+lotr_enter_realm.1001 = { # Settling Tharbad - Dúnedain
+	hidden = yes
+ 	immediate = {
+		trigger_event = arnor.9100
+	}
+}		
+
+### ELVEN
+## Caras Galadhon
+lotr_enter_realm.4001 = { # Fall of Caras Galadhon - Elves
+	hidden = yes
+ 	immediate = {
+		trigger_event = elven.0300
+	}
+}	
+lotr_enter_realm.4002 = { # Reconquest of Caras Galadhon - Elves
+	hidden = yes
+ 	immediate = {
+		trigger_event = elven.0301
+	}
+}
+lotr_enter_realm.4003 = { # Conquest of Caras Galadhon - Evil Faith Rulers
+	hidden = yes
+ 	immediate = {
+		trigger_event = dol_guldur.0200
+	}
+}
+## Thranduil's Halls
+lotr_enter_realm.4005 = { # Fall of Aradhrynd - Elves
+	hidden = yes
+ 	immediate = {
+		trigger_event = elven.0302
+	}
+}	
+lotr_enter_realm.4006 = { # Reconquest of Aradhrynd - Elves
+	hidden = yes
+ 	immediate = {
+		trigger_event = elven.0303
+	}
+}
+## Imladris
+lotr_enter_realm.4010 = { # Fall of Imladris - Elves
+	hidden = yes
+ 	immediate = {
+		trigger_event = elven.0304
+	}
+}	
+lotr_enter_realm.4011 = { # Reconquest of Imladris - Elves
+	hidden = yes
+ 	immediate = {
+		trigger_event = elven.0305
+	}
+}
+## Mithlond
+lotr_enter_realm.4015 = { # Fall of Mithlond - Elves
+	hidden = yes
+ 	immediate = {
+		trigger_event = elven.0306
+	}
+}	
+lotr_enter_realm.4016 = { # Reconquest of Mithlond - Elves
+	hidden = yes
+ 	immediate = {
+		trigger_event = elven.0307
+	}
+}
+## Nelornieth
+lotr_enter_realm.4020 = { # Fall of Nelornieth - Elves
+	hidden = yes
+ 	immediate = {
+		trigger_event = elven.0308
+	}
+}	
+lotr_enter_realm.4021 = { # Reconquest of Nelornieth - Elves
+	hidden = yes
+ 	immediate = {
+		trigger_event = elven.0309
+	}
+}
+## Drêl
+lotr_enter_realm.4025 = { # Fall of Drêl - Elves
+	hidden = yes
+ 	immediate = {
+		trigger_event = elven.0310
+	}
+}	
+lotr_enter_realm.4026 = { # Reconquest of Drêl - Elves
+	hidden = yes
+ 	immediate = {
+		trigger_event = elven.0311
+	}
+}
+## Drêl
+lotr_enter_realm.4030 = { # Fall of Talilan - Elves
+	hidden = yes
+ 	immediate = {
+		trigger_event = elven.0312
+	}
+}	
+lotr_enter_realm.4031 = { # Reconquest of Talilan - Elves
+	hidden = yes
+ 	immediate = {
+		trigger_event = elven.0313
+	}
+}
+
+### NORTHERN MOUNTAINS
+## Erebor 
+lotr_enter_realm.5001 = { # Fall of Erebor 
+	hidden = yes
+ 	immediate = {
+		if = {
+			limit = { 
+				game_start_date = 7033.1.1
+			}
+			trigger_event = dwarven.9701
+		}
+	}
+}
+lotr_enter_realm.5002 = { # Reconquest of Erebor
+	hidden = yes
+ 	immediate = {
+		if = {
+			limit = { 
+				game_start_date = 7033.1.1
+			}
+			trigger_event = dwarven.9700
+		}
+	}
+}
+## Dale
+lotr_enter_realm.5003 = { # Fall of Dale 
+	hidden = yes
+ 	immediate = {
+		trigger_event = dale.1000
+	}
+}
+lotr_enter_realm.5004 = { # Reconquest of Dale
+	hidden = yes
+ 	immediate = {
+		trigger_event = dale.1001
+	}
+}

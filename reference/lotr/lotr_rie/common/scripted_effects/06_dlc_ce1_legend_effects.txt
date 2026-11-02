@@ -1,0 +1,2724 @@
+﻿#grab_appropriate_chronicler_effect
+#grab_appropriate_bard_feast_effect - this one doesn't check if they're available, so it can be used in activities
+#grab_appropriate_bard_effect - this one checks if they're available
+#grab_mythical_founder_effect
+#disburse_hunt_legend_seeds
+#change_legend_quality_effect - This adjusts the quality of a legend using an invisible progress bar that goes from 0-100. When it hits 100, the legend increases one step in quality, if it dips below 0, the legend loses one step in quality
+#legend_completion_quality_flag_effect
+#legend_ending_rewards_heroic_effect
+#legend_ending_rewards_holy_effect
+#legend_ending_rewards_legitimizing_effect
+#legend_completion_type_flag_effect
+#get_appropriate_ancient_people - this looks for regionally appropriate ancient people for you to lay claim to
+# get_appropriate_exotic_location - Atlantis, Vinland, places of dubious historicity
+# generate_godly_descent_seed_support_effect - create a godly descent seed based on loc keys
+# generate_religion_descent_effect - generate a godly descent seed based on scopes
+# balancing_legend_global_var_effect
+# send_interface_message_legend_notification_effect
+# send_interface_toast_legend_notification_effect
+# create_swan_knight_legend_seed_effect
+
+grab_appropriate_chronicler_effect = {
+	if = { #If the culture would have relied on poets for this we grab them first
+		limit = {
+			OR = {
+				culture = { has_cultural_tradition = tradition_fp1_northern_stories }
+				culture = { has_cultural_tradition = tradition_poetry }
+				culture = { has_cultural_tradition = tradition_storytellers }
+				# culture = { has_cultural_tradition = tradition_chanson_de_geste } #LotR
+				faith = {
+					trait_is_virtue = lifestyle_poet
+				}
+			}
+			any_court_position_holder = {
+				type = court_poet_court_position
+				is_available_ai_adult = yes
+			}
+		}
+		random_court_position_holder = {
+			type = court_poet_court_position
+			limit = {
+				is_available_ai_adult = yes
+			}
+			save_scope_as = chronicler
+		}
+	}		
+	else_if = { #Otherwise we go for the Chronicler first
+		limit = {
+			any_court_position_holder = {
+				type = chronicler_court_position
+				is_available_ai_adult = yes
+			}
+		}
+		random_court_position_holder = {
+			type = chronicler_court_position
+			limit = {
+				is_available_ai_adult = yes
+			}
+			save_scope_as = chronicler
+		}
+	}
+	else_if = {
+		limit = {
+			any_court_position_holder = {
+				type = court_poet_court_position
+				is_available_ai_adult = yes
+			}
+		}
+		random_court_position_holder = {
+			type = court_poet_court_position
+			limit = {
+				is_available_ai_adult = yes
+			}
+			save_scope_as = chronicler
+		}
+	}
+	else_if = {
+		limit = {
+			any_court_position_holder = {
+				type = court_musician_court_position
+				is_available_ai_adult = yes
+			}
+		}
+		random_court_position_holder = {
+			type = court_musician_court_position
+			limit = {
+				is_available_ai_adult = yes
+			}
+			save_scope_as = chronicler
+		}
+	}
+	else = {
+		ordered_courtier = {
+			limit = {
+				NOT = { this = root }
+				is_available_ai_adult = yes
+			}
+			order_by = {
+				value = diplomacy
+				if = {
+					limit = {
+						OR = {
+							has_trait = lifestyle_poet
+							has_trait = journaller
+						}
+					}
+					add = 10
+				}
+				if = {
+					limit = { is_spouse_of = root  }
+					add = -2
+				}
+			}
+			save_scope_as = chronicler
+		}
+	}
+}
+
+grab_appropriate_bard_feast_effect = {
+	if = {
+		limit = {
+			employs_court_position = court_musician_court_position
+			scope:activity = {
+				any_attending_character = {
+					employer = root
+					has_court_position = court_musician_court_position
+					is_physically_able_ai_adult = yes
+				}
+			}
+		}
+		scope:activity = {
+			random_attending_character = {
+				limit = {
+					employer = root
+					has_court_position = court_musician_court_position
+					is_physically_able_ai_adult = yes
+				}
+				save_scope_as = bard
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			employs_court_position = court_poet_court_position
+			scope:activity = {
+				any_attending_character = {
+					employer = root
+					has_court_position = court_poet_court_position
+					is_physically_able_ai_adult = yes
+				}
+			}
+		}
+		scope:activity = {
+			random_attending_character = {
+				limit = {
+					employer = root
+					has_court_position = court_poet_court_position
+					is_physically_able_ai_adult = yes
+				}
+				save_scope_as = bard
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			scope:activity = {
+				any_attending_character = {
+					OR = {
+						is_vassal_of = root
+						is_courtier_of = root
+					}
+					NOT = { this = root }
+					NOT = { is_spouse_of = root }
+					NOT = { is_child_of = root }
+					NOT = { is_councillor_of = root }
+					is_physically_able_ai_adult = yes
+				}				
+			}
+		}
+		scope:activity = {
+			ordered_attending_character = {
+				limit = {
+					OR = {
+						is_vassal_of = root
+						is_courtier_of = root
+					}
+					NOT = { this = root }
+					NOT = { is_spouse_of = root }
+					NOT = { is_child_of = root }
+					is_physically_able_ai_adult = yes
+				}
+				order_by = {
+					value = diplomacy
+					if = {
+						limit = {
+							has_trait = lifestyle_poet
+						}
+						add = 10
+					}
+					if = {
+						limit = {
+							has_trait = journaller
+						}
+						add = 5
+					}
+				}
+			}
+			save_scope_as = bard
+		}
+	}
+	else = {
+		create_character = {
+			template = bard_template
+			dynasty = none
+			location = root.location
+			gender_female_chance = root_faith_dominant_gender_female_chance
+			save_scope_as = bard
+		}
+	}
+}
+
+grab_appropriate_bard_effect = {
+	if = {
+		limit = {
+			employs_court_position = court_musician_court_position
+			any_court_position_holder = {
+				type = court_musician_court_position
+				is_available_healthy_ai_adult = yes
+			}
+		}
+		random_court_position_holder = {
+			type = court_musician_court_position
+			limit = { is_available_healthy_ai_adult = yes }
+			save_scope_as = bard
+		}
+	}
+	else_if = {
+		limit = {
+			employs_court_position = court_poet_court_position
+			any_court_position_holder = {
+				type = court_poet_court_position
+				is_available_healthy_ai_adult = yes
+			}
+		}
+		random_court_position_holder = {
+			type = court_poet_court_position
+			limit = { is_available_healthy_ai_adult = yes }
+			save_scope_as = bard
+		}
+	}
+	else_if = {
+		limit = {
+			any_courtier = {
+				NOT = { this = root }
+				NOT = { is_spouse_of = root }
+				NOT = { is_child_of = root }
+				NOT = { is_councillor_of = root }
+				is_available_healthy_ai_adult = yes
+			}
+		}
+		ordered_courtier = {
+			limit = {
+				NOT = { this = root }
+				NOT = { is_spouse_of = root }
+				NOT = { is_child_of = root }
+				NOT = { is_councillor_of = root }
+				is_available_healthy_ai_adult = yes
+			}
+			order_by = {
+				value = diplomacy
+				if = {
+					limit = {
+						has_trait = lifestyle_poet
+					}
+					add = 10
+				}
+				if = {
+					limit = {
+						has_trait = journaller
+					}
+					add = 5
+				}
+			}
+			save_scope_as = bard
+		}
+	}
+	else = {
+		create_character = {
+			template = bard_template
+			dynasty = none
+			location = root.location
+			gender_female_chance = root_faith_dominant_gender_female_chance
+			save_scope_as = bard
+		}
+	}
+}
+
+grab_mythical_founder_effect = {
+	hidden_effect = {
+		if = {
+			limit = {
+				NOT = { exists = var:mythical_ancestor_var }
+			}
+			random_list = {
+				10 = { # Eorl the Young
+					trigger = {
+						OR = {
+							root.primary_title = title:d_thefolde
+							root.primary_title = title:k_rohan
+							root.primary_title.kingdom ?= title:k_rohan
+						}
+						current_date > 6543.7.15 # Founding of Rohan
+						OR = {
+							culture = { has_cultural_pillar = heritage_eotheod }
+							culture = { has_cultural_pillar = heritage_northron }
+						}
+					}
+					set_variable = { name = mythical_ancestor_var value = flag:eorl }
+				}
+				10 = { # Wulf the Ancient
+					trigger = {
+						OR = {
+							root.primary_title = title:d_dunlandfells
+							root.primary_title = title:d_dunfearan
+							root.primary_title = title:d_dathabha
+							root.primary_title = title:d_westmarches
+							root.primary_title = title:d_iarnburn
+							root.primary_title = title:k_dunland
+							root.primary_title = title:d_thefolde
+							root.primary_title = title:d_westfold
+							root.primary_title = title:d_westemnet
+							root.primary_title = title:k_rohan
+							root.primary_title = title:e_enedhwaith
+							root.primary_title.kingdom ?= title:k_rohan
+							root.primary_title.kingdom ?= title:k_dunland
+							root.primary_title.kingdom ?= title:k_isengard
+						}
+						current_date > 6543.7.15 # Founding of Rohan
+						culture = { has_cultural_pillar = heritage_daen_lintis }
+					}
+					set_variable = { name = mythical_ancestor_var value = flag:wulf_the_ancient }
+				}
+				10 = { # Anarion
+					trigger = {
+						OR = {
+							root.primary_title = title:d_minas_tirith
+							root.primary_title = title:e_gondor_steward
+							root.primary_title = title:e_gondor
+						}
+						current_date > 3912.1.1 # Founding of Gondor
+						#culture = { has_cultural_pillar = heritage_dunedain }
+					}
+					set_variable = { name = mythical_ancestor_var value = flag:anarion }
+				}
+				10 = { # Castamir
+					trigger = {
+						OR = {
+							root.primary_title = title:d_umbar
+							root.primary_title = title:k_umbar
+							root.primary_title = title:e_umbar
+							root.primary_title = title:e_castamir
+							root.primary_title = title:d_minas_tirith
+							root.primary_title = title:e_gondor_steward
+							root.primary_title = title:e_gondor
+							root.primary_title.empire ?= title:e_castamir
+							root.primary_title.empire ?= title:e_umbar
+						}
+						current_date > 5481.1.1 # Flight of Castaher
+						culture = { has_cultural_pillar = heritage_northern_adunaic }
+					}
+					set_variable = { name = mythical_ancestor_var value = flag:castamir }
+				}
+				10 = { # Zimrêbal I
+					trigger = {
+						OR = {
+							root.primary_title = title:e_bellakar
+							root.primary_title = title:k_nilulonde
+							root.primary_title = title:d_nilulonde
+						}
+						current_date > 4373.1.1 # Tumakveh Invocate
+						#culture = { has_cultural_pillar = heritage_bellakari }
+					}
+					set_variable = { name = mythical_ancestor_var value = flag:zimrebal }
+				}
+				10 = { # Fram the Dragonslayer
+					trigger = {
+						OR = {
+							root.primary_title = title:k_anduin_vale
+							root.primary_title = title:k_langwell
+							root.primary_title = title:k_brownlands
+							root.primary_title.kingdom ?= title:k_anduin_vale
+							root.primary_title.kingdom ?= title:k_langwell
+							root.primary_title.kingdom ?= title:k_brownlands
+						}
+						current_date > 6043.11.11 # Death of Fram
+						OR = {
+							culture = { has_cultural_pillar = heritage_eotheod }
+							culture = { has_cultural_pillar = heritage_northron }
+						}
+					}
+					set_variable = { name = mythical_ancestor_var value = flag:fram }
+				}
+				1 = { # Fallback, only triggered when necessary
+					set_variable = { name = mythical_ancestor_var value = flag:fallback }
+				}
+			}
+		}
+	}
+}
+
+disburse_hunt_legend_seeds = {
+	if = {
+		limit = {
+			is_ruler = yes
+			has_dlc_feature = legends
+			NOT = { has_game_rule = historical_legends_only }
+		}
+		if = {
+			limit = {
+				scope:activity.var:animal_type = flag:dragon
+			}
+			create_legend_seed = {
+				type = heroic
+				quality = famed
+				chronicle = beast_slayer
+				properties = {
+					beast = flag:dragon
+					location = root.location
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				scope:activity.var:animal_type = flag:unicorn
+			}
+			create_legend_seed = {
+				type = heroic
+				quality = famed
+				chronicle = beast_slayer
+				properties = {
+					beast = flag:unicorn
+					location = root.location
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				scope:activity.var:animal_type = flag:bear
+			}
+			random = {
+				chance = 50
+				create_legend_seed = {
+					type = heroic
+					quality = famed
+					chronicle = beast_slayer
+					properties = {
+						beast = flag:bear
+						location = root.location
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					scope:activity.var:animal_type = flag:tiger
+					scope:activity.var:animal_type = flag:lion
+					scope:activity.var:animal_type = flag:leopard
+					scope:activity.var:animal_type = flag:warg
+					scope:activity.var:animal_type = flag:caragor
+				}
+			}
+			random = {
+				chance = 30
+				create_legend_seed = {
+					type = heroic
+					quality = famed
+					chronicle = beast_slayer
+					properties = {
+						beast = flag:ferocious_beast
+						location = root.location
+					}
+				}
+			}
+		}
+	}
+}
+
+# Has to be run on the legend itself
+change_legend_quality_effect = {
+	# Firstly, do I exist and if not, set me
+	if = {
+		limit = {
+			NOT = { exists = var:legend_quality_progress }
+		}
+		if = {
+			limit = {
+				$VALUE$ <= major_legend_quality_decrease
+			}
+			custom_tooltip = major_legend_quality_decrease_tt
+			set_variable = {
+				name = legend_quality_progress
+				value = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ <= medium_legend_quality_decrease
+			}
+			custom_tooltip = medium_legend_quality_decrease_tt
+			set_variable = {
+				name = legend_quality_progress
+				value = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ < 0
+			}
+			custom_tooltip = minor_legend_quality_decrease_tt
+			set_variable = {
+				name = legend_quality_progress
+				value = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ >= major_legend_quality_increase
+			}
+			custom_tooltip = major_legend_quality_increase_tt
+			set_variable = {
+				name = legend_quality_progress
+				value = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ >= medium_legend_quality_increase
+			}
+			custom_tooltip = medium_legend_quality_increase_tt
+			set_variable = {
+				name = legend_quality_progress
+				value = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ > 0
+			}
+			custom_tooltip = minor_legend_quality_increase_tt
+			set_variable = {
+				name = legend_quality_progress
+				value = $VALUE$
+			}
+		}
+		else = {
+			set_variable = {
+				name = legend_quality_progress
+				value = 0
+			}
+		}
+	}
+	# Otherwise, check if the progress is going to go over 100 and if so, cap at 100
+	else_if = {
+		limit = {
+			exists = var:legend_quality_progress
+			100 <= {
+				value = var:legend_quality_progress
+				add = $VALUE$
+			}
+		}
+		set_variable = {
+			name = legend_quality_progress
+			value = 100
+		}
+	}
+	# Otherwise, check if the progress is going to go below 0 and if so, cap at 0
+	else_if = {
+		limit = {
+			exists = var:legend_quality_progress
+			0 >= {
+				value = var:legend_quality_progress
+				add = $VALUE$
+			}
+		}
+		set_variable = {
+			name = legend_quality_progress
+			value = 0
+		}
+	}
+	# Otherwise, just apply the mathematics
+	else = {
+		if = {
+			limit = {
+				$VALUE$ <= major_legend_quality_decrease
+			}
+			custom_tooltip = major_legend_quality_decrease_tt
+			change_variable = {
+				name = legend_quality_progress
+				add = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ <= medium_legend_quality_decrease
+			}
+			custom_tooltip = medium_legend_quality_decrease_tt
+			change_variable = {
+				name = legend_quality_progress
+				add = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ < 0
+			}
+			custom_tooltip = minor_legend_quality_decrease_tt
+			change_variable = {
+				name = legend_quality_progress
+				add = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ >= major_legend_quality_increase
+			}
+			custom_tooltip = major_legend_quality_increase_tt
+			change_variable = {
+				name = legend_quality_progress
+				add = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ >= medium_legend_quality_increase
+			}
+			custom_tooltip = medium_legend_quality_increase_tt
+			change_variable = {
+				name = legend_quality_progress
+				add = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ > 0
+			}
+			custom_tooltip = minor_legend_quality_increase_tt
+			change_variable = {
+				name = legend_quality_progress
+				add = $VALUE$
+			}
+		}
+	}
+}
+
+#Rewards for Famed Legends
+legend_ending_rewards_famed_heroic_effect = {
+	add_legitimacy = medium_legitimacy_gain
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_famed_legend_var
+		set_variable = finished_heroic_legend_var
+	}
+}
+
+legend_ending_rewards_famed_holy_effect = {
+	add_legitimacy = medium_legitimacy_gain
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_famed_legend_var
+		set_variable = finished_holy_legend_var
+	}
+}
+
+legend_ending_rewards_famed_legitimizing_effect = {
+	add_legitimacy = {
+		value = medium_legitimacy_gain
+		multiply = 2
+	}
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_famed_legend_var
+		set_variable = finished_legitimizing_legend_var
+	}
+}
+
+#Rewards for Illustrious Legends
+legend_ending_rewards_illustrious_heroic_effect = {
+	add_legitimacy = major_legitimacy_gain
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_illustrious_legend_var
+		set_variable = finished_heroic_legend_var
+	}
+}
+
+legend_ending_rewards_illustrious_holy_effect = {
+	add_legitimacy = major_legitimacy_gain
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_illustrious_legend_var
+		set_variable = finished_holy_legend_var
+	}
+}
+
+legend_ending_rewards_illustrious_legitimizing_effect = {
+	add_legitimacy = {
+		value = major_legitimacy_gain
+		multiply = 2
+	}
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_illustrious_legend_var
+		set_variable = finished_legitimizing_legend_var
+	}
+}
+
+#Rewards for Mythical Legends
+legend_ending_rewards_mythical_heroic_effect = {
+	add_legitimacy = massive_legitimacy_gain
+	# Chance to become a Living Legend
+	if = {
+		limit = {
+			dynasty ?= {
+				ce1_heroic_track_perks >= 4
+			}
+		}
+		add_trait = legend
+	}
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_mythical_legend_var
+		set_variable = finished_heroic_legend_var
+	}
+}
+
+legend_ending_rewards_mythical_holy_effect = {
+	add_legitimacy = massive_legitimacy_gain
+	# Chance to become a Saint
+	if = {
+		limit = {
+			dynasty ?= {
+				ce1_heroic_track_perks >= 3
+			}
+		}
+		add_trait = saint
+		if = {
+			limit = { NOT = { has_global_variable = num_of_saints_var } }
+			set_global_variable = {
+				name = num_of_saints_var
+				value = 1
+			}
+		}
+		else = {
+			change_global_variable = {
+				name = num_of_saints_var
+				add = 1
+			}
+		}
+		if = {
+			limit = { is_ai = no }
+			add_achievement_global_variable_effect = {
+				VARIABLE = ce1_canonized_achievement_unlocked
+				VALUE = yes
+			}
+		}
+	}
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_mythical_legend_var
+		set_variable = finished_holy_legend_var
+	}
+}
+
+legend_ending_rewards_mythical_legitimizing_effect = {
+	add_legitimacy = {
+		value = massive_legitimacy_gain
+		multiply = 2
+	}
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_mythical_legend_var
+		set_variable = finished_legitimizing_legend_var
+	}
+}
+
+#We clean out the notification variables
+remove_legend_notification_variables_effect = {
+	every_player = {
+		limit = {
+			exists = var:legend_alerted_var
+			var:legend_alerted_var = promoted_legend
+		}
+		remove_variable = legend_alerted_var
+	}
+}
+
+#Rewards for all Heroic Legends
+legend_ending_rewards_heroic_effect = {
+	# Legitimacy gain based on Legend Protagonist
+	disburse_legend_protagonist_legitimacy_effect = yes
+	# Available decision
+	custom_tooltip = legend_ending_decision_tt
+	hidden_effect = {
+		create_character_memory = {
+			type = ce1_completed_my_heroic_legend
+			participants = {
+				owner = root
+				protagonist = scope:legend_protagonist
+			}
+		}
+	}
+}
+
+#Rewards for all Legitimizing Legends
+legend_ending_rewards_legitimizing_effect = {
+	# Legitimacy gain based on Legend Protagonist
+	disburse_legend_protagonist_legitimacy_effect = yes
+	# We let you diverge if it's an Ancient People legend
+	if = {
+		limit = {
+			exists = scope:legendary_culture
+			has_dlc_feature = diverge_culture # Don't mislead players who don't have access to divergence
+		}
+		custom_tooltip = { 
+			text = can_select_legendary_culture_pillars_tt
+			set_variable = {
+				name = legendary_culture
+				value = scope:legendary_culture
+			}
+		}
+	}
+	if = {
+		limit = {
+			exists = scope:title_claim.holder
+			NOT = {
+				scope:title_claim.holder = root
+			}
+		}
+		add_pressed_claim = scope:title_claim
+		add_to_variable_list = {
+			name = legendary_claims
+			target = scope:title_claim
+		}
+	}
+	# else_if = { #LotR - we don't do that, it's too OP
+	# 	limit = {
+	# 		scope:title_claim.tier > tier_county
+	# 	}
+	# 	custom_tooltip = {
+	# 		text = legend_title_does_not_exist_sub_realm_claims_given_tt
+	# 	}
+	# 	hidden_effect = {
+	# 		scope:title_claim = {
+	# 			legend_distribute_claims_in_de_jure = yes
+	# 		}
+	# 	}
+	# }
+	# Available decision
+	custom_tooltip = legend_ending_decision_tt
+	promoted_legend ?= { set_variable = finished_legend_var }
+	hidden_effect = {
+		create_character_memory = {
+			type = ce1_completed_my_legitimizing_legend
+			participants = {
+				owner = root
+				protagonist = scope:legend_protagonist
+			}
+		}
+	}
+}
+
+legend_distribute_claims_in_de_jure = {
+	every_direct_de_jure_vassal_title = {
+		if = {
+			limit = {
+				exists = holder
+			}
+			root = {
+				add_pressed_claim = prev
+				add_to_variable_list = {
+					name = legendary_claims
+					target = prev
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				this.tier > tier_county
+			}
+			every_direct_de_jure_vassal_title = {
+				if = {
+					limit = {
+						exists = holder
+					}
+					root = {
+						add_unpressed_claim = prev
+						add_to_variable_list = {
+							name = legendary_claims
+							target = prev
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						this.tier > tier_county
+					}
+					every_direct_de_jure_vassal_title = {
+						if = {
+							limit = {
+								exists = holder
+							}
+							root = {
+								add_unpressed_claim = prev
+								add_to_variable_list = {
+									name = legendary_claims
+									target = prev
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}	
+}
+
+#Rewards for all Holy Legends
+legend_ending_rewards_holy_effect = {
+	# Legitimacy gain based on Legend Protagonist
+	disburse_legend_protagonist_legitimacy_effect = yes
+	# Available decision
+	custom_tooltip = legend_ending_decision_tt
+	promoted_legend ?= { set_variable = finished_legend_var }
+	hidden_effect = {
+		create_character_memory = {
+			type = ce1_completed_my_holy_legend
+			participants = {
+				owner = root
+				protagonist = scope:legend_protagonist
+			}
+		}
+	}
+}
+
+# Achievements for legends
+legend_ending_achievements_effect = {
+	if = {
+		limit = {
+			exists = promoted_legend
+		}
+		if = { # If you have the legend of Scota
+			limit = {
+				is_ai = no
+				promoted_legend ?= {
+					has_legend_chronicle = ancient_people
+					# legend_property:culture ?= culture:ancient_egyptian
+					# legend_property:title ?= title:k_scotland #LotR
+					# legend_property:original_region ?= geographical_region:ghw_region_egypt_et_al
+				}
+				always = no
+			}
+			add_achievement_global_variable_effect = {
+				VARIABLE = ce1_the_pharaoh_islands_achievement_unlocked
+				VALUE = yes
+			}
+		}
+		if = {
+			limit = { is_ai = no }
+			add_achievement_global_variable_effect = {
+				VARIABLE = ce1_legendary_achievement_unlocked
+				VALUE = yes
+			}
+		}
+		if = { # If you finish your ancestor's legend
+			limit = {
+				is_ai = no
+				has_variable = ce1_neverending_story_achievement_possible
+				promoted_legend = { has_variable = ce1_neverending_story_achievement_possible_legend }
+			}
+			add_achievement_global_variable_effect = {
+				VARIABLE = ce1_neverending_story_achievement_unlocked
+				VALUE = yes
+			}
+		}
+		if = { # If you finish a mythical legend as a count
+			limit = {
+				is_ai = no
+				highest_held_title_tier = tier_county
+				promoted_legend = { legend_quality = mythical }
+			}
+			add_achievement_global_variable_effect = {
+				VARIABLE = ce1_local_legend_achievement_unlocked
+				VALUE = yes
+			}
+		}
+	}
+}
+
+get_appropriate_ancient_people = { # LOTR: TBD, Need to adapt
+	random_list = {		
+		### LOTR ###
+		999 = {
+			trigger = {
+				root.culture = {
+					lotr_has_numenorean_culture_trigger = yes
+					NOT = { culture = culture:numenorean }
+				}
+			}
+			set_variable = {
+				name = original_region
+				value = geographical_region:middleearth_west # We need a Numenorean Colonies Region
+				years = 1
+			}
+			culture:numenorean = { save_scope_as = ancient_culture }
+		}
+		999 = {
+			trigger = {
+				root.culture = {
+					any_parent_culture_or_above = { this = culture:umbaredain }
+					NOT = { culture = culture:umbaredain }
+				}
+			}
+			set_variable = {
+				name = original_region
+				value = geographical_region:middleearth_west_gondor
+				years = 1
+			}
+			culture:umbaredain = { save_scope_as = ancient_culture }
+		}
+		999 = {
+			trigger = {
+				root.culture = {
+					has_cultural_pillar = heritage_eotheod
+					NOT = { culture = culture:eotheod }
+				}
+			}
+			set_variable = {
+				name = original_region
+				value = geographical_region:middleearth_west_rhovanion_anduin
+				years = 1
+			}
+			culture:eotheod = { save_scope_as = ancient_culture }
+		}
+		999 = {
+			trigger = {
+				root.culture = {
+					has_cultural_pillar = heritage_northron
+					NOT = { culture = culture:northron }
+				}
+			}
+			set_variable = {
+				name = original_region
+				value = geographical_region:middleearth_west_rhovanion_brownlands
+				years = 1
+			}
+			culture:northron = { save_scope_as = ancient_culture }
+		}
+		999 = {
+			trigger = {
+				root.culture = {
+					any_parent_culture_or_above = { this = culture:daen }
+					NOT = { culture = culture:daen }
+				}
+			}
+			set_variable = {
+				name = original_region
+				value = geographical_region:middleearth_west_enedhwaith
+				years = 1
+			}
+			culture:daen = { save_scope_as = ancient_culture }
+		}
+		999 = {
+			trigger = {
+				root.culture = { has_cultural_pillar = heritage_tedjin }
+			}
+			set_variable = {
+				name = original_region
+				value = geographical_region:middleearth_rhun
+				years = 1
+			}
+			culture:ioriag = { save_scope_as = ancient_culture }
+		}
+		1 = { # LotR Temp Fallback - TODO
+			culture:numenorean = { save_scope_as = ancient_culture }
+			set_variable = {
+				name = original_region
+				value = geographical_region:middleearth_west
+				years = 1
+			}
+		}
+	}
+}
+
+get_appropriate_exotic_location = { # LOTR: Adapted
+	random_list = {
+		999 = { # The Great Eagles' Eyrie
+			trigger = {
+				faith_is_good = yes
+				OR = {
+					capital_county = {
+						title_province = { geographical_region = middleearth_mountains_misty }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_mountains_iron }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_west }
+					}
+				}
+				faith_is_good = yes
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_great_eagles
+			}
+		}
+		999 = { # The Meneltarma
+			trigger = {
+				OR = {
+					lotr_has_numenorean_culture_trigger = yes
+					religion = religion:dunedain_religion
+				}
+				faith_is_good = yes
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_meneltarma
+			}
+		}
+		999 = { # The Ruins of Utumno
+			trigger = {
+				religion = { is_in_family = rf_forcesofevil }
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_utumno
+			}
+		}
+		999 = { # The Ruins of Angband
+			trigger = {
+				religion = { is_in_family = rf_forcesofevil }
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_angband
+			}
+		}
+		999 = { # Mount Doom
+			trigger = {
+				NOT = {
+					capital_county = {
+						title_province = { geographical_region = middleearth_mordor_gorgoroth }
+					}
+				}
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_mount_doom
+			}
+		}
+		999 = { # The Lone Lands
+			trigger = {
+				OR = {
+					capital_county = {
+						title_province = { geographical_region = middleearth_west_gondor }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_west_rhovanion }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_mordor }
+					}
+				}
+				game_start_date >= 5500
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_lone_lands
+			}
+		}
+		999 = { # The Lands of Harad
+			trigger = {
+				NOT = {
+					capital_county = {
+						title_province = { geographical_region = middleearth_harad }
+					}
+				}
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_harad
+			}
+		}
+		999 = { # The Bay of Tulwang
+			trigger = {
+				NOT = {
+					capital_county = {
+						title_province = { geographical_region = middleearth_harad }
+					}
+				}
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_bayoftulwang
+			}
+		}
+		999 = { # The Mirror of Fire
+			trigger = {
+				NOT = {
+					capital_county = {
+						title_province = { geographical_region = middleearth_harad }
+					}
+				}
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_mirroroffire
+			}
+		}
+		999 = { # The Utter South
+			#trigger = {
+			#	capital_county = {
+			#		title_province = { geographical_region = middleearth_west }
+			#	}
+			#}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_the_utter_south
+			}
+		}
+		999 = { # Amrûn
+			trigger = {
+				capital_county = {
+					title_province = { geographical_region = middleearth_west }
+				}
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_amrun
+			}
+		}
+		999 = { # The Furthest East
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_furthest_east
+			}
+		}
+		999 = { # Hildórien
+			trigger = {
+				religion = { is_in_family = rf_eruhini }
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_hildorien
+			}
+		}
+		999 = { # Cuiviénen 
+			trigger = {
+				religion = { is_in_family = rf_eruhini }
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_cuivienen
+			}
+		}
+		999 = { # Gardens of Lórien 
+			trigger = {
+				religion = { is_in_family = rf_eruhini }
+				NOT = { is_elf = yes }
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_gardens_lorien
+			}
+		}
+		999 = { # Woods of Oromë
+			trigger = {
+				religion = { is_in_family = rf_eruhini }
+				NOT = { is_elf = yes }
+				NOT = { is_dwarf = yes }
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_woods_orome
+			}
+		}
+		999 = { # Pastures of Yavanna
+			trigger = {
+				religion = { is_in_family = rf_eruhini }
+				NOT = { is_elf = yes }
+				NOT = { is_dwarf = yes }
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_pastures_yavanna
+			}
+		}
+		999 = { # Gates of Night
+			trigger = {
+				religion = { is_in_family = rf_eruhini }
+				NOT = { is_elf = yes }
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_gates_of_night
+			}
+		}
+		999 = { # Taniquetil
+			trigger = {
+				religion = { is_in_family = rf_eruhini }
+				NOT = { is_elf = yes }
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_taniquetil
+			}
+		}
+		999 = { # Tirion
+			trigger = {
+				religion = { is_in_family = rf_eruhini }
+				NOT = { is_elf = yes }
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_tirion
+			}
+		}
+		999 = { # Alqualondë
+			trigger = {
+				religion = { is_in_family = rf_eruhini }
+				NOT = { is_elf = yes }
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_alqualonde
+			}
+		}
+		999 = { # Mûmakan
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_mumakan
+			}
+		}
+		999 = { # Thâni-Hazâd
+			trigger = {
+				NOR = {
+					capital_county = {
+						title_province = { geographical_region = middleearth_harad_far }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_mountains_yellow_east }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_mountains_yellow_west }
+					}
+				}
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_thanihazad
+			}
+		}
+		999 = { # Sirayn
+			trigger = {
+				NOR = {
+					capital_county = {
+						title_province = { geographical_region = middleearth_harad_far }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_mountains_yellow_east }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_mountains_yellow_west }
+					}
+				}
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_sirayn
+			}
+		}
+		999 = { # Vûlmaw
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_vulmaw
+			}
+		}
+		999 = { # The Dark Lands
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_dark_lands
+			}
+		}
+		999 = { # The Westlands
+			trigger = {
+				NOR = {
+					capital_county = {
+						title_province = { geographical_region = middleearth_west }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_west_beleriand }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_mountains_misty }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_mountains_blue }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_mountains_iron }
+					}
+				}
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_westlands
+			}
+		}
+		999 = { # The Great Beyond
+			trigger = {
+				has_trait = eccentric
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_great_beyond
+			}
+		}
+		999 = { # Beyond the Belegaer
+			trigger = {
+				capital_county = {
+					title_province = { geographical_region = custom_greater_corsair_coast }
+				}
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_beyond_belegaer
+			}
+		}
+		999 = { # Atalantë
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_atalante
+			}
+		}
+		999 = { # The Northern Waste
+			trigger = {
+				NOT = {
+					capital_county = {
+						title_province = { geographical_region = middleearth_forodwaith }
+					}
+				}
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_northern_waste
+			}
+		}
+		999 = { # The Blue Mountains
+			trigger = {
+				NOR = {
+					capital_county = {
+						title_province = { geographical_region = middleearth_mountains_blue }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_west_beleriand }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_west_arnor }
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				is_dwarf = yes
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_blue_mountains
+			}
+		}
+		999 = { # The Iron Mountains
+			trigger = {
+				NOR = {
+					capital_county = {
+						title_province = { geographical_region = middleearth_mountains_iron }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_mountains_misty }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_west_rhovanion }
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				is_dwarf = yes
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_iron_mountains
+			}
+		}
+		999 = { # The Misty Mountains
+			trigger = {
+				NOR = {
+					capital_county = {
+						title_province = { geographical_region = middleearth_mountains_iron }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_mountains_misty }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_west }
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				is_dwarf = yes
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_misty_mountains
+			}
+		}
+		999 = { # The White Mountains
+			trigger = {
+				NOR = {
+					capital_county = {
+						title_province = { geographical_region = middleearth_west }
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				is_dwarf = yes
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_white_mountains
+			}
+		}
+		999 = { # The Yellow Mountains
+			trigger = {
+				NOR = {
+					capital_county = {
+						title_province = { geographical_region = middleearth_mountains_yellow_east }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_harad_far }
+					}
+					capital_county = {
+						title_province = { geographical_region = middleearth_mountains_yellow_west }
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				is_dwarf = yes
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_yellow_mountains
+			}
+		}
+		999 = { # The Echoing Mountains
+			trigger = {
+				is_dwarf = yes
+			}
+			modifier = {
+				factor = 5
+				is_dwarf = yes
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_echoing_mountains
+			}
+		}
+		999 = { # The Red Mountains
+			modifier = {
+				factor = 5
+				is_dwarf = yes
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_red_mountains
+			}
+		}
+		999 = { # The Darkest Depths
+			trigger = {
+				OR = {
+					is_dwarf = yes
+					is_orc = yes
+				}
+			}
+			modifier = {
+				factor = 5
+				OR = {
+					is_dwarf = yes
+					is_orc = yes
+				}
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_darkest_depths
+			}
+		}
+		1 = { # The Utter South (fallback)
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:lotr_the_utter_south
+			}
+		}
+	}
+}
+
+# Generates a legend seed that just points to a loc key by combining FAITH with GOD (example, FAITH = germanic + GOD = high_god will result in germanic_high_god_name and localise to "Odin")
+generate_godly_descent_seed_support_effect = {
+	create_legend_seed = {
+		type = holy
+		quality = famed
+		chronicle = godly_descent
+		properties = {
+			god = flag:$FAITH$_$GOD$_name
+			title = root.primary_title
+		}
+	}
+}
+
+# Runs the above effect based on an actual RELIGION that you feed into it, for example feeding Root.Religion into RELIGION will cause it to generate your religion's god loc keys
+generate_religion_descent_effect = { # LOTR: TBD, Need to adapt
+	if = {
+		limit = { $RELIGION$ = religion:harad_religion }
+		generate_godly_descent_seed_support_effect = {
+			FAITH = harad
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = { $RELIGION$ = religion:dru_diaspora_religion }
+		generate_godly_descent_seed_support_effect = {
+			FAITH = dru_diaspora
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = { $RELIGION$ = religion:far_harad_religion }
+		generate_godly_descent_seed_support_effect = {
+			FAITH = far_harad
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = { $RELIGION$ = religion:forodwaith_religion }
+		generate_godly_descent_seed_support_effect = {
+			FAITH = forodwaith
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = { $RELIGION$ = religion:gwathuirim_religion }
+		generate_godly_descent_seed_support_effect = {
+			FAITH = gwathuirim
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = { $RELIGION$ = religion:ormalbay_religion }
+		generate_godly_descent_seed_support_effect = {
+			FAITH = ormalbay
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = { $RELIGION$ = religion:anduinic_religion }
+		generate_godly_descent_seed_support_effect = {
+			FAITH = rhevain
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = { $RELIGION$ = religion:rhudaur_religion }
+		generate_godly_descent_seed_support_effect = {
+			FAITH = rhudaur
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = { $RELIGION$ = religion:talataerim_religion }
+		generate_godly_descent_seed_support_effect = {
+			FAITH = talataerim
+			GOD = $GOD$
+		}
+	}
+	else = { # Generic Pagan, fallback
+		generate_godly_descent_seed_support_effect = {
+			FAITH = paganism
+			GOD = $GOD$
+		}
+	}
+}
+
+# Mythical Legends guaranteed access to Legendary Buildings
+
+give_legendary_building_mythical_holy_tooltip_effect = {
+	if = {
+		limit = {
+			OR = {
+				root = {
+					locale_valid_for_legendary_buildings = yes
+				}
+				capital_province = { has_special_building_slot = no }
+				any_sub_realm_barony = {
+					title_province = { has_special_building_slot = no }
+				}
+			}
+		}
+		give_legendary_building_location_holy_effect = yes
+	}
+	set_variable = {
+		name = legendary_reward_location
+		value = scope:legendary_locale
+	}
+	set_variable = {
+		name = legendary_figure
+		value = scope:protagonist
+	}
+}
+
+give_legendary_building_mythical_heroic_tooltip_effect = {
+	if = {
+		limit = {
+			OR = {
+				root = {
+					locale_valid_for_legendary_buildings = yes
+				}
+				capital_province = { has_special_building_slot = no }
+				any_sub_realm_barony = {
+					title_province = { has_special_building_slot = no }
+				}
+			}
+		}
+		give_legendary_building_location_heroic_effect = yes
+	}
+	set_variable = {
+		name = legendary_reward_location
+		value = scope:legendary_locale
+	}
+	set_variable = {
+		name = legendary_figure
+		value = scope:protagonist
+	}
+}
+
+give_legendary_building_mythical_legitimizing_tooltip_effect = {
+	if = {
+		limit = {
+			OR = {
+				root = {
+					locale_valid_for_legendary_buildings = yes
+				}
+				capital_province = { has_special_building_slot = no }
+				any_sub_realm_barony = {
+					title_province = { has_special_building_slot = no }
+				}
+			}
+		}
+		give_legendary_building_location_legitimizing_effect = yes
+	}
+	set_variable = {
+		name = legendary_reward_location
+		value = scope:legendary_locale
+	}
+	set_variable = {
+		name = legendary_figure
+		value = scope:protagonist
+	}
+}
+
+# Famed/Illustrious have a 50% chance
+
+give_legendary_building_holy_tooltip_effect = { #50% chance
+	# Chance to get legendary building
+	if = {
+		limit = {
+			OR = {
+				root = {
+					locale_valid_for_legendary_buildings = yes
+				}
+				capital_province = { has_special_building_slot = no }
+				any_sub_realm_barony = {
+					title_province = { has_special_building_slot = no }
+				}
+			}
+		}
+		random = {
+			chance = {
+				value = 50
+			}
+			give_legendary_building_location_holy_effect = yes
+		}
+	}
+	set_variable = {
+		name = legendary_reward_location
+		value = scope:legendary_locale
+	}
+	set_variable = {
+		name = legendary_figure
+		value = scope:protagonist
+	}
+}
+
+give_legendary_building_heroic_tooltip_effect = { #50% chance
+	# Chance to get legendary building
+	if = {
+		limit = {
+			OR = {
+				root = {
+					locale_valid_for_legendary_buildings = yes
+				}
+				capital_province = { has_special_building_slot = no }
+				any_sub_realm_barony = {
+					title_province = { has_special_building_slot = no }
+				}
+			}
+		}
+		random = {
+			chance = {
+				value = 50
+			}
+			give_legendary_building_location_heroic_effect = yes
+	set_variable = {
+		name = legendary_reward_location
+		value = scope:legendary_locale
+	}
+	set_variable = {
+		name = legendary_figure
+		value = scope:protagonist
+	}
+		}
+	}
+}
+
+give_legendary_building_legitimizing_tooltip_effect = { #50% chance
+	# Chance to get legendary building
+	if = {
+		limit = {
+			OR = {
+				root = {
+					locale_valid_for_legendary_buildings = yes
+				}
+				capital_province = { has_special_building_slot = no }
+				any_sub_realm_barony = {
+					title_province = { has_special_building_slot = no }
+				}
+			}
+		}
+		random = {
+			chance = {
+				value = 50
+			}
+			give_legendary_building_location_legitimizing_effect = yes
+		}
+	}
+	set_variable = {
+		name = legendary_reward_location
+		value = scope:legendary_locale
+	}
+	set_variable = {
+		name = legendary_figure
+		value = scope:protagonist
+	}
+}
+
+give_legendary_building_location_standard_effect = {
+	if = { # Prioritize the location of the legend if possible
+		limit = {
+			root = {
+				locale_valid_for_legendary_buildings = yes
+			}
+		}
+		scope:location = { save_scope_as = legendary_locale }
+	}
+	else_if = { # Otherwise, get the capital
+		limit = {
+			capital_province = { has_special_building_slot = no }
+		}
+		capital_province = { save_scope_as = legendary_locale }
+	}
+	else_if = { # Otherwise, prioritize a title you hold directly
+		limit = {
+			any_held_title = {
+				tier = tier_county
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		random_held_title = {
+			limit = {
+				tier = tier_county
+				title_province = { has_special_building_slot = no }
+			}
+			title_province = { save_scope_as = legendary_locale }
+		}
+	}
+	else_if = { #Otherwise, prioritize a barony that you hold directly
+		limit = {
+			any_held_title = {
+				tier = tier_barony
+				title_province = {
+					has_special_building_slot = no
+				}
+			}
+		}
+		random_held_title = {
+			limit = {
+				tier = tier_barony
+				title_province = {
+					has_special_building_slot = no
+				}
+			}
+			title_province = {
+				save_scope_as = legendary_locale
+			}
+		}
+
+	}
+	else_if = { # Otherwise, prioritize a barony within a title you hold
+		limit = {
+			any_held_title = {
+				tier = tier_county
+				any_county_province = { has_special_building_slot = no }
+			}
+		}
+		random_held_title = {
+			limit = {
+				tier = tier_county
+				any_county_province = { has_special_building_slot = no }
+			}
+			random_county_province = {
+				limit = {
+					has_special_building_slot = no
+				}
+				save_scope_as = legendary_locale
+			}
+		}
+	}
+	else_if = { # Find a feudal barony...
+		limit = {
+			any_sub_realm_barony = {
+				title_province = {
+					has_special_building_slot = no
+					has_holding_type = castle_holding
+				}
+			}
+		}
+		random_sub_realm_barony = {
+			limit = {
+				title_province = {
+					has_special_building_slot = no
+					has_holding_type = castle_holding
+				}
+			}
+			title_province = { save_scope_as = legendary_locale }
+		}
+	}
+	else_if = { # Find a province with a holding
+		limit = {
+			any_sub_realm_barony = {
+				title_province = {
+					has_special_building_slot = no
+					has_holding = yes
+				}
+			}
+		}
+		random_sub_realm_barony = {
+			limit = {
+				title_province = {
+					has_special_building_slot = no
+					has_holding = yes
+				}
+			}
+			title_province = { save_scope_as = legendary_locale }
+		}
+	}
+	else = { # Final fallback, just any barony in your realm
+		random_sub_realm_barony = {
+			title_province = { save_scope_as = legendary_locale }
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				exists = scope:beast
+				has_trait_xp = {
+					trait = lifestyle_hunter
+					track = hunter
+					value >= 62
+				}
+				has_trait_xp = {
+					trait = lifestyle_hunter
+					track = falconer
+					value >= 62
+				}
+				culture ?= {
+					has_cultural_parameter = always_unlock_legendary_hunting_lodge
+				}
+			}
+		}
+		custom_tooltip = {
+			text = can_build_legendary_hunting_lodge_tt
+			add_character_flag = legendary_hunting_lodge_flag
+		}
+	}
+	if = {
+		limit = {
+			dynasty ?= { ce1_heroic_track_perks >= 5 }
+		}
+		custom_tooltip = {
+			text = can_build_legendary_watchtower_tt
+			add_character_flag = legendary_watchtower_flag
+		}
+	}
+}
+
+give_legendary_building_location_holy_effect = {
+	give_legendary_building_location_standard_effect = yes
+	custom_tooltip = {
+		text = can_build_legendary_shrine_tt
+		add_character_flag = legendary_shrine_flag
+	}
+}
+
+give_legendary_building_location_heroic_effect = {
+	give_legendary_building_location_standard_effect = yes
+	custom_tooltip = {
+		text = can_build_legendary_statue_tt
+		add_character_flag = legendary_statue_flag
+	}
+}
+
+give_legendary_building_location_legitimizing_effect = {
+	give_legendary_building_location_standard_effect = yes
+	custom_tooltip = {
+		text = can_build_legendary_palace_tt
+		add_character_flag = legendary_palace_flag
+	}
+}
+
+legend_seed_new_title_effect = {
+	if = {
+		limit = { has_dlc_feature = legends }
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = new_title
+			properties = {
+				title = root.primary_title
+				founder = root
+			}
+		}
+	}
+}
+
+legend_seed_great_deed_dynasty_effect = {
+	if = {
+		limit = { has_dlc_feature = legends }
+		create_legend_seed = {
+			type = legitimizing
+			quality = famed
+			chronicle = great_deed_dynasty
+			properties = {
+				dynasty = root.dynasty
+				founder = root
+				title = root.primary_title.empire
+			}
+		}
+	}
+}
+
+legend_seed_great_deed_region_effect = {
+	if = {
+		limit = { has_dlc_feature = legends }
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = great_deed_region
+			properties = {
+				legend_region = $REGION$
+				founder = root
+			}
+		}
+	}
+}
+
+legend_seed_great_deed_title_effect = {
+	if = {
+		limit = { has_dlc_feature = legends }
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = great_deed_title
+			properties = {
+				title = $TITLE$
+				founder = root
+			}
+		}
+	}
+}
+
+legend_seed_great_deed_faith_effect = {
+	if = {
+		limit = { has_dlc_feature = legends }
+		create_legend_seed = {
+			type = holy
+			quality = famed
+			chronicle = great_deed_faith
+			properties = {
+				founder = root
+				antagonist = $ANTAGONIST$
+				old_faith = $OLD_FAITH$
+				new_faith = root.faith
+			}
+		}
+	}
+}
+
+legend_seed_struggle_ended_effect = {
+	if = {
+		limit = { has_dlc_feature = legends }
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = struggle_ended
+			properties = {
+				founder = root
+				culture = root.culture
+				struggle = $STRUGGLE$
+				struggle_ending = $STRUGGLE_ENDING$
+			}
+		}
+	}
+}
+
+mark_historical_legend_as_done = {
+	if = { # Dynastic legacy
+		limit = {
+			legend_property:founder ?= legend_owner.house.house_founder
+			legend_property:dynasty ?= legend_owner.dynasty
+			legend_property:title ?= legend_owner.primary_title
+		}
+		legend_owner.dynasty = {
+			set_variable = {
+				name = dynasty_legend_used
+				value = yes
+			}
+		}
+	}
+	
+	
+	####################
+	### LOTR LEGENDS ###
+	####################
+	
+	## LOTR Legitimizing
+	if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofanarion53
+			legend_property:title ?= title:e_gondor
+		}
+		set_global_variable = {
+			name = castamir_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofanarion1
+			legend_property:title ?= title:e_gondor
+		}
+		set_global_variable = {
+			name = anarion_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineisildur0
+			legend_property:title ?= title:e_arnor
+		}
+		set_global_variable = {
+			name = isildur_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:linerhovanion1
+			legend_property:title ?= title:e_rhovanion
+		}
+		set_global_variable = {
+			name = vidugavia_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineoftumakveh12
+			legend_property:title ?= title:e_bellakar
+		}
+		set_global_variable = {
+			name = zimrebal_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofazruben1
+			legend_property:title ?= title:k_an_balkumagan
+		}
+		set_global_variable = {
+			name = azruben_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:linepesasikka1
+			legend_property:title ?= title:k_pezarsan
+		}
+		set_global_variable = {
+			name = pezar_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:god ?= flag:darkness_god_maliciam
+			legend_property:title ?= title:k_mardruak
+		}
+		set_global_variable = {
+			name = shoreborn_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofszrel1 #Serkhôz
+		}
+		set_global_variable = {
+			name = serkhoz_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofdurinI #Durin the Deathless
+		}
+		set_global_variable = {
+			name = durin1_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofuriI #Uri the Scarred
+		}
+		set_global_variable = {
+			name = uri_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofdwalinI #Dwalin the Wise
+		}
+		set_global_variable = {
+			name = dwalin_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofthrarI #Thrár the Proud
+		}
+		set_global_variable = {
+			name = thrar_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofthrar51 # Fullâ VII Flamehand
+		}
+		set_global_variable = {
+			name = fulla_VII_flamehand_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofbarukodlig1 # Rôn the Exile
+		}
+		set_global_variable = {
+			name = ron_the_exile_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineoftook6 #Old Took
+		}
+		set_global_variable = {
+			name = gerontius_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor_flag ?= flag:bahharkan
+		}
+		set_global_variable = {
+			name = bahharkan_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor_flag ?= flag:blanco
+		}
+		set_global_variable = {
+			name = blanco_legend
+			value = yes
+		}
+	}
+	
+	## LOTR Heroic
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofjoamtuv1
+			legend_property:title ?= title:e_bellakar
+		}
+		set_global_variable = {
+			name = joam_tuv_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineoftook4
+			legend_property:title ?= title:k_shire
+		}
+		set_global_variable = {
+			name = bandobras_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineoffreca3
+			legend_property:title ?= title:k_rohan
+		}
+		set_global_variable = {
+			name = wulf_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:culture ?= culture:ioriag
+			legend_property:title ?= title:k_tedja
+			legend_property:original_region ?= geographical_region:middleearth_rhun
+		}
+		set_global_variable = {
+			name = tedjin_ioriag_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofdale46 #Bard
+		}
+		set_global_variable = {
+			name = bard_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofhador7 # Turin Turambar
+		}
+		set_global_variable = {
+			name = turin_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofhador10 # Tuor
+		}
+		set_global_variable = {
+			name = tuor_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofbeor32 # Beren Erchamion
+		}
+		set_global_variable = {
+			name = beren_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofeorl1 # Eorl the Young
+		}
+		set_global_variable = {
+			name = eorl_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofelendil # Elendil the Tall
+		}
+		set_global_variable = {
+			name = elendil_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineoffinwe5 # Fingolfin
+		}
+		set_global_variable = {
+			name = fingolfin_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofelros28 # Pharazôn
+		}
+		set_global_variable = {
+			name = pharazon_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofdurin83 # Thorin Oakeshield
+		}
+		set_global_variable = {
+			name = thorin_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofeorl11 #Helm Hammerhand
+		}
+		set_global_variable = {
+			name = helm_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineoffaderda1 #Faderda
+		}
+		set_global_variable = {
+			name = faderda_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofdwalin5 # Azaghâl
+		}
+		set_global_variable = {
+			name = azaghal_legend
+			value = yes
+		}
+	}
+	
+	
+	## LOTR Holy
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineiunast1
+		}
+		if = {
+			limit = { legend_property:antagonist ?= flag:vatra_bellakari }
+			set_global_variable = {
+				name = iunast_bellakari_legend
+				value = yes
+			}
+		}
+		else_if = {
+			limit = { legend_property:antagonist ?= flag:vatra_haradrim }
+			set_global_variable = {
+				name = iunast_haradrim_legend
+				value = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineoffingolfin7 # Earendil
+		}
+		if = {
+			limit = { legend_property:religion ?= religion:dunedain_religion }
+			set_global_variable = {
+				name = earendil_dunedain_legend
+				value = yes
+			}
+		}
+		else_if = {
+			limit = { legend_property:religion ?= religion:elven_religion }
+			set_global_variable = {
+				name = earendil_elven_legend
+				value = yes
+			}
+		}
+		else_if = {
+			limit = { legend_property:religion ?= religion:bellakari_religion }
+			set_global_variable = {
+				name = earendil_bellakari_legend
+				value = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= flag:dolamroth0 # Mithrellas
+		}
+		set_global_variable = {
+			name = mithrellas_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofdurinIII #Durin III
+		}
+		set_global_variable = {
+			name = durinIII_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineoftelchar1 # Telchar
+		}
+		set_global_variable = {
+			name = telchar_legend
+			value = yes
+		}
+	}
+	else_if = {
+		limit = {
+			legend_property:ancestor ?= character:lineofnarvi # Narvi
+		}
+		set_global_variable = {
+			name = narvi_legend
+			value = yes
+		}
+	}
+}
+
+legend_seed_struggle_ending_effect = {
+	create_legend_seed = {
+		type = heroic
+		quality = famed
+		chronicle = struggle_conclusion
+		properties = {
+			struggle_ender = $ENDER$
+			struggle = flag:$STRUGGLE$
+		}
+	}
+}
+
+balancing_legend_global_var_effect = {
+	if = {
+		limit = {
+			NOT = { has_global_variable = legend_count_var }
+		}
+		set_global_variable = {
+			name = legend_count_var
+			value = 1
+		}
+	}
+	else = {
+		change_global_variable = {
+			name = legend_count_var
+			add = 1
+		}
+	}
+}
+
+gain_heroic_legend_seed_tooltip_effect = {
+	if = {
+		limit = {
+			has_dlc_feature = legends
+		}
+		custom_tooltip = gain_heroic_legend_seed.tt
+	} 
+}
+
+gain_holy_legend_seed_tooltip_effect = {
+	if = {
+		limit = {
+			has_dlc_feature = legends
+		}
+		custom_tooltip = gain_holy_legend_seed.tt
+	} 
+}
+
+gain_legitimizing_legend_seed_tooltip_effect = {
+	if = {
+		limit = {
+			has_dlc_feature = legends
+		}
+		custom_tooltip = gain_legitimizing_legend_seed.tt
+	} 
+}
+
+send_interface_message_legend_notification_effect = {
+	county = { save_scope_as = spread_county }
+	scope:legend = { save_scope_as = spread_legend }
+	county.holder = {
+		set_variable = {
+			name = legend_alerted_var
+			value = scope:legend
+		}
+		send_interface_message = {
+			type = event_generic_good_text
+			title = legend_spread_notification_title
+			desc = legend_spread_notification_desc
+
+			right_icon = scope:spread_county
+		}
+	}
+}
+
+send_interface_toast_legend_notification_effect = {
+	county = { save_scope_as = spread_county }
+	scope:legend = { save_scope_as = spread_legend }
+	county.holder = {
+		set_variable = {
+			name = legend_alerted_var
+			value = scope:legend
+		}
+		send_interface_toast = {
+			title = legend_spread_notification_title
+			custom_tooltip = legend_spread_notification_desc
+			left_icon = scope:spread_county
+		}
+	}
+}
+
+create_swan_knight_legend_seed_effect = {
+	if = {
+		limit = {
+			location = {
+				geographical_region = world_europe
+			}
+		}
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = swan_knight
+			properties = {
+				friendly_animal = flag:swan
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			location = {
+				OR = {
+					geographical_region = world_india
+					geographical_region = world_burma
+					# geographical_region = ghw_region_caucasus #LotR
+				}
+			}
+		}
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = swan_knight
+			properties = {
+				friendly_animal = flag:tiger
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			location = {
+				geographical_region = world_africa
+			}
+		}
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = swan_knight
+			properties = {
+				friendly_animal = flag:lion
+			}
+		}
+	}
+	else = {
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = swan_knight
+			properties = {
+				friendly_animal = flag:hart
+			}
+		}
+	}
+}

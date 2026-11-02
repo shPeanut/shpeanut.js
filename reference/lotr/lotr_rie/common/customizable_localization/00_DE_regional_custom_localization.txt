@@ -1,0 +1,37 @@
+﻿############################################
+##   Scripted Localization for German Loc ##
+###           BY Kai Bagehorn            ###
+############################################
+
+DE_Im_InDer_ResidenceBuilding = { # im Herrenhaus, im Tempel, in der Burg
+	type = character
+	log_loc_errors = no
+	text = {
+		trigger = {
+			government_has_flag = government_is_republic
+		}
+		localization_key = CustomLoc_DE_Im_ResidenceBuilding
+	}
+
+	text = {
+		trigger = {
+			OR = {
+				government_has_flag = government_is_theocracy
+				is_theocratic_lessee = yes
+			}
+		}
+		localization_key = CustomLoc_DE_Im_ResidenceBuilding
+	}
+
+	text = {
+		trigger = {
+			NOR = {
+				government_has_flag = government_is_republic
+				government_has_flag = government_is_theocracy
+				is_theocratic_lessee = yes
+			}
+		}
+		localization_key = CustomLoc_DE_InDer_ResidenceBuilding
+		fallback = yes
+	}
+}

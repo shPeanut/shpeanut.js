@@ -1,0 +1,15 @@
+﻿#####################################
+############ Harshandatt ############
+#####################################
+
+house_ethurakroa = {
+	name = "dynn_manhret"
+	dynasty = dynasty_anathalyunroa
+	motto = dynn_manhret_motto
+}
+
+house_myrridunroa = {
+	name = "dynn_taittiman"
+	dynasty = dynasty_xyrenathroa
+	motto = dynn_taittiman_motto
+}

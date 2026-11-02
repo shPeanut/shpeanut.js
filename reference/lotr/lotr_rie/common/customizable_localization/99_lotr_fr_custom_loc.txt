@@ -1,0 +1,493 @@
+﻿####################################
+#   FRENCH CUSTOM LOCALIZATION     #
+#             By Sko               #
+####################################
+
+FR_ActivityShort_template = { 
+	type = activity
+	log_loc_errors = no
+	text = {
+		trigger = { has_activity_type = activity_ancestor_veneration }
+		localization_key = FR_activity_ancestor_veneration # Vénération des ancêtres
+	}
+	text = {
+		trigger = { has_activity_type = activity_expedition }
+		localization_key = FR_activity_expedition # Expédition Naine
+	}
+	text = {
+		trigger = { has_activity_type = activity_explore_history }
+		localization_key = FR_activity_explore_history # Entreprise historique
+	}
+	text = {
+		trigger = { has_activity_type = activity_firstfruits_festival }
+		localization_key = FR_activity_firstfruits_festival # Fête des prémices
+	}
+	text = {
+		trigger = { has_activity_type = activity_lotr_horse_race }
+		localization_key = FR_activity_lotr_horse_race # Grand tournoi équestre
+	}
+	text = {
+		trigger = { has_activity_type = activity_mining }
+		localization_key = FR_activity_mining # Expédition minière
+	}
+	text = {
+		trigger = { has_activity_type = activity_sailing }
+		localization_key = FR_activity_sailing # Odyssée maritime
+	}
+	text = {
+		trigger = { has_activity_type = activity_lotr_visit_vineyard }
+		localization_key = FR_activity_lotr_visit_vineyard # Visite de vignoble
+	}
+	text = {
+		trigger = { has_activity_type = activity_lotr_wine_tasting }
+		localization_key = FR_activity_lotr_wine_tasting # Dégustation de vin
+	}
+	text = {
+		trigger = { has_activity_type = activity_yule }
+		localization_key = FR_activity_yule # Célébrations
+	}
+}
+
+FR_ActivityFull_template = { 
+	type = activity
+	log_loc_errors = no
+	text = {
+		trigger = {
+			activity_host = {
+				is_local_player = yes
+			}
+		 }
+		localization_key = FR_activity_localplayer
+	}
+	text = {
+		trigger = { has_activity_type = activity_ancestor_veneration } # Vénération des ancêtres
+		localization_key = FR_activity_ancestor_veneration
+	}
+	text = {
+		trigger = { has_activity_type = activity_expedition } # Expédition Naine
+		localization_key = FR_activity_expedition
+	}
+	text = {
+		trigger = { has_activity_type = activity_explore_history } # Entreprise historique
+		localization_key = FR_activity_explore_history
+	}
+	text = {
+		trigger = { has_activity_type = activity_firstfruits_festival }
+		localization_key = FR_activity_firstfruits_festival # Fête des prémices
+	}
+	text = {
+		trigger = { has_activity_type = activity_lotr_horse_race } # Grand tournoi équestre
+		localization_key = FR_activity_lotr_horse_race
+	}
+	text = {
+		trigger = { has_activity_type = activity_mining } # Chasse
+		localization_key = FR_activity_mining
+	}
+	text = {
+		trigger = { has_activity_type = activity_sailing } # Odyssée maritime
+		localization_key = FR_activity_sailing
+	}
+	text = {
+		trigger = { has_activity_type = activity_lotr_visit_vineyard } # Visite de vignoble
+		localization_key = FR_activity_lotr_visit_vineyard
+	}
+	text = {
+		trigger = { has_activity_type = activity_lotr_wine_tasting } # Dégustation de vin
+		localization_key = FR_activity_lotr_wine_tasting
+	}
+	text = {
+		trigger = { has_activity_type = activity_yule } # Célébrations
+		localization_key = FR_activity_yule
+	}
+}
+
+FR_ActivityPhase_template = { 
+	type = activity
+	log_loc_errors = no
+
+	text = {
+		trigger = {
+			has_activity_type = activity_ancestor_veneration
+			has_current_phase = ancestor_veneration_phase_reading
+		}
+		localization_key = FR_ancestor_veneration_phase_reading # Vénération des ancêtres
+	}
+	text = {
+		trigger = {
+			has_activity_type = activity_expedition
+			has_current_phase = expedition_phase
+		}
+		localization_key = FR_expedition_phase # Expédition Naine
+	}
+	text = {
+		trigger = {
+			has_activity_type = activity_explore_history
+			has_current_phase = explore_history_phase_reading
+		}
+		localization_key = FR_explore_history_phase_reading # Recherches historiques
+	}
+	text = {
+		trigger = {
+			has_activity_type = activity_explore_history
+			has_current_phase = explore_history_phase_museum_shop
+		}
+		localization_key = FR_explore_history_phase_museum_shop # Archivage
+	}
+	text = {
+		trigger = {
+			has_activity_type = activity_firstfruits_festival
+			has_current_phase = firstfruits_festival_ceremony_phase
+		}
+		localization_key = FR_firstfruits_festival_ceremony_phase # Cérémonie
+	}
+	text = {
+		trigger = {
+			has_activity_type = activity_lotr_horse_race
+			has_current_phase = lotr_horse_race_banner_phase
+		}
+		localization_key = FR_lotr_horse_race_banner_phase # Course
+	}
+	text = {
+		trigger = {
+			has_activity_type = activity_mining
+			has_current_phase = mining_phase
+		}
+		localization_key = FR_mining_phase # Expédition minière
+	}
+	text = {
+		trigger = {
+			has_activity_type = activity_sailing
+			has_current_phase = sailing_phase
+		}
+		localization_key = FR_sailing_phase # Phase de navigation
+	}
+	text = {
+		trigger = {
+			has_activity_type = activity_lotr_visit_vineyard
+			has_current_phase = lotr_visit_vineyard_private_vacation_phase
+		}
+		localization_key = FR_lotr_visit_vineyard_private_vacation_phase # Villégiature
+	}
+	text = {
+		trigger = {
+			has_activity_type = activity_lotr_wine_tasting
+			has_current_phase = lotr_wine_tasting_group_vacation_phase
+		}
+		localization_key = FR_lotr_wine_tasting_group_vacation_phase # Villégiature
+	}
+	text = {
+		trigger = {
+			has_activity_type = activity_yule
+			has_current_phase = lotr_yule_celebration_phase
+		}
+		localization_key = FR_lotr_yule_celebration_phase # Phase des réjouissances
+	}
+	text = {
+		localization_key = FR_activity_phase_fallback
+		fallback = yes
+	}
+}
+
+FR_InspirationAdventureDestination_En = {
+	type = character
+	log_loc_errors = no
+ 
+	text = { #Beleriand
+		trigger = { var:adventure_destination = flag:beleriand }
+		localization_key = middleearth_west_beleriand_FR_EN
+	}
+	text = { #beleriand_forlindon
+		trigger = { var:adventure_destination = flag:beleriand_forlindon }
+		localization_key = middleearth_west_beleriand_forlindon_FR_EN
+	}
+	text = { #beleriand_harlindon
+		trigger = { var:adventure_destination = flag:beleriand_harlindon }
+		localization_key = middleearth_west_beleriand_harlindon_FR_EN
+	}
+	text = { #beleriand_mithlond
+		trigger = { var:adventure_destination = flag:beleriand_mithlond }
+		localization_key = middleearth_west_beleriand_mithlond_FR_EN
+	}
+	text = { #eregion
+		trigger = { var:adventure_destination = flag:eregion }
+		localization_key = middleearth_west_eregion_FR_EN
+	}
+	text = { #eregion_south
+		trigger = { var:adventure_destination = flag:eregion_south }
+		localization_key = middleearth_west_eregion_south_FR_EN
+	}
+	text = { #eregion_imladris
+		trigger = { var:adventure_destination = flag:eregion_imladris }
+		localization_key = middleearth_west_eregion_imladris_FR_EN
+	}
+	text = { #arnor
+		trigger = { var:adventure_destination = flag:arnor }
+		localization_key = middleearth_west_arnor_FR_EN
+	}
+	text = { #arnor_arthedain
+		trigger = { var:adventure_destination = flag:arnor_arthedain }
+		localization_key = middleearth_west_arnor_arthedain_FR_EN
+	}
+	text = { #arnor_cardolan
+		trigger = { var:adventure_destination = flag:arnor_cardolan }
+		localization_key = middleearth_west_arnor_cardolan_FR_EN
+	}
+	text = { #arnor_rhudaur
+		trigger = { var:adventure_destination = flag:arnor_rhudaur }
+		localization_key = middleearth_west_arnor_rhudaur_FR_EN
+	}
+	text = { #forodwaith
+		trigger = { var:adventure_destination = flag:forodwaith }
+		localization_key = middleearth_forodwaith_FR_EN
+	}
+	text = { #forodwaith_angmar
+		trigger = { var:adventure_destination = flag:forodwaith_angmar }
+		localization_key = middleearth_forodwaith_angmar_FR_EN
+	}
+	text = { #forodwaith_forochel
+		trigger = { var:adventure_destination = flag:forodwaith_forochel }
+		localization_key = middleearth_forodwaith_forochel_FR_EN
+	}
+	text = { #Westlands
+		trigger = { var:adventure_destination = flag:west }
+		localization_key = middleearth_west_FR_EN
+	}
+	text = { #west_enedhwaith
+		trigger = { var:adventure_destination = flag:west_enedhwaith }
+		localization_key = middleearth_west_enedhwaith_FR_EN
+	}
+	text = { #west_rohan
+		trigger = { var:adventure_destination = flag:west_rohan }
+		localization_key = middleearth_west_rohan_FR_EN
+	}
+	text = { #west_isengard
+		trigger = { var:adventure_destination = flag:west_isengard }
+		localization_key = middleearth_west_isengard_FR_EN
+	}
+	text = { #gondor
+		trigger = { var:adventure_destination = flag:gondor }
+		localization_key = middleearth_west_gondor_FR_EN
+	}
+	text = { #gondor_andrast
+		trigger = { var:adventure_destination = flag:gondor_andrast }
+		localization_key = middleearth_west_gondor_andrast_FR_EN
+	}
+	text = { #gondor_highlands
+		trigger = { var:adventure_destination = flag:gondor_highlands }
+		localization_key = middleearth_west_gondor_highlands_FR_EN
+	}
+	text = { #gondor_centralfiefdoms
+		trigger = { var:adventure_destination = flag:gondor_centralfiefdoms }
+		localization_key = middleearth_west_gondor_centralfiefdoms_FR_EN
+	}
+	text = { #gondor_easternfiefdoms
+		trigger = { var:adventure_destination = flag:gondor_easternfiefdoms }
+		localization_key = middleearth_west_gondor_easternfiefdoms_FR_EN
+	}
+	text = { #gondor_ithilien
+		trigger = { var:adventure_destination = flag:gondor_ithilien }
+		localization_key = middleearth_west_gondor_ithilien_FR_EN
+	}
+	text = { #rhovanion
+		trigger = { var:adventure_destination = flag:rhovanion }
+		localization_key = middleearth_west_rhovanion_FR_EN
+	}
+	text = { #rhovanion_anduin
+		trigger = { var:adventure_destination = flag:rhovanion_anduin }
+		localization_key = middleearth_west_rhovanion_anduin_FR_EN
+	}
+	text = { #rhovanion_brownlands
+		trigger = { var:adventure_destination = flag:rhovanion_brownlands }
+		localization_key = middleearth_west_rhovanion_brownlands_FR_EN
+	}
+	text = { #rhovanion_dalelands
+		trigger = { var:adventure_destination = flag:rhovanion_dalelands }
+		localization_key = middleearth_west_rhovanion_dalelands_FR_EN
+	}
+	text = { #rhovanion_mirkwood
+		trigger = { var:adventure_destination = flag:rhovanion_mirkwood }
+		localization_key = middleearth_west_rhovanion_mirkwood_FR_EN
+	}
+	text = { #rhovanion_dorwinion
+		trigger = { var:adventure_destination = flag:rhovanion_dorwinion }
+		localization_key = middleearth_west_rhovanion_dorwinion_FR_EN
+	}
+	text = { #rhovanion_lothlorien
+		trigger = { var:adventure_destination = flag:rhovanion_lothlorien }
+		localization_key = middleearth_west_rhovanion_lothlorien_FR_EN
+	}
+	text = { #rhun
+		trigger = { var:adventure_destination = flag:rhun }
+		localization_key = middleearth_rhun_FR_EN
+	}
+	text = { #rhun_seaofrhun
+		trigger = { var:adventure_destination = flag:rhun_seaofrhun }
+		localization_key = middleearth_rhun_seaofrhun_FR_EN
+	}
+	text = { #rhun_khand
+		trigger = { var:adventure_destination = flag:rhun_khand }
+		localization_key = middleearth_rhun_khand_FR_EN
+	}
+	text = { #rhun_nurunkizdin
+		trigger = { var:adventure_destination = flag:rhun_nurunkizdin }
+		localization_key = middleearth_rhun_nurunkizdin_FR_EN
+	}
+	text = { #mordor
+		trigger = { var:adventure_destination = flag:mordor }
+		localization_key = middleearth_mordor_FR_EN
+	}
+	text = { #mordor_gorgoroth
+		trigger = { var:adventure_destination = flag:mordor_gorgoroth }
+		localization_key = middleearth_mordor_gorgoroth_FR_EN
+	}
+	text = { #mordor_nurn
+		trigger = { var:adventure_destination = flag:mordor_nurn }
+		localization_key = middleearth_mordor_nurn_FR_EN
+	}
+	text = { #Near Harad
+		trigger = { var:adventure_destination = flag:nearharad }
+		localization_key = middleearth_harad_near_FR_EN
+	}
+	text = { #nearharad_harondor
+		trigger = { var:adventure_destination = flag:nearharad_harondor }
+		localization_key = middleearth_harad_near_harondor_FR_EN
+	}
+	text = { #nearharad_harnen
+		trigger = { var:adventure_destination = flag:nearharad_harnen }
+		localization_key = middleearth_harad_near_harnen_FR_EN
+	}
+	text = { #nearharad_umbar
+		trigger = { var:adventure_destination = flag:nearharad_umbar }
+		localization_key = middleearth_harad_near_umbar_FR_EN
+	}
+	text = { #Far Harad
+		trigger = { var:adventure_destination = flag:farharad }
+		localization_key = middleearth_harad_far_FR_EN
+	}
+	text = { #farharad_bellakar
+		trigger = { var:adventure_destination = flag:farharad_bellakar }
+		localization_key = middleearth_harad_far_bellakar_FR_EN
+	}
+	text = { #farharad_ray
+		trigger = { var:adventure_destination = flag:farharad_ray }
+		localization_key = middleearth_harad_far_ray_FR_EN
+	}
+	text = { #farharad_tulwang
+		trigger = { var:adventure_destination = flag:farharad_tulwang }
+		localization_key = middleearth_harad_far_tulwang_FR_EN
+	}
+	text = { #farharad_dunesea
+		trigger = { var:adventure_destination = flag:farharad_dunesea }
+		localization_key = middleearth_harad_dunesea_FR_EN
+	}
+	text = { #bayoformal
+		trigger = { var:adventure_destination = flag:bayoformal }
+		localization_key = middleearth_harad_bayoformal_FR_EN
+	}
+	text = { #bayoformal_khy
+		trigger = { var:adventure_destination = flag:bayoformal_khy }
+		localization_key = middleearth_harad_bayoformal_khy_FR_EN
+	}
+	text = { #bayoformal_harshandatt
+		trigger = { var:adventure_destination = flag:bayoformal_harshandatt }
+		localization_key = middleearth_harad_bayoformal_harshandatt_FR_EN
+	}
+	text = { #bayoformal_sirayn
+		trigger = { var:adventure_destination = flag:bayoformal_sirayn }
+		localization_key = middleearth_harad_bayoformal_sirayn_FR_EN
+	}
+	text = { #uttersouth
+		trigger = { var:adventure_destination = flag:uttersouth }
+		localization_key = middleearth_uttersouth_FR_EN
+	}
+	text = { #uttersouth_thanihazad
+		trigger = { var:adventure_destination = flag:uttersouth_thanihazad }
+		localization_key = middleearth_uttersouth_thanihazad_FR_EN
+	}
+	text = { #uttersouth_twinkingdoms
+		trigger = { var:adventure_destination = flag:uttersouth_twinkingdoms }
+		localization_key = middleearth_uttersouth_twinkingdoms_FR_EN
+	}
+	text = { #uttersouth_usakan
+		trigger = { var:adventure_destination = flag:uttersouth_usakan }
+		localization_key = middleearth_uttersouth_usakan_FR_EN
+	}
+	text = { #uttersouth_mumakan
+		trigger = { var:adventure_destination = flag:uttersouth_mumakan }
+		localization_key = middleearth_uttersouth_mumakan_FR_EN
+	}
+	text = { #uttersouth_shayn
+		trigger = { var:adventure_destination = flag:uttersouth_shayn }
+		localization_key = middleearth_uttersouth_shayn_FR_EN
+	}
+	text = { #mountains_white
+		trigger = { var:adventure_destination = flag:mountains_white }
+		localization_key = middleearth_mountains_white_FR_EN
+	}
+	text = { #mountains_blue
+		trigger = { var:adventure_destination = flag:mountains_blue }
+		localization_key = middleearth_mountains_blue_FR_EN
+	}
+	text = { #mountains_blue_buzra_dum
+		trigger = { var:adventure_destination = flag:mountains_blue_buzra_dum }
+		localization_key = middleearth_mountains_blue_buzra_dum_FR_EN
+	}
+	text = { #mountains_blue_belegost
+		trigger = { var:adventure_destination = flag:mountains_blue_belegost }
+		localization_key = middleearth_mountains_blue_belegost_FR_EN
+	}
+	text = { #mountains_blue_nogrod
+		trigger = { var:adventure_destination = flag:mountains_blue_nogrod }
+		localization_key = middleearth_mountains_blue_nogrod_FR_EN
+	}
+	text = { #mountains_misty
+		trigger = { var:adventure_destination = flag:mountains_misty }
+		localization_key = middleearth_mountains_misty_FR_EN
+	}
+	text = { #mountains_misty_khazad_dum
+		trigger = { var:adventure_destination = flag:mountains_misty_khazad_dum }
+		localization_key = middleearth_mountains_misty_khazad_dum_FR_EN
+	}
+	text = { #mountains_misty_high_pass
+		trigger = { var:adventure_destination = flag:mountains_misty_high_pass }
+		localization_key = middleearth_mountains_misty_high_pass_FR_EN
+	}
+	text = { #mountains_misty_gundabad
+		trigger = { var:adventure_destination = flag:mountains_misty_gundabad }
+		localization_key = middleearth_mountains_misty_gundabad_FR_EN
+	}
+	text = { #mountains_iron
+		trigger = { var:adventure_destination = flag:mountains_iron }
+		localization_key = middleearth_mountains_iron_FR_EN
+	}
+	text = { #mountains_iron_greymountains
+		trigger = { var:adventure_destination = flag:mountains_iron_greymountains }
+		localization_key = middleearth_mountains_iron_greymountains_FR_EN
+	}
+	text = { #mountains_iron_ironhills
+		trigger = { var:adventure_destination = flag:mountains_iron_ironhills }
+		localization_key = middleearth_mountains_iron_ironhills_FR_EN
+	}
+	text = { #mountains_iron_erebor
+		trigger = { var:adventure_destination = flag:mountains_iron_erebor }
+		localization_key = middleearth_mountains_iron_erebor_FR_EN
+	}
+	text = { #mountains_yellow
+		trigger = { var:adventure_destination = flag:mountains_yellow }
+		localization_key = middleearth_mountains_yellow_FR_EN
+	}
+	text = { #mountains_yellow_east
+		trigger = { var:adventure_destination = flag:mountains_yellow_east }
+		localization_key = middleearth_mountains_yellow_east_FR_EN
+	}
+	text = { #mountains_yellow_west
+		trigger = { var:adventure_destination = flag:mountains_yellow_west }
+		localization_key = middleearth_mountains_yellow_west_FR_EN
+	}
+ 
+	text = { #fallback
+		localization_key = middleearth_FR_EN
+		fallback = yes
+	}
+}
+ 

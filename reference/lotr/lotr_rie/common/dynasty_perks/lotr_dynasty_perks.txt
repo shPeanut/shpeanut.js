@@ -1,0 +1,543 @@
+﻿# HARADRIM LEGACIES
+
+lotr_haradrim_legacy_1 = { # Havens of the South
+	legacy = lotr_haradrim_legacy_track
+
+	can_be_picked = {
+		dynasty = {
+			OR = {
+				dynast.culture ?= culture:apysaic
+				dynast.culture ?= { any_parent_culture_or_above = { this = culture:apysaic } }
+				has_dynasty_perk = lotr_haradrim_legacy_1
+			}
+		}
+	}
+
+	character_modifier = {
+		name = lotr_haradrim_legacy_1_modifier
+		max_loot_mult = 0.2
+		naval_movement_speed_mult = 0.2
+		holding_build_gold_cost = -0.05
+		build_gold_cost = -0.05
+	}
+
+	effect = {
+		# Increases chances of getting Trans-Haradric Merchant courtiers
+		custom_description_no_bullet = {
+			text = lotr_haradrim_legacy_1_effect_1
+		}
+		# Unlocks Trans-Haradric Merchant Travel Option
+		custom_description_no_bullet = {
+			text = lotr_haradrim_legacy_1_effect_2
+		}
+	}
+
+	ai_chance = {
+		value = 11
+		if = {
+			limit = {
+				dynasty = {
+					OR = {
+						dynast.culture = { has_cultural_tradition = tradition_trans_haradric_traders }
+						dynast.culture = { has_cultural_tradition = tradition_dune_sea_nomads }
+						dynast.culture = { has_cultural_tradition = tradition_caravaneers }
+						dynast = { has_trait = lifestyle_trans_haradric_merchant }
+						dynast = { has_trait = education_stewardship }
+						dynast = { ai_has_economical_boom_personality = yes }
+						has_dynasty_perk = lotr_haradrim_legacy_1
+					}
+				}
+			}
+			multiply = 10
+		}
+		if = {
+			limit = { can_start_new_legacy_track_trigger = no }
+			multiply = 0
+		}
+	}
+}
+
+lotr_haradrim_legacy_2 = { # Southron Chants
+	legacy = lotr_haradrim_legacy_track
+	
+	character_modifier = {
+		name = lotr_haradrim_legacy_2_modifier
+		max_combat_roll = 5
+		counter_efficiency = 0.1
+	}
+
+	effect = {
+		# Can take decision to network with merchants
+		custom_description_no_bullet = {
+			text = lotr_haradrim_legacy_2_effect_1
+		}
+		# Increased chances of getting an event during the Trans-Haradric Merchant travel option
+		custom_description_no_bullet = {
+			text = lotr_haradrim_legacy_2_effect_2
+		}
+	}
+}
+	
+lotr_haradrim_legacy_3 = { # Trade Empire
+	legacy = lotr_haradrim_legacy_track
+
+	effect = {
+		# Unlocks Bazaar building.
+		custom_description_no_bullet = {
+			text = lotr_haradrim_legacy_3_effect_1
+		}
+		# Increased chances of getting the Trans-Haradric merchant trait
+		custom_description_no_bullet = {
+			text = lotr_haradrim_legacy_3_effect_2
+		}
+	}
+
+	character_modifier = {
+		name = lotr_haradrim_legacy_3_modifier
+		# Matt note: could these be tied to increase per
+		# Level of Splendor of the dynasty?
+		tax_mult = 0.05
+		#general_opinion = 5
+		diplomatic_range_mult = 0.1
+	}
+}
+
+lotr_haradrim_legacy_4 = { # Desert Warfare
+	legacy = lotr_haradrim_legacy_track
+
+	character_modifier = {
+		name = lotr_haradrim_legacy_4_modifier
+		desert_advantage = 2
+		desert_attrition_mult = -0.1
+		oasis_advantage = 2
+		oasis_attrition_mult = -0.1
+		drylands_advantage = 2
+		drylands_attrition_mult = -0.1
+		dune_sea_advantage = 2
+		dune_sea_attrition_mult = -0.1
+		red_desert_advantage = 2
+		red_desert_attrition_mult = -0.1
+		saltflats_advantage = 2
+		saltflats_attrition_mult = -0.1
+		savanna_advantage = 2
+		savanna_attrition_mult = -0.1
+	}
+
+	effect = {
+		# Can take decision to network with merchants more than once
+		custom_description_no_bullet = {
+			text = lotr_haradrim_legacy_4_effect_1
+		}
+		# Trans-Haradric Merchants travel option is free
+		custom_description_no_bullet = {
+			text = lotr_haradrim_legacy_4_effect_2
+		}
+	}
+}
+
+lotr_haradrim_legacy_5 = { # Mûmakil Mastery
+	legacy = lotr_haradrim_legacy_track
+
+	character_modifier = {
+		name = lotr_haradrim_legacy_5_modifier
+		elephant_cavalry_damage_mult = 0.1
+		elephant_cavalry_toughness_mult = 0.1
+		character_capital_county_monthly_development_growth_add = 0.2
+	}
+	
+	effect = {
+		# Can gain the Trans-Haradric merchant trait even without prior successful deals
+		custom_description_no_bullet = {
+			text = lotr_haradrim_legacy_5_effect_1
+		}
+	}
+}
+
+# KHAZAD LEGACIES
+
+lotr_khazad_legacy_1 = { # Children of the Father
+	legacy = lotr_khazad_legacy_track
+	can_be_picked = {
+		dynasty = {
+			OR = {
+				dynast = { is_dwarf = yes }
+				has_dynasty_perk = lotr_khazad_legacy_1
+			}
+		}
+	}
+
+	effect = {
+		custom_description_no_bullet = { text = lotr_khazad_legacy_1_effect }
+		custom_description_no_bullet = { text = activity_ancestor_veneration_cheaper_effect }
+	}
+	
+	character_modifier = {
+		dynasty_opinion = 10
+	}
+
+	ai_chance = {
+		value = 11
+		if = {
+			limit = {
+				can_start_new_legacy_track_trigger = no
+				NOT = { is_dwarf = yes }
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				is_dwarf = yes
+			}
+			multiply = 10
+		}
+	}
+}
+
+lotr_khazad_legacy_2 = { # Foreign Outreach
+	legacy = lotr_khazad_legacy_track
+
+	character_modifier = {
+		learn_language_scheme_phase_duration_add = -25
+		max_learn_language_schemes_add = 1
+		diplomatic_range_mult = 0.2
+		different_culture_opinion = 5
+	}
+}
+
+lotr_khazad_legacy_3 = { # Dwarven Steel
+	legacy = lotr_khazad_legacy_track
+
+	character_modifier = {
+		heavy_infantry_damage_mult = 0.10
+		heavy_infantry_toughness_mult = 0.10
+		halls_advantage = 5
+		accolade_glory_gain_mult = 0.1
+	}
+}
+
+lotr_khazad_legacy_4 = { # Sons of Mahal
+	legacy = lotr_khazad_legacy_track
+
+	effect = {
+		custom_description_no_bullet = {
+			text = lotr_khazad_legacy_4_effect
+		}
+	}
+
+	character_modifier = {
+		monthly_crafting_lifestyle_xp_gain_mult = 0.15
+		trait_track_prospector_xp_gain_mult = 0.10
+		trait_track_hewer_xp_gain_mult = 0.10
+		trait_track_weapon_smith_xp_gain_mult = 0.10
+		trait_track_armour_smith_xp_gain_mult = 0.10
+	}
+}
+
+lotr_khazad_legacy_5 = { # Riches of the Earth
+	legacy = lotr_khazad_legacy_track
+
+	effect = {
+		custom_description_no_bullet = {
+			text = productive_mines_perk_effect
+		}
+	}
+
+}
+
+# ELVEN LEGACIES
+lotr_elven_legacy_1 = { # The Speakers
+	legacy = lotr_elven_legacy_track
+	can_be_picked = {
+		dynasty = {
+			OR = {
+				dynast = {
+					OR = {
+						culture = { has_cultural_pillar = heritage_quendi }
+						culture = { has_cultural_pillar = heritage_calaquendi }
+						culture = { has_cultural_pillar = heritage_lomiquendi }
+						culture = { has_cultural_pillar = heritage_moriquendi }
+
+					}
+				}
+				has_dynasty_perk = lotr_elven_legacy_1
+			}
+		}
+	}
+
+	character_modifier = {
+		learn_language_scheme_phase_duration_add = -25
+		rf_eruhini_opinion = 10
+		befriend_scheme_phase_duration_add = -15
+		vassal_limit = 5
+	}
+
+	ai_chance = {
+		value = 20
+		if = {
+			limit = {
+				can_start_new_legacy_track_trigger = no
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				culture = {
+					OR = {
+						has_cultural_pillar = heritage_quendi
+						has_cultural_pillar = heritage_calaquendi
+						has_cultural_pillar = heritage_lomiquendi
+						has_cultural_pillar = heritage_moriquendi
+
+					}
+				}
+			}
+			multiply = 20
+		}
+	}
+}
+
+lotr_elven_legacy_2 = { # Wisdom of the Undying
+	legacy = lotr_elven_legacy_track
+
+	character_modifier = {
+		monthly_lifestyle_xp_gain_mult = 0.05
+		cultural_head_fascination_mult = 0.1
+		#figure out a way to introduce lower uni/explore histories costs. 25% should do
+	}
+}
+
+lotr_elven_legacy_3 = { # Ancient Valour
+	legacy = lotr_elven_legacy_track
+
+	character_modifier = {
+		men_at_arms_recruitment_cost = -0.1
+		same_heritage_county_advantage_add = 5
+		defender_advantage = 3
+		halls_advantage = 5
+		fort_level = 1
+		
+	}
+}
+
+lotr_elven_legacy_4 = { # Wonders of the Firstborn
+	legacy = lotr_elven_legacy_track
+
+	character_modifier = {
+		monthly_crafting_lifestyle_xp_gain_mult = 0.05
+		trait_track_weapon_smith_xp_gain_mult = 0.15
+		trait_track_armour_smith_xp_gain_mult = 0.15
+		trait_track_jewel_smith_xp_gain_mult = 0.15
+		trait_track_enchanting_smith_xp_gain_mult = 0.15
+	}
+}
+
+lotr_elven_legacy_5 = { # Enduring Fëa
+	legacy = lotr_elven_legacy_track
+
+	effect = {
+		custom_description_no_bullet = {
+			text = lotr_elven_legacy_5_effect_1
+		}
+		custom_description_no_bullet = {
+			text = lotr_elven_legacy_5_effect_2
+		}
+	}
+
+	character_modifier = {
+		positive_inactive_inheritance_chance = 0.2
+		negative_inactive_inheritance_chance = -0.2
+		genetic_trait_strengthen_chance = 0.2
+		domain_limit_max = 1
+	}
+}
+
+# NORTHRON LEGACIES
+lotr_northron_legacy_1 = { # Masters of Horses
+	legacy = lotr_northron_legacy_track
+	can_be_picked = {
+		dynasty = {
+			OR = {
+				dynast = {
+					culture = {
+						OR = {
+							has_cultural_pillar = heritage_northron
+							has_cultural_pillar = heritage_eotheod
+						}
+					}
+				}
+				has_dynasty_perk = lotr_northron_legacy_1
+			}
+		}
+	}
+
+	character_modifier = {
+		light_cavalry_damage_mult = 0.1
+		light_cavalry_toughness_mult = 0.1
+		heavy_cavalry_damage_mult = 0.1
+		heavy_cavalry_toughness_mult = 0.1
+		light_cavalry_max_size_add = 1
+		heavy_cavalry_max_size_add = 1
+		#movement_speed = 0.15
+	}
+	ai_chance = {
+		value = 11
+		if = {
+			limit = {
+				dynasty = {
+					OR = {
+						dynast = {
+							culture = {
+								OR = {
+									has_cultural_pillar = heritage_northron
+									has_cultural_pillar = heritage_eotheod
+								}
+							}
+						}
+						has_dynasty_perk = lotr_northron_legacy_1
+					}
+				}
+			}
+			multiply = 10
+		}
+		if = {
+			limit = { can_start_new_legacy_track_trigger = no }
+			multiply = 0
+		}
+	}
+}
+
+lotr_northron_legacy_2 = { # Steadfast Warriors
+	legacy = lotr_northron_legacy_track
+
+	character_modifier = {
+		defender_advantage = 2
+		plains_advantage = 5
+		farmlands_advantage = 5
+		taiga_advantage = 5
+	}
+}
+
+lotr_northron_legacy_3 = { # A Hardy People
+	legacy = lotr_northron_legacy_track
+
+	character_modifier = {
+		fertility = 0.1
+		stress_loss_mult = 0.1
+		stress_gain_mult = -0.1
+		health = 0.25
+		negate_health_penalty_add = 0.5
+	}
+}
+
+lotr_northron_legacy_4 = { # Experienced Travelers
+	legacy = lotr_northron_legacy_track
+
+	character_modifier = {
+		diplomatic_range_mult = 0.15
+		character_travel_speed_mult = 0.15
+		character_travel_safety_mult = 0.15
+	}
+}
+
+lotr_northron_legacy_5 = { # Fury of the Northmen
+	legacy = lotr_northron_legacy_track
+
+	character_modifier = {
+		knight_effectiveness_mult = 0.25
+		prowess = 2
+		min_combat_roll = 5
+		attacker_advantage = 5
+		levy_attack = 5
+	}
+}
+
+lotr_crafting_legacy_1 = { # Build!
+	legacy = lotr_crafting_legacy_track
+	can_be_picked = {
+		lotr_crafting_legacy_trigger = yes
+	}
+
+	effect = {
+		custom_description_no_bullet = {
+			text = lotr_crafting_legacy_1_effect # 5% Mining Sucess chance
+		}
+	}
+
+	character_modifier = {
+		build_gold_cost = -0.05
+		build_prestige_cost = -0.05
+		build_piety_cost = -0.05
+		build_speed = -0.1
+	}
+
+	ai_chance = {
+		value = 11
+		if = {
+			limit = {
+				lotr_crafting_legacy_trigger = yes
+			}
+			multiply = 10
+		}
+		if = {
+			limit = { can_start_new_legacy_track_trigger = no }
+			multiply = 0
+		}
+	}
+}
+
+lotr_crafting_legacy_2 = { # Ancient Designs
+	legacy = lotr_crafting_legacy_track
+
+	effect = {
+		custom_description_no_bullet = {
+			text = lotr_crafting_legacy_2_effect # 3% Crafting Critical Success Chance Increase, 10% Crafting Gold Cost Decrease
+		}
+	}
+}
+
+lotr_crafting_legacy_3 = { # Raised with a Pick
+	legacy = lotr_crafting_legacy_track
+
+	effect = {
+		custom_description_no_bullet = {
+			text = lotr_crafting_legacy_3_effect # Education traits impact crafting success for relevant artifacts
+		}
+		custom_description_no_bullet = {
+			text = lotr_crafting_legacy_3_forge_unlock # Unlock's Forge Building Line for Dwarves
+		}
+	}
+
+	character_modifier = {
+		# Miner XP gain
+		trait_track_prospector_xp_gain_mult = 0.10
+		trait_track_hewer_xp_gain_mult = 0.10
+		# Smith XP gain
+		trait_track_weapon_smith_xp_gain_mult = 0.10
+		trait_track_armour_smith_xp_gain_mult = 0.10
+		trait_track_jewel_smith_xp_gain_mult = 0.10
+		trait_track_enchanting_smith_xp_gain_mult = 0.10
+	}
+}
+
+
+lotr_crafting_legacy_4 = { # Forge of Great Renown
+	legacy = lotr_crafting_legacy_track
+
+	effect = {
+		custom_description_no_bullet = {
+			text = lotr_crafting_legacy_4_effect # Destroying artifacts gives 2x more gold and prestige
+		}
+	}
+	# Add sell artifacts interaction
+}
+
+lotr_crafting_legacy_5 = { # World-Builders
+	legacy = lotr_crafting_legacy_track
+
+	effect = {
+		custom_description_no_bullet = {
+			text = lotr_crafting_legacy_5_effect # Crafting speed -10%, prestige and renown for crafting
+			# text = rare_finds_perk_effect # Increased chance of finding rare resources (yes this stacks)
+		}
+	}
+}

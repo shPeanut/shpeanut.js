@@ -1,0 +1,522 @@
+﻿####################
+#### GWATHUIRIM ####
+####################
+
+dynasty_gordaigh = {
+	name = "dynn_gordaigh"
+	culture = "saralain"
+	motto = dynn_gordaigh_motto
+}
+
+dynasty_morcad = {
+	name = "dynn_morcad"
+	culture = "saralain"
+	motto = dynn_morcad_motto
+}
+
+dynasty_padri = {
+	name = "dynn_padri"
+	culture = "saralain"
+	motto = dynn_padri_motto
+}
+
+dynasty_ferchar = {
+	name = "dynn_ferchar"
+	culture = "saralain"
+	motto = dynn_ferchar_motto
+}
+
+dynasty_corgail = {
+	name = "dynn_corgail"
+	culture = "saralain"
+	motto = dynn_corgail_motto
+}
+
+dynasty_aiguiddel = {
+	name = "dynn_aiguiddel"
+	culture = "saralain"
+	motto = dynn_aiguiddel_motto
+}
+
+dynasty_arden = {
+	name = "dynn_arden"
+	culture = "enedhwaithrim"
+	motto = dynn_arden_motto
+}
+
+dynasty_cennetig = {
+	name = "dynn_cennetig"
+	culture = "enedhwaithrim"
+	motto = dynn_cennetig_motto
+}
+
+dynasty_thrydanning = {
+	name = "dynn_thrydanning"
+	culture = "enedhwaithrim"
+	motto = dynn_thrydanning_motto
+}
+
+dynasty_urthain = {
+	name = "dynn_urthain"
+	culture = "adornaen"
+	motto = dynn_urthain_motto
+}
+
+dynasty_gerunning = {
+	name = "dynn_gerunning"
+	culture = "enedhwaithrim"
+	motto = dynn_gerunning_motto
+}
+
+dynasty_nimue = {
+	name = "dynn_nimue"
+	culture = "enedhwaithrim"
+	motto = dynn_nimue_motto
+}
+
+fillerbyrigdynasty = {
+	name = "dynn_fillerbyrigdynasty"
+	culture = "enedhwaithrim"
+	motto = dynn_fillerbyrigdynasty_motto
+}
+
+fillerfadairighdynasty = {
+	name = "dynn_fillerfadairighdynasty"
+	culture = "enedhwaithrim"
+	motto = dynn_fillerfadairighdynasty_motto
+}
+
+fillercaithrisdynasty = {
+	name = "dynn_fillercaithrisdynasty"
+	culture = "enedhwaithrim"
+	motto = dynn_fillercaithrisdynasty_motto
+}
+
+fillerdunlogandynasty = {
+	name = "dynn_fillerdunlogandynasty"
+	culture = "enedhwaithrim"
+	motto = dynn_fillerdunlogandynasty_motto
+}
+
+fillerangrastdynasty = {
+	name = "dynn_fillerangrastdynasty"
+	culture = "enedhwaithrim"
+	motto = dynn_fillerangrastdynasty_motto
+}
+
+dynasty_thiaraigh = {
+	name = "dynn_thiaraigh"
+	culture = "dunlending"
+	motto = dynn_thiaraigh_motto
+}
+
+dynasty_cenaill = {
+	name = "dynn_cenaill"
+	culture = "dunlending"
+	motto = dynn_cenaill_motto
+}
+
+dynasty_trumbold = {
+	name = "dynn_trumbold"
+	culture = "dunmen"
+	motto = dynn_trumbold_motto
+}
+
+dynasty_camrin = {
+	name = "dynn_camrin"
+	culture = "dunmen"
+	motto = dynn_camrin_motto
+}
+
+dynasty_hafgan = {
+	name = "dynn_hafgan"
+	culture = "enedhwaithrim"
+	motto = dynn_hafgan_motto
+}
+
+dynasty_gordeg = {
+	name = "dynn_gordeg"
+	culture = "enedhwaithrim"
+	motto = dynn_gordeg_motto
+}
+
+dynasty_gwyn = {
+	name = "dynn_gwyn"
+	culture = "dunmen"
+	motto = dynn_gwyn_motto
+}
+
+dynasty_mabon = {
+	name = "dynn_mabon"
+	culture = "dunmen"
+	motto = dynn_mabon_motto
+}
+
+dynasty_esult = {
+	name = "dynn_esult"
+	culture = "dunmen"
+	motto = dynn_esult_motto
+}
+
+dynasty_idwal = {
+	name = "dynn_idwal"
+	culture = "dunmen"
+	motto = dynn_idwal_motto
+}
+
+dynasty_hulun = {
+	name = "dynn_hulun"
+	culture = "dunmen"
+	motto = dynn_hulun_motto
+}
+
+dynasty_cadelh = {
+	name = "dynn_cadelh"
+	culture = "dunmen"
+	motto = dynn_cadelh_motto
+}
+
+dynasty_cadugan = {
+	name = "dynn_cadugan"
+	culture = "dunmen"
+	motto = dynn_cadugan_motto
+}
+
+dynasty_kedivor = {
+	name = "dynn_kedivor"
+	culture = "dunmen"
+	motto = dynn_kedivor_motto
+}
+
+dynasty_iestin = {
+	name = "dynn_iestin"
+	culture = "dunmen"
+	motto = dynn_iestin_motto
+}
+
+dynasty_gwilum = {
+	name = "dynn_gwilum"
+	culture = "dunmen"
+	motto = dynn_gwilum_motto
+}
+
+dynasty_culhuc = {
+	name = "dynn_culhuc"
+	culture = "dunmen"
+	motto = dynn_culhuc_motto
+}
+
+dynasty_rudhan = {
+	name = "dynn_rudhan"
+	culture = "dunmen"
+	motto = dynn_rudhan_motto
+}
+
+dynasty_talfyn = {
+	name = "dynn_talfyn"
+	culture = "dunmen"
+	motto = dynn_talfyn_motto
+}
+
+dynasty_neddelh = {
+	name = "dynn_neddelh"
+	culture = "dunmen"
+	motto = dynn_neddelh_motto
+}
+
+dynasty_prensair = {
+	name = "dynn_prensair"
+	culture = "dunmen"
+	motto = dynn_prensair_motto
+}
+
+dynasty_dilwun = {
+	name = "dynn_dilwun"
+	culture = "dunmen"
+	motto = dynn_dilwun_motto
+}
+
+dynasty_helu = {
+	name = "dynn_helu"
+	culture = "enedhwaithrim"
+	motto = dynn_helu_motto
+}
+
+dynasty_llunog = {
+	name = "dynn_llunog"
+	culture = "enedhwaithrim"
+	motto = dynn_llunog_motto
+}
+
+dynasty_dufrig = {
+	name = "dynn_dufrig"
+	culture = "enedhwaithrim"
+	motto = dynn_dufrig_motto
+}
+
+dynasty_emlun = {
+	name = "dynn_emlun"
+	culture = "enedhwaithrim"
+	motto = "dynn_emlun_motto"
+}
+
+dynasty_dawudh = {
+	name = "dynn_dawudh"
+	culture = "dunmen"
+	motto = "dynn_dawudh_motto"
+}
+
+dynasty_rurid = {
+	name = "dynn_rurid"
+	culture = "enedhwaithrim"
+	motto = dynn_rurid_motto
+}
+
+dynasty_helunn = {
+	name = "dynn_helunn"
+	culture = "enedhwaithrim"
+	motto = dynn_helunn_motto
+}
+dynasty_madon = {
+	name = "dynn_madon"
+	culture = "dunmen"
+	motto = dynn_madon_motto
+}
+
+dynasty_gurnow = {
+	name = "dynn_gurnow"
+	culture = "enedhwaithrim"
+	motto = "dynn_gurnow_motto"
+}
+
+dynasty_brass = {
+	name = "dynn_brass"
+	culture = "enedhwaithrim"
+	motto = "dynn_brass_motto"
+}
+
+dynasty_stock = {
+	name = "dynn_stock"
+	culture = "arnorian"
+	motto = "dynn_stock_motto"
+}
+
+dynasty_pendrog = {
+	name = "dynn_pendrog"
+	culture = "dunlending"
+	motto = dynn_pendrog_motto
+}
+
+dynasty_nelan = {
+	name = "dynn_nelan"
+	culture = "enedhwaithrim"
+	motto = dynn_nelan_motto
+}
+dynasty_hinur = {
+	name = "dynn_hinur"
+	culture = "enedhwaithrim"
+	motto = dynn_hinur_motto
+}
+
+dynasty_boradh = {
+	name = "dynn_boradh"
+	culture = "enedhwaithrim"
+	motto = dynn_boradh_motto
+}
+
+dynasty_welunh = {
+	name = "dynn_welunh"
+	culture = "enedhwaithrim"
+	motto = dynn_welunh_motto
+}
+
+dynasty_poredh = {
+	name = "dynn_poredh"
+	culture = "dunlending"
+	motto = dynn_poredh_motto
+}
+
+dynasty_meoridh = {
+	name = "dynn_meoridh"
+	culture = "isengard_dunlending"
+	motto = dynn_meoridh_motto
+}
+
+dynasty_urigh = {
+	name = "dynn_urigh"
+	culture = "dunlending"
+	motto = dynn_urigh_motto
+}
+
+dynasty_frigad = {
+	name = "dynn_frigad"
+	culture = "dunlending"
+	motto = dynn_frigad_motto
+}
+
+dynasty_sendred = {
+	name = "dynn_sendred"
+	culture = "dunlending"
+	motto = dynn_sendred_motto
+}
+
+dynasty_ca_nendur = {
+	name = "dynn_ca_nendur"
+	culture = "dunlending"
+	motto = "dynn_ca_nendur_motto"
+}
+
+dynasty_ca_nendur = {
+	name = "dynn_ca_nendur"
+	culture = "dunlending"
+	motto = "dynn_ca_nendur_motto"
+}
+
+
+####################
+####   EREDRIM  ####
+####################
+
+dynasty_norn_arelaidh = {	#Norn Arelaidh
+	name = "dynn_norn_arelaidh" 
+	culture = "eredrim"
+	motto = "dynn_norn_arelaidh_motto" 
+}
+
+dynasty_hairavercien = {
+	name = "dynn_hundar" 
+	culture = "eredrim"
+	motto = "dynn_hundar_motto" 
+}
+
+dynasty_norrin_karak = {
+	name = "dynn_norrin_karak"
+	culture = "eredrim"
+	motto = dynn_norrin_karak_motto
+}
+
+dynasty_borladon = {
+	name = "dynn_borladon"
+	culture = "eredrim"
+	motto = dynn_borladon_motto
+}
+
+dynasty_rogadran = {
+	name = "dynn_rogadran"
+	culture = "eredrim"
+	motto = dynn_rogadran_motto
+}
+
+dynasty_erthorn = {
+	name = "dynn_erthorn"
+	culture = "eredrim"
+	motto = dynn_erthorn_motto
+}
+
+dynasty_birad = {
+	name = "dynn_birad"
+	culture = "eredrim"
+	motto = dynn_birad_motto
+}
+
+####################
+####  DONAN     ####
+####################
+
+dynasty_leigim = {
+	name = "dynn_leigim" 
+	culture = "donan"
+	motto = "dynn_leigim_motto" 
+}
+
+dynasty_galogim = {
+	name = "dynn_galogim" 
+	culture = "donan"
+	motto = "dynn_galogim_motto" 
+}
+
+dynasty_themion = {
+	name = "dynn_themion" 
+	culture = "donan"
+	motto = "dynn_themion_motto" 
+}
+
+dynasty_bedu = {
+	name = "dynn_bedu" 
+	culture = "donan"
+	motto = "dynn_bedu_motto" 
+}
+
+dynasty_naron = {
+	name = "dynn_naron" 
+	culture = "donan"
+	motto = "dynn_naron_motto" 
+}
+
+dynasty_ban = {
+	name = "dynn_ban" 
+	culture = "donan"
+	motto = "dynn_ban_motto" 
+}
+
+####################
+####  ANDRASTIM ####
+####################
+
+dynasty_norn_vudrin = {
+	name = "dynn_norn_vudrin" 
+	culture = "andrastrim"
+	motto = "dynn_norn_vudrin_motto" 
+}
+
+dynasty_tonredin = {	# Tonred Kiddies
+	name = "dynn_tonredin" 
+	culture = "andrastrim"
+	motto = "dynn_tonredin_motto" 
+}
+
+dynasty_argedrin = {
+	name = "dynn_argedrin" 
+	culture = "andrastrim"
+	motto = "dynn_argedrin_motto" 
+}
+
+dynasty_cadvan = {
+	name = "dynn_cadvan"
+	culture = "andrastrim"
+	motto = "dynn_cadvan_motto"
+}
+
+dynasty_govan = {
+	name = "dynn_govan"
+	culture = "andrastrim"
+	motto = "dynn_govan_motto"
+}
+
+dynasty_rhodri = {
+	name = "dynn_rhodri"
+	culture = "andrastrim"
+	motto = "dynn_rhodri_motto"
+}
+
+dynasty_daeran = {
+	name = "dynn_daeran"
+	culture = "andrastrim"
+	motto = "dynn_daeran_motto"
+}
+
+dynasty_gilrin = {
+	name = "dynn_gilrin"
+	culture = "andrastrim"
+	motto = "dynn_gilrin_motto"
+}
+
+############
+# ADORNAEN #
+############
+
+dynasty_geanmar = {
+	name = "dynn_geanmar"
+	culture = "adornaen"
+	motto = dynn_geanmar_motto
+}

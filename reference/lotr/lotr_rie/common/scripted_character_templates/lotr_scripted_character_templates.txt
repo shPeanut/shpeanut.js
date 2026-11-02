@@ -1,0 +1,1032 @@
+﻿
+lotr_corsair_traveler_template = {
+	age = { 20 80 }
+	gender_female_chance = 50
+	random_traits = yes
+	faith = faith:faith_kings_men_castamir
+	culture = culture:umbarean
+	after_creation = {
+		random_list = {
+			50 = { set_culture = culture:umbarean }
+			20 = { set_culture = culture:mardrukan }
+			20 = { set_culture = culture:harondorim }
+		}
+		random_list = {
+			10 = { add_character_modifier = { modifier = lotr_corsair_courtier_political_refugee } }	# Diplomacy
+			10 = { add_character_modifier = { modifier = lotr_corsair_courtier_veteran_mercenary } }	# Martial
+			10 = { add_character_modifier = { modifier = lotr_corsair_courtier_trading_entrepreneur } }	# Stewardship
+			10 = { add_character_modifier = { modifier = lotr_corsair_courtier_former_cultist } }		# Intrigue
+			10 = { add_character_modifier = { modifier = lotr_corsair_courtier_scholar_gentry } }		# Learning
+			10 = { add_character_modifier = { modifier = lotr_corsair_courtier_pirate_scoundrel } }		# Prowess
+		}
+		random_list = {
+			50 = { set_character_faith = faith:faith_corsair }
+			40 = { set_character_faith = faith:faith_kings_men_castamir }
+			5 = { set_character_faith = faith:faith_edain_ulmo }
+		}
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MAX = old_age
+			MIN = young_age
+		}
+	}
+}
+lotr_dunedain_traveler_template = {
+	age = { 30 110 }
+	gender_female_chance = 50
+	random_traits = yes
+	faith = faith:faith_edain
+	culture = culture:gondorian
+	after_creation = {
+		random_list = {
+			70 = { set_culture = culture:gondorian }
+			5 = { set_culture = culture:belfalathrim }
+			5 = { set_culture = culture:harondorim }
+			# 5 = { set_culture = culture:dunedain } # Arnor remnant
+		}
+		random_list = {
+			70 = { set_character_faith = faith:faith_edain }
+			10 = { set_character_faith = faith:faith_edain_ulmo }
+			10 = { set_character_faith = faith:faith_edain_manwe }
+			10 = { set_character_faith = faith:faith_edain_varda }
+		}
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MAX = old_age
+			MIN = young_age
+		}
+	}
+}
+lotr_haradrim_traveler_template = {
+	age = { 20 60 }
+	gender_female_chance = 50
+	random_traits = yes
+	martial = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	prowess = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	culture = culture:haruze
+	faith = faith:faith_haruze
+	after_creation = {
+		random_list = {
+			10 = {
+				set_culture = culture:haruze
+				set_character_faith = faith:faith_haruze
+			}
+			10 = {
+				set_culture = culture:jelut
+				set_character_faith = faith:faith_jelut
+			}
+			5 = {
+				set_culture = culture:pezarsani
+				set_character_faith = faith:faith_haruze
+			}
+			5 = {
+				set_culture = culture:chelkari
+				set_character_faith = faith:faith_chelkar
+			}
+			10 = {
+				set_culture = culture:donan
+				set_character_faith = faith:faith_donan
+			}
+			1 = {
+				set_culture = culture:bozishnarud
+				set_character_faith = faith:faith_ishtra
+			}
+			1 = {
+				set_culture = culture:tuladen
+				set_character_faith = faith:faith_tulwang
+			}
+		}
+		random_list = {
+			35 = { add_trait = reaver }
+			35 = { add_trait = rough_terrain_expert }
+			25 = { add_trait = aggressive_attacker }
+			15 = { add_trait = open_terrain_expert }
+			5 = { add_trait = military_engineer }
+			5 = { add_character_modifier = { modifier = booty_and_kings_modifier } }
+		}
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MAX = old_age
+			MIN = young_age
+		}
+	}
+}
+lotr_horse_lord_traveler_template = {
+	age = { 20 50 }
+	gender_female_chance = 50
+	random_traits = yes
+	martial = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	faith = faith:faith_rohan_orome
+	culture = culture:rohirrim
+	after_creation = {
+		random_list = {
+			5 = { set_culture = culture:eotheod }
+			40 = { set_culture = culture:rohirrim }
+			40 = { set_culture = culture:leofring }
+			# Add Northrons
+		}
+		random_list = {
+			35 = { add_trait = cavalry_leader }
+			15 = { add_trait = open_terrain_expert }
+			15 = { add_trait = rough_terrain_expert }
+			15 = { add_trait = reaver }
+			5 = { }
+		}
+		random_list = {
+			30 = { set_character_faith = faith:faith_rohan_orome }
+			30 = { set_character_faith = faith:faith_fey_court }
+		}
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MAX = middle_age
+			MIN = young_age
+		}
+	}
+}
+lotr_nafarati_warchief_template = {
+	age = { 20 40 }
+	gender_female_chance = root_soldier_female_chance
+	random_traits_list = {
+		count = 1
+		education_martial_1 = {
+			weight = { base = 20 }
+		}
+		education_martial_2 = {
+			weight = { base = 30 }
+		}
+		education_martial_3 = {
+			weight = { base = 30 }
+		}
+		education_martial_4 = {
+			weight = { base = 20 }
+		}
+	}
+	random_traits_list = {
+		count = 3
+		brave = {}
+		wrathful = {}
+		ambitious = {}
+		diligent = {}
+		gregarious = {}
+		arrogant = {}
+		just = {}
+		zealous = {}
+	}
+	random_traits_list = {
+		count = 1
+		logistician = {
+			weight = { base = 10 }
+		}
+		aggressive_attacker = {
+			weight = { base = 20 }
+		}
+		desert_warrior = {
+			weight = { base = 40 }
+		}
+		rough_terrain_expert = {
+			weight = { base = 20 }
+		}
+		organizer = {
+			weight = { base = 10 }
+		}
+	}
+	random_traits = yes
+	martial = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	prowess = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	after_creation = {
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MAX = middle_age
+			MIN = young_age
+		}
+	}
+}
+lotr_dead_meat_template = {
+	age = { 200 500 }
+	gender_female_chance = root_soldier_female_chance
+	random_culture = {
+		culture:kuhai = { weight = { base 50 } } # Kû-hai - Outlaw Tribe
+		culture:gazoghai = { weight = { base 10 } } # Gazog-hai - Feral Tribe
+	}
+	faith = faith:way_of_strength
+	random_traits_list = {
+		count = 1
+		education_martial_prowess_4 = { }
+		education_martial_4 = {}
+	}
+	random_traits_list = {
+		count = 4
+		wrathful = {}
+		arrogant = {}
+		zealous = {}
+		lifestyle_blademaster = {}
+		lifestyle_hunter = {}
+		lifestyle_physician = {}
+		strategist = {}
+		overseer = {}
+		torturer = {}
+		logistician = {}
+		aggressive_attacker = {}
+		rough_terrain_expert = {}
+		organizer = {}
+	}
+	random_traits_list = {
+		count = 1
+		explosive_engineer = {}
+		whip_master = {}
+		banner_orc = {}
+		urukhai_berserker = {}
+		cavern_commander = {}
+	}
+	random_traits_list = {
+		count = 2
+		lunatic_1 = {}
+		depressed_1 = {}
+		possessed_1 = {}
+		albino = {}
+		giant = {}
+		hunchbacked = {}
+		beauty_bad_3 = {}
+		intellect_bad_3 = {}
+		physique_bad_3 = {}
+		scarred = {}
+		one_eyed = {}
+		one_legged = {}
+	}
+	random_traits = yes
+	martial = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	prowess = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	after_creation = {
+		add_character_modifier = { modifier = orcs_4100_bark_worse_than_bite_modifier }
+		random_list = {
+			1 = { add_character_modifier = { modifier = orcs_0016_olog_bodyguards_modifier } }
+			1 = { add_character_modifier = { modifier = orc_traitor_modifier } }
+			1 = { add_character_modifier = { modifier = orc_champion_bodyguard_modifier } }
+			1 = { add_character_modifier = { modifier = orc_banners_of_the_orc_modifier } }
+			1 = { add_character_modifier = { modifier = orc_lifestyle_hatred_of_free_folk_humans_modifier } }
+			5 = { add_character_modifier = { modifier = orc_fell_ability_horrible_strength_modifier } }
+			5 = { add_character_modifier = { modifier = orc_fell_ability_snake_like_speed_modifier } }
+			5 = { add_character_modifier = { modifier = orc_fell_ability_yell_of_triumph_modifier } }
+			5 = { add_character_modifier = { modifier = orc_fell_ability_hideous_toughness_modifier } }
+			5 = { add_character_modifier = { modifier = orc_fell_ability_hate_of_sunlight_modifier } }
+			5 = { add_character_modifier = { modifier = orc_fell_ability_craven_modifier } }
+		}
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MAX = 300
+			MIN = old_age
+		}
+	}
+}
+lotr_fantasy_hero_template = { # A destined great hero, one you'd find in a stereotypical RPG
+	age = { 16 20 }
+	gender_female_chance = root_soldier_female_chance # Depends on culture's view of martial roles
+	random_traits_list = { # As we all know, a hero must be martially inclined...
+		count = 1
+		education_martial_3 = {}
+		education_martial_4 = {}
+	}
+	random_traits_list = {
+		count = 1
+		brave = {}
+		just = {}
+	}
+	random_traits_list = {
+		honest = {}
+		gregarious = {}
+		trusting = {}
+		compassionate = {}
+		generous = {}
+		humble = {}
+		calm = {}
+	}
+	random_traits_list = {
+		count = 1
+		chaste = {}
+		wrathful = {}
+		arrogant = {}
+		impatient = {}
+		patient = {}
+		zealous = {}
+		stubborn = {}
+	}
+	random_traits_list = { # Handsome, of course
+		count = 1
+		beauty_good_1 = {}
+		beauty_good_2 = {}
+		beauty_good_3 = {}
+	}
+	random_traits_list = { # Knows their way around a blade
+		count = 1
+		lifestyle_blademaster = {}
+	}
+	random_traits = no
+	faith = root.faith
+	# culture = root.culture
+	random_culture = {
+		root.culture = {
+			trigger = {
+				root_culture_allowed = yes
+			}
+		}
+		culture:isengard_dunlending = {
+			trigger = {
+				isengard_dunlending_trigger = yes
+			}
+		}
+		culture:morlughai = {
+			trigger = {
+				morlughai_trigger = yes
+			}
+		}
+	}
+	diplomacy = {
+		min_template_decent_skill
+		max_template_high_skill
+	}
+	martial = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	stewardship =  {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	intrigue = {
+		min_template_low_skill
+		max_template_low_skill	
+	}
+	learning = {
+		min_template_low_skill
+		max_template_decent_skill
+	}
+	prowess = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	after_creation = {
+		random_list = {
+			25 = { add_trait = holy_warrior } # A Paladin of the faith
+			25 = { add_trait = aggressive_attacker } # A great conqueror
+			25 = { add_trait = unyielding_defender } # A defender of their people
+			25 = { give_random_commander_trait_effect = yes  } # Fallback random
+		}
+		random_list = {
+			90 = { } # Nothing
+			5 = { add_trait = scholar add_learning_skill = 5 } # A warrior and a scholar
+			5 = { add_trait = shrewd add_learning_skill = 3 add_intrigue_skill = 3 } # One already possessing an uncanny understanding of the world
+		}
+		random_list = {
+			50 = { } # Nothing
+			50 = { add_trait = strong }
+		}
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MAX = young_age
+			MIN = majority_age
+		}
+	}
+}
+trans_haradric_merchant_template = {
+	age = { 20 60 }
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
+	random_traits = yes
+	faith = root.capital_province.faith
+	culture = root.capital_province.culture
+	stewardship = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	trait = lifestyle_trans_haradric_merchant
+	random_traits_list = {
+		count = 1
+		education_stewardship_1 = {}
+		education_stewardship_2 = {}
+		education_stewardship_3 = {}
+		education_stewardship_4 = {}
+		education_diplomacy_2 = {}
+		education_diplomacy_3 = {}
+	}
+	after_creation = {
+		lotr_determine_merchant_skill_effect = yes
+	}
+}
+lotr_witch_template = {
+	age = { 18 45 }
+	random_traits_list = {
+		count = 1
+		education_learning_2 = {}
+		education_learning_3 = {}
+		education_learning_4 = {}
+		education_intrigue_2 = {}
+		education_intrigue_3 = {}
+		education_intrigue_4 = {}
+	}
+	random_traits_list = {
+		count = 3
+		wrathful = {}
+		calm = {}
+		arrogant = {}
+		brave = {}
+		ambitious = {}
+		lustful = {}
+		cynical = {}
+		zealous = {}
+		deceitful = {}
+		vengeful = {}
+		callous = {}
+		sadistic = {}
+		patient = {}
+	}
+	random_traits = no
+	intrigue  = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	learning  = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+
+	after_creation = {
+		add_trait = witch
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MAX = middle_age
+			MIN = majority_age
+		}
+	}
+}
+miner_template = {
+	age = { 18 50 }
+	dynasty = none
+	random_traits = yes
+	faith = this.faith
+ 	# culture = root.culture
+	random_culture = {
+		root.culture = {
+			trigger = {
+				restricted_culture = no
+			}
+		}
+		culture:isengard_dunlending = {
+			trigger = {
+				is_istari = yes
+			}
+		}
+		culture:morlughai = {
+			trigger = {
+				is_istari = no
+				faith = faith:lidless_eye
+			}
+		}
+	}
+	gender_female_chance = root_soldier_female_chance
+	prowess = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	random_traits_list = {
+		count = 1
+		education_stewardship_1 = {}
+		education_stewardship_2 = {}
+	}
+	trait = lifestyle_miner
+	random_traits_list = {
+		count = 1
+		brave = {}
+		calm = {}
+		shy = {}
+		patient = {}
+		physique_good_1 = {}
+		physique_good_2 = {}
+		strong = {}
+		deceitful = {}
+		greedy = {}
+		shrewd = {}
+		diligent = {}
+		stubborn = {}
+		athletic = {}
+		cavern_commander = {}
+	}
+	after_creation = {
+		add_random_tiered_trait_track_xp_effect = {
+			TRAIT = lifestyle_miner
+			TRACK = hewer
+			LEVEL_1 = no
+			LEVEL_3 = yes
+		}
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MAX = middle_age
+			MIN = majority_age
+		}
+	}
+}
+random_dwarf_template = {
+	age = { 18 50 }
+	dynasty = none
+	random_traits = yes
+	faith = this.faith
+	random_culture = {
+		root.culture = {
+			trigger = {
+				restricted_culture = no
+			}
+		}
+		culture:isengard_dunlending = {
+			trigger = {
+				is_istari = yes
+			}
+		}
+		culture:morlughai = {
+			trigger = {
+				is_istari = no
+				faith = faith:lidless_eye
+			}
+		}
+	}
+	gender_female_chance = root_soldier_female_chance
+	random_traits_list = {
+		count = 1
+		brave = {}
+		calm = {}
+		shy = {}
+		patient = {}
+		physique_good_1 = {}
+		physique_good_2 = {}
+		strong = {}
+		deceitful = {}
+		greedy = {}
+		shrewd = {}
+		diligent = {}
+		stubborn = {}
+		athletic = {}
+	}
+	after_creation = {
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MAX = middle_age
+			MIN = majority_age
+		}
+		random = {
+		    chance = 10
+			add_trait = cavern_commander
+		}
+		random = {
+		    chance = 10
+			add_trait = cavern_commander
+		}
+	}
+}
+maglor_nadi_manye_leader = {
+	age = { 20 40 }
+	random_traits_list = {
+		count = 1
+		brave = {}
+		calm = {}
+		patient = {}
+		strong = {}
+		diligent = {}
+		stubborn = {}
+		athletic = {}
+	}
+	dynasty = none
+	culture = culture:haruze
+	faith = faith:faith_chelkar
+	gender_female_chance = 0
+	random_traits_list = {
+		count = 1
+		education_martial_2 = {}
+		education_martial_3 = {}
+		education_martial_4 = {}
+	}
+	martial = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	after_creation = {
+		add_trait = holy_warrior
+		add_trait = zealous
+		remove_trait = cynical
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MAX = middle_age
+			MIN = young_age
+		}
+	}
+}
+mag_beard_leader = {
+	age = { 20 40 }
+	random_traits = yes
+	dynasty = none
+	culture = culture:longbeards
+	faith = faith:faith_khazad
+	gender_female_chance = 0
+	martial = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	prowess = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	random_traits_list = {
+		count = 1
+		education_martial_2 = {}
+		education_martial_3 = {}
+		education_martial_4 = {}
+	}
+	after_creation = {
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MAX = middle_age
+			MIN = young_age
+		}
+	}
+}
+noldor_feanorian = {
+	age = { 20 40 }
+	random_traits = yes
+	dynasty = none
+	culture = culture:noldor
+	faith = faith:faith_eldar
+	gender_female_chance = 0
+	martial = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	random_traits_list = {
+		count = 1
+		education_martial_1 = {}
+		education_martial_2 = {}
+		education_martial_3 = {}
+	}
+	after_creation = {
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MAX = middle_age
+			MIN = young_age
+		}
+	}
+}
+
+# Northron Settlers Decision
+lotr_northron_settler_courtier_diplomat_template = {
+	age = { 18 40 }
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
+	random_traits = yes
+	faith = scope:norse_faith
+	culture = scope:norse_culture
+	random_traits_list = {
+		count = 1
+		education_diplomacy_1 = {
+			weight = { base = 20 }
+		}
+		education_diplomacy_2 = {
+			weight = { base = 30 }
+		}
+		education_diplomacy_3 = {
+			weight = { base = 30 }
+		}
+		education_diplomacy_4 = {
+			weight = { base = 20 }
+		}
+	}
+	diplomacy  = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+}
+lotr_northron_settler_courtier_martial_template = {
+	age = { 18 40 }
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
+	random_traits = yes
+	faith = scope:norse_faith
+	culture = scope:norse_culture
+	random_traits_list = {
+		count = 1
+		education_martial_1 = {
+			weight = { base = 10 }
+		}
+		education_martial_2 = {
+			weight = { base = 35 }
+		}
+		education_martial_3 = {
+			weight = { base = 35 }
+		}
+		education_martial_4 = {
+			weight = { base = 20 }
+		}
+	}
+	martial  = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	after_creation = {
+		random = {
+			chance = 30
+			add_trait = cavalry_leader
+			add_trait_xp = {
+				trait = cavalry_leader
+				value = { 5 60 }
+			}
+		}
+	}
+}
+lotr_northron_settler_courtier_stewardship_template = {
+	age = { 18 40 }
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
+	random_traits = yes
+	faith = scope:norse_faith
+	culture = scope:norse_culture
+	random_traits_list = {
+		count = 1
+		education_stewardship_1 = {
+			weight = { base = 20 }
+		}
+		education_stewardship_2 = {
+			weight = { base = 30 }
+		}
+		education_stewardship_3 = {
+			weight = { base = 30 }
+		}
+		education_stewardship_4 = {
+			weight = { base = 20 }
+		}
+	}
+	stewardship  = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+}
+lotr_northron_settler_courtier_intrigue_template = {
+	age = { 18 40 }
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
+	random_traits = yes
+	faith = scope:norse_faith
+	culture = scope:norse_culture
+	random_traits_list = {
+		count = 1
+		education_intrigue_1 = {
+			weight = { base = 20 }
+		}
+		education_intrigue_2 = {
+			weight = { base = 30 }
+		}
+		education_intrigue_3 = {
+			weight = { base = 30 }
+		}
+		education_intrigue_4 = {
+			weight = { base = 20 }
+		}
+	}
+	intrigue  = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+}
+lotr_northron_settler_courtier_learning_template = {
+	age = { 24 50 }
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
+	random_traits = yes
+	faith = scope:norse_faith
+	culture = scope:norse_culture
+	random_traits_list = {
+		count = 1
+		education_learning_1 = {
+			weight = { base = 20 }
+		}
+		education_learning_2 = {
+			weight = { base = 30 }
+		}
+		education_learning_3 = {
+			weight = { base = 30 }
+		}
+		education_learning_4 = {
+			weight = { base = 20 }
+		}
+	}
+	learning  = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	after_creation = {
+		random_list = {
+			60 = {}
+			15 = {
+				add_trait = lifestyle_mystic
+				add_trait_xp = {
+					trait = lifestyle_mystic
+					value = { 5 50 }
+				}
+			}
+			15 = {
+				add_trait = lifestyle_physician
+				add_trait_xp = {
+					trait = lifestyle_physician
+					value = { 5 50 }
+				}
+			}
+			10 = {
+				add_trait = lifestyle_herbalist
+			}
+		}
+	}
+}
+lotr_northron_settler_courtier_prowess_template = {
+	age = { 18 40 }
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
+	random_traits = yes
+	faith = scope:norse_faith
+	culture = scope:norse_culture
+	random_traits_list = {
+		count = 1
+		education_martial_1 = {
+			weight = { base = 35 }
+		}
+		education_martial_2 = {
+			weight = { base = 40 }
+		}
+		education_martial_3 = {
+			weight = { base = 20 }
+		}
+		education_martial_4 = {
+			weight = { base = 5 }
+		}
+	}
+	prowess  = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	after_creation = {
+		random_list = {
+			70 = { }
+			10 = { add_trait = strong }
+			12 = { add_trait = physique_good_1 }
+			6 = { add_trait = physique_good_2 }
+			2 = { add_trait = physique_good_3 }
+		}
+		random = {
+			chance = 30
+			add_trait = lifestyle_blademaster
+			add_trait_xp = {
+				trait = lifestyle_blademaster
+				value = { 5 50 }
+			}
+		}
+	}
+}
+
+### Sunset Invasion ###
+lotr_sunset_invasion_commander_template = {
+	age = { 18 40 }
+	gender_female_chance = 0
+	random_traits = no
+	faith = scope:invader_char.faith
+	culture = scope:invader_char.culture
+	trait = education_martial_5
+	martial = {
+		10
+		20
+	}
+	prowess  = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	random_traits_list = {
+		count = 3
+		diligent = {}
+		calm = {}
+		patient = {}
+		brave = {}
+		callous = {}
+		stubborn = {}
+		humble = {}
+		lustful = {}
+		chaste = {}
+		cynical = {}
+		zealous = {}
+	}
+	random_traits_list = {
+		count = { 2 4 }
+		logistician = {}
+		aggressive_attacker = {}
+		unyielding_defender = {}
+		reaver = {}
+		open_terrain_expert = {}
+		rough_terrain_expert = {}
+		cavern_commander = {}
+		cavalry_leader = {}
+		forest_fighter = {}
+		winter_soldier = {}
+		holy_warrior = {}
+		cautious_leader = {}
+		jungle_stalker = {}
+		desert_warrior = {}
+		forder = {}
+	}
+	after_creation = {
+		if = {
+			limit = { 
+				exists = scope:invader_char
+				scope:invader_char = { has_variable = pharazon_reborn }
+			}
+			add_trait = blood_of_numenor_5
+		}
+		random_list = {
+			50 = { }
+			10 = { add_trait = strong }
+			12 = { add_trait = physique_good_1 }
+			6 = { add_trait = physique_good_2 }
+			2 = { add_trait = physique_good_3 }
+		}
+		add_random_tiered_trait_xp_effect = {
+			TRAIT = logistician
+			LEVEL_1 = no
+			LEVEL_3 = yes
+		}
+		add_random_tiered_trait_xp_effect = {
+			TRAIT = aggressive_attacker
+			LEVEL_1 = no
+			LEVEL_3 = yes
+		}
+		add_random_tiered_trait_xp_effect = {
+			TRAIT = unyielding_defender
+			LEVEL_1 = no
+			LEVEL_3 = yes
+		}
+		add_random_tiered_trait_xp_effect = {
+			TRAIT = reaver
+			LEVEL_1 = no
+			LEVEL_3 = yes
+		}
+		add_random_tiered_trait_xp_effect = {
+			TRAIT = open_terrain_expert
+			LEVEL_1 = no
+			LEVEL_3 = yes
+		}
+		add_random_tiered_trait_xp_effect = {
+			TRAIT = rough_terrain_expert
+			LEVEL_1 = no
+			LEVEL_3 = yes
+		}
+		add_random_tiered_trait_xp_effect = {
+			TRAIT = cavern_commander
+			LEVEL_1 = no
+			LEVEL_3 = yes
+		}
+		add_random_tiered_trait_xp_effect = {
+			TRAIT = cavalry_leader
+			LEVEL_1 = no
+			LEVEL_3 = yes
+		}
+		add_random_tiered_trait_xp_effect = {
+			TRAIT = forest_fighter
+			LEVEL_1 = no
+			LEVEL_3 = yes
+		}
+		add_random_tiered_trait_xp_effect = {
+			TRAIT = winter_soldier
+			LEVEL_1 = no
+			LEVEL_3 = yes
+		}
+		add_random_tiered_trait_xp_effect = {
+			TRAIT = holy_warrior
+			LEVEL_1 = no
+			LEVEL_3 = yes
+		}
+		add_random_tiered_trait_xp_effect = {
+			TRAIT = cautious_leader
+			LEVEL_1 = no
+			LEVEL_3 = yes
+		}
+		add_random_tiered_trait_xp_effect = {
+			TRAIT = jungle_stalker
+			LEVEL_1 = no
+			LEVEL_3 = yes
+		}
+		add_random_tiered_trait_xp_effect = {
+			TRAIT = desert_warrior
+			LEVEL_1 = no
+			LEVEL_3 = yes
+		}
+		add_random_tiered_trait_xp_effect = {
+			TRAIT = forder
+			LEVEL_1 = no
+			LEVEL_3 = yes
+		}
+		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			MIN = young_age
+			MAX = middle_age
+		}
+	}
+}

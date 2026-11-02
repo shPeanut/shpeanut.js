@@ -1,0 +1,205 @@
+﻿############################################
+###										 ###
+###		Thani-Hazad Struggle Effects	 ###
+###										 ###
+############################################
+
+# Moves duchies to another kingdom
+thani_hazad_struggle_disunity_transfer_duchies_effect = {
+	title:e_thani_hazad = {
+		while = {
+			limit = {
+				any_in_de_jure_hierarchy = { fp2_struggle_compromise_transfer_duchy_trigger = yes }
+			}
+			every_in_de_jure_hierarchy = {
+				limit = { fp2_struggle_compromise_transfer_duchy_trigger = yes }
+				add_to_list = transferred_duchies
+				# To ensure kingdom's capitals are always inside them
+				if = {
+					limit = { title_capital_county = kingdom.title_capital_county }
+					kingdom = {
+						save_scope_as = old_kingdom
+						if = {
+							limit = {
+								any_direct_de_jure_vassal_title = {
+									NOT = { is_in_list = transferred_duchies }
+									title_capital_county.kingdom = scope:old_kingdom
+								}
+							}
+							random_direct_de_jure_vassal_title = {
+								limit = {
+									NOT = { is_in_list = transferred_duchies }
+									title_capital_county.kingdom = scope:old_kingdom
+								}
+								title_capital_county = { save_scope_as = new_capital }
+							}
+							set_capital_county = scope:new_capital
+						}
+					}
+				}
+				if = {
+					limit = { title_capital_county.holder.top_liege.primary_title.tier = tier_kingdom }
+					set_de_jure_liege_title = title_capital_county.holder.top_liege.primary_title
+				}
+				else = { set_de_jure_liege_title = title_capital_county.holder.top_liege.capital_county.kingdom }
+			}
+		}
+	}
+}
+
+# Involved rulers get a claim on neighbouring involved rulers
+
+thani_hazad_struggle_involved_ruler_claims = {
+	struggle:thani_hazad_struggle = {
+		every_involved_ruler = {
+			limit = { is_independent_ruler = yes }
+			save_scope_as = curr_ruler
+			every_neighboring_top_liege_realm = {
+				limit = {
+					holder = {
+						any_character_struggle = {
+							involvement = involved
+							is_struggle_type = thani_hazad_struggle
+						}
+					}
+				}
+				scope:curr_ruler = { make_claim_strong = prev }
+			}
+		}
+	}
+}
+
+### Balrog Struggle Effects
+# Effects regarding the Struggle for Moria
+
+kill_balrog_decision_effect = {
+	custom_tooltip = struggle_balrog_ending_kill_balrog_decision_effect_4
+	add_prestige = 2500
+	dynasty = { add_dynasty_prestige = 1500 }
+	dynasty = { add_dynasty_prestige_level = 1 }
+	struggle:balrog_struggle = { end_struggle = yes }
+	add_to_global_variable_list = {
+		name = unavailable_unique_decisions
+		target = flag:balrog_slain
+	}
+	if = {
+		limit = {
+			NOT = {
+				exists = title:k_khazad_dum.holder
+			}
+			is_independent_ruler = yes
+		}
+		get_title = title:k_khazad_dum
+	}
+	# Nickname
+	if = {
+		limit = {
+			is_dwarf = yes
+		}
+		give_nickname = nick_durin_bane_bane
+	}
+	else = {
+		give_nickname = nick_flame_of_moria
+	}
+	# Legend
+	if = {
+		limit = {
+			has_dlc_feature = legends
+		}
+		custom_tooltip = balrog_slayer_legend.tt
+		hidden_effect = {
+			create_legend_seed = {
+				type = heroic
+				quality = illustrious
+				chronicle = beast_slayer
+				properties = {
+					beast = flag:balrog
+					location = province:4913 # Endless Stairs
+				}
+			}
+		}
+	}
+}
+
+kill_balrog_decision_laamp_effect = {
+	custom_tooltip = struggle_balrog_ending_kill_balrog_decision_effect_4
+	add_prestige = 3000
+	dynasty = { add_dynasty_prestige = 3000 }
+	dynasty = { add_dynasty_prestige_level = 2 }
+	struggle:balrog_struggle = { end_struggle = yes }
+	add_to_global_variable_list = {
+		name = unavailable_unique_decisions
+		target = flag:balrog_slain
+	}
+	# Nickname
+	if = {
+		limit = {
+			is_dwarf = yes
+		}
+		give_nickname = nick_durin_bane_bane
+	}
+	else = {
+		give_nickname = nick_flame_of_moria
+	}
+	# Legend
+	if = {
+		limit = {
+			has_dlc_feature = legends
+		}
+		custom_tooltip = balrog_slayer_legend.tt
+		hidden_effect = {
+			create_legend_seed = {
+				type = heroic
+				quality = illustrious
+				chronicle = beast_slayer
+				properties = {
+					beast = flag:balrog
+					location = province:4913 # Endless Stairs
+				}
+			}
+		}
+	}
+}
+
+serve_balrog_decision_effect = {
+	get_title = title:e_servants_of_the_dark_flame
+	give_nickname = nick_flamesworn
+	if = {
+		limit = {
+			has_dlc_feature = legends
+			faith = faith:faith_balrog_cult
+		}
+		custom_tooltip = balrog_warlord_legend.tt
+		hidden_effect = {
+			create_legend_seed = {
+				type = holy
+				quality = illustrious
+				chronicle = priesthood_restoration
+				properties = {
+					founder = root
+					faith = root.faith
+					religion = root.religion
+				}
+			}
+		}
+	}
+	custom_tooltip = {
+		text = balrog_struggle.1002.effect3
+	}
+	custom_tooltip = {
+		text = balrog_struggle.1002.effect
+	}
+	add_prestige = 1000
+	add_piety = 750
+	dynasty = {
+		add_dynasty_prestige = 750
+		add_dynasty_prestige_level = 1
+	}
+	faith:faith_balrog_cult = {
+		add_doctrine = doctrine_temporal_head
+	}
+	if = {
+		limit = { NOT = { faith = faith:faith_balrog_cult } }
+		set_character_faith = faith:faith_balrog_cult
+	}
+}
