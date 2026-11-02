@@ -1,0 +1,13 @@
+# ============================================================
+# Scripted triggers — мост AGOT(dragon) -> LoTR RIE(Nazgûl)
+# (вынесено из scripted_effects, чтобы решения могли вызывать
+#  триггер корректным синтаксисом: nazgul_can_ride_fell_beast = yes)
+# ============================================================
+
+nazgul_can_ride_fell_beast = {
+	OR = {
+		has_trait = nazgul					# TODO: точный ключ трейта Nazgûl из LoTR RIE
+		has_trait = lord_of_the_nazgul		# TODO: ключ Кхота/Лорда Назгул из RIE
+		has_trait = knows_fell_beast_riders	# наш трейт-мост (traits/nazgul_fellbeast_traits.txt)
+	}
+}

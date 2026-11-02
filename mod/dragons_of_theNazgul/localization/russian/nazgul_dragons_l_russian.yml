@@ -1,0 +1,43 @@
+﻿# ============================================================
+# Русский лок-файл — Nazgul Dragons bridge mod
+# Ключи совпадают с english-файлом.
+# ============================================================
+
+l_russian:
+ # Драконы (ключи = dragon_type + имена особей)
+ nazgul_dragon_fell_beast.1.name: "Падаль-зверь Чёрного Всадника"
+ nazgul_dragon_fell_beast.2.name: "Назгульский падаль-зверь"
+ nazgul_dragon_fell_beast.3.name: "Падаль-зверь, Бич Гондора"
+ nazgul_dragon_fell_beast.4.name: "Ужас Осгилиата"
+ nazgul_dragon_fell_beast.5.name: "Крылатая Тень Мордора"
+ nazgul_dragon_lord_angermont.name: "Владыка Ангормаунта"
+ nazgul_dragon_lord_angermont.desc: "Падаль-зверь столь огромный, что его тень затмевает солнце над Минас-Моркулом."
+
+ # Решения
+ decision_category_nazgul_fell_beasts.title: "Падаль-звери Назгул"
+ decision_category_nazgul_fell_beasts.desc: "Решения для Кольцо-призраков: приручить и оседлать крылатых ужасов Мордора."
+ decision_nazgul_claim_fell_beast.0.name: "Оседлать падаль-зверя"
+ decision_nazgul_claim_fell_beast.0.desc: "Отправьте варгов и слуг в горы Ангмара и долину Моргул, чтобы поймать одного из летающих демонов, служащих Девяти. Лишь Кольцо-призрак может укротить такое существо."
+ decision_nazgul_mount_fell_beast.0.name: "Взлететь на крыльях ужаса"
+ decision_nazgul_mount_fell_beast.0.desc: "Оседлайте падаль-зверя и поднимитесь в чёрное небо. Ужас пойдёт перед вами."
+
+ # Трейты
+ trait_knows_fell_beast_riders.name: "Наездник падаль-зверей"
+ trait_knows_fell_beast_riders.desc: "Этот персонаж знает тёмные искусства, необходимые для управления падаль-зверями — крылатыми существами древнее Средиземья."
+ trait_master_of_fell_beasts.name: "Повелитель крылатых ужасов"
+ trait_master_of_fell_beasts.desc: "Падаль-звери подчиняются этому наезднику так же, как некогда подчинялись его властелину Минас-Моркула."
+
+ # События
+ nazgul_fellbeast.0001.t: "Призыв падаль-зверей"
+ nazgul_fellbeast.0001.d: "Со скал Ангмара и из глубин долины Моргул крылатые тени являются на ваш зов."
+ nazgul_fellbeast.0002.t: "Пал падаль-зверь"
+ nazgul_fellbeast.0002.d: "Один из ваших бесценных скакунов лежит мёртвым на поле боя. Его крик всё ещё звучит в вашей памяти."
+ nazgul_fellbeast.0003.t: "Дар Саурона"
+ nazgul_fellbeast.0003.d: "Тёмный Владыка даровал вам скакуна, достойного вашего звания."
+
+ # Флейвор / подсказки
+ nazgul_fell_beast_flavor.1: "Крылатый Ужас"
+ nazgul_fell_beast_flavor.2: "Страшный даже для Орлов"
+ nazgul_fell_beast_flavor.3: "Его крик пронзает сердце, словно клинок"
+ nazgul_fell_beast_log_claims: "$TRAIT$ приручает падаль-зверя"
+ trigger_only_nazgul_can_ride_desc: "Лишь Кольцо-призрак (или отмеченный традицией падаль-зверей) может летать на этих ужасах."

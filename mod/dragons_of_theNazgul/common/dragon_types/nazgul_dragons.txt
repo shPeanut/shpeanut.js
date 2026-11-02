@@ -1,0 +1,58 @@
+# ============================================================
+# Nazgul Dragons — типы «драконов» (Fell Beasts) для LoTR RIE
+# Механика перенесена из A Game of Thrones (dragon_types).
+#
+# ВНИМАНИЕ: это ШАБЛОН. Точный список полей dragon_types в AGOT
+# зависит от их версии (2.5.x / 3.x под CK3 1.19). Ключевые поля
+# ниже соответствуют известной структуре AGOT; после получения
+# файлов AGOT сверяем имена полей (см. README.md, раздел REVERSE).
+# ============================================================
+
+# Падающий зверь Назгула — базовый «дракон» (fell beast)
+nazgul_dragon_fell_beast = {
+	# --- Идентификация/графика ---
+	# portrait/asset — путь к gfx-модели дракона AGOT.
+	# ПУТИ НИЖЕ ПРЕДПОЛОЖИТЕЛЬНЫЕ: замени на реальные из AGOT
+	# (gfx/portraits/dragons/... или models/...), когда пришлёшь файлы.
+	graphicalize = yes
+	portrait = "gfx/models/dragons/nazgul_fell_beaest.dds"   # TODO: точный путь из AGOT
+	texture_folder = dragons                                   # TODO: сверить с AGOT
+
+	# --- Жизненный цикл (как в AGOT) ---
+	age = 0					# возраст при спавне
+	lifespan = 600			# fell beasts почти бессмертны (в films гибнут только от всадника Рока)
+	fertility = 0.0			# не размножаются естественно — выводятся тёмными ритуалами
+	can_mate = no
+	is_female = no			# в лоре пол fell beast неоднозначен; фиксируем как у AGOT-драконов
+
+	# --- Привязка к езде (ключевая механика AGOT: dragon_riding) ---
+	# В AGOT дракон становится ездовым через traits/effects; здесь
+	# задаём минимальный «возраст крыла» и требуемый трейт наездника.
+	minimum_riding_age = 40
+	required_rider_trait = knows_fell_beast_riders	 # наш трейт-мост (см. traits ниже в README)
+	rider_can_attack = yes
+	rider_terror_add = 15	 # Nazgûl + fell beast = ужас (terrorsystem из RIE)
+
+	# --- Боевые модификаторы host (аналог AGOT combat modifiers) ---
+	host_damage = 15
+	host_pursuit_speed = 20
+	siege_devastation_speed = 0.25
+	moves_at_the_speed_of_war = no
+
+	# --- Прочее ---
+	spawns_from_eggs = no	# fell beasts не несут яиц — появляются по событию summoning
+	starts_as_egg = no
+	can_be_killed_in_battle = yes
+	death_by_flight_exhaustion = no
+}
+
+# Особый экземпляр — «Владыка Ангормаунта» (уникальный, для Лорда Назгул)
+nazgul_dragon_lord_angermont = {
+	copy_from = nazgul_dragon_fell_beast
+	unique = yes
+	lifespan = 1200
+	host_damage = 25
+	rider_terror_add = 30
+	graphicalize = yes
+	portrait = "gfx/models/dragons/nazgul_lord_angermont.dds"  # TODO: точный путь из AGOT
+}

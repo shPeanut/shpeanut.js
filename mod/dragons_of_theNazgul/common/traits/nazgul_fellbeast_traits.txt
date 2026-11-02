@@ -1,0 +1,38 @@
+# ============================================================
+# Трейты-мост: позволяют носителям ездить на fell beasts
+# (аналог dragon_rider трейтов AGOT).
+# TODO: сверить опции `opposite`/`customizer` с RIE, чтобы не
+# конфликтовать с их системой Nazgûl-трейтов.
+# ============================================================
+
+knows_fell_beast_riders = {
+	cost = 0
+	self_inheritance = no
+	opposite = cannot_have_dragon				# TODO: если в AGOT есть такой — оставить; иначе удалить строку
+	creation = {
+		cannot_create = no
+	}
+	# В AGOT езда на драконе привязана к special traits; здесь — к нашим.
+	modifier = {
+		movement_speed = 1.25					# крылатый ужас летает быстрее пеших орд
+		dread_gain_mult = 0.25
+	}
+	# Интеграция с RIE: Nazgûl получает террор-ауру сильнее верхом
+	# TODO: заменить на реальный модификатор RIE, когда пришлёшь их traits
+	terror_decay_mult = -0.2
+	
+	# наследование по «традиции» — от мастера к ученику через события
+	# (в films звери служат Девяти, а не рождаются у них)
+}
+
+master_of_fell_beasts = {
+	cost = 0
+	self_inheritance = no
+	ruler_title_prefix = nazgul_fell_beast_flavor.1
+	modifier = {
+		movement_speed = 1.5
+		dread_gain_mult = 0.5
+		host_damage_modifier = 0.15
+		knight_effectiveness_mult = 0.3
+	}
+}

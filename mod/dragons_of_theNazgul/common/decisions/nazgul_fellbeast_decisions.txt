@@ -1,0 +1,69 @@
+# ============================================================
+# Решения для Назгул: призыв и оседлание Fell Beasts
+# (порт механики "claim/bond dragon" из AGOT)
+# ============================================================
+
+decision_category_nazgul_fell_beasts = {
+	icon = crown					# TODO: заменить иконку на gfx/interface/... из RIE, если есть своя
+}
+
+# --- Приручить падаль-зверя ---
+nazgul_claim_fell_beast_decision = {
+	title = decision_nazgul_claim_fell_beast.0.name
+	desc = decision_nazgul_claim_fell_beast.0.desc
+	picture = event_picture_dragon_01				# TODO: путь к картинке AGOT (gfx/interface/event_images/...)
+	
+	is_shown = {
+		nazgul_can_ride_fell_beast = yes			# наш scripted trigger
+	}
+	
+	can_take = {
+		NOT = { any_dragon = { is_alive = yes } }	# пока нет собственного зверя (TODO: сверить скоуп с AGOT)
+		OR = {
+			gold >= 200
+			held_title_count >= 3					# контроль над Мордором/Ангмаром упрощает призыв
+		}
+	}
+	
+	cost = 200
+	
+	is_valid_for_heirs = no
+	
+	ai_potential = { always = yes }
+	ai_weight = { weight = 500 }
+	
+	effect = {
+		nazgul_claim_fell_beast_effect = yes
+	}
+}
+
+# --- Взлететь (оседлать уже прирученного зверя; анаог AGOT mount-decision) ---
+nazgul_mount_fell_beast_decision = {
+	title = decision_nazgul_mount_fell_beast.0.name
+	desc = decision_nazgul_mount_fell_beast.0.desc
+	picture = event_picture_dragon_02				# TODO: путь к картинке AGOT
+	
+	is_shown = {
+		has_trait = knows_fell_beast_riders
+		any_dragon = {								# TODO: в AGOT может быть другой скоуп (dragons_at_home и т.п.)
+			is_alive = yes
+			dragon_type = nazgul_dragon_fell_beast
+		}
+	}
+	
+	can_take = {
+		is_at_war = no								# в films они летают и в войнах — можно снять
+	}
+	
+	cost = 0
+	
+	effect = {
+		set_dragon_mount = yes						# TODO: точный эффект AGOT
+		if = {
+			limit = { war = none }
+			add_character_mood = adventurous_mood	# flavor: полёт
+		}
+	}
+	
+	ai_weight = { weight = 300 }
+}

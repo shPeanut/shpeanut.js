@@ -1,0 +1,44 @@
+﻿# ============================================================
+# English localization — Nazgul Dragons bridge mod
+# (CK3 требует .yml с кодировкой UTF-8-BOM; при открытии в
+#  нормальном редакторе проверь наличие BOM)
+# ============================================================
+
+l_english:
+ # Dragons (keys = dragon_type names + generated instance names)
+ nazgul_dragon_fell_beast.1.name: "Fell Beast of the Black Rider"
+ nazgul_dragon_fell_beast.2.name: "Nazgûl Fell Beast"
+ nazgul_dragon_fell_beast.3.name: "Fell Beast, Scourge of Gondor"
+ nazgul_dragon_fell_beast.4.name: "Terror of Osgiliath"
+ nazgul_dragon_fell_beast.5.name: "Wingéd Shadow of Mordor"
+ nazgul_dragon_lord_angermont.name: "Lord of Angermount"
+ nazgul_dragon_lord_angermont.desc: "A fell beast so vast its shadow blots out the sun over Minas Morgul."
+
+ # Decisions
+ decision_category_nazgul_fell_beasts.title: "Fell Beasts of the Nazgûl"
+ decision_category_nazgul_fell_beasts.desc: "Decisions for the Ringwraiths to claim and ride the winged horrors of Mordor."
+ decision_nazgul_claim_fell_beast.0.name: "Saddle a Fell Beast"
+ decision_nazgul_claim_fell_beast.0.desc: "Send wargs and servants into the mountains of Angmar and Morgul Vale to capture one of the flying demons that serve the Nine. Only a Ringwraith may master such a beast."
+ decision_nazgul_mount_fell_beast.0.name: "Take Flight Upon Fell Wings"
+ decision_nazgul_mount_fell_beast.0.desc: "Mount your fell beast and rise into the black sky. Terror shall go before you."
+
+ # Traits
+ trait_knows_fell_beast_riders.name: "Fell Beast Rider"
+ trait_knows_fell_beast_riders.desc: "This character knows the dark arts needed to command fell beasts — winged creatures older than Middle-earth itself."
+ trait_master_of_fell_beasts.name: "Master of Winged Horrors"
+ trait_master_of_fell_beasts.desc: "The fell beasts obey this rider as they once obeyed their lord of Minas Morgul."
+
+ # Events
+ nazgul_fellbeast.0001.t: "The Summoning of the Fell Beasts"
+ nazgul_fellbeast.0001.d: "From the cliffs of Angmar and the deeps of Morgul Vale, the winged shadows come at your call."
+ nazgul_fellbeast.0002.t: "A Fell Beast Has Fallen"
+ nazgul_fellbeast.0002.d: "One of your precious mounts lies dead upon the battlefield. Its shriek still echoes in your memory."
+ nazgul_fellbeast.0003.t: "A Gift from Sauron"
+ nazgul_fellbeast.0003.d: "The Dark Lord has granted you a mount worthy of your station."
+
+ # Flavor / tooltips
+ nazgul_fell_beast_flavor.1: "The Wingèd Terror"
+ nazgul_fell_beast_flavor.2: "Feared Even by the Great Eagles"
+ nazgul_fell_beast_flavor.3: "Its cry pierces the heart like a blade"
+ nazgul_fell_beast_log_claims: "$TRAIT$ claims a fell beast"
+ trigger_only_nazgul_can_ride_desc: "Only a Ringwraith (or one marked with the fell-beast tradition) may ride these horrors."
