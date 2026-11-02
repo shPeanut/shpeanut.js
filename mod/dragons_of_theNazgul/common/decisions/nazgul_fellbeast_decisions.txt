@@ -37,7 +37,7 @@ nazgul_claim_fell_beast_decision = {
 	}
 }
 
-# --- Взлететь (оседлать уже прирученного зверя; анаог AGOT mount-decision) ---
+# --- Взлететь (оседлать уже прирученного зверя; аналог AGOT mount-decision) ---
 nazgul_mount_fell_beast_decision = {
 	title = decision_nazgul_mount_fell_beast.0.name
 	desc = decision_nazgul_mount_fell_beast.0.desc
@@ -47,7 +47,9 @@ nazgul_mount_fell_beast_decision = {
 		has_trait = knows_fell_beast_riders
 		any_dragon = {								# TODO: в AGOT может быть другой скоуп (dragons_at_home и т.п.)
 			is_alive = yes
-			dragon_type = nazgul_dragon_fell_beast
+			dragon = {
+				type = nazgul_dragon_fell_beast
+			}
 		}
 	}
 	
